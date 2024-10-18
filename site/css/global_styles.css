@@ -40,7 +40,7 @@ body {
 #page_header {    
     padding: 20px 0 0 0;
     border-bottom: 2px solid #dddbd9;
-    background-color: rgba(62,62,64);
+    background-color: rgba(51,51,51);
 }
 
 #header_top_w {
@@ -207,7 +207,7 @@ main {
     border-image: linear-gradient( to right, rgba(196,196,196, 1) , rgba(248,248,248, 1) ) 1;
     font-family: "Helvetica";
     font-weight: 300;
-    color: rgba(62,62,64);
+    color: rgba(51,51,51);
 }
 
 .featured-post-desc {
@@ -228,7 +228,8 @@ main {
 }
 
 .featured-post-cat:hover {
-    color: rgba(101,149,202,.5);    
+    color: rgba(101,149,202,.5);
+    text-decoration: underline;    
     transition-duration: .3s;   
 }
 
@@ -237,7 +238,7 @@ main {
     font-family: "Helvetica";    
     font-size: 18px;
     font-weight: 300;
-    color: rgba(62,62,64);     
+    color: rgba(51,51,51);     
 }
 
 
