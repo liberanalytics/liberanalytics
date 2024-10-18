@@ -36,8 +36,7 @@
                     
                     <a href="/home">Home</a>
                     <a href="/blog">Blog</a>
-                    <a href="/whydata">Why Data</a>            
-                    <a href="/education">Education</a>
+                    <a href="/whydata">Why Data</a>
                     <a href="/tutorials">Tutorials</a>
                     <a href="/about">About</a>
                     <a href="/contact">Contact</a>
