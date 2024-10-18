@@ -12,13 +12,11 @@ hgroup, menu, nav, section, summary, time, mark, audio, video {
 }
 
 html {
-
-    height: 100%:
+    height: 100%;
 }
 
 
 body {
-
     height: 100%;
     margin: 0;
     background-color: rgba(247,243,234);
@@ -153,17 +151,15 @@ main {
 
 }
 
-#featured_posts {    
-    margin: 50px 0 0 0;
-}
+
 
 #featured_posts > header {
-    padding: 0 0 10px 0;
+
 }
 
 .page-heading {
     width: 100%;
-    margin: 10px 0 20px 0;
+    margin: 50px 0 50px 0;
     border-bottom-width: 2px;
     border-style: solid;
     border-image: linear-gradient( to left, rgba(196,196,196, 1) , rgba(248,248,248, 1) ) 1;
@@ -178,12 +174,9 @@ main {
     background-color: rgba(247,243,234);
 }
 
-
-
-
 .featured-post {
     padding: 15px 10px 15px 10px;
-    margin: 15px 15px 15px 15px;   
+    margin: 30px 15px 30px 15px;   
     border-radius: 3px;
     box-shadow: 0 1px 2px 0 rgb(211, 212, 214), 0 5px 3px -2px rgb(184, 184, 186), 2px 2px 5px 0 rgb(211, 212, 214), -2px 2px 5px 0 rgb(211, 212, 214);
     background-color: #fff;
@@ -262,8 +255,6 @@ main {
     margin: 0 0 0 0;
 }
 
-
-
 .featured-post-cat:link {
     float: right;
     padding: 5px 0 5px 0;
@@ -280,5 +271,7 @@ main {
     transition-duration: .3s;   
 }
 
-
-
+footer {
+    height: 100px;
+    background-color: rgba(51,51,51);   
+}
