@@ -64,53 +64,13 @@
                 <h1 class="page-heading"><span class="page-heading-text">Featured Posts</span></h1>
             </header>
 
-            <div id="featured_posts" class="clear">
+            <div id="featured_posts">
 
-                <div id="featured_posts_l">
-            
-                    <section class="featured-post">
+                <article class="featured-post">
 
-                        <h1 class="featured-post-hdr">How to install PostgreSQL on Ubuntu</h1> <!-- PHP Pull title from RS. -->
+                    <h1 class="featured-post-hdr">PostgreSQL Database setup best practices</h1> <!-- PHP Pull title from RS. -->
 
-                        <p class="featured-post-desc"> <!-- PHP Pull long desc from RS. -->
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-
-                        <div class="clear">
-
-                            <a href="tutorials" class="featured-post-cat">Tutorials</a> <!-- PHP Pull href & category frome RS. -->
-
-                            <span class="featured-post-date">October 17, 2024</span> <!-- PHP Pull date frome RS. -->
-
-                        </div>
-
-                    </section>                 
-            
-                </div> <!-- End featured_posts_l -->
-            
-                <div id="featured_posts_r">
-            
-                    <section class="featured-post">
-
-                        <h1 class="featured-post-hdr">PostgreSQL Database setup best practices</h1> <!-- PHP Pull title from RS. -->
-
-                        <p class="featured-post-desc"> <!-- PHP Pull short desc from RS. -->
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-
-                        <div class="featured-post-catdate clear">
-
-                            <a href ="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->
-
-                            <span class="featured-post-date">October 12, 1991</span> <!-- PHP Pull date frome RS. -->                           
-
-                        </div>                        
-                        
-                    </section>                       
-            
-                </div> <!-- End featured_posts_r -->           
+                </article>         
             
             </div> <!-- End featured_posts -->          
 
