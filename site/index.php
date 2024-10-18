@@ -58,13 +58,13 @@
 
     <main class="page-wrap">
 
-        <div id="featured_posts_w">
+        <div id="featured_posts">
 
             <header>
                 <h1 class="page-heading"><span class="page-heading-text">Featured Posts</span></h1>
             </header>
 
-            <div id="featured_posts">
+
 
                 <article class="featured-post clear">
 
@@ -89,17 +89,15 @@
                             <a href="/blog?entry=id" class="featured-post-href">Read more</a> <!-- PHP Pull href & entry id | name frome RS. -->                                          
                             
                             <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->                            
-                        </div>
-
-                         
+                        </div>                         
 
                     </div>
 
                 </article>         
             
-            </div> <!-- End featured_posts -->          
+       
 
-        </div> <!-- End featured_posts_w -->
+        </div> <!-- End featured_posts -->
 
     </main>
 
