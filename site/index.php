@@ -78,23 +78,20 @@
                             <a href="/blog?entry=id">PostgreSQL Database setup best practices on Ubuntu EC2 Instance</a>
                         </h1> <!-- PHP Pull title from RS. -->
 
+                        <h1 class="featured-post-date">October 12, 1991</h1> <!-- PHP Pull date frome RS. -->                          
+
                         <p class="featured-post-desc"> <!-- PHP Pull short desc from RS. -->
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         </p>
 
-                        <div>
-                            <a href="/blog?entry=id" class="featured-post-href">Read more</a> <!-- PHP Pull href & entry id | name frome RS. -->
-
+                        <div class class="featured-post-attrs clear">
+                            <a href="/blog?entry=id" class="featured-post-href">Read more</a> <!-- PHP Pull href & entry id | name frome RS. -->                                          
+                            
+                            <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->                            
                         </div>
 
-                        <div class="featured-post-attrs clear">
-
-                            <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->
-                
-                            <span class="featured-post-date">October 12, 1991</span> <!-- PHP Pull date frome RS. -->                           
-                
-                        </div>                           
+                         
 
                     </div>
 
