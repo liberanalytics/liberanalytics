@@ -230,3 +230,42 @@ a.featured-post-cat {
 #featured_posts {    
     margin: 50px 0 0 0;
 }
+
+<!--------------------------------------------------- 10.19.24 --------------------------------------------------->
+
+<!-- Ubuntu shell scripting techniques. -->
+
+
+<!-- Eg. for computing factorial - use [ ] syntax for quantitative compare. -->
+
+do                                                      # start loop
+    factorial = $[$factorial * $i]                      # compute factorial based on loop counter var
+    echo "Factorial = $factorial and num = $num."       # output factorial and loop counteer var values
+
+    if [ $i -gt 20 ]                                    # only iterate up to 20 in factorial computation
+    then
+        "Factorial exceeded threshhold, exiting..."
+        exit
+    fi
+
+done
+
+<!-- Verify command line param 1 is of type directory, then look for filenames matching command line param 2. -->
+
+# Confirm target directory is a filesystem directory.
+if [ -d $1 ]
+then
+    # Look for files in directory and subdirectories to rename.
+    for filename in $1/*
+    do
+        if $("$filename" | grep -i "$2")
+        then
+        echo "$filename"
+        fi
+    done
+   
+# If target directory is not a directory, exit.
+else
+    echo "Directory entered is not a directory."
+    exit 1
+fi
