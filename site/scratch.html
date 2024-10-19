@@ -269,3 +269,72 @@ else
     echo "Directory entered is not a directory."
     exit 1
 fi
+
+
+find "$targetdir" -name "*$searchterm*" -type f -exec mv {} "$targetdir$replaceterm" ";"
+
+
+
+
+if [ -d $targetdir ]
+then
+    echo "$targetdir $searchterm $replaceterm"
+    find "$targetdir" -name "*$searchterm*" -type f -print
+    find "$targetdir" -name "*$searchterm*" -type f -exec 
+    exit 0
+
+else
+    echo "$targetdir is not a valid directory."
+    exit 1
+fi
+
+#!/bin/bash
+# Rename files in particular directory.
+
+targetdir=$1                        # Directory to search.
+searchterm=$2                       # Substring in file name to search for.
+replaceterm=$3                      # Replace string where search term is matched.
+
+# If targetdir is a directory, loop through files in directory
+# moving the files matching the search term as files named
+# to the replace term.
+
+# If targetdir is a directory...
+
+if [ -d $targetdir ]
+then
+
+    # Iterate through the files in targetdir.
+    for fn in $targetdir*;
+    do
+        # See if file basename matches the search term.
+        if [[ $(basename "$fn") =~ "$searchterm" ]]
+
+        # Move files w/ new filename according to replace term.
+        then
+            echo $(basename "$fn")
+            echo "${fn/"$searchterm"/"$replaceterm"}"
+            mv $fn "${fn/"$searchterm"/"$replaceterm"}"
+        fi
+    done
+
+fi
+
+exit 0
+
+
+for fn in $targetdir;
+do
+
+    basefilename=$(basename $fn)
+
+    if [[ $basefilename =~ "$searchterm" ]]
+
+    then
+        echo $basefilename
+        nn=$(echo $basefilename | sed -e 's/test/prod/g')
+        echo $nn
+        mv $fn $targetdir$nn
+    fi
+    
+done
