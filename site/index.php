@@ -134,8 +134,6 @@
 
         <div id="site_footer_content" class="page-wrap clear">
 
-
-
                 <div id="site_footer_logo" class="site-logo">
                     <img src="assets/la_logo_120.png">
                 </div>
@@ -152,6 +150,8 @@
             <div></div>
 
         </div> <!-- End site_footer_content -->
+
+
             
     </footer>
 
