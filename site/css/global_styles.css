@@ -41,32 +41,32 @@ body {
     background-color: rgba(51,51,51);
 }
 
-#site_logo {
+#site_header_logo {
     float: left;
 }
 
-#site_name {
+#site_header_name {
     float: left;
     margin: 0 0 0 10px;  
 }
 
-#site_name span {
+#site_header_name span {
     font-size: 48px;
     font-family: 'Times New Roman', Times, serif;
     color: rgba(196,196,196, 1);
 }
 
-#site_name span em {
+#site_header_name span em {
     font-weight: 600;
     font-style: normal;
     color: rgb(255,255,255);
 }
 
-#site_summary_stmt {
+#site_header_stmt {
     float: right;
 }
 
-#site_summary_stmt h1 {
+#site_header_stmt h1 {
     font-size: 18px;
     font-weight: 100;
     font-family: 'Times New Roman', Times, serif;
@@ -258,6 +258,15 @@ body {
 
 #site_footer {
     height: 100px;
-    background-color: rgba(51,51,51);   
+    padding: 20px 0 0 0;
+    border-bottom: 2px solid #dddbd9;
+    background-color: rgba(51,51,51);
+
 }
 
+#site_footer_branding {
+    float: left;
+    height: 50px;
+    width: 50px;
+
+}

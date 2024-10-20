@@ -12,17 +12,17 @@
 
     <header id="site_header">
 
-        <div id="header_top" class="page-wrap clear">
+        <div id="site_header_top" class="page-wrap clear">
 
-            <div id="site_logo">
+            <div id="site_header_logo">
                 <img src="assets/la_logo_120.png">
             </div>
 
-            <div id="site_name">             
+            <div id="site_header_name">             
                 <span><em>Liber</em>Analytics</span>
             </div>
 
-            <div id="site_summary_stmt">
+            <div id="site_header_stmt">
                 <h1>Liberating data analytics to create value.</h1>
             </div>
 
@@ -32,7 +32,7 @@
 
             <div id="site_menu" class="page-wrap clear">
 
-                <nav id="header_nav"> 
+                <nav id="site_header_nav"> 
                     
                     <a href="/home">Home</a>
                     <a href="/blog">Blog</a>
@@ -130,9 +130,21 @@
 
     </main>
 
-    <footer class="clear">
+    <footer id="site_footer">
 
-        <div></div>
+        <div id="site_footer_content" class="page-wrap clear">
+
+            <div id="site_footer_branding">
+
+
+            </div>
+
+            
+            
+            <div></div>            
+            <div></div>
+
+        </div> <!-- End site_footer_content -->
             
     </footer>
 
