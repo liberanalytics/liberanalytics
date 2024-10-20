@@ -41,22 +41,22 @@ body {
     background-color: rgba(51,51,51);
 }
 
-#site_header_logo {
+.site-logo {
     float: left;
 }
 
-#site_header_name {
+.site-name {
     float: left;
     margin: 0 0 0 10px;  
 }
 
-#site_header_name span {
+.site-name span {
     font-size: 48px;
     font-family: 'Times New Roman', Times, serif;
     color: rgba(196,196,196, 1);
 }
 
-#site_header_name span em {
+.site-name span em {
     font-weight: 600;
     font-style: normal;
     color: rgb(255,255,255);

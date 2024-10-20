@@ -14,11 +14,11 @@
 
         <div id="site_header_top" class="page-wrap clear">
 
-            <div id="site_header_logo">
+            <div id="site_header_logo" class="site-logo">
                 <img src="assets/la_logo_120.png">
             </div>
 
-            <div id="site_header_name">             
+            <div id="site_header_name" class="site-name">             
                 <span><em>Liber</em>Analytics</span>
             </div>
 
@@ -134,10 +134,17 @@
 
         <div id="site_footer_content" class="page-wrap clear">
 
-            <div id="site_footer_branding">
 
 
-            </div>
+                <div id="site_footer_logo" class="site-logo">
+                    <img src="assets/la_logo_120.png">
+                </div>
+
+                <div id="site_footer_name" class="site-name">
+                    <span><em>Liber</em>Analytics</span>
+                </div>              
+
+        </div>
 
             
             
