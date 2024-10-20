@@ -35,42 +35,38 @@ body {
     max-width: 960px;
 }
 
-#page_header {    
+#site_header {    
     padding: 20px 0 0 0;
     border-bottom: 2px solid #dddbd9;
     background-color: rgba(51,51,51);
 }
 
-#header_top_w {
-
-}
-
-#site_logo_w {
+#site_logo {
     float: left;
 }
 
-#site_name_w {
+#site_name {
     float: left;
     margin: 0 0 0 10px;  
 }
 
-#site_name_w span {
+#site_name span {
     font-size: 48px;
     font-family: 'Times New Roman', Times, serif;
     color: rgba(196,196,196, 1);
 }
 
-#site_name_w span em {
+#site_name span em {
     font-weight: 600;
     font-style: normal;
     color: rgb(255,255,255);
 }
 
-#site_summary_stmt_w {
+#site_summary_stmt {
     float: right;
 }
 
-#site_summary_stmt_w h1 {
+#site_summary_stmt h1 {
     font-size: 18px;
     font-weight: 100;
     font-family: 'Times New Roman', Times, serif;
@@ -144,17 +140,6 @@ body {
 #site_search input[type=search]::-webkit-search-cancel-button {
     position: relative;
     left: 500px;
-}
-
-
-main {
-
-}
-
-
-
-#featured_posts > header {
-
 }
 
 .page-heading {
@@ -271,7 +256,8 @@ main {
     transition-duration: .3s;   
 }
 
-footer {
+#site_footer {
     height: 100px;
     background-color: rgba(51,51,51);   
 }
+

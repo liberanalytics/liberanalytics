@@ -10,19 +10,19 @@
 
 <body>
 
-    <header id="page_header">
+    <header id="site_header">
 
-        <div id="header_top_w" class="page-wrap clear">
+        <div id="header_top" class="page-wrap clear">
 
-            <div id="site_logo_w">
-                <img id="site_logo" src="assets/la_logo_120.png">
+            <div id="site_logo">
+                <img src="assets/la_logo_120.png">
             </div>
 
-            <div id="site_name_w">             
+            <div id="site_name">             
                 <span><em>Liber</em>Analytics</span>
             </div>
 
-            <div id="site_summary_stmt_w">
+            <div id="site_summary_stmt">
                 <h1>Liberating data analytics to create value.</h1>
             </div>
 
@@ -130,8 +130,9 @@
 
     </main>
 
-    <footer>
+    <footer class="clear">
 
+        <div></div>
             
     </footer>
 
