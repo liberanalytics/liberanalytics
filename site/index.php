@@ -15,7 +15,7 @@
         <div id="header_top_w" class="page-wrap clear">
 
             <div id="site_logo_w">
-                <img id="site_logo" src="assets/evflow_logo_120.png">
+                <img id="site_logo" src="assets/la_logo_120.png">
             </div>
 
             <div id="site_name_w">             
