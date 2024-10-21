@@ -269,6 +269,10 @@ body {
 
 }
 
+#site_footer_nav_c {
+    float: right;
+}
+
 #site_footer_stmt {
     clear: both;
 }

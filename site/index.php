@@ -141,6 +141,19 @@
                 <div id="site_footer_name" class="site-name">
                     <span><em>Liber</em>Analytics</span>
                 </div>
+
+                <div id="site_footer_nav_c">
+
+                    <nav id="site_footer_nav"> 
+                    
+                        <a href="/home">Home</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/about">About</a>
+                        <a href="/contact">Contact</a>
+    
+                    </nav>
+
+                </div>
                 
                 <div id="site_footer_stmt">
                     <span class="site-stmt">Liberating data analytics to create value.</span>

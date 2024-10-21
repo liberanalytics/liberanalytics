@@ -20,6 +20,9 @@ function setHeaderLineHeights() {
     document.getElementById('site_header_stmt').style.lineHeight = logoHeight;
 
     //
+    document.getElementById('site_footer_nav_c').style.lineHeight = logoHeight;
+
+    //
     document.getElementById('site_footer_stmt').style.marginLeft = logoWidth;
 
 }
