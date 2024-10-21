@@ -99,10 +99,6 @@ body {
     text-decoration: none;
 }
 
-#site_menu nav a:visited {
-
-}
-
 #site_menu nav a:hover {
     color: white;
     background-color: rgba(101,149,202,.5);    
@@ -274,7 +270,7 @@ body {
 
 #site_footer_nav > span {
     padding: 0 10px 0 10px;
-    border-right: 1px solid #fff;
+    border-right: 1px solid rgba(88,135,191,1);;
 }
 
 #site_footer_nav > span.last {
@@ -286,13 +282,13 @@ body {
     font-family: "Helvetica";    
     font-size: 18px;
     font-weight: 300;
-    color: #fff;
+    color: rgba(88,135,191,1);
     text-decoration: none;
-    border-bottom: 1px solid #fff;    
+    border-bottom: 1px solid rgba(88,135,191,1);;    
 }
 
 #site_footer_nav a:hover {
-    border-bottom: 3px solid #fff;
+    border-bottom: 3px solid rgba(101,149,202,1);
     transition-duration: .3s;
 }
 
