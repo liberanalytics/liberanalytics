@@ -14,7 +14,7 @@
 
         <div id="site_header_top" class="page-wrap clear">
 
-            <div id="site_header_logo" class="site-logo">
+            <div id="site_header_logo" class="site-logo-c">
                 <img src="assets/la_logo_120.png">
             </div>
 
@@ -23,7 +23,7 @@
             </div>
 
             <div id="site_header_stmt">
-                <h1>Liberating data analytics to create value.</h1>
+                <h1 class="site-stmt">Liberating data analytics to create value.</h1>
             </div>
 
         </div> <!-- End header_top_w -->
@@ -134,20 +134,17 @@
 
         <div id="site_footer_content" class="page-wrap clear">
 
-                <div id="site_footer_logo" class="site-logo">
+                <div id="site_footer_logo" class="site-logo-c">
                     <img src="assets/la_logo_120.png">
                 </div>
 
                 <div id="site_footer_name" class="site-name">
                     <span><em>Liber</em>Analytics</span>
-                </div>              
-
-        </div>
-
-            
-            
-            <div></div>            
-            <div></div>
+                </div>
+                
+                <div id="site_footer_stmt">
+                    <span class="site-stmt">Liberating data analytics to create value.</span>
+                </div>
 
         </div> <!-- End site_footer_content -->
 
