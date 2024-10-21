@@ -146,22 +146,23 @@
 
                     <nav id="site_footer_nav"> 
                     
-                        <a href="/home">Home</a>
-                        <a href="/blog">Blog</a>
-                        <a href="/about">About</a>
-                        <a href="/contact">Contact</a>
+                        <span><a href="/home">Home</a></span>
+                        <span><a href="/blog">Blog</a></span>
+                        <span><a href="/about">About</a></span>
+                        <span><a href="/contact">Contact</a></span>
+                        <span class="last"><a href="/contact">Privacy</a></span>
     
                     </nav>
 
-                </div>
+                </div> <!-- End site_footer_nav_c -->
                 
                 <div id="site_footer_stmt">
                     <span class="site-stmt">Liberating data analytics to create value.</span>
+                    <span class="site-footer-legal">&copy; LiberAnalytics 2025</span>
                 </div>
 
+
         </div> <!-- End site_footer_content -->
-
-
             
     </footer>
 
