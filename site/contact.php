@@ -56,7 +56,13 @@
 
     </header>
 
-    <main class="page-wrap">~
+    <main class="page-wrap">
+
+        <header>
+            <h1 class="page-heading"><span class="page-heading-text">Contact Us</span></h1>
+        </header>
+
+        <p>Contact us with any questions or statements you have. We look forward to hearing from you!</p>
 
     </main>
 
