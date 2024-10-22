@@ -4,7 +4,7 @@
 <head>
 
     <link href="css/global_styles.css" rel="stylesheet" type="text/css" charset="utf-8">
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
 
 </head>
 
