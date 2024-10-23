@@ -70,17 +70,13 @@
 
                 <div id="contact_form_w">
                     <form name="contact">
-
-                        <div id="contact_name" class="clear">
-                            <input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*">
-                            <input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*">
-                        </div>
-                        
-                        <input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*">
-                        <textarea name="contact_msg" rows="8" cols="48" placeholder="Your Message"></textarea>
-                        <input name="contact_submit" type="submit" value="submit">
-                        
-    
+                        <ul>
+                            <li><input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*"></li>
+                            <li><input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*"></li>
+                            <li><input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*"></li>
+                            <li><textarea name="contact_msg" rows="8" cols="48" placeholder="Your Message"></textarea></li>
+                            <li><input name="contact_submit" type="submit" value="submit"></li>    
+                        </ul>
                     </form>
                 </div>
 

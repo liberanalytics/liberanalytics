@@ -14,38 +14,42 @@
     width: 400px;
 }
 
+form input {
+    color: rgba(51,51,51,1);
+}
+
 form input[type=text] {
+    width: 300px;
+    padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 10px;    
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: white;
-    border-radius: 10px;
 }
 
 form[name=contact] {
     padding: 40px 20px 40px 20px;
     border: 2px solid rgba(70,154,152,1);
     border-radius: 10px;
-
     background-color: rgba(247,243,234);
 }
 
-input[name=contact_fname] { 
-    float: left;
-    padding: 10px 10px 10px 10px;    
+form[name=contact] ul li {
+    margin: 25px 0 0 0;
+    list-style-type: none;
 }
 
-input[name=contact_lname] {
-    float: right;
-    padding: 10px 10px 10px 10px;    
-    margin: 0 0 0 30px;
+form[name=contact] textarea {
+    width: 456px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: none;
 }
 
-input[name=contact_email] {
-    padding: 10px 0 10px 0;
-    width: 100%;
-}
-
-input[name=contact_email]::placeholder {
-    padding: 0 0 0 10px;
+form input[type=submit] {
+    width: 476px;
+    padding: 10px;
+    color: #fff;
+    background-color: rgba(51,51,51,1);
 }
