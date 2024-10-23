@@ -4,6 +4,7 @@
 <head>
 
     <link href="css/global_styles.css" rel="stylesheet" type="text/css" charset="utf-8">
+    <link href="css/contact.css" rel="stylesheet" type="text/css" charset="utf-8">
     <script type="text/javascript" src="js/site.js"></script>
 
 </head>
@@ -65,15 +66,22 @@
 
         <div class="page-content">
 
-            <p class="site-text">Contact us with any questions or statements you have. We look forward to hearing from you!</p>
+            <p class="site-text">
+            Contact us with any suggestions, statements, or questions you have.
+            We would love to hear from you!
+            </p>
 
             <form name="contact">
 
+                <div id="contact_name" class="clear">
                 <input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*">
                 <input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*">
-                <input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*">
-                <textarea name="contact_msg" rows="5" cols="60" placeholder="Your Message"></textarea>
-                <input name="contact_submit" type="submit" value="submit">
+                </div>
+                <!--
+                    <input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*">
+                    <textarea name="contact_msg" rows="5" cols="60" placeholder="Your Message"></textarea>
+                    <input name="contact_submit" type="submit" value="submit">
+                -->
 
             </form>
 
