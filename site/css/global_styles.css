@@ -30,7 +30,8 @@ body {
     visibility: hidden;
 }
 
-.page-wrap {    
+.page-wrap {
+    padding: 0 10px 0 10px;    
     margin: 0 auto 0 auto;
     max-width: 960px;
 }
@@ -152,13 +153,13 @@ body {
 }
 
 .page-heading-text {
-    padding: 0 10px 0 10px;    
+    padding: 0 10px 0 0;    
     background-color: rgba(247,243,234);
 }
 
 .featured-post {
     padding: 15px 10px 15px 10px;
-    margin: 30px 15px 30px 15px;   
+    margin: 30px 0 30px 0;   
     border-radius: 3px;
     box-shadow: 0 1px 2px 0 rgb(211, 212, 214), 0 5px 3px -2px rgb(184, 184, 186), 2px 2px 5px 0 rgb(211, 212, 214), -2px 2px 5px 0 rgb(211, 212, 214);
     background-color: #fff;

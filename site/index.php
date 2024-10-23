@@ -58,8 +58,6 @@
 
     <main class="page-wrap">
 
-        <div id="featured_posts">
-
             <header>
                 <h1 class="page-heading"><span class="page-heading-text">Featured Posts</span></h1>
             </header>
@@ -121,8 +119,6 @@
                 </div>
 
             </article>              
-
-        </div> <!-- End featured_posts -->
 
         <header>
             <h1 class="page-heading"><span class="page-heading-text">Our Mission</span></h1>
