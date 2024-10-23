@@ -1,0 +1,13 @@
+/** ----------------------------------------- Contact Styles ----------------------------------------- **/
+
+form[name=contact] {
+    margin: 30px 0 0 0;
+}
+
+input[name=contact_fname] { 
+    float: left;
+}
+
+input[name=contact_lname] {
+    float: left;
+}

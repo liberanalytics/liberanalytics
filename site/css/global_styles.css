@@ -62,8 +62,8 @@ html {
 
 #site_menu_w {
     margin: 30px 0 0 0;
-    background-color: #fff;
-    /*background-color: rgba(247,243,234);*/
+    /*background-color: #fff;*/
+    background-color: rgba(247,243,234);
 }
 
 #site_menu {
@@ -290,7 +290,8 @@ html {
 body {
     height: 100%;
     margin: 0;
-    background-color: rgba(247,243,234);
+    /*background-color: rgba(247,243,234);*/
+    background-color: #fff;
 }
 
 .clear::after {
@@ -317,12 +318,13 @@ body {
     font-weight: 600;
     line-height: .1em;   
     color: rgba(70,154,152,1);
-    background-color: rgba(247,243,234);    
+    /*background-color: rgba(247,243,234);*/
 }
 
 .page-heading-text {
     padding: 0 10px 0 0;    
-    background-color: rgba(247,243,234);
+    /*background-color: rgba(247,243,234);*/
+    background-color: #fff;
 }
 
 .site-text {
