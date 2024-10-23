@@ -78,7 +78,6 @@
 
                     <p class="featured-post-desc"> <!-- PHP Pull short desc from RS. -->
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </p>
 
                     <div class class="featured-post-attrs clear">
@@ -107,7 +106,6 @@
 
                     <p class="featured-post-desc"> <!-- PHP Pull short desc from RS. -->
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </p>
 
                     <div class class="featured-post-attrs clear">
