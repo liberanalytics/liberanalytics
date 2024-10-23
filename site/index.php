@@ -39,6 +39,7 @@
                     <a href="/whydata">Why Data</a>
                     <a href="/education">Education</a>
                     <a href="/tutorials">Tutorials</a>
+                    <a href="/tutorials">Services</a>
                     <a href="/about">About</a>
                     <a href="/contact">Contact</a>
 

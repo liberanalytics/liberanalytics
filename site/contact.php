@@ -39,6 +39,7 @@
                     <a href="/whydata">Why Data</a>
                     <a href="/education">Education</a>
                     <a href="/tutorials">Tutorials</a>
+                    <a href="/tutorials">Services</a>
                     <a href="/about">About</a>
                     <a href="/contact">Contact</a>
 
@@ -62,7 +63,21 @@
             <h1 class="page-heading"><span class="page-heading-text">Contact Us</span></h1>
         </header>
 
-        <p>Contact us with any questions or statements you have. We look forward to hearing from you!</p>
+        <div class="page-content">
+
+            <p class="site-text">Contact us with any questions or statements you have. We look forward to hearing from you!</p>
+
+            <form name="contact">
+
+                <input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*">
+                <input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*">
+                <input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*">
+                <textarea name="contact_msg" rows="5" cols="60" placeholder="Your Message"></textarea>
+                <input name="contact_submit" type="submit" value="submit">
+
+            </form>
+
+        </div>
 
     </main>
 

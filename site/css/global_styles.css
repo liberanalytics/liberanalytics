@@ -36,6 +36,10 @@ body {
     max-width: 960px;
 }
 
+
+/** ----------------------------------------- Site Header ----------------------------------------- **/
+
+
 #site_header {    
     padding: 20px 0 0 0;
     border-bottom: 2px solid #dddbd9;
@@ -141,28 +145,72 @@ body {
     left: 500px;
 }
 
-.page-heading {
-    width: 100%;
-    margin: 50px 0 50px 0;
-    border-bottom-width: 2px;
-    border-style: solid;
-    border-image: linear-gradient( to left, rgba(196,196,196, 1) , rgba(248,248,248, 1) ) 1;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: .1em;   
-    color: rgba(70,154,152,1);
+
+/** ----------------------------------------- Site Footer ----------------------------------------- **/
+
+
+#site_footer {
+    padding: 20px 0 0 0;
+    border-bottom: 2px solid #dddbd9;
+    background-color: rgba(51,51,51);
+
 }
 
-.page-heading-text {
-    padding: 0 10px 0 0;    
-    background-color: rgba(247,243,234);
+#site_footer_content {
+    padding: 0 0 20px 0;
 }
+
+#site_footer_nav_c {
+    float: right;
+}
+
+#site_footer_nav > span {
+    padding: 0 10px 0 10px;
+    border-right: 1px solid rgba(88,135,191,1);;
+}
+
+#site_footer_nav > span.last {
+    padding: 0 0 0 10px;
+    border-right: none;  
+}
+
+#site_footer_nav a:link {
+    font-family: "Helvetica";    
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(88,135,191,1);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(88,135,191,1);;    
+}
+
+#site_footer_nav a:hover {
+    border-bottom: 3px solid rgba(101,149,202,1);
+    transition-duration: .3s;
+}
+
+#site_footer_stmt {
+    clear: both;
+}
+
+.site-footer-legal {
+    float: right;
+    font-size: 16px;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255,255,255); 
+}
+
+
+/** ----------------------------------------- Blog Styles ----------------------------------------- **/
+
 
 .featured-post {
     padding: 15px 10px 15px 10px;
+    border: 1px solid rgba(248,248,248, 1);
     margin: 30px 0 30px 0;   
     border-radius: 3px;
-    box-shadow: 0 1px 2px 0 rgb(211, 212, 214), 0 5px 3px -2px rgb(184, 184, 186), 2px 2px 5px 0 rgb(211, 212, 214), -2px 2px 5px 0 rgb(211, 212, 214);
+    /* box-shadow: 0 1px 2px 0 rgb(211, 212, 214), 0 5px 3px -2px rgb(184, 184, 186), 2px 2px 5px 0 rgb(211, 212, 214), -2px 2px 5px 0 rgb(211, 212, 214); */
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%);
     background-color: #fff;
 }
 
@@ -255,53 +303,29 @@ body {
     transition-duration: .3s;   
 }
 
-#site_footer {
-    padding: 20px 0 0 0;
-    border-bottom: 2px solid #dddbd9;
-    background-color: rgba(51,51,51);
 
+/** ----------------------------------------- Site Styles ----------------------------------------- **/
+
+
+.page-heading {
+    width: 100%;
+    margin: 50px 0 50px 0;
+    border-bottom-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient( to left, rgba(196,196,196, 1) , rgba(248,248,248, 1) ) 1;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: .1em;   
+    color: rgba(70,154,152,1);
 }
 
-#site_footer_content {
-    padding: 0 0 20px 0;
+.page-heading-text {
+    padding: 0 10px 0 0;    
+    background-color: rgba(247,243,234);
 }
 
-#site_footer_nav_c {
-    float: right;
-}
-
-#site_footer_nav > span {
-    padding: 0 10px 0 10px;
-    border-right: 1px solid rgba(88,135,191,1);;
-}
-
-#site_footer_nav > span.last {
-    padding: 0 0 0 10px;
-    border-right: none;  
-}
-
-#site_footer_nav a:link {
-    font-family: "Helvetica";    
+.site-text {
+    font-family: "Helvetica";
     font-size: 18px;
-    font-weight: 300;
-    color: rgba(88,135,191,1);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(88,135,191,1);;    
-}
-
-#site_footer_nav a:hover {
-    border-bottom: 3px solid rgba(101,149,202,1);
-    transition-duration: .3s;
-}
-
-#site_footer_stmt {
-    clear: both;
-}
-
-.site-footer-legal {
-    float: right;
-    font-size: 16px;
-    font-weight: 100;
-    font-family: 'Times New Roman', Times, serif;
-    color: rgb(255,255,255); 
+    font-weight: 300; 
 }
