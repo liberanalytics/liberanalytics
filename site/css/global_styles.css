@@ -1,3 +1,5 @@
+/** ----------------------------------------- Reset UA Styles ----------------------------------------- **/
+
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr,
 address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var,
 b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
@@ -13,27 +15,6 @@ hgroup, menu, nav, section, summary, time, mark, audio, video {
 
 html {
     height: 100%;
-}
-
-
-body {
-    height: 100%;
-    margin: 0;
-    background-color: rgba(247,243,234);
-}
-
-.clear::after {
-    display: block;
-    clear: both;
-    height: 0;
-    content: "";
-    visibility: hidden;
-}
-
-.page-wrap {
-    padding: 0 10px 0 10px;    
-    margin: 0 auto 0 auto;
-    max-width: 960px;
 }
 
 
@@ -306,6 +287,25 @@ body {
 
 /** ----------------------------------------- Site Styles ----------------------------------------- **/
 
+body {
+    height: 100%;
+    margin: 0;
+    background-color: rgba(247,243,234);
+}
+
+.clear::after {
+    display: block;
+    clear: both;
+    height: 0;
+    content: "";
+    visibility: hidden;
+}
+
+.page-wrap {
+    padding: 0 10px 0 10px;    
+    margin: 0 auto 0 auto;
+    max-width: 960px;
+}
 
 .page-heading {
     width: 100%;
@@ -317,6 +317,7 @@ body {
     font-weight: 600;
     line-height: .1em;   
     color: rgba(70,154,152,1);
+    background-color: rgba(247,243,234);    
 }
 
 .page-heading-text {
