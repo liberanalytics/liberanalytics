@@ -88,7 +88,7 @@ html {
 
 #site_menu nav a:hover {
     color: white;
-    background-color: rgba(101,149,202,.5);    
+    background-color: rgba(101,149,202,1);    
     transition-duration: .3s;
 }
 
@@ -314,7 +314,7 @@ body {
     border-bottom-width: 4px;
     border-style: solid;
     border-image: linear-gradient( to left, rgba(196,196,196, 1) , rgba(248,248,248, 1) ) 1;
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 600;
     line-height: .1em;   
     color: rgba(70,154,152,1);

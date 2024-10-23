@@ -66,24 +66,34 @@
 
         <div class="page-content">
 
-            <p class="site-text">
-            Contact us with any suggestions, statements, or questions you have.
-            We would love to hear from you!
-            </p>
+            <div id="contact_w" class="clear">
 
-            <form name="contact">
+                <div id="contact_form_w">
+                    <form name="contact">
 
-                <div id="contact_name" class="clear">
-                <input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*">
-                <input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*">
+                        <div id="contact_name" class="clear">
+                            <input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*">
+                            <input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*">
+                        </div>
+                        
+                        <input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*">
+                        <textarea name="contact_msg" rows="8" cols="48" placeholder="Your Message"></textarea>
+                        <input name="contact_submit" type="submit" value="submit">
+                        
+    
+                    </form>
                 </div>
-                <!--
-                    <input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*">
-                    <textarea name="contact_msg" rows="5" cols="60" placeholder="Your Message"></textarea>
-                    <input name="contact_submit" type="submit" value="submit">
-                -->
 
-            </form>
+                <div id="contact_text_w">
+            
+                <p class="site-text">
+                Contact us with any suggestions, statements, or questions you have.
+                We would love to hear from you!
+                </p>
+
+                </div><!-- End contact_text_w -->
+
+            </div><!-- End contact_w -->
 
         </div>
 

@@ -1,13 +1,51 @@
 /** ----------------------------------------- Contact Styles ----------------------------------------- **/
 
+#contact_w {
+    margin: 70px 0 50px 0;
+}
+
+#contact_form_w {
+    float: left;
+    width: 520px;
+}
+
+#contact_text_w {
+    float: right;
+    width: 400px;
+}
+
+form input[type=text] {
+    border: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: white;
+    border-radius: 10px;
+}
+
 form[name=contact] {
-    margin: 30px 0 0 0;
+    padding: 40px 20px 40px 20px;
+    border: 2px solid rgba(70,154,152,1);
+    border-radius: 10px;
+
+    background-color: rgba(247,243,234);
 }
 
 input[name=contact_fname] { 
     float: left;
+    padding: 10px 10px 10px 10px;    
 }
 
 input[name=contact_lname] {
-    float: left;
+    float: right;
+    padding: 10px 10px 10px 10px;    
+    margin: 0 0 0 30px;
+}
+
+input[name=contact_email] {
+    padding: 10px 0 10px 0;
+    width: 100%;
+}
+
+input[name=contact_email]::placeholder {
+    padding: 0 0 0 10px;
 }
