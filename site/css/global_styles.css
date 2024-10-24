@@ -317,8 +317,9 @@ body {
     font-size: 40px;
     font-weight: 600;
     line-height: .1em;   
-    color: rgba(70,154,152,1);
-    /*background-color: rgba(247,243,234);*/
+    /*color: rgba(70,154,152,1);*/
+    color: rgba(34,134,130,1);
+
 }
 
 .page-heading-text {

@@ -64,34 +64,8 @@
             <h1 class="page-heading"><span class="page-heading-text">Contact Us</span></h1>
         </header>
 
-        <div class="page-content">
 
-            <div id="contact_w" class="clear">
 
-                <div id="contact_form_w">
-                    <form name="contact">
-                        <ul>
-                            <li><input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*"></li>
-                            <li><input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*"></li>
-                            <li><input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*"></li>
-                            <li><textarea name="contact_msg" rows="8" cols="48" placeholder="Your Message"></textarea></li>
-                            <li><input name="contact_submit" type="submit" value="submit"></li>    
-                        </ul>
-                    </form>
-                </div>
-
-                <div id="contact_text_w">
-            
-                <p class="site-text">
-                Contact us with any suggestions, statements, or questions you have.
-                We would love to hear from you!
-                </p>
-
-                </div><!-- End contact_text_w -->
-
-            </div><!-- End contact_w -->
-
-        </div>
 
     </main>
 
