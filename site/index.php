@@ -71,33 +71,33 @@
 
 
 
-                <article class="featured-post">
+                <article class="featured-post clear">
 
-                    <h1 class="featured-post-hdrtxt">
-                        <a href="/blog?entry=id">PostgreSQL Database setup best practices on Ubuntu EC2 Instance</a>
-                    </h1> <!-- PHP Pull title from RS. -->                          
 
+                    
                     <div class="featured-post-content clear">
 
-                        <div class="featured-post-img">                
+                        <div class="featured-post-img">
+                            <img src="assets/la_logo_135.png">
                         </div>             
                     
-                        <section class="featured-post-desc">                   
-                    
-                            <h1 class="featured-post-date">October 12, 1991</h1> <!-- PHP Pull date frome RS. -->                          
+                        <div class="featured-post-desc">      
+                            
+                            <h1 class="featured-post-hdrtxt">
+                                <a href="/blog?entry=id">PostgreSQL Database setup best practices on Ubuntu EC2 Instance</a>
+                            </h1> <!-- PHP Pull title from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                            </p>                                            
                     
-                            <div class class="featured-post-attrs clear">
-                                <a href="/blog?entry=id" class="featured-post-href">Read more</a> <!-- PHP Pull href & entry id | name frome RS. -->                                          
-                                
-                                <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->                            
-                            </div>                         
-                    
-                        </section>
+                        </div>
 
+                    </div>
+
+                    <div class="featured-post-attrs clear">
+                        <span class="featured-post-date">October 12, 1991</span>
+                        <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
                     </div>
                 
                 </article> 
