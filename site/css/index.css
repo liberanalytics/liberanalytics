@@ -1,0 +1,125 @@
+/** ----------------------------------------- Index Styles ----------------------------------------- **/
+
+#posts_l {
+    float:left;
+    width: 600px;
+}
+
+#posts_r {
+    float: left;
+    width: 340px;
+    margin: 0 0 0 20px;
+}
+
+.section-heading {
+    padding: 5px 0 5px 10px;
+    margin: 50px 0 50px 0;
+    background-color: rgba(51,51,51,1);
+    font-family: Helvetica;
+    font-size: 24px;
+    font-weight: 300;
+    color: white;
+}
+
+.featured-post {
+    padding: 10px 5px 10px 5px;
+    border: 1px solid rgba(248,248,248, 1);
+    margin: 30px 0 30px 0;   
+    border-radius: 3px;
+    /* box-shadow: 0 1px 2px 0 rgb(211, 212, 214), 0 5px 3px -2px rgb(184, 184, 186), 2px 2px 5px 0 rgb(211, 212, 214), -2px 2px 5px 0 rgb(211, 212, 214); */
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%);
+    background-color: #fff;
+}
+
+.featured-post-content {
+    padding: 10px 0 0 0;
+}
+
+.featured-post-img {
+    float: left;
+    width: 195px;
+    height: 135px;
+    background-color: rgba(51,51,51,1);
+}
+
+.featured-post-hdrtxt {
+    padding: 0 0 5px 0;
+    border-bottom-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient( to right, rgba(196,196,196, 1) , rgba(248,248,248, 1) ) 1;
+
+}
+
+.featured-post-hdrtxt a:link {
+    font-family: "Helvetica";
+    font-weight: 300;
+    color: rgba(51,51,51);
+    text-decoration: none; 
+}
+
+.featured-post-hdrtxt a:hover {
+    color: rgba(171,153,79,1);
+    transition-duration: .3s;
+}
+
+.featured-post-desc {
+    float: left;
+    width: 380px;
+    margin: 0 0 0 10px;
+    background-color: (70,154,152,1);
+}
+
+.featured-post-date {
+    padding: 0 0 5px 0;
+    font-family: "Helvetica";    
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(51,51,51);     
+}
+
+.featured-post-desctxt {
+    padding: 0 0 10px 0;
+    font-family: "Helvetica";
+    font-size: 18px;
+    line-height: 1.5;
+    color: rgba(101,112,124,1);    
+}
+
+.featured-post-href {
+    float: left;
+}
+
+.featured-post-href:link {
+    padding: 5px 10px 5px 10px;
+    font-family: "Helvetica";    
+    font-size: 18px;
+    font-weight: 600;    
+    background-color: rgba(171,153,79,1);
+    color: #fff;
+    text-decoration: none;
+}
+
+.featured-post-href:hover { 
+    background-color: rgba(173,151,79,.85);
+    transition-duration: .3s;
+}
+
+.featured-post-attrs {
+    margin: 0 0 0 0;
+}
+
+.featured-post-cat:link {
+    float: right;
+    padding: 5px 0 5px 0;
+    font-family: "Helvetica";    
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(88,135,191,1);
+    text-decoration: none;    
+}
+
+.featured-post-cat:hover {
+    color: rgba(101,149,202,.5);
+    text-decoration: underline;    
+    transition-duration: .3s;   
+}
