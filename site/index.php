@@ -3,7 +3,8 @@
 
 <head>
 
-    <link href="css/global_styles.css" rel="stylesheet" type="text/css" charset="utf-8">
+    <link href="css/global.css" rel="stylesheet" type="text/css" charset="utf-8">
+    <link href="css/index.css" rel="stylesheet" type="text/css" charset="utf-8">
     <script type="text/javascript" src="js/site.js"></script>
 
 </head>
@@ -59,69 +60,22 @@
 
     <main class="page-wrap">
 
-            <header>
-                <h1 class="page-heading"><span class="page-heading-text">Featured Posts</span></h1>
-            </header>
+        <div id="posts_w" class="clear">
 
-            <article class="featured-post clear">
+            <div id="posts_l">
+                <header>
+                    <h1 class="section-heading">Featured</h1>
+                </header>
+            </div><!-- End posts_l -->
 
-                <div class="featured-post-img">
+            <div id="posts_r">
+                <header>
+                    <h1 class="section-heading">Latest Posts</h1>
+                </header>
+            </div><!-- End posts_l -->           
+                            
 
-                </div>
-                
-                <div class="featured-post-content">
-
-                    <h1 class="featured-post-hdrtxt">
-                        <a href="/blog?entry=id">PostgreSQL Database setup best practices on Ubuntu EC2 Instance</a>
-                    </h1> <!-- PHP Pull title from RS. -->
-
-                    <h1 class="featured-post-date">October 12, 1991</h1> <!-- PHP Pull date frome RS. -->                          
-
-                    <p class="featured-post-desc"> <!-- PHP Pull short desc from RS. -->
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-
-                    <div class class="featured-post-attrs clear">
-                        <a href="/blog?entry=id" class="featured-post-href">Read more</a> <!-- PHP Pull href & entry id | name frome RS. -->                                          
-                        
-                        <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->                            
-                    </div>                         
-
-                </div>
-
-            </article> 
-            
-            <article class="featured-post clear">
-
-                <div class="featured-post-img">
-
-                </div>
-                
-                <div class="featured-post-content">
-
-                    <h1 class="featured-post-hdrtxt">
-                        <a href="/blog?entry=id">Understanding database normalization and denormalization</a>
-                    </h1> <!-- PHP Pull title from RS. -->
-
-                    <h1 class="featured-post-date">October 12, 1991</h1> <!-- PHP Pull date frome RS. -->                          
-
-                    <p class="featured-post-desc"> <!-- PHP Pull short desc from RS. -->
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-
-                    <div class class="featured-post-attrs clear">
-                        <a href="/blog?entry=id" class="featured-post-href">Read more</a> <!-- PHP Pull href & entry id | name frome RS. -->                                          
-                        
-                        <a href="/blog?cat=rdbms" class="featured-post-cat">Education</a> <!-- PHP Pull href & category frome RS. -->                            
-                    </div>                         
-
-                </div>
-
-            </article>              
-
-        <header>
-            <h1 class="page-heading"><span class="page-heading-text">Our Mission</span></h1>
-        </header>        
+        </div>
 
     </main>
 
