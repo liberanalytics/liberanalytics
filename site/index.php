@@ -83,9 +83,8 @@
                     
                         <div class="featured-post-desc">      
                             
-                            <h1 class="featured-post-hdrtxt">
-                                <a href="/blog?entry=id">PostgreSQL Database setup best practices on Ubuntu EC2 Instance</a>
-                            </h1> <!-- PHP Pull title from RS. -->                              
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">PostgreSQL Database setup best practices on Ubuntu EC2 Instance</a>
+                            <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
