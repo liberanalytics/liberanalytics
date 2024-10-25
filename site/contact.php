@@ -72,24 +72,20 @@
                     <li>
                         <ul>
                             <fieldset>
-                            <li><label>First Name</label></li>
-                            <li><input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*"></li>
-                            <li><label>Last Name</label></li>
-                            <li><input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*"></li>
+                                <li class="adjacent"><label>First Name<em>*</em></label></li>
+                                <li class="adjacent"><label>Last Name<em>*</em></label></li>
+                                <li class="adjacent"><input name="contact_fname" type="text" title="Enter First Name" class="adjacent"></li>                                
+                                <li class="adjacent"><input name="contact_lname" type="text" title="Enter Last Name" class="adjacent"></li>
                             </fieldset>
                         </ul>
-                    </li>
+                    </li> 
                     
-                    
-                    <li><input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*"></li>
-                    <li><input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*"></li>
-                    <li><textarea name="contact_msg" rows="8" cols="48" placeholder="Your Message"></textarea></li>
-                    <li><input name="contact_submit" type="submit" value="submit"></li>    
+                    <li><label>Email<em>*</em></label></li>
+                    <li><input name="contact_email" type="text" title="Enter Email"></li> 
+
                 </ul>
 
             </form>
-
-            <h1>Contact</h1>
 
         </div> <!-- End contact_form_w -->
 
