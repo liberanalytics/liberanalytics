@@ -65,15 +65,10 @@
             <div id="posts_l">
 
                 <header>
-                    <h1 class="section-heading">Featured</h1>
+                    <h1 class="page-section-heading">Featured</h1>
                 </header>
 
-
-
-
                 <article class="featured-post clear">
-
-
                     
                     <div class="featured-post-content clear">
 
@@ -96,6 +91,34 @@
 
                     <div class="featured-post-attrs clear">
                         <span class="featured-post-date">October 12, 1991</span>
+                        <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
+                    </div>
+                
+                </article> 
+
+                <article class="featured-post clear">
+                    
+                    <div class="featured-post-content clear">
+
+                        <div class="featured-post-img">
+                            <img src="assets/la_logo_135.png">
+                        </div>             
+                    
+                        <div class="featured-post-desc">      
+                            
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Using relational theory to plot your sql queries</a>
+                            <!-- PHP Pull header from RS. -->                              
+                    
+                            <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>                                            
+                    
+                        </div>
+
+                    </div>
+
+                    <div class="featured-post-attrs clear">
+                        <span class="featured-post-date">September 25, 2024</span>
                         <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
                     </div>
                 
