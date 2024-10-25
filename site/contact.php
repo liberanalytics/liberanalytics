@@ -3,7 +3,7 @@
 
 <head>
 
-    <link href="css/global_styles.css" rel="stylesheet" type="text/css" charset="utf-8">
+    <link href="css/global.css" rel="stylesheet" type="text/css" charset="utf-8">
     <link href="css/contact.css" rel="stylesheet" type="text/css" charset="utf-8">
     <script type="text/javascript" src="js/site.js"></script>
 
@@ -58,13 +58,40 @@
 
     </header>
 
-    <main class="page-wrap">
+    <main>
 
         <header>
-            <h1 class="page-heading"><span class="page-heading-text">Contact Us</span></h1>
+            <h1 class="page-section-heading-nofloat">Contact Us</h1>
         </header>
 
+        <div id="contact_form_w">
 
+            <form name="contact">
+
+                <ul>
+                    <li>
+                        <ul>
+                            <fieldset>
+                            <li><label>First Name</label></li>
+                            <li><input name="contact_fname" type="text" title="Enter First Name" placeholder="First Name*"></li>
+                            <li><label>Last Name</label></li>
+                            <li><input name="contact_lname" type="text" title="Enter Last Name" placeholder="Last Name*"></li>
+                            </fieldset>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li><input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*"></li>
+                    <li><input name="contact_email" type="text" title="Enter Email" placeholder="Your Email*"></li>
+                    <li><textarea name="contact_msg" rows="8" cols="48" placeholder="Your Message"></textarea></li>
+                    <li><input name="contact_submit" type="submit" value="submit"></li>    
+                </ul>
+
+            </form>
+
+            <h1>Contact</h1>
+
+        </div> <!-- End contact_form_w -->
 
 
     </main>
