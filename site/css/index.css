@@ -7,26 +7,17 @@
 
 #posts_r {
     float: left;
-    width: 340px;
-    margin: 0 0 0 20px;
+    width: 350px;
+    margin: 0 0 0 30px;
 }
 
-.page-section-heading {
-    padding: 5px 0 5px 10px;
-    margin: 50px 0 30px 0;
-    background-color: rgba(51,51,51,1);
-    font-family: Helvetica;
-    font-size: 24px;
-    font-weight: 300;
-    color: white;
-}
+/** ----------------------------------------- Featured Posts----------------------------------------- **/
 
 .featured-post {
     padding: 10px 5px 10px 5px;
     border: 1px solid rgba(248,248,248, 1);
     margin: 30px 0 30px 0;   
     border-radius: 3px;
-    /* box-shadow: 0 1px 2px 0 rgb(211, 212, 214), 0 5px 3px -2px rgb(184, 184, 186), 2px 2px 5px 0 rgb(211, 212, 214), -2px 2px 5px 0 rgb(211, 212, 214); */
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%);
     background-color: #fff;
 }
@@ -37,22 +28,22 @@
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-image: linear-gradient( to left, rgba(196,196,196, 1) , rgba(248,248,248, 1) ) 1;    
-    font-family: "Helvetica";
-    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
     font-weight: 300;
-    color: rgba(20,124,123,1);
+    color: rgba(51,51,51,1);
     text-decoration: none; 
 }
 
 .featured-post-hdrtxt:hover {
-    color: rgba(51,51,51,1);
+    color: rgba(20,124,123,1);
     transition-duration: .3s;
     text-decoration: underline; 
     cursor: pointer;
 }
 
 .featured-post-content {
-    padding: 10px 0 0 0;
+    padding: 0 0 0 0;
 }
 
 .featured-post-img {
@@ -84,7 +75,7 @@
     font-family: "Helvetica";    
     font-size: 18px;
     font-weight: 300;
-    color: rgba(101,112,124,1);     
+    color: rgba(117,117,117,1);     
 }
 
 .featured-post-cat:link {
@@ -101,3 +92,6 @@
     text-decoration: underline;    
     transition-duration: .3s;   
 }
+
+/** ----------------------------------------- Latest Posts----------------------------------------- **/
+
