@@ -124,11 +124,6 @@
                 
                 </article> 
 
-
-
-
-
-
             </div><!-- End posts_l -->
 
             <div id="posts_r">
@@ -149,8 +144,7 @@
                 <a href="/blog?id=36" class="site-href">Delete then Insert - Don't Update</a>
                 <a href="/blog?id=37" class="site-href">When a data warehouse is overkill</a>
 
-            </div><!-- End posts_l -->           
-                            
+            </div><!-- End posts_r -->                   
 
         </div><!-- End posts_w -->
 
@@ -189,8 +183,7 @@
                 <div id="site_footer_stmt">
                     <span class="site-stmt">Liberating data analytics to create value.</span>
                     <span class="site-footer-legal">&copy; LiberAnalytics 2025</span>
-                </div>
-
+                </div> <!-- End site_footer_stmt -->
 
         </div> <!-- End site_footer_content -->
             

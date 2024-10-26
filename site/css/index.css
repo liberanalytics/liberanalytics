@@ -88,10 +88,7 @@
 }
 
 .featured-post-cat:hover {
-    color: rgba(101,149,202,.5);
+    color: rgba(101,149,202,1);
     text-decoration: underline;    
     transition-duration: .3s;   
 }
-
-/** ----------------------------------------- Latest Posts----------------------------------------- **/
-
