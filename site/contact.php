@@ -66,26 +66,6 @@
 
         <div id="contact_form_w">
 
-            <form name="contact">
-
-                <ul>
-                    <li>
-                        <ul>
-                            <fieldset>
-                                <li class="adjacent"><label>First Name<em>*</em></label></li>
-                                <li class="adjacent"><label>Last Name<em>*</em></label></li>
-                                <li class="adjacent"><input name="contact_fname" type="text" title="Enter First Name" class="adjacent"></li>                                
-                                <li class="adjacent"><input name="contact_lname" type="text" title="Enter Last Name" class="adjacent"></li>
-                            </fieldset>
-                        </ul>
-                    </li> 
-                    
-                    <li><label>Email<em>*</em></label></li>
-                    <li><input name="contact_email" type="text" title="Enter Email"></li> 
-
-                </ul>
-
-            </form>
 
         </div> <!-- End contact_form_w -->
 
