@@ -100,7 +100,8 @@
                         <label class="only">Message<em>*</em></label> 
                         <textarea name="contact_msg" rows="8" cols="48"></textarea>
                     </li>
-                    <li><input name="contact_submit" type="submit" value="SUBMIT"></li>          
+                    <li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
+                    <li class="form-submit-msg"></li>         
             
                 </ul>
             
