@@ -1,2 +1,53 @@
 /** ----------------------------------------- Contact Styles ----------------------------------------- **/
 
+#contact_form_w {
+    width: 620px;
+    background-color: RGB(150,150,150);
+}
+
+#contact_form_w form[name=contact] ul li {
+    margin: 10px 0 10px 0;
+    list-style-type: none;
+}
+
+#contact_form_w form[name=contact] ul li input[type=text] {
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 10px;
+}
+
+
+
+#contact_form_w form[name=contact] ul li > *.adjacent-first {
+    float: left;
+    width: 240px;
+    padding: 0;
+    margin: 0 0 0 0;
+    border: none;
+}
+
+#contact_form_w form[name=contact] ul li > label.adjacent-first {
+    margin: 0 0 0 15px;
+}
+
+#contact_form_w form[name=contact] ul li > input[type=text].adjacent-first {
+    margin: 0 0 0 10px;
+}
+
+#contact_form_w form[name=contact] ul li > *.adjacent-second {
+    float: left;
+    width: 240px;
+    padding: 0;
+    border: none;
+    margin: 0 0 0 20px;
+}
+
+#contact_form_w form[name=contact] ul li > label.adjacent-second {
+    margin: 0 0 0 42px;
+}
+
+
+
+
+
+
