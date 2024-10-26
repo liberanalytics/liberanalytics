@@ -3,6 +3,8 @@
 
 <head>
 
+    <meta charset="utf-8">
+    <title>LiberAnalytics</title>
     <link href="css/global.css" rel="stylesheet" type="text/css" charset="utf-8">
     <link href="css/index.css" rel="stylesheet" type="text/css" charset="utf-8">
     <script type="text/javascript" src="js/site.js"></script>
