@@ -66,7 +66,7 @@
 
         <div id="contact_form_w">
 
-            <form name="contact">
+            <form name="contact" action="">
 
                 <ul>
                     <li>
@@ -84,12 +84,28 @@
                         </ul>
                     </li> 
                     
-                    <li><label>Email<em>*</em></label></li>
-                    <li><input name="contact_email" type="text" title="Enter Email"></li> 
+                    <li>
+                        <label class="only">Email<em>*</em></label>
+                    </li>
+                    <li>
+                        <input name="contact_email" type="text" title="Enter Email" class="only">
+                    </li>
+                    <li>
+                        <label class="only">Subject<em>*</em></label>                    
+                    </li>
+                    <li>
+                        <input name="contact_subject" type="text" title="Enter Subject" class="only">
+                    </li>                    
+                    <li>
+                        <label class="only">Message<em>*</em></label> 
+                        <textarea name="contact_msg" rows="8" cols="48"></textarea>
+                    </li>
+                    <li><input name="contact_submit" type="submit" value="SUBMIT"></li>          
             
                 </ul>
             
-            </form>            
+            </form> 
+
         </div> <!-- End contact_form_w -->
 
 

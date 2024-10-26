@@ -6,7 +6,6 @@
 }
 
 #contact_form_w form[name=contact] ul li {
-    margin: 10px 0 10px 0;
     list-style-type: none;
 }
 
@@ -16,22 +15,16 @@
     border-radius: 10px;
 }
 
-
-
 #contact_form_w form[name=contact] ul li > *.adjacent-first {
     float: left;
     width: 240px;
     padding: 0;
-    margin: 0 0 0 0;
     border: none;
+    margin: 0 0 5px 10px;    
 }
 
 #contact_form_w form[name=contact] ul li > label.adjacent-first {
-    margin: 0 0 0 15px;
-}
-
-#contact_form_w form[name=contact] ul li > input[type=text].adjacent-first {
-    margin: 0 0 0 10px;
+    margin: 10px 0 5px 15px;
 }
 
 #contact_form_w form[name=contact] ul li > *.adjacent-second {
@@ -39,14 +32,43 @@
     width: 240px;
     padding: 0;
     border: none;
-    margin: 0 0 0 20px;
+    margin: 0 0 5px 20px;
 }
 
 #contact_form_w form[name=contact] ul li > label.adjacent-second {
-    margin: 0 0 0 42px;
+    margin: 10px 0 5px 42px;
 }
 
+#contact_form_w form[name=contact] ul li > label.only {
+    display: block;
+    margin: 10px 0 0 15px;
+}
 
+#contact_form_w form[name=contact] ul li > input[type=text].only {
+    width: 522px;
+    margin: 5px 0 0 10px;
+}
+
+#contact_form_w form[name=contact] ul li > textarea {
+    width: 522px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0 10px 10px;
+    border-radius: 10px;
+    resize: none;
+}
+
+#contact_form_w form[name=contact] ul li > input[type=submit] {
+    width: 544px;
+    padding: 15px 0 15px 0;   
+    border: none;
+    border-radius: 15px;
+    margin: 20px 0 10px 10px;
+    background-color: rgba(20,124,123,1);
+    color: #FFF;
+    transition-duration: .3s; 
+    cursor: pointer;
+}
 
 
 
