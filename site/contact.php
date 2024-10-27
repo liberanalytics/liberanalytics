@@ -7,6 +7,7 @@
     <title>LiberAnalytics</title>
     <link href="css/global.css" rel="stylesheet" type="text/css" charset="utf-8">
     <link href="css/contact.css" rel="stylesheet" type="text/css" charset="utf-8">
+    <script type="text/javascript" src="js/LAStyles.js"></script>
     <script type="text/javascript" src="js/la.js"></script>
     
 
@@ -80,7 +81,5 @@
     <?php include_once('../src/site_footer.php'); ?>
 
 </body>
-
-<script type="text/javascript" src="js/LAHdrFtr.js"></script>
 
 </html>
