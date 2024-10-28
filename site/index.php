@@ -114,14 +114,20 @@
                 <h1 class="page-section-heading">Our Mission</h1>
 
                 <div id="mission">
+
+                    <div>
+
+                    </div>
+
                     <p class="site-font-emphasis">
-                        LiberAnalytics emphasizes the use of a creative mindset when approaching problems in the domain of data analytics.
-                        Our goal is to show through multiple perspectives that working with data can be fascinating and enhanve an
+                        <em>LiberAnalytics</em> emphasizes the use of a creative mindset when approaching problems in the domain of data analytics.
+                        Our goal is to show through multiple perspectives that working with data can be fascinating and enhance an
                         individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
-                        hence resolvable in many different ways. We hope that the content published will illuminate how to exercise a liber (free)
+                        hence resolvable in many different ways. We hope that the content published will illuminate how to exercise a <em>liber</em> (free)
                         mind while working with data as well as inspire individuals to keep improving!
                     </p>
-                </div>
+
+                </div> <!-- End mission -->
 
             </section>
 
