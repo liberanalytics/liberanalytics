@@ -7,7 +7,9 @@
     <title>LiberAnalytics</title>
     <link href="css/global.css" rel="stylesheet" type="text/css" charset="utf-8">
     <link href="css/index.css" rel="stylesheet" type="text/css" charset="utf-8">
-    <script type="text/javascript" src="js/site.js"></script>
+    <script type="text/javascript" src="js/la.js"></script>
+    <script type="text/javascript" src="js/LAStyles.js"></script>
+    <script type="text/javascript" src="js/hdrftr.js"></script>
 
 </head>
 
