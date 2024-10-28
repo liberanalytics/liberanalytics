@@ -19,13 +19,11 @@
 
     <main>
 
-        <div id="posts_w" class="clear">
+        <div id="posts_w">
 
-            <div id="posts_l">
+            <section id="posts_l">
 
-                <header>
-                    <h1 class="page-section-heading-float">Featured</h1>
-                </header>
+                <h1 class="page-section-heading">Featured</h1>
 
                 <article class="featured-post clear">
                     
@@ -83,33 +81,46 @@
                 
                 </article> 
 
-            </div><!-- End posts_l -->
+            </section> <!-- End posts_l -->
 
-            <div id="posts_r">
+            <section id="posts_r">
 
-                <header>
-                    <h1 class="page-section-heading-float">Latest Posts</h1>
-                </header>
+                <h1 class="page-section-heading">Latest Posts</h1>
 
-                <a href="/blog?id=27" class="site-href">When sorting on database side is a good idea</a>
-                <a href="/blog?id=28" class="site-href">Should primary keys be used in data warehouses?</a>
-                <a href="/blog?id=29" class="site-href">MS Excel VBA Ado to read resultsets into .xlsx</a>
-                <a href="/blog?id=30" class="site-href">Examples of SQL Unit Tests</a>
-                <a href="/blog?id=31" class="site-href">A simple data pipeline</a>
-                <a href="/blog?id=32" class="site-href">Using relational databases in defining program logic</a>
-                <a href="/blog?id=33" class="site-href">Importance of explain / exucution plans</a>
-                <a href="/blog?id=34" class="site-href">What is a Master Data Management plan?</a>
-                <a href="/blog?id=35" class="site-href">Use the FWGHSO mnemonic to create efficient SQL select queries</a>
-                <a href="/blog?id=36" class="site-href">Delete then Insert - Don't Update</a>
-                <a href="/blog?id=37" class="site-href">When a data warehouse is overkill</a>
+                <nav id="latest_posts_nav">
 
-            </div><!-- End posts_r -->                   
+                    <a href="/blog?id=27" class="site-href">When sorting on database side is a good idea</a>
+                    <a href="/blog?id=28" class="site-href">Should primary keys be used in data warehouses?</a>
+                    <a href="/blog?id=29" class="site-href">MS Excel VBA Ado to read resultsets into .xlsx</a>
+                    <a href="/blog?id=30" class="site-href">Examples of SQL Unit Tests</a>
+                    <a href="/blog?id=31" class="site-href">A simple data pipeline</a>
+                    <a href="/blog?id=32" class="site-href">Using relational databases in defining program logic</a>
+                    <a href="/blog?id=33" class="site-href">Importance of explain / exucution plans</a>
+                    <a href="/blog?id=34" class="site-href">What is a Master Data Management plan?</a>
+                    <a href="/blog?id=35" class="site-href">Use the FWGHSO mnemonic to create efficient SQL select queries</a>
+                    <a href="/blog?id=36" class="site-href">Delete then Insert - Don't Update</a>
+                    <a href="/blog?id=37" class="site-href">When a data warehouse is overkill</a>
 
-        </div><!-- End posts_w -->
+                </nav>
 
-        <header>
-            <h1 class="page-section-heading-nofloat">Mission</h1>
-        </header>
+            </section> <!-- End posts_r -->                   
+
+        </div> <!-- End posts_w -->
+
+        <div id="mission_w">
+
+            <section>       
+
+                <h1 class="page-section-heading">Our Mission</h1>
+
+                <div id="mission">
+
+
+                </div>
+
+            </section>
+
+        </div> <!-- End mission_w -->
 
     </main>
 

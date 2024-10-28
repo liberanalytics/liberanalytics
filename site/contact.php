@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <title>LiberAnalytics</title>
-    <link href="css/global.css" rel="stylesheet" type="text/css" charset="utf-8">
+    <link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
     <link href="css/contact.css" rel="stylesheet" type="text/css" charset="utf-8">
     <script type="text/javascript" src="js/la.js"></script>
     <script type="text/javascript" src="js/LAStyles.js"></script>
@@ -20,62 +20,68 @@
 
     <main>
 
-        <header>
-            <h1 class="page-section-heading-nofloat">Contact Us</h1>
-        </header>
-
         <div id="contact_w">
 
-            <div id="contact_form_w">
+            <section>
 
-                <form name="contact" action="">
+                <h1 class="page-section-heading">Contact Us</h1>
 
-                    <ul>
-                        <li>
+                <div id="contact_form_w">
+
+                    <div id="contact_form">
+
+                        <form name="contact" action="">
+
                             <ul>
-                                <fieldset>
-                                    <li class="clear">
-                                        <label class="adjacent-first">First Name<em>*</em></label>
-                                        <label class="adjacent-second">Last Name<em>*</em></label>
-                                    </li>
-                                    <li class="clear">
-                                        <input name="contact_fname" type="text" title="Enter First Name" class="adjacent-first">                              
-                                        <input name="contact_lname" type="text" title="Enter Last Name" class="adjacent-second">
-                                    </li>
-                                </fieldset>
-                            </ul>
-                        </li> 
+                                <li>
+                                    <ul>
+                                        <fieldset>
+                                            <li class="clear">
+                                                <label class="adjacent-first">First Name<em>*</em></label>
+                                                <label class="adjacent-second">Last Name<em>*</em></label>
+                                            </li>
+                                            <li class="clear">
+                                                <input name="contact_fname" type="text" title="Enter First Name" class="adjacent-first">                              
+                                                <input name="contact_lname" type="text" title="Enter Last Name" class="adjacent-second">
+                                            </li>
+                                        </fieldset>
+                                    </ul>
+                                </li> 
+                                
+                                <li>
+                                    <label class="only">Email<em>*</em></label>
+                                </li>
+                                <li>
+                                    <input name="contact_email" type="text" title="Enter Email" class="only">
+                                </li>
+                                <li>
+                                    <label class="only">Subject<em>*</em></label>                    
+                                </li>
+                                <li>
+                                    <input name="contact_subject" type="text" title="Enter Subject" class="only">
+                                </li>                    
+                                <li>
+                                    <label class="only">Message<em>*</em></label> 
+                                    <textarea name="contact_msg" rows="8" cols="48"></textarea>
+                                </li>
+                                <li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
+                                <li class="form-submit-msg"></li>         
                         
-                        <li>
-                            <label class="only">Email<em>*</em></label>
-                        </li>
-                        <li>
-                            <input name="contact_email" type="text" title="Enter Email" class="only">
-                        </li>
-                        <li>
-                            <label class="only">Subject<em>*</em></label>                    
-                        </li>
-                        <li>
-                            <input name="contact_subject" type="text" title="Enter Subject" class="only">
-                        </li>                    
-                        <li>
-                            <label class="only">Message<em>*</em></label> 
-                            <textarea name="contact_msg" rows="8" cols="48"></textarea>
-                        </li>
-                        <li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
-                        <li class="form-submit-msg"></li>         
-                
-                    </ul>
-                
-                </form> 
+                            </ul>
+                        
+                        </form> 
 
-            </div> <!-- End contact_form_w -->
+                    </div> <!-- End contact_form -->
 
-            <div id="contact_com_w">
-                <p class="site-font-emphasis">Please contact us with any questions, statements, or suggestions you may have. We would love to hear from you!</p>
-            </div>
+                    <div id="contact_com_w">
+                        <p class="site-font-emphasis">Please contact us with any questions, statements, or suggestions you may have. We would love to hear from you!</p>
+                    </div>
 
-        </div>
+                </div> <!-- End contact_form_w -->
+
+            </section>
+
+        </div> <!-- contact_w -->
 
     </main>
 

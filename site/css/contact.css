@@ -1,13 +1,13 @@
 /** ----------------------------------------- Contact Styles ----------------------------------------- **/
 
-
 #contact_w {
-    display: grid;
-    grid-template-columns: 620px 360px;
+
 }
 
-#contact_form_w {
-    width: 620px;
+#contact_form_w  {
+    display: grid;
+    grid-template-columns: 620px 360px;
+    margin: 30px 0 0 0;
 }
 
 #contact_form_w form[name=contact] ul li {
@@ -107,12 +107,6 @@
     height: 50px;
     margin: 20px 0 10px 10px;
 }
-
-#contact_com_w > p {
-    margin: 30px 0 0 0;
-    line-height: 20px;
-}
-
 
 
 
