@@ -19,7 +19,7 @@
 
     <main>
 
-        <section id="about_w">
+        <section id="about_us_w">
 
             <h1 class="page-section-heading">About LiberAnalytics</h1>
 
@@ -28,15 +28,15 @@
                 <p class="site-font-emph">
                     <em class="site-font-fancyl">LiberAnalytics</em>
                     is a data dedicated organization which specializes in educating data professionals and enthusiasts
-                    about the many facets of the world of data. We think that there are a variety of means available in
-                    collecting, managing, and using data.
-
-
+                    about the many facets of the world of data. We believe that by showing a variety of different avenues
+                    through which problems in data can be navigated will cultivate creative problem solving in our practioners.
+                    With enough exposure to concepts, techniques, tools, and practice we can gain confidence in our ability to both work with
+                    and extract meaning from data.
                 </p>
 
             </div> <!-- End about -->
 
-        </section> <!-- End about_w -->
+        </section> <!-- End about_us_w -->
 
     </main>
 
