@@ -79,7 +79,35 @@
                         <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
                     </div>
                 
-                </article> 
+                </article>
+
+                <article class="featured-post clear">
+                    
+                    <div class="featured-post-content clear">
+
+                        <div class="featured-post-img">
+                            <img src="assets/la_logo_135.png">
+                        </div>             
+                    
+                        <div class="featured-post-desc">      
+                            
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Using an RDBMS as a Data Warehouse</a>
+                            <!-- PHP Pull header from RS. -->                              
+                    
+                            <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>                                            
+                    
+                        </div>
+
+                    </div>
+
+                    <div class="featured-post-attrs clear">
+                        <span class="featured-post-date">September 25, 2024</span>
+                        <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
+                    </div>
+                
+                </article>                 
 
             </section> <!-- End posts_l -->
 
@@ -100,6 +128,9 @@
                     <a href="/blog?id=35" class="site-href">Use the FWGHSO mnemonic to create efficient SQL select queries</a>
                     <a href="/blog?id=36" class="site-href">Delete then Insert - Don't Update</a>
                     <a href="/blog?id=37" class="site-href">When a data warehouse is overkill</a>
+                    <a href="/blog?id=38" class="site-href">Why use the exists predicate?</a>
+                    <a href="/blog?id=39" class="site-href">Leveraging Linux-based bash commands to massage flat file data</a>
+                    <a href="/blog?id=40" class="site-href">Structuring your SQL code so it is readable and intuitive</a>
 
                 </nav>
 
@@ -107,33 +138,27 @@
 
         </div> <!-- End posts_w -->
 
-        <div id="mission_w">
+        <section id="mission_w">
 
-            <section>       
+            <h1 class="page-section-heading">Our Mission</h1>
 
-                <h1 class="page-section-heading">Our Mission</h1>
+            <div id="mission" class="site-block-std">
 
-                <div id="mission">
+                <p class="site-font-emph">
+                    <em class="site-font-fancyl">LiberAnalytics</em>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
+                    individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
+                    are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
+                    We hope that the content published will illuminate how to exercise a <em class="site-font-fancyl">liber</em> (free)
+                    mind while working with data as well as inspire individuals to keep improving!
+                </p>
 
-                    <p class="site-font-emph">
-                        <em>LiberAnalytics</em>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
-                        individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
-                        are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
-                        We hope that the content published will illuminate how to exercise a <em>liber</em> (free)
-                        mind while working with data as well as inspire individuals to keep improving!
-                    </p>
+                <div id="mission_graphic">
+                    <img src="assets/la_mission.png">
+                </div>                    
 
-                    <div id="mission_graphic">
-                        <img src="assets/la_mission.png">
-                    </div>                    
+            </div> <!-- End mission -->
 
-                </div> <!-- End mission -->
-
-
-
-            </section>
-
-        </div> <!-- End mission_w -->
+        </section>
 
     </main>
 

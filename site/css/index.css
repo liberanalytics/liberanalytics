@@ -111,16 +111,6 @@
 #mission {
     display: grid;
     grid-template-columns: 745px 215px;
-    padding: 0 10px 0 10px;
-    margin: 30px 0 0 0;
-}
-
-#mission p em {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
-    font-weight: 600;
-    font-style: normal;    
-    color: rgba(20,124,123,1);
 }
 
 #mission_graphic {
