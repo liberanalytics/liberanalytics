@@ -2,3 +2,4 @@ evflow_global_styles.css
 config/
 log/
 site/assets/
+site/phpinfo.php

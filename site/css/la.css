@@ -92,6 +92,10 @@ html {
     transition-duration: .3s;
 }
 
+#site_menu nav a:visited {
+    color: rgba(88,135,191,1);
+}
+
 #site_search_w {
     float: right;
     margin-top: 4px;
