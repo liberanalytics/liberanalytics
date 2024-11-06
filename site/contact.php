@@ -74,7 +74,7 @@
                     </div> <!-- End contact_form -->
 
                     <div id="contact_com_w">
-                        <p class="site-font-emphasis">Please contact us with any questions, statements, or suggestions you may have. We would love to hear from you!</p>
+                        <p class="site-font-emph">Please contact us with any questions, statements, or suggestions you may have. We would love to hear from you!</p>
                     </div>
 
                 </div> <!-- End contact_form_w -->
