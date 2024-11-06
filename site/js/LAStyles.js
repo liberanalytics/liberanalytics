@@ -11,14 +11,14 @@ class LAStyles {
     /**
      * Set styles of element based on a source element's styles.
      * 
-     * @param {object} pEleStylesToSet  -   JSON Representing which target element(s) & properties to set.
+     * @param {object} pEleStylesToSet  -   Javascript object which target element(s) & properties to set.
      */
     setTargettoSourceStyles(pEleStylesToSet) {
 
         // Check param is an object.
         if (typeof pEleStylesToSet === 'object' && pEleStylesToSet !== null) {        
 
-            // Iterate through JSON data capturing the name value pairs of objects.
+            // Iterate through object data capturing the name value pairs of objects.
             for (const targetEleIdentifier in pEleStylesToSet) {
                 for (const targetEleProp in pEleStylesToSet[targetEleIdentifier]) {
                     for (const sourceEleIdentifier in pEleStylesToSet[targetEleIdentifier][targetEleProp]) {
