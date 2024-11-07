@@ -10,7 +10,7 @@
     <script type="text/javascript" src="js/la.js"></script>
     <script type="text/javascript" src="js/LAStyles.js"></script>
     <script type="text/javascript" src="js/hdrftr.js"></script>
-    <script type="text/javascript" src="js/lavx.js"></script>
+    <script type="text/javascript" src="js/LAvx.js"></script>
     <script type="text/javascript" src="js/contact.js"></script>
     
 
@@ -32,7 +32,7 @@
 
                     <div id="contact_form">
 
-                        <form name="contact" action="">
+                        <form name="contact" id="contact" method="post">
 
                             <ul>
                                 <li>
@@ -45,10 +45,10 @@
                                             <li class="clear">
 
                                                 <input name="contact_fname" type="text" title="Enter First Name"
-                                                 class="adjacent-first" maxlength="32" data-required="y" data-vx="name">   
+                                                 class="adjacent-first" maxlength="32" data-req="1" data-vx="name" data-len="32">   
 
                                                 <input name="contact_lname" type="text" title="Enter Last Name"
-                                                 class="adjacent-second" maxlength="32" data-required="y" data-vx="name">
+                                                 class="adjacent-second" maxlength="32" data-req="1" data-vx="name" data-len="32">
 
                                             </li>
                                         </fieldset>
@@ -59,17 +59,19 @@
                                     <label class="only">Email<em>*</em></label>
                                 </li>
                                 <li>
-                                    <input name="contact_email" type="text" title="Enter Email" class="only" maxlength="32" data-required="y" data-vx="email">
+                                    <input name="contact_email" type="text" title="Enter Email"
+                                    class="only" maxlength="32" data-req="1" data-vx="email" data-len="32">
                                 </li>
                                 <li>
                                     <label class="only">Subject<em>*</em></label>                    
                                 </li>
                                 <li>
-                                    <input name="contact_subject" type="text" title="Enter Subject" class="only" maxlength="32" data-required="y" data-vx="alphanum">
+                                    <input name="contact_subject" type="text" title="Enter Subject"
+                                    class="only" maxlength="32" data-req="1" data-vx="alphanum" data-len="32">
                                 </li>                    
                                 <li>
                                     <label class="only">Message<em>*</em></label> 
-                                    <textarea name="contact_msg" rows="8" cols="48" data-required="y" data-vx="alphanum"></textarea>
+                                    <textarea name="contact_msg" rows="8" cols="48" data-req="1" data-vx="alphanum" data-len="512"></textarea>
                                 </li>
                                 <li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
                                 <li class="form-submit-msg"></li>         
