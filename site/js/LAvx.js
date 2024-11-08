@@ -10,15 +10,18 @@ class LAvx {
      */
     constructor() {
         
-        this.valid = false;
+        this.valid = true;
 
     }
 
-
-
     /** */
-    vxName = (pxVal, pxLen) => {
-        console.log(pxVal);
+    vxName = (pxVal, pxLen, pxMinNumChars = 2) => {
+
+        this.valid = ( RegExp('^[A-Za-z]+(\'|\-)?[A-Za-z]+$').test(pxVal) && 
+        ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) ) );
+
+        console.log(this.valid);
+
     }
 
     /** */
