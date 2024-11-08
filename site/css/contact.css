@@ -97,7 +97,6 @@
 
 #contact_form_w form[name=contact] ul li > input[type=submit]:hover {
     background-color: rgb(4,132,100);
-    color: rgb(51,51,51);
     transition-duration: .5s; 
     cursor: pointer;    
 }

@@ -45,10 +45,10 @@
                                             <li class="clear">
 
                                                 <input name="contact_fname" type="text" title="Enter First Name"
-                                                 class="adjacent-first" maxlength="32" data-req="1" data-vx="name" data-len="32">   
+                                                 class="adjacent-first" maxlength="32" data-req="1" data-vx="vxName" data-len="32">   
 
                                                 <input name="contact_lname" type="text" title="Enter Last Name"
-                                                 class="adjacent-second" maxlength="32" data-req="1" data-vx="name" data-len="32">
+                                                 class="adjacent-second" maxlength="32" data-req="1" data-vx="vxName" data-len="32">
 
                                             </li>
                                         </fieldset>
@@ -60,18 +60,18 @@
                                 </li>
                                 <li>
                                     <input name="contact_email" type="text" title="Enter Email"
-                                    class="only" maxlength="32" data-req="1" data-vx="email" data-len="32">
+                                    class="only" maxlength="32" data-req="1" data-vx="vxEmail" data-len="32">
                                 </li>
                                 <li>
                                     <label class="only">Subject<em>*</em></label>                    
                                 </li>
                                 <li>
                                     <input name="contact_subject" type="text" title="Enter Subject"
-                                    class="only" maxlength="32" data-req="1" data-vx="alphanum" data-len="32">
+                                    class="only" maxlength="32" data-req="1" data-vx="vxAlphaNum" data-len="32">
                                 </li>                    
                                 <li>
                                     <label class="only">Message<em>*</em></label> 
-                                    <textarea name="contact_msg" rows="8" cols="48" data-req="1" data-vx="alphanum" data-len="512"></textarea>
+                                    <textarea name="contact_msg" rows="8" cols="48" data-req="1" data-vx="vxMsg" data-len="512"></textarea>
                                 </li>
                                 <li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
                                 <li class="form-submit-msg"></li>         
