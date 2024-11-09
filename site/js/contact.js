@@ -41,9 +41,7 @@ contact.submit = () => {
                 // Populate error message to E.
                 formValid = false;
             }
-
         }
-
     }
 
     if (formValid) {
