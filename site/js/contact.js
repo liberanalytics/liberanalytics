@@ -19,10 +19,35 @@ contact.bindEvents = () => {
 
 contact.submit = () => {
 
-    lavx = new LAvx();
+    const vxData = contact.form;
+    const lavx = new LAvx();
+    let formValid = true;
 
-    if (lavx.vx(contact.form)) {
-        // Submit to contact endpoint api.
+    for ( let i=0; i < vxData.elements.length; i++ ) {
+            
+        let 
+            vxDataName = vxData[i].name,
+            vxDataVal = vxData[i].value,
+            vxDataReq = vxData[i].dataset[LAvx.vxReq],
+            vxDataVx = vxData[i].dataset[LAvx.vxType],
+            vxDataLen = vxData[i].dataset[LAvx.vxLen];
+
+        //
+        if (vxDataReq) {
+
+            //
+            let errorMsg = window["lavx"][vxDataVx](vxDataName, vxDataVal, vxDataLen);
+            if (errorMsg) {
+                // Populate error message to E.
+                formValid = false;
+            }
+
+        }
+
+    }
+
+    if (formValid) {
+        // Submit data to endpoint api.
     }
 
 }

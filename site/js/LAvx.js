@@ -9,19 +9,16 @@ class LAvx {
      * 
      */
     constructor() {
-        
-        this.valid = true;
 
     }
 
     /** */
-    vxName = (pxVal, pxLen, pxMinNumChars = 2) => {
+    vxName = (pxName, pxVal, pxLen, pxMinNumChars = 2) => {
 
-        this.valid = ( RegExp('^[A-Za-z]+(\'|\-)?[A-Za-z]+$').test(pxVal) && 
-        ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) ) );
-
-        console.log(this.valid);
-
+        if (! ( RegExp('^[A-Za-z]+(\'|\-)?[A-Za-z]+$').test(pxVal) && 
+        ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) ) ) ) {
+            return 'Invalid';
+        }
     }
 
     /** */
@@ -42,31 +39,7 @@ class LAvx {
     /** */
     vx = (vxData) => {
 
-        for ( let i=0; i < vxData.elements.length; i++ ) {
-
-            
-            let 
-                vxDataName = vxData[i].name,
-                vxDataVal = vxData[i].value,
-                vxDataReq = vxData[i].dataset[LAvx.vxReq],
-                vxDataVx = vxData[i].dataset[LAvx.vxType],
-                vxDataLen = vxData[i].dataset[LAvx.vxLen];
-
-            //
-            if (vxDataReq) {
-
-                switch (vxDataVx) {
-
-                    case 'vxName': this.vxName(vxDataVal, vxDataLen); break;
-                    case 'vxEmail': this.vxEmail(vxDataVal, vxDataLen); break;
-                    case 'vxAlphaNum': this.vxAlphaNum(vxDataVal, vxDataLen); break;
-                    case 'vxMsg': this.vxMsg(vxDataVal, vxDataLen); break;
-
-                }
-
-            }
-
-        }
+        
 
     }
 
