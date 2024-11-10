@@ -13,8 +13,6 @@ contact.setVars = () => {
 
 contact.setStyles = () => {
 
-    
-
     const la = new LAStyles();
     la.setTargettoSourceStyles(
     
