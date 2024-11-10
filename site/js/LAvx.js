@@ -5,7 +5,7 @@ class LAvx {
     static vxLen = 'len';
 
     /**
-     * Creates a new validation class.
+     * Creates a new LiberAnalytics validation class.
      * 
      */
     constructor() {
@@ -37,10 +37,8 @@ class LAvx {
     }     
 
     /** */
-    vx = (vxData) => {
-
-        
+    vx = (vxData) => {        
 
     }
 
-}
+} // End class LAvx.

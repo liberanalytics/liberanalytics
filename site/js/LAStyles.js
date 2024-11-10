@@ -1,7 +1,7 @@
 class LAStyles {
 
     /**
-     * Creates a new style setting class.
+     * Creates a new LiberAnalytics style setting class.
      * 
      */
     constructor() {
@@ -41,7 +41,7 @@ class LAStyles {
                             // Add px as default unit when no unit is attendant.
                             sourceEleVal = ( (sourceEleVal.toString().slice(-2)) == 'px' ) ? sourceEleVal : sourceEleVal.toString() + 'px';
 
-                            targetEle[i].style[targetEleProp] = sourceEleValCss;
+                            targetEle[i].style[targetEleProp] = sourceEleVal;
                         }
             }}}}
 
