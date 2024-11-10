@@ -1,37 +1,35 @@
 /** ----------------------------------------- Contact Styles ----------------------------------------- **/
 
-#contact_w {
-
-}
-
-#contact_form_w  {
-    display: grid;
-    grid-template-columns: 620px 360px;
+#contact_form_w {
     margin: 30px 0 0 0;
 }
 
-#contact_form_w form[name=contact] ul li {
+#contact_form ul li {
     list-style-type: none;
 }
 
-#contact_form_w form[name=contact] input, textarea {
+#contact_form ul li {
+    display: flex;
+}
+
+#contact_form form[name=contact] input, textarea {
     font-family: Helvetica;
     font-size: 15px;
     font-weight: 300;
     color: rgb(51,51,51);
 }
 
-#contact_form_w form[name=contact] input:focus, textarea:focus {    
+#contact_form form[name=contact] input:focus, textarea:focus {    
     outline: 1px solid rgb(51,51,51);
 }
 
-#contact_form_w form[name=contact] ul li > label {
+#contact_form form[name=contact] ul li > label {
     font-family: Helvetica;
     font-size: 16px;
     font-weight: 600;
 }
 
-#contact_form_w form[name=contact] ul li > label > em {
+#contact_form form[name=contact] ul li > label > em {
     color: rgb(255,0,0);
 }
 
@@ -41,72 +39,33 @@
     border-radius: 10px;
 }
 
-#contact_form_w form[name=contact] ul li > *.adjacent-first {
-    float: left;
+#contact_form form[name=contact] ul li > .label-first-name {
     width: 240px;
-    padding: 0;
-    border: none;
-    margin: 0 0 5px 10px;    
-}
-
-#contact_form_w form[name=contact] ul li > label.adjacent-first {
     margin: 10px 0 5px 15px;
 }
 
-#contact_form_w form[name=contact] ul li > *.adjacent-second {
-    float: left;
+#contact_form form[name=contact] ul li > .label-last-name {
     width: 240px;
-    padding: 0;
-    border: none;
-    margin: 0 0 5px 20px;
-}
-
-#contact_form_w form[name=contact] ul li > label.adjacent-second {
     margin: 10px 0 5px 42px;
 }
 
-#contact_form_w form[name=contact] ul li > label.only {
-    display: block;
-    margin: 10px 0 0 15px;
-}
-
-#contact_form_w form[name=contact] ul li > input[type=text].only {
-    width: 522px;
-    margin: 5px 0 0 10px;
-}
-
-#contact_form_w form[name=contact] ul li > textarea {
-    width: 522px;
+#contact_form form[name=contact] ul li > .input-first-name {
+    width: 240px;
     padding: 10px;
-    border: 1px solid #ccc;
-    margin: 5px 0 10px 10px;
-    border-radius: 10px;
-    resize: none;
+    margin: 0 0 5px 10px;
 }
 
-#contact_form_w form[name=contact] ul li > input[type=submit] {
-    width: 544px;
-    padding: 15px 0 15px 0;   
-    border: none;
-    border-radius: 15px;
-    margin: 20px 0 10px 10px;
-    font-weight: 600;
-    background-color: rgba(20,124,123,1);
-    color: #FFF;
+#contact_form form[name=contact] ul li > .input-last-name {
+    width: 240px;
+    padding: 10px;
+    margin: 0 0 5px 20px;
 }
 
-#contact_form_w form[name=contact] ul li > input[type=submit]:hover {
-    background-color: rgb(4,132,100);
-    transition-duration: .5s; 
-    cursor: pointer;    
+#contact_form form[name=contact] ul li > .error-msg {
+    padding: 5px 0 5px 0;
+    margin: 0 0 0 20px;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgb(255,0,0);  
 }
-
-#contact_form_w form[name=contact] ul li.form-submit-msg {
-    width: 544px;
-    height: 50px;
-    margin: 20px 0 10px 10px;
-}
-
-
-
-

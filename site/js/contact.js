@@ -3,11 +3,31 @@ contact.form = {};
 
 window.onload = () => {
     contact.setVars();
+    contact.setStyles();
     contact.bindEvents();
 }
 
 contact.setVars = () => {
     contact.form = document.querySelector('#contact');
+}
+
+contact.setStyles = () => {
+
+    
+
+    const la = new LAStyles();
+    la.setTargettoSourceStyles(
+    
+        // Site footer statment to be centered according to logo height.
+        {
+            '.error-msg' : {
+                'lineHeight' : {
+                    '.input-first-name' : 'offsetHeight'
+                }
+            }
+        }
+    );
+    
 }
 
 contact.bindEvents = () => {

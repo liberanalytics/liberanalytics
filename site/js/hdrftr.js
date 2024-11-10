@@ -1,6 +1,6 @@
 window.onload = () => {
 
-    var la = new LAStyles();
+    const la = new LAStyles();
     la.setTargettoSourceStyles(
 
         // Site footer statment to be centered according to logo height.

@@ -24,15 +24,24 @@ class LAStyles {
                     for (const sourceEleIdentifier in pEleStylesToSet[targetEleIdentifier][targetEleProp]) {
                         
                         // Set the target & source DOM elements as well as the source element's property/value.
-                        var targetEle       = document.querySelectorAll(targetEleIdentifier),
-                            sourceEle       = document.querySelector(sourceEleIdentifier),
-                            sourceEleStyle  = window.getComputedStyle(sourceEle),
-                            sourceEleProp   = pEleStylesToSet[targetEleIdentifier][targetEleProp][sourceEleIdentifier],
-                            sourceEleVal    = sourceEleStyle.getPropertyValue(sourceEleProp);
+                        var targetEle               = document.querySelectorAll(targetEleIdentifier),
+                            sourceEle               = document.querySelector(sourceEleIdentifier),
+                            sourceEleStyle          = window.getComputedStyle(sourceEle),
+                            sourceEleProp           = pEleStylesToSet[targetEleIdentifier][targetEleProp][sourceEleIdentifier],
+                            sourceEleValCss         = sourceEleStyle.getPropertyValue(sourceEleProp),
+                            sourceEleValReadOnly    = sourceEle[sourceEleProp];
 
                         // Apply the source element's property value to the target element(s) property.
                         for (let i = 0; i < targetEle.length; i++) {
-                            targetEle[i].style[targetEleProp] = sourceEleVal;
+
+                            // Check if the property to set to is a CSS property or a 
+                            // JS HtmlElement interface read only property.
+                            let sourceEleVal = sourceEleValCss ? sourceEleValCss : sourceEleValReadOnly;
+
+                            // Add px as default unit when no unit is attendant.
+                            sourceEleVal = ( (sourceEleVal.toString().slice(-2)) == 'px' ) ? sourceEleVal : sourceEleVal.toString() + 'px';
+
+                            targetEle[i].style[targetEleProp] = sourceEleValCss;
                         }
             }}}}
 
