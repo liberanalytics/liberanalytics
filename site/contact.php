@@ -39,35 +39,37 @@
                                     <label class="label-second">Last Name<em>*</em></label>                                    
                                 </li>
                                 <li>
-                                    <input name="contact_fname" type="text" title="Enter First Name"
-                                    class="input-first" maxlength="32" data-req="1" data-vx="vxName" data-len="32">
-                                    <input name="contact_lname" type="text" title="Enter Last Name"
-                                    class="input-second" maxlength="32" data-req="1" data-vx="vxName" data-len="32">
-                                    <span class="error-msg"></span>        
+                                    <input name="contact_fname" type="text" title="Enter First Name" class="input-first" 
+                                    maxlength="32" data-id="First name" data-req="1" data-vx="vxName" data-len="32">
+
+                                    <input name="contact_lname" type="text" title="Enter Last Name" class="input-second" 
+                                    maxlength="32" data-id="Last name" data-req="1" data-vx="vxName" data-len="32">
+
+                                    <span id="error_name" class="error-msg"></span>        
                                 </li>
 
                                 <li>
                                     <label class="label-first">Email<em>*</em></label>
                                 </li>
                                 <li>
-                                    <input name="contact_email" type="text" title="Enter Email"
-                                    class="input-only" maxlength="32" data-req="1" data-vx="vxEmail" data-len="32">
-                                    <span class="error-msg"></span>
+                                    <input name="contact_email" type="text" title="Enter Email" class="input-only" 
+                                    maxlength="32" data-id="Email" data-req="1" data-vx="vxEmail" data-len="32">
+                                    <span id="error_email" class="error-msg"></span>
                                 </li>
                                 <li>
                                     <label class="label-first">Subject<em>*</em></label> 
                                 </li>
                                 <li>
-                                    <input name="contact_subject" type="text" title="Enter Subject"
-                                    class="input-only" maxlength="32" data-req="1" data-vx="vxAlphaNum" data-len="32">
-                                    <span class="error-msg"></span>
+                                    <input name="contact_subject" type="text" title="Enter Subject" class="input-only"
+                                     maxlength="32" data-id="Subject" data-req="1" data-vx="vxAlphaNum" data-len="32">
+                                    <span id="error_subject" class="error-msg"></span>
                                 </li>
                                 <li>
                                     <label class="label-first">Message<em>*</em></label> 
                                 </li>
                                 <li>
-                                    <textarea name="contact_msg" rows="8" cols="48" data-req="1" data-vx="vxMsg" data-len="512"></textarea>
-                                    <span class="error-msg"></span>
+                                    <textarea name="contact_msg" rows="8" cols="48" data-id="Message" data-req="1" data-vx="vxMsg" data-len="512"></textarea>
+                                    <span id="error_msg" class="error-msg"></span>
                                 </li>
                                 <li>
                                     <li><input name="contact_submit" type="submit" value="SUBMIT"></li> 

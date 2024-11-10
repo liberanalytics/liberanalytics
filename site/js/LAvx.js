@@ -1,8 +1,13 @@
 class LAvx {
 
+    /**
+     * 
+     * 
+     */
     static vxReq = 'req';
     static vxType = 'vx';
     static vxLen = 'len';
+    static vxId = 'id';
 
     /**
      * Creates a new LiberAnalytics validation class.
@@ -17,8 +22,8 @@ class LAvx {
 
         let vxName = 
         
-            (! ( RegExp('^[A-Za-z]+(\'|\-)?[A-Za-z]+$').test(pxVal) && 
-            ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) ) ) ) ? 'Invalid' : '';
+            ( RegExp('^[A-Za-z]+(\'|\-)?[A-Za-z]+$').test(pxVal) && 
+            ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) ) );
 
         return vxName;
 

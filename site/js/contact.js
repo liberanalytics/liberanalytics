@@ -18,6 +18,8 @@ contact.setStyles = () => {
 
     //
     laStyle.setTargettoSourceStyles(laHdrFtr.getLAHdrFtrStyles());
+
+    laStyle.setTargettoSourceStyles()
     
 }
 
@@ -35,27 +37,35 @@ contact.submit = () => {
     let formValid = true;
 
     for ( let i=0; i < vxData.elements.length; i++ ) {
-            
+
+        //
         let 
             vxDataName = vxData[i].name,
             vxDataVal = vxData[i].value,
             vxDataReq = vxData[i].dataset[LAvx.vxReq],
             vxDataVx = vxData[i].dataset[LAvx.vxType],
-            vxDataLen = vxData[i].dataset[LAvx.vxLen];
+            vxDataLen = vxData[i].dataset[LAvx.vxLen],
+            vxDataId = vxData[i].dataset[LAvx.vxId];
 
         //
         if (vxDataReq) {
 
             //
-            let errorMsg = lavx[vxDataVx](vxDataName, vxDataVal, vxDataLen);
-            //let errorMsg = lavx.vxName(vxDataName, vxDataVal, vxDataLen);
-            if (errorMsg) {
-                // Populate error message to E.
+            if (!lavx[vxDataVx](vxDataName, vxDataVal, vxDataLen)) {
+
+                const error_msg = vxDataId + ' is invalid.';
+                let error_ele_id = vxDataName.includes('name') ? 'error_name' : vxDataName.replace('contact', 'error');
+                error_ele_id = '#' + error_ele_id;
+                document.querySelector(error_ele_id).textContent = error_msg;
                 formValid = false;
+
             }
+
+
         }
     }
 
+    //
     if (formValid) {
         // Submit data to endpoint api.
     }
