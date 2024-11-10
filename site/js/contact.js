@@ -36,6 +36,12 @@ contact.submit = () => {
     const lavx = new LAvx();
     let formValid = true;
 
+    //
+    document.querySelectorAll('.error-msg').forEach(element => {
+        element.textContent = '';
+    });
+
+
     for ( let i=0; i < vxData.elements.length; i++ ) {
 
         //
@@ -51,7 +57,7 @@ contact.submit = () => {
         if (vxDataReq) {
 
             //
-            if (!lavx[vxDataVx](vxDataName, vxDataVal, vxDataLen)) {
+            if (!lavx[vxDataVx](vxDataVal, vxDataLen)) {
 
                 const error_msg = vxDataId + ' is invalid.';
                 let error_ele_id = vxDataName.includes('name') ? 'error_name' : vxDataName.replace('contact', 'error');
@@ -60,8 +66,6 @@ contact.submit = () => {
                 formValid = false;
 
             }
-
-
         }
     }
 

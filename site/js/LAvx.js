@@ -18,12 +18,13 @@ class LAvx {
     }
 
     /** */
-    vxName = (pxName, pxVal, pxLen, pxMinNumChars = 2) => {
+    vxName = (pxVal, pxLen, pxMinNumChars = 2) => {
 
-        let vxName = 
+        const vxName = 
         
             ( RegExp('^[A-Za-z]+(\'|\-)?[A-Za-z]+$').test(pxVal) && 
-            ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) ) );
+            ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) )
+            );
 
         return vxName;
 
@@ -31,22 +32,33 @@ class LAvx {
 
     /** */
     vxEmail = (pxVal, pxLen) => {
-        console.log(pxVal);
+        
+        const vxEmail =
+        
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(pxVal);
+ 
+        return vxEmail;
+
     }
     
     /** */
-    vxAlphaNum = (pxVal, pxLen) => {
-        console.log(pxVal);
+    vxAlphaNum = (pxVal, pxLen, pxMinNumChars = 3) => {  
+
+        const vxAlphaNum = 
+
+            RegExp('^[A-Za-z0-9 ]{' + pxMinNumChars.toString() + ',' + pxLen.toString() + '}$').test(pxVal);
+
+        return vxAlphaNum;
     }
     
     /** */
-    vxMsg = (pxVal, pxLen) => {
-        console.log(pxVal);
-    }     
+    vxMsg = (pxVal, pxLen, pxMinNumChars = 3) => {
 
-    /** */
-    vx = (vxData) => {        
+        const vxMsg = 
 
+            RegExp('^[A-Za-z0-9 \\.\\?\\!\\;\\/\\-]{' + pxMinNumChars.toString() + ',' + pxLen.toString() + '}$').test(pxVal);
+
+        return vxMsg;        
     }
 
 } // End class LAvx.
