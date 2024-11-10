@@ -15,10 +15,13 @@ class LAvx {
     /** */
     vxName = (pxName, pxVal, pxLen, pxMinNumChars = 2) => {
 
-        if (! ( RegExp('^[A-Za-z]+(\'|\-)?[A-Za-z]+$').test(pxVal) && 
-        ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) ) ) ) {
-            return 'Invalid';
-        }
+        let vxName = 
+        
+            (! ( RegExp('^[A-Za-z]+(\'|\-)?[A-Za-z]+$').test(pxVal) && 
+            ( (pxVal.length >= pxMinNumChars) && (pxVal.length <= pxLen) ) ) ) ? 'Invalid' : '';
+
+        return vxName;
+
     }
 
     /** */

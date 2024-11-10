@@ -47,7 +47,8 @@ contact.submit = () => {
         if (vxDataReq) {
 
             //
-            let errorMsg = window["lavx"][vxDataVx](vxDataName, vxDataVal, vxDataLen);
+            let errorMsg = lavx[vxDataVx](vxDataName, vxDataVal, vxDataLen);
+            //let errorMsg = lavx.vxName(vxDataName, vxDataVal, vxDataLen);
             if (errorMsg) {
                 // Populate error message to E.
                 formValid = false;
