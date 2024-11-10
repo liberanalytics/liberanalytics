@@ -39,26 +39,32 @@
     border-radius: 10px;
 }
 
-#contact_form form[name=contact] ul li > .label-first-name {
+#contact_form form[name=contact] ul li > .label-first {
     width: 240px;
     margin: 10px 0 5px 15px;
 }
 
-#contact_form form[name=contact] ul li > .label-last-name {
+#contact_form form[name=contact] ul li > .label-second {
     width: 240px;
     margin: 10px 0 5px 42px;
 }
 
-#contact_form form[name=contact] ul li > .input-first-name {
+#contact_form form[name=contact] ul li > .input-first {
     width: 240px;
     padding: 10px;
     margin: 0 0 5px 10px;
 }
 
-#contact_form form[name=contact] ul li > .input-last-name {
+#contact_form form[name=contact] ul li > .input-second {
     width: 240px;
     padding: 10px;
     margin: 0 0 5px 20px;
+}
+
+#contact_form form[name=contact] ul li > .input-only {
+    width: 522px;
+    padding: 10px;
+    margin: 5px 0 0 10px;
 }
 
 #contact_form form[name=contact] ul li > .error-msg {
@@ -69,4 +75,30 @@
     line-height: 30px;
     font-weight: 300;
     color: rgb(255,0,0);  
+}
+
+#contact_form form[name=contact] ul li > textarea {
+    width: 522px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0 10px 10px;
+    border-radius: 10px;
+    resize: none;
+}
+
+#contact_form_w form[name=contact] ul li > input[type=submit] {
+    width: 544px;
+    padding: 15px 0 15px 0;   
+    border: none;
+    border-radius: 15px;
+    margin: 20px 0 40px 10px;
+    font-weight: 600;
+    background-color: rgba(20,124,123,1);
+    color: #FFF;
+}
+
+#contact_form_w form[name=contact] ul li > input[type=submit]:hover {
+    background-color: rgb(4,132,100);
+    transition-duration: .5s; 
+    cursor: pointer;    
 }

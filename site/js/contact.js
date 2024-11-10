@@ -13,11 +13,11 @@ contact.setVars = () => {
 
 contact.setStyles = () => {
 
-    const la = new LAStyles();
+    const laStyle = new LAStyles();
     const laHdrFtr = new LAHdrFtr();
 
     //
-    la.setTargettoSourceStyles(laHdrFtr.getLAHdrFtrStyles());
+    laStyle.setTargettoSourceStyles(laHdrFtr.getLAHdrFtrStyles());
     
 }
 
