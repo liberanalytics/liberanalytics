@@ -43,7 +43,7 @@
                                     class="input-first" maxlength="32" data-req="1" data-vx="vxName" data-len="32">
                                     <input name="contact_lname" type="text" title="Enter Last Name"
                                     class="input-second" maxlength="32" data-req="1" data-vx="vxName" data-len="32">
-                                    <span class="error-msg">Please enter a first name.</span>        
+                                    <span class="error-msg"></span>        
                                 </li>
 
                                 <li>
@@ -52,7 +52,7 @@
                                 <li>
                                     <input name="contact_email" type="text" title="Enter Email"
                                     class="input-only" maxlength="32" data-req="1" data-vx="vxEmail" data-len="32">
-                                    <span class="error-msg">Please enter a first name.</span>
+                                    <span class="error-msg"></span>
                                 </li>
                                 <li>
                                     <label class="label-first">Subject<em>*</em></label> 
@@ -60,14 +60,14 @@
                                 <li>
                                     <input name="contact_subject" type="text" title="Enter Subject"
                                     class="input-only" maxlength="32" data-req="1" data-vx="vxAlphaNum" data-len="32">
-                                    <span class="error-msg">Please enter a first name.</span>
+                                    <span class="error-msg"></span>
                                 </li>
                                 <li>
                                     <label class="label-first">Message<em>*</em></label> 
                                 </li>
                                 <li>
                                     <textarea name="contact_msg" rows="8" cols="48" data-req="1" data-vx="vxMsg" data-len="512"></textarea>
-                                    <span class="error-msg">Please enter a first name.</span>
+                                    <span class="error-msg"></span>
                                 </li>
                                 <li>
                                     <li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
