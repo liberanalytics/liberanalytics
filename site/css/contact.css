@@ -12,6 +12,11 @@
     display: flex;
 }
 
+#contact_form p {
+    width: 520px;
+    margin: 40px 0 40px 15px;
+}
+
 #contact_form form[name=contact] input, textarea {
     font-family: Helvetica;
     font-size: 15px;

@@ -31,6 +31,10 @@
 
                     <div id="contact_form">
 
+                        <p class="site-font-emph">
+                            Please contact us with any questions, statements, or suggestions. We would love to hear from you!
+                        </p>
+
                         <form name="contact" id="contact" method="post">
 
                             <ul>
