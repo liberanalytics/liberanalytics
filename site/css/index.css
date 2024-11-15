@@ -77,7 +77,7 @@
     font-family: "Helvetica";    
     font-size: 18px;
     font-weight: 300;
-    color: rgba(117,117,117,1);     
+    color: rgb(117,117,117);     
 }
 
 .featured-post-cat:link {

@@ -31,7 +31,7 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img src="assets/la_logo_135.png">
+                            <img src="assets/whydata_195.gif">
                         </div>             
                     
                         <div class="featured-post-desc">      

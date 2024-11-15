@@ -1,0 +1,31 @@
+/** ----------------------------------------- Whydata Styles ----------------------------------------- **/
+
+#blog_heading_w {
+    margin: 50px 10px 20px 10px;
+}
+
+.blog-heading {
+    margin: 20px 0 20px 0;
+    font-size: 42px;
+    font-weight: 300;
+    color: rgba(20,124,123,1);
+}
+
+.blog-date {
+    margin: 20px 0 20px 0;
+    font-size: 16px;
+    color: rgb(117,117,117);
+}
+
+.blog-desc {
+    margin: 20px 0 20px 0;
+}
+
+.blog-img {
+    
+}
+
+#blog_w {
+    width: 720px;
+    margin: 30px auto 0 auto;
+}
