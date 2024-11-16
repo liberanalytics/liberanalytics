@@ -1,5 +1,9 @@
 /** ----------------------------------------- Reset UA Styles ----------------------------------------- **/
 
+@font-face {
+    font-family: Studio-Feixen-Sans;
+    src: url('../assets/sfs.woff2') format('woff2');
+}
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr,
 address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var,
@@ -212,14 +216,14 @@ main {
 }
 
 .site-font-std {
-    font-family: Helvetica;
+    font-family: Studio-Feixen-Sans, Helvetica;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 00;
     color: rgb(78,79,95);
 }
 
 .site-font-emphs {
-    font-family: Helvetica;
+    font-family: Studio-Feixen-Sans;
     font-size: 18px;
     font-weight: 300;
     line-height: 21px;
@@ -227,7 +231,7 @@ main {
 }
 
 .site-font-emph {
-    font-family: Helvetica;
+    font-family: Studio-Feixen-Sans;
     font-size: 20px;
     font-weight: 300;
     line-height: 24px;
@@ -246,8 +250,8 @@ main {
     display: block;
     padding: 10px 0 10px 0;
     border-bottom: 1px solid rgba(196,196,196, 1);
-    font-family: Helvetica;
-    font-size: 16px;
+    font-family: Studio-Feixen-Sans;
+    font-size: 18px;
     font-weight: 300;   
     color: rgb(51,51,51);
     text-decoration: none;;

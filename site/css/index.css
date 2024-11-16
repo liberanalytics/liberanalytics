@@ -62,7 +62,7 @@
 
 .featured-post-desctxt {
     padding: 5px 0 0 0;
-    font-family: "Helvetica";
+    font-family: Studio-Feixen-Sans;
     font-size: 18px;
     line-height: 1.5;
     color: rgb(78,79,95);    
@@ -74,7 +74,7 @@
 
 .featured-post-date {
     float: left;
-    font-family: "Helvetica";    
+    font-family: Studio-Feixen-Sans;    
     font-size: 18px;
     font-weight: 300;
     color: rgb(117,117,117);     
@@ -82,7 +82,7 @@
 
 .featured-post-cat:link {
     float: right;
-    font-family: "Helvetica";    
+    font-family: Studio-Feixen-Sans;    
     font-size: 18px;
     font-weight: 300;
     color: rgba(88,135,191,1);
