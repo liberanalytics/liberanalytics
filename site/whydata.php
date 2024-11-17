@@ -26,7 +26,7 @@
 
             <h1 class="blog-heading site-font-fancyl">Why Data?</h1>
             <h3 class="blog-date">November 15, 2024</h6>
-            <h2 class="blog-desc site-font-emph">Looks at the need for data and explores a practical example to show data's importance in solving problems.</h5>
+            <h2 class="blog-desc site-font-emph">Explores the importance of data and information in decision making.</h5>
             
 
         </section>
@@ -78,7 +78,7 @@
                 and meaning to data ultimately leading to the fruits of data's labor. Summary statistics, graphs, charts, financial statements, and reports
                 in general are examples of information that humans use to make decisions.
 
-            <h1 class="blog-subheading">A practical example</h1>
+            <h1 class="blog-subheading">Summary</h1>
 
             <p>
                 
