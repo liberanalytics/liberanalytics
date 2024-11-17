@@ -29,3 +29,7 @@
     width: 720px;
     margin: 30px auto 0 auto;
 }
+
+#blog_w p {
+    margin: 20px 0 20px 0;
+}

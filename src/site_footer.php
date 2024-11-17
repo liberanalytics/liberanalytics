@@ -3,7 +3,7 @@
         <div id="site_footer_content" class="page-wrap clear">
 
                 <div id="site_footer_logo" class="site-logo-c">
-                    <img src="assets/la_logo_120.png">
+                    <img src="assets/logo_120.png">
                 </div>
 
                 <div id="site_footer_name" class="site-name">

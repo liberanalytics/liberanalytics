@@ -20,25 +20,26 @@
 
     <main>
 
-    <div id="blog_heading_w">
+    <div id="blog_heading_w" class="site-font-std">
         
         <section>
 
             <h1 class="blog-heading site-font-fancyl">Why Data?</h1>
             <h5 class="blog-desc site-font-emph">Looks at the need for data and explores a practical example to show data's importance in solving problems.</h5>
-            <h6 class="blog-date site-font-std">November 15, 2024</h6>
+            <h6 class="blog-date">November 15, 2024</h6>
 
         </section>
 
 
     </div> <!-- End blog_heading_w -->  
 
-    <div id="blog_w">
+    <div id="blog_w" class="site-font-std">
 
         <section>
 
             <img src="assets/whydata_720.gif">
-            <p></p>
+
+            <p >TEXT</p>
 
         </section>
         
