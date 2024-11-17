@@ -25,8 +25,9 @@
         <section>
 
             <h1 class="blog-heading site-font-fancyl">Why Data?</h1>
-            <h5 class="blog-desc site-font-emph">Looks at the need for data and explores a practical example to show data's importance in solving problems.</h5>
-            <h6 class="blog-date">November 15, 2024</h6>
+            <h3 class="blog-date">November 15, 2024</h6>
+            <h2 class="blog-desc site-font-emph">Looks at the need for data and explores a practical example to show data's importance in solving problems.</h5>
+            
 
         </section>
 
@@ -37,20 +38,46 @@
 
         <section>
 
-            <img src="assets/whydata_720.gif">
+            <img src="assets/whydata_720.gif" class="blog-img">
 
-            <p class="blog-first"> 
+            <p> 
                 <em class="site-font-fancyl">Why</em> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
                 Startups and corporations employ teams of professionals who often specialize in niche functions within
                 data analytics such as data architect, data analyst, or data scientist in order to provide maximum value
                 of their respective function to the enterprise. There must exist a valid and profit driven reason to place
                 such a premium on the function and impact of data. The reason is data provides answers in the form of information
-                that is paramount to the resolution of business problems while contributing to the sustainability and growth
+                that is paramount to the resolution of real-world problems while contributing to the sustainability and growth
                 of organizations.
             </p>
 
-            <p>
+            <h1 class="blog-subheading">Data Integrity</h1>
 
+            <p>
+                High integrity data is a purely objective form of facts not influenced by human subjectivity. 
+                What we mean by integrity in the context of data is that the predicate of a given piece of data can be relied on to be
+                true which entails accuracy, exclusivity or non-duplication, and consistency. Accuracy gives reliability to the literal
+                qualitative or quantitative value. Exclusivity indicates the values are not represented anywhere else in the working dataset.
+                And consistency meaning that the values of each individual datum in the working dataset exist within the realm of possible phenomena.            
+            </p>
+
+            <h1 class="blog-subheading">Necessity of data to decision making</h1>
+
+            <p>
+                Whether making journal entries to a general ledger, recording a hospital's daily admissions and discharges, or predicting the extent of
+                raw materials needed for a factory's anticipated production, data is central to facilitating correct decisions. Driving decisions
+                according to conclusions drawn from data instills in the decision confidence of correctness - data are facts and decisions based on facts
+                are likely to produce correct results. A typical decision making process may be illustrated like the below.
+            </p>
+
+            <h1 class="blog-subheading">Data versus information</h1>
+
+            <p>
+                data will result in information usable by stakeholders to make insightful decisions.
+            </p>            
+
+            <h1 class="blog-subheading">A practical example</h1>
+
+            <p>
                 
             </p>
 
