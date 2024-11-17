@@ -59,7 +59,7 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img src="assets/la_logo_135.png">
+                            <img src="assets/logo_195.png">
                         </div>             
                     
                         <div class="featured-post-desc">      
@@ -87,7 +87,7 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img src="assets/la_logo_135.png">
+                            <img src="assets/logo_195.png">
                         </div>             
                     
                         <div class="featured-post-desc">      
@@ -154,7 +154,7 @@
                 </p>
 
                 <div id="mission_graphic">
-                    <img src="assets/la_mission.png">
+                    <img src="assets/mission.png">
                 </div>                    
 
             </div> <!-- End mission -->
