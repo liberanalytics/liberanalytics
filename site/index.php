@@ -119,6 +119,7 @@
                 <nav id="latest_posts_nav">
 
                     <a href="/blog?id=27" class="site-href">When sorting on database side is a good idea</a>
+                    <a href="/blog?id=27" class="site-href">Source control for databases?</a>
                     <a href="/blog?id=28" class="site-href">Should primary keys be used in data warehouses?</a>
                     <a href="/blog?id=29" class="site-href">MS Excel VBA Ado to read resultsets into .xlsx</a>
                     <a href="/blog?id=30" class="site-href">Examples of SQL Unit Tests</a>

@@ -33,13 +33,26 @@
 
     </div> <!-- End blog_heading_w -->  
 
-    <div id="blog_w" class="site-font-std">
+    <div id="blog_w" class="site-font-stdl">
 
         <section>
 
             <img src="assets/whydata_720.gif">
 
-            <p >TEXT</p>
+            <p class="blog-first"> 
+                <em class="site-font-fancyl">Why</em> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
+                Startups and corporations employ teams of professionals who often specialize in niche functions within
+                data analytics such as data architect, data analyst, or data scientist in order to provide maximum value
+                of their respective function to the enterprise. There must exist a valid and profit driven reason to place
+                such a premium on the function and impact of data. The reason is data provides answers in the form of information
+                that is paramount to the resolution of business problems while contributing to the sustainability and growth
+                of organizations.
+            </p>
+
+            <p>
+
+                
+            </p>
 
         </section>
         

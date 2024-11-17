@@ -219,6 +219,15 @@ main {
     font-family: Studio-Feixen-Sans, Helvetica;
     font-size: 16px;
     font-weight: 300;
+    line-height: 20px;
+    color: rgb(78,79,95);
+}
+
+.site-font-stdl {
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 24px;
     color: rgb(78,79,95);
 }
 
