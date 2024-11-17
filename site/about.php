@@ -27,11 +27,12 @@
 
                 <p class="site-font-emph">
                     <em class="site-font-fancyl">LiberAnalytics</em>
-                    is a data dedicated organization which specializes in educating data professionals and enthusiasts
-                    about the many facets of the world of data. We believe that by showing a variety of different avenues
-                    through which problems in data can be navigated will cultivate creative problem solving in our practioners.
-                    With enough exposure to concepts, techniques, tools, and practice we can gain confidence in our ability to both work with
+                    is a data dedicated organization which specializes in educating data practitioners
+                    about the many facets of the world of data. We believe that showing a variety of different avenues
+                    through which problems in data can be navigated will cultivate creative problem solving mindsets.
+                    With enough exposure to concepts, techniques, tools, and practice we gain confidence in our ability to both work with
                     and extract meaning from data.
+                    
                 </p>
 
             </div> <!-- End about -->

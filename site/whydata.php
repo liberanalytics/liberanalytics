@@ -72,8 +72,11 @@
             <h1 class="blog-subheading">Data versus information</h1>
 
             <p>
-                data will result in information usable by stakeholders to make insightful decisions.
-            </p>            
+                The words data and information are often used interchangeably. However, in the context of data analytics, data and information become terms
+                denoting different things and should be treated with care by the practitioner. Data means raw objective facts such as rows stored in tables
+                in a database or data warehouse and results in information usable by stakeholders to make insightful decisions. Information applies context
+                and meaning to data ultimately leading to the fruits of data's labor. Summary statistics, graphs, charts, financial statements, and reports
+                in general are examples of information that humans use to make decisions.
 
             <h1 class="blog-subheading">A practical example</h1>
 
