@@ -32,7 +32,7 @@
 
         <section>
 
-            <h1 class="blog-heading site-font-fancyl">Why Data?</h1>
+            <h1 class="blog-heading site-font-fancyl">Why do we need Data?</h1>
             <h3 class="blog-date">November 15, 2024</h6>
             <h2 class="blog-desc site-font-emph">Explores the importance of data and information in decision making.</h5>
             
@@ -68,13 +68,12 @@
             <p>
                 Whether making journal entries to a general ledger, recording a hospital's daily admissions and discharges, or predicting the extent of
                 raw materials needed for a factory's anticipated production, data is central to facilitating correct decisions. Driving decisions
-                according to conclusions drawn from data instills in the decision confidence of correctness - data are facts and decisions based on facts
-                are likely to produce correct results. A typical decision making process may be illustrated like the below.
+                according to conclusions drawn from data instills confidence of correctness - data are facts and decisions based on facts
+                are likely to produce correct results. Data's role in providing answers to questions in a decision making process may be illustrated
+                like the below.
             </p>
 
-            <div>
-
-            </div>
+            <img src="assets/whydata_ps.png" id="whydata_ps">
 
             <h1 class="blog-subheading">Data versus information</h1>
 

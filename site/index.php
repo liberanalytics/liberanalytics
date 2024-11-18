@@ -36,11 +36,11 @@
                     
                         <div class="featured-post-desc">      
                             
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">PostgreSQL Database setup best practices on Ubuntu EC2 Instance</a>
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Why do we need Data?</a>
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Explores the importance of data and information in decision making.
                             </p>                                            
                     
                         </div>
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="featured-post-attrs clear">
-                        <span class="featured-post-date">October 12, 1991</span>
+                        <span class="featured-post-date">November 15, 2024</span>
                         <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
                     </div>
                 
