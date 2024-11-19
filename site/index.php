@@ -31,7 +31,7 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img src="assets/whydata_195.gif">
+                            <img src="assets/whydata_195.png">
                         </div>             
                     
                         <div class="featured-post-desc">      

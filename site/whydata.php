@@ -41,7 +41,7 @@
 
         <section>
 
-            <img src="assets/whydata_720.gif" class="blog-img">
+            <img src="assets/whydata_720.png" class="blog-img">
 
             <p> 
                 <em class="site-font-fancyl">Why</em> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
