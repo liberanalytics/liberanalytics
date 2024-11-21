@@ -22,13 +22,10 @@
 
                 <nav id="site_header_nav"> 
                     
-                    <a href="/home">Home</a>
-                    <a href="/blog">Blog</a>
-                    <a href="/education">Education</a>
-                    <a href="/tutorials">Tutorials</a>
-                    <a href="/tutorials">Services</a>
-                    <a href="/about">About</a>
-                    <a href="/contact">Contact</a>
+                    <a href="index.php">Home</a>
+                    <a href="blog.php">Blog</a>
+                    <a href="about.php">About</a>
+                    <a href="contact.php">Contact</a>
 
                 </nav>
 
