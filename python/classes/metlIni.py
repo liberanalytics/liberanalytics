@@ -151,9 +151,8 @@ class metlIni(object):
             os.remove(self.config_file) 
 
         # Create the project directory if does not exist.
-        config_dir = os.path.dirname(self.config_file)
-        if not os.path.isdir(config_dir):
-            os.mkdir(config_dir, 0o700)   
+        if not os.path.isdir(self.project_dir):
+            os.mkdir(self.project_dir, 0o700); os.mkdir(os.path.dirname(self.config_file))
 
         # Generate a key and instantiate fernet.
         key = fernet.generate_key()
