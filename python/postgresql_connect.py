@@ -4,7 +4,6 @@
 #
 # ----------------------------------------------------------------------------------------------------------------
 
-
 import pwd
 import sys
 import os
@@ -14,47 +13,27 @@ import psycopg2 as psql
 
 
 def main():
-    
-    # Get the database host.
-    db_host = getpass('Please enter database host:')
-    config_dir = os.environ['HOME'] + '/' + 'postgresql_' + db_host + '/'
 
-    # Check if the directory exists for the host.
-    if os.path.isdir(config_dir):
-        print(os.environ['HOME'])
+    db_host = 'test'
+    db_name = 'test'
 
-    # Check if user wants to change connection params.
-    #change_params = input('Do you want to change any existing connection parameters?')
-        
-    # Configuration directory doesn't exist; create new connection config params.
-    else:
-        os.mkdir(config_dir)
+    # Get the encryption key.
+    with open(os.environ['HOME'] + '/' + db_name + '.key', 'rb') as key_file:
+        encrypt_key = key_file.read()
 
-        # Generate a key and instantiate fernet.
-        key = fernet.generate_key()
-        finstance = fernet(key)
+    finstance = fernet(encrypt_key)
 
-        # Prompt for the connection parameters.
-        print('Configuration parameters for database host ' + db_host + ' don''t exist. Please provide parameters:')
+    with open(os.environ['HOME'] + '/' + 'postgresql_' + db_host + '/' + db_name + '.ini', 'rb') as f:
 
-        # Store connection parameters as dictionary containing tuples.
-        db_props =  {
+        iter = 0
+        for ln in f:          
 
-            0: ( 'USER', 'wb',  input('Please enter database user name:') ),
-            1: ( 'AUTH', 'a',  getpass('Please enter user''s password:') ),
-            2: ( 'DB', 'a',  input('Please enter database name') ),
-            
-        }
+            if iter == 0:
+                db_user = bytes(finstance.decrypt(ln)).decode('utf-8')
+                iter += 1
 
-        '''
-        4: ('F', 'a', self.fernet_file, self.config_file),
-        5: ('K', 'a', self.key_file, self.config_file),
-        6: ('', 'wb', key, self.fernet_file),
-        7: ('', 'wb', fkey.encrypt(bytes(getpass(self.ini_type + ' Config: Please enter password: '), 'utf-8')), self.key_file)
-        '''
-
-        # Create the connection configuration file.
-        with open(config_dir + db_props[2][2]) as f:
+            else:
+                db_auth = bytes(finstance.decrypt(ln)).decode('utf-8')
 
 
 if __name__ == '__main__':
