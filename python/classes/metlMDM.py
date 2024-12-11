@@ -8,7 +8,7 @@
 # ----------------------------------------------------------------------------------------------------------------
 
 import psycopg2 as psql
-from metlIni import metlIni
+from classes.metlIni import metlIni
 
 """ Class for handling metl data pipeline instruction set execution. """
 class metlMDM(metlIni):

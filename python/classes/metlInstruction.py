@@ -8,8 +8,7 @@
 # ----------------------------------------------------------------------------------------------------------------
 
 import psycopg2 as psql
-from metlIni import metlIni
-
+from classes.metlIni import metlIni
 
 """ Class for connecting & executing commands retrieved from METL database. """
 class metlInstruction(metlIni):
