@@ -9,7 +9,6 @@ import sys
 import os
 from getpass import getpass
 from cryptography.fernet import Fernet as fernet
-import psycopg2 as psql
 
 
 def main():
@@ -30,6 +29,8 @@ def main():
 
         # Check if user wants to change connection params.
         change_params = input('Do you want to change any existing connection parameters? yes/no')
+
+        # ^ connection parameters if yes.
         
     # 
     else:
@@ -58,6 +59,8 @@ def main():
         with open(config_file, 'wb') as f:
             for prop in db_props:
                 f.write(db_props[prop][2] + b'\n')
+
+        # ^ chmod on key and ini files to make unreadable/unwritable.
 
 
 
