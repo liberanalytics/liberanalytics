@@ -12,56 +12,55 @@ from cryptography.fernet import Fernet as fernet
 
 
 def main():
+
+    # Generate symmetric encryption key, save to file, & instantiate fernet.
+    key = fernet.generate_key()
+    finstance = fernet(key)    
     
     # Get the database host.
     db_host = input('Please enter database host:')
-    config_dir = os.environ['HOME'] + '/' + 'postgresql_' + db_host + '/'
+    config_dir = os.environ['HOME'] + '/' + 'conn' + '/' + db_host
 
     # Get the database name.
     db_name = input('Please enter database name:')
 
     # Configuration & key files.
-    config_file = config_dir + db_name + '.ini'
-    key_file = os.environ['HOME'] + '/' + db_name + '.key'
+    config_file = config_dir + '/' + db_name + '.ini'
+    key_file = config_dir + '/' + db_name + '.key'        
 
-    # Check if the database configureation file already exists...
-    if os.path.isfile(config_file):
+    # Create the config dir if not yet created.
+    if not os.path.isdir(config_dir):
 
-        # Check if user wants to change connection params.
-        change_params = input('Do you want to change any existing connection parameters? yes/no')
+        # Create the conn dir if not exists.
+        config_parent_dir = os.path.split(config_dir)[0]
+        if not os.path.isdir(config_parent_dir):
+            os.mkdir(config_parent_dir)
 
-        # ^ connection parameters if yes.
+        # Create config dir.
+        os.mkdir(config_dir)
+
+    # Write the fernet key.
+    with open(key_file, 'wb') as f:
+        f.write(key)
+
+    # Prompt for the connection params.
+    print('Please provide connection parameters for database host ' + db_host + ', database ' + db_name + ' : ')
+
+    # Store connection params as dict containing tuples.
+    db_props =  {
+
+        0: ( 'USER', 'wb',  finstance.encrypt(bytes(getpass('Please enter database user name:'), 'utf-8')) ),
+        1: ( 'AUTH', 'wb',  finstance.encrypt(bytes(getpass('Please enter user password:'), 'utf-8') ))
         
-    # 
-    else:
+    }
 
-        # Create the config directory if not yet created.
-        if not os.path.isdir(config_dir):
-            os.mkdir(config_dir)
+    # Write connection params in sequence.
+    with open(config_file, 'wb') as f:
+        for prop in db_props:
+            f.write(db_props[prop][2] + b'\n')
 
-        # Generate symmetric encryption key, save to file, & instantiate fernet.
-        key = fernet.generate_key()
-        finstance = fernet(key)
-        with open(key_file, 'wb') as f:
-            f.write(key)
-
-        # Prompt for the connection parameters.
-        print('Configuration parameters for database host ' + db_host + ' don''t exist. Please provide parameters:')
-
-        # Store connection parameters as dictionary containing tuples.
-        db_props =  {
-
-            0: ( 'USER', 'wb',  finstance.encrypt(bytes(getpass('Please enter database user name:'), 'utf-8')) ),
-            1: ( 'AUTH', 'wb',  finstance.encrypt(bytes(getpass('Please enter user password:'), 'utf-8') ))
-            
-        }
-
-        with open(config_file, 'wb') as f:
-            for prop in db_props:
-                f.write(db_props[prop][2] + b'\n')
-
-        # ^ chmod on key and ini files to make unreadable/unwritable.
-
+    # chmod on key and ini files to make unreadable/unwritable.
+    os.chmod(config_file, 000); os.chmod(key_file, 000)
 
 
 if __name__ == '__main__':
