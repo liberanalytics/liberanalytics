@@ -34,7 +34,6 @@
             <h1 class="blog-heading site-font-fancyl">Why do we need Data?</h1>
             <h3 class="blog-date">November 15, 2024</h3>
             <h2 class="blog-desc site-font-emph">Explores the importance of data and information in decision making.</h2>
-            
 
         </section>        
 

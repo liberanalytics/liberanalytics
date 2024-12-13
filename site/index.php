@@ -58,16 +58,16 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img src="assets/logo_195.png">
+                            <img src="assets/pythonpostgreconnect195.png">
                         </div>             
                     
                         <div class="featured-post-desc">      
                             
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Using relational theory to plot your sql queries</a>
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Connecting Python to a Postgresql database</a>
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Discover how to connect Python to a Postgresql database without storing credentials in plain text.
                             </p>                                            
                     
                         </div>
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="featured-post-attrs clear">
-                        <span class="featured-post-date">September 25, 2024</span>
+                        <span class="featured-post-date">December 15, 2024</span>
                         <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
                     </div>
                 

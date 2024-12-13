@@ -40,14 +40,26 @@
 
         </section>
 
-        <p>
-            <em class="site-font-fancyl">Connecting</em> Python to Postgresql is made seamless with the psycopg2 library.
-            This article demonstrates how to connect to a Postgresql database using Python without storing credentials
-            in plain text or in the .pgpass file. The architecture we will be using consists of a Postgresql database
-            hosted on an Ubuntu 24 (Noble) AWS EC2 instance and Python 3.10 running on Ubuntu 22 (Jammy).
-        </p>
-
         <section>
+
+            <img src="assets/pythonpostgreconnect720.png" class="blog-img">
+
+            <p>
+                <em class="site-font-fancyl">Connecting</em> Python to Postgresql is made seamless with the psycopg2 library.
+                This article demonstrates how to connect to a Postgresql database using Python without storing credentials
+                in plain text or in the .pgpass file. The architecture we will be using consists of a Postgresql database
+                hosted on an Ubuntu 24 (Noble) AWS EC2 instance and Python 3.10 running on Ubuntu 22 (Jammy).
+            </p>
+
+
+
+            <h1 class="blog-subheading">Requirements</h1>
+
+            <ul>
+                <li>Python 3 (preferably running on Ubuntu)</li>
+                <li>Python libraries: psycopg2, cryptography</li>
+                <li>Postgresql database (needs to accept TCP/IP connections)</li>
+            </ul>
 
         </section>
         
