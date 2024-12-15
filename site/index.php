@@ -67,7 +67,7 @@
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                            Discover how to connect Python to a Postgresql database without storing credentials in plain text.
+                            Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.
                             </p>                                            
                     
                         </div>
