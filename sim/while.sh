@@ -1,7 +1,7 @@
 #!/bin/bash
 # Return json formatted styles from css file.
 
-cssfile="/var/www/html/liberanalytics/css/global_styles.css"
+cssfile="/var/www/html/liberanalytics/site/css/la.css"
 
 while IFS=": " read -r prop value
 do

@@ -20,22 +20,15 @@
 
     <main>
 
-    <div id="blog_heading_w" class="site-font-std">
-        
-
-
-
-    </div> <!-- End blog_heading_w -->  
-
     <div id="blog_w" class="site-font-stdl">
 
-        <section>
+        <header>
 
             <h1 class="blog-heading site-font-fancyl">Why do we need Data?</h1>
             <h3 class="blog-date">November 15, 2024</h3>
             <h2 class="blog-desc site-font-emph">Explores the importance of data and information in decision making.</h2>
 
-        </section>        
+        </header>        
 
         <section>
 
@@ -71,7 +64,7 @@
                 like the below.
             </p>
 
-            <img src="assets/whydata_ps.png" id="whydata_ps">
+            <img src="assets/whydata_ps.png" style="display: block; margin: 0 auto 0 auto;">
 
             <h1 class="blog-subheading">Data versus information</h1>
 
