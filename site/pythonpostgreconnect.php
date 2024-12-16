@@ -67,39 +67,71 @@
 
                     <ol>
                         <li><span class="blog-python-comment"># Import required modules.</span></li>
-                        <li><span class="blog-python-import">import </span><span>pwd</span></li>
-                        <li><span class="blog-python-import">import </span><span>sys</span></li>
-                        <li><span class="blog-python-import">import </span><span>os</span></li>
+                        <li><span class="blog-python-import">import </span><span class="blog-python-builtin">pwd</span></li>
+                        <li><span class="blog-python-import">import </span><span class="blog-python-builtin">sys</span></li>
+                        <li><span class="blog-python-import">import </span><span class="blog-python-builtin">os</span></li>
                         <li>
-                            <span class="blog-python-import">from </span><span>getpass</span>
-                            <span class="blog-python-import">import </span><span>getpass</span>
+                            <span class="blog-python-import">from </span><span class="blog-python-builtin">getpass</span>
+                            <span class="blog-python-import">import </span><span class="blog-python-builtin">getpass</span>
                         </li>
-                        <li><span class="blog-python-import">import </span><span>boto3</span></li>
+                        <li><span class="blog-python-import">import </span><span class="blog-python-builtin">boto3</span></li>
                     </ol>
                     
                     <ol>    
                         <li><span class="blog-python-comment"># Get the database host & database name.</span></li>
                         <li>
-                            <span>db_host = </span><span class="blog-python-function">input(</span>
-                            <span class="blog-python-string">'Please enter database host:'</span>
-                            <span class="blog-python-function">)</span>
+                            <span>db_host = </span><span class="blog-python-function">input(</span><!--
+                            --><span class="blog-python-string">'Please enter database host:'</span><!--
+                            --><span class="blog-python-function">)</span>
                         </li>
                         <li>
-                            <span>db_name = </span><span class="blog-python-function">input(</span>
-                            <span class="blog-python-string">'Please enter database name:'</span>
-                            <span class="blog-python-function">)</span>                   
-                        </li>
+                            <span>db_name = </span><span class="blog-python-function">input(</span><!--
+                            --><span class="blog-python-string">'Please enter database name:'</span><!--
+                            --><span class="blog-python-function">)</span>                   
                         </li>
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Config file.</li>
+                        <li><span class="blog-python-comment"># Config file.</span></li>
                         <li>
                             <span>config_dir = [</span><span class="blog-python-string">'HOME'</span><span>] +</span>
                             <span class="blog-python-string">'/'</span><span> + </span><span class="blog-python-string">'conn'</span>
                             <span>+</span><span class="blog-python-string">'/'</span><span> + db_host</span>
-                            
+                        </li>
+                        <li>
+                            <span>config_file = config_dir + </span><span class="blog-python-string">'/'</span><span> + db_name + </span>
+                            <span class="blog-python-string">.ini</span>
                         </li>                        
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Store connection credentials delimited by a BEL utf8 char.</span></li>
+
+                        <li>
+                            <span>delimiter = </span><span class="blog-python-builtin">bytes</span><!--
+                        --><span>(</span><span class="blog-python-function">chr(</span>7</span><!--
+                        --><span class="blog-python-function">)</span><span>, </span><!--
+                        --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span>
+                        </li>
+
+                        <li><span>credentials_binary = \</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-builtin">bytes</span><!--
+                        --><span class="blog-python-function">(getpass(</span><!--
+                        --><span class="blog-python-string">'Please enter database user name:'</span><!--
+                        --><span class="blog-python-function">)</span><span>, </span><!--
+                        --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span><!--
+                        --><span> + \</span>
+                        </li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>delimiter + \</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-builtin">bytes</span><!--
+                        --><span class="blog-python-function">(getpass(</span><!--
+                        --><span class="blog-python-string">'Please enter database user password:'</span><!--
+                        --><span class="blog-python-function">)</span><span>, </span><!--
+                        --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span><!--
+                        --><span> + \</span>                            
+                        </li>
+
+                        </li>
                     </ol>
                     
                 </code>
