@@ -57,8 +57,11 @@
             <h1 class="blog-subheading">Get database connection parameters</h1>
 
             <p>
-                First we will need to know the database host and database name which will be used to create
-                a config file with .ini extension in the user's home directory. 
+                First we will need to know the database host and database name which will be used to create a config file
+                with .ini extension in the user's home directory. Then we will prompt for the user name and password using
+                Python's getpass to avoid echoing back the data input by the user. We'll use our AWS KMS key to perform
+                encryption of the user name and password. Finally the encrypted data will be written to the config file
+                w/ permissions set to non-readable, non-writable, non-executable on the config file.
             </p>
 
             <div class="blog-python-snippet">
@@ -67,14 +70,28 @@
 
                     <ol>
                         <li><span class="blog-python-comment"># Import required modules.</span></li>
-                        <li><span class="blog-python-import">import </span><span class="blog-python-builtin">pwd</span></li>
-                        <li><span class="blog-python-import">import </span><span class="blog-python-builtin">sys</span></li>
-                        <li><span class="blog-python-import">import </span><span class="blog-python-builtin">os</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">pwd</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">sys</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">os</span></li>
                         <li>
-                            <span class="blog-python-import">from </span><span class="blog-python-builtin">getpass</span>
-                            <span class="blog-python-import">import </span><span class="blog-python-builtin">getpass</span>
+                            <span class="blog-python-keyword">from </span><span class="blog-python-builtin">getpass</span>
+                            <span class="blog-python-keyword">import </span><span class="blog-python-builtin">getpass</span>
                         </li>
-                        <li><span class="blog-python-import">import </span><span class="blog-python-builtin">boto3</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">boto3</span></li>
+                    </ol>
+
+                    <ol>    
+                        <li><span class="blog-python-comment"># Instantiate an AWS KMS client instance.</span></li>   
+                        <li>
+                            <span>client = </span><span class="blog-python-builtin">boto3</span><!--
+                            --><span class="blog-python-function">.client(</span><span class="blog-python-string">'kms'</span><!--
+                            --><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>
+                    
+                    <ol>    
+                        <li><span class="blog-python-comment"># KMS Key Id.</span></li>
+                        <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
                     </ol>
                     
                     <ol>    
@@ -109,29 +126,63 @@
 
                         <li>
                             <span>delimiter = </span><span class="blog-python-builtin">bytes</span><!--
-                        --><span>(</span><span class="blog-python-function">chr(</span>7</span><!--
-                        --><span class="blog-python-function">)</span><span>, </span><!--
-                        --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span>
+                            --><span>(</span><span class="blog-python-function">chr(</span>7</span><!--
+                            --><span class="blog-python-function">)</span><span>, </span><!--
+                            --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span>
                         </li>
 
-                        <li><span>credentials_binary = \</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-builtin">bytes</span><!--
-                        --><span class="blog-python-function">(getpass(</span><!--
-                        --><span class="blog-python-string">'Please enter database user name:'</span><!--
-                        --><span class="blog-python-function">)</span><span>, </span><!--
-                        --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span><!--
-                        --><span> + \</span>
+                        <li><span>credentials_bytes = \</span></li>
+                        <li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-builtin">bytes</span><!--
+                            --><span class="blog-python-function">(getpass(</span><!--
+                            --><span class="blog-python-string">'Please enter database user name:'</span><!--
+                            --><span class="blog-python-function">)</span><span>, </span><!--
+                            --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span><!--
+                            --><span> + \</span>
                         </li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>delimiter + \</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-builtin">bytes</span><!--
-                        --><span class="blog-python-function">(getpass(</span><!--
-                        --><span class="blog-python-string">'Please enter database user password:'</span><!--
-                        --><span class="blog-python-function">)</span><span>, </span><!--
-                        --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span><!--
-                        --><span> + \</span>                            
+                        <li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-builtin">bytes</span><!--
+                            --><span class="blog-python-function">(getpass(</span><!--
+                            --><span class="blog-python-string">'Please enter database user password:'</span><!--
+                            --><span class="blog-python-function">)</span><span>, </span><!--
+                            --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span><!--
+                            --><span> + \</span>                            
+                        </li>
+                        
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Encrypt credentials.</span></li>
+                        <li><span>credentials_encrypt = client.</span><span class="blog-python-function">encrypt(</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>KeyId = f'{key_id}',</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>Plaintext = credentials_bytes,</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>EncryptionAlgorithm = </span><span class="blog-python-string">'RSAES_OAEP_SHA_256'</span></li>
+                        <li><span class="blog-python-function">)</span></li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Write connection credentials.</span></li>
+                        <li>
+                            <span class="blog-python-keyword">with </span><span class="blog-python-function">open(</span><!--
+                            --><span>config_file, </span><span class="blog-python-string">'wb'</span><!--
+                            --><span class="blog-python-function">)</span><span class="blog-python-keyword"> as</span><!--
+                            --><span> file:</span>
+                        </li>
+                        <li>
+                            <span>file.</span><span class="blog-python-function">write(</span><span>credentials_encrypt[</span><!--
+                            --><span class="blog-python-string">'CiphertextBlob'</span><span>]</span><!--
+                            --><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># chmod on config file to make unreadable/unwritable.</span></li>
+                        <li>
+                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
+                            --><span>config_file, 000</span><span class="blog-python-function">)</span>
                         </li>
 
-                        </li>
                     </ol>
                     
                 </code>
