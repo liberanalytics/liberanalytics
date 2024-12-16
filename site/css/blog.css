@@ -1,5 +1,9 @@
 /** ----------------------------------------- Blog Styles ----------------------------------------- **/
 
+code {
+    background-color: rgb(196,196,196);
+}
+
 .blog-heading {
     margin: 20px 0 20px 0;
     font-size: 42px;
@@ -29,6 +33,30 @@
     color: rgb(51,51,51);
 }
 
+.blog-python-snippet {
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    background-color: rgb(60,60,60);
+    color: #FFF;
+}
+
+.blog-python-comment {
+    color: rgb(106,153,85);
+}
+
+.blog-python-import {
+    color: rgb(197,134,192);
+}
+
+.blog-python-string {
+    color: rgb(206,145,120);
+}
+
+.blog-python-function {
+    color: rgb(220,220,170);
+}
+
 #blog_w {
     width: 720px;
     margin: 30px auto 0 auto;
@@ -48,5 +76,13 @@
 
 #blog_w ul li::marker {
     color: rgba(20,124,123,1); 
+}
+
+#blog_w ol {
+    margin: 0 0 10px 0;
+}
+
+#blog_w ol li {
+    list-style-type: none;
 }
 

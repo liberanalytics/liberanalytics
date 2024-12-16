@@ -57,10 +57,53 @@
             <h1 class="blog-subheading">Get database connection parameters</h1>
 
             <p>
-                First we will need to know the database host, database name, user name, and password so a
-                connection can be established. Python's getpass module will be used to avoid echoing back
-                the sensitive user inputs.
+                First we will need to know the database host and database name which will be used to create
+                a config file with .ini extension in the user's home directory. 
             </p>
+
+            <div class="blog-python-snippet">
+
+                <code>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Import required modules.</span></li>
+                        <li><span class="blog-python-import">import </span><span>pwd</span></li>
+                        <li><span class="blog-python-import">import </span><span>sys</span></li>
+                        <li><span class="blog-python-import">import </span><span>os</span></li>
+                        <li>
+                            <span class="blog-python-import">from </span><span>getpass</span>
+                            <span class="blog-python-import">import </span><span>getpass</span>
+                        </li>
+                        <li><span class="blog-python-import">import </span><span>boto3</span></li>
+                    </ol>
+                    
+                    <ol>    
+                        <li><span class="blog-python-comment"># Get the database host & database name.</span></li>
+                        <li>
+                            <span>db_host = </span><span class="blog-python-function">input(</span>
+                            <span class="blog-python-string">'Please enter database host:'</span>
+                            <span class="blog-python-function">)</span>
+                        </li>
+                        <li>
+                            <span>db_name = </span><span class="blog-python-function">input(</span>
+                            <span class="blog-python-string">'Please enter database name:'</span>
+                            <span class="blog-python-function">)</span>                   
+                        </li>
+                        </li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Config file.</li>
+                        <li>
+                            <span>config_dir = [</span><span class="blog-python-string">'HOME'</span><span>] +</span>
+                            <span class="blog-python-string">'/'</span><span> + </span><span class="blog-python-string">'conn'</span>
+                            <span>+</span><span class="blog-python-string">'/'</span><span> + db_host</span>
+                            
+                        </li>                        
+                    </ol>
+                    
+                </code>
+            </div>
 
         </section>
         
