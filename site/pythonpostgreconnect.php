@@ -98,7 +98,7 @@
                         </li>
                     </ol>
                     
-                    <ol>    
+                    <ol>    db_user = db_data[0]
                         <li><span class="blog-python-comment"># KMS Key Id.</span></li>
                         <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
                     </ol>
@@ -191,7 +191,6 @@
                             <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
                             --><span>config_file, 000</span><span class="blog-python-function">)</span>
                         </li>
-
                     </ol>
                     
                 </code>
@@ -259,7 +258,9 @@
                             <span>config_file = config_dir + </span><span class="blog-python-string">'/'</span><span> + db_name + </span>
                             <span class="blog-python-string">.ini</span>
                         </li>
-                                                <li><span class="blog-python-comment"># chmod on config file to make unreadable/unwritable.</span></li>
+                    </ol>
+                    <ol>
+                        <li><span class="blog-python-comment"># chmod on config file to make unreadable/unwritable.</span></li>
                         <li>
                             <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
                             --><span>config_file, 000</span><span class="blog-python-function">)</span>
@@ -302,7 +303,71 @@
                         <li><span>delimiter = </span><span class="blog-python-function">chr(</span>7</span><!--
                         --><span class="blog-python-function">)</span>
                         </li>
+                        <li><span>credentials = </span><span class="blog-python-builtin">bytes</span><span>.</span><!--
+                        --><span class="blog-python-function">decode(</span><span>credentials_decrypt[</span><!--
+                        --><span class="blog-python-string">'Plaintext'</span><span>], </span><!--
+                        --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span>
+                        </li>
+                        <li>
+                            <span>db_data = credentials.</span><span class="blog-python-function">split(</span>delimiter</span><!--
+                            --><span class="blog-python-function">)</span>
+                        </li>
+                        <li><span>db_user = db_data[0]</span></li>
+                        <li><span>db_auth = db_data[1]</span></li>
                     </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Reset config file perms.</span></li>
+                        <li>
+                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
+                            --><span>config_file, 000</span><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>  
+                    
+                    <ol>
+                        <li><span class="blog-python-comment"># Form a connection string & connect.</span></li>
+                        <li><span>connection_string = \</span></li>
+                        <li><span class="blog-python-string">" host="</span><span> + db_host + \</span></li>
+                        <li><span class="blog-python-string">" dbname"</span><span> + db_name + \</span></li>
+                        <li><span class="blog-python-string">" user="</span><span> + db_user + \</span></li>
+                        <li><span class="blog-python-string">" password="</span><span> + db_auth + \</span></li>
+                        <li><span class="blog-python-string">" port=5432"</span>
+                        <li>
+                            <span>conn = </span><span class="blog-python-builtin">psycopg2</span><!--
+                            --><span>.</span><span class="blog-python-function">connect(</span><span>connection_string</span><!--
+                            --><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Example query.</span></li>
+                        <li><span>cur = conn.</span><span class="blog-python-function">cursor()</span></li>
+                        <li>
+                            <span>cur.</span><span class="blog-python-function">execute(</span><!--
+                            --><span class="blog-python-string">'SELECT CURRENT_DATE;'</span><!--
+                            --><span class="blog-python-function">)</span>
+                        </li>
+                        <li><span>rs = cur.</span><span class="blog-python-function">fetchall()</span></li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Iterate through resultset.</span></li>
+                        <li>
+                            <span class="blog-python-keyword">for</span><span> row </span><!--
+                            --><span class="blog-python-keyword">in</span><span> rs: </span>
+                        </li>
+                        <li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-function">print(</span><span>row</span><!--
+                        --><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Close cursor and connection.</span></li>
+                        <li><span>cur.</span><span class="blog-python-function">close()</span></li>
+                        <li><span>conn.</span><span class="blog-python-function">close()</span></li>
+                    </ol>
+                    
 
                 </code>
 
