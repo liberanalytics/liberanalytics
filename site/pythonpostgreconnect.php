@@ -61,12 +61,21 @@
                 with .ini extension in the user's home directory. Then we will prompt for the user name and password using
                 Python's getpass to avoid echoing back the data input by the user. We'll use our AWS KMS key to perform
                 encryption of the user name and password. Finally the encrypted data will be written to the config file
-                w/ permissions set to non-readable, non-writable, non-executable on the config file.
+                w/ permissions set to non-readable, non-writable, non-executable.
             </p>
 
             <div class="blog-python-snippet">
 
                 <code>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
+                        <li><span class="blog-python-comment"># aws_postgresql_connect_init.py</span></li>
+                        <li><span class="blog-python-comment">#</span></li>
+                        <li><span class="blog-python-comment"># Creates a .ini file containing encrypted credentials used</span></li>
+                        <li><span class="blog-python-comment"># to connect to an AWS EC2 hosted postgresql database.</span></li>
+                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
+                    </ol>
 
                     <ol>
                         <li><span class="blog-python-comment"># Import required modules.</span></li>
@@ -186,6 +195,117 @@
                     </ol>
                     
                 </code>
+
+            </div>
+
+            <h1 class="blog-subheading">Connecting to the postgresql database</h1>
+
+            <p>
+                Now that we have the connection config file created we are ready to connect to the postgresql
+                database cluster and begin sql'ing away.
+            </p>
+            
+            <div class="blog-python-snippet">
+
+                <code>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
+                        <li><span class="blog-python-comment"># aws_postgresql_connect.py</span></li>
+                        <li><span class="blog-python-comment">#</span></li>
+                        <li><span class="blog-python-comment"># Connects to an AWS EC2 hosted postgresql database by reading</span></li>
+                        <li><span class="blog-python-comment"># and decrypting credentials stored in a config file. Dependent</span></li>
+                        <li><span class="blog-python-comment"># on the aws_postgresql_connect_init.py having been run first.</span></li>
+                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Import required modules.</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">pwd</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">sys</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">os</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">psycopg2</span></li>
+                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">boto3</span></li>
+                    </ol>
+
+                    <ol>    
+                        <li><span class="blog-python-comment"># Instantiate an AWS KMS client instance.</span></li>   
+                        <li>
+                            <span>client = </span><span class="blog-python-builtin">boto3</span><!--
+                            --><span class="blog-python-function">.client(</span><span class="blog-python-string">'kms'</span><!--
+                            --><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>
+                    
+                    <ol>    
+                        <li><span class="blog-python-comment"># KMS Key Id.</span></li>
+                        <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
+                    </ol>
+                    
+                    <ol>    
+                        <li><span class="blog-python-comment"># Database host and database to connect to.</span></li>
+                        <li><span>db_host = </span><span class="blog-python-string">'db_host'</span></li>
+                        <li><span>db_name = </span><span class="blog-python-string">'db_name'</span></li>
+                    </ol>                      
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Config file.</span></li>
+                        <li>
+                            <span>config_dir = [</span><span class="blog-python-string">'HOME'</span><span>] +</span>
+                            <span class="blog-python-string">'/'</span><span> + </span><span class="blog-python-string">'conn'</span>
+                            <span>+</span><span class="blog-python-string">'/'</span><span> + db_host</span>
+                        </li>
+                        <li>
+                            <span>config_file = config_dir + </span><span class="blog-python-string">'/'</span><span> + db_name + </span>
+                            <span class="blog-python-string">.ini</span>
+                        </li>
+                                                <li><span class="blog-python-comment"># chmod on config file to make unreadable/unwritable.</span></li>
+                        <li>
+                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
+                            --><span>config_file, 000</span><span class="blog-python-function">)</span>
+                        </li>                       
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Make config file readable.</span></li>
+                        <li>
+                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
+                            --><span>config_file, 440</span><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Get the connection credentials from config file.</span></li>
+                        <li>
+                            <span class="blog-python-keyword">with </span><span class="blog-python-function">open(</span><!--
+                            --><span>config_file, </span><span class="blog-python-string">'rb'</span><!--
+                            --><span class="blog-python-function">)</span><span class="blog-python-keyword"> as</span><!--
+                            --><span> file:</span>
+                        </li>
+                        <li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<!--
+                            --><span>credentials_bytes = file.</span><span class="blog-python-function">read()</span>
+                        </li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-python-comment"># Decrypt the connection credentials.</span></li>
+                        <li><span>credentials_decrypt = client.</span><span class="blog-python-function">decrypt(</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>CiphertextBlob = credentials_bytes,</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>KeyId = f'{key_id}',</span></li>                        
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>EncryptionAlgorithm = </span><span class="blog-python-string">'RSAES_OAEP_SHA_256'</span></li>
+                        <li><span class="blog-python-function">)</span></li>
+                    </ol> 
+                    
+                    <ol>
+                        <li><span class="blog-python-comment"># Decode the credentials and split by delimiter.</span></li>
+                        <li><span>delimiter = </span><span class="blog-python-function">chr(</span>7</span><!--
+                        --><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>
+
+                </code>
+
             </div>
 
         </section>
