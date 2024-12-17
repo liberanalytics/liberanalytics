@@ -60,8 +60,9 @@
                 First we will need to know the database host and database name which will be used to create a config file
                 with .ini extension in the user's home directory. Then we will prompt for the user name and password using
                 Python's getpass to avoid echoing back the data input by the user. We'll use our AWS KMS key to perform
-                encryption of the user name and password. Finally the encrypted data will be written to the config file
-                w/ permissions set to non-readable, non-writable, non-executable.
+                encryption of the user name and password. Lastly the encrypted data will be written to the config file
+                w/ permissions set to non-readable, non-writable, and non-executable. The following code shows how we can
+                do the aforementioned in Python.
             </p>
 
             <div class="blog-python-snippet">
@@ -98,7 +99,7 @@
                         </li>
                     </ol>
                     
-                    <ol>    db_user = db_data[0]
+                    <ol>
                         <li><span class="blog-python-comment"># KMS Key Id.</span></li>
                         <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
                     </ol>
@@ -179,9 +180,9 @@
                             --><span> file:</span>
                         </li>
                         <li>
-                            <span>file.</span><span class="blog-python-function">write(</span><span>credentials_encrypt[</span><!--
-                            --><span class="blog-python-string">'CiphertextBlob'</span><span>]</span><!--
-                            --><span class="blog-python-function">)</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span>file.</span><span class="blog-python-function">write(</span><!--
+                            --><span>credentials_encrypt[</span><span class="blog-python-string">'CiphertextBlob'</span><!--
+                            --><span>]</span><span class="blog-python-function">)</span>
                         </li>
                     </ol>
 
@@ -201,7 +202,13 @@
 
             <p>
                 Now that we have the connection config file created we are ready to connect to the postgresql
-                database cluster and begin sql'ing away.
+                database cluster and begin sql'ing away. The below aws_postgresql_connect.py program reads the
+                encrypted data from the config file created by the aws_postgresql_connect_init.py program then
+                decrypts the byte data with the same AWS KMS key. It is important to include the encryption
+                algorithm (EncryptionAlgorithm='RSAES_OAEP_SHA_256') in the decrypt call if using an
+                asymmetric key in AWS KMS. The data read is then split by delimiter to derive user name/password
+                and the config file permissions are disabled. Finally we use the imported psycopg2 libarary to connect
+                to our postgresql cluster in AWS EC2 and run a sample query.
             </p>
             
             <div class="blog-python-snippet">
@@ -372,6 +379,24 @@
                 </code>
 
             </div>
+
+            <h1 class="blog-subheading">Key Takeaways</h1>
+
+            <p>
+                In this article we have connected to a postgresql database cluster hosted in AWS EC2
+                without storing database credentials or encryption keys anywhere on the filesystem. Although
+                the code presented could be refactored to eliminate redundancies or abstracted into a class, 
+                the key points listed below could help in securely connecting to databases.
+            </p>
+
+            <ul>
+                <li>Minimize visibility and access to database credentials</li>
+                <li>If hosting in a cloud service provider, make use of asymmetric keys to protect
+                    sensitive data such as user names or passwords
+                </li>
+                <li>Use encryption when storing database credentials on filesystem</li>
+                <li>Try to avoid storing encryption keys or plain text user names/passwords</li>
+            </ul>
 
         </section>
         

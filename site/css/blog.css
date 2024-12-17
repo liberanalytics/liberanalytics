@@ -76,7 +76,7 @@ code {
 }
 
 #blog_w ul {
-    list-style-position: inside;
+    padding: 0 20px 0 20px;
 }
 
 #blog_w ul li::marker {
