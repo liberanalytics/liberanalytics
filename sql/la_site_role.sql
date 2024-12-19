@@ -1,0 +1,11 @@
+\set VERBOSITY verbose
+\set ON_ERROR_STOP on
+
+DO
+$$
+BEGIN
+CREATE ROLE la_site;
+EXCEPTION WHEN duplicate_object THEN RAISE NOTICE '%, %, skipping', SQLERRM, SQLSTATE USING ERRCODE = SQLSTATE;
+END
+
+$$ LANGUAGE plpgsql

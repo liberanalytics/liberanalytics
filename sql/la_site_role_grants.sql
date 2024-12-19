@@ -1,0 +1,1 @@
+GRANT ALL PRIVILEGES ON la_site TO la_site;
