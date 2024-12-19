@@ -62,6 +62,20 @@ code {
     color: rgb(220,220,170);
 }
 
+.blog-intralink:link {
+    font-family: Studio-Feixen-Sans;    
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(88,135,191,1);
+    text-decoration: none;
+}
+
+.blog-intralink:hover {
+    color: rgba(101,149,202,1);
+    text-decoration: underline;    
+    transition-duration: .3s; 
+}
+
 #blog_w {
     width: 720px;
     margin: 30px auto 0 auto;

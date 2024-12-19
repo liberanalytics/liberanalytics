@@ -67,7 +67,7 @@
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                            Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.
+                                Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.
                             </p>                                            
                     
                         </div>
@@ -91,19 +91,20 @@
                     
                         <div class="featured-post-desc">      
                             
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Using an RDBMS as a Data Warehouse</a>
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Set up a Postgresql database with PHP</a>
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>                                            
+                                Exemplifies a way to set up a database and load initialization reference data with PHP.
+                                (Yes, PHP in 2025!)
+                            </p>                                           
                     
                         </div>
 
                     </div>
 
                     <div class="featured-post-attrs clear">
-                        <span class="featured-post-date">September 25, 2024</span>
+                        <span class="featured-post-date">December 22, 2024</span>
                         <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
                     </div>
                 
