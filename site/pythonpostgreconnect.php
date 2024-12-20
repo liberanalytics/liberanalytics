@@ -51,7 +51,7 @@
                 <li>Python 3 (preferably running on Ubuntu)</li>
                 <li>Python libraries: psycopg2, boto3</li>
                 <li>AWS: Key Management Service (KMS) Customer managed asymmetric key</li>
-                <li>Postgresql database (needs to accept TCP/IP connections)</li>
+                <li>Postgresql database cluster (needs to accept TCP/IP connections)</li>
             </ul>
 
             <h1 class="blog-subheading">Get database connection parameters</h1>
