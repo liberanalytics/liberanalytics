@@ -27,7 +27,7 @@
             <h1 class="blog-heading site-font-fancyl">Set up a Postgresql database with PHP</h1>
             <h3 class="blog-date">December22, 2024</h3>
             <h2 class="blog-desc site-font-emph">
-                Exemplifies a way to set up a database and load initialization reference data with PHP (Yes, PHP!).
+                Exemplifies a way to set up a database and load initialization reference data with PHP (Yes, PHP in 2025!).
             </h2>
 
         </header>        

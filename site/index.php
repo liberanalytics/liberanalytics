@@ -86,7 +86,7 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img src="assets/logo_195.png">
+                            <img src="assets/phpposgredbsetup_195.png">
                         </div>             
                     
                         <div class="featured-post-desc">      
