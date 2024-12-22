@@ -46,6 +46,15 @@
                 encryption key.
             </p>
 
+            <h1 class="blog-subheading">Requirements</h1>
+
+            <ul>
+                <li>PHP 8 (preferably running on Ubuntu)</li>
+                <li>PHP libraries: psycopg2, boto3</li>
+                <li>AWS: Key Management Service (KMS) Customer managed asymmetric key</li>
+                <li>Postgresql database cluster (needs to accept TCP/IP connections)</li> 
+                <li>Database created on Postgresql cluster</li>           
+
         </section>
         
     </div>
