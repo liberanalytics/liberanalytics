@@ -91,12 +91,11 @@
                     
                         <div class="featured-post-desc">      
                             
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Set up a Postgresql database with PHP</a>
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Generate flat files from a Postgresql database with PHP</a>
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Exemplifies a way to set up a database and load initialization reference data with PHP.
-                                (Yes, PHP in 2025!)
+                                Exemplifies a PHP way to create flat files from a SELECT query against a Postgresql database. (Yes, PHP in 2025!)
                             </p>                                           
                     
                         </div>
