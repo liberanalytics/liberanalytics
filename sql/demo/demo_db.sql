@@ -1,0 +1,6 @@
+DROP DATABASE IF EXISTS demo;
+
+CREATE DATABASE demo
+    TEMPLATE template0
+    OWNER demo;
+

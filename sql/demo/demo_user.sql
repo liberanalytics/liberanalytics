@@ -1,0 +1,10 @@
+\set VERBOSITY verbose
+
+DO LANGUAGE plpgsql
+$$
+BEGIN
+    CREATE USER demo;
+    EXCEPTION WHEN duplicate_object THEN RAISE NOTICE '%, %, skipping', SQLERRM, SQLSTATE USING ERRCODE = SQLSTATE;
+END
+
+$$
