@@ -4,7 +4,7 @@
      *
      *
      */	
-    class evflowFlatFiles {
+    class sql_processor {
 
         private static $strProgFilePath = __DIR__;
         //private static $strFlatFilePath = __DIR__;

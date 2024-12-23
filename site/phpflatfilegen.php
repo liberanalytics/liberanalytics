@@ -39,8 +39,7 @@
             <p> 
                 <em class="site-font-fancyl">PHP</em> - is it really still used in the real world? The answer
                 is a resounding yes due to the language's simplicity and ease of use. In this post we will
-                explore PHP's usefulness in performing a database set up and initialization of reference
-                data in the database. The content will draw on a previous post, 
+                explore PHP's usefulness in creating delimited data files using PHP. The content will draw on a previous post, 
                 <a href="pythonpostgreconnect.php" class="blog-intralink">Connecting Python to a Postgresql database</a> to read and decrypt database connection
                 parameters encrypted with an Amazon Web Services (AWS) Key Management Service (KMS) asymmetric
                 encryption key.
