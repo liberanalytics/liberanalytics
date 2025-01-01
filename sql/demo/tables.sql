@@ -32,12 +32,13 @@ CREATE TABLE refdata.employees (
 );  
 
 CREATE TABLE prod.sales (
-        sales_id BIGSERIAL PRIMARY KEY,
+        sales_id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         sales_cust_id INTEGER,
         sales_desc VARCHAR(255),
         sales_emp_id INTEGER,
         sales_bu_id INTEGER,
         saLes_created_ts TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+        
 );
 
 CREATE TABLE prod.sales_details (
