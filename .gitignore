@@ -3,3 +3,6 @@ python/classes/__pycache__/
 *evflow*
 *.ini
 .vscode/
+src/vendor/*
+src/*.json
+src/*.lock
