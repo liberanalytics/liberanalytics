@@ -38,7 +38,6 @@ CREATE TABLE prod.sales (
         sales_emp_id INTEGER,
         sales_bu_id INTEGER,
         saLes_created_ts TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
-        
 );
 
 CREATE TABLE prod.sales_details (
