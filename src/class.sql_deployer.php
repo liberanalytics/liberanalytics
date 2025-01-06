@@ -31,11 +31,11 @@
 
             $binary_data = fread($handle, filesize($config_file));
 
-            $config_data = unpack('C*', $binary_data);
-
-            foreach ($config_data as $key => $val) {
-                echo "key = $key : val = $val: char = " . chr($val) . "\n";
-            }
+            $kmsClient->decrypt([
+                'CiphertextBlob' => $binary_data,
+                'EncryptionAlgorithm' => 'RSAES_OAEP_SHA_256',
+                'KeyId' => $aws_key_id
+            ]);
 
             fclose($handle);
 
