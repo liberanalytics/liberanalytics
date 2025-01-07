@@ -14,6 +14,7 @@ import boto3
 import logging
 import watchtower
 import traceback
+import base64
 
 def main():
 
@@ -35,8 +36,6 @@ def main():
 
     # Attach cw handler to the logger.
     logger.addHandler(cw_handler)
-
-
 
     '''
     Wrap section in try / except logging any errors to Cloudwatch logs.
@@ -68,6 +67,7 @@ def main():
                 if (key_props['KeyMetadata']['KeyState'] != 'Enabled'):
                     aws_kms.enable_key(KeyId=key_id)
 
+        '''
         # Prompt for the connection params.
         print('Please provide connection parameters for database:' + '\n')
         config_file = input('Please enter config file name:')
@@ -75,10 +75,27 @@ def main():
         db_name = getpass('Please enter database name:')
         db_user = getpass('Please enter database user name:')
         db_auth = getpass('Please enter user password:')
+        '''
 
         # Config file.
         config_dir = os.environ['LA'] + '/config'
-        config_file = config_dir + '/' + config_file
+        config_file = config_dir + '/' + 'la_site_db_test.db.ini'
+
+        str = 'demo' + chr(7) + 'demo'
+
+        byte_str = str.encode('utf-8')
+        encode_str = base64.b64encode(byte_str)
+
+        encryption_data = aws_kms.encrypt(
+            KeyId = f'{key_id}',
+            Plaintext = encode_str,
+            EncryptionAlgorithm = 'SYMMETRIC_DEFAULT'
+        )
+
+        ct = encryption_data['CiphertextBlob']
+
+        with open(config_file, 'wb') as file:
+            file.write(ct)
 
     except Exception as e:
         logger.error(traceback.format_exc())

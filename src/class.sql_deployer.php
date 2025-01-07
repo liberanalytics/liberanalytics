@@ -27,20 +27,28 @@
                 'version' => 'latest'
             ]);
 
+            $handle = fopen($config_file, 'rb');
+
+            $binary_data = fread($handle, filesize($config_file));
+
+            try {
+                $rs = $kmsClient->decrypt([
+                    'CiphertextBlob' => $binary_data,
+                    'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
+                    'KeyId' => 'd15d4228-640f-42ec-a0a5-b39636d9c051'
+                ]);
+            }
+            catch (KmsException $e) {
+                echo "Problem decrypting : {$e->getAwsErrorMessage()}\n";
+            }
+
+            $data = base64_decode($rs['Plaintext']);           
 
 
-            $rs = $kmsClient->encrypt([
-                'KeyId' => 'dd43a73a-30be-4af1-962c-a6fc1dd97790',
-                'Plaintext' => 'HW',
-                'EncryptionAlgorithm' => 'RSAES_OAEP_SHA_256',                       
-            ]);
-
-            $ciphertextBlob = base64_encode($rs['CiphertextBlob']);
-
-            echo "Encrypted data : " . $ciphertextBlob . PHP_EOL; 
+            echo "done";
 
             // ^ perms on config file so it's not readable.
-            chmod($config_file, 0000);
+            #chmod($config_file, 0000);
 
         }
 
@@ -50,7 +58,7 @@
 
     }
 
-    $sd = new sql_deployer( dirname(__FILE__, 2) . '/config/la_demo_db_demo.ini', chr(7), 'dd43a73a-30be-4af1-962c-a6fc1dd97790' );
+    $sd = new sql_deployer( dirname(__FILE__, 2) . '/config/la_site_db_test.db.ini', chr(7), 'dd43a73a-30be-4af1-962c-a6fc1dd97790' );
 
 
 ?>
