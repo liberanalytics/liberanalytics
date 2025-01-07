@@ -6,3 +6,4 @@ python/classes/__pycache__/
 src/vendor/*
 src/*.json
 src/*.lock
+*.ini
