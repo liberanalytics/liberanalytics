@@ -27,17 +27,17 @@
                 'version' => 'latest'
             ]);
 
-            $handle = fopen($config_file, 'rb');
 
-            $binary_data = fread($handle, filesize($config_file));
 
-            $kmsClient->decrypt([
-                'CiphertextBlob' => $binary_data,
-                'EncryptionAlgorithm' => 'RSAES_OAEP_SHA_256',
-                'KeyId' => $aws_key_id
+            $rs = $kmsClient->encrypt([
+                'KeyId' => 'dd43a73a-30be-4af1-962c-a6fc1dd97790',
+                'Plaintext' => 'HW',
+                'EncryptionAlgorithm' => 'RSAES_OAEP_SHA_256',                       
             ]);
 
-            fclose($handle);
+            $ciphertextBlob = base64_encode($rs['CiphertextBlob']);
+
+            echo "Encrypted data : " . $ciphertextBlob . PHP_EOL; 
 
             // ^ perms on config file so it's not readable.
             chmod($config_file, 0000);
