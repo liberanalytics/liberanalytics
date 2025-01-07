@@ -5,37 +5,22 @@
 # to connect to an AWS EC2 hosted postgresql database.
 # ----------------------------------------------------------------------------------------------------------------
 
-# Import required modules.
 import pwd
 import sys
 import os
 from getpass import getpass
-import boto3
-import logging
-import watchtower
 import traceback
 import base64
+import boto3
+from classes import AwsCWLogs
 
 def main():
 
-    # Instantiate cloudwatch client.
-    aws_cw = boto3.client('logs', region_name='us-east-2')
-
-    # Create the logger.
-    logger = logging.getLogger("TheLogger")
-
-    # Set logging level - initially set to DEBUG while developing program. ^ to ERROR post successful testing.
-    logger.setLevel(logging.DEBUG)
-
-    # Create the cloudwatch log handler.
-    cw_handler = watchtower.CloudWatchLogHandler(
-        log_group="sdk",
-        stream_name="python",
-        create_log_group=True
-    )
-
-    # Attach cw handler to the logger.
-    logger.addHandler(cw_handler)
+    try:
+        aws_cw_logs = AwsCWLogs.AwsCWLogs('sdk', 'python', 10)
+    except Exception as e:
+        print(traceback.format_exc())
+        exit
 
     '''
     Wrap section in try / except logging any errors to Cloudwatch logs.
@@ -63,9 +48,9 @@ def main():
 
             # Check if the correct key and that it is enabled.
             if (key_props['KeyMetadata']['Description'] == 'la_site_db_test'):
-                key_id = key_props['KeyMetadata']['KeyId']
+                the_key = key_props['KeyMetadata']['KeyId']
                 if (key_props['KeyMetadata']['KeyState'] != 'Enabled'):
-                    aws_kms.enable_key(KeyId=key_id)
+                    aws_kms.enable_key(KeyId=the_key)
 
         '''
         # Prompt for the connection params.
@@ -87,7 +72,7 @@ def main():
         encode_str = base64.b64encode(byte_str)
 
         encryption_data = aws_kms.encrypt(
-            KeyId = f'{key_id}',
+            KeyId = the_key,
             Plaintext = encode_str,
             EncryptionAlgorithm = 'SYMMETRIC_DEFAULT'
         )
@@ -98,7 +83,7 @@ def main():
             file.write(ct)
 
     except Exception as e:
-        logger.error(traceback.format_exc())
+        aws_cw_logs.logger.error(traceback.format_exc())
 
     print('done')
 

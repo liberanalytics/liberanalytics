@@ -7,3 +7,4 @@ src/vendor/*
 src/*.json
 src/*.lock
 *.ini
+*__pycache__*
