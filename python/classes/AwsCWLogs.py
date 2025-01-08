@@ -23,8 +23,6 @@ class AwsCWLogs:
         # Instantiate cloudwatch client.
         aws_cw = boto3.client('logs', region_name='us-east-2')
 
-
-
         # Set logging level - initially set to DEBUG while developing program. ^ to ERROR post successful testing.
         self.logger.setLevel(self.logging_level)
 

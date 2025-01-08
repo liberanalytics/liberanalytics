@@ -16,6 +16,7 @@ from classes import AwsCWLogs
 
 def main():
 
+    # Instantiate an AWS CloudWatch instance to log any errors.
     try:
         aws_cw_logs = AwsCWLogs.AwsCWLogs('sdk', 'python', 10)
     except Exception as e:
@@ -30,8 +31,8 @@ def main():
         3. Get the connection params.
         4. Encrypt and write the params to the config file.
         5. Reset file perms on config file.
-
     '''
+
     try:
 
         # Instantiate an AWS KMS client instance.
@@ -52,7 +53,7 @@ def main():
                 if (key_props['KeyMetadata']['KeyState'] != 'Enabled'):
                     aws_kms.enable_key(KeyId=the_key)
 
-        '''
+        
         # Prompt for the connection params.
         print('Please provide connection parameters for database:' + '\n')
         config_file = input('Please enter config file name:')
@@ -60,27 +61,35 @@ def main():
         db_name = getpass('Please enter database name:')
         db_user = getpass('Please enter database user name:')
         db_auth = getpass('Please enter user password:')
-        '''
+        
 
         # Config file.
         config_dir = os.environ['LA'] + '/config'
-        config_file = config_dir + '/' + 'la_site_db_test.db.ini'
+        config_file = config_dir + '/' + config_file
 
-        str = 'demo' + chr(7) + 'demo'
+        # Delete the config file if exists.
+        if os.path.isfile(config_file):
+            os.chmod(config_file, 660)
+            os.remove(config_file)
 
-        byte_str = str.encode('utf-8')
-        encode_str = base64.b64encode(byte_str)
+        # Concat + delimit params, convert to bytes, then base64 encode.
+        params = db_host + chr(7) + db_name + chr(7) + db_user + chr(7) + db_auth
+        byte_params= params.encode('utf-8')
+        encode_params = base64.b64encode(byte_params)
 
+        # Encrypt the params.
         encryption_data = aws_kms.encrypt(
             KeyId = the_key,
-            Plaintext = encode_str,
+            Plaintext = encode_params,
             EncryptionAlgorithm = 'SYMMETRIC_DEFAULT'
         )
 
-        ct = encryption_data['CiphertextBlob']
-
+        # Write the encryption params as binary to the config file.
         with open(config_file, 'wb') as file:
-            file.write(ct)
+            file.write(encryption_data['CiphertextBlob'])
+
+        # Reset file perms.
+        os.chmod(config_file, 000)            
 
     except Exception as e:
         aws_cw_logs.logger.error(traceback.format_exc())

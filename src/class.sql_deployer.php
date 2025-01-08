@@ -58,7 +58,7 @@
 
     }
 
-    $sd = new sql_deployer( dirname(__FILE__, 2) . '/config/la_site_db_test.db.ini', chr(7), 'dd43a73a-30be-4af1-962c-a6fc1dd97790' );
+    $sd = new sql_deployer( dirname(__FILE__, 2) . '/config/la_site_db_test.db.ini', chr(7), '' );
 
 
 ?>
