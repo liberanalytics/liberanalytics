@@ -8,57 +8,88 @@
      */	
     class sql_deployer {
 
-        private $pdo;
+        public function __construct() {
 
-        public function __construct(string $config_file, string $config_delim, string $aws_key_id) {
-
-            $this->connect($config_file, $config_delim, $aws_key_id);
-
-        }
-
-        private function connect(string $config_file, string $config_delim, string $aws_key_id) {
-
-            // ^ perms on config file so it's readable.
+            // ^ perms on config file so it's readable and read contents.
+            $config_file = '../config/aws_la_config.json';
             chmod($config_file, 0400);
+            $aws_config = json_decode(file_get_contents($config_file), true);
+            $aws_region = $aws_config['account']['region'];
 
-            $kmsClient = new Aws\Kms\KmsClient([
-                'profile' => 'default',
-                'region' => 'us-east-2',
-                'version' => 'latest'
-            ]);
-
-            $handle = fopen($config_file, 'rb');
-
-            $binary_data = fread($handle, filesize($config_file));
-
+            // Create new cloudwatch and KMS clients and CloudWatchLogger instance.
             try {
-                $rs = $kmsClient->decrypt([
+
+                //
+                $aws_cwlogs_client = new Aws\CloudWatchLogs\CloudWatchLogsClient ([
+                    'profile' => 'default',
+                    'region' => $aws_region,
+                    'version' => 'latest'
+                ]);
+
+                //
+                $aws_kms_client = new Aws\Kms\KmsClient([
+                    'profile' => 'default',
+                    'region' => $aws_region,
+                    'version' => 'latest'
+                ]);
+
+                //
+                $logger = new LegalThings\CloudWatchLogger([
+                    'aws' => [
+                        'profile' => 'default',
+                        'region' => $aws_region,
+                        'version' => 'latest'
+                    ],
+                    'group_name' => $aws_config['cloudwatch']['log group']['sdk'],
+                    'stream_name' => $aws_config['cloudwatch']['log stream']['php db errors']
+                ]);                
+            }
+
+            catch (Exxception $e) {
+                echo $e->getTraceAsString();
+            }
+
+            $db_config_file = $aws_config['database']['config file']['demo'];
+            chmod($db_config_file, 0400);
+            $handle = fopen($db_config_file , 'rb');
+            $binary_data = fread($handle, filesize($db_config_file));
+        
+            try {
+                $rs = $aws_kms_client->decrypt([
                     'CiphertextBlob' => $binary_data,
                     'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
-                    'KeyId' => 'd15d4228-640f-42ec-a0a5-b39636d9c051'
+                    'KeyId' => $aws_config['kms']['key desc']['demo']
                 ]);
             }
             catch (KmsException $e) {
-                echo "Problem decrypting : {$e->getAwsErrorMessage()}\n";
+                $logger->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
+            }
+        
+            $data = base64_decode($rs['Plaintext']);
+            $db_params = explode($aws_config['construct']['config delim'], $data);
+
+            //echo "pgsql:host=$db_params[0];port=5432;dbname=$db_params[1];user=$db_params[2];password=$db_params[3]";
+            try {
+                $pdo = new PDO(
+                    "pgsql:host=$db_params[0];port=5432;dbname=$db_params[1];user=$db_params[2];password=$db_params[3]"
+                );
+            }
+            catch (PDOException $e) {
+                $logger->log(['Problem connectiong : ' => $e->getTraceAsString()]);
             }
 
-            $data = base64_decode($rs['Plaintext']);           
-
+            chmod($db_config_file, 0000);
 
             echo "done";
 
-            // ^ perms on config file so it's not readable.
-            #chmod($config_file, 0000);
 
-        }
 
-        public function deploy() {
 
         }
 
     }
 
-    $sd = new sql_deployer( dirname(__FILE__, 2) . '/config/la_site_db_test.db.ini', chr(7), '' );
+    $sd = new sql_deployer();
 
 
 ?>
