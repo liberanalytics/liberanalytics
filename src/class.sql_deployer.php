@@ -16,7 +16,7 @@
             $aws_config = json_decode(file_get_contents($config_file), true);
             $aws_region = $aws_config['account']['region'];
 
-            // Create new cloudwatch and KMS clients and CloudWatchLogger instance.
+            // Create new cloudwatch and KMS clients and a CloudWatchLogger instance.
             try {
 
                 //
@@ -49,13 +49,15 @@
                 echo $e->getTraceAsString();
             }
 
+            // Open and read the database config file.
             $db_config_file = $aws_config['database']['config file']['demo'];
             chmod($db_config_file, 0400);
             $handle = fopen($db_config_file , 'rb');
             $binary_data = fread($handle, filesize($db_config_file));
         
+            // Decrypt the binary data in the database config file.
             try {
-                $rs = $aws_kms_client->decrypt([
+                $db_config_data = $aws_kms_client->decrypt([
                     'CiphertextBlob' => $binary_data,
                     'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
                     'KeyId' => $aws_config['kms']['key desc']['demo']
@@ -63,15 +65,17 @@
             }
             catch (KmsException $e) {
                 $logger->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
+                exit('Unable to decrypt the data in ${db_config_file}.');
             }
         
-            $data = base64_decode($rs['Plaintext']);
-            $db_params = explode($aws_config['construct']['config delim'], $data);
+            // Decode using base64 decoding, then split data into components per delimiter.
+            $data = base64_decode($db_config_data['Plaintext']);
+            $db_params = explode($aws_config['construct']['config delim'], $db_config_data);
 
             //echo "pgsql:host=$db_params[0];port=5432;dbname=$db_params[1];user=$db_params[2];password=$db_params[3]";
             try {
                 $pdo = new PDO(
-                    "pgsql:host=$db_params[0];port=5432;dbname=$db_params[1];user=$db_params[2];password=$db_params[3]"
+                    "pgsql:host=$db_params[0];port=5432;dbname=$db_params[0];user=$db_params[2];password=$db_params[3]"
                 );
             }
             catch (PDOException $e) {
