@@ -8,3 +8,4 @@ src/*.json
 src/*.lock
 *.ini
 *__pycache__*
+*.pem

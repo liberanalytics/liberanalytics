@@ -69,13 +69,15 @@
             }
         
             // Decode using base64 decoding, then split data into components per delimiter.
-            $data = base64_decode($db_config_data['Plaintext']);
-            $db_params = explode($aws_config['construct']['config delim'], $db_config_data);
+            $db_config_data = base64_decode($db_config_data['Plaintext']);
+            $db_params = explode($aws_config['construct']['config delim'], $db_config_data );
 
             //echo "pgsql:host=$db_params[0];port=5432;dbname=$db_params[1];user=$db_params[2];password=$db_params[3]";
+            echo "postgres://$db_params[2]:$db_params[3]@$db_params[0]:5432/$db_params[1]?sslmode=require";
             try {
                 $pdo = new PDO(
-                    "pgsql:host=$db_params[0];port=5432;dbname=$db_params[0];user=$db_params[2];password=$db_params[3]"
+                    "pgsql:host=$db_params[0];port=5432;dbname=$db_params[1];user=$db_params[2];password=$db_params[3];sslmode=require"
+                    //"postgres://$db_params[2]:$db_params[3]@$db_params[0]:5432/$db_params[1]?sslmode=require"
                 );
             }
             catch (PDOException $e) {
