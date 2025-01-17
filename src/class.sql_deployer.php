@@ -12,8 +12,9 @@
 
             // ^ perms on config file so it's readable and read contents.
             $config_file = '../config/aws_la_config.json';
-            chmod($config_file, 0400);
+            chmod($config_file, 0440);
             $aws_config = json_decode(file_get_contents($config_file), true);
+            //chmod($config_file, 0000);
             $aws_region = $aws_config['account']['region'];
 
             // Create new cloudwatch and KMS clients and a CloudWatchLogger instance.
@@ -49,14 +50,14 @@
                 echo $e->getTraceAsString();
             }
 
-            // Open and read the database config file.
+            // Open and read the database config file; reset file perms on db config file.
             $db_config_file = $aws_config['database']['config file']['demo'];
             chmod($db_config_file, 0440);
             $handle = fopen($db_config_file , 'rb');
+            chmod($db_config_file, 0000);
             $binary_data = fread($handle, filesize($db_config_file));
 
-            // Reset file perms on db config file.
-            chmod($db_config_file, 0000);
+
         
             // Decrypt the binary data in the database config file.
             try {
