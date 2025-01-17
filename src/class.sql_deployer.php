@@ -8,7 +8,7 @@
      */	
     class sql_deployer {
 
-        public function __construct() {
+        public function __construct($sql_file_dir) {
 
             // ^ perms on config file so it's readable and read contents.
             $config_file = '../config/aws_la_config.json';
@@ -51,9 +51,12 @@
 
             // Open and read the database config file.
             $db_config_file = $aws_config['database']['config file']['demo'];
-            chmod($db_config_file, 0400);
+            chmod($db_config_file, 0440);
             $handle = fopen($db_config_file , 'rb');
             $binary_data = fread($handle, filesize($db_config_file));
+
+            // Reset file perms on db config file.
+            chmod($db_config_file, 0000);
         
             // Decrypt the binary data in the database config file.
             try {
@@ -72,30 +75,40 @@
             $db_config_data = base64_decode($db_config_data['Plaintext']);
             $db_params = explode($aws_config['construct']['config delim'], $db_config_data );
 
-            //echo "pgsql:host=$db_params[0];port=5432;dbname=$db_params[1];user=$db_params[2];password=$db_params[3]";
-            echo "postgres://$db_params[2]:$db_params[3]@$db_params[0]:5432/$db_params[1]?sslmode=require";
+            //
             try {
                 $pdo = new PDO(
-                    "pgsql:host=$db_params[0];port=5432;dbname=$db_params[1];user=$db_params[2];password=$db_params[3];sslmode=require"
-                    //"postgres://$db_params[2]:$db_params[3]@$db_params[0]:5432/$db_params[1]?sslmode=require"
+                    "pgsql:host=$db_params[0];
+                     port=5432;
+                     dbname=$db_params[1];
+                     user=$db_params[2];
+                     password=$db_params[3];
+                     sslmode=require"
                 );
             }
             catch (PDOException $e) {
                 $logger->log(['Problem connectiong : ' => $e->getTraceAsString()]);
             }
 
-            chmod($db_config_file, 0000);
+            // Make sure database exists and the user in connection is the owner of database.
+
+
+
+            // Make sure directory is readable & executable.
+            if (
+                (!is_dir($sql_file_dir)) ||
+                (!(int)substr(decoct( fileperms($sql_file_dir) & 0777 ), 0, 2) >= 55)
+            ) {
+                throw new Exception('SQL file directory must be a directory and must be readable & executable.');
+            }
 
             echo "done";
-
-
-
 
         }
 
     }
 
-    $sd = new sql_deployer();
+    $sd = new sql_deployer('/var/www/html/liberanalytics/sql/demo');
 
 
 ?>
