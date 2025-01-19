@@ -48,7 +48,7 @@
 
                     <div class="featured-post-attrs clear">
                         <span class="featured-post-date">November 15, 2024</span>
-                        <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
+                        <a href="/blog?cat=rdbms" class="featured-post-cat">Analytics</a> <!-- PHP Pull href & category frome RS. -->  
                     </div>
                 
                 </article> 
@@ -86,16 +86,16 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img src="assets/phpposgredbsetup_195.png">
+                            <img>
                         </div>             
                     
                         <div class="featured-post-desc">      
                             
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Generate flat files from a Postgresql database with PHP</a>
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Store database logs in Amazon Web Services CloudWatch Logs</a>
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Exemplifies a PHP way to create flat files from a SELECT query against a Postgresql database. (Yes, PHP in 2025!)
+                                Exemplifies a PHP way to use Amazon Web Services CloudWatch Logs to organize database queries and errors. (Yes, PHP in 2025!) .
                             </p>                                           
                     
                         </div>
@@ -104,7 +104,7 @@
 
                     <div class="featured-post-attrs clear">
                         <span class="featured-post-date">December 22, 2024</span>
-                        <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
+                        <a href="/blog?cat=rdbms" class="featured-post-cat">Cloud Computing</a> <!-- PHP Pull href & category frome RS. -->  
                     </div>
                 
                 </article>                 

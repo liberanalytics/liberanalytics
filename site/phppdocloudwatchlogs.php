@@ -24,35 +24,52 @@
 
         <header>
 
-            <h1 class="blog-heading site-font-fancyl">Generate flat files from a Postgresql database with PHP</h1>
+            <h1 class="blog-heading site-font-fancyl">Store database logs in Amazon Web Services CloudWatch Logs</h1>
             <h3 class="blog-date">December22, 2024</h3>
             <h2 class="blog-desc site-font-emph">
-                Exemplifies a PHP way to create flat files from a SELECT query against a Postgresql database. (Yes, PHP in 2025!).
+            Exemplifies a PHP way to use Amazon Web Services CloudWatch Logs to organize database queries and errors. (Yes, PHP in 2025!).
             </h2>
 
         </header>        
 
         <section>
 
-            <img src="assets/phpposgredbsetup_720.png" class="blog-img">
+            <img src="" class="blog-img">
 
-            <p> 
+            <p style="margin: 10px 0 10px 0px;"> 
                 <em class="site-font-fancyl">PHP</em> - is it really still used in the real world? The answer
-                is a resounding yes due to the language's simplicity and ease of use. In this post we will
-                explore PHP's usefulness in creating delimited data files using PHP. The content will draw on a previous post, 
-                <a href="pythonpostgreconnect.php" class="blog-intralink">Connecting Python to a Postgresql database</a> to read and decrypt database connection
-                parameters encrypted with an Amazon Web Services (AWS) Key Management Service (KMS) asymmetric
-                encryption key.
+                is a resounding yes due to the language's simplicity and ease of use. Tired of storing application
+                database error and query logs on the filesystem? Using Amazon Web Services (AWS) CloudWatch Logs can
+                make capturing, organizing, and accessing log files simpler than a traditional filesystem approach. The
+                advantages of using AWS to manage application database error and query logs are several, including:
+            </p>
+
+            <ul>
+                <li>No server filesystem writes or reads.</li>
+                <li>No server filesystem permission management.</li>
+                <li>Logs are available to AWS IAM users - helpful when working within
+                    a team of developers.
+                </li>
+                <li>Integrates as part of a comprehensive logging strucuture using AWS CloudWatch Logs.</li>
+            </ul>                    
+
+            <p>
+                The content will draw on a previous post, 
+                <a href="pythonpostgreconnect.php" class="blog-intralink">Connecting Python to a Postgresql database</a>
+                to create and decrypt database connection parameters with AWS Key Management Service (KMS) encryption key.
             </p>
 
             <h1 class="blog-subheading">Requirements</h1>
 
             <ul>
                 <li>PHP 8 (preferably running on Ubuntu)</li>
-                <li>PHP libraries: psycopg2, boto3</li>
-                <li>AWS: Key Management Service (KMS) Customer managed asymmetric key</li>
+                <li>PHP composer</li>
+                <li>PHP composer packages: aws/aws-sdk-php, legalthings/cloudwatch-logger</li>
+                <li>AWS: Key Management Service (KMS) Customer managed symmetric key</li>
+                <li>AWS: CloudWatch Logs - Log Groups and Streams</li>
                 <li>Postgresql database cluster (needs to accept TCP/IP connections)</li> 
-                <li>Database created on Postgresql cluster</li>           
+                <li>Database created on Postgresql cluster</li>
+            </ul>        
 
         </section>
         
