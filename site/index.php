@@ -86,7 +86,7 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img>
+                            <img src="assets/aws_cw_195.png">
                         </div>             
                     
                         <div class="featured-post-desc">      

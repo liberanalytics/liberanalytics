@@ -34,7 +34,7 @@
 
         <section>
 
-            <img src="" class="blog-img">
+            <img src="assets/aws_cw_720.png" class="blog-img">
 
             <p style="margin: 10px 0 10px 0px;"> 
                 <em class="site-font-fancyl">PHP</em> - is it really still used in the real world? The answer
@@ -51,6 +51,7 @@
                     a team of developers.
                 </li>
                 <li>Integrates as part of a comprehensive logging strucuture using AWS CloudWatch Logs.</li>
+                <li>Can use CloudWatch metrics to create reports of data within the logs.</li>
             </ul>                    
 
             <p>
