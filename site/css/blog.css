@@ -42,7 +42,7 @@ code {
     color: #FFF;
 }
 
-.blog-comment {
+.blog-python-comment {
     color: rgb(106,153,85);
 }
 
@@ -62,8 +62,24 @@ code {
     color: rgb(220,220,170);
 }
 
+.blog-php-comment {
+    color: rgb(102,119,132);
+}
+
 .blog-php-keyword {
     color: rgb(197,134,192);
+}
+
+.blog-php-string {
+    color: rgb(152,195,121);
+}
+
+.blog-php-fx {
+    color: rgb(97,174,238);
+}
+
+.blog-php-var {
+    color: rgb(209,154,102);
 }
 
 .blog-intralink:link {
@@ -117,3 +133,6 @@ code {
     list-style-type: none;
 }
 
+#blog_w ol li.space {
+    margin: 20px 0 0 0;
+}

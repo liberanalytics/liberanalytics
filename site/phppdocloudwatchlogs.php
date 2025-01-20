@@ -79,17 +79,52 @@
                 <code>
 
                     <ol>
-                        <li><span class="blog-comment">/**</span></li>
-                        <li><span class="blog-comment">&nbsp; * phppdocloudwatchlogs.php</span></li>
-                        <li><span class="blog-comment">&nbsp; * </span></li>
-                        <li><span class="blog-comment">&nbsp; * Creates a pdo connection to a postgresql database and runs a sample</span></li>
-                        <li><span class="blog-comment">&nbsp; * query. Demonstrates how to use AWS Key Management Service keys to </span></li>
-                        <li><span class="blog-comment">&nbsp; * decrypt database connection parameters from a configuration file on </span></li>
-                        <li><span class="blog-comment">&nbsp; * filesystem. The configuration file must have been created first </span></li>
-                        <li><span class="blog-comment">&nbsp; * with the aws_postgresql_config.py program. Shows how to loq errors </span></li>
-                        <li><span class="blog-comment">&nbsp; * encountered while attempting to connect with PDO to CloudWatch Logs. </span></li>
-                        <li><span class="blog-comment">&nbsp; * Also logs sql queries to CloudWatch Logs. </span></li>
-                        <li><span class="blog-comment">&nbsp; */</span></li>
+                        <li><span class="blog-php-comment">/**</span></li>
+                        <li><span class="blog-php-comment">&nbsp; * phppdocloudwatchlogs.php</span></li>
+                        <li><span class="blog-php-comment">&nbsp; * </span></li>
+                        <li><span class="blog-php-comment">&nbsp; * Creates a pdo connection to a postgresql database and runs a sample</span></li>
+                        <li><span class="blog-php-comment">&nbsp; * query. Demonstrates how to use AWS Key Management Service keys to </span></li>
+                        <li><span class="blog-php-comment">&nbsp; * decrypt database connection parameters from a configuration file on </span></li>
+                        <li><span class="blog-php-comment">&nbsp; * filesystem. The configuration file must have been created first </span></li>
+                        <li><span class="blog-php-comment">&nbsp; * with the aws_postgresql_config.py program. Shows how to loq errors </span></li>
+                        <li><span class="blog-php-comment">&nbsp; * encountered while attempting to connect with PDO to CloudWatch Logs. </span></li>
+                        <li><span class="blog-php-comment">&nbsp; * Also logs sql queries to CloudWatch Logs. </span></li>
+                        <li><span class="blog-php-comment">&nbsp; */</span></li>
+                    </ol>
+
+                    <ol>
+                        <li>
+                            <span class="blog-php-keyword">require</span><span>(</span><!--
+                             --><span class="blog-php-string">'../vendor/autoload.php'</span><span>);</span>
+                        </li>
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-php-comment">// Create new CloudWatch Logs client / KMS client / CloudWatchLogger</span></li>
+                        <li><span class="blog-php-comment">// instances.</span></li>
+                        <li><span class="blog-php-keyword">try</span><span> {</span></li>
+                        <li class="space">
+                            <span class="blog-php-var">$aws_cwlogs_client</span><span> = </span><!--
+                            --><span class="blog-php-keyword"> new </span><span class="blog-php-fx">Aws\CloudWatchLogs\CloudWatchLogsClient</span><!--
+                            --><span>([</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;'profile'</span><span> => </span><!--
+                            --><span class="blog-php-string">'default'</span><span>,</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;'region'</span><span> => </span><!--
+                            --><span class="blog-php-string">'us-west-1'</span><span>,</span>
+                        </li>                         
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;'version'</span><span> => </span><!--
+                            --><span class="blog-php-string">'latest'</span>
+                        </li>
+                        <li>
+                            <span>]);</span>
+                        </li>
+                        <li>
+                                               
                     </ol>
 
                 </code>
