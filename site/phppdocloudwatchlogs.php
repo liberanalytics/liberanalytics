@@ -103,27 +103,116 @@
                         <li><span class="blog-php-comment">// Create new CloudWatch Logs client / KMS client / CloudWatchLogger</span></li>
                         <li><span class="blog-php-comment">// instances.</span></li>
                         <li><span class="blog-php-keyword">try</span><span> {</span></li>
+
                         <li class="space">
-                            <span class="blog-php-var">$aws_cwlogs_client</span><span> = </span><!--
+                            <span class="blog-php-var">&nbsp;&nbsp;&nbsp;$aws_cwlogs_client</span><span> = </span><!--
                             --><span class="blog-php-keyword"> new </span><span class="blog-php-fx">Aws\CloudWatchLogs\CloudWatchLogsClient</span><!--
                             --><span>([</span>
                         </li>
                         <li>
-                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;'profile'</span><span> => </span><!--
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'profile'</span><span> => </span><!--
                             --><span class="blog-php-string">'default'</span><span>,</span>
                         </li>
                         <li>
-                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;'region'</span><span> => </span><!--
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'region'</span><span> => </span><!--
                             --><span class="blog-php-string">'us-west-1'</span><span>,</span>
                         </li>                         
                         <li>
-                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;'version'</span><span> => </span><!--
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'version'</span><span> => </span><!--
                             --><span class="blog-php-string">'latest'</span>
                         </li>
                         <li>
-                            <span>]);</span>
+                            <span>&nbsp;&nbsp;&nbsp;]);</span>
+                        </li>
+                        
+                        <li class="space">
+                            <span class="blog-php-var">&nbsp;&nbsp;&nbsp;$aws_kms_client</span><span> = </span><!--
+                            --><span class="blog-php-keyword"> new </span><span class="blog-php-fx">Aws\Kms\KmsClient</span><!--
+                            --><span>([</span>
                         </li>
                         <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'profile'</span><span> => </span><!--
+                            --><span class="blog-php-string">'default'</span><span>,</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'region'</span><span> => </span><!--
+                            --><span class="blog-php-string">'us-west-1'</span><span>,</span>
+                        </li>                         
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'version'</span><span> => </span><!--
+                            --><span class="blog-php-string">'latest'</span>
+                        </li>
+                        <li>
+                            <span>&nbsp;&nbsp;&nbsp;]);</span>
+                        </li>
+                        
+                        <li class="space">
+                            <span class="blog-php-var">&nbsp;&nbsp;&nbsp;$error_logger</span><span> = </span><!--
+                            --><span class="blog-php-keyword"> new </span><span class="blog-php-fx">LegalThings\CloudWatchLogger</span><!--
+                            --><span>([</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'aws'</span><span> => [</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'profile'</span><span> => </span><!--
+                            --><span class="blog-php-string">'default'</span><span>,</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'region'</span><span> => </span><!--
+                            --><span class="blog-php-string">'us-west-1'</span><span>,</span>
+                        </li>                         
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'version'</span><span> => </span><!--
+                            --><span class="blog-php-string">'latest'</span>
+                        </li>
+                        <li>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'group_name'</span><span> => </span><!--
+                            --><span class="blog-php-string">'sdk'</span><span>,</span>                            
+                        </li>
+                        
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'stream_name'</span><span> => </span><!--
+                            --><span class="blog-php-string">'php/database/errors/'</span>                            
+                        </li>
+                        <li><span>&nbsp;&nbsp;&nbsp;]);</span></li>     
+                        
+                        <li class="space">
+                            <span class="blog-php-var">&nbsp;&nbsp;&nbsp;$sql_logger</span><span> = </span><!--
+                            --><span class="blog-php-keyword"> new </span><span class="blog-php-fx">LegalThings\CloudWatchLogger</span><!--
+                            --><span>([</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'aws'</span><span> => [</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'profile'</span><span> => </span><!--
+                            --><span class="blog-php-string">'default'</span><span>,</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'region'</span><span> => </span><!--
+                            --><span class="blog-php-string">'us-west-1'</span><span>,</span>
+                        </li>                         
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'version'</span><span> => </span><!--
+                            --><span class="blog-php-string">'latest'</span>
+                        </li>
+                        <li>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'group_name'</span><span> => </span><!--
+                            --><span class="blog-php-string">'sdk'</span><span>,</span>                            
+                        </li>
+                        
+                        <li>
+                            <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'stream_name'</span><span> => </span><!--
+                            --><span class="blog-php-string">'php/database/sql/'</span>                            
+                        </li>
+                        <li><span>&nbsp;&nbsp;&nbsp;]);</span></li>                        
                                                
                     </ol>
 
