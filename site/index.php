@@ -91,7 +91,7 @@
                     
                         <div class="featured-post-desc">      
                             
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Store database logs in Amazon Web Services CloudWatch Logs</a>
+                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Logging database errors and queries to Amazon Web Services CloudWatch Logs</a>
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->

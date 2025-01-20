@@ -24,7 +24,7 @@
 
         <header>
 
-            <h1 class="blog-heading site-font-fancyl">Store database logs in Amazon Web Services CloudWatch Logs</h1>
+            <h1 class="blog-heading site-font-fancyl">Logging database errors and queries to Amazon Web Services CloudWatch Logs</h1>
             <h3 class="blog-date">December22, 2024</h3>
             <h2 class="blog-desc site-font-emph">
             Exemplifies a PHP way to use Amazon Web Services CloudWatch Logs to organize database queries and errors. (Yes, PHP in 2025!).
@@ -57,7 +57,7 @@
             <p>
                 The content will draw on a previous post, 
                 <a href="pythonpostgreconnect.php" class="blog-intralink">Connecting Python to a Postgresql database</a>
-                to create and encrypt database connection parameters with AWS Key Management Service (KMS) encryption key
+                to create and encrypt database connection parameters with AWS Key Management Service (KMS)
                 in Python. We will then use PHP to read and decrypt the connection parameters in connecting to the Postgresql
                 instance.
             </p>
@@ -72,7 +72,29 @@
                 <li>AWS: CloudWatch Logs - Log Groups and Streams</li>
                 <li>Postgresql database cluster (needs to accept TCP/IP connections)</li> 
                 <li>Database created on Postgresql cluster</li>
-            </ul>        
+            </ul>
+            
+            <div class="blog-snippet">
+
+                <code>
+
+                    <ol>
+                        <li><span class="blog-comment">/**</span></li>
+                        <li><span class="blog-comment">&nbsp; * phppdocloudwatchlogs.php</span></li>
+                        <li><span class="blog-comment">&nbsp; * </span></li>
+                        <li><span class="blog-comment">&nbsp; * Creates a pdo connection to a postgresql database and runs a sample</span></li>
+                        <li><span class="blog-comment">&nbsp; * query. Demonstrates how to use AWS Key Management Service keys to </span></li>
+                        <li><span class="blog-comment">&nbsp; * decrypt database connection parameters from a configuration file on </span></li>
+                        <li><span class="blog-comment">&nbsp; * filesystem. The configuration file must have been created first </span></li>
+                        <li><span class="blog-comment">&nbsp; * with the aws_postgresql_config.py program. Shows how to loq errors </span></li>
+                        <li><span class="blog-comment">&nbsp; * encountered while attempting to connect with PDO to CloudWatch Logs. </span></li>
+                        <li><span class="blog-comment">&nbsp; * Also logs sql queries to CloudWatch Logs. </span></li>
+                        <li><span class="blog-comment">&nbsp; */</span></li>
+                    </ol>
+
+                </code>
+
+            </div>
 
         </section>
         

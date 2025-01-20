@@ -33,16 +33,16 @@ code {
     color: rgb(51,51,51);
 }
 
-.blog-python-snippet {
+.blog-snippet {
     padding: 10px;
-    margin: 0 0 30px 0;
+    margin: 30px 0 30px 0;
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     background-color: rgb(30,30,30);
     color: #FFF;
 }
 
-.blog-python-comment {
+.blog-comment {
     color: rgb(106,153,85);
 }
 
@@ -62,7 +62,19 @@ code {
     color: rgb(220,220,170);
 }
 
+.blog-php-keyword {
+    color: rgb(197,134,192);
+}
+
 .blog-intralink:link {
+    font-family: Studio-Feixen-Sans;    
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(88,135,191,1);
+    text-decoration: none;
+}
+
+.blog-intralink:visited {
     font-family: Studio-Feixen-Sans;    
     font-size: 18px;
     font-weight: 300;

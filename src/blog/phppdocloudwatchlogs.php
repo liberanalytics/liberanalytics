@@ -1,8 +1,20 @@
 <?php
 
+    /**
+     * phppdocloudwatchlogs.php
+     *
+     * Creates a pdo connection to a postgresql database and runs a sample
+     * query. Demonstrates how to use AWS Key Management Service keys to 
+     * decrypt database connection parameters from a configuration file on
+     * filesystem. The configuration file must have been created first
+     * with the aws_postgresql_config.py program. Shows how to loq errors
+     * encountered while attempting to connect with PDO to CloudWatch Logs.
+     * Also logs sql queries to CloudWatch Logs.
+     */
+
     require('../vendor/autoload.php');
 
-    // Create new CloudWatch Logs client / KMS client / CloudWatchLogger instance.
+    // Create new CloudWatch Logs client / KMS client / CloudWatchLogger instances.
     try {
 
         $aws_cwlogs_client = new Aws\CloudWatchLogs\CloudWatchLogsClient([

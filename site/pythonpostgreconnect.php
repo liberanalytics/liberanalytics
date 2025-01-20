@@ -65,21 +65,21 @@
                 do the aforementioned in Python.
             </p>
 
-            <div class="blog-python-snippet">
+            <div class="blog-snippet">
 
                 <code>
 
                     <ol>
-                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
-                        <li><span class="blog-python-comment"># aws_postgresql_connect_init.py</span></li>
-                        <li><span class="blog-python-comment">#</span></li>
-                        <li><span class="blog-python-comment"># Creates a .ini file containing encrypted credentials used</span></li>
-                        <li><span class="blog-python-comment"># to connect to an AWS EC2 hosted postgresql database.</span></li>
-                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
+                        <li><span class="blog-comment"># --------------------------------------------------------------</span></li>
+                        <li><span class="blog-comment"># aws_postgresql_connect_init.py</span></li>
+                        <li><span class="blog-comment">#</span></li>
+                        <li><span class="blog-comment"># Creates a .ini file containing encrypted credentials used</span></li>
+                        <li><span class="blog-comment"># to connect to an AWS EC2 hosted postgresql database.</span></li>
+                        <li><span class="blog-comment"># --------------------------------------------------------------</span></li>
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Import required modules.</span></li>
+                        <li><span class="blog-comment"># Import required modules.</span></li>
                         <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">pwd</span></li>
                         <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">sys</span></li>
                         <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">os</span></li>
@@ -91,7 +91,7 @@
                     </ol>
 
                     <ol>    
-                        <li><span class="blog-python-comment"># Instantiate an AWS KMS client instance.</span></li>   
+                        <li><span class="blog-comment"># Instantiate an AWS KMS client instance.</span></li>   
                         <li>
                             <span>client = </span><span class="blog-python-builtin">boto3</span><!--
                             --><span class="blog-python-function">.client(</span><span class="blog-python-string">'kms'</span><!--
@@ -100,12 +100,12 @@
                     </ol>
                     
                     <ol>
-                        <li><span class="blog-python-comment"># KMS Key Id.</span></li>
+                        <li><span class="blog-comment"># KMS Key Id.</span></li>
                         <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
                     </ol>
                     
                     <ol>    
-                        <li><span class="blog-python-comment"># Prompt for the connection params.</span></li>
+                        <li><span class="blog-comment"># Prompt for the connection params.</span></li>
                         <li>
                             <span>db_host = </span><span class="blog-python-function">getpass(</span><!--
                             --><span class="blog-python-string">'Please enter database host:'</span><!--
@@ -129,7 +129,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Config file.</span></li>
+                        <li><span class="blog-comment"># Config file.</span></li>
                         <li>
                             <span>config_dir = [</span><span class="blog-python-string">'HOME'</span><span>] +</span>
                             <span class="blog-python-string">'/'</span><span> + </span><span class="blog-python-string">'conn'</span>
@@ -142,7 +142,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Concat + delimit params, convert to bytes, then base64 encode.</span></li>
+                        <li><span class="blog-comment"># Concat + delimit params, convert to bytes, then base64 encode.</span></li>
 
                         <li>
                             <span>delim = </span><span class="blog-python-function">chr(</span>7</span><!--
@@ -160,7 +160,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Encrypt the params.</span></li>
+                        <li><span class="blog-comment"># Encrypt the params.</span></li>
                         <li><span>encryption_data = aws_kms.</span><span class="blog-python-function">encrypt(</span></li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>KeyId = f'{key_id}',</span></li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>Plaintext = encode_params,</span></li>
@@ -169,7 +169,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Write connection credentials.</span></li>
+                        <li><span class="blog-comment"># Write connection credentials.</span></li>
                         <li>
                             <span class="blog-python-keyword">with </span><span class="blog-python-function">open(</span><!--
                             --><span>config_file, </span><span class="blog-python-string">'wb'</span><!--
@@ -184,7 +184,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># chmod on config file to make unreadable/unwritable.</span></li>
+                        <li><span class="blog-comment"># chmod on config file to make unreadable/unwritable.</span></li>
                         <li>
                             <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
                             --><span>config_file, 000</span><span class="blog-python-function">)</span>
@@ -210,22 +210,22 @@
                 to our postgresql cluster in AWS EC2 and run a sample query.
             </p>
             
-            <div class="blog-python-snippet">
+            <div class="blog-snippet">
 
                 <code>
 
                     <ol>
-                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
-                        <li><span class="blog-python-comment"># aws_postgresql_connect.py</span></li>
-                        <li><span class="blog-python-comment">#</span></li>
-                        <li><span class="blog-python-comment"># Connects to an AWS EC2 hosted postgresql database by reading</span></li>
-                        <li><span class="blog-python-comment"># and decrypting credentials stored in a config file. Dependent</span></li>
-                        <li><span class="blog-python-comment"># on the aws_postgresql_connect_init.py having been run first.</span></li>
-                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
+                        <li><span class="blog-comment"># --------------------------------------------------------------</span></li>
+                        <li><span class="blog-comment"># aws_postgresql_connect.py</span></li>
+                        <li><span class="blog-comment">#</span></li>
+                        <li><span class="blog-comment"># Connects to an AWS EC2 hosted postgresql database by reading</span></li>
+                        <li><span class="blog-comment"># and decrypting credentials stored in a config file. Dependent</span></li>
+                        <li><span class="blog-comment"># on the aws_postgresql_connect_init.py having been run first.</span></li>
+                        <li><span class="blog-comment"># --------------------------------------------------------------</span></li>
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Import required modules.</span></li>
+                        <li><span class="blog-comment"># Import required modules.</span></li>
                         <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">pwd</span></li>
                         <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">sys</span></li>
                         <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">os</span></li>
@@ -234,7 +234,7 @@
                     </ol>
 
                     <ol>    
-                        <li><span class="blog-python-comment"># Instantiate an AWS KMS client instance.</span></li>   
+                        <li><span class="blog-comment"># Instantiate an AWS KMS client instance.</span></li>   
                         <li>
                             <span>client = </span><span class="blog-python-builtin">boto3</span><!--
                             --><span class="blog-python-function">.client(</span><span class="blog-python-string">'kms'</span><!--
@@ -243,12 +243,12 @@
                     </ol>
                     
                     <ol>    
-                        <li><span class="blog-python-comment"># KMS Key Id.</span></li>
+                        <li><span class="blog-comment"># KMS Key Id.</span></li>
                         <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
                     </ol>                     
 
                     <ol>
-                        <li><span class="blog-python-comment"># Config file.</span></li>
+                        <li><span class="blog-comment"># Config file.</span></li>
                         <li>
                             <span>config_dir = [</span><span class="blog-python-string">'HOME'</span><span>] +</span>
                             <span class="blog-python-string">'/'</span><span> + </span><span class="blog-python-string">'conn'</span>
@@ -261,7 +261,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Make config file readable.</span></li>
+                        <li><span class="blog-comment"># Make config file readable.</span></li>
                         <li>
                             <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
                             --><span>config_file, 440</span><span class="blog-python-function">)</span>
@@ -269,7 +269,7 @@
                     </ol>             
 
                     <ol>
-                        <li><span class="blog-python-comment"># Get the connection credentials from config file.</span></li>
+                        <li><span class="blog-comment"># Get the connection credentials from config file.</span></li>
                         <li>
                             <span class="blog-python-keyword">with </span><span class="blog-python-function">open(</span><!--
                             --><span>config_file, </span><span class="blog-python-string">'rb'</span><!--
@@ -283,7 +283,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Reset config file perms.</span></li>
+                        <li><span class="blog-comment"># Reset config file perms.</span></li>
                         <li>
                             <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
                             --><span>config_file, 000</span><span class="blog-python-function">)</span>
@@ -291,7 +291,7 @@
                     </ol>                      
 
                     <ol>
-                        <li><span class="blog-python-comment"># Decrypt the connection credentials.</span></li>
+                        <li><span class="blog-comment"># Decrypt the connection credentials.</span></li>
                         <li><span>credentials_decrypt = client.</span><span class="blog-python-function">decrypt(</span></li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>CiphertextBlob = credentials_bytes,</span></li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>KeyId = f'{key_id}',</span></li>                        
@@ -300,7 +300,7 @@
                     </ol> 
                     
                     <ol>
-                        <li><span class="blog-python-comment"># Decode the credentials and split by delimiter.</span></li>
+                        <li><span class="blog-comment"># Decode the credentials and split by delimiter.</span></li>
                         <li><span>delimiter = </span><span class="blog-python-function">chr(</span>7</span><!--
                         --><span class="blog-python-function">)</span>
                         </li>
@@ -326,7 +326,7 @@
 
                     
                     <ol>
-                        <li><span class="blog-python-comment"># Form a connection string & connect.</span></li>
+                        <li><span class="blog-comment"># Form a connection string & connect.</span></li>
                         <li><span>connection_string = \</span></li>
                         <li><span class="blog-python-string">" host="</span><span> + db_host + \</span></li>
                         <li><span class="blog-python-string">" dbname"</span><span> + db_name + \</span></li>
@@ -341,7 +341,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Example query.</span></li>
+                        <li><span class="blog-comment"># Example query.</span></li>
                         <li><span>cur = conn.</span><span class="blog-python-function">cursor()</span></li>
                         <li>
                             <span>cur.</span><span class="blog-python-function">execute(</span><!--
@@ -352,7 +352,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Iterate through resultset.</span></li>
+                        <li><span class="blog-comment"># Iterate through resultset.</span></li>
                         <li>
                             <span class="blog-python-keyword">for</span><span> row </span><!--
                             --><span class="blog-python-keyword">in</span><span> rs: </span>
@@ -364,7 +364,7 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Close cursor and connection.</span></li>
+                        <li><span class="blog-comment"># Close cursor and connection.</span></li>
                         <li><span>cur.</span><span class="blog-python-function">close()</span></li>
                         <li><span>conn.</span><span class="blog-python-function">close()</span></li>
                     </ol>
