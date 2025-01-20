@@ -172,8 +172,7 @@
                         <li>
                             <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'group_name'</span><span> => </span><!--
                             --><span class="blog-php-string">'sdk'</span><span>,</span>                            
-                        </li>
-                        
+                        </li>                        
                         <li>
                             <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'stream_name'</span><span> => </span><!--
                             --><span class="blog-php-string">'php/database/errors/'</span>                            
@@ -206,14 +205,92 @@
                         <li>
                             <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'group_name'</span><span> => </span><!--
                             --><span class="blog-php-string">'sdk'</span><span>,</span>                            
-                        </li>
-                        
+                        </li>                        
                         <li>
                             <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'stream_name'</span><span> => </span><!--
                             --><span class="blog-php-string">'php/database/sql/'</span>                            
                         </li>
-                        <li><span>&nbsp;&nbsp;&nbsp;]);</span></li>                        
+                        <li><span>&nbsp;&nbsp;&nbsp;]);</span></li>
+                        <li><span>}</span></li>  
+                        
+                        <li class="space">
+                            <span class="blog-php-keyword">catch</span><span> (Exception</span><span class="blog-php-var">$e</span><!--
+                            --><span>) {</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-keyword">&nbsp;&nbsp;&nbsp;echo</span><span class="blog-php-var"> $e</span><span>-></span><!--
+                            --><span class="blog-php-fx">getTraceAsString</span><span>();</span>
+                        </li>
+                        <li><span>}</span></li>
                                                
+                    </ol>
+
+                    <ol>
+                        <li><span class="blog-php-comment">// Open and read the database config file.</span></li>
+                        <li>
+                            <span class="blog-php-var">$db_config_file</span><span> = </span><!--
+                            --><span class="blog-php-string">'la_demo_db.ini'</span><span>;</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-fx">chmod</span><span>(</span><span class="php-blog-var">$db_config_file</span><!--
+                            --><span>, </span><span class="blog-php-var">0440</span><span>);</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-var">$handle</span><span> = </span><span class="blog-php-fx">fopen</span><!--
+                            --><span>(</span><span class="blog-php-var">$db_config_file</span><span>, </span><!--
+                            --><span class="blog-php-string">'rb'</span><span>);</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-fx">chmod</span><span>(</span><span class="php-blog-var">$db_config_file</span><!--
+                            --><span>, </span><span class="blog-php-var">0000</span><span>);</span>
+                        </li>
+                        <li>
+                            <span class="blog-php-var">$binary_data</span><span> = </span><span class="blog-php-fx">fread</span><!--
+                            --><span>(</span><span class="blog-php-var">$handle</span><span>, </span><!--
+                            --><span class="blog-php-fx">filesize</span><span>(</span><span class="blog-php-var">$db_config_file</span><!--
+                            --><span>));</span>
+                        </li>  
+                    </ol>
+                    
+                    <ol>
+                        <li><span class="blog-php-comment">// Open and read the database config file.</span></li>
+                        <li><span class="blog-php-keyword">try</span><span> {</span></li>
+
+                            <li>
+                                <span class="blog-php-var">&nbsp;&nbsp;&nbsp;$db_config_data</span><span> = </span><!--
+                                --><span class="blog-php-var">$aws_kms_client</span><span>-></span><!--
+                                --><span class="blog-php-fx">decrypt</span><span>([</span>
+                            </li>
+                            <li>
+                                <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CiphertextBlob' </span><span> => </span><!--
+                                --><span class="blog-php-var">$binary_data</span><span>,</span>
+                            </li>
+                            <li>
+                                <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'EncryptionAlgorithm'</span><span> => </span><!--
+                                --><span class="blog-php-string">'SYMMETRIC_DEFAULT'</span><span>,</span>
+                            </li>                         
+                            <li>
+                                <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'KeyId'</span><span> => </span><!--
+                                --><span class="blog-php-string">'keyid'</span>
+                            </li>
+                            <li>
+                                <span>&nbsp;&nbsp;&nbsp;]);</span>
+                            </li>
+                            <li><span>}</span></li>  
+                            <li>
+                                <span class="blog-php-keyword">catch</span><span> (Exception </span><span class="blog-php-var">$e</span><!--
+                                --><span>) {</span>
+                            </li>
+                            <li>
+                                <span class="blog-php-var">&nbsp;&nbsp;&nbsp;$error_logger</span><span>-></span><!--
+                                --><span class="blog-php-fx">log</span><span>([</span>
+                            </li>
+                            <li>
+                                <span class="blog-php-string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Problem decrypting: '</span><span> => </span><!--
+                                --><span class="blog-php-var">$e</span><span>-></span><!--
+                                --><span class="blog-php-fx">getAwsErrorMessage</span><span>()</span>
+                            </li>
+                            <li><span>]);</span></li>                                                                       
                     </ol>
 
                 </code>
