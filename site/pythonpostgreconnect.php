@@ -42,7 +42,7 @@
                 This article demonstrates how to connect to a Postgresql database using Python without storing credentials
                 in plain text or in the .pgpass file. The architecture we will be using consists of a Postgresql database
                 hosted on an Ubuntu 24 (Noble) Amazon Web Services (AWS) EC2 instance and Python 3.10 running on Ubuntu 22 (Jammy).
-                We will use an symmetric AWS KMS key to encrypt and decrypt database credentials.
+                We will use a symmetric AWS KMS key to encrypt and decrypt database credentials.
             </p>
 
             <h1 class="blog-subheading">Requirements</h1>
@@ -203,7 +203,9 @@
                 encrypted data from the config file created by the aws_postgresql_connect_init.py program then
                 decrypts the byte data with the same AWS KMS key. It is important to include the encryption
                 algorithm (EncryptionAlgorithm='RSAES_OAEP_SHA_256') in the decrypt call if using an
-                symmetric key in AWS KMS. The data read is then split by delimiter to derive user name/password
+                asymmetric key in AWS KMS. In this case we are using a symmetric key so the EncryptionAlgorithm='SYMMETRIC_DEFAULT'
+                encryption algorithm property isn't needed but we still include it for posterity sake. 
+                The data read is then split by delimiter to derive user name/password
                 and the config file permissions are disabled. Finally we use the imported psycopg2 libarary to connect
                 to our postgresql cluster in AWS EC2 and run a sample query.
             </p>
@@ -243,13 +245,7 @@
                     <ol>    
                         <li><span class="blog-python-comment"># KMS Key Id.</span></li>
                         <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
-                    </ol>
-                    
-                    <ol>    
-                        <li><span class="blog-python-comment"># Database host and database to connect to.</span></li>
-                        <li><span>db_host = </span><span class="blog-python-string">'db_host'</span></li>
-                        <li><span>db_name = </span><span class="blog-python-string">'db_name'</span></li>
-                    </ol>                      
+                    </ol>                     
 
                     <ol>
                         <li><span class="blog-python-comment"># Config file.</span></li>
@@ -263,13 +259,6 @@
                             <span class="blog-python-string">.ini</span>
                         </li>
                     </ol>
-                    <ol>
-                        <li><span class="blog-python-comment"># chmod on config file to make unreadable/unwritable.</span></li>
-                        <li>
-                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
-                            --><span>config_file, 000</span><span class="blog-python-function">)</span>
-                        </li>                       
-                    </ol>
 
                     <ol>
                         <li><span class="blog-python-comment"># Make config file readable.</span></li>
@@ -277,7 +266,7 @@
                             <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
                             --><span>config_file, 440</span><span class="blog-python-function">)</span>
                         </li>
-                    </ol>
+                    </ol>             
 
                     <ol>
                         <li><span class="blog-python-comment"># Get the connection credentials from config file.</span></li>
@@ -294,11 +283,19 @@
                     </ol>
 
                     <ol>
+                        <li><span class="blog-python-comment"># Reset config file perms.</span></li>
+                        <li>
+                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
+                            --><span>config_file, 000</span><span class="blog-python-function">)</span>
+                        </li>
+                    </ol>                      
+
+                    <ol>
                         <li><span class="blog-python-comment"># Decrypt the connection credentials.</span></li>
                         <li><span>credentials_decrypt = client.</span><span class="blog-python-function">decrypt(</span></li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>CiphertextBlob = credentials_bytes,</span></li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>KeyId = f'{key_id}',</span></li>                        
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>EncryptionAlgorithm = </span><span class="blog-python-string">'RSAES_OAEP_SHA_256'</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>EncryptionAlgorithm = </span><span class="blog-python-string">'SYMMETRIC_DEFAULT'</span></li>
                         <li><span class="blog-python-function">)</span></li>
                     </ol> 
                     
@@ -307,26 +304,26 @@
                         <li><span>delimiter = </span><span class="blog-python-function">chr(</span>7</span><!--
                         --><span class="blog-python-function">)</span>
                         </li>
+                        <li>
+                            <span>credentials_decode = </span><span class="blog-python-builtin">base64</span><!--
+                            --><span class="blog-python-function">.b64decode</span><span>(credentials_decrypt[</span><!--
+                            --><span class="blog-python-string">'Plaintext'</span><span>])</span>
+                        </li>
                         <li><span>credentials = </span><span class="blog-python-builtin">bytes</span><span>.</span><!--
-                        --><span class="blog-python-function">decode(</span><span>credentials_decrypt[</span><!--
-                        --><span class="blog-python-string">'Plaintext'</span><span>], </span><!--
+                        --><span class="blog-python-function">decode(</span><span>credentials_decode, </span><!--
                         --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span>
                         </li>
                         <li>
                             <span>db_data = credentials.</span><span class="blog-python-function">split(</span>delimiter</span><!--
                             --><span class="blog-python-function">)</span>
                         </li>
-                        <li><span>db_user = db_data[0]</span></li>
-                        <li><span>db_auth = db_data[1]</span></li>
+                        <li><span>db_host = db_data[0]</span></li>
+                        <li><span>db_name = db_data[1]</span></li>
+                        <li><span>db_user = db_data[2]</span></li>
+                        <li><span>db_auth = db_data[3]</span></li>
                     </ol>
 
-                    <ol>
-                        <li><span class="blog-python-comment"># Reset config file perms.</span></li>
-                        <li>
-                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
-                            --><span>config_file, 000</span><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>  
+
                     
                     <ol>
                         <li><span class="blog-python-comment"># Form a connection string & connect.</span></li>
