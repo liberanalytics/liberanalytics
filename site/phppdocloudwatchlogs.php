@@ -57,7 +57,9 @@
             <p>
                 The content will draw on a previous post, 
                 <a href="pythonpostgreconnect.php" class="blog-intralink">Connecting Python to a Postgresql database</a>
-                to create and decrypt database connection parameters with AWS Key Management Service (KMS) encryption key.
+                to create and encrypt database connection parameters with AWS Key Management Service (KMS) encryption key
+                in Python. We will then use PHP to read and decrypt the connection parameters in connecting to the Postgresql
+                instance.
             </p>
 
             <h1 class="blog-subheading">Requirements</h1>

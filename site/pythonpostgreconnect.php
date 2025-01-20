@@ -105,17 +105,27 @@
                     </ol>
                     
                     <ol>    
-                        <li><span class="blog-python-comment"># Get the database host & database name.</span></li>
+                        <li><span class="blog-python-comment"># Prompt for the connection params.</span></li>
                         <li>
-                            <span>db_host = </span><span class="blog-python-function">input(</span><!--
+                            <span>db_host = </span><span class="blog-python-function">getpass(</span><!--
                             --><span class="blog-python-string">'Please enter database host:'</span><!--
                             --><span class="blog-python-function">)</span>
                         </li>
                         <li>
-                            <span>db_name = </span><span class="blog-python-function">input(</span><!--
+                            <span>db_name = </span><span class="blog-python-function">getpass(</span><!--
                             --><span class="blog-python-string">'Please enter database name:'</span><!--
                             --><span class="blog-python-function">)</span>                   
                         </li>
+                        <li>
+                            <span>db_user = </span><span class="blog-python-function">getpass(</span><!--
+                            --><span class="blog-python-string">'Please enter database user name:'</span><!--
+                            --><span class="blog-python-function">)</span>                   
+                        </li>
+                        <li>
+                            <span>db_auth = </span><span class="blog-python-function">getpass(</span><!--
+                            --><span class="blog-python-string">'Please enter user password:'</span><!--
+                            --><span class="blog-python-function">)</span>                   
+                        </li>                        
                     </ol>
 
                     <ol>
@@ -132,42 +142,29 @@
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Store connection credentials delimited by a BEL utf8 char.</span></li>
+                        <li><span class="blog-python-comment"># Concat + delimit params, convert to bytes, then base64 encode.</span></li>
 
                         <li>
-                            <span>delimiter = </span><span class="blog-python-builtin">bytes</span><!--
-                            --><span>(</span><span class="blog-python-function">chr(</span>7</span><!--
-                            --><span class="blog-python-function">)</span><span>, </span><!--
+                            <span>delim = </span><span class="blog-python-function">chr(</span>7</span><!--
+                            --><span class="blog-python-function">)</span>
+                        </li>
+                        <li><span>params = db_host + delim + db_name + delim + db_user + delim + db_auth</span></li>
+                        <li>
+                            <span>byte_params = params.<span class="blog-python-function">encode(</span></span><!--
                             --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span>
                         </li>
-
-                        <li><span>credentials_bytes = \</span></li>
                         <li>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-builtin">bytes</span><!--
-                            --><span class="blog-python-function">(getpass(</span><!--
-                            --><span class="blog-python-string">'Please enter database user name:'</span><!--
-                            --><span class="blog-python-function">)</span><span>, </span><!--
-                            --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span><!--
-                            --><span> + \</span>
-                        </li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>delimiter + \</span></li>
-                        <li>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-builtin">bytes</span><!--
-                            --><span class="blog-python-function">(getpass(</span><!--
-                            --><span class="blog-python-string">'Please enter database user password:'</span><!--
-                            --><span class="blog-python-function">)</span><span>, </span><!--
-                            --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span><!--
-                            --><span> + \</span>                            
-                        </li>
-                        
+                            <span>encode_params = </span><span class="blog-python-builtin">base64</span><!--
+                            --><span class="blog-python-function">.b64encode</span><span>(byte_params)</span>
+                        </li>                        
                     </ol>
 
                     <ol>
-                        <li><span class="blog-python-comment"># Encrypt credentials.</span></li>
-                        <li><span>credentials_encrypt = client.</span><span class="blog-python-function">encrypt(</span></li>
+                        <li><span class="blog-python-comment"># Encrypt the params.</span></li>
+                        <li><span>encryption_data = aws_kms.</span><span class="blog-python-function">encrypt(</span></li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>KeyId = f'{key_id}',</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>Plaintext = credentials_bytes,</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>EncryptionAlgorithm = </span><span class="blog-python-string">'RSAES_OAEP_SHA_256'</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>Plaintext = encode_params,</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>EncryptionAlgorithm = </span><span class="blog-python-string">'SYMMETRIC_DEFAULT'</span></li>
                         <li><span class="blog-python-function">)</span></li>
                     </ol>
 
@@ -181,7 +178,7 @@
                         </li>
                         <li>
                             &nbsp;&nbsp;&nbsp;&nbsp;<span>file.</span><span class="blog-python-function">write(</span><!--
-                            --><span>credentials_encrypt[</span><span class="blog-python-string">'CiphertextBlob'</span><!--
+                            --><span>encryption_data[</span><span class="blog-python-string">'CiphertextBlob'</span><!--
                             --><span>]</span><span class="blog-python-function">)</span>
                         </li>
                     </ol>
