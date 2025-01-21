@@ -95,7 +95,7 @@
                             <!-- PHP Pull header from RS. -->                              
                     
                             <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Exemplifies a PHP way to use Amazon Web Services CloudWatch Logs to organize database queries and errors. (Yes, PHP in 2025!) .
+                                Exemplifies a PHP way to use Amazon Web Services CloudWatch to log database errors and queries run. (Yes, PHP in 2025!).
                             </p>                                           
                     
                         </div>

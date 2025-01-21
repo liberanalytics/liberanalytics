@@ -8,13 +8,12 @@
      * decrypt database connection parameters from a configuration file on
      * filesystem. The configuration file must have been created first
      * with the aws_postgresql_config.py program. Shows how to loq errors
-     * encountered to CloudWatch Logs while attempting to connect with PDO.
-     * Also logs sql queries to CloudWatch Logs.
+     * encountered as well as queries run to CloudWatch Logs.
      */
 
     require ('../vendor/autoload.php');
 
-    // Create CloudWatch Logs client / KMS client / CloudWatchLogger instances.
+    // Create CloudWatch Logs / KMS / CloudWatchLogger instances.
     try {
 
         $aws_cwlogs_client = new Aws\CloudWatchLogs\CloudWatchLogsClient([
@@ -67,7 +66,7 @@
     try {
         $db_config_data = $aws_kms_client->decrypt([
 
-            // AWS KMS decrypt P(x)'s - Include KeyId as best practice.
+            // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
             'CiphertextBlob' => $binary_data,
             'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
             'KeyId' => 'c7b1107e-aae8-4359-b2b0-8ea26ad0e2d6'
