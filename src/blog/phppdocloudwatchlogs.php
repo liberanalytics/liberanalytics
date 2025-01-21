@@ -8,13 +8,13 @@
      * decrypt database connection parameters from a configuration file on
      * filesystem. The configuration file must have been created first
      * with the aws_postgresql_config.py program. Shows how to loq errors
-     * encountered while attempting to connect with PDO to CloudWatch Logs.
+     * encountered to CloudWatch Logs while attempting to connect with PDO.
      * Also logs sql queries to CloudWatch Logs.
      */
 
     require('../vendor/autoload.php');
 
-    // Create new CloudWatch Logs client / KMS client / CloudWatchLogger instances.
+    // Create CloudWatch Logs client / KMS client / CloudWatchLogger instances.
     try {
 
         $aws_cwlogs_client = new Aws\CloudWatchLogs\CloudWatchLogsClient([
@@ -49,25 +49,32 @@
             'stream_name' => 'php/database/sql/'
         ]);         
     }
+    // Report on any exceptions - exit program since all instances are needed.
     catch (Exxception $e) {
         echo $e->getTraceAsString();
+        exit('Couldn\'t instantiate a needed AWS or Logger class. Exiting.');
     }
 
-    // Open and read the database config file.
+    // Open and read the database config file: reset perms on database config
+    // file when finished opening.
     $db_config_file = '/var/www/html/liberanalytics/config/la_demo_db.ini';
     chmod($db_config_file, 0440);
-    $handle = fopen($db_config_file , 'rb');
+    $handle = fopen($db_config_file, 'rb');
     chmod($db_config_file, 0000);
     $binary_data = fread($handle, filesize($db_config_file));
 
     // Decrypt the binary data in the database config file.
     try {
         $db_config_data = $aws_kms_client->decrypt([
+
+            // AWS KMS decrypt P(x)'s - Include KeyId as best practice.
             'CiphertextBlob' => $binary_data,
             'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
             'KeyId' => 'c7b1107e-aae8-4359-b2b0-8ea26ad0e2d6'
         ]);
     }
+    // Log any exceptions to the error log group / stream. Exit on failure
+    // since remaining program depends on decrypted data.
     catch (Exception $e) {
         $error_logger->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
         exit("Unable to decrypt the data in ${db_config_file}.");
@@ -84,29 +91,33 @@
     // Try to connect to postgres database. Log any errors to CloudWatch Logs.
     try {
         $pdo = new PDO(
-            "pgsql:host=$db_host;
+            "pgsql:host=${db_host};
                 port=5432;
-                dbname=$db_name;
-                user=$db_user;
-                password=$db_auth;
+                dbname=${db_name};
+                user=${db_user};
+                password=${db_auth};
                 sslmode=require"
         );
+        // Set PDO error reporting to Exception.
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
+    // Log failed connection attempts to CloudWatch Logs and exit.
     catch (PDOException $e) {
         $error_logger->log(['Problem connecting : ' => $e->getMessage()]);
         exit("Unable to connect to host : ${db_host}.");
     }
 
-    // Run an example query. Log any errors to CloudWatch Logs.
+    // Run an example query. Log successful queries to the sql log stream
+    // and any errors to error log stream in CloudWatch Logs.
     try {
         $qry = 'SELECT datname, datcollate FROM pg_database;';
         $stmt = $pdo->query($qry);
         $sql_logger->log(['Query run by user ' . $_SERVER['USER'] . ' ' => $qry]);
     }
+    // Log failed query prepare attements to CloudWatch Logs.
     catch (PDOException $e) {
         $error_logger->log(['Problem with query ' => $e->getMessage()]);
-        exit("Unable to run query : ${qry}.");
+        exit("Unable to prepare query : ${qry}.");
     }
 
 ?>

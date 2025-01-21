@@ -36,72 +36,8 @@ code {
 .blog-snippet {
     padding: 10px;
     margin: 30px 0 30px 0;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
     background-color: rgb(30,30,30);
     color: #FFF;
-}
-
-.blog-python-comment {
-    color: rgb(106,153,85);
-}
-
-.blog-python-builtin {
-    color: rgb(60,117,100);
-}
-
-.blog-python-keyword {
-    color: rgb(197,134,192);
-}
-
-.blog-python-string {
-    color: rgb(206,145,120);
-}
-
-.blog-python-function {
-    color: rgb(220,220,170);
-}
-
-.blog-php-comment {
-    color: rgb(102,119,132);
-}
-
-.blog-php-keyword {
-    color: rgb(197,134,192);
-}
-
-.blog-php-string {
-    color: rgb(152,195,121);
-}
-
-.blog-php-fx {
-    color: rgb(97,174,238);
-}
-
-.blog-php-var {
-    color: rgb(209,154,102);
-}
-
-.blog-intralink:link {
-    font-family: Studio-Feixen-Sans;    
-    font-size: 18px;
-    font-weight: 300;
-    color: rgba(88,135,191,1);
-    text-decoration: none;
-}
-
-.blog-intralink:visited {
-    font-family: Studio-Feixen-Sans;    
-    font-size: 18px;
-    font-weight: 300;
-    color: rgba(88,135,191,1);
-    text-decoration: none;
-}
-
-.blog-intralink:hover {
-    color: rgba(101,149,202,1);
-    text-decoration: underline;    
-    transition-duration: .3s; 
 }
 
 #blog_w {
