@@ -35,7 +35,7 @@
 
         <section>
 
-            <img src="assets/pythonpostgreconnect720.png" class="blog-img">
+            <img src="assets/pythonpostgreconnect820.png" class="blog-img">
 
             <p>
                 <em class="site-font-fancyl">Connecting</em> Python to Postgresql is made seamless with the psycopg2 library.

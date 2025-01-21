@@ -40,8 +40,28 @@ code {
     color: #FFF;
 }
 
+.blog-python-comment {
+    color: rgb(106,153,85);
+}
+
+.blog-python-builtin {
+    color: rgb(60,117,100);
+}
+
+.blog-python-keyword {
+    color: rgb(197,134,192);
+}
+
+.blog-python-string {
+    color: rgb(206,145,120);
+}
+
+.blog-python-function {
+    color: rgb(220,220,170);
+}
+
 #blog_w {
-    width: 720px;
+    width: 820px;
     margin: 30px auto 0 auto;
 }
 

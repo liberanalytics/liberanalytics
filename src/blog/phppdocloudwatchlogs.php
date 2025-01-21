@@ -12,7 +12,7 @@
      * Also logs sql queries to CloudWatch Logs.
      */
 
-    require('../vendor/autoload.php');
+    require ('../vendor/autoload.php');
 
     // Create CloudWatch Logs client / KMS client / CloudWatchLogger instances.
     try {
@@ -112,7 +112,7 @@
     try {
         $qry = 'SELECT datname, datcollate FROM pg_database;';
         $stmt = $pdo->query($qry);
-        $sql_logger->log(['Query run by user ' . $_SERVER['USER'] . ' ' => $qry]);
+        $sql_logger->log(["User: ${db_user}: Query: "  => $qry]);
     }
     // Log failed query prepare attements to CloudWatch Logs.
     catch (PDOException $e) {
