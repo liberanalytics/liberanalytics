@@ -285,3 +285,28 @@ main {
     font-weight: 300;
     color: white;
 }
+
+a:link {
+    font-family: Studio-Feixen-Sans;    
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(88,135,191,1);
+    text-decoration: none;    
+}
+
+a:hover {
+    color: rgba(101,149,202,1);
+    text-decoration: underline;    
+    transition-duration: .3s;   
+}
+
+a:visited {
+    color: rgba(88,135,191,1);
+    text-decoration: none;    
+}
+
+a:active {
+    color: rgba(101,149,202,1);
+    text-decoration: underline;    
+    transition-duration: .3s;   
+}
