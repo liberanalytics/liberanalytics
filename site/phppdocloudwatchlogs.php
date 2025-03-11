@@ -119,6 +119,158 @@
 
             <img src="assets/phpcloudwatchlogs_errors.png">
 
+            <h1 class="blog-subheading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h1>
+
+            <p>
+                Finally it is time to connect to the database. PHP's PDO data access layer is great for abstracting calls to database
+                operations and easy to instantiate. To show the usefulness of CloudWatch logs a simulation of a failed connection attempt
+                is run here.
+            </p>
+
+            <div
+                class="blog-snippet"
+                style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; font-size: 16px; line-height: 19px; margin: auto; white-space: nowrap;">
+                <div></div>
+                <div><br></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">//&nbsp;Try&nbsp;to&nbsp;connect&nbsp;to&nbsp;postgres&nbsp;database.&nbsp;Log&nbsp;any&nbsp;errors&nbsp;to&nbsp;CloudWatch&nbsp;Logs.</span>
+                </div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">try</span><span
+                        style="color: #d4d4d4;">&nbsp;{</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">$pdo</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span
+                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                        style="color: #4ec9b0;">PDO</span><span style="color: #d4d4d4;">(</span></div>
+                <div><span
+                        style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #ce9178;">"pgsql:host=</span><span style="color: #9cdcfe;">${db_host}</span><span
+                        style="color: #ce9178;">;</span></div>
+                <div><span
+                        style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port=65535;</span>
+                </div>
+                <div><span
+                        style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbname=</span><span
+                        style="color: #9cdcfe;">${db_name}</span><span style="color: #ce9178;">;</span></div>
+                <div><span
+                        style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user=</span><span
+                        style="color: #9cdcfe;">${db_user}</span><span style="color: #ce9178;">;</span></div>
+                <div><span
+                        style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password=</span><span
+                        style="color: #9cdcfe;">${db_auth}</span><span style="color: #ce9178;">;</span></div>
+                <div><span
+                        style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslmode=require"</span>
+                </div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">//&nbsp;Set&nbsp;PDO&nbsp;error&nbsp;reporting&nbsp;to&nbsp;Exception.</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">$pdo</span><span style="color: #d4d4d4;">-&gt;</span><span
+                        style="color: #dcdcaa;">setAttribute</span><span style="color: #d4d4d4;">(</span><span
+                        style="color: #4ec9b0;">PDO</span><span style="color: #d4d4d4;">::ATTR_ERRMODE,&nbsp;</span><span
+                        style="color: #4ec9b0;">PDO</span><span style="color: #d4d4d4;">::ERRMODE_EXCEPTION);</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">//&nbsp;Connection&nbsp;attempt&nbsp;failed&nbsp;-&nbsp;log&nbsp;failure&nbsp;to&nbsp;CloudWatch&nbsp;Logs&nbsp;and&nbsp;exit.</span>
+                </div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">catch</span><span
+                        style="color: #d4d4d4;">&nbsp;(</span><span style="color: #4ec9b0;">PDOException</span><span
+                        style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">$e</span><span
+                        style="color: #d4d4d4;">)&nbsp;{</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">$error_logger</span><span style="color: #d4d4d4;">-&gt;</span><span
+                        style="color: #dcdcaa;">log</span><span style="color: #d4d4d4;">([</span><span
+                        style="color: #ce9178;">'Problem&nbsp;connecting&nbsp;:&nbsp;'</span><span
+                        style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #9cdcfe;">$e</span><span
+                        style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">getMessage</span><span
+                        style="color: #d4d4d4;">()]);</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #c586c0;">exit</span><span style="color: #d4d4d4;">(</span><span
+                        style="color: #ce9178;">"Unable&nbsp;to&nbsp;connect&nbsp;to&nbsp;host&nbsp;:&nbsp;</span><span
+                        style="color: #9cdcfe;">${db_host}</span><span style="color: #ce9178;">."</span><span
+                        style="color: #d4d4d4;">);</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+                <div><br></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>    
+            </div>
+          
+            <p>
+                In using a bogus port of 65535 while attempting to connect via PHP PDO to a PostgreSQL database
+                the try / catch entered the catch block and generated a log to the php/database/errors/ logstream. The
+                log from the AWS CloudWatch logs console is shown below.
+            </p>
+
+            <img src="assets/phpcloudwatchlogs_errors.png">
+
+            <h1 class="blog-subheading">Log a succesfully run query</h1>
+            
+            <div
+                class="blog-snippet"
+                style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; line-height: 19px; margin: auto;">
+                <div></div>
+                <div><br></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #6a9955;">//&nbsp;Run&nbsp;an&nbsp;example&nbsp;query.&nbsp;Log&nbsp;successful&nbsp;queries&nbsp;to&nbsp;the&nbsp;sql&nbsp;log&nbsp;stream</span>
+                </div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #6a9955;">//&nbsp;and&nbsp;any&nbsp;errors&nbsp;to&nbsp;the&nbsp;error&nbsp;log&nbsp;stream&nbsp;in&nbsp;CloudWatch&nbsp;Logs.</span>
+                </div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">try</span><span
+                                style="color: #d4d4d4;">&nbsp;{</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #9cdcfe;">$qry</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span
+                                style="color: #ce9178;">'</span><span style="color: #569cd6;">SELECT</span><span
+                                style="color: #ce9178;">&nbsp;datname,&nbsp;datcollate&nbsp;</span><span
+                                style="color: #569cd6;">FROM</span><span style="color: #ce9178;">&nbsp;pg_database;</span><span
+                                style="color: #ce9178;">'</span><span style="color: #d4d4d4;">;</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #9cdcfe;">$stmt</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span
+                                style="color: #9cdcfe;">$pdo</span><span style="color: #d4d4d4;">-&gt;</span><span
+                                style="color: #dcdcaa;">query</span><span style="color: #d4d4d4;">(</span><span
+                                style="color: #9cdcfe;">$qry</span><span style="color: #d4d4d4;">);</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #9cdcfe;">$sql_logger</span><span style="color: #d4d4d4;">-&gt;</span><span
+                                style="color: #dcdcaa;">log</span><span style="color: #d4d4d4;">([</span><span
+                                style="color: #ce9178;">"User:&nbsp;</span><span style="color: #9cdcfe;">${db_user}</span><span
+                                style="color: #ce9178;">:&nbsp;Query:&nbsp;"</span><span
+                                style="color: #d4d4d4;">&nbsp;&nbsp;=&gt;&nbsp;</span><span
+                                style="color: #9cdcfe;">$qry</span><span style="color: #d4d4d4;">]);</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #6a9955;">//&nbsp;Log&nbsp;failed&nbsp;query&nbsp;prepare&nbsp;statements&nbsp;to&nbsp;CloudWatch&nbsp;Logs.</span>
+                </div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #c586c0;">catch</span><span style="color: #d4d4d4;">&nbsp;(</span><span
+                                style="color: #4ec9b0;">PDOException</span><span style="color: #d4d4d4;">&nbsp;</span><span
+                                style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;">)&nbsp;{</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #9cdcfe;">$error_logger</span><span style="color: #d4d4d4;">-&gt;</span><span
+                                style="color: #dcdcaa;">log</span><span style="color: #d4d4d4;">([</span><span
+                                style="color: #ce9178;">'Problem&nbsp;with&nbsp;query&nbsp;'</span><span
+                                style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #9cdcfe;">$e</span><span
+                                style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">getMessage</span><span
+                                style="color: #d4d4d4;">()]);</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                style="color: #c586c0;">exit</span><span style="color: #d4d4d4;">(</span><span
+                                style="color: #ce9178;">"Unable&nbsp;to&nbsp;prepare&nbsp;query&nbsp;:&nbsp;</span><span
+                                style="color: #9cdcfe;">${qry}</span><span style="color: #ce9178;">."</span><span
+                                style="color: #d4d4d4;">);</span></div>
+                <div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+                <div><br></div>
+                <div></div>
+            </div>
+                
+            <img src="assets/phpcloudwatchlogs_errors.png">
+
+            <h1 class="blog-subheading">What can be learned from this article</h1>
+
+            <p>
+                Making use of AWS CloudWatch logs can simplify database error and query logging, especially
+                if working collaboratively within a team which uses an AWS infrastructure. Instead of manually logging
+                to files on a workstation's filesystem during development, the approach in this post emphasizes sending
+                log data to CloudWatch logs where the logs can be analyzed further. AWS SDK's make logging simple
+                when combined with a robust logging client such as the CloudWatchLogger from LegalThings. 
+            </p>            
+
         </section>
         
     </div>

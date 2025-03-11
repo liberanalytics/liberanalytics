@@ -11,4 +11,4 @@ src/*.lock
 *.pem
 *codetohtml*
 *sample*
-site/phphtmlcss.php
+site/phphtmlcss*

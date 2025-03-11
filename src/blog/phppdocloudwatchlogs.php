@@ -69,7 +69,7 @@
             // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
             'CiphertextBlob' => $binary_data,
             'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
-            'KeyId' => 'keyid'
+            'KeyId' => 'c7b1107e-aae8-4359-b2b0-8ea26ad0e2d6'
         ]);
     }
     // Log any exceptions to the error log group / stream. Exit on failure
@@ -100,20 +100,20 @@
         // Set PDO error reporting to Exception.
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-    // Log failed connection attempts to CloudWatch Logs and exit.
+    // Connection attempt failed - log failure to CloudWatch Logs and exit.
     catch (PDOException $e) {
         $error_logger->log(['Problem connecting : ' => $e->getMessage()]);
         exit("Unable to connect to host : ${db_host}.");
     }
 
     // Run an example query. Log successful queries to the sql log stream
-    // and any errors to error log stream in CloudWatch Logs.
+    // and any errors to the error log stream in CloudWatch Logs.
     try {
         $qry = 'SELECT datname, datcollate FROM pg_database;';
         $stmt = $pdo->query($qry);
         $sql_logger->log(["User: ${db_user}: Query: "  => $qry]);
     }
-    // Log failed query prepare attements to CloudWatch Logs.
+    // Log failed query prepare statements to CloudWatch Logs.
     catch (PDOException $e) {
         $error_logger->log(['Problem with query ' => $e->getMessage()]);
         exit("Unable to prepare query : ${qry}.");
