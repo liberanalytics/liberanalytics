@@ -69,7 +69,7 @@
             // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
             'CiphertextBlob' => $binary_data,
             'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
-            'KeyId' => 'c7b1107e-aae8-4359-b2b0-8ea26ad0e2d6'
+            'KeyId' => 'keyid'
         ]);
     }
     // Log any exceptions to the error log group / stream. Exit on failure
