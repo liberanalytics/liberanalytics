@@ -113,11 +113,11 @@
 
             <p>
                 If an error was encountered during the encryption attempt there will be a log in the AWS CloudWatch Logs log stream
-                previously configured: php/database/errors/. For simulation's sake we have generated an error to show the log record
-                as it would appear in the AWS CloudWatch logs console below.
+                previously configured: php/database/errors/. For simulation's sake we have generated an error to create a log record
+                which appears in the AWS CloudWatch logs console as shown below.
             </p>
 
-            <img src="assets/phpcloudwatchlogs_errors.png">
+            <img src="assets/phpcloudwatchlogs_decrypt_error.png">
 
             <h1 class="blog-subheading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h1>
 
@@ -199,7 +199,7 @@
                 log from the AWS CloudWatch logs console is shown below.
             </p>
 
-            <img src="assets/phpcloudwatchlogs_errors.png">
+            <img src="assets/phpcloudwatchlogs_connect_error.png">
 
             <h1 class="blog-subheading">Log a succesfully run query</h1>
             
@@ -258,8 +258,12 @@
                 <div><br></div>
                 <div></div>
             </div>
+
+            <p>
+                And this time the log goes to the php/database/sql/ logstream.
+            </p>
                 
-            <img src="assets/phpcloudwatchlogs_errors.png">
+            <img src="assets/phpcloudwatchlogs_query.png">
 
             <h1 class="blog-subheading">What can be learned from this article</h1>
 
