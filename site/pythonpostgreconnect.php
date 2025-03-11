@@ -65,135 +65,213 @@
                 do the aforementioned in Python.
             </p>
 
-            <div class="blog-snippet">
-
-                <code>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
-                        <li><span class="blog-python-comment"># aws_postgresql_connect_init.py</span></li>
-                        <li><span class="blog-python-comment">#</span></li>
-                        <li><span class="blog-python-comment"># Creates a .ini file containing encrypted credentials used</span></li>
-                        <li><span class="blog-python-comment"># to connect to an AWS EC2 hosted postgresql database.</span></li>
-                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Import required modules.</span></li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">pwd</span></li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">sys</span></li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">os</span></li>
-                        <li>
-                            <span class="blog-python-keyword">from </span><span class="blog-python-builtin">getpass</span>
-                            <span class="blog-python-keyword">import </span><span class="blog-python-builtin">getpass</span>
-                        </li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">boto3</span></li>
-                    </ol>
-
-                    <ol>    
-                        <li><span class="blog-python-comment"># Instantiate an AWS KMS client instance.</span></li>   
-                        <li>
-                            <span>client = </span><span class="blog-python-builtin">boto3</span><!--
-                            --><span class="blog-python-function">.client(</span><span class="blog-python-string">'kms'</span><!--
-                            --><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>
-                    
-                    <ol>
-                        <li><span class="blog-python-comment"># KMS Key Id.</span></li>
-                        <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
-                    </ol>
-                    
-                    <ol>    
-                        <li><span class="blog-python-comment"># Prompt for the connection params.</span></li>
-                        <li>
-                            <span>db_host = </span><span class="blog-python-function">getpass(</span><!--
-                            --><span class="blog-python-string">'Please enter database host:'</span><!--
-                            --><span class="blog-python-function">)</span>
-                        </li>
-                        <li>
-                            <span>db_name = </span><span class="blog-python-function">getpass(</span><!--
-                            --><span class="blog-python-string">'Please enter database name:'</span><!--
-                            --><span class="blog-python-function">)</span>                   
-                        </li>
-                        <li>
-                            <span>db_user = </span><span class="blog-python-function">getpass(</span><!--
-                            --><span class="blog-python-string">'Please enter database user name:'</span><!--
-                            --><span class="blog-python-function">)</span>                   
-                        </li>
-                        <li>
-                            <span>db_auth = </span><span class="blog-python-function">getpass(</span><!--
-                            --><span class="blog-python-string">'Please enter user password:'</span><!--
-                            --><span class="blog-python-function">)</span>                   
-                        </li>                        
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Config file.</span></li>
-                        <li>
-                            <span>config_dir = [</span><span class="blog-python-string">'HOME'</span><span>] +</span>
-                            <span class="blog-python-string">'/'</span><span> + </span><span class="blog-python-string">'conn'</span>
-                            <span>+</span><span class="blog-python-string">'/'</span><span> + db_host</span>
-                        </li>
-                        <li>
-                            <span>config_file = config_dir + </span><span class="blog-python-string">'/'</span><span> + db_name + </span>
-                            <span class="blog-python-string">.ini</span>
-                        </li>                        
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Concat + delimit params, convert to bytes, then base64 encode.</span></li>
-
-                        <li>
-                            <span>delim = </span><span class="blog-python-function">chr(</span>7</span><!--
-                            --><span class="blog-python-function">)</span>
-                        </li>
-                        <li><span>params = db_host + delim + db_name + delim + db_user + delim + db_auth</span></li>
-                        <li>
-                            <span>byte_params = params.<span class="blog-python-function">encode(</span></span><!--
-                            --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span>
-                        </li>
-                        <li>
-                            <span>encode_params = </span><span class="blog-python-builtin">base64</span><!--
-                            --><span class="blog-python-function">.b64encode</span><span>(byte_params)</span>
-                        </li>                        
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Encrypt the params.</span></li>
-                        <li><span>encryption_data = aws_kms.</span><span class="blog-python-function">encrypt(</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>KeyId = f'{key_id}',</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>Plaintext = encode_params,</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>EncryptionAlgorithm = </span><span class="blog-python-string">'SYMMETRIC_DEFAULT'</span></li>
-                        <li><span class="blog-python-function">)</span></li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Write connection credentials.</span></li>
-                        <li>
-                            <span class="blog-python-keyword">with </span><span class="blog-python-function">open(</span><!--
-                            --><span>config_file, </span><span class="blog-python-string">'wb'</span><!--
-                            --><span class="blog-python-function">)</span><span class="blog-python-keyword"> as</span><!--
-                            --><span> file:</span>
-                        </li>
-                        <li>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span>file.</span><span class="blog-python-function">write(</span><!--
-                            --><span>encryption_data[</span><span class="blog-python-string">'CiphertextBlob'</span><!--
-                            --><span>]</span><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># chmod on config file to make unreadable/unwritable.</span></li>
-                        <li>
-                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
-                            --><span>config_file, 000</span><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>
-                    
-                </code>
-
+            <div
+                class="blog-snippet"
+                style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; line-height: 19px; margin: auto;">
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;------------------------------------------------------------------</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;aws_postgresql_config.py</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">#</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Creates&nbsp;a&nbsp;.ini&nbsp;file&nbsp;containing&nbsp;encrypted&nbsp;credentials&nbsp;used</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;to&nbsp;connect&nbsp;to&nbsp;an&nbsp;AWS&nbsp;EC2&nbsp;hosted&nbsp;postgresql&nbsp;database.</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;------------------------------------------------------------------</span>
+                </div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">pwd</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">sys</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">os</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">from</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">getpass</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #dcdcaa;">getpass</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">json</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">traceback</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">base64</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">boto3</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #569cd6;">def</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #dcdcaa;">main</span><span
+                        style="color: #cccccc;">():</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Instantiate&nbsp;an&nbsp;AWS&nbsp;KMS&nbsp;client&nbsp;instance.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">aws_kms</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #4ec9b0;">boto3</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">client</span><span style="color: #cccccc;">(</span><span
+                        style="color: #ce9178;">'kms'</span><span style="color: #cccccc;">,&nbsp;</span><span
+                        style="color: #ce9178;">'region'</span><span style="color: #cccccc;">)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;KMS&nbsp;key&nbsp;id.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">the_key</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'keyid'</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Prompt&nbsp;for&nbsp;the&nbsp;connection&nbsp;params.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #dcdcaa;">print</span><span style="color: #cccccc;">(</span><span
+                        style="color: #ce9178;">'Please&nbsp;provide&nbsp;connection&nbsp;parameters&nbsp;for&nbsp;database:'</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #d4d4d4;">+</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #ce9178;">'</span><span
+                        style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">'</span><span
+                        style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_host</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #dcdcaa;">getpass</span><span style="color: #cccccc;">(</span><span
+                        style="color: #ce9178;">'Please&nbsp;enter&nbsp;database&nbsp;host:'</span><span
+                        style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #dcdcaa;">getpass</span><span style="color: #cccccc;">(</span><span
+                        style="color: #ce9178;">'Please&nbsp;enter&nbsp;database&nbsp;name:'</span><span
+                        style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_user</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #dcdcaa;">getpass</span><span style="color: #cccccc;">(</span><span
+                        style="color: #ce9178;">'Please&nbsp;enter&nbsp;database&nbsp;user&nbsp;name:'</span><span
+                        style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_auth</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #dcdcaa;">getpass</span><span style="color: #cccccc;">(</span><span
+                        style="color: #ce9178;">'Please&nbsp;enter&nbsp;user&nbsp;password:'</span><span
+                        style="color: #cccccc;">)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Config&nbsp;file.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">config_dir</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;[</span><span
+                        style="color: #ce9178;">'HOME'</span><span style="color: #cccccc;">]&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'/'</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'conn'</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #ce9178;">'/'</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #d4d4d4;">+</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #9cdcfe;">db_host</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">config_dir</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'/'</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'.ini'</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Concat&nbsp;+&nbsp;delimit&nbsp;params,&nbsp;convert&nbsp;to&nbsp;bytes,&nbsp;then&nbsp;base64&nbsp;encode.</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">delim</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #dcdcaa;">chr</span><span style="color: #cccccc;">(</span><span
+                        style="color: #b5cea8;">7</span><span style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">params</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_host</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">delim</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">delim</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_user</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">delim</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_auth</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">byte_params</span><span style="color: #d4d4d4;">=</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #9cdcfe;">params</span><span
+                        style="color: #cccccc;">.</span><span style="color: #dcdcaa;">encode</span><span
+                        style="color: #cccccc;">(</span><span style="color: #ce9178;">'utf-8'</span><span
+                        style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">encode_params</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #4ec9b0;">base64</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">b64encode</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">byte_params</span><span style="color: #cccccc;">)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Encrypt&nbsp;the&nbsp;params.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">encryption_data</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">aws_kms</span><span style="color: #cccccc;">.encrypt(</span></div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">KeyId</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">the_key</span><span style="color: #cccccc;">,</span></div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">Plaintext</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">encode_params</span><span style="color: #cccccc;">,</span></div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">EncryptionAlgorithm</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'SYMMETRIC_DEFAULT'</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Write&nbsp;the&nbsp;encryption&nbsp;params&nbsp;as&nbsp;binary&nbsp;to&nbsp;the&nbsp;config&nbsp;file.</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #c586c0;">with</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #dcdcaa;">open</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
+                        style="color: #ce9178;">'wb'</span><span style="color: #cccccc;">)&nbsp;</span><span
+                        style="color: #c586c0;">as</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">file</span><span style="color: #cccccc;">:</span></div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">file</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">write</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">encryption_data</span><span style="color: #cccccc;">[</span><span
+                        style="color: #ce9178;">'CiphertextBlob'</span><span style="color: #cccccc;">])</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Reset&nbsp;file&nbsp;perms.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #4ec9b0;">os</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">chmod</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
+                        style="color: #b5cea8;">000</span><span style="color: #cccccc;">)</span></div>
+                <div><br></div>
             </div>
+
+
+           
 
             <h1 class="blog-subheading">Connecting to the postgresql database</h1>
 
@@ -210,168 +288,267 @@
                 to our postgresql cluster in AWS EC2 and run a sample query.
             </p>
             
-            <div class="blog-snippet">
-
-                <code>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
-                        <li><span class="blog-python-comment"># aws_postgresql_connect.py</span></li>
-                        <li><span class="blog-python-comment">#</span></li>
-                        <li><span class="blog-python-comment"># Connects to an AWS EC2 hosted postgresql database by reading</span></li>
-                        <li><span class="blog-python-comment"># and decrypting credentials stored in a config file. Dependent</span></li>
-                        <li><span class="blog-python-comment"># on the aws_postgresql_connect_init.py having been run first.</span></li>
-                        <li><span class="blog-python-comment"># --------------------------------------------------------------</span></li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Import required modules.</span></li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">pwd</span></li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">sys</span></li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">os</span></li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">psycopg2</span></li>
-                        <li><span class="blog-python-keyword">import </span><span class="blog-python-builtin">boto3</span></li>
-                    </ol>
-
-                    <ol>    
-                        <li><span class="blog-python-comment"># Instantiate an AWS KMS client instance.</span></li>   
-                        <li>
-                            <span>client = </span><span class="blog-python-builtin">boto3</span><!--
-                            --><span class="blog-python-function">.client(</span><span class="blog-python-string">'kms'</span><!--
-                            --><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>
-                    
-                    <ol>    
-                        <li><span class="blog-python-comment"># KMS Key Id.</span></li>
-                        <li><span>key_id = </span><span class="blog-python-string">'keyid'</span></li>
-                    </ol>                     
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Config file.</span></li>
-                        <li>
-                            <span>config_dir = [</span><span class="blog-python-string">'HOME'</span><span>] +</span>
-                            <span class="blog-python-string">'/'</span><span> + </span><span class="blog-python-string">'conn'</span>
-                            <span>+</span><span class="blog-python-string">'/'</span><span> + db_host</span>
-                        </li>
-                        <li>
-                            <span>config_file = config_dir + </span><span class="blog-python-string">'/'</span><span> + db_name + </span>
-                            <span class="blog-python-string">.ini</span>
-                        </li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Make config file readable.</span></li>
-                        <li>
-                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
-                            --><span>config_file, 440</span><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>             
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Get the connection credentials from config file.</span></li>
-                        <li>
-                            <span class="blog-python-keyword">with </span><span class="blog-python-function">open(</span><!--
-                            --><span>config_file, </span><span class="blog-python-string">'rb'</span><!--
-                            --><span class="blog-python-function">)</span><span class="blog-python-keyword"> as</span><!--
-                            --><span> file:</span>
-                        </li>
-                        <li>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<!--
-                            --><span>credentials_bytes = file.</span><span class="blog-python-function">read()</span>
-                        </li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Reset config file perms.</span></li>
-                        <li>
-                            <span class="blog-python-builtin">os</span><span>.</span><span class="blog-python-function">chmod(</span><!--
-                            --><span>config_file, 000</span><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>                      
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Decrypt the connection credentials.</span></li>
-                        <li><span>credentials_decrypt = client.</span><span class="blog-python-function">decrypt(</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>CiphertextBlob = credentials_bytes,</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>KeyId = f'{key_id}',</span></li>                        
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;<span>EncryptionAlgorithm = </span><span class="blog-python-string">'SYMMETRIC_DEFAULT'</span></li>
-                        <li><span class="blog-python-function">)</span></li>
-                    </ol> 
-                    
-                    <ol>
-                        <li><span class="blog-python-comment"># Decode the credentials and split by delimiter.</span></li>
-                        <li><span>delimiter = </span><span class="blog-python-function">chr(</span>7</span><!--
-                        --><span class="blog-python-function">)</span>
-                        </li>
-                        <li>
-                            <span>credentials_decode = </span><span class="blog-python-builtin">base64</span><!--
-                            --><span class="blog-python-function">.b64decode</span><span>(credentials_decrypt[</span><!--
-                            --><span class="blog-python-string">'Plaintext'</span><span>])</span>
-                        </li>
-                        <li><span>credentials = </span><span class="blog-python-builtin">bytes</span><span>.</span><!--
-                        --><span class="blog-python-function">decode(</span><span>credentials_decode, </span><!--
-                        --><span class="blog-python-string">'utf-8'</span><span class="blog-python-function">)</span>
-                        </li>
-                        <li>
-                            <span>db_data = credentials.</span><span class="blog-python-function">split(</span>delimiter</span><!--
-                            --><span class="blog-python-function">)</span>
-                        </li>
-                        <li><span>db_host = db_data[0]</span></li>
-                        <li><span>db_name = db_data[1]</span></li>
-                        <li><span>db_user = db_data[2]</span></li>
-                        <li><span>db_auth = db_data[3]</span></li>
-                    </ol>
-
-
-                    
-                    <ol>
-                        <li><span class="blog-python-comment"># Form a connection string & connect.</span></li>
-                        <li><span>connection_string = \</span></li>
-                        <li><span class="blog-python-string">" host="</span><span> + db_host + \</span></li>
-                        <li><span class="blog-python-string">" dbname"</span><span> + db_name + \</span></li>
-                        <li><span class="blog-python-string">" user="</span><span> + db_user + \</span></li>
-                        <li><span class="blog-python-string">" password="</span><span> + db_auth + \</span></li>
-                        <li><span class="blog-python-string">" port=5432"</span>
-                        <li>
-                            <span>conn = </span><span class="blog-python-builtin">psycopg2</span><!--
-                            --><span>.</span><span class="blog-python-function">connect(</span><span>connection_string</span><!--
-                            --><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Example query.</span></li>
-                        <li><span>cur = conn.</span><span class="blog-python-function">cursor()</span></li>
-                        <li>
-                            <span>cur.</span><span class="blog-python-function">execute(</span><!--
-                            --><span class="blog-python-string">'SELECT CURRENT_DATE;'</span><!--
-                            --><span class="blog-python-function">)</span>
-                        </li>
-                        <li><span>rs = cur.</span><span class="blog-python-function">fetchall()</span></li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Iterate through resultset.</span></li>
-                        <li>
-                            <span class="blog-python-keyword">for</span><span> row </span><!--
-                            --><span class="blog-python-keyword">in</span><span> rs: </span>
-                        </li>
-                        <li>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="blog-python-function">print(</span><span>row</span><!--
-                        --><span class="blog-python-function">)</span>
-                        </li>
-                    </ol>
-
-                    <ol>
-                        <li><span class="blog-python-comment"># Close cursor and connection.</span></li>
-                        <li><span>cur.</span><span class="blog-python-function">close()</span></li>
-                        <li><span>conn.</span><span class="blog-python-function">close()</span></li>
-                    </ol>
-                    
-
-                </code>
-
+            <div
+                class="blog-snippet"
+                style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; line-height: 19px; margin: auto;">
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;------------------------------------------------------------------</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;aws_postgresql_connect.py</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">#&nbsp;</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Connects&nbsp;to&nbsp;an&nbsp;AWS&nbsp;EC2&nbsp;hosted&nbsp;postgresql&nbsp;database&nbsp;by&nbsp;reading</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;and&nbsp;decrypting&nbsp;credentials&nbsp;stored&nbsp;in&nbsp;a&nbsp;config&nbsp;file.&nbsp;Dependent</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;on&nbsp;the&nbsp;aws_postgresql_config.py&nbsp;having&nbsp;been&nbsp;run&nbsp;first.</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;------------------------------------------------------------------</span>
+                </div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">pwd</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">sys</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">os</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">base64</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">boto3</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">psycopg2</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #569cd6;">def</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #dcdcaa;">main</span><span
+                        style="color: #cccccc;">():</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Instantiate&nbsp;an&nbsp;AWS&nbsp;KMS&nbsp;client&nbsp;instance.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">aws_kms</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #4ec9b0;">boto3</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">client</span><span style="color: #cccccc;">(</span><span
+                        style="color: #ce9178;">'kms'</span><span style="color: #cccccc;">,&nbsp;</span><span
+                        style="color: #ce9178;">'region'</span><span style="color: #cccccc;">)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;KMS&nbsp;key&nbsp;id.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">the_key</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'keyid'</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Config&nbsp;file.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">config_dir</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;[</span><span
+                        style="color: #ce9178;">'HOME'</span><span style="color: #cccccc;">]&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'/'</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'conn'</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #ce9178;">'/'</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #d4d4d4;">+</span><span
+                        style="color: #cccccc;">&nbsp;</span><span style="color: #9cdcfe;">db_host</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">config_dir</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'/'</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #ce9178;">'.ini'</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Make&nbsp;config&nbsp;file&nbsp;readable.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #4ec9b0;">os</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">chmod</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
+                        style="color: #b5cea8;">440</span><span style="color: #cccccc;">)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Get&nbsp;the&nbsp;connection&nbsp;credentials&nbsp;from&nbsp;config&nbsp;file.</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #c586c0;">with</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #dcdcaa;">open</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
+                        style="color: #ce9178;">'rb'</span><span style="color: #cccccc;">)&nbsp;</span><span
+                        style="color: #c586c0;">as</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">file</span><span style="color: #cccccc;">:</span></div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">credentials_bytes</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">file</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">read</span><span style="color: #cccccc;">()</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Reset&nbsp;config&nbsp;file&nbsp;perms.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #4ec9b0;">os</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">chmod</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
+                        style="color: #b5cea8;">000</span><span
+                        style="color: #cccccc;">)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Decrypt&nbsp;the&nbsp;connection&nbsp;credentials.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">credentials_decrypt</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">aws_kms</span><span style="color: #cccccc;">.decrypt(</span></div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">CiphertextBlob</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">credentials_bytes</span><span style="color: #cccccc;">,</span></div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">KeyId</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #569cd6;">f</span><span style="color: #ce9178;">'</span><span
+                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">the_key</span><span
+                        style="color: #569cd6;">}</span><span style="color: #ce9178;">'</span><span style="color: #cccccc;">,</span>
+                </div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">EncryptionAlgorithm</span><span style="color: #d4d4d4;">=</span><span
+                        style="color: #ce9178;">'SYMMETRIC_DEFAULT'</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Decode&nbsp;the&nbsp;credentials&nbsp;and&nbsp;split&nbsp;by&nbsp;delimiter.</span>
+                </div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">delimiter</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #dcdcaa;">chr</span><span style="color: #cccccc;">(</span><span
+                        style="color: #b5cea8;">7</span><span style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">credentials_decode</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #4ec9b0;">base64</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">b64decode</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">credentials_decrypt</span><span style="color: #cccccc;">[</span><span
+                        style="color: #ce9178;">'Plaintext'</span><span style="color: #cccccc;">])</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">credentials</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #4ec9b0;">bytes</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">decode</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">credentials_decode</span><span style="color: #cccccc;">,&nbsp;</span><span
+                        style="color: #ce9178;">'utf-8'</span><span style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">credentials</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">split</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">delimiter</span><span style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_host</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">[</span><span
+                        style="color: #b5cea8;">0</span><span style="color: #cccccc;">]</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">[</span><span
+                        style="color: #b5cea8;">1</span><span style="color: #cccccc;">]</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_user</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">[</span><span
+                        style="color: #b5cea8;">2</span><span style="color: #cccccc;">]</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">db_auth</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">[</span><span
+                        style="color: #b5cea8;">3</span><span style="color: #cccccc;">]</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Form&nbsp;a&nbsp;connection&nbsp;string&nbsp;&amp;&nbsp;connect.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">connection_string</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;\</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #ce9178;">"&nbsp;host="</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_host</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;\</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #ce9178;">"&nbsp;dbname="</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;\</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #ce9178;">"&nbsp;user="</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_user</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;\</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #ce9178;">"&nbsp;password="</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">db_auth</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;\</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #ce9178;">"&nbsp;port=5432"</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">conn</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #4ec9b0;">psycopg2</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">connect</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">connection_string</span><span style="color: #cccccc;">)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Example&nbsp;query.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">cur</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">conn</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">cursor</span><span style="color: #cccccc;">()</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">cur</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">execute</span><span style="color: #cccccc;">(</span><span
+                        style="color: #ce9178;">'SELECT&nbsp;CURRENT_DATE;'</span><span style="color: #cccccc;">)</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">rs</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">cur</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">fetchall</span><span style="color: #cccccc;">()</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Iterate&nbsp;through&nbsp;resultset.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #c586c0;">for</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">row</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #c586c0;">in</span><span style="color: #cccccc;">&nbsp;</span><span
+                        style="color: #9cdcfe;">rs</span><span style="color: #cccccc;">:</span></div>
+                <div><span
+                        style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #dcdcaa;">print</span><span style="color: #cccccc;">(</span><span
+                        style="color: #9cdcfe;">row</span><span style="color: #cccccc;">)</span></div>
+                <div><br></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #6a9955;">#&nbsp;Close&nbsp;cursor&nbsp;and&nbsp;connection.</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">cur</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">close</span><span style="color: #cccccc;">()</span></div>
+                <div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                        style="color: #9cdcfe;">conn</span><span style="color: #cccccc;">.</span><span
+                        style="color: #dcdcaa;">close</span><span style="color: #cccccc;">()</span></div>
+                <div><br></div>
             </div>
 
             <h1 class="blog-subheading">Key Takeaways</h1>
