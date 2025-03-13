@@ -1,15 +1,9 @@
 site/assets/
 python/classes/__pycache__/
-python/pythonhtmlcss*
-*evflow*
 *.ini
 .vscode/
 src/vendor/*
 src/*.json
 src/*.lock
-*.ini
 *__pycache__*
 *.pem
-*codetohtml*
-*sample*
-site/phphtmlcss*
