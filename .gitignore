@@ -7,3 +7,4 @@ src/*.json
 src/*.lock
 *__pycache__*
 *.pem
+.venv/
