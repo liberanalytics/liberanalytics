@@ -8,3 +8,4 @@ src/*.lock
 *__pycache__*
 *.pem
 .venv/
+shell/ssh*
