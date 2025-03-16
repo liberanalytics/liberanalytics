@@ -28,11 +28,11 @@
             <h3 class="blog-date">November 15, 2024</h3>
             <h2 class="blog-desc site-font-emph">Explores the importance of data and information in decision making.</h2>
 
+            <img src="assets/whydata_820.png" class="blog-img">            
+
         </header>        
 
         <section>
-
-            <img src="assets/whydata_820.png" class="blog-img">
 
             <p> 
                 <em class="site-font-fancyl">Why</em> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?

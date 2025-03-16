@@ -29,13 +29,12 @@
             <h2 class="blog-desc site-font-emph">
                 Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.
             </h2>
-            
 
+            <img src="assets/pythonpostgreconnect820.png" class="blog-img">          
+            
         </header>
 
         <section>
-
-            <img src="assets/pythonpostgreconnect820.png" class="blog-img">
 
             <p>
                 <em class="site-font-fancyl">Connecting</em> Python to Postgresql is made seamless with the psycopg2 library.

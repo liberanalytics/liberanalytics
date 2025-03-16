@@ -30,13 +30,13 @@
             Exemplifies a PHP way to use Amazon Web Services CloudWatch to log database errors and queries run. (Yes, PHP in 2025!).
             </h2>
 
+            <img src="assets/aws_cw_820.png" class="blog-img">            
+
         </header>        
 
         <section>
 
-            <img src="assets/aws_cw_820.png" class="blog-img">
-
-            <p style="margin: 10px 0 10px 0px;">
+            <p>
                 <em class="site-font-fancyl">Ever</em> grow tired of storing logs on a server then having to manage
                 access to the logs for individual users working in a collaborative development team? This post explores
                 an alternative method to manage database logging by making use of the Amazon Web Services (AWS) CloudWatch
