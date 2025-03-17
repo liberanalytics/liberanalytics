@@ -1,7 +1,0 @@
-DROP DATABASE IF EXISTS demo;
-
-CREATE DATABASE la_site
-    TEMPLATE template0
-    ENCODING 'UTF8'
-    ENCODING 'C.UTF-8'
-    OWNER la_site;

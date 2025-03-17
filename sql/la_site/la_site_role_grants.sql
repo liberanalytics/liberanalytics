@@ -1,1 +1,0 @@
-GRANT ALL PRIVILEGES ON demo TO la_site;
