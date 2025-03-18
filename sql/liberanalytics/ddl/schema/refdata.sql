@@ -1,0 +1,1 @@
+CREATE SCHEMA refdata AUTHORIZATION liberanalytics;

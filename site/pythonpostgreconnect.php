@@ -30,7 +30,7 @@
                 Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.
             </h2>
 
-            <img src="assets/pythonpostgreconnect820.png" class="blog-img">          
+            <img src="assets/pythonpostgreconnect_820.png" class="blog-img">          
             
         </header>
 
