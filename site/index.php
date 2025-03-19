@@ -58,7 +58,7 @@
                     <div class="featured-post-content clear">
 
                         <div class="featured-post-img">
-                            <img src="assets/pythonpostgreconnect195.png">
+                            <img src="assets/pythonpostgreconnect_195.png">
                         </div>             
                     
                         <div class="featured-post-desc">      
