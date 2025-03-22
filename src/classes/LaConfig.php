@@ -3,12 +3,16 @@
 class LaConfig {
 
     private string $configFile;
-    protected string $config;
+    protected mixed $config;
     protected string $delimiter;
+    protected array $awsAccount;
+
+
 
     function __construct() {
 
         $this->setConfigFile();
+        $this->setConfig();
         
     }
 
@@ -24,14 +28,17 @@ class LaConfig {
         
         //chmod($db_config_file, 440);
         $configJSON = file_get_contents($this->getConfigFile());
-        $this->config = json_decode($configJSON);
+        $this->config = json_decode($configJSON, true); 
         //chmod($db_config_file, 000);
     }
 
     private function getConfig() {
-        return $this->configFile;
-    }    
+        return $this->config;
+    }
 
+    public function getConfigAttr(string $attrNode, $attrType, $attrClass, $attr) {
+        return $this->getConfig()[$attrNode][$attrType][$attrClass][$attr];
+    }
 }
 
 ?>

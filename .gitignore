@@ -8,5 +8,7 @@ src/*.lock
 *__pycache__*
 *.pem
 .venv/
+config/git_rsa
+config/git_rsa.pub
 shell/ssh*
 site/simulate.php
