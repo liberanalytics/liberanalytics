@@ -9,3 +9,4 @@ src/*.lock
 *.pem
 .venv/
 shell/ssh*
+site/simulate.php
