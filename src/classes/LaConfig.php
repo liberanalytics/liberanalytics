@@ -7,8 +7,6 @@ class LaConfig {
     protected string $delimiter;
     protected array $awsAccount;
 
-
-
     function __construct() {
 
         $this->setConfigFile();

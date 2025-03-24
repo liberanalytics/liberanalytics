@@ -12,3 +12,4 @@ config/git_rsa
 config/git_rsa.pub
 shell/ssh*
 site/simulate.php
+liberanalytics_db.config

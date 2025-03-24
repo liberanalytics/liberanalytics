@@ -17,15 +17,15 @@ from classes import AwsCWLogs
 
 def main():
 
-    with open('config/aws_la_config.json', 'r') as file:
-        aws_config = json.load(file)
+    config_file = os.getenv('LA_CONFIG_FILE')
+    with open(config_file, 'r') as file:
+        config = json.load(file)
 
     # Instantiate an AWS KMS client instance.
-    aws_kms = boto3.client('kms', aws_config['account']['region'])
+    aws_kms = boto3.client('kms', config['aws']['account']['region']['default'])
 
     # KMS key id.
-    the_key = aws_config['kms']['key desc']['demo']    
-
+    the_key = config['aws']['kms']['key_desc']['liberanalytics_db']    
 
     '''
     Wrap section in try / except logging any errors to Cloudwatch logs.
@@ -41,18 +41,20 @@ def main():
         
         # Prompt for the connection params.
         print('Please provide connection parameters for database:' + '\n')
-        db_host = getpass('Please enter database host:')
-        db_name = getpass('Please enter database name:')
-        db_user = getpass('Please enter database user name:')
-        db_auth = getpass('Please enter user password:')
+        db_host = input('Please enter database host:')
+        db_name = input('Please enter database name:')
+        db_user = input('Please enter database user name:')
+        db_auth = input('Please enter user password:')
 
         # Delete the config file if exists.
-        if os.path.isfile(aws_config['database']['config file']['demo']):
-            os.chmod(aws_config['database']['config file']['demo'], 660)
-            os.remove(aws_config['database']['config file']['demo'])
+        db_config_dir = os.getenv(config['liberanalytics']['config']['env']['dir'])
+        db_conn_file = db_config_dir + config['data']['database']['liberanalytics']['connection_file']        
+        if os.path.isfile(db_conn_file):
+            os.chmod(db_conn_file, 660)
+            os.remove(db_conn_file)
 
         # Concat + delimit params, convert to bytes, then base64 encode.
-        delim = aws_config['construct']['config delim']
+        delim = config['data']['construct']['delim']['config_delim']
         params = db_host + delim + db_name + delim + db_user + delim + db_auth
         byte_params= params.encode('utf-8')
         encode_params = base64.b64encode(byte_params)
@@ -65,12 +67,11 @@ def main():
         )
 
         # Write the encryption params as binary to the config file.
-        with open(aws_config['database']['config file']['demo'], 'wb') as file:
+        with open(db_conn_file, 'wb') as file:
             file.write(encryption_data['CiphertextBlob'])
 
         # Reset file perms.
-        os.chmod(aws_config['database']['config file']['demo'], 000)            
-
+        os.chmod(db_conn_file, 000)      
 
     except Exception as e:
         print(e)
