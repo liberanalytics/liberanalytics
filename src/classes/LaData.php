@@ -132,4 +132,25 @@ class LaData extends LaConfig {
 
     }
 
+    /**
+     * 
+     */
+    private function getPost(array $params)
+    {
+        $qry = 
+        'SELECT
+
+             la_posts.post_name
+            ,la_posts.post_category
+            ,la_posts.post_created
+            ,la_posts.short_desc
+            ,la_posts.long_desc
+            ,la_posts.featured
+            ,la_posts.post_img
+            ,la_posts.featured_img
+            ,la_posts.search_img
+        
+        FROM liberanalytics.posts AS la_posts;';
+    }
+
 }
