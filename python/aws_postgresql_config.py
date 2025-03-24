@@ -48,13 +48,13 @@ def main():
 
         # Delete the config file if exists.
         db_config_dir = os.getenv(config['liberanalytics']['config']['env']['dir'])
-        db_conn_file = db_config_dir + config['data']['database']['liberanalytics']['connection_file']        
+        db_conn_file = db_config_dir + config['data']['database']['liberanalytics']['conn_file']        
         if os.path.isfile(db_conn_file):
             os.chmod(db_conn_file, 660)
             os.remove(db_conn_file)
 
         # Concat + delimit params, convert to bytes, then base64 encode.
-        delim = config['data']['construct']['delim']['config_delim']
+        delim = config['data']['database']['liberanalytics']['delim']
         params = db_host + delim + db_name + delim + db_user + delim + db_auth
         byte_params= params.encode('utf-8')
         encode_params = base64.b64encode(byte_params)
