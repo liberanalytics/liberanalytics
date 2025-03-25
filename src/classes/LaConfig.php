@@ -6,16 +6,12 @@
 class LaConfig {
 
     private const ENV = "env";
+    private $configFile;
+    private $config;
 
-    private string $configFile;
-    protected mixed $config;
-    protected string $delimiter;
-    protected array $awsAccount;
-
-    function __construct()
-    {
+    function __construct() {
         $this->setConfigFile();
-        $this->setConfig();        
+        $this->setConfig();
     }
 
     private function setConfigFile()
@@ -27,37 +23,27 @@ class LaConfig {
     {
         return $this->configFile;
     }
+    
 
-    /**
-     * 
-     */  
-    private function setConfig()
+    private function setConfig()    
     {        
-        //chmod($db_config_file, 440);
-        $configJSON = file_get_contents($this->getConfigFile());
-        $this->config = json_decode($configJSON, true); 
-        //chmod($db_config_file, 000);
+        if (file_exists($this->getConfigFile())) {
+            $configJSON = file_get_contents($filename = $this->getConfigFile());
+            $this->config = json_decode($configJSON, true);
+        }
     }
 
-    private function getConfig()
-    {
-        return $this->config;
-    }
-
-    /**
-     * 
-     */
     public function getConfigAttr(string $attrNode, string $attrType, string $attrClass, string $attr)
     {
-
-        if ($attrClass == self::ENV) {
+ 
+        if ($attrClass == 'env') {
             return getenv($this->getConfig()[$attrNode][$attrType][$attrClass][$attr]);
         }
         else {
             return $this->getConfig()[$attrNode][$attrType][$attrClass][$attr];
         }
-
-    }
+ 
+    }    
 }
 
 ?>

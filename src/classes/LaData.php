@@ -17,8 +17,8 @@ class LaData extends LaConfig {
     function __construct()
     {
         parent::__construct();
-        $this->setAwsClients();
-        $this->setConn();
+        //$this->setAwsClients();
+        //$this->setConn();
     }
 
     /**
@@ -192,9 +192,6 @@ class LaData extends LaConfig {
         $postNamePredicate . "\n" .
         $orderByClause . ";";
 
-
-        print($qry);
-        //$stmt = $this->conn->prepare($qry);
     }
 
 }
