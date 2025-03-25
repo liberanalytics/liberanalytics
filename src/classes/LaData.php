@@ -135,7 +135,11 @@ class LaData extends LaConfig {
     /**
      * 
      */
-    public function getPost(bool $pFeatured, string $pCategory = NULL)
+    public function getPost(
+        bool $pFeatured, 
+        string $pCategory = NULL, 
+        string $pPostName = NULL,
+        array $pOrderBy = NULL)
     {
 
         //
@@ -143,9 +147,30 @@ class LaData extends LaConfig {
 
         //
         $featuredOperator = ($pFeatured != FALSE) ? ">" : "=";
+        $categoryPredicate = ($pCategory != NULL) ? "AND " . $sqlAliasPosts . "post_category = '" . $pCategory . "'" : "";
+        $postNamePredicate = ($pPostName != NULL) ? "AND " . $sqlAliasPosts . "post_name = '" . $pPostName . "'" : "";
 
         //
-        $categoryPredicate = ($pCategory != NULL) ? "AND " . $sqlAliasPosts . "post_category = '" . $pCategory . "'" : "";
+        if ($pOrderBy != NULL) {
+
+            $orderByCount = count($pOrderBy);
+            $orderByIter = 1;
+            $orderByClause = "ORDER BY ";
+            
+            foreach ($pOrderBy AS $key => $val) {
+                $orderByColumns = "$sqlAliasPosts$key $val";
+                $orderByColumns .= ($orderByIter < $orderByCount) ? " , " : "";
+                $orderByIter += 1;
+            }
+            $orderByClause .= $orderByColumns;
+
+        } else {
+            $orderByClause = '';
+        }
+
+
+
+
         $qry = 
         "SELECT
 
@@ -164,7 +189,8 @@ class LaData extends LaConfig {
         WHERE 1=1
         AND la_posts.featured " . $featuredOperator . " 0 " . "\n" .
         $categoryPredicate . "\n" .
-        "ORDER BY la_posts.post_created DESC;";
+        $postNamePredicate . "\n" .
+        $orderByClause . ";";
 
 
         print($qry);
