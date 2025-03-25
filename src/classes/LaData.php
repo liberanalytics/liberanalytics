@@ -156,21 +156,21 @@ class LaData extends LaConfig {
             $orderByCount = count($pOrderBy);
             $orderByIter = 1;
             $orderByClause = "ORDER BY ";
+            $orderByColumns = '';
             
             foreach ($pOrderBy AS $key => $val) {
-                $orderByColumns = "$sqlAliasPosts$key $val";
-                $orderByColumns .= ($orderByIter < $orderByCount) ? " , " : "";
+                $orderByColumns .= "$sqlAliasPosts$key $val";
+                $orderByColumns .= ($orderByIter < $orderByCount) ? ", " : "";
                 $orderByIter += 1;
             }
             $orderByClause .= $orderByColumns;
 
-        } else {
+        } 
+        else {
             $orderByClause = '';
         }
 
-
-
-
+        //
         $qry = 
         "SELECT
 
