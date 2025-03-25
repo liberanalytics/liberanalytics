@@ -5,7 +5,7 @@ CREATE TABLE liberanalytics.posts (
     ,post_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     ,short_desc VARCHAR(256) NOT NULL
     ,long_desc VARCHAR(256) NOT NULL
-    ,featured SMALLINT NULL
+    ,featured SMALLINT NOT NULL
     ,post_img VARCHAR(64) NOT NULL
     ,featured_img VARCHAR(64) NULL
     ,search_img VARCHAR(64) NULL

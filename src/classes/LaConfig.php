@@ -5,7 +5,7 @@
  */
 class LaConfig {
 
-    private static $env = "env";
+    private const ENV = "env";
 
     private string $configFile;
     protected mixed $config;
@@ -50,7 +50,7 @@ class LaConfig {
     public function getConfigAttr(string $attrNode, string $attrType, string $attrClass, string $attr)
     {
 
-        if ($attrClass == self::$env) {
+        if ($attrClass == self::ENV) {
             return getenv($this->getConfig()[$attrNode][$attrType][$attrClass][$attr]);
         }
         else {

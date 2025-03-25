@@ -135,8 +135,11 @@ class LaData extends LaConfig {
     /**
      * 
      */
-    private function getPost(array $params)
+    public function getPost(bool $featured)
     {
+
+        //
+        $featuredOperator = ($featured != FALSE) ? '>' : '=';
         $qry = 
         'SELECT
 
@@ -150,7 +153,16 @@ class LaData extends LaConfig {
             ,la_posts.featured_img
             ,la_posts.search_img
         
-        FROM liberanalytics.posts AS la_posts;';
+        FROM liberanalytics.posts AS la_posts
+
+        WHERE 1=1
+        AND la_posts.featured ' . $featuredOperator . ' 0
+
+        ORDER BY la_posts.post_created DESC;';
+
+
+        print($qry);
+        //$stmt = $this->conn->prepare($qry);
     }
 
 }
