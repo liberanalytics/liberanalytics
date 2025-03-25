@@ -17,8 +17,8 @@ class LaData extends LaConfig {
     function __construct()
     {
         parent::__construct();
-        //$this->setAwsClients();
-        //$this->setConn();
+        $this->setAwsClients();
+        $this->setConn();
     }
 
     /**
@@ -100,7 +100,7 @@ class LaData extends LaConfig {
         // since remaining program depends on decrypted data.
         catch (Exception $e) {
             $logError->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
-            exit("Unable to decrypt the data in ${connFile}.");
+            exit("Unable to decrypt the data in {$connFile}.");
         }
         
         // Decode using base64 decoding, then split data into components per delimiter.
@@ -114,11 +114,11 @@ class LaData extends LaConfig {
         // Try to connect to postgres database. Log any errors to CloudWatch Logs.
         try {
             $this->conn = new PDO(
-                "pgsql:host=${dbHost};
+                "pgsql:host={$dbHost};
                     port=5432;
-                    dbname=${dbName};
-                    user=${dbUser};
-                    password=${dbAuth};
+                    dbname={$dbName};
+                    user={$dbUser};
+                    password={$dbAuth};
                     sslmode=require"
             );
             // Set PDO error reporting to Exception.
@@ -127,7 +127,7 @@ class LaData extends LaConfig {
         // Connection attempt failed - log failure to CloudWatch Logs and exit.
         catch (PDOException $e) {
             $logError->log(['Problem connecting : ' => $e->getMessage()]);
-            exit("Unable to connect to host : ${dbHost}.");
+            exit("Unable to connect to host : {$dbHost}.");
         }
 
     }
@@ -135,7 +135,7 @@ class LaData extends LaConfig {
     /**
      * 
      */
-    public function getPost(
+    public function getPosts(
         bool $pFeatured, 
         string $pCategory = NULL, 
         string $pPostName = NULL,
@@ -191,6 +191,10 @@ class LaData extends LaConfig {
         $categoryPredicate . "\n" .
         $postNamePredicate . "\n" .
         $orderByClause . ";";
+
+        $stmt = $this->conn->prepare($qry);
+        $stmt->execute();
+        return $stmt;
 
     }
 

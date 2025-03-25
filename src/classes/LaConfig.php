@@ -33,6 +33,11 @@ class LaConfig {
         }
     }
 
+    private function getConfig()
+    {
+        return $this->config;
+    }
+
     public function getConfigAttr(string $attrNode, string $attrType, string $attrClass, string $attr)
     {
  

@@ -13,3 +13,4 @@ config/git_rsa.pub
 shell/ssh*
 site/simulate.php
 liberanalytics_db.config
+whoami.php
