@@ -135,30 +135,36 @@ class LaData extends LaConfig {
     /**
      * 
      */
-    public function getPost(bool $featured)
+    public function getPost(bool $pFeatured, string $pCategory = NULL)
     {
 
         //
-        $featuredOperator = ($featured != FALSE) ? '>' : '=';
-        $qry = 
-        'SELECT
+        $sqlAliasPosts = "la_posts.";
 
-             la_posts.post_name
-            ,la_posts.post_category
-            ,la_posts.post_created
-            ,la_posts.short_desc
-            ,la_posts.long_desc
-            ,la_posts.featured
-            ,la_posts.post_img
-            ,la_posts.featured_img
-            ,la_posts.search_img
+        //
+        $featuredOperator = ($pFeatured != FALSE) ? ">" : "=";
+
+        //
+        $categoryPredicate = ($pCategory != NULL) ? "AND " . $sqlAliasPosts . "post_category = '" . $pCategory . "'" : "";
+        $qry = 
+        "SELECT
+
+         la_posts.post_name
+        ,la_posts.post_category
+        ,la_posts.post_created
+        ,la_posts.short_desc
+        ,la_posts.long_desc
+        ,la_posts.featured
+        ,la_posts.post_img
+        ,la_posts.featured_img
+        ,la_posts.search_img
         
         FROM liberanalytics.posts AS la_posts
 
         WHERE 1=1
-        AND la_posts.featured ' . $featuredOperator . ' 0
-
-        ORDER BY la_posts.post_created DESC;';
+        AND la_posts.featured " . $featuredOperator . " 0 " . "\n" .
+        $categoryPredicate . "\n" .
+        "ORDER BY la_posts.post_created DESC;";
 
 
         print($qry);
