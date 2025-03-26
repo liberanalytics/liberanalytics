@@ -1,3 +1,15 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+include_once('../src/classes/LaData.php');
+?>
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
 <!DOCTYPE html>
 <html>
 
@@ -18,96 +30,37 @@
     <?php include_once('../src/site_header.php'); ?>
 
     <main>
-
         <div id="posts_w">
 
             <section id="posts_l">
-
                 <h1 class="page-section-heading">Featured</h1>
 
-                <article class="featured-post clear">
-                    
-                    <div class="featured-post-content clear">
+                <?php
 
-                        <div class="featured-post-img">
-                            <img src="assets/whydata_195.png">
-                        </div>             
-                    
-                        <div class="featured-post-desc">      
-                            
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Why do we need Data?</a>
-                            <!-- PHP Pull header from RS. -->                              
-                    
-                            <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Explores the importance of data and information in decision making.
-                            </p>                                            
-                    
-                        </div>
+                    /**
+                     * 
+                     */
+                    $laData = new LaData();
+                    $featuredPosts = $laData->getPosts
+                    (
+                        $pFeatured = TRUE, 
+                        $pPostName = NULL ,           
+                        $pCategory = NULL, 
+                        $pOrderBy = NULL,
+                        $pLimit = NULL
+                    );
+                    while ($post = $featuredPosts->fetch(PDO::FETCH_ASSOC))
+                    {
+                        
+                        echo '<article class="featured-post clear">'
+                        . "\n\t\t\t\t\t" . '<div class="featured-post-content clear">'                       
+                        . "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
+                        . "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}.php\"</a>";
+                        //<a href="whydata.php"><img src="assets/whydata_195.png"></a>
 
-                    </div>
-
-                    <div class="featured-post-attrs clear">
-                        <span class="featured-post-date">November 15, 2024</span>
-                        <a href="/blog?cat=rdbms" class="featured-post-cat">Analytics</a> <!-- PHP Pull href & category frome RS. -->  
-                    </div>
+                    }
                 
-                </article> 
-
-                <article class="featured-post clear">
-                    
-                    <div class="featured-post-content clear">
-
-                        <div class="featured-post-img">
-                            <img src="assets/pythonpostgreconnect_195.png">
-                        </div>             
-                    
-                        <div class="featured-post-desc">      
-                            
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Connecting Python to a Postgresql database</a>
-                            <!-- PHP Pull header from RS. -->                              
-                    
-                            <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.
-                            </p>                                            
-                    
-                        </div>
-
-                    </div>
-
-                    <div class="featured-post-attrs clear">
-                        <span class="featured-post-date">December 15, 2024</span>
-                        <a href="/blog?cat=rdbms" class="featured-post-cat">RDBMS</a> <!-- PHP Pull href & category frome RS. -->  
-                    </div>
-                
-                </article>
-
-                <article class="featured-post clear">
-                    
-                    <div class="featured-post-content clear">
-
-                        <div class="featured-post-img">
-                            <img src="assets/aws_cw_195.png">
-                        </div>             
-                    
-                        <div class="featured-post-desc">      
-                            
-                            <a class="featured-post-hdrtxt" href="/blog?entry=id">Logging database errors and queries to Amazon Web Services CloudWatch Logs</a>
-                            <!-- PHP Pull header from RS. -->                              
-                    
-                            <p class="featured-post-desctxt"> <!-- PHP Pull short desc from RS. -->
-                                Exemplifies a PHP way to use Amazon Web Services CloudWatch to log database errors and queries run. (Yes, PHP in 2025!).
-                            </p>                                           
-                    
-                        </div>
-
-                    </div>
-
-                    <div class="featured-post-attrs clear">
-                        <span class="featured-post-date">December 22, 2024</span>
-                        <a href="/blog?cat=rdbms" class="featured-post-cat">Cloud Computing</a> <!-- PHP Pull href & category frome RS. -->  
-                    </div>
-                
-                </article>                 
+                ?>
 
             </section> <!-- End posts_l -->
 

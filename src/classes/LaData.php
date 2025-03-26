@@ -162,7 +162,7 @@ class LaData extends LaConfig
         "\n\t" . $orderByClause .
         "\n\t" . $limitClause . ";";
 
-        print($qry);
+        //print($qry);
 
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
