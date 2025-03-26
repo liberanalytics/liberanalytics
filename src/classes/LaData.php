@@ -29,7 +29,8 @@ class LaData extends LaConfig {
         $awsRegion = $this->getConfigAttr('aws', 'account', 'region', 'default');
 
         // Create CloudWatch Logs / KMS / CloudWatchLogger instances.
-        try {
+        try 
+        {
 
             $this->awsCWLogs = new Aws\CloudWatchLogs\CloudWatchLogsClient([
                 'profile' => 'default',
@@ -62,13 +63,13 @@ class LaData extends LaConfig {
                 'group_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_group', 'sdk'),
                 'stream_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_stream', 'php_db_sql')
             ]);         
-    }
-    // Report on any exceptions - exit program since all instances are needed.
-        catch (Exxception $e) {
+        }
+        // Report on any exceptions - exit program since all instances are needed.
+        catch (Exxception $e)
+        {
             echo $e->getTraceAsString();
             exit('Couldn\'t instantiate a needed AWS or Logger class. Exiting.');
         }
-
     }
 
     /**
@@ -76,7 +77,6 @@ class LaData extends LaConfig {
      */
     private function setConn()
     {
-
         $connFile =
             $this->getConfigAttr('liberanalytics', 'config', 'env', 'dir') .
             $this->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
@@ -99,7 +99,7 @@ class LaData extends LaConfig {
         // Log any exceptions to the error log group / stream. Exit on failure
         // since remaining program depends on decrypted data.
         catch (Exception $e) {
-            $logError->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
+            $this->logError->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
             exit("Unable to decrypt the data in {$connFile}.");
         }
         
@@ -126,7 +126,7 @@ class LaData extends LaConfig {
         }
         // Connection attempt failed - log failure to CloudWatch Logs and exit.
         catch (PDOException $e) {
-            $logError->log(['Problem connecting : ' => $e->getMessage()]);
+            $this->logError->log(['Problem connecting : ' => $e->getMessage()]);
             exit("Unable to connect to host : {$dbHost}.");
         }
 

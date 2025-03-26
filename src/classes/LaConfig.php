@@ -6,10 +6,11 @@
 class LaConfig {
 
     private const ENV = "env";
-    private $configFile;
-    private $config;
+    private string $configFile;
+    private array $config;
 
-    function __construct() {
+    function __construct()
+    {
         $this->setConfigFile();
         $this->setConfig();
     }
