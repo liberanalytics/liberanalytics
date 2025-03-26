@@ -29,11 +29,13 @@
 
                 </nav>
 
+                <!--
                 <div id="site_search_w">
                     <form id="site_search">
                         <input name="site_search_text" type="search" title="Search site for..." placeholder="search">
                     </form>
-                </div> <!-- End site_search_w -->
+                </div> End site_search_w
+                -->
 
             </div> <!-- End site_menu -->
         

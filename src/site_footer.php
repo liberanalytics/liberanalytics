@@ -14,11 +14,11 @@
 
                     <nav id="site_footer_nav"> 
                     
-                        <span><a href="/home">Home</a></span>
-                        <span><a href="/blog">Blog</a></span>
-                        <span><a href="/about">About</a></span>
-                        <span><a href="/contact">Contact</a></span>
-                        <span class="last"><a href="/contact">Privacy</a></span>
+                        <span><a href="index.php">Home</a></span>
+                        <span><a href="blog.php">Blog</a></span>
+                        <span><a href="about.php">About</a></span>
+                        <span><a href="contact.php">Contact</a></span>
+                        <span class="last"><a href="privacy.php">Privacy</a></span>
     
                     </nav>
 

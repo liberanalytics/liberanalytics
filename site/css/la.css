@@ -85,14 +85,14 @@ html {
     text-decoration: none;
 }
 
+#site_menu nav a:visited {
+    color: rgba(88,135,191,1);
+}
+
 #site_menu nav a:hover {
     color: white;
     background-color: rgba(101,149,202,1);    
     transition-duration: .3s;
-}
-
-#site_menu nav a:visited {
-    color: rgba(88,135,191,1);
 }
 
 #site_search_w {
