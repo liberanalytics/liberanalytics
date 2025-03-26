@@ -1,76 +1,26 @@
 <?php
 
-require ('../src/vendor/autoload.php');
-include_once('LaConfig.php');
+require_once('../src/vendor/autoload.php');
+require_once('LaConfig.php');
+require_once('LaAWS.php');
 
 /**
  * 
  */
-class LaData extends LaConfig {
+class LaData extends LaConfig
+{
 
+    private $laAWS;
     private $conn;
-    private $awsCWLogs;
-    private $awsKMS;
-    private $logError;
-    private $logSQL;
 
     function __construct()
     {
         parent::__construct();
-        $this->setAwsClients();
+        $this->laAWS = new LaAWS();
         $this->setConn();
     }
 
-    /**
-     * 
-     */
-    private function setAwsClients()
-    {
-        $awsRegion = $this->getConfigAttr('aws', 'account', 'region', 'default');
 
-        // Create CloudWatch Logs / KMS / CloudWatchLogger instances.
-        try 
-        {
-
-            $this->awsCWLogs = new Aws\CloudWatchLogs\CloudWatchLogsClient([
-                'profile' => 'default',
-                'region' => $awsRegion,
-                'version' => 'latest'
-            ]);
-
-            $this->awsKMS = new Aws\Kms\KmsClient([
-                'profile' => 'default',
-                'region' => $awsRegion,
-                'version' => 'latest'
-            ]);
-
-            $this->logError = new LegalThings\CloudWatchLogger([
-                'aws' => [
-                    'profile' => 'default',
-                    'region' => $awsRegion,
-                    'version' => 'latest'
-                ],
-                'group_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_group', 'sdk'),
-                'stream_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_stream', 'php_db_errors')
-            ]);
-            
-            $this->logSQL = new LegalThings\CloudWatchLogger([
-                'aws' => [
-                    'profile' => 'default',
-                    'region' => $awsRegion,
-                    'version' => 'latest'
-                ],
-                'group_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_group', 'sdk'),
-                'stream_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_stream', 'php_db_sql')
-            ]);         
-        }
-        // Report on any exceptions - exit program since all instances are needed.
-        catch (Exxception $e)
-        {
-            echo $e->getTraceAsString();
-            exit('Couldn\'t instantiate a needed AWS or Logger class. Exiting.');
-        }
-    }
 
     /**
      * 
@@ -81,14 +31,14 @@ class LaData extends LaConfig {
             $this->getConfigAttr('liberanalytics', 'config', 'env', 'dir') .
             $this->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
 
-        chmod($connFile, 0440);
+        //chmod($connFile, 0440);
         $handle = fopen($connFile, 'rb');
-        chmod($connFile, 0000);
+        //chmod($connFile, 0000);
         $binary = fread($handle, filesize($connFile));
         
         // Decrypt the binary data in the database config file.
         try {
-            $connData = $this->awsKMS->decrypt([
+            $connData = $this->laAWS->getAWSClient('awsKMS')->decrypt([
 
                 // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
                 'CiphertextBlob' => $binary,
@@ -99,7 +49,7 @@ class LaData extends LaConfig {
         // Log any exceptions to the error log group / stream. Exit on failure
         // since remaining program depends on decrypted data.
         catch (Exception $e) {
-            $this->logError->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
+            $this->laAWS->getAWSClient('logError')->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
             exit("Unable to decrypt the data in {$connFile}.");
         }
         
@@ -126,7 +76,7 @@ class LaData extends LaConfig {
         }
         // Connection attempt failed - log failure to CloudWatch Logs and exit.
         catch (PDOException $e) {
-            $this->logError->log(['Problem connecting : ' => $e->getMessage()]);
+            $this->laAWS->getAWSClient('logError')->log(['Problem connecting : ' => $e->getMessage()]);
             exit("Unable to connect to host : {$dbHost}.");
         }
 

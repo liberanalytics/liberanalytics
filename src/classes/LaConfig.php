@@ -6,30 +6,25 @@
 class LaConfig {
 
     private const ENV = "env";
-    private string $configFile;
     private array $config;
 
     function __construct()
     {
-        $this->setConfigFile();
         $this->setConfig();
     }
 
-    private function setConfigFile()
-    {
-        $this->configFile = getenv('LA_CONFIG_FILE');
-    }
 
-    private function getConfigFile()
-    {
-        return $this->configFile;
-    }
     
-
-    private function setConfig()    
+    /**
+     * 
+     * 
+     * 
+     * 
+     */
+    private function setConfig(): void
     {        
-        if (file_exists($this->getConfigFile())) {
-            $configJSON = file_get_contents($filename = $this->getConfigFile());
+        if (file_exists(getenv('LA_CONFIG_FILE'))) {
+            $configJSON = file_get_contents($filename = getenv('LA_CONFIG_FILE'));
             $this->config = json_decode($configJSON, true);
         }
     }
