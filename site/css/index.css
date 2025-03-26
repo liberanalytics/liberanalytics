@@ -24,7 +24,7 @@
     background-color: #fff;
 }
 
-.featured-post-hdrtxt:link {
+.featured-post-hdrtxt:link, .featured-post-hdrtxt:visited {
     display: block;
     padding: 0 0 5px 0;
     border-bottom-width: 2px;

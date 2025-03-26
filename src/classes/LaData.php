@@ -128,7 +128,7 @@ class LaData extends LaConfig
             $orderByColumns = '';
             
             foreach ($pOrderBy AS $key => $val) {
-                $orderByColumns .= "$sqlAliasPosts$key $val";
+                $orderByColumns .= "$sqlAliasPosts.$key $val";
                 $orderByColumns .= ($orderByIter < $orderByCount) ? ", " : "";
                 $orderByIter += 1;
             }

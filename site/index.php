@@ -1,15 +1,9 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-include_once('../src/classes/LaData.php');
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    include_once('../src/classes/LaData.php');
 ?>
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +40,7 @@ ini_set('display_startup_errors', 1);
                         $pFeatured = TRUE, 
                         $pPostName = NULL ,           
                         $pCategory = NULL, 
-                        $pOrderBy = NULL,
+                        $pOrderBy = ['featured' => 'ASC'],
                         $pLimit = NULL
                     );
                     while ($post = $featuredPosts->fetch(PDO::FETCH_ASSOC))
@@ -55,8 +49,24 @@ ini_set('display_startup_errors', 1);
                         echo '<article class="featured-post clear">'
                         . "\n\t\t\t\t\t" . '<div class="featured-post-content clear">'                       
                         . "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
-                        . "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}.php\"</a>";
-                        //<a href="whydata.php"><img src="assets/whydata_195.png"></a>
+                        . "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}.php\">"
+                        . "<img src=\"assets/{$post['featured_img']}\"></a>"
+                        . "\n\t\t\t\t\t\t" . '</div>'
+                        . "\n\t\t\t\t\t\t" . '<div class="featured-post-desc">'
+                        . "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-hdrtxt\" href=\"{$post['post_name']}.php\">"
+                        . "{$post['short_desc']}</a>"
+                        . "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desctxt\">"
+                        . "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
+                        . "\n\t\t\t\t\t\t\t" . "</p>"
+                        . "\n\t\t\t\t\t\t" . '</div>'
+                        . "\n\t\t\t\t\t" . '</div>'
+                        . "\n\t\t\t\t\t" . '<div class="featured-post-attrs clear">'
+                        . "\n\t\t\t\t\t\t" . "<span class=\"featured-post-date\">"
+                        . date("F j, Y", strtotime($post['post_created'])) . "</span>"
+                        . "\n\t\t\t\t\t\t" . "<a href=\"blog?category={$post['post_category']}\" class=\"featured-post-cat\">"
+                        . "{$post['post_category']}</a>"
+                        . "\n\t\t\t\t\t" . '</div>'
+                        . "\n\t\t\t\t" . '</article>';
 
                     }
                 
