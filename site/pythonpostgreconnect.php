@@ -1,3 +1,9 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+include_once('../src/classes/LaData.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,16 +27,27 @@
     <main>
 
     <div id="blog_w" class="site-font-stdl">
-
+        
         <header>
+            <?php
+				$postName = basename($_SERVER['PHP_SELF'], ".php");
+				$laData = new LaData();
+				$post = $laData->getPosts
+				(
+				$pFeatured = TRUE, 
+				$pPostName = $postName,           
+				$pCategory = NULL, 
+				$pOrderBy   = NULL,
+				$pLimit = NULL
+				);
+				$post = $post->fetch(PDO::FETCH_ASSOC);
+			?>
 
-            <h1 class="blog-heading site-font-fancyl">Connecting Python to a Postgresql database</h1>
-            <h3 class="blog-date">December 15, 2024</h3>
-            <h2 class="blog-desc site-font-emph">
-                Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.
-            </h2>
-
-            <img src="assets/pythonpostgreconnect_820.png" class="blog-img">          
+            <h1 class="blog-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>
+            <h3 class="blog-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
+            <h2 class="blog-desc site-font-emph"><?php echo $post['long_desc']; ?></h2>
+            <img <?php echo "src=\"assets/{$post['post_img']}\""; ?> class="blog-img">                      
+         
             
         </header>
 
