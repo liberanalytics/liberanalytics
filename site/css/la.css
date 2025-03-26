@@ -255,7 +255,7 @@ main {
     color: rgba(20,124,123,1);
 }
 
-.site-href:link {
+.site-href:link, .site-href:visited {
     display: block;
     padding: 10px 0 10px 0;
     border-bottom: 1px solid rgba(196,196,196, 1);

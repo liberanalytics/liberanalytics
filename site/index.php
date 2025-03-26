@@ -28,7 +28,6 @@
 
             <section id="posts_l">
                 <h1 class="page-section-heading">Featured</h1>
-
                 <?php
 
                     /**
@@ -43,10 +42,16 @@
                         $pOrderBy = ['featured' => 'ASC'],
                         $pLimit = NULL
                     );
+                    $iter = 1;
                     while ($post = $featuredPosts->fetch(PDO::FETCH_ASSOC))
-                    {
-                        
-                        echo '<article class="featured-post clear">'
+                    {                     
+                        if ($iter == 1) {
+                            $htmlFormatting = "";
+                        } else {
+                            $htmlFormatting = "\n\t\t\t\t";
+                        }
+
+                        echo $htmlFormatting .'<article class="featured-post clear">'
                         . "\n\t\t\t\t\t" . '<div class="featured-post-content clear">'                       
                         . "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
                         . "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}.php\">"
@@ -68,6 +73,7 @@
                         . "\n\t\t\t\t\t" . '</div>'
                         . "\n\t\t\t\t" . '</article>';
 
+                        $iter += 1;
                     }
                 
                 ?>
@@ -77,24 +83,32 @@
             <section id="posts_r">
 
                 <h1 class="page-section-heading">Latest Posts</h1>
-
                 <nav id="latest_posts_nav">
+                <?php
 
-                    <a href="/blog?id=27" class="site-href">When sorting on database side is a good idea</a>
-                    <a href="/blog?id=27" class="site-href">Source control for databases?</a>
-                    <a href="/blog?id=28" class="site-href">Should primary keys be used in data warehouses?</a>
-                    <a href="/blog?id=29" class="site-href">MS Excel VBA Ado to read resultsets into .xlsx</a>
-                    <a href="/blog?id=30" class="site-href">Examples of SQL Unit Tests</a>
-                    <a href="/blog?id=31" class="site-href">A simple data pipeline</a>
-                    <a href="/blog?id=32" class="site-href">Using relational databases in defining program logic</a>
-                    <a href="/blog?id=33" class="site-href">Importance of explain / exucution plans</a>
-                    <a href="/blog?id=34" class="site-href">What is a Master Data Management plan?</a>
-                    <a href="/blog?id=35" class="site-href">Use the FWGHSO mnemonic to create efficient SQL select queries</a>
-                    <a href="/blog?id=36" class="site-href">Delete then Insert - Don't Update</a>
-                    <a href="/blog?id=37" class="site-href">When a data warehouse is overkill</a>
-                    <a href="/blog?id=38" class="site-href">Why use the exists predicate?</a>
-                    <a href="/blog?id=39" class="site-href">Leveraging Linux-based bash commands to massage flat file data</a>
-                    <a href="/blog?id=40" class="site-href">Structuring your SQL code so it is readable and intuitive</a>
+                    $latestPosts = $laData->getPosts
+                    (
+                        $pFeatured = TRUE,                  // ^ to false once more posts have been +'d.
+                        $pPostName = NULL ,           
+                        $pCategory = NULL, 
+                        $pOrderBy = ['featured' => 'DESC'], // ^ to post_created once more posts have been +'d.
+                        $pLimit = NULL
+                    );
+                    $iter = 1;
+                    while ($post = $latestPosts->fetch(PDO::FETCH_ASSOC))
+                    {
+                        if ($iter == 1) {
+                            $htmlFormatting = "\t";
+                        }
+                        else {
+                            $htmlFormatting = "\n\t\t\t\t\t"; 
+                        }
+
+                        echo $htmlFormatting . "<a href=\"{$post['post_name']}.php\" class=\"site-href\">{$post['short_desc']}</a>";
+
+                        $iter += 1;
+                    }
+                ?>
 
                 </nav>
 
