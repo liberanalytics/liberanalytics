@@ -6,10 +6,13 @@ require_once('LaAWS.php');
 
 /**
  * 
+ * 
+ * 
+ * 
+ * 
  */
 class LaData extends LaConfig
 {
-
     private $laAWS;
     private $conn;
 
@@ -20,9 +23,11 @@ class LaData extends LaConfig
         $this->setConn();
     }
 
-
-
     /**
+     * 
+     * 
+     * 
+     * 
      * 
      */
     private function setConn()
@@ -37,18 +42,21 @@ class LaData extends LaConfig
         $binary = fread($handle, filesize($connFile));
         
         // Decrypt the binary data in the database config file.
-        try {
+        try
+        {
             $connData = $this->laAWS->getAWSClient('awsKMS')->decrypt([
 
                 // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
                 'CiphertextBlob' => $binary,
                 'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
                 'KeyId' => $this->getConfigAttr('aws', 'kms', 'key_desc', 'liberanalytics_db')
+
             ]);
         }
         // Log any exceptions to the error log group / stream. Exit on failure
         // since remaining program depends on decrypted data.
-        catch (Exception $e) {
+        catch (Exception $e)
+        {
             $this->laAWS->getAWSClient('logError')->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
             exit("Unable to decrypt the data in {$connFile}.");
         }
@@ -62,43 +70,54 @@ class LaData extends LaConfig
         $dbAuth = $dbParams[$this->getConfigAttr('data', 'database', 'liberanalytics', 'auth_ordinal')];
 
         // Try to connect to postgres database. Log any errors to CloudWatch Logs.
-        try {
-            $this->conn = new PDO(
-                "pgsql:host={$dbHost};
-                    port=5432;
-                    dbname={$dbName};
-                    user={$dbUser};
-                    password={$dbAuth};
-                    sslmode=require"
-            );
-            // Set PDO error reporting to Exception.
+        try
+        {
+            $dsn = "pgsql:host={$dbHost};port=5432;dbname={$dbName};user={$dbUser};password={$dbAuth};sslmode=require";
+            $this->conn = new PDO($dsn);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         // Connection attempt failed - log failure to CloudWatch Logs and exit.
-        catch (PDOException $e) {
+        catch (PDOException $e)
+        {
             $this->laAWS->getAWSClient('logError')->log(['Problem connecting : ' => $e->getMessage()]);
             exit("Unable to connect to host : {$dbHost}.");
         }
-
     }
 
     /**
-     * 
-     */
-    public function getPosts(
-        bool $pFeatured, 
-        string $pCategory = NULL, 
-        string $pPostName = NULL,
-        array $pOrderBy = NULL)
+    * 
+    * @param bool
+    * @param string
+    * @param string
+    * @param array
+    * @param int
+    *
+    * @return PDO Statement
+    */
+    public function getPosts
+    (
+        bool $pFeatured,
+        string $pPostName = NULL,        
+        string $pPostCategory = NULL, 
+        array $pOrderBy = NULL,
+        int $pLimit = NULL
+    )
     {
+        //
+        $sqlAliasPosts = "la_posts";
 
         //
-        $sqlAliasPosts = "la_posts.";
+        $featuredOperator   = ($pFeatured != FALSE) ? ">" : "=";
 
-        //
-        $featuredOperator = ($pFeatured != FALSE) ? ">" : "=";
-        $categoryPredicate = ($pCategory != NULL) ? "AND " . $sqlAliasPosts . "post_category = '" . $pCategory . "'" : "";
-        $postNamePredicate = ($pPostName != NULL) ? "AND " . $sqlAliasPosts . "post_name = '" . $pPostName . "'" : "";
+        $postCategoryPredicate  =
+            ($pPostCategory != NULL) ? "$sqlAliasPosts.post_category = '$pPostCategory'" :
+            "$sqlAliasPosts.post_category = $sqlAliasPosts.post_category";
+
+        $postNamePredicate  =
+            ($pPostName != NULL) ? "$sqlAliasPosts.post_name = '$pPostName'" :
+            "$sqlAliasPosts.post_name = $sqlAliasPosts.post_name";            
+
+        $limitClause = ($pLimit != NULL) ? "LIMIT " . (string) $pLimit : "LIMIT 1000";
 
         //
         if ($pOrderBy != NULL) {
@@ -117,30 +136,33 @@ class LaData extends LaConfig
 
         } 
         else {
-            $orderByClause = '';
+            $orderByClause = "ORDER BY 1";
         }
 
         //
         $qry = 
         "SELECT
 
-         la_posts.post_name
-        ,la_posts.post_category
-        ,la_posts.post_created
-        ,la_posts.short_desc
-        ,la_posts.long_desc
-        ,la_posts.featured
-        ,la_posts.post_img
-        ,la_posts.featured_img
-        ,la_posts.search_img
+        la_posts.post_name,
+        la_posts.post_category,
+        la_posts.post_created,
+        la_posts.short_desc,
+        la_posts.long_desc,
+        la_posts.featured,
+        la_posts.post_img,
+        la_posts.featured_img,
+        la_posts.search_img
         
         FROM liberanalytics.posts AS la_posts
 
         WHERE 1=1
-        AND la_posts.featured " . $featuredOperator . " 0 " . "\n" .
-        $categoryPredicate . "\n" .
-        $postNamePredicate . "\n" .
-        $orderByClause . ";";
+        AND la_posts.featured " . $featuredOperator . " 0 " .
+        "\n\t" ."AND " . $postNamePredicate . 
+        "\n\t" ."AND " . $postCategoryPredicate .
+        "\n\t" . $orderByClause .
+        "\n\t" . $limitClause . ";";
+
+        print($qry);
 
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
