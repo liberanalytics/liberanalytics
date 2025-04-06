@@ -23,19 +23,19 @@
                 <nav id="site_header_nav"> 
                     
                     <a href="index.php">Home</a>
-                    <a href="blog.php">Blog</a>
+                    <a href="posts.php">Posts</a>
                     <a href="about.php">About</a>
                     <a href="contact.php">Contact</a>
 
                 </nav>
 
-                <!--
+                
                 <div id="site_search_w">
                     <form id="site_search">
                         <input name="site_search_text" type="search" title="Search site for..." placeholder="search">
                     </form>
-                </div> End site_search_w
-                -->
+                </div>
+                
 
             </div> <!-- End site_menu -->
         

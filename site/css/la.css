@@ -202,6 +202,10 @@ main {
     max-width: 980px;
 }
 
+ul li, ol li {
+    list-style-type: none;
+}
+
 .clear::after {
     display: block;
     clear: both;
