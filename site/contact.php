@@ -35,7 +35,7 @@
                             Please contact us with any questions, statements, or suggestions. We would love to hear from you!
                         </p>
 
-                        <form name="contact" id="contact" method="post">
+                        <form name="contact" id="contact" method="post" action="contact_handler.php">
 
                             <ul>
                                 <li>

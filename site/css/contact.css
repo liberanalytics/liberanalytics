@@ -5,11 +5,8 @@
 }
 
 #contact_form ul li {
-    list-style-type: none;
-}
-
-#contact_form ul li {
     display: flex;
+    list-style-type: none;
 }
 
 #contact_form p {
@@ -59,13 +56,13 @@
     resize: none;
 }
 
-#contact_form_w form[name=contact] ul li > input[type=submit] {
+#contact_form form[name=contact] ul li > input[type=submit] {
     width: 544px;
     padding: 15px 0 15px 0;  
     margin: 20px 0 40px 10px;
 }
 
-#contact_form_w form[name=contact] ul li > input[type=submit]:hover {
+#contact_form form[name=contact] ul li > input[type=submit]:hover {
     background-color: rgb(4,132,100);
     transition-duration: .5s; 
     cursor: pointer;    

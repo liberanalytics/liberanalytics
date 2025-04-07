@@ -153,7 +153,7 @@ class LaData extends LaConfig
         la_posts.featured_img,
         la_posts.search_img
         
-        FROM liberanalytics.posts AS la_posts
+        FROM liberanalytics.posts AS {$sqlAliasPosts}
 
         WHERE 1=1
         AND la_posts.featured " . $featuredOperator . " 0 " .
@@ -167,6 +167,27 @@ class LaData extends LaConfig
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         return $stmt;
+
+    }
+
+    /**
+    *
+    * @return PDO Statement
+    */
+    public function getPostCategories( )
+    {
+        $qry =
+        "SELECT
+
+        post_category
+
+        FROM refdata.post_category;
+
+        ";
+
+        $stmt = $this->conn->prepare($qry);
+        $stmt->execute();
+        return $stmt;        
 
     }
 

@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 include_once('../src/classes/LaData.php');
+$laData = new LaData();
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,16 +26,34 @@ include_once('../src/classes/LaData.php');
     <?php include_once('../src/site_header.php'); ?>
 
     <main>
+        <h1 class="page-section-heading">Search for posts on Liber<em>Analytics</em></h1>
+        <div id="posts_w">
+            <div id="posts_form">
+                <form id="posts" method="post" action="posts_handler.php">
+                    <ul>
+                        <li>
+                            <label>Post Category</label>
+                            <select>
+                                
+                                <?php
 
-        <div id="blog_w">
-            <h1 class="page-section-heading">Search for posts on Liber<em>Analytics</em></h1>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+                                $categories = $laData->getPostCategories();
+                                while ($category = $categories->fetch(PDO::FETCH_ASSOC))
+                                {
+                                    echo "<option>{$category['post_category']}</option>";
+                                }
 
-        </div> <!-- End blog_w -->
+                                ?>
+                            </select>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+            
+
+
+        </div> <!-- End posts_w -->
 
     </main>
 
