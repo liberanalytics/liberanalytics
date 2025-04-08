@@ -46,7 +46,7 @@
 #contact_form form[name=contact] ul li > .input-only {
     width: 522px;
     padding: 10px;
-    margin: 5px 0 0 0;
+    margin: 0 0 5px 0;
 }
 
 #contact_form form[name=contact] ul li > .error-msg {
@@ -58,7 +58,7 @@
     width: 522px;
     padding: 10px;
     border: 1px solid #ccc;
-    margin: 5px 0 10px 0;
+    margin: 0 0 10px 0;
     border-radius: 10px;
     resize: none;
 }
@@ -67,10 +67,4 @@
     width: 544px;
     padding: 15px 0 15px 0;  
     margin: 20px 0 40px 0;
-}
-
-#contact_form form[name=contact] ul li > input[type=submit]:hover {
-    background-color: rgb(4,132,100);
-    transition-duration: .5s; 
-    cursor: pointer;    
 }

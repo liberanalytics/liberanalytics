@@ -33,7 +33,8 @@ $laData = new LaData();
                     <ul>
                         <li>
                             <label>Post Category</label>
-                            <select>
+                            <select class="select-control">
+                                <option class="control">Select Category</option>
                                 
                                 <?php
                                     $laData->openConn();
@@ -46,6 +47,14 @@ $laData = new LaData();
 
                                 ?>
                             </select>
+                        </li>
+                        <li>
+                            <label>Tags</label>
+                            <input type="text" class="input-control">
+                        </li>
+                        <li>
+                            <label>Keywords</label>
+                            <input type="text" class="input-control">
                         </li>
                     </ul>
 
