@@ -20,7 +20,6 @@ class LaData extends LaConfig
     {
         parent::__construct();
         $this->laAWS = new LaAWS();
-        $this->setConn();
     }
 
     /**
@@ -30,7 +29,7 @@ class LaData extends LaConfig
      * 
      * 
      */
-    private function setConn()
+    public function openConn()
     {
         $connFile =
             $this->getConfigAttr('liberanalytics', 'config', 'env', 'dir') .
@@ -82,6 +81,11 @@ class LaData extends LaConfig
             $this->laAWS->getAWSClient('logError')->log(['Problem connecting : ' => $e->getMessage()]);
             exit("Unable to connect to host : {$dbHost}.");
         }
+    }
+
+    public function closeConn()
+    {
+        $this->conn = NULL;
     }
 
     /**

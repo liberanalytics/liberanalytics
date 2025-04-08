@@ -79,13 +79,12 @@
                                     <li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
                                 </li>
 
-                            </ul>
-                            
+                            </ul>                            
                         
                         </form> 
 
                     </div> <!-- End contact_form -->
-
+                    
                 </div> <!-- End contact_form_w -->
 
             </section>

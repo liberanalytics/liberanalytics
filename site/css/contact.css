@@ -4,6 +4,14 @@
     margin: 30px 0 0 0;
 }
 
+#contact_form {
+    margin: 0 0 0 10px;
+}
+
+#contact_form ul {
+    margin: 30px 0 0 0;
+}
+
 #contact_form ul li {
     display: flex;
     list-style-type: none;
@@ -11,12 +19,11 @@
 
 #contact_form p {
     width: 520px;
-    margin: 40px 0 40px 15px;
 }
 
 #contact_form form[name=contact] ul li > .label-first {
     width: 240px;
-    margin: 10px 0 5px 15px;
+    margin: 10px 0 5px 5px;
 }
 
 #contact_form form[name=contact] ul li > .label-second {
@@ -27,7 +34,7 @@
 #contact_form form[name=contact] ul li > .input-first {
     width: 240px;
     padding: 10px;
-    margin: 0 0 5px 10px;
+    margin: 0 0 5px 0;
 }
 
 #contact_form form[name=contact] ul li > .input-second {
@@ -39,7 +46,7 @@
 #contact_form form[name=contact] ul li > .input-only {
     width: 522px;
     padding: 10px;
-    margin: 5px 0 0 10px;
+    margin: 5px 0 0 0;
 }
 
 #contact_form form[name=contact] ul li > .error-msg {
@@ -51,7 +58,7 @@
     width: 522px;
     padding: 10px;
     border: 1px solid #ccc;
-    margin: 5px 0 10px 10px;
+    margin: 5px 0 10px 0;
     border-radius: 10px;
     resize: none;
 }
@@ -59,7 +66,7 @@
 #contact_form form[name=contact] ul li > input[type=submit] {
     width: 544px;
     padding: 15px 0 15px 0;  
-    margin: 20px 0 40px 10px;
+    margin: 20px 0 40px 0;
 }
 
 #contact_form form[name=contact] ul li > input[type=submit]:hover {

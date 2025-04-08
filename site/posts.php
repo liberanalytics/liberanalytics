@@ -14,7 +14,7 @@ $laData = new LaData();
     <title>LiberAnalytics</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" type="text/css" charset="utf-8"> 
     <link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
-    <link href="css/blog.css" rel="stylesheet" type="text/css" charset="utf-8">
+    <link href="css/posts.css" rel="stylesheet" type="text/css" charset="utf-8">
     <script type="text/javascript" src="js/LAStyles.js"></script>
     <script type="text/javascript" src="js/LAHdrFtr.js"></script>
     <script type="text/javascript" src="js/la.js"></script>
@@ -36,12 +36,13 @@ $laData = new LaData();
                             <select>
                                 
                                 <?php
-
-                                $categories = $laData->getPostCategories();
-                                while ($category = $categories->fetch(PDO::FETCH_ASSOC))
-                                {
-                                    echo "<option>{$category['post_category']}</option>";
-                                }
+                                    $laData->openConn();
+                                    $categories = $laData->getPostCategories();
+                                    while ($category = $categories->fetch(PDO::FETCH_ASSOC))
+                                    {
+                                        echo "<option>{$category['post_category']}</option>";
+                                    }
+                                    $laData->closeConn();
 
                                 ?>
                             </select>
