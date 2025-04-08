@@ -14,7 +14,15 @@
 }
 
 #posts_form ul li label {
-    width: 240px;
+    width: 200px;
+}
+
+#posts_form ul li label.label-first {
+    margin: 10px 0 0 0;
+}
+
+#posts_form ul li label.label-nonfirst {
+    margin: 30px 0 0 0;
 }
 
 #posts_form .select-control {
@@ -23,5 +31,6 @@
 
 #posts_form .input-control {
     width: 300px;
+    margin: 20px 0 0 0;
 }
 

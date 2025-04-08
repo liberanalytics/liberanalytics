@@ -32,7 +32,7 @@ $laData = new LaData();
                 <form id="posts" method="post" action="posts_handler.php">
                     <ul>
                         <li>
-                            <label>Post Category</label>
+                            <label class="label-first">Post Category</label>
                             <select class="select-control">
                                 <option class="control">Select Category</option>
                                 
@@ -49,11 +49,11 @@ $laData = new LaData();
                             </select>
                         </li>
                         <li>
-                            <label>Tags</label>
+                            <label class="label-nonfirst">Tags</label>
                             <input type="text" class="input-control">
                         </li>
                         <li>
-                            <label>Keywords</label>
+                            <label class="label-nonfirst">Keywords</label>
                             <input type="text" class="input-control">
                         </li>
                     </ul>
