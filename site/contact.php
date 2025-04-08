@@ -20,7 +20,7 @@
     <?php include_once('../src/site_header.php'); ?>
 
     <main>
-
+        <div id="page_w">
         <div id="contact_w">
 
             <section>
@@ -84,12 +84,13 @@
                         </form> 
 
                     </div> <!-- End contact_form -->
-                    
+
                 </div> <!-- End contact_form_w -->
 
             </section>
 
         </div> <!-- contact_w -->
+        </div>
 
     </main>
 

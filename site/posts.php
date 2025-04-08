@@ -26,6 +26,7 @@ $laData = new LaData();
     <?php include_once('../src/site_header.php'); ?>
 
     <main>
+        <div id="page_w">
         <h1 class="page-section-heading">Search for posts on Liber<em>Analytics</em></h1>
         <div id="posts_w">
             <div id="posts_form">
@@ -64,6 +65,8 @@ $laData = new LaData();
 
 
         </div> <!-- End posts_w -->
+
+        </div>
 
     </main>
 

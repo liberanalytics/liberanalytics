@@ -1,8 +1,9 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-include_once('../src/classes/LaData.php');
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    include_once('../src/classes/LaData.php');
+    $laData = new LaData();
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,23 +26,25 @@ include_once('../src/classes/LaData.php');
     <?php include_once('../src/site_header.php'); ?>
 
     <main>
+    <div id="page_w">
 
     <div id="blog_w" class="site-font-stdl">
         
         <header>
-            <?php
-				$postName = basename($_SERVER['PHP_SELF'], ".php");
-				$laData = new LaData();
-				$post = $laData->getPosts
-				(
-				$pFeatured = TRUE, 
-				$pPostName = $postName,           
-				$pCategory = NULL, 
-				$pOrderBy   = NULL,
-				$pLimit = NULL
-				);
-				$post = $post->fetch(PDO::FETCH_ASSOC);
-			?>
+        <?php
+                $postName = basename($_SERVER['PHP_SELF'], ".php");
+                $laData->openConn();
+                $post = $laData->getPosts
+                (
+                    $pFeatured = TRUE, 
+                    $pPostName = $postName,           
+                    $pCategory = NULL, 
+                    $pOrderBy   = NULL,
+                    $pLimit = NULL
+                );
+                $post = $post->fetch(PDO::FETCH_ASSOC);
+                $laData->closeConn();
+            ?>
 
             <h1 class="blog-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>
             <h3 class="blog-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
@@ -588,7 +591,8 @@ include_once('../src/classes/LaData.php');
         </section>
         
     </div>
-
+        </div>
+        
     </main>
 
     <?php include_once('../src/site_footer.php'); ?>

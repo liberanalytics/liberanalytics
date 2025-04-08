@@ -3,6 +3,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     include_once('../src/classes/LaData.php');
+    $laData = new LaData();
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,6 +25,7 @@
     <?php include_once('../src/site_header.php'); ?>
 
     <main>
+    <div id="page_w">
         <div id="posts_w">
 
             <section id="posts_l">
@@ -33,7 +35,7 @@
                     /**
                      * 
                      */
-                    $laData = new LaData();
+                    $laData->openConn();
                     $featuredPosts = $laData->getPosts
                     (
                         $pFeatured = TRUE, 
@@ -108,6 +110,7 @@
 
                         $iter += 1;
                     }
+                    $laData->closeConn();
                 ?>
 
                 </nav>
@@ -137,6 +140,7 @@
             </div> <!-- End mission -->
 
         </section>
+    </div>
 
     </main>
 
