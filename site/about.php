@@ -17,6 +17,7 @@
     <?php include_once('../src/site_header.php'); ?>
 
     <main>
+        <div id="page_w">
 
         <section id="about_us_w">
 
@@ -37,6 +38,8 @@
             </div> <!-- End about -->
 
         </section> <!-- End about_us_w -->
+
+        </div>
 
     </main>
 
