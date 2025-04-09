@@ -38,9 +38,9 @@
 }
 
 .featured-post-hdrtxt:hover {
-    color: rgba(20,124,123,1);
-    transition-duration: .3s;
-    text-decoration: underline; 
+    color: rgba(101,149,202,1);
+    text-decoration: underline;    
+    transition-duration: .3s;  
     cursor: pointer;
 }
 
@@ -65,7 +65,8 @@
     font-family: Studio-Feixen-Sans;
     font-size: 18px;
     line-height: 1.5;
-    color: rgb(78,79,95);    
+    color: rgb(78,79,95);
+    
 }
 
 .featured-post-attrs {

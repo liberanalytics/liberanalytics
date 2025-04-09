@@ -282,7 +282,7 @@ ul li, ol li {
 }
 
 .site-href:hover {
-    color: rgba(20,124,123,1);
+    color: rgba(101,149,202,1);
     transition-duration: .3s;
 }
 
