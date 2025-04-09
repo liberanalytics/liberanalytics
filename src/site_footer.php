@@ -12,7 +12,7 @@
 		<div id="site_footer_nav_c">
 			<nav id="site_footer_nav"> 			
 				<span><a href="index.php">Home</a></span>
-				<span><a href="blog.php">Blog</a></span>
+				<span><a href="posts.php">Posts</a></span>
 				<span><a href="about.php">About</a></span>
 				<span><a href="contact.php">Contact</a></span>
 				<span class="last"><a href="privacy.php">Privacy</a></span>

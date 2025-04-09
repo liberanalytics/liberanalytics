@@ -66,6 +66,11 @@ $laData = new LaData();
 			</div>
 			
 		</div><!-- End posts_w -->
+
+		<div id="results_w">
+
+
+		</div><!-- End results_w -->
 	</div><!-- End page_w -->
 	</main>
 
