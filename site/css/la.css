@@ -381,6 +381,49 @@ form select {
     color: rgb(51,51,51);
     background-color: #FFF;
     box-shadow: 2px 2px 2px rgb(196,196,196);
+    appearance: none;
+}
+
+.select-parent {
+    position: relative;
+}
+
+form .select-arrow {
+    position: absolute;
+    display: block;
+    width: 45px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 10px 0;
+    background: rgba(88,135,191,.75);
+    pointer-events: none;
+}
+
+form .select-arrow::before,
+form .select-arrow::after {
+    --size: 8px;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form .select-arrow::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid rgba(255,255,255);
+    top: 35%;
+}
+
+form .select-arrow::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid rgba(255,255,255);
+    top: 65%;
 }
 
 form .error-msg {

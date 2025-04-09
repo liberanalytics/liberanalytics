@@ -32,21 +32,25 @@ $laData = new LaData();
 				<form id="posts" method="post" action="posts_handler.php">
 					<ul>
 						<li>
-							<label class="label-first">Post Category</label>
-							<select class="select-control">
-								<option class="control">Select Category</option>
-								
-								<?php
-									$laData->openConn();
-									$categories = $laData->getPostCategories();
-									while ($category = $categories->fetch(PDO::FETCH_ASSOC))
-									{
-										echo "<option>{$category['post_category']}</option>";
-									}
-									$laData->closeConn();
 
-								?>
-							</select>
+								<label class="label-first">Post Category</label>
+								<div class="select-parent">
+								<select class="select-control">
+									<option class="control">Select Category</option>
+									
+									<?php
+										$laData->openConn();
+										$categories = $laData->getPostCategories();
+										while ($category = $categories->fetch(PDO::FETCH_ASSOC))
+										{
+											echo "<option>{$category['post_category']}</option>";
+										}
+										$laData->closeConn();
+									?>
+
+								</select>
+								<span class="select-arrow"></span>
+							</div>
 						</li>
 						<li>
 							<label class="label-nonfirst">Tags</label>
