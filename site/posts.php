@@ -64,6 +64,9 @@ $laData = new LaData();
 						<li>
 							<input type="submit" value="SUBMIT">
 						</li>
+						<li >
+							<span class="error-msg">err</span>
+						</li>
 					</ul>
 
 				</form>

@@ -1,26 +1,13 @@
 var contact = {};
 contact.form = {};
 
-window.onload = () => {
+window.addEventListener("load", () => {
     contact.setVars();
-    contact.setStyles();
     contact.bindEvents();
-}
+});
 
 contact.setVars = () => {
     contact.form = document.querySelector('#contact');
-}
-
-contact.setStyles = () => {
-
-    const laStyle = new LAStyles();
-    const laHdrFtr = new LAHdrFtr();
-
-    //
-    laStyle.setTargettoSourceStyles(laHdrFtr.getLAHdrFtrStyles());
-
-    laStyle.setTargettoSourceStyles()
-    
 }
 
 contact.bindEvents = () => {

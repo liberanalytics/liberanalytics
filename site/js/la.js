@@ -1,8 +1,13 @@
 var la = {};
 
-window.onload = () => {
+// window.onload = () => {
+//     la.setStyles();
+// }
+
+window.addEventListener("load", () => {
     la.setStyles();
 }
+)
 
 la.setStyles = () => {
     
