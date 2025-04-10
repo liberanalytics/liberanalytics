@@ -46,6 +46,11 @@ form input[type=submit]:hover {
     cursor: pointer;    
 }
 
+form input[type=submit]:focus,
+form input[type=submit]:active {
+    outline: none;
+}
+
 form select {
     padding: 10px;
     border: 1px solid #CCC;

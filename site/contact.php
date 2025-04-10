@@ -16,7 +16,6 @@
 	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/contact.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="text/javascript" src="js/LAStyles.js"></script>
-	<script type="text/javascript" src="js/LAHdrFtr.js"></script>
 	<script type="text/javascript" src="js/la.js"></script> 	
 	<script type="text/javascript" src="js/LAvx.js"></script>   
 	<script type="text/javascript" src="js/contact.js"></script>

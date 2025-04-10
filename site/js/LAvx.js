@@ -89,10 +89,10 @@ class LAvx {
 	 * @param {*} pxForm 
 	 * @returns {Boolean}
 	 */
-	vxForm = (pxForm) => {
-
-		const vxData = pxForm;
-		
+	vxForm = (pxForm) => 
+	{
+		//
+		const vxData = pxForm;		
 		let formValid = true;
 	
 		//
@@ -100,8 +100,8 @@ class LAvx {
 			element.textContent = '';
 		});	
 	
-		for ( let i=0; i < vxData.elements.length; i++ ) {
-	
+		for ( let i=0; i < vxData.elements.length; i++ ) 
+		{
 			//
 			let 
 				vxDataName = vxData[i].name,
@@ -112,22 +112,26 @@ class LAvx {
 				vxDataId = vxData[i].dataset[LAvx.vxId];
 	
 			//
-			if (vxDataReq) {
-	
+			if (vxDataReq)
+			{
 				//
-				if (!this[vxDataVx](vxDataVal, vxDataLen)) {
-	
+				if (!this[vxDataVx](vxDataVal, vxDataLen))
+				{	
 					const error_msg = vxDataId + ' is invalid.';
 					let error_ele_id = vxDataName.includes('name') ? 'error_name' : vxDataName.replace('contact', 'error');
 					error_ele_id = '#' + error_ele_id;
 					document.querySelector(error_ele_id).textContent = error_msg;
-					formValid = false;
-	
+					formValid = false;	
 				}
 			}
 		}        
 
 		return formValid;
+	}
+
+	setErrorMsg = () => 
+	{
+
 	}
 
 } // End class LAvx.
