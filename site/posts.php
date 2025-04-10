@@ -14,6 +14,7 @@ $laData = new LaData();
 	<title>LiberAnalytics</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" type="text/css" charset="utf-8"> 
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/posts.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="text/javascript" src="js/LAStyles.js"></script>
 	<script type="text/javascript" src="js/LAHdrFtr.js"></script>
@@ -59,6 +60,9 @@ $laData = new LaData();
 						<li>
 							<label class="label-nonfirst">Keywords</label>
 							<input type="text" class="input-control">
+						</li>
+						<li>
+							<input type="submit" value="SUBMIT">
 						</li>
 					</ul>
 

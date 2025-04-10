@@ -8,7 +8,12 @@
 }
 
 #posts {
-    margin: 0 0 0 10px;
+
+}
+
+#posts_form ul {
+    width: 522px;
+    margin: 0 auto 0 auto;
 }
 
 #posts_form ul li {
@@ -28,13 +33,18 @@
     margin: 30px 0 0 0;
 }
 
-#posts_form .select-control {
+#posts_form select {
     width: 320px;
 }
 
-#posts_form .input-control {
+#posts_form input[type=text] {
     width: 300px;
     margin: 20px 0 0 0;
+}
+
+#posts_form input[type=submit] {
+    width: 522px;
+    margin: 30px 0 0 0;
 }
 
 #results_w {
