@@ -111,7 +111,8 @@ class LAvx {
 				vxDataLen = vxData[i].dataset[LAvx.vxLen],
 				vxDataId = vxData[i].dataset[LAvx.vxId];
 	
-			//
+			// If form is non composite, check each control value. If form is composite, check each non-empty
+			// control value.
 			if (vxDataReq)
 			{
 				//
