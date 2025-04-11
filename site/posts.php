@@ -31,36 +31,38 @@ $laData = new LaData();
 		<h1 class="page-section-heading">Search for posts on Liber<em>Analytics</em></h1>
 		<div id="posts_w">
 			<div id="posts_form">
-				<form id="posts" method="post" data-composite="1" data-errorEleId="error_form" action="posts_handler.php">
+				<form id="posts" method="post" data-composite="1" data-erroreleid="error_form" action="posts_handler.php">
 					<ul>
 						<li>
+							<label class="label-first">Post Category</label>
+							<div class="select-parent">
+							<select class="select-control"
+							 data-caption="Post Category" data-id="post_category" data-vx="vxText" data-len="512">
+								<option class="control">Select Category</option>
+								
+								<?php
+									$laData->openConn();
+									$categories = $laData->getPostCategories();
+									while ($category = $categories->fetch(PDO::FETCH_ASSOC))
+									{
+										echo "<option>{$category['post_category']}</option>";
+									}
+									$laData->closeConn();
+								?>
 
-								<label class="label-first">Post Category</label>
-								<div class="select-parent">
-								<select class="select-control" data-id="Post Category" data-vx="vxText">
-									<option class="control">Select Category</option>
-									
-									<?php
-										$laData->openConn();
-										$categories = $laData->getPostCategories();
-										while ($category = $categories->fetch(PDO::FETCH_ASSOC))
-										{
-											echo "<option>{$category['post_category']}</option>";
-										}
-										$laData->closeConn();
-									?>
-
-								</select>
-								<span class="select-arrow"></span>
+							</select>
+							<span class="select-arrow"></span>
 							</div>
 						</li>
 						<li>
 							<label class="label-nonfirst">Tags</label>
-							<input type="text" class="input-control" maxlength="48" data-id="Tags" data-vx="vxText" data-len="48">
+							<input type="text" class="input-control" maxlength="48"
+							 data-caption="Tags" data-id="tags" data-vx="vxText" data-len="48">
 						</li>
 						<li>
 							<label class="label-nonfirst">Keywords</label>
-							<input type="text" class="input-control" maxlength="48" data-id="Tags" data-vx="vxText" data-len="48">
+							<input type="text" class="input-control" maxlength="48"
+							data-caption="Keywords" data-id="keywords" data-vx="vxText" data-len="48">
 						</li>
 						<li>
 							<input type="submit" value="SUBMIT">

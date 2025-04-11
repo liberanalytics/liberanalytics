@@ -112,6 +112,7 @@ form .select-arrow::after {
 }
 
 form .error-msg {
+    min-height: 30px;
     font-family: Helvetica;
     font-size: 18px;
     line-height: 30px;

@@ -9,6 +9,7 @@ class LAvx {
 	static vxType = 'vx';
 	static vxLen = 'len';
 	static vxId = 'id';
+	static vxCaption = 'caption';
 
 	/**
 	 * Creates a new LiberAnalytics validation class.
@@ -102,6 +103,7 @@ class LAvx {
 	getVxFormData = (pxForm) => 
 	{
 		//
+		let getVxFormData = {};
 		const vxData = pxForm;
 		const vxFormComposite = parseInt(pxForm.dataset.composite);
 		const vxFormErrorEle = pxForm.dataset.erroreleid;
@@ -125,14 +127,11 @@ class LAvx {
 				vxDataVx = vxData[i].dataset[LAvx.vxType],
 				vxDataReq = null,
 				vxDataLen = vxData[i].dataset[LAvx.vxLen],
-				vxDataId = vxData[i].dataset[LAvx.vxId];
+				vxDataId = vxData[i].dataset[LAvx.vxId],
+				vxCaption = vxData[i].dataset[LAvx.vxCaption];
 
 				// See if the form element control is a required validation.
-				if (!vxFormComposite)
-				{
-					vxDataReq = vxData[i].dataset[LAvx.vxReq];
-				}
-				else
+				if (vxFormComposite)
 				{
 					if (['text', 'textarea'].includes(vxDataType))
 					{
@@ -143,6 +142,10 @@ class LAvx {
 						vxDataReq = (String(vxDataVal).toLowerCase().includes('select')) ? 0 : 1;
 					}
 				}
+				else
+				{
+					vxDataReq = vxData[i].dataset[LAvx.vxReq];
+				}
 	
 			// If form is non composite, check each control value. If form is composite, check each non-empty
 			// control value.
@@ -150,23 +153,25 @@ class LAvx {
 			{
 				//
 				vxFormValidated = true;
+
 				//
 				if (!this[vxDataVx](vxDataVal, vxDataLen))
-				{	
-					const errorMsg= vxDataId + ' is invalid.';
+				{
+					const errorMsg= vxCaption + ' is invalid.';
 					const laStyles = new LAStyles();
 					laStyles.setElementText('#' + vxFormErrorEle, errorMsg);
-
-					// let error_ele_id = vxDataName.includes('name') ? 'error_name' : vxDataName.replace('contact', 'error');
-					// error_ele_id = '#' + error_ele_id;
-					// document.querySelector(error_ele_id).textContent = error_msg;
-					formValid = false;	
+					return false;
+				}
+				//
+				else
+				{
+					getVxFormData[vxDataId] = vxDataVal;
+					console.log(getVxFormData);
 				}
 			}
-		}        
+		}
 
-		return formValid;
-
+		return getVxFormData;
 	}
 
 } // End class LAvx.
