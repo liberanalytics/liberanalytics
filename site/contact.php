@@ -37,7 +37,7 @@
 							Please contact us with any questions, statements, or suggestions. We would love to hear from you!
 						</p>
 
-						<form name="contact" id="contact" method="post" composite="0" action="contact_handler.php">
+						<form name="contact" id="contact" method="post" data-composite="0" action="contact_handler.php">
 
 							<ul>
 								<li>
@@ -74,7 +74,7 @@
 									<label class="label-first">Message<em>*</em></label> 
 								</li>
 								<li>
-									<textarea name="contact_msg" rows="8" cols="48" data-id="Message" data-req="1" data-vx="vxMsg" data-len="512"></textarea>
+									<textarea name="contact_msg" rows="8" cols="48" data-id="Message" data-req="1" data-vx="vxText" data-len="512"></textarea>
 									<span id="error_msg" class="error-msg"></span>
 								</li>
 								<li>

@@ -4,6 +4,7 @@ class LAvx {
 	 * 
 	 * 
 	 */
+	static vx
 	static vxReq = 'req';
 	static vxType = 'vx';
 	static vxLen = 'len';
@@ -75,13 +76,11 @@ class LAvx {
 	 * @param {*} pxMinNumChars 
 	 * @returns {Boolean}
 	 */
-	vxMsg = (pxVal, pxLen, pxMinNumChars = 3) => {
-
-		const vxMsg = 
-
+	vxText = (pxVal, pxLen, pxMinNumChars = 3) => 
+	{
+		const vxText = 
 			RegExp('^[A-Za-z0-9 \\.\\?\\!\\;\\/\\-]{' + pxMinNumChars.toString() + ',' + pxLen.toString() + '}$').test(pxVal);
-
-		return vxMsg;        
+		return vxText;        
 	}
 
 	/**
@@ -92,29 +91,54 @@ class LAvx {
 	vxForm = (pxForm) => 
 	{
 		//
-		const vxData = pxForm;		
+		const vxData = pxForm;
+		const vxFormComposite = parseInt(pxForm.dataset.composite);
+		let errorMsg = '';
+		let vxFormValidated = false;
 		let formValid = true;
+
 	
 		//
 		document.querySelectorAll('.error-msg').forEach(element => {
 			element.textContent = '';
 		});	
 	
-		for ( let i=0; i < vxData.elements.length; i++ ) 
+		for ( let i=0; i < vxData.elements.length; i++ )
 		{
 			//
 			let 
+				vxDataType = vxData[i].type,
 				vxDataName = vxData[i].name,
 				vxDataVal = vxData[i].value,
-				vxDataReq = vxData[i].dataset[LAvx.vxReq],
 				vxDataVx = vxData[i].dataset[LAvx.vxType],
+				vxDataReq = null,
 				vxDataLen = vxData[i].dataset[LAvx.vxLen],
 				vxDataId = vxData[i].dataset[LAvx.vxId];
+
+				// See if the form element control is a required validation.
+				if (!vxFormComposite)
+				{
+					vxDataReq = vxData[i].dataset[LAvx.vxReq];
+				}
+				else
+				{
+					if (['text', 'textarea'].includes(vxDataType))
+					{
+						vxDataReq = (String(vxDataVal).length > 0) ? 1 : 0;
+					}
+					else if (vxDataType == 'select-one')
+					{
+						vxDataReq = (String(vxDataVal).toLowerCase().includes('select')) ? 0 : 1;
+					}
+				}
+
 	
 			// If form is non composite, check each control value. If form is composite, check each non-empty
 			// control value.
-			if (vxDataReq)
+			if (parseInt(vxDataReq))
 			{
+				//
+				vxFormValidated = true;
 				//
 				if (!this[vxDataVx](vxDataVal, vxDataLen))
 				{	
@@ -128,10 +152,6 @@ class LAvx {
 		}        
 
 		return formValid;
-	}
-
-	setErrorMsg = () => 
-	{
 
 	}
 
