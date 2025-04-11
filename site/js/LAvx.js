@@ -111,9 +111,9 @@ class LAvx {
 		let vxFormValidated = false;
 		let formValid = true;
 
-	
 		//
-		document.querySelectorAll('.error-msg').forEach(element => {
+		document.querySelectorAll('.error-msg').forEach(element =>
+		{
 			element.textContent = '';
 		});	
 	
@@ -166,7 +166,6 @@ class LAvx {
 				else
 				{
 					getVxFormData[vxDataId] = vxDataVal;
-					console.log(getVxFormData);
 				}
 			}
 		}

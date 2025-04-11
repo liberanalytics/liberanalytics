@@ -37,7 +37,8 @@
 							Please contact us with any questions, statements, or suggestions. We would love to hear from you!
 						</p>
 
-						<form name="contact" id="contact" method="post" data-composite="0" data-errorEleId="error_name" action="contact_handler.php">
+						<form name="contact" id="contact" method="post" 
+						 data-composite="0" data-erroreleid="error_form" action="contact_handler.php">
 
 							<ul>
 								<li>
@@ -51,7 +52,7 @@
 									<input name="contact_lname" type="text" title="Enter Last Name" class="input-second" 
 									maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1" data-vx="vxName" data-len="32">
 
-									<span id="error_name" class="error-msg"></span>        
+      
 								</li>
 
 								<li>
@@ -60,7 +61,7 @@
 								<li>
 									<input name="contact_email" type="text" title="Enter Email" class="input-only" 
 									maxlength="32" data-caption="Email" data-id="email" data-req="1" data-vx="vxEmail" data-len="32">
-									<span id="error_email" class="error-msg"></span>
+
 								</li>
 								<li>
 									<label class="label-first">Subject<em>*</em></label> 
@@ -68,7 +69,7 @@
 								<li>
 									<input name="contact_subject" type="text" title="Enter Subject" class="input-only"
 									 maxlength="32" data-caption="Subject" data-id="subject" data-req="1" data-vx="vxAlphaNum" data-len="32">
-									<span id="error_subject" class="error-msg"></span>
+
 								</li>
 								<li>
 									<label class="label-first">Message<em>*</em></label> 
@@ -76,11 +77,14 @@
 								<li>
 									<textarea name="contact_msg" rows="8" cols="48"
 									data-caption="Message" data-id="message" data-req="1" data-vx="vxText" data-len="512"></textarea>
-									<span id="error_msg" class="error-msg"></span>
+
 								</li>
 								<li>
 									<li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
 								</li>
+								<li>
+									<span id="error_form" class="error-msg"></span>
+								</li>								
 							</ul>                            
 						
 						</form> 
