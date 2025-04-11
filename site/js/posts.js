@@ -23,17 +23,10 @@ posts.bindEvents = () =>
 posts.submit = () => {
 
     const lavx = new LAvx();
-
-    // If no selection has been made
-    if ()
-    {
-        LAvx.setErrorMsg();
-    }
-
-
+    const jsonPosts = lavx.getVxFormData(posts.form);
 
     //
-    if (lavx.vxForm(posts.form)) {
+    if (jsonPosts) {
         // Submit data to endpoint api.
     }
 

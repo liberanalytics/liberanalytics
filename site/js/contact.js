@@ -20,9 +20,10 @@ contact.bindEvents = () => {
 contact.submit = () => {
 
     const lavx = new LAvx();
+    const jsonContact = lavx.getVxFormData(contact.form);
 
     //
-    if (lavx.vxForm(contact.form)) {
+    if (jsonContact) {
         // Submit data to endpoint api.
     }
 

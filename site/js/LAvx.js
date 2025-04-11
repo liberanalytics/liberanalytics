@@ -85,14 +85,26 @@ class LAvx {
 
 	/**
 	 * 
+	 * @param {*} pxVal
+	 * @returns {string}
+	 */
+	szText = (pxVal) => 
+	{
+		const szText = String(pxVal).replace(/\s{2,}/, ' ');
+		return szText;
+	}
+
+	/**
+	 * 
 	 * @param {*} pxForm 
 	 * @returns {Boolean}
 	 */
-	vxForm = (pxForm) => 
+	getVxFormData = (pxForm) => 
 	{
 		//
 		const vxData = pxForm;
 		const vxFormComposite = parseInt(pxForm.dataset.composite);
+		const vxFormErrorEle = pxForm.dataset.erroreleid;
 		let errorMsg = '';
 		let vxFormValidated = false;
 		let formValid = true;
@@ -109,7 +121,7 @@ class LAvx {
 			let 
 				vxDataType = vxData[i].type,
 				vxDataName = vxData[i].name,
-				vxDataVal = vxData[i].value,
+				vxDataVal = this.szText(vxData[i].value),
 				vxDataVx = vxData[i].dataset[LAvx.vxType],
 				vxDataReq = null,
 				vxDataLen = vxData[i].dataset[LAvx.vxLen],
@@ -131,7 +143,6 @@ class LAvx {
 						vxDataReq = (String(vxDataVal).toLowerCase().includes('select')) ? 0 : 1;
 					}
 				}
-
 	
 			// If form is non composite, check each control value. If form is composite, check each non-empty
 			// control value.
@@ -142,10 +153,13 @@ class LAvx {
 				//
 				if (!this[vxDataVx](vxDataVal, vxDataLen))
 				{	
-					const error_msg = vxDataId + ' is invalid.';
-					let error_ele_id = vxDataName.includes('name') ? 'error_name' : vxDataName.replace('contact', 'error');
-					error_ele_id = '#' + error_ele_id;
-					document.querySelector(error_ele_id).textContent = error_msg;
+					const errorMsg= vxDataId + ' is invalid.';
+					const laStyles = new LAStyles();
+					laStyles.setElementText('#' + vxFormErrorEle, errorMsg);
+
+					// let error_ele_id = vxDataName.includes('name') ? 'error_name' : vxDataName.replace('contact', 'error');
+					// error_ele_id = '#' + error_ele_id;
+					// document.querySelector(error_ele_id).textContent = error_msg;
 					formValid = false;	
 				}
 			}
