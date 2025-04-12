@@ -29,9 +29,9 @@ $laData = new LaData();
 	<main>
 	<div id="page_w">
 		<h1 class="page-section-heading">Search for posts on Liber<em>Analytics</em></h1>
-		<div id="posts_w">
-			<div id="posts_form">
-				<form id="posts" method="post" data-composite="1" data-erroreleid="error_form" action="posts_handler.php">
+		<div id="search_w">
+			<div id="search_form">
+				<form id="search" method="post" data-composite="1" data-erroreleid="error_form" action="posts_handler.php">
 					<ul>
 						<li>
 							<label class="label-first">Post Category</label>
@@ -73,14 +73,19 @@ $laData = new LaData();
 					</ul>
 
 				</form>
-			</div>
+			</div><!-- End search_form -->
 			
-		</div><!-- End posts_w -->
+		</div><!-- End search_w -->
 
-		<div id="results_w">
+		<div id="search_results_w">
+
+			<div id="search_results">
+
+			</div><!-- End search_results -->
+
+		</div><!-- End search_results_w -->
 
 
-		</div><!-- End results_w -->
 	</div><!-- End page_w -->
 	</main>
 

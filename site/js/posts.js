@@ -26,8 +26,24 @@ posts.submit = () => {
     const jsonPosts = lavx.getVxFormData(posts.form);
 
     //
-    if (jsonPosts) {
-        // Submit data to endpoint api.
+    if (jsonPosts)
+    
+    //
+    eleSearchResults = document.querySelector('#search_results_');
+    
+    {
+        fetch
+        (
+            '/posts_handler.php',
+            {
+                method: 'POST',
+                headers: 
+                {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonPosts)
+            }
+        ).then(console.log(response => response.json()));
     }
 
 }
