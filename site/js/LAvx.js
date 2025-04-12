@@ -166,7 +166,7 @@ class LAvx {
 				else
 				{
 					getVxFormData[vxDataId] = vxDataVal;
-					console.log(getVxFormData);
+					//console.log(getVxFormData);
 				}
 			}
 		}

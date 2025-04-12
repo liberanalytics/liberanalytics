@@ -9,7 +9,7 @@ window.addEventListener("load", () =>
 
 posts.setVars = () => 
 {
-    posts.form = document.querySelector('#posts');
+    posts.form = document.querySelector('#search');
 }
 
 posts.bindEvents = () => 
@@ -27,23 +27,31 @@ posts.submit = () => {
 
     //
     if (jsonPosts)
-    
-    //
-    eleSearchResults = document.querySelector('#search_results_');
-    
     {
+        //
+        eleSearchResults = document.querySelector('#search_results');
+
         fetch
         (
-            '/posts_handler.php',
+            'posts_handler.php',
             {
                 method: 'POST',
                 headers: 
                 {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json; charset=utf-8'
                 },
                 body: JSON.stringify(jsonPosts)
             }
-        ).then(console.log(response => response.json()));
-    }
+        ).then(
+            function(response){
 
+                return response.json();
+            })
+        .then(
+            function(data) {
+
+                console.log(data);
+            }
+        )
+    }
 }
