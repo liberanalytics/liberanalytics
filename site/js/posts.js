@@ -33,25 +33,19 @@ posts.submit = () => {
 
         fetch
         (
-            'posts_handler.php',
+            'api/posts_handler.php',
             {
                 method: 'POST',
                 headers: 
                 {
-                    'Content-Type': 'application/json; charset=utf-8'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(jsonPosts)
             }
-        ).then(
-            function(response){
-
-                return response.json();
-            })
-        .then(
-            function(data) {
-
-                console.log(data);
-            }
-        )
+        ).then(function (response) {
+            return response.json();
+        }).then(function(data){
+            console.log(data);
+        });
     }
 }

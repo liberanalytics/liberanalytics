@@ -1,6 +1,7 @@
 <?php
 
-require_once('../src/vendor/autoload.php');
+
+require_once(dirname(__DIR__) . "/" . "vendor/autoload.php");
 require_once('LaConfig.php');
 
 class LaAWS extends LaConfig {

@@ -1,6 +1,6 @@
 <?php
 
-require_once('../src/vendor/autoload.php');
+// require_once('../src/vendor/autoload.php');
 require_once('LaConfig.php');
 require_once('LaAWS.php');
 
