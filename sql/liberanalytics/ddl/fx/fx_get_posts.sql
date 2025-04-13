@@ -2,9 +2,10 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 (
-	 pxFeatured BOOLEAN
+	 pxFeatured BOOLEAN DEFAULT FALSE
 	,pxPostName VARCHAR(32) DEFAULT NULL
 	,pxPostCategory VARCHAR(32) DEFAULT NULL
+	,pxOrderyBy VARCHAR(256)[] DEFAULT NULL
 	,pxLimitBy INTEGER DEFAULT NULL
 )
 RETURNS TABLE(
@@ -18,13 +19,42 @@ RETURNS TABLE(
     ,featured_img VARCHAR(64)
     ,search_img VARCHAR(64)
 )
+
 LANGUAGE plpgsql
 AS $$
+
+DECLARE
+	strQueryBase VARCHAR(1024);
+	strQuery VARCHAR(1024);
+	strAlias VARCHAR(8) := 'la';
+	strPredFeatured VARCHAR(64);
+	strPredPostName VARCHAR(64);
+	strPredPostCategory VARCHAR(64);
+
 BEGIN
 
-RETURN QUERY
+IF pxFeatured IS NOT FALSE THEN
+	strPredFeatured := ' AND ' || strAlias || '.featured > 0';
+ELSE
+	strPredFeatured := '';
+END IF;
 
-SELECT 
+IF pxPostName IS NOT NULL THEN
+	strPredPostName := ' AND ' || strAlias || '.post_name = ' || QUOTE_LITERAL(pxPostName);
+ELSE
+	strPredPostName := '';
+END IF;
+
+IF pxPostCategory IS NOT NULL THEN
+	strPredPostCategory := ' AND ' || strAlias || '.post_category = ' || QUOTE_LITERAL(pxPostCategory);
+ELSE
+	strPredPostCategory := '';
+END IF;
+
+
+strQueryBase :=
+
+'SELECT 
 
      la.post_name
     ,la.post_category
@@ -36,7 +66,14 @@ SELECT
     ,la.featured_img
     ,la.search_img
 
-FROM liberanalytics.posts AS la;
+FROM liberanalytics.posts AS la
+
+WHERE 1=1
+';
+
+strQuery := strQueryBase || strPredFeatured || strPredPostName || strPredPostCategory;
+
+RETURN QUERY EXECUTE strQuery;
 
 END;
 $$;
