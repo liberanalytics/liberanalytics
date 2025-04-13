@@ -38,7 +38,8 @@
 						$pFeatured = TRUE, 
 						$pPostName = NULL ,           
 						$pCategory = NULL, 
-						$pOrderBy = ['featured' => 'ASC'],
+						$pOrderBy = 'featured',
+						$pOrderByAscDesc = 'ASC',
 						$pLimit = NULL
 					);
 					$iter = 1;
@@ -90,7 +91,8 @@
 						$pFeatured = TRUE,                  // ^ to false once more posts have been +'d.
 						$pPostName = NULL ,           
 						$pCategory = NULL, 
-						$pOrderBy = ['featured' => 'DESC'], // ^ to post_created once more posts have been +'d.
+						$pOrderBy = 'post_category', // ^ to post_created once more posts have been +'d.
+						$pOrderByAscDesc = 'DESC',
 						$pLimit = NULL
 					);
 					$iter = 1;

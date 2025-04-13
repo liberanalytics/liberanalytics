@@ -6,6 +6,7 @@ CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 	,pxPostName VARCHAR(32) DEFAULT NULL
 	,pxPostCategory VARCHAR(32) DEFAULT NULL
 	,pxOrderBy VARCHAR(32) DEFAULT NULL
+	,pxOrderByAscDesc VARCHAR(8) DEFAULT NULL
 	,pxLimitBy INTEGER DEFAULT NULL
 )
 RETURNS TABLE(
@@ -31,6 +32,7 @@ DECLARE
 	strPredPostName VARCHAR(64);
 	strPredPostCategory VARCHAR(64);
 	strOrderBy VARCHAR(64);
+	strOrderByAscDesc VARCHAR(64);
 	strLimitBy VARCHAR(64);
 
 BEGIN
@@ -57,6 +59,12 @@ IF pxOrderBy IS NOT NULL THEN
 	strOrderBy := ' ORDER BY ' || pxOrderBy;
 ELSE
 	strOrderBy := '';
+END IF;
+
+IF pxOrderByAscDesc IS NOT NULL THEN
+	strOrderByAscDesc := pxOrderByAscDesc
+ELSE
+	strOrderByAscDesc := '';
 END IF;
 
 IF pxLimitBy IS NOT NULL THEN

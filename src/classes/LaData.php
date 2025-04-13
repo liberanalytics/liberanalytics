@@ -103,46 +103,11 @@ class LaData extends LaConfig
         bool $pFeatured,
         string $pPostName = NULL,        
         string $pPostCategory = NULL, 
-        array $pOrderBy = NULL,
+        string $pOrderBy = NULL,
+        string $pOrderByAscDesc = NULL,
         int $pLimit = NULL
     )
     {
-        //
-        $sqlAliasPosts = "la_posts";
-
-        //
-        $featuredOperator   = ($pFeatured != FALSE) ? ">" : "=";
-
-        $postCategoryPredicate  =
-            ($pPostCategory != NULL) ? "$sqlAliasPosts.post_category = '$pPostCategory'" :
-            "$sqlAliasPosts.post_category = $sqlAliasPosts.post_category";
-
-        $postNamePredicate  =
-            ($pPostName != NULL) ? "$sqlAliasPosts.post_name = '$pPostName'" :
-            "$sqlAliasPosts.post_name = $sqlAliasPosts.post_name";            
-
-        $limitClause = ($pLimit != NULL) ? "LIMIT " . (string) $pLimit : "LIMIT 1000";
-
-        //
-        if ($pOrderBy != NULL) {
-
-            $orderByCount = count($pOrderBy);
-            $orderByIter = 1;
-            $orderByClause = "ORDER BY ";
-            $orderByColumns = '';
-            
-            foreach ($pOrderBy AS $key => $val) {
-                $orderByColumns .= "$sqlAliasPosts.$key $val";
-                $orderByColumns .= ($orderByIter < $orderByCount) ? ", " : "";
-                $orderByIter += 1;
-            }
-            $orderByClause .= $orderByColumns;
-
-        } 
-        else {
-            $orderByClause = "ORDER BY 1";
-        }
-
         //
         $qry = 
         "SELECT
@@ -157,18 +122,17 @@ class LaData extends LaConfig
         la_posts.featured_img,
         la_posts.search_img
         
-        FROM liberanalytics.posts AS {$sqlAliasPosts}
-
-        WHERE 1=1
-        AND la_posts.featured " . $featuredOperator . " 0 " .
-        "\n\t" ."AND " . $postNamePredicate . 
-        "\n\t" ."AND " . $postCategoryPredicate .
-        "\n\t" . $orderByClause .
-        "\n\t" . $limitClause . ";";
-
-        //print($qry);
+        FROM liberanalytics.fx_get_posts(?, ?, ?, ?, ?, ?) AS la_posts;";
 
         $stmt = $this->conn->prepare($qry);
+
+        $stmt->bindParam(1, $pFeatured, PDO::PARAM_BOOL);
+        $stmt->bindParam(2, $pPostName, PDO::PARAM_STR);
+        $stmt->bindParam(3, $pPostCategory, PDO::PARAM_STR);
+        $stmt->bindParam(4, $pOrderBy, PDO::PARAM_STR);
+        $stmt->bindParam(5, $pOrderByAscDesc, PDO::PARAM_STR);
+        $stmt->bindParam(6, $pLimit, PDO::PARAM_INT);
+
         $stmt->execute();
         return $stmt;
 

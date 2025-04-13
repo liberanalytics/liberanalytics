@@ -36,7 +36,8 @@
 						$pFeatured = TRUE, 
 						$pPostName = $postName,           
 						$pCategory = NULL, 
-						$pOrderBy   = NULL,
+						$pOrderBy = NULL,
+						$pOrderByAscDesc = NULL,
 						$pLimit = NULL
 					);
 					$post = $post->fetch(PDO::FETCH_ASSOC);
