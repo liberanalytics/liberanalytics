@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 	 pxFeatured BOOLEAN DEFAULT FALSE
 	,pxPostName VARCHAR(32) DEFAULT NULL
 	,pxPostCategory VARCHAR(32) DEFAULT NULL
-	,pxOrderyBy VARCHAR(256)[] DEFAULT NULL
+	,pxOrderBy VARCHAR(32) DEFAULT NULL
 	,pxLimitBy INTEGER DEFAULT NULL
 )
 RETURNS TABLE(
@@ -30,6 +30,8 @@ DECLARE
 	strPredFeatured VARCHAR(64);
 	strPredPostName VARCHAR(64);
 	strPredPostCategory VARCHAR(64);
+	strOrderBy VARCHAR(64);
+	strLimitBy VARCHAR(64);
 
 BEGIN
 
@@ -51,6 +53,20 @@ ELSE
 	strPredPostCategory := '';
 END IF;
 
+IF pxOrderBy IS NOT NULL THEN
+	strOrderBy := ' ORDER BY ' || pxOrderBy;
+ELSE
+	strOrderBy := '';
+END IF;
+
+IF pxLimitBy IS NOT NULL THEN
+	strLimitBy := ' LIMIT ' || to_char(pxLimitBy, '999');
+ELSE
+	strLimitBy := '';
+END IF;
+
+
+
 
 strQueryBase :=
 
@@ -71,9 +87,11 @@ FROM liberanalytics.posts AS la
 WHERE 1=1
 ';
 
-strQuery := strQueryBase || strPredFeatured || strPredPostName || strPredPostCategory;
+strQuery := strQueryBase || strPredFeatured || strPredPostName || strPredPostCategory || strOrderBy || strLimitBy || ';';
 
 RETURN QUERY EXECUTE strQuery;
+
+--RAISE NOTICE 'Query String: %', strQuery;
 
 END;
 $$;
