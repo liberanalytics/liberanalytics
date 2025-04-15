@@ -3,7 +3,7 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 (
 	 pxFeatured BOOLEAN DEFAULT FALSE
-	,pxPostName TEXT[] DEFAULT NULL
+	,pxPostName VARCHAR(32) DEFAULT NULL
 	,pxPostCategory VARCHAR(32) DEFAULT NULL
 	,pxPostTags TEXT[] DEFAULT NULL
 	,pxKeywords TEXT[] DEFAULT NULL
@@ -66,7 +66,7 @@ ELSE
 END IF;
 
 IF pxPostTags IS NOT NULL THEN
-	strPredPostTags := ' AND ' || strPostTagsAlias || '.tag IN (' || QUOTE_LITERAL(pxPostTags) || ')';
+	strPredPostTags := ' AND ' || strPostTagsAlias || '.tag = ANY($1)';
 ELSE
 	strPredPostTags := '';
 END IF;
@@ -112,13 +112,12 @@ strQueryBase :=
 
 'SELECT ' || strQueryAttrList ||
 
-'FROM liberanalytics.posts AS la
+'FROM liberanalytics.posts AS ' || strPostsAlias || '
 
-LEFT JOIN liberanalytics.posts_post_tags AS post_tags
+LEFT JOIN liberanalytics.posts_tags AS ' || strPostTagsAlias || '
 ON (la.post_name = post_tags.post_name)
 
 WHERE 1=1
-AND post_tags.tag = ANY($1)
 ';
 
 strQuery := 
@@ -126,7 +125,8 @@ strQuery :=
 	strPredFeatured || 
 	strPredPostName || 
 	strPredPostCategory ||
-	'GROUP BY ' || strQueryAttrList ||
+	strPredPostTags ||
+	' GROUP BY ' || strQueryAttrList ||
 	strOrderBy || 
 	strOrderByAscDesc ||
 	strLimitBy || ';';

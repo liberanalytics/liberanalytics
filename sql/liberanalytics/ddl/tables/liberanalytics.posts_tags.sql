@@ -1,8 +1,8 @@
 -- Table: liberanalytics.posts_post_tags
 
--- DROP TABLE IF EXISTS liberanalytics.posts_post_tags;
+-- DROP TABLE IF EXISTS liberanalytics.posts_tags;
 
-CREATE TABLE IF NOT EXISTS liberanalytics.posts_post_tags
+CREATE TABLE IF NOT EXISTS liberanalytics.posts_tags
 (
     post_name character varying(32) COLLATE pg_catalog."default" NOT NULL,
     tag character varying(32) COLLATE pg_catalog."default" NOT NULL,
