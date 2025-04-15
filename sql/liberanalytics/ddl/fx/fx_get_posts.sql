@@ -3,8 +3,10 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 (
 	 pxFeatured BOOLEAN DEFAULT FALSE
-	,pxPostName VARCHAR(32) DEFAULT NULL
+	,pxPostName TEXT[] DEFAULT NULL
 	,pxPostCategory VARCHAR(32) DEFAULT NULL
+	,pxPostTags TEXT[] DEFAULT NULL
+	,pxKeywords TEXT[] DEFAULT NULL
 	,pxOrderBy VARCHAR(32) DEFAULT NULL
 	,pxOrderByAscDesc VARCHAR(8) DEFAULT NULL
 	,pxLimitBy INTEGER DEFAULT NULL
@@ -26,33 +28,47 @@ AS $$
 
 DECLARE
 	strQueryBase VARCHAR(1024);
+	strQueryAttrList VARCHAR(1024);
 	strQuery VARCHAR(1024);
-	strAlias VARCHAR(8) := 'la';
+	strPostsAlias VARCHAR(8) := 'la';
+	strPostTagsAlias VARCHAR(16) := 'post_tags';
 	strPredFeatured VARCHAR(64);
 	strPredPostName VARCHAR(64);
 	strPredPostCategory VARCHAR(64);
+	strPredPostTags VARCHAR(64);
+	strPredPostKeywords VARCHAR(64);
 	strOrderBy VARCHAR(64);
 	strOrderByAscDesc VARCHAR(64);
 	strLimitBy VARCHAR(64);
 
 BEGIN
 
+/*
+
+*/
+
 IF pxFeatured IS NOT FALSE THEN
-	strPredFeatured := ' AND ' || strAlias || '.featured > 0';
+	strPredFeatured := ' AND ' || strPostsAlias || '.featured > 0';
 ELSE
 	strPredFeatured := '';
 END IF;
 
 IF pxPostName IS NOT NULL THEN
-	strPredPostName := ' AND ' || strAlias || '.post_name = ' || QUOTE_LITERAL(pxPostName);
+	strPredPostName := ' AND ' || strPostsAlias || '.post_name = ' || QUOTE_LITERAL(pxPostName);
 ELSE
 	strPredPostName := '';
 END IF;
 
 IF pxPostCategory IS NOT NULL THEN
-	strPredPostCategory := ' AND ' || strAlias || '.post_category = ' || QUOTE_LITERAL(pxPostCategory);
+	strPredPostCategory := ' AND ' || strPostsAlias || '.post_category = ' || QUOTE_LITERAL(pxPostCategory);
 ELSE
 	strPredPostCategory := '';
+END IF;
+
+IF pxPostTags IS NOT NULL THEN
+	strPredPostTags := ' AND ' || strPostTagsAlias || '.tag IN (' || QUOTE_LITERAL(pxPostTags) || ')';
+ELSE
+	strPredPostTags := '';
 END IF;
 
 IF pxOrderBy IS NOT NULL THEN
@@ -62,7 +78,7 @@ ELSE
 END IF;
 
 IF pxOrderByAscDesc IS NOT NULL THEN
-	strOrderByAscDesc := pxOrderByAscDesc
+	strOrderByAscDesc := ' ' || pxOrderByAscDesc;
 ELSE
 	strOrderByAscDesc := '';
 END IF;
@@ -74,11 +90,11 @@ ELSE
 END IF;
 
 
+/*
 
+*/
 
-strQueryBase :=
-
-'SELECT 
+strQueryAttrList := '
 
      la.post_name
     ,la.post_category
@@ -90,16 +106,34 @@ strQueryBase :=
     ,la.featured_img
     ,la.search_img
 
-FROM liberanalytics.posts AS la
-
-WHERE 1=1
 ';
 
-strQuery := strQueryBase || strPredFeatured || strPredPostName || strPredPostCategory || strOrderBy || strLimitBy || ';';
+strQueryBase :=
 
-RETURN QUERY EXECUTE strQuery;
+'SELECT ' || strQueryAttrList ||
 
---RAISE NOTICE 'Query String: %', strQuery;
+'FROM liberanalytics.posts AS la
+
+LEFT JOIN liberanalytics.posts_post_tags AS post_tags
+ON (la.post_name = post_tags.post_name)
+
+WHERE 1=1
+AND post_tags.tag = ANY($1)
+';
+
+strQuery := 
+	strQueryBase || 
+	strPredFeatured || 
+	strPredPostName || 
+	strPredPostCategory ||
+	'GROUP BY ' || strQueryAttrList ||
+	strOrderBy || 
+	strOrderByAscDesc ||
+	strLimitBy || ';';
+
+RETURN QUERY EXECUTE strQuery USING pxPostTags;
+
+RAISE NOTICE 'Query String: %', strQuery;
 
 END;
 $$;
