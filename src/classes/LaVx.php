@@ -32,7 +32,9 @@ class LaVx extends LaConfig
     }
 
     /**
+     * Returns an array based on splitting a string by a regex.
      * 
+     * @return array
      */
     public function getSzVxList(
 
@@ -42,11 +44,11 @@ class LaVx extends LaConfig
         array $pxSearchChars, 
         string $pxReplaceChar
 
-    ): string
+    ): array
 
     {
         //
-        $getSzVxList = "";
+        $getSzVxList = [];
         $subject = preg_split($pxRegexDelimiter, $pxSzList);
         $subjectCount = count($subject);
 
@@ -58,17 +60,28 @@ class LaVx extends LaConfig
             $szVal = $this->sanitizeText($pxSearchChars, $pxReplaceChar, $szVal);
 
             //
-            if (!$this->validateText($szVal, 4))
+            if (!$this->validateText($szVal))
             {
                 throw new Error("{$val} is invalid.");
             }
             
             //
-            $getSzVxList .= (($index + 1) < $subjectCount) ? $szVal . $pxReturnDelimiter : $szVal;                
+            $getSzVxList[] = $szVal;                
 
         }
 
         return $getSzVxList;
+    }
+
+    /**
+     * 
+     * 
+     * @return string|int
+     */
+    public function getPostGreArray($pxArray, $pxElementType = 'string')
+    {
+        $getPostGreArray = "{" . implode(',', array_map(fn($element): string => '"' . addslashes($element). '"', $pxArray)) . "}";
+        return $getPostGreArray;
     }
 
 }

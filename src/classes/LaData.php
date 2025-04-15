@@ -100,13 +100,15 @@ class LaData extends LaConfig
     */
     public function getPosts
     (
-        bool $pFeatured,
-        string $pPostName = NULL,        
-        string $pPostCategory = NULL, 
-        string $pOrderBy = NULL,
-        string $pOrderByAscDesc = NULL,
-        int $pLimit = NULL
-    )
+        bool $pxFeatured,
+        string $pxPostName = NULL,        
+        string $pxPostCategory = NULL,
+        array $pxPostTags = NULL,
+        array $pxPostKeywords = NULL,
+        string $pxOrderBy = NULL,
+        string $pxOrderByAscDesc = NULL,
+        int $pxLimit = NULL
+    )  
     {
         //
         $qry = 
@@ -122,16 +124,18 @@ class LaData extends LaConfig
         la_posts.featured_img,
         la_posts.search_img
         
-        FROM liberanalytics.fx_get_posts(?, ?, ?, ?, ?, ?) AS la_posts;";
+        FROM liberanalytics.fx_get_posts(?, ?, ?, ?, ?, ?, ?, ?) AS la_posts;";
 
         $stmt = $this->conn->prepare($qry);
 
-        $stmt->bindParam(1, $pFeatured, PDO::PARAM_BOOL);
-        $stmt->bindParam(2, $pPostName, PDO::PARAM_STR);
-        $stmt->bindParam(3, $pPostCategory, PDO::PARAM_STR);
-        $stmt->bindParam(4, $pOrderBy, PDO::PARAM_STR);
-        $stmt->bindParam(5, $pOrderByAscDesc, PDO::PARAM_STR);
-        $stmt->bindParam(6, $pLimit, PDO::PARAM_INT);
+        $stmt->bindParam(1, $pxFeatured, PDO::PARAM_BOOL);
+        $stmt->bindParam(2, $pxPostName, PDO::PARAM_STR);
+        $stmt->bindParam(3, $pxPostCategory, PDO::PARAM_STR);
+        $stmt->bindParam(4, $pxPostTags, PDO::PARAM_STR);
+        $stmt->bindParam(5, $pxPostKeywords, PDO::PARAM_STR);
+        $stmt->bindParam(6, $pxOrderBy, PDO::PARAM_STR);
+        $stmt->bindParam(7, $pxOrderByAscDesc, PDO::PARAM_STR);
+        $stmt->bindParam(8, $pxLimit, PDO::PARAM_INT);
 
         $stmt->execute();
         return $stmt;
