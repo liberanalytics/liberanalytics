@@ -29,9 +29,9 @@ $laData = new LaData();
 	<main>
 	<div id="page_w">
 		<h1 class="page-section-heading">Search for posts on Liber<em>Analytics</em></h1>
-		<div id="search_w">
-			<div id="search_form">
-				<form id="search" method="post" data-composite="1" data-erroreleid="error_form" action="posts_handler.php">
+		<div id="postsearch_w">
+			<div id="postsearch_form">
+				<form id="postsearch" method="post" data-composite="1" data-erroreleid="error_form" action="posts_handler.php">
 					<ul>
 						<li>
 							<label class="label-first">Post Category</label>
@@ -42,10 +42,10 @@ $laData = new LaData();
 								
 								<?php
 									$laData->openConn();
-									$categories = $laData->getPostCategories();
-									while ($category = $categories->fetch(PDO::FETCH_ASSOC))
+									$postCategories = $laData->getPostCategories();
+									foreach($postCategories as $postCategory)
 									{
-										echo "<option>{$category['post_category']}</option>";
+										echo "<option>{$postCategory}</option>";
 									}
 									$laData->closeConn();
 								?>
@@ -73,17 +73,17 @@ $laData = new LaData();
 					</ul>
 
 				</form>
-			</div><!-- End search_form -->
+			</div><!-- End postsearch_form -->
 			
-		</div><!-- End search_w -->
+		</div><!-- End postsearch_w -->
 
-		<div id="search_results_w">
+		<div id="postsearch_results_w">
 
-			<div id="search_results">
+			<div id="postsearch_results">
 
-			</div><!-- End search_results -->
+			</div><!-- End postsearch_results -->
 
-		</div><!-- End search_results_w -->
+		</div><!-- End postsearch_results_w -->
 
 
 	</div><!-- End page_w -->

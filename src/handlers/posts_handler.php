@@ -24,27 +24,7 @@
         $validationErrorMsg = (['error' => "Post Category is invalid."]);
     }
 
-    //
-    try
-    {
-        if (!empty($inputData['tags']))
-        {
-            $errorIdentifier = "Tags";
-            $tagsList = $laVx->getSzVxArray($inputData['tags'], "/([\s,]){1,}/", ",", [".", "?", "/", "/", "!", "=", "+", "*"], "");
-            $tagsList = $laVx->getPostGreList($tagsList);
-        }
-        if (!empty($inputData['keywords']))
-        {
-            $errorIdentifier = "Keywords";
-            $keywordsList = $laVx->getSzVxArray($inputData['keywords'], "/[\s,]/", ",", [".", "?", "/", "/", "!", "=", "+", "*"], "");
-            $keywordsList = $laVx->getPostGreList($keywordsList);
-        }
-    }
-    catch(Error $error)
-    {
-        $httpResponseCode = http_response_code(400);
-        $validationErrorMsg = (['error' => "{$errorIdentifier} " . $error->getMessage()]);
-    }
+    
 
     if(empty($validationErrorMsg))
     {

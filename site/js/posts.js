@@ -22,30 +22,5 @@ posts.bindEvents = () =>
 
 posts.submit = () => {
 
-    const lavx = new LAvx();
-    const jsonPosts = lavx.getVxFormData(posts.form);
 
-    //
-    if (jsonPosts)
-    {
-        //
-        eleSearchResults = document.querySelector('#search_results');
-
-        fetch
-        (
-            'api/posts_handler.php',
-            {
-                method: 'POST',
-                headers: 
-                {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(jsonPosts)
-            }
-        ).then(function (response) {
-            return response.json();
-        }).then(function(data){
-            console.log(data);
-        });
-    }
 }
