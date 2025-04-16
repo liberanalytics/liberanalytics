@@ -5,6 +5,8 @@
 
     $laData = new LaData();
     $laVx = new LaVx();
+    
+    $laData->openConn();
 
     // $inputData = json_decode(file_get_contents('php://input'), true);
 
@@ -14,24 +16,47 @@
         'keywords' => ''
     ];
 
+    //
+    if (!empty($inputData['post_category']))
+    {
+        $postCategories = $laData->getPostCategories(NULL);
+
+        while ($postCategory = $postCategories->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($inputData['post_category'] == $postCategory['post_category'])
+            {
+                return true;
+            }
+            else
+            {
+                http_response_code(400);
+                echo json_encode(['error' => 'Post Category is invalid.']);
+                return;
+            }
+        }
+    }
+
+    //
     try
     {
         if (!empty($inputData['tags']))
         {
             $errorIdentifier = "Tags";
-            $tagsList = $laVx->getSzVxList($inputData['tags'], "/([\s,]){1,}/", ",", [".", "?", "/", "/", "!", "=", "+", "*"], "");
-            $tagsList = $laVx->getPostGreArray($tagsList);
+            $tagsList = $laVx->getSzVxArray($inputData['tags'], "/([\s,]){1,}/", ",", [".", "?", "/", "/", "!", "=", "+", "*"], "");
+            $tagsList = $laVx->getPostGreList($tagsList);
         }
         if (!empty($inputData['keywords']))
         {
             $errorIdentifier = "Keywords";
-            $keywordsList = $laVx->getSzVxList($inputData['keywords'], "/[\s,]/", ",", [".", "?", "/", "/", "!", "=", "+", "*"], "");
-            $keywordsList = $laVx->getPostGreArray($keywordsList);
+            $keywordsList = $laVx->getSzVxArray($inputData['keywords'], "/[\s,]/", ",", [".", "?", "/", "/", "!", "=", "+", "*"], "");
+            $keywordsList = $laVx->getPostGreList($keywordsList);
         }
     }
     catch(Error $error)
     {
-        echo "Error: {$errorIdentifier} " . $error->getMessage();
+        http_response_code(400);
+        echo json_encode(['[error' => "{$errorIdentifier} " . $error->getMessage()]);
+        return;
     }
 
     $laData->openConn();

@@ -36,7 +36,7 @@ class LaVx extends LaConfig
      * 
      * @return array
      */
-    public function getSzVxList(
+    public function getSzVxArray(
 
         string $pxSzList, 
         mixed $pxRegexDelimiter, 
@@ -78,7 +78,7 @@ class LaVx extends LaConfig
      * 
      * @return string|int
      */
-    public function getPostGreArray($pxArray, $pxElementType = 'string')
+    public function getPostGreList($pxArray, $pxElementType = 'string'): string
     {
         $getPostGreArray = "{" . implode(',', array_map(fn($element): string => '"' . addslashes($element). '"', $pxArray)) . "}";
         return $getPostGreArray;

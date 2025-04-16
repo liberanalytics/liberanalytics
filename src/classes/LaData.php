@@ -146,14 +146,14 @@ class LaData extends LaConfig
     *
     * @return PDO Statement
     */
-    public function getPostCategories( )
+    public function getPostCategories($pxPostCategory = NULL)
     {
         $qry =
         "SELECT
 
         post_category
 
-        FROM refdata.post_category;
+        FROM refdata.fx_get_post_categories();
 
         ";
 
