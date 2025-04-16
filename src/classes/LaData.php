@@ -153,13 +153,15 @@ class LaData extends LaConfig
 
         post_category
 
-        FROM refdata.fx_get_post_categories();
+        FROM refdata.fx_get_post_categories()
+        
+        ORDER BY post_category;
 
         ";
 
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
-        return $stmt;        
+        return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
 
     }
 

@@ -7,6 +7,7 @@ require_once('LaConfig.php');
  */
 class LaVx extends LaConfig
 {
+
     function __construct()
     {
         parent::__construct();
@@ -14,21 +15,31 @@ class LaVx extends LaConfig
 
     /**
      * 
+     * 
      */
-    public function sanitizeText(array $pxSearchChars, string $pxReplaceChar, string $pxSanitizeText): string
+    public function vxValidateRefdata($laDb, $pxSource, $pxKey, $pxData)
     {
-        $sanitizeText = trim($pxSanitizeText);
-        $sanitizeText = str_replace($pxSearchChars, $pxReplaceChar, $pxSanitizeText);
-        return $sanitizeText;
+        $vxFx = $this->getConfigAttr('liberanalytics', 'vx', $pxSource, $pxKey);
+        $vxValidateRefdata = call_user_func(array($this, $vxFx), $laDb, $pxData);
     }
 
     /**
      * 
      */
-    public function validateText($pxValidateText, int $pxTextLen = 1024): bool
+    public function vxSanitizeText(array $pxSearchChars, string $pxReplaceChar, string $pxSanitizeText): string
     {
-        $validateText = (strlen($pxValidateText) <= $pxTextLen) ? true : false;
-        return $validateText;
+        $vxSanitizeText = trim($pxSanitizeText);
+        $vxSanitizeText = str_replace($pxSearchChars, $pxReplaceChar, $pxSanitizeText);
+        return $vxSanitizeText;
+    }
+
+    /**
+     * 
+     */
+    public function vxText($pxValidateText, int $pxTextLen = 1024): bool
+    {
+        $vxText = (strlen($pxValidateText) <= $pxTextLen) ? true : false;
+        return $vxText;
     }
 
     /**
@@ -57,10 +68,10 @@ class LaVx extends LaConfig
         {
             // Remove unwanted characters, replace commas with spaces, then replace spaces with commas.
             $szVal = $val;
-            $szVal = $this->sanitizeText($pxSearchChars, $pxReplaceChar, $szVal);
+            $szVal = $this->vxSanitizeText($pxSearchChars, $pxReplaceChar, $szVal);
 
             //
-            if (!$this->validateText($szVal))
+            if (!$this->vxText($szVal))
             {
                 throw new Error("{$val} is invalid.");
             }
@@ -82,6 +93,27 @@ class LaVx extends LaConfig
     {
         $getPostGreArray = "{" . implode(',', array_map(fn($element): string => '"' . addslashes($element). '"', $pxArray)) . "}";
         return $getPostGreArray;
+    }
+
+    /**
+     * 
+     * 
+     */
+    public function vxPostCategory($pxLaDb, $pxCategory)
+    {
+
+        $vxPostCategories = false;
+        if (!empty($pxCategory))
+        {
+            $postCategories = $pxLaDb->getPostCategories(NULL);
+            $vxPostCategory = (in_array($pxCategory, $postCategories)) ? true : false;
+        }
+        else
+        {
+            $vxPostCategory = true;
+        }
+
+        return $vxPostCategory;
     }
 
 }

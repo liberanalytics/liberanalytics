@@ -17,23 +17,11 @@
     ];
 
     //
-    if (!empty($inputData['post_category']))
+    if (!$laVx->vxValidateRefdata($laData, 'postsearch', 'post_category', $inputData['post_category']));
     {
-        $postCategories = $laData->getPostCategories(NULL);
-
-        while ($postCategory = $postCategories->fetch(PDO::FETCH_ASSOC))
-        {
-            if ($inputData['post_category'] == $postCategory['post_category'])
-            {
-                return true;
-            }
-            else
-            {
-                http_response_code(400);
-                echo json_encode(['error' => 'Post Category is invalid.']);
-                return;
-            }
-        }
+        http_response_code(400);
+        echo json_encode(['[error' => "Post Category is invalid."]);
+        return;
     }
 
     //
