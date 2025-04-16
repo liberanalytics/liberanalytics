@@ -21,6 +21,7 @@ class LaVx extends LaConfig
     {
         $vxFx = $this->getConfigAttr('liberanalytics', 'vx', $pxSource, $pxKey);
         $vxValidateRefdata = call_user_func(array($this, $vxFx), $laDb, $pxData);
+        return $vxValidateRefdata;
     }
 
     /**

@@ -138,7 +138,7 @@ class LaData extends LaConfig
         $stmt->bindParam(8, $pxLimit, PDO::PARAM_INT);
 
         $stmt->execute();
-        return $stmt;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
 

@@ -133,7 +133,7 @@ strQuery :=
 
 RETURN QUERY EXECUTE strQuery USING pxPostTags;
 
-RAISE NOTICE 'Query String: %', strQuery;
+--RAISE NOTICE 'Query String: %', strQuery;
 
 END;
 $$;

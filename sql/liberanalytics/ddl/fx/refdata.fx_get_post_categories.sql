@@ -45,9 +45,9 @@ strQuery :=
     strQueryBase ||
     strPredPostCategory;
 
-RETURN QUERY EXECUTE strQuery USING pxPostTags;
+RETURN QUERY EXECUTE strQuery;
 
-RAISE NOTICE 'Query String: %', strQuery;
+--RAISE NOTICE 'Query String: %', strQuery;
 
 END;
 $$

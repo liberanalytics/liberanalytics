@@ -4,24 +4,24 @@
     require_once(dirname(__DIR__) . "/" . "classes/LaVx.php");
 
     $laData = new LaData();
-    $laVx = new LaVx();
-    
+    $laVx = new LaVx();    
     $laData->openConn();
+
+    $validationErrorMsg = "";
 
     // $inputData = json_decode(file_get_contents('php://input'), true);
 
     $inputData = [
         'post_category' => 'Analytics',
-        'tags' => 'sql rdbms theory',
+        'tags' => 'sql rdbms theor%y',
         'keywords' => ''
     ];
 
     //
-    if (!$laVx->vxValidateRefdata($laData, 'postsearch', 'post_category', $inputData['post_category']));
+    if (!$laVx->vxValidateRefdata($laData, 'postsearch', 'post_category', $inputData['post_category']))
     {
-        http_response_code(400);
-        echo json_encode(['[error' => "Post Category is invalid."]);
-        return;
+        $httpResponseCode = http_response_code(400);
+        $validationErrorMsg = (['error' => "Post Category is invalid."]);
     }
 
     //
@@ -42,28 +42,34 @@
     }
     catch(Error $error)
     {
-        http_response_code(400);
-        echo json_encode(['[error' => "{$errorIdentifier} " . $error->getMessage()]);
-        return;
+        $httpResponseCode = http_response_code(400);
+        $validationErrorMsg = (['error' => "{$errorIdentifier} " . $error->getMessage()]);
     }
 
-    $laData->openConn();
-
-    $posts = $laData->getPosts(
-        TRUE,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        NULL
-    );
-
-    while ($post = $posts->fetch(PDO::FETCH_ASSOC))
+    if(empty($validationErrorMsg))
     {
-        echo $post['post_name'];
+        $posts = $laData->getPosts(
+            TRUE,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL
+        );
+    
+        foreach($posts as $post)
+        {
+            echo $post['post_name'];
+        }
     }
+    else
+    {
+        echo $validationErrorMsg['error'];
+    }
+
+    
 
     $laData->closeConn();
 
