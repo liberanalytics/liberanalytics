@@ -12,7 +12,6 @@ $laData = new LaData();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>LiberAnalytics</title>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" type="text/css" charset="utf-8"> 
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/posts.css" rel="stylesheet" type="text/css" charset="utf-8">
@@ -37,17 +36,17 @@ $laData = new LaData();
 							<label class="label-first">Post Category</label>
 							<div class="select-parent">
 							<select class="select-control"
-							 data-caption="Post Category" data-id="post_category" data-vx="vxText" data-len="512">
+							 data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
 								<option class="control">Select Category</option>
 								
 								<?php
-									$laData->openConn();
+									// $laData->openConn();
 									$postCategories = $laData->getPostCategories();
 									foreach($postCategories as $postCategory)
 									{
 										echo "<option>{$postCategory}</option>";
 									}
-									$laData->closeConn();
+									// $laData->closeConn();
 								?>
 
 							</select>
@@ -57,12 +56,12 @@ $laData = new LaData();
 						<li>
 							<label class="label-nonfirst">Tags</label>
 							<input type="text" class="input-control" maxlength="48"
-							 data-caption="Tags" data-id="tags" data-vx="vxText" data-len="48">
+							 data-caption="Tags" data-datakey="tags" data-vx="vxText" data-len="48">
 						</li>
 						<li>
 							<label class="label-nonfirst">Keywords</label>
 							<input type="text" class="input-control" maxlength="48"
-							data-caption="Keywords" data-id="keywords" data-vx="vxText" data-len="48">
+							data-caption="Keywords" data-datakey="keywords" data-vx="vxText" data-len="48">
 						</li>
 						<li>
 							<input type="submit" value="SUBMIT">

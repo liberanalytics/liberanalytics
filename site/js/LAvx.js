@@ -1,17 +1,6 @@
 class LAvx {
 
 	/**
-	 * 
-	 * 
-	 */
-	static vx
-	static vxReq = 'req';
-	static vxType = 'vx';
-	static vxLen = 'len';
-	static vxId = 'id';
-	static vxCaption = 'caption';
-
-	/**
 	 * Creates a new LiberAnalytics validation class.
 	 * 
 	 */
@@ -35,7 +24,6 @@ class LAvx {
 			);
 
 		return vxName;
-
 	}
 
 	/**
@@ -51,7 +39,6 @@ class LAvx {
 			/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(pxVal);
  
 		return vxEmail;
-
 	}
 	
 	/**

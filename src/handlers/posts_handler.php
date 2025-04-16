@@ -5,11 +5,18 @@
 
     $laData = new LaData();
     $laVx = new LaVx();    
-    $laData->openConn();
+    // $laData->openConn();
 
-    $validationErrorMsg = "";
-
-    // $inputData = json_decode(file_get_contents('php://input'), true);
+    $posts = $laData->getPosts(
+        TRUE, //bool $pxFeatured
+        'whydata', //string $pxPostName = NULL      
+        NULL, //string $pxPostCategory = NULL,
+        '{"sql", "python", "rdbms"}', // array $pxPostTags = NULL,
+        NULL, // array $pxPostKeywords = NULL,
+        NULL, // string $pxOrderBy = NULL,
+        NULL, // string $pxOrderByAscDesc = NULL,
+        NULL, // int $pxLimit = NULL
+    );
 
     $inputData = [
         'post_category' => 'Analytics',
@@ -17,40 +24,6 @@
         'keywords' => ''
     ];
 
-    //
-    if (!$laVx->vxValidateRefdata($laData, 'postsearch', 'post_category', $inputData['post_category']))
-    {
-        $httpResponseCode = http_response_code(400);
-        $validationErrorMsg = (['error' => "Post Category is invalid."]);
-    }
-
     
-
-    if(empty($validationErrorMsg))
-    {
-        $posts = $laData->getPosts(
-            TRUE,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL
-        );
-    
-        foreach($posts as $post)
-        {
-            echo $post['post_name'];
-        }
-    }
-    else
-    {
-        echo $validationErrorMsg['error'];
-    }
-
-    
-
-    $laData->closeConn();
 
 ?>
