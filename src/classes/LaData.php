@@ -45,10 +45,9 @@ class LaData extends LaDB {
         la_posts.featured_img,
         la_posts.search_img
         
-        FROM liberanalytics.fx_get_posts(?, ?, ?, ?, ?, ?, ?, ?) AS la_posts;";
+        FROM liberanalytics.fx_get_posts";
 
-        $args = func_get_args();
-        print_r($args);
+        return $this->fetchData($qry, func_get_args(), $this->getResultsetAsRows());
     }
 
     /**
