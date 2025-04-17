@@ -12,11 +12,11 @@ class LaDataDB
     /**
      * 
      */
-    protected const RESULTSET_ARRAY = 'array';
-    protected const RESULTSET_ROWS = 'rows';
-    protected const RESULTSET_SCALAR = 'scalar';
-    protected const FETCHSTYLE_ASSOC = 'assoc';
-    protected const FETCHSTYLE_NUM = 'num'   ;
+    public const RESULTSET_ARRAY = 'array';
+    public const RESULTSET_ROWS = 'rows';
+    public const RESULTSET_SCALAR = 'scalar';
+    public const FETCHSTYLE_ASSOC = 'assoc';
+    public const FETCHSTYLE_NUM = 'num'   ;
     private LaConfig $laConfig;
     private LaAws $laAWS;
     private $connection;

@@ -28,7 +28,9 @@ class LaData extends LaDataParams {
         string $pxPostKeywords = NULL,
         string $pxOrderBy = NULL,
         string $pxOrderByAscDesc = NULL,
-        int $pxLimit = NULL
+        int $pxLimit = NULL,
+        string $pxResultsetType = self::RESULTSET_ROWS,
+        string $pxFetchStyle = self::FETCHSTYLE_ASSOC
     )  
     {
 
@@ -49,7 +51,7 @@ class LaData extends LaDataParams {
         
         FROM liberanalytics.fx_get_posts";
 
-        return $this->fetchData($qry, func_get_args(), self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
+        return $this->fetchData($qry, func_get_args(), $pxResultsetType, $pxFetchStyle);
     }
 
     /**
