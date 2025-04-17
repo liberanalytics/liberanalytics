@@ -1,9 +1,13 @@
 <?php
 
-include('LaData.php');
+include('LaDataDb.php');
 
-class LaDataParams {
+class LaDataParams extends LaDataDb {
 
+    function __construct()
+    {
+        parent::__construct();
+    }
 
 }
 

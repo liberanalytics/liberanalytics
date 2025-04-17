@@ -12,21 +12,19 @@ class LaDataDB
     /**
      * 
      */
+    protected const RESULTSET_ARRAY = 'array';
+    protected const RESULTSET_ROWS = 'rows';
+    protected const RESULTSET_SCALAR = 'scalar';
+    protected const FETCHSTYLE_ASSOC = 'assoc';
+    protected const FETCHSTYLE_NUM = 'num'   ;
     private LaConfig $laConfig;
+    private LaAws $laAWS;
     private $connection;
-    private string $resultsetAsArray;
-    private string $resultsetAsRows;
-    private string $resultsetAsScalar;
-    private string $fetchStyleAssoc;
-    private string $fetchStyleNum;
     private $pdoStmt;
 
     protected function __construct()
     {
         $this->laConfig = new LaConfig();
-        $this->setResultsetTypes();
-        $this->setFetchStyles();
-
         $this->laAWS = new LaAWS();
     }
 
@@ -88,62 +86,6 @@ class LaDataDB
     }
 
 
-
-    /**
-     * 
-     */
-    private function setResultsetTypes()
-    {
-        $this->resultsetAsArray = 'array';
-        $this->resultsetAsRows = 'rows';
-        $this->resultsetAsScalar = 'scalar';
-    }
-
-    private function setFetchStyles()
-    {
-        $this->fetchStyleAssoc = 'assoc';
-        $this->fetchStyleNum = 'num';
-    }
-
-    /**
-     * 
-     */
-    protected function getResultsetAsRows()
-    {
-        return $this->resultsetAsRows;
-    }
-
-    /**
-     * 
-     */
-    protected function getResultsetAsArray()
-    {
-        return $this->resultsetAsArray;
-    }
-
-    /**
-     * 
-     */    
-    protected function getResultsetAsScalar()
-    {
-        return $this->resultsetAsScalar;
-    }
-
-    /**
-     * 
-     */
-    protected function getFetchStyleAssoc()
-    {
-        return $this->fetchStyleAssoc;
-    }
-
-    /**
-     * 
-     */
-    protected function getFetchStyleNum()
-    {
-        return $this->fetchStyleNum;
-    }
 
     /**
      * 
@@ -227,9 +169,9 @@ class LaDataDB
 
         $fetchData = match($pxResultsetType)
         {
-            $this->getResultsetAsArray() =>  $fetchData[0],
-            $this->getResultsetAsScalar() => $fetchData[0][0],
-            $this->getResultsetAsRows() => $fetchData,
+            self::RESULTSET_ARRAY =>  $fetchData[0],
+            self::RESULTSET_SCALAR => $fetchData[0][0],
+            self::RESULTSET_ROWS => $fetchData,
             default => $fetchData
         };
        

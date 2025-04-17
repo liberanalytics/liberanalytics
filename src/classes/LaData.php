@@ -1,8 +1,8 @@
 <?php
 
-require_once('LaDataDb.php');
+require_once('LaDataParams.php');
 
-class LaData extends LaDataDB {
+class LaData extends LaDataParams {
 
     function __construct()
     {
@@ -49,7 +49,7 @@ class LaData extends LaDataDB {
         
         FROM liberanalytics.fx_get_posts";
 
-        return $this->fetchData($qry, func_get_args(), $this->getResultsetAsRows(), $this->getFetchStyleAssoc());
+        return $this->fetchData($qry, func_get_args(), self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
     }
 
     /**
@@ -65,7 +65,7 @@ class LaData extends LaDataDB {
 
         FROM refdata.fx_get_post_categories";
 
-        return $this->fetchData($qry, func_get_args(), $this->getResultsetAsRows(), $this->getFetchStyleAssoc());
+        return $this->fetchData($qry, func_get_args(), self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
 
     }    
 
