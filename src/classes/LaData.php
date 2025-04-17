@@ -1,15 +1,15 @@
 <?php
 
-require_once('LaDb.php');
+require_once('LaDataDb.php');
 
-class LaData extends LaDB {
+class LaData extends LaDataDB {
 
     function __construct()
     {
         parent::__construct();
     }
 
-/**
+    /**
     * 
     * @param bool
     * @param string
@@ -31,6 +31,8 @@ class LaData extends LaDB {
         int $pxLimit = NULL
     )  
     {
+
+        $args = func_get_args();
         //
         $qry = 
         "SELECT

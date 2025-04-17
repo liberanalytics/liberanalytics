@@ -4,8 +4,9 @@
 require_once(dirname(__DIR__) . "/" . "vendor/autoload.php");
 require_once('LaConfig.php');
 
-class LaAWS extends LaConfig {
+class LaAWS {
 
+    private LaConfig $laConfig;
     public $awsCWLogs;
     public $awsKMS;
     public $logError;
@@ -13,13 +14,14 @@ class LaAWS extends LaConfig {
 
     function __construct() 
     {
-        parent::__construct();
+        $this->laConfig = new LaConfig();
         $this->setAWSClients();
+
     }
 
     private function setAWSClients(): void
     {
-        $awsRegion = $this->getConfigAttr('aws', 'account', 'region', 'default');
+        $awsRegion = $this->laConfig->getConfigAttr('aws', 'account', 'region', 'default');
 
         // Create CloudWatch Logs / KMS / CloudWatchLogger instances.
         try 
@@ -42,8 +44,8 @@ class LaAWS extends LaConfig {
                     'region' => $awsRegion,
                     'version' => 'latest'
                 ],
-                'group_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_group', 'sdk'),
-                'stream_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_stream', 'php_db_errors')
+                'group_name' => $this->laConfig->getConfigAttr('aws', 'cloudwatch', 'log_group', 'sdk'),
+                'stream_name' => $this->laConfig->getConfigAttr('aws', 'cloudwatch', 'log_stream', 'php_db_errors')
             ]);
             
             $this->logSQL = new LegalThings\CloudWatchLogger([
@@ -52,8 +54,8 @@ class LaAWS extends LaConfig {
                     'region' => $awsRegion,
                     'version' => 'latest'
                 ],
-                'group_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_group', 'sdk'),
-                'stream_name' => $this->getConfigAttr('aws', 'cloudwatch', 'log_stream', 'php_db_sql')
+                'group_name' => $this->laConfig->getConfigAttr('aws', 'cloudwatch', 'log_group', 'sdk'),
+                'stream_name' => $this->laConfig->getConfigAttr('aws', 'cloudwatch', 'log_stream', 'php_db_sql')
             ]);         
         }
         // Report on any exceptions - exit program since all instances are needed.

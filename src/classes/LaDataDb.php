@@ -7,12 +7,12 @@ require_once('LaAWS.php');
  * 
  * 
  */
-class LaDB extends LaConfig
+class LaDataDB
 {
     /**
      * 
      */
-    private $laAWS;
+    private LaConfig $laConfig;
     private $connection;
     private string $resultsetAsArray;
     private string $resultsetAsRows;
@@ -23,9 +23,10 @@ class LaDB extends LaConfig
 
     protected function __construct()
     {
-        parent::__construct();
+        $this->laConfig = new LaConfig();
         $this->setResultsetTypes();
         $this->setFetchStyles();
+
         $this->laAWS = new LaAWS();
     }
 
@@ -35,8 +36,8 @@ class LaDB extends LaConfig
      private function openConnection()
     {
         $connectionFile =
-            $this->getConfigAttr('liberanalytics', 'config', 'env', 'dir') .
-            $this->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
+            $this->laConfig->getConfigAttr('liberanalytics', 'config', 'env', 'dir') .
+            $this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
 
         //chmod($connFile, 0440);
         $handle = fopen($connectionFile, 'rb');
@@ -51,7 +52,7 @@ class LaDB extends LaConfig
                 // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
                 'CiphertextBlob' => $binary,
                 'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
-                'KeyId' => $this->getConfigAttr('aws', 'kms', 'key_desc', 'liberanalytics_db')
+                'KeyId' => $this->laConfig->getConfigAttr('aws', 'kms', 'key_desc', 'liberanalytics_db')
 
             ]);
         }
@@ -65,11 +66,11 @@ class LaDB extends LaConfig
         
         // Decode using base64 decoding, then split data into components per delimiter.
         $connectionData = base64_decode($connectionData['Plaintext']);
-        $dbParams = explode( $this->getConfigAttr('data', 'database', 'liberanalytics', 'delim'), $connectionData );    
-        $dbHost = $dbParams[$this->getConfigAttr('data', 'database', 'liberanalytics', 'host_ordinal')];
-        $dbName = $dbParams[$this->getConfigAttr('data', 'database', 'liberanalytics', 'name_ordinal')];
-        $dbUser = $dbParams[$this->getConfigAttr('data', 'database', 'liberanalytics', 'user_ordinal')];
-        $dbAuth = $dbParams[$this->getConfigAttr('data', 'database', 'liberanalytics', 'auth_ordinal')];
+        $dbParams = explode( $this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'delim'), $connectionData );    
+        $dbHost = $dbParams[$this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'host_ordinal')];
+        $dbName = $dbParams[$this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'name_ordinal')];
+        $dbUser = $dbParams[$this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'user_ordinal')];
+        $dbAuth = $dbParams[$this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'auth_ordinal')];
 
         // Try to connect to postgres database. Log any errors to CloudWatch Logs.
         try
