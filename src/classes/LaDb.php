@@ -14,15 +14,18 @@ class LaDB extends LaConfig
      */
     private $laAWS;
     private $connection;
-    private $resultsetAsArray;
-    private $resultsetAsRows;
-    private $resultsetAsScalar;
+    private string $resultsetAsArray;
+    private string $resultsetAsRows;
+    private string $resultsetAsScalar;
+    private string $fetchStyleAssoc;
+    private string $fetchStyleNum;
     private $pdoStmt;
 
     protected function __construct()
     {
         parent::__construct();
         $this->setResultsetTypes();
+        $this->setFetchStyles();
         $this->laAWS = new LaAWS();
     }
 
@@ -36,9 +39,9 @@ class LaDB extends LaConfig
             $this->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
 
         //chmod($connFile, 0440);
-        $handle = fopen($connFile, 'rb');
+        $handle = fopen($connectionFile, 'rb');
         //chmod($connFile, 0000);
-        $binary = fread($handle, filesize($connFile));
+        $binary = fread($handle, filesize($connectionFile));
         
         // Decrypt the binary data in the database config file.
         try
@@ -57,11 +60,11 @@ class LaDB extends LaConfig
         catch (Exception $e)
         {
             $this->laAWS->getAWSClient('logError')->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
-            exit("Unable to decrypt the data in {$connFile}.");
+            exit("Unable to decrypt the data in {$connectionFile}.");
         }
         
         // Decode using base64 decoding, then split data into components per delimiter.
-        $connectionData = base64_decode($connData['Plaintext']);
+        $connectionData = base64_decode($connectionData['Plaintext']);
         $dbParams = explode( $this->getConfigAttr('data', 'database', 'liberanalytics', 'delim'), $connectionData );    
         $dbHost = $dbParams[$this->getConfigAttr('data', 'database', 'liberanalytics', 'host_ordinal')];
         $dbName = $dbParams[$this->getConfigAttr('data', 'database', 'liberanalytics', 'name_ordinal')];
@@ -95,12 +98,10 @@ class LaDB extends LaConfig
         $this->resultsetAsScalar = 'scalar';
     }
 
-    /**
-     * 
-     */
-    protected function getResultsetAsArray()
+    private function setFetchStyles()
     {
-        return $this->resultsetAsArray;
+        $this->fetchStyleAssoc = 'assoc';
+        $this->fetchStyleNum = 'num';
     }
 
     /**
@@ -113,10 +114,34 @@ class LaDB extends LaConfig
 
     /**
      * 
+     */
+    protected function getResultsetAsArray()
+    {
+        return $this->resultsetAsArray;
+    }
+
+    /**
+     * 
      */    
     protected function getResultsetAsScalar()
     {
         return $this->resultsetAsScalar;
+    }
+
+    /**
+     * 
+     */
+    protected function getFetchStyleAssoc()
+    {
+        return $this->fetchStyleAssoc;
+    }
+
+    /**
+     * 
+     */
+    protected function getFetchStyleNum()
+    {
+        return $this->fetchStyleNum;
     }
 
     /**
@@ -141,7 +166,7 @@ class LaDB extends LaConfig
      */
     private function execPDOStatement()
     {
-
+        $this->pdoStmt->execute();
     }
 
     /**
@@ -150,39 +175,71 @@ class LaDB extends LaConfig
      */
     private function setPDOStmt(string $pxQuery, array $pxParams = [])
     {
+        //
+        $paramPlaceholders = "(" . implode(',', array_map(fn($ele) => "?", $pxParams)) . ")";
+        $qry = $pxQuery . $paramPlaceholders . ";";
+        $this->pdoStmt = $this->connection->prepare($qry);
 
-        $paramPlaceholders = (!empty($pxParams)) ? "(" . implode(',', array_map(fn($ele) => "?", $pxParams)) . ")" : "()";
+        if (!empty($pxParams))
+        {
+            //
+            $paramPosition = 1;
+            foreach($pxParams as $paramKey => $paramValue)
+            {
+                $paramType = match(gettype($paramValue))
+                {
+                    'string'    => PDO::PARAM_STR,
+                    'integer'   => PDO::PARAM_INT,
+                    'boolean'   => PDO::PARAM_BOOL,
+                    'NULL'      => PDO::PARAM_NULL
+                };
 
-
-        // if (!empty($pxParams))
-        // {
-        //     $paramCount = count($pxParams) - 1; 
-        //     $paramPlaceholders = "(" . implode(',', array_map(fn($ele) => "?", $pxParams)) . ")";
-        // }
-        print($paramPlaceholders);
-
-        // $qry = $pxQuery;
-
-
+                $this->pdoStmt->bindValue($paramPosition, $paramValue, $paramType);
+                $paramPosition += 1;
+            }
+        }         
     }
 
     /**
      * 
      * 
      */
-    protected function fetchData(string $pxQuery, array $pxParams, string $resultsetType = 'rows')
+    protected function fetchData
+    (
+        string $pxQuery, 
+        array $pxParams = [], 
+        string $pxResultsetType,
+        string $pxFetchStyle
+    )
     {
-        // $this->openConnection();
+        $this->openConnection();
+        $this->setPDOStmt($pxQuery, $pxParams);
+        $this->execPDOStatement();
 
-        $this->setPDOStmt('');
+        $fetchStyle = match($pxFetchStyle)
+        {
+            'assoc' => PDO::FETCH_ASSOC,
+            'num'   => PDO::FETCH_NUM
+        };
 
+        $fetchData = $this->pdoStmt->fetchall($fetchStyle);        
 
+        $fetchData = match($pxResultsetType)
+        {
+            $this->getResultsetAsArray() =>  $fetchData[0],
+            $this->getResultsetAsScalar() => $fetchData[0][0],
+            $this->getResultsetAsRows() => $fetchData,
+            default => $fetchData
+        };
+       
 
-    //     $this->closePDOStatement();
+        $this->closePDOStatement();
 
-    //     $this->closeConnection();
+        $this->closeConnection();
+
+        return $fetchData;
     // 
-    
-    }
+
+}
 
 }

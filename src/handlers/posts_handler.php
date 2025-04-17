@@ -11,12 +11,14 @@
         TRUE, //bool $pxFeatured
         'whydata', //string $pxPostName = NULL      
         NULL, //string $pxPostCategory = NULL,
-        '{"sql", "python", "rdbms"}', // array $pxPostTags = NULL,
+        NULL, // '{"sql", "python", "rdbms"}', // array $pxPostTags = NULL,
         NULL, // array $pxPostKeywords = NULL,
         NULL, // string $pxOrderBy = NULL,
         NULL, // string $pxOrderByAscDesc = NULL,
         NULL, // int $pxLimit = NULL
     );
+
+    $pc = $laData->getPostCategories();
 
     $inputData = [
         'post_category' => 'Analytics',

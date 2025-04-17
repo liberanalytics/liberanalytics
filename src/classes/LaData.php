@@ -35,19 +35,19 @@ class LaData extends LaDB {
         $qry = 
         "SELECT
 
-        la_posts.post_name,
-        la_posts.post_category,
-        la_posts.post_created,
-        la_posts.short_desc,
-        la_posts.long_desc,
-        la_posts.featured,
-        la_posts.post_img,
-        la_posts.featured_img,
-        la_posts.search_img
+        post_name,
+        post_category,
+        post_created,
+        short_desc,
+        long_desc,
+        featured,
+        post_img,
+        featured_img,
+        search_img
         
         FROM liberanalytics.fx_get_posts";
 
-        return $this->fetchData($qry, func_get_args(), $this->getResultsetAsRows());
+        return $this->fetchData($qry, func_get_args(), $this->getResultsetAsRows(), $this->getFetchStyleAssoc());
     }
 
     /**
@@ -61,15 +61,9 @@ class LaData extends LaDB {
 
         post_category
 
-        FROM refdata.fx_get_post_categories()
-        
-        ORDER BY post_category;
+        FROM refdata.fx_get_post_categories";
 
-        ";
-
-        $stmt = $this->conn->prepare($qry);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+        return $this->fetchData($qry, func_get_args(), $this->getResultsetAsRows(), $this->getFetchStyleAssoc());
 
     }    
 
