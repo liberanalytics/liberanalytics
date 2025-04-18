@@ -1,6 +1,6 @@
 DROP FUNCTION IF EXISTS meta.fx_get_fx_pxs;
 
-CREATE OR REPLACE FUNCTION liberanalytics.fx_get_fx_pxs
+CREATE OR REPLACE FUNCTION meta.fx_get_fx_pxs
 (
      pxFxSchema VARCHAR(32)
 	,pxFxName VARCHAR(32)
@@ -8,54 +8,80 @@ CREATE OR REPLACE FUNCTION liberanalytics.fx_get_fx_pxs
 
 RETURNS TABLE
 (
-	
+	 pxOrder BIGINT
+	,pxName TEXT
+	,pxDefaultValue TEXT
 )
-
-SELECT 
-
-	 pg_ns.nspname AS schema_name
-	,pg_fx.proname AS fx_name
-	-- ,pg_catalog.pg_get_function_identity_arguments(pg_fx.oid) AS identity_arguments
-	,pg_fx_argnames.args_ordinality AS arg_position
-	,pg_fx_argnames.argname AS arg_name
-	,pg_fx_argtypes.typname AS arg_type
-	
-	-- ,pg_fx_argnames.args_ordinality AS arg_position
-	-- ,pg_fx_argnames.argname AS arg_name
-	-- ,pg_fx_argtypes.typname AS arg_type
-
-FROM pg_proc AS pg_fx
-
-JOIN pg_namespace AS pg_ns
-ON (pg_fx.pronamespace = pg_ns.oid)
-
-
-
-LEFT JOIN LATERAL unnest(pg_fx.proargnames) WITH ORDINALITY AS pg_fx_argnames(argname, args_ordinality)
-ON TRUE
-
-LEFT JOIN LATERAL unnest(pg_fx.proargtypes) WITH ORDINALITY AS pg_fx_argtypes_oid(argtype_oid, args_ordinality)
-ON (pg_fx_argnames.args_ordinality = pg_fx_argtypes_oid.args_ordinality)
-
-LEFT JOIN pg_type AS pg_fx_argtypes
-ON (pg_fx_argtypes.oid = pg_fx_argtypes_oid.argtype_oid)
-
-LEFT JOIN LATERAL unnest(COALESCE(pg_fx.proargmodes, ARRAY['I'])) WITH ORDINALITY AS pg_fx_argmodes(argmode, args_ordinality)
-ON (pg_fx_argnames.args_ordinality = pg_fx_argmodes.args_ordinality)
-
-WHERE 1=1
-AND pg_fx.proname = 'fx_get_posts'
-AND pg_ns.nspname = 'liberanalytics'
-AND pg_fx.prokind = 'f'
-AND pg_fx_argmodes.argmode = 'i'
-;
-
 
 LANGUAGE plpgsql
 STABLE
 AS $$
 
+BEGIN
 
+RETURN QUERY
+
+SELECT
+
+	 pg_proc_arg_order.arg_ordinality
+	,pg_proc_arg_defaults.arg_name
+	,CASE 
+	 	WHEN LOWER(pg_proc_arg_defaults.default_value) LIKE '%null%' THEN 'NULL'
+		WHEN LOWER(pg_proc_arg_defaults.default_value) LIKE '%false%' THEN 'FALSE'
+	 END AS defualt_value
+
+
+FROM
+
+(SELECT
+
+	 pg_ns_args_inner.nspname AS schema_name
+	,pg_proc_args_inner.proname AS fx_name
+	,unnest(pg_proc_args_inner.proargmodes) AS arg_mode
+	,unnest(pg_proc_args_inner.proargnames) AS arg_name
+	,unnest(regexp_split_to_array(pg_get_expr(pg_proc_args_inner.proargdefaults, 0), ',\s*')) AS default_value
+	
+FROM pg_proc AS pg_proc_args_inner
+
+JOIN pg_namespace AS pg_ns_args_inner
+ON (pg_proc_args_inner.pronamespace = pg_ns_args_inner.oid)
+
+WHERE 1=1
+AND pg_proc_args_inner.proargdefaults IS NOT NULL
+AND pg_ns_args_inner.nspname = pxFxSchema
+AND pg_proc_args_inner.proname = pxFxName
+
+) AS pg_proc_arg_defaults
+
+INNER JOIN
+
+(SELECT
+
+	 pg_ns_order_inner.nspname AS schema_name
+	,pg_proc_order_inner.proname AS fx_name
+	,pg_fx_argnames.arg_name
+	,pg_fx_argnames.arg_ordinality
+
+FROM pg_proc AS pg_proc_order_inner
+
+JOIN pg_namespace AS pg_ns_order_inner
+ON (pg_proc_order_inner.pronamespace = pg_ns_order_inner.oid)
+
+LEFT JOIN unnest(pg_proc_order_inner.proargnames) WITH ORDINALITY AS pg_fx_argnames(arg_name, arg_ordinality) ON TRUE
+
+WHERE 1=1
+AND pg_proc_order_inner.proargdefaults IS NOT NULL
+AND pg_ns_order_inner.nspname = pxFxSchema
+AND pg_proc_order_inner.proname = pxFxName
+
+) AS pg_proc_arg_order
+
+ON (pg_proc_arg_defaults.schema_name = pg_proc_arg_order.schema_name
+AND pg_proc_arg_defaults.fx_name = pg_proc_arg_order.fx_name
+AND pg_proc_arg_defaults.arg_name = pg_proc_arg_order.arg_name)
+
+WHERE 1=1
+AND pg_proc_arg_defaults.arg_mode = 'i';
 
 END;
 $$;
