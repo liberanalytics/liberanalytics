@@ -1,8 +1,12 @@
 <?php
 
 require_once('LaDataParams.php');
+require_once('LaConfig.php');
 
 class LaData extends LaDataParams {
+
+    private const SCHEMA_KEY = 'schema';
+    private const FX_KEY = 'fx';    
 
     function __construct()
     {
@@ -10,15 +14,18 @@ class LaData extends LaDataParams {
     }
 
     /**
-    * 
-    * @param bool
-    * @param string
-    * @param string
-    * @param array
-    * @param int
-    *
-    * @return PDO Statement
-    */
+     * 
+     */
+    public function crudData(string $pxFunctionName, array $pxParameterData, string $pxResultsetType, string $pxFetchType)
+    {
+        $laConfig = new LaConfig();
+        $dbFxSpecs = $laConfig->getConfigAttr('data', 'db_to_client_fx', 'client_fx', $pxFunctionName);
+        $dbSchema = $dbFxSpecs[self::SCHEMA_KEY];
+        $dbFx = $dbFxSpecs[self::FX_KEY];
+        $parameters = $this->convertParams();
+
+    }
+
     public function getPosts
     (
         bool $pxFeatured,
