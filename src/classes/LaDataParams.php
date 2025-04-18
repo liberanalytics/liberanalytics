@@ -41,10 +41,7 @@ class LaDataParams extends LaDataDb {
         $dbPxDefaultsAsArray = [];
         foreach ($dbPxDefaultsAsRows as $dbPxDefaultAsRow)
         {
-            foreach($dbPxDefaultAsRow as $key => $value)
-            {
-                $dbPxDefaultsAsArray[$dbPxDefaultAsRow[self::PX_KEY]] = $dbPxDefaultAsRow[self::PX_DEFAULTVALUE];
-            }
+            $dbPxDefaultsAsArray[$dbPxDefaultAsRow[self::PX_KEY]] = $dbPxDefaultAsRow[self::PX_DEFAULTVALUE];
         }
 
 
