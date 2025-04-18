@@ -24,6 +24,7 @@ RETURNS TABLE(
 )
 
 LANGUAGE plpgsql
+STABLE
 AS $$
 
 DECLARE

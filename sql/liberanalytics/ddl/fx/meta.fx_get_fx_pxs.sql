@@ -1,0 +1,54 @@
+DROP FUNCTION IF EXISTS meta.fx_get_fx_pxs;
+
+CREATE OR REPLACE FUNCTION liberanalytics.fx_get_fx_pxs
+(
+     pxFxSchema VARCHAR(32)
+	,pxFxName VARCHAR(32)
+)
+
+RETURNS TABLE
+(
+	
+)
+
+SELECT 
+
+	 pg_ns.nspname AS schema_name
+	,pg_fx.proname AS fx_name
+	,pg_fx_argnames.args_ordinality AS arg_position
+	,pg_fx_argnames.argname AS arg_name
+	,pg_fx_argtypes.typname AS arg_type
+
+FROM pg_proc AS pg_fx
+
+INNER JOIN pg_namespace AS pg_ns
+ON (pg_fx.pronamespace = pg_ns.oid)
+
+LEFT JOIN LATERAL unnest(pg_fx.proargnames) WITH ORDINALITY AS pg_fx_argnames(argname, args_ordinality)
+ON TRUE
+
+LEFT JOIN LATERAL unnest(pg_fx.proargtypes) WITH ORDINALITY AS pg_fx_arg_types_oid(argtype_oid, args_ordinality)
+ON (pg_fx_argnames.args_ordinality = pg_fx_arg_types_oid.args_ordinality)
+
+LEFT JOIN pg_type AS pg_fx_argtypes
+ON (pg_fx_argtypes.oid = pg_fx_arg_types_oid.argtype_oid)
+
+LEFT JOIN
+	LATERAL unnest(COALESCE(pg_fx.proargmodes, ARRAY['i'])) WITH ORDINALITY AS pg_fx_arg_modes(argmode, args_ordinality)
+	ON (pg_fx_argnames.args_ordinality = pg_fx_arg_modes.args_ordinality)
+
+
+WHERE 1=1
+AND pg_fx.proname = 'fx_get_posts'
+AND pg_ns.nspname = 'liberanalytics'
+AND pg_fx.prokind = 'f'
+AND pg_fx_arg_modes.argmode = 'i';
+
+LANGUAGE plpgsql
+STABLE
+AS $$
+
+
+
+END;
+$$;
