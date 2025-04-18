@@ -5,6 +5,9 @@ include('LaDataDb.php');
 
 class LaDataParams extends LaDataDb {
 
+    private const PX_KEY = 'px_name';
+    private const PX_DEFAULTVALUE = 'px_default_value';
+
     function __construct()
     {
         parent::__construct();
@@ -27,14 +30,25 @@ class LaDataParams extends LaDataDb {
         $qry = 
         "SELECT
 
-         px_name
-        ,px_default_value
+        " .     self::PX_KEY .
+        ",
+        " .   self::PX_DEFAULTVALUE . "
         
         FROM meta.fx_get_fx_pxs";
 
-        $dbPxDefaults = $this->fetchData($qry, [$pxSchema, $pxFunction], self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
+        $dbPxDefaultsAsRows = $this->fetchData($qry, [$pxSchema, $pxFunction], self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
 
-        $a = 1;
+        $dbPxDefaultsAsArray = [];
+        foreach ($dbPxDefaultsAsRows as $dbPxDefaultAsRow)
+        {
+            foreach($dbPxDefaultAsRow as $key => $value)
+            {
+                $dbPxDefaultsAsArray[$dbPxDefaultAsRow[self::PX_KEY]] = $dbPxDefaultAsRow[self::PX_DEFAULTVALUE];
+            }
+        }
+
+
+        //$dbDefaults = array_map(fn($ele) => [$ele[self::PX_KEY] => $ele[self::PX_DEFAULTVALUE]], $dbPxDefaults);
 
         // Nested array map with a lambda fx to convert the array of arrays to an array that looks like
         // [
@@ -47,6 +61,7 @@ class LaDataParams extends LaDataDb {
         // that consists of any passed parameters combined w/ the default values where the passed parameters
         // are precedent over defaults.
 
+        $a = 1;
     }
 
 
