@@ -22,26 +22,23 @@ class LaData extends LaDataPxs {
         $dbFxSpecs = $laConfig->getConfigAttr('data', 'db_to_client_fx', 'client_fx', $pxFunctionName);
         $dbSchema = $dbFxSpecs[self::SCHEMA_KEY];
         $dbFx = $dbFxSpecs[self::FX_KEY];
-        $parameters = $this->convertPxs($dbSchema, $dbFx, $pxParameterData);
+        $parameterData = $this->convertPxs($dbSchema, $dbFx, $pxParameterData);
+
+        $crudData = call_user_func([$this, $pxFunctionName], $parameterData);
+
+        return $crudData;
 
     }
 
     public function getPosts
     (
-        bool $pxFeatured,
-        string $pxPostName = NULL,        
-        string $pxPostCategory = NULL,
-        string $pxPostTags = NULL,
-        string $pxPostKeywords = NULL,
-        string $pxOrderBy = NULL,
-        string $pxOrderByAscDesc = NULL,
-        int $pxLimit = NULL,
+        array $pxParameters,
         string $pxResultsetType = self::RESULTSET_ROWS,
         string $pxFetchStyle = self::FETCHSTYLE_ASSOC
     )  
     {
 
-        $args = func_get_args();
+
         //
         $qry = 
         "SELECT
@@ -58,14 +55,19 @@ class LaData extends LaDataPxs {
         
         FROM liberanalytics.fx_get_posts";
 
-        return $this->fetchData($qry, func_get_args(), $pxResultsetType, $pxFetchStyle);
+        return $this->fetchData($qry, $pxParameters, $pxResultsetType, $pxFetchStyle);
     }
 
     /**
     *
     * @return PDO Statement
     */
-    public function getPostCategories($pxPostCategory = NULL)
+    public function getPostCategories
+    (
+        array $pxParameters,
+        string $pxResultsetType = self::RESULTSET_ROWS,
+        string $pxFetchStyle = self::FETCHSTYLE_ASSOC
+    )
     {
         $qry =
         "SELECT
@@ -74,7 +76,7 @@ class LaData extends LaDataPxs {
 
         FROM refdata.fx_get_post_categories";
 
-        return $this->fetchData($qry, func_get_args(), self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
+        return $this->fetchData($qry, $pxParameters, $pxResultsetType, $pxFetchStyle);
 
     }    
 

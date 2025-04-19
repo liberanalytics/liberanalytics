@@ -29,7 +29,8 @@ class LaDataPxs extends LaDataDb {
     {
 
         //
-        $coercePxDataType = match(strtolower($pxValue))
+        $pxValueLower = strtolower($pxValue);
+        $coercePxDataType = match($pxValueLower)
         {
             'null' => null,
             'false' => false,           
@@ -58,6 +59,11 @@ class LaDataPxs extends LaDataDb {
         return $convertDbPxDefaults;
     }
 
+    private function convertClientPxs(array $pxClientPxs): array
+    {
+
+    }
+
     /**
      * 
      */
@@ -76,13 +82,21 @@ class LaDataPxs extends LaDataDb {
         $dbPxDefaultsAsRows = $this->fetchData($qry, [$pxSchema, $pxFunction], self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
         $dbPxDefaultsAsArray = $this->convertDbPxDefaults($dbPxDefaultsAsRows);
 
-        $a=1;
+        // If there is parameter data, convert the data to a LaData friendly format to use in PDO paramter binding.
+        if (!empty($pxParameterData))
+        {
+
+        }
+
+        $convertPxs = $dbPxDefaultsAsArray;
 
         // then do an array_merge with array_key_intersection from the $pxParameterData to get a return array
         // that consists of any passed parameters combined w/ the default values where the passed parameters
         // are precedent over defaults.
 
         $a = 1;
+
+        return $convertPxs;
     }
 
 
