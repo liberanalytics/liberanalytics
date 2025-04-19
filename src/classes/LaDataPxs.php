@@ -16,14 +16,41 @@ class LaDataPxs extends LaDataDb {
     /**
      * 
      */
-    private function convertDatabasePxKeys()
+    private function convertDatabasePxKey($pxKey)
     {
-
+        $convertDatabasePxKey = str_replace("px", "", $pxKey);
+        return $convertDatabasePxKey;
     }
 
-    private function coercePxDataTypes($pxValue)
+    /**
+     * 
+     */
+    private function coercePxDataType($pxValue)
     {
-        return $pxValue;
+
+        $coercePxDataType = match(str_to_lower($pxValue))
+        {
+            'null' => NULL,
+            'false' => FALSE,
+            preg_match('/^([0-9]){1,}$/', $pxValue) => int($pxValue,)
+
+            default => $pxValue
+        };
+    }
+
+    /**
+     * 
+     */
+    private function convertDbPxDefaults(array $pxDbPxDefaults): array
+    {
+        $convertDbPxDefaults = [];
+        foreach ($pxDbPxDefaults as $pxDbPxDefault)
+        {
+            $key = $this->convertDatabasePxKeys($pxDbPxDefault[self::COL_PX_KEY]);
+            $value = $this->coercePxDataTypes($pxDbPxDefault[self::COL_PX_DEFAULTVALUE]);
+            $convertDbPxDefaults[$key] = $value;
+        }
+        return $convertDbPxDefaults;
     }
 
     /**
@@ -37,20 +64,14 @@ class LaDataPxs extends LaDataDb {
 
         " .     self::COL_PX_KEY .
         ",
-        " .   self::PX_DEFAULTVALUE . "
+        " .   self::COL_PX_DEFAULTVALUE . "
         
         FROM meta.fx_get_fx_pxs";
 
         $dbPxDefaultsAsRows = $this->fetchData($qry, [$pxSchema, $pxFunction], self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
 
-        $dbPxDefaultsAsArray = [];
-        foreach ($dbPxDefaultsAsRows as $dbPxDefaultAsRow)
-        {
-            $dbPxDefaultsAsArray[
-                str_replace("px", "", $dbPxDefaultAsRow[self::COL_PX_KEY]) = 
-                $this->coercePxDataTypes($dbPxDefaultAsRow[self::COL_PX_DEFAULTVALUE])
-            ];
-        }
+        $dbPxDefaultsAsArray = $this->convertDbPxDefaults($dbPxDefaultsAsRows);
+
 
         //$dbPxDefaultsAsArray = array_map(fn($ele) => str_replace("px", "", $key) => $this->coercePxDataTypes($val), $dbPxDefaultsAsArray);
 

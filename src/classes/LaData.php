@@ -3,7 +3,7 @@
 require_once('LaDataPxs.php');
 require_once('LaConfig.php');
 
-class LaData extends LaDataParams {
+class LaData extends LaDataPxs {
 
     private const SCHEMA_KEY = 'schema';
     private const FX_KEY = 'fx';    
