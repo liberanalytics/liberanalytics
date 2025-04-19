@@ -46,10 +46,13 @@ class LaDataPxs extends LaDataDb {
         $dbPxDefaultsAsArray = [];
         foreach ($dbPxDefaultsAsRows as $dbPxDefaultAsRow)
         {
-            $dbPxDefaultsAsArray[$dbPxDefaultAsRow[self::COL_PX_KEY]] = $dbPxDefaultAsRow[self::COL_PX_DEFAULTVALUE];
+            $dbPxDefaultsAsArray[
+                str_replace("px", "", $dbPxDefaultAsRow[self::COL_PX_KEY]) = 
+                $this->coercePxDataTypes($dbPxDefaultAsRow[self::COL_PX_DEFAULTVALUE])
+            ];
         }
 
-        $dbPxDefaultsAsArray = array_map(fn($ele) => str_replace("px", "", $key) => $this->coercePxDataTypes($val), $dbPxDefaultsAsArray);
+        //$dbPxDefaultsAsArray = array_map(fn($ele) => str_replace("px", "", $key) => $this->coercePxDataTypes($val), $dbPxDefaultsAsArray);
 
 
         //$dbDefaults = array_map(fn($ele) => [$ele[self::PX_KEY] => $ele[self::PX_DEFAULTVALUE]], $dbPxDefaults);
