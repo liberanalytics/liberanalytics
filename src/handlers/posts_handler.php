@@ -25,7 +25,7 @@
     // );
 
     $pc = $laData->crudData(
-        'getPostCategories', 
+        'getpostcategories', 
         [], 
         LaDataDb::RESULTSET_ROWS,
         LaDataDb::FETCHSTYLE_ASSOC
