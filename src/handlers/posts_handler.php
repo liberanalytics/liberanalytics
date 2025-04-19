@@ -8,24 +8,11 @@
     $laVx = new LaVx();    
     // $laData->openConn();
 
-    // $posts = $laData->crudData(
-    //     'getPosts',
-    //     [
-    //         TRUE, //bool $pxFeatured
-    //         'whydata', //string $pxPostName = NULL      
-    //         NULL, //string $pxPostCategory = NULL,
-    //         NULL, // '{"sql", "python", "rdbms"}', // array $pxPostTags = NULL,
-    //         NULL, // array $pxPostKeywords = NULL,
-    //         NULL, // string $pxOrderBy = NULL,
-    //         NULL, // string $pxOrderByAscDesc = NULL,
-    //         NULL, // int $pxLimit = NULL
-    //     ],
-    //     LaDataDb::RESULTSET_ROWS,
-    //     LaDataDb::FETCHSTYLE_ASSOC
-    // );
+
 
     $pc = $laData->crudData(
-        'getpostcategories', 
+        'getpostcategories',
+        $laData::CRUD_READ,
         [], 
         LaDataDb::RESULTSET_ROWS,
         LaDataDb::FETCHSTYLE_ASSOC
@@ -36,6 +23,6 @@
         'tags' => 'sql rdbms theory'
     ];
 
-    
+    // $laData->closeConn();
 
 ?>
