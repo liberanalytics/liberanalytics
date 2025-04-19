@@ -3,10 +3,10 @@
 include('LaDataDb.php');
 
 
-class LaDataParams extends LaDataDb {
+class LaDataPxs extends LaDataDb {
 
-    private const PX_KEY = 'px_name';
-    private const PX_DEFAULTVALUE = 'px_default_value';
+    private const COL_PX_KEY = 'px_name';
+    private const COL_PX_DEFAULTVALUE = 'px_default_value';
 
     function __construct()
     {
@@ -16,21 +16,26 @@ class LaDataParams extends LaDataDb {
     /**
      * 
      */
-    private function convertDatabaseParamKeys()
+    private function convertDatabasePxKeys()
     {
 
+    }
+
+    private function coercePxDataTypes($pxValue)
+    {
+        return $pxValue;
     }
 
     /**
      * 
      */
-    protected function convertParams(string $pxSchema, string $pxFunction, array $pxParameterData)
+    protected function convertPxs(string $pxSchema, string $pxFunction, array $pxParameterData)
     {
 
         $qry = 
         "SELECT
 
-        " .     self::PX_KEY .
+        " .     self::COL_PX_KEY .
         ",
         " .   self::PX_DEFAULTVALUE . "
         
@@ -41,8 +46,10 @@ class LaDataParams extends LaDataDb {
         $dbPxDefaultsAsArray = [];
         foreach ($dbPxDefaultsAsRows as $dbPxDefaultAsRow)
         {
-            $dbPxDefaultsAsArray[$dbPxDefaultAsRow[self::PX_KEY]] = $dbPxDefaultAsRow[self::PX_DEFAULTVALUE];
+            $dbPxDefaultsAsArray[$dbPxDefaultAsRow[self::COL_PX_KEY]] = $dbPxDefaultAsRow[self::COL_PX_DEFAULTVALUE];
         }
+
+        $dbPxDefaultsAsArray = array_map(fn($ele) => str_replace("px", "", $key) => $this->coercePxDataTypes($val), $dbPxDefaultsAsArray);
 
 
         //$dbDefaults = array_map(fn($ele) => [$ele[self::PX_KEY] => $ele[self::PX_DEFAULTVALUE]], $dbPxDefaults);

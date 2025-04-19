@@ -1,6 +1,6 @@
 <?php
 
-require_once('LaDataParams.php');
+require_once('LaDataPxs.php');
 require_once('LaConfig.php');
 
 class LaData extends LaDataParams {
@@ -22,7 +22,7 @@ class LaData extends LaDataParams {
         $dbFxSpecs = $laConfig->getConfigAttr('data', 'db_to_client_fx', 'client_fx', $pxFunctionName);
         $dbSchema = $dbFxSpecs[self::SCHEMA_KEY];
         $dbFx = $dbFxSpecs[self::FX_KEY];
-        $parameters = $this->convertParams($dbSchema, $dbFx, $pxParameterData);
+        $parameters = $this->convertPxs($dbSchema, $dbFx, $pxParameterData);
 
     }
 
