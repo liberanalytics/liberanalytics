@@ -26,13 +26,27 @@ simulate.bindEvents = () =>
     });
 }
 
-simulate.submitData = function (fxCallBack) {
+simulate.submitData = function(fxCallback) {
 
-    // simulate.simulateFormData = new FormData(simulate.simulateFormEle);
+    simulate.simulateFormData = new FormData(simulate.simulateFormEle);
+    // for (formDatum of simulate.simulateFormData)
+    // {
+    //     console.log(formDatum[0], formDatum[1]);
+    // }
+    
+    fetch(
 
-    setTimeout(() => {
-        console.log('submit');
-    }, 2000);
-    fxCallBack();
+        '/liberanalytics/site/api/postsearch.php',
+        {
+            method: "POST",
+            body: simulate.simulateFormData,
+        }
+
+    )
+    .then(response => response.json())
+    .then(response => console.log(response));
+
+
 
 }
+

@@ -43,13 +43,13 @@
 			<form id="data_form">
 
 				<label>First Name</label>
-				<input type="text">
+				<input type="text" name="first_name">
 
 				<label>Last Name</label>
-				<input type="text">
+				<input type="text" name="last_name">
 
 				<label>Email</label>
-				<input type="email">
+				<input type="email" name="email">
 
 				<input type="submit" value="submit" id="data_submission">
 
@@ -58,7 +58,7 @@
 			<div id="simulate_data">
 
 
-				
+
 			</div>
 				
 			</div>
