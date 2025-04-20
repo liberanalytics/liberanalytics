@@ -1,63 +1,38 @@
 simulate = {};
 
+// let simulateFormEle = "";
+
 window.addEventListener("load", () => {
+    simulate.setModuleVars();
     simulate.bindEvents();
 });
 
+simulate.setModuleVars = () =>
+{
+    simulate.simulateFormEle = document.querySelector('#data_form');
+    simulate.simulateDataEle = document.querySelector('#simulate_data');
+}
+
+simulate.displayData = () =>
+{
+    simulate.simulateDataEle.innerHTML = "<h1>Data Submitted</h1>";
+}
+
 simulate.bindEvents = () =>
 {
-    const eleGetData = document.querySelector('#get_data');
-    eleGetData.addEventListener('click', (event) => {
+    simulate.simulateFormEle.addEventListener('submit', (event) => {
         event.preventDefault();
-        simulate.fetchData();
+        simulate.submitData(simulate.displayData);
     });
 }
 
+simulate.submitData = function (fxCallBack) {
 
-simulate.fetchData = async function () {
+    // simulate.simulateFormData = new FormData(simulate.simulateFormEle);
 
-    simulate.renderGif();
-
-    try {
-
-        const elePxData = document.querySelector('#px_data').value.toLowerCase();
-
-        const response = await fetch(
-            `https://pokeapi.co/api/v2/pokemon/${elePxData}`,
-            {
-                method: 'GET'
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error("Could not fetch resource.");
-        }
-
-        const data = await response.json();
-        const imgSprite = data.sprites.front_default;
-
-        eleSprite = document.querySelector('#img_sprite');
-        eleSprite.src = imgSprite;
-        eleSprite.style.display = "block";
-
-        console.log(img);
-
-    }
-    catch (error) {
-        console.error(error);
-    }
-
-    simulate.unrenderGif();
+    setTimeout(() => {
+        console.log('submit');
+    }, 2000);
+    fxCallBack();
 
 }
-
-simulate.renderGif = () =>
-{
-    console.log('renderGif');
-}
-
-simulate.unrenderGif = () =>
-{
-    console.log('unrendgerGif');
-}
-
