@@ -57,7 +57,14 @@
 
 			<div id="simulate_data">
 
+				<?php
 
+					foreach($_SERVER as $key => $val)
+					{
+						echo "<h1>{$key} =. {$val}";
+					}
+
+				?>
 
 			</div>
 				

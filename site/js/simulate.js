@@ -22,11 +22,18 @@ simulate.bindEvents = () =>
 {
     simulate.simulateFormEle.addEventListener('submit', (event) => {
         event.preventDefault();
-        simulate.submitData(simulate.displayData);
+        simulate.asyncCall();
     });
 }
 
-simulate.submitData = function(fxCallback) {
+simulate.asyncCall = async () => 
+{
+    data = await setTimeout(simulate.submitData(), 2000);
+    console.log(data);
+}
+
+simulate.submitData = function() 
+{
 
     simulate.simulateFormData = new FormData(simulate.simulateFormEle);
     // for (formDatum of simulate.simulateFormData)
@@ -34,19 +41,21 @@ simulate.submitData = function(fxCallback) {
     //     console.log(formDatum[0], formDatum[1]);
     // }
     
-    fetch(
+   fetch(
 
         '/liberanalytics/site/api/postsearch.php',
         {
             method: "POST",
             body: simulate.simulateFormData,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }
 
     )
     .then(response => response.json())
-    .then(response => console.log(response));
+    .then(response => { return response });
 
 
 
 }
-
