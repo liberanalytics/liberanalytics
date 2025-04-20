@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    include(dirname(dirname(__DIR__)) . "/" . "src/handlers/posts_handler.php");
+    include(dirname(dirname(__DIR__)) . "/" . "src/handlers/postsearch.php");
 }
 
 ?>
