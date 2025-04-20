@@ -13,36 +13,37 @@ simulate.setModuleVars = () =>
     simulate.simulateDataEle = document.querySelector('#simulate_data');
 }
 
-simulate.displayData = () =>
-{
-    simulate.simulateDataEle.innerHTML = "<h1>Data Submitted</h1>";
-}
-
 simulate.bindEvents = () =>
 {
     simulate.simulateFormEle.addEventListener('submit', (event) => {
         event.preventDefault();
-        simulate.asyncCall();
+        simulate.submitClientData();
     });
 }
 
-simulate.asyncCall = async () => 
+simulate.wait = (ms) =>
 {
-    data = await setTimeout(simulate.submitData(), 2000);
-    console.log(data);
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-simulate.submitData = function() 
+
+simulate.submitClientData = () =>
 {
+    simulate.wait(2000)
+    .then(() => simulate.getServerData())
+    .then(response => {
+        console.log(response)
+    })
+    .catch(error => {
+        console.error("Error during fetch: ", error);
+    });
+}
 
+simulate.getServerData = () =>
+{
     simulate.simulateFormData = new FormData(simulate.simulateFormEle);
-    // for (formDatum of simulate.simulateFormData)
-    // {
-    //     console.log(formDatum[0], formDatum[1]);
-    // }
-    
-   fetch(
 
+    return fetch(
         '/liberanalytics/site/api/postsearch.php',
         {
             method: "POST",
@@ -51,11 +52,7 @@ simulate.submitData = function()
                 'Content-Type': 'application/json'
             }
         }
-
-    )
-    .then(response => response.json())
-    .then(response => { return response });
-
-
-
+    ).then(response => response.json());
 }
+
+
