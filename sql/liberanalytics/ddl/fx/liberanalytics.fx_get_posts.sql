@@ -2,7 +2,7 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 (
-	 pxFeatured BOOLEAN DEFAULT FALSE
+	 pxFeatured SMALLINT DEFAULT 0
 	,pxPostName VARCHAR(32) DEFAULT NULL
 	,pxPostCategory VARCHAR(32) DEFAULT NULL
 	,pxPostTags TEXT[] DEFAULT NULL
@@ -48,11 +48,8 @@ BEGIN
 
 */
 
-IF pxFeatured IS NOT FALSE THEN
-	strPredFeatured := ' AND ' || strPostsAlias || '.featured > 0';
-ELSE
-	strPredFeatured := '';
-END IF;
+strPredFeatured := ' AND ' || strPostsAlias || '.featured = <= ' || pxFeatured
+
 
 IF pxPostName IS NOT NULL THEN
 	strPredPostName := ' AND ' || strPostsAlias || '.post_name = ' || QUOTE_LITERAL(pxPostName);
