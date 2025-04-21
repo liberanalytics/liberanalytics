@@ -8,7 +8,7 @@ CREATE OR REPLACE FUNCTION meta.fx_get_dynamic_sql_clause
 	,pxOperator VARCHAR(32)
 	,pxValueString VARCHAR(32)
 	,pxValueInt INTEGER
-	,pxLastClause BOOLEAN
+	--,pxLastClause BOOLEAN
 )
 
 RETURNS VARCHAR(1024)
@@ -25,22 +25,21 @@ BEGIN
 textDynamicSqlClause := 
 
 	pxClauseType || ' ' || 
-	CASE WHEN pxClauseType <> 'LIMIT BY' THEN
-		COALESCE(pxAlias, '') || 
-		COALESCE(pxColumn, '') || ' ' ||
-		COALESCE(pxOperator, '') || ' ' ||
-	END ||	
+	
+	(
+		CASE WHEN pxClauseType <> 'LIMIT BY' THEN
+				COALESCE(pxAlias, '') || 
+				COALESCE('.' || pxColumn, '') || ' ' ||
+				COALESCE(pxOperator, '') || ' '
+			ELSE ''
+		END
+	) ||	
+	
 	COALESCE(pxValueString, '') ||
-	COALESCE(CAST(pxValueInt AS VARCHAR(32)), '');
+	COALESCE(CAST(pxValueInt AS VARCHAR(32)), '') ||
+	E'\n';
 
 textDynamicSqlClause := TRIM(textDynamicSqlClause);
-
-IF pxLastClause = TRUE
-THEN
-	textDynamicSqlClause := textDynamicSqlClause || ';';
-ELSE
-	textDynamicSqlClause := textDynamicSqlClause || E'\n';
-END IF;
 
 RETURN textDynamicSqlClause;
 
