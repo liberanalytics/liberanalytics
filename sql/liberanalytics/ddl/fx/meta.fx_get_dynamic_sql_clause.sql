@@ -23,10 +23,13 @@ DECLARE
 BEGIN
 
 textDynamicSqlClause := 
+
 	pxClauseType || ' ' || 
-	COALESCE(pxAlias, '') ||
-	COALESCE('.' || pxColumn, '') || ' ' ||
-	COALESCE(pxOperator, '') || ' ' ||
+	CASE WHEN pxClauseType <> 'LIMIT BY' THEN
+		COALESCE(pxAlias, '') || 
+		COALESCE(pxColumn, '') || ' ' ||
+		COALESCE(pxOperator, '') || ' ' ||
+	END ||	
 	COALESCE(pxValueString, '') ||
 	COALESCE(CAST(pxValueInt AS VARCHAR(32)), '');
 
