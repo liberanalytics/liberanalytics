@@ -3,12 +3,12 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 (
 	 pxFeatured INTEGER DEFAULT 0
-	,pxPostName TEXT DEFAULT NULL
-	,pxPostCategory TEXT DEFAULT NULL
+	,pxPostName VARCHAR(32) DEFAULT NULL
+	,pxPostCategory VARCHAR(32) DEFAULT NULL
 	,pxPostTags TEXT[] DEFAULT NULL
 	,pxKeywords TEXT[] DEFAULT NULL
-	,pxOrderBy TEXT DEFAULT NULL
-	,pxOrderByAscDesc TEXT DEFAULT NULL
+	,pxOrderBy VARCHAR(32) DEFAULT NULL
+	,pxOrderByAscDesc VARCHAR(8) DEFAULT NULL
 	,pxLimit INTEGER DEFAULT NULL	
 )
 
@@ -16,12 +16,12 @@ RETURNS TABLE
 (
      post_name VARCHAR(32)
     ,post_category VARCHAR(32)
-    ,post_created TIMESTAMP
-    ,short_desc VARCHAR(256)
-    ,long_desc VARCHAR(256)
-    ,post_img VARCHAR(64)
-    ,featured_img VARCHAR(64)
-    ,search_img VARCHAR(64)
+    -- ,post_created TIMESTAMP
+    -- ,short_desc VARCHAR(256)
+    -- ,long_desc VARCHAR(256)
+    -- ,post_img VARCHAR(64)
+    -- ,featured_img VARCHAR(64)
+    -- ,search_img VARCHAR(64)
 )
 
 LANGUAGE plpgsql
@@ -29,27 +29,27 @@ STABLE
 AS $$
 
 DECLARE
-	txtQueryBase TEXT;
-	txtQueryAttrList TEXT;
-	txtQuery TEXT;
-	txtPostsAlias TEXT := 'la';
-	txtPostTagsAlias TEXT := 'post_tags';
-	txtPredFeatured TEXT;
-	txtPredPostName TEXT;
-	txtPredPostCategory TEXT;
-	txtPredPostTags TEXT;
-	txtPredPostKeywords TEXT;
-	txtOrderBy TEXT;
-	txtOrderByAscDesc TEXT;
-	txtLimit TEXT;
+	txtQueryBase VARCHAR(1024);
+	txtQueryAttrList VARCHAR(1024);
+	txtQuery VARCHAR(1024);
+	txtPostsAlias VARCHAR(16) := 'la';
+	txtPostTagsAlias VARCHAR(16) := 'post_tags';
+	-- txtPredFeatured TEXT;
+	-- txtPredPostName TEXT;
+	-- txtPredPostCategory TEXT;
+	-- txtPredPostTags TEXT;
+	-- txtPredPostKeywords TEXT;
+	-- txtOrderBy TEXT;
+	-- txtOrderByAscDesc TEXT;
+	-- txtLimit TEXT;
 
 BEGIN
 
-txtPredFeatured := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'featured', '<=', NULL, pxFeatured);
-txtPredPostName := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'post_name', '=', QUOTE_LITERAL(pxPostName), NULL);
-txtPredPostCategory := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'post_category', '=', QUOTE_LITERAL(pxPostCategory), NULL);
-txtOrderBy := meta.fx_get_dynamic_sql_clause('ORDER BY', txtPostsAlias, pxOrderBy, pxOrderByAscDesc, NULL, NULL); 
-txtLimit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, pxLimit); 
+-- txtPredFeatured := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'featured', '<=', NULL, pxFeatured);
+-- txtPredPostName := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'post_name', '=', QUOTE_LITERAL(pxPostName), NULL);
+-- txtPredPostCategory := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'post_category', '=', QUOTE_LITERAL(pxPostCategory), NULL);
+-- txtOrderBy := meta.fx_get_dynamic_sql_clause('ORDER BY', txtPostsAlias, pxOrderBy, pxOrderByAscDesc, NULL, NULL); 
+-- txtLimit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, pxLimit); 
 
 
 /*
@@ -63,14 +63,15 @@ END IF;
 
 txtQueryAttrList := 
 
-	txtPostsAlias || '.post_name' || E'\n' ||
-	',' || txtPostsAlias || '.post_category' || E'\n' ||
-	',' || txtPostsAlias || '.post_created' || E'\n' ||
-	',' || txtPostsAlias || '.short_desc' || E'\n' ||
-	',' || txtPostsAlias || '.long_desc' || E'\n' ||
-	',' || txtPostsAlias || '.post_img' || E'\n' ||
-	',' || txtPostsAlias || '.featured_img' || E'\n' ||
-	',' || txtPostsAlias || '.search_img' || E'\n\n';
+	txtPostsAlias || '.post_name' || ' ' ||
+	',' || txtPostsAlias || '.post_category' || ' ';
+	-- ',' || txtPostsAlias || '.post_created' || E'\n' ||
+	-- ',' || txtPostsAlias || '.short_desc' || E'\n' ||
+	-- ',' || txtPostsAlias || '.long_desc' || E'\n' ||
+	-- ',' || txtPostsAlias || '.post_img' || E'\n' ||
+	-- ',' || txtPostsAlias || '.featured_img' || E'\n' ||
+	-- ',' || txtPostsAlias || '.search_img' || E'\n\n'
+	-- ;
 
 txtQueryBase :=
 
@@ -83,23 +84,27 @@ txtQueryBase :=
 LEFT JOIN liberanalytics.posts_tags AS ' || txtPostTagsAlias || '
 ON (la.post_name = post_tags.post_name)
 
-WHERE 1=1
+WHERE 1=1;
 ';
 
-txtQuery := 
-	txtQueryBase || 
-	txtPredFeatured ||
-	txtPredPostName ||
-	txtPredPostCategory ||
-	txtOrderBy ||
-	txtLimit ||
+-- txtQuery := 
+-- 	txtQueryBase || 
+-- 	txtPredFeatured ||
+-- 	txtPredPostName ||
+-- 	txtPredPostCategory ||
+-- 	txtOrderBy ||
+-- 	txtLimit ||
 
-';';
+-- ';';
 
-RETURN QUERY EXECUTE txtQuery;
+RAISE NOTICE 'Query txting: %', txtQueryBase;
+RETURN QUERY EXECUTE txtQueryBase;
+
+
+
+
 --USING pxPostTags;
 
---RAISE NOTICE 'Query txting: %', txtQuery;
 
 END;
 $$;

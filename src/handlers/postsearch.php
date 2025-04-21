@@ -1,20 +1,30 @@
 <?php
 
-if
-( 
-    ((isset($_SERVER['HTTP_ORIGIN'])) && 
-    ($_SERVER['HTTP_ORIGIN'] === 'http://localhost')) &&
-    ($_SERVER['REQUEST_METHOD'] === 'POST') &&
-    (strpos($_SERVER['CONTENT_TYPE'],'application/json') !== false)
-)
-{
-    echo json_encode(
-        [
-            "orign" => $_SERVER['HTTP_ORIGIN'],
-            "content_type" => $_SERVER['CONTENT_TYPE']
-        ]
-    );
-}
+require_once(dirname(__DIR__) . "/" . "classes/LaData.php");
+     require_once(dirname(__DIR__) . "/" . "classes/LaVx.php");
+ 
+     $laData = new LaData();
+     $laVx = new LaVx();    
+     // $laData->openConn();
+     // $laData = new LaData();
+     // $laVx = new LaVx();    
+     // // $laData->openConn();
+ 
+ 
+ 
+     $pc = $laData->crudData(
+         'getposts',
+         $laData::CRUD_READ,
+         [], 
+         $laData::RESULTSET_ROWS,
+         $laData::FETCHSTYLE_ASSOC
+     );
+     // $pc = $laData->crudData(
+     //     'getpostcategories',
+     //     $laData::CRUD_READ,
+     //     [], 
+     //     $laData::RESULTSET_ROWS,
+     //     $laData::FETCHSTYLE_ASSOC
+     // );
 
-
-?>
+    ?>
