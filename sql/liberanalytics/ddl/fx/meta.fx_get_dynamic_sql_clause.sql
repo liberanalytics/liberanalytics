@@ -2,46 +2,62 @@ DROP FUNCTION IF EXISTS meta.fx_get_dynamic_sql_clause;
 
 CREATE OR REPLACE FUNCTION meta.fx_get_dynamic_sql_clause
 (
-     pxClauseType VARCHAR(32)
-	,pxAlias VARCHAR(32)
-	,pxColumn VARCHAR(32)
-	,pxOperator VARCHAR(32)
-	,pxValueString VARCHAR(32)
+     pxClauseType TEXT
+	,pxAlias TEXT
+	,pxColumn TEXT
+	,pxOperator TEXT
+	,pxValueString TEXT
 	,pxValueInt INTEGER
-	--,pxLastClause BOOLEAN
 )
 
-RETURNS VARCHAR(1024)
+RETURNS TEXT
 
 LANGUAGE plpgsql
-
 AS $$
 
 DECLARE
-	textDynamicSqlClause VARCHAR(1024);
+	txtDynamicSQLClause VARCHAR(1024);
 
 BEGIN
 
-textDynamicSqlClause := 
-
-	pxClauseType || ' ' || 
+IF pxClauseType = 'AND' THEN
+	IF (pxValueString IS NOT NULL OR pxValueInt IS NOT NULL) THEN
+		txtDynamicSQLClause :=
+			E'\n' ||
+			pxClauseType || ' ' || 
+			pxAlias || '.' || 
+			pxColumn || ' ' ||
+			pxOperator || ' ' ||
+			COALESCE(pxValueString::TEXT, CAST(pxValueInt AS TEXT));
+	ELSE
+		txtDynamicSQLClause := '';
+	END IF;
 	
-	(
-		CASE WHEN pxClauseType <> 'LIMIT BY' THEN
-				COALESCE(pxAlias, '') || 
-				COALESCE('.' || pxColumn, '') || ' ' ||
-				COALESCE(pxOperator, '') || ' '
-			ELSE ''
-		END
-	) ||	
+ELSIF pxClauseType = 'ORDER BY' THEN
+	IF pxColumn IS NOT NULL THEN
+		txtDynamicSQLClause :=
+			E'\n' ||
+			pxClauseType || ' ' || 
+			pxAlias || '.' || 
+			pxColumn || ' ' ||
+			pxOperator;
+	ELSE
+		txtDynamicSQLClause := '';
+	END IF;
+
+ELSIF pxClauseType = 'LIMIT' THEN	
+	IF pxValueInt IS NOT NULL THEN
+		txtDynamicSQLClause :=
+			E'\n' ||
+			pxClauseType || ' ' ||
+			CAST(pxValueInt AS TEXT);
+	ELSE
+		txtDynamicSQLClause := '';
+	END IF;
 	
-	COALESCE(pxValueString, '') ||
-	COALESCE(CAST(pxValueInt AS VARCHAR(32)), '') ||
-	E'\n';
+END IF;
 
-textDynamicSqlClause := TRIM(textDynamicSqlClause);
-
-RETURN textDynamicSqlClause;
+RETURN txtDynamicSQLClause;
 
 END;
 $$
