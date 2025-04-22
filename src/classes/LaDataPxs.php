@@ -72,35 +72,25 @@ class LaDataPxs extends LaDataDb {
         return $convertPxsKeyValues;
     }
 
-    private function convertClientPxs(array $pxClientPxs): array
-    {
-
-    }
-
     /**
      * 
      */
     protected function convertPxs(array $pxDefaultPxData, array $pxClientPxData): array
     {
 
+        //
         $convertDefaultPxs = $this->convertPxsKeyValues($pxDefaultPxData, self::PX_DB_DEFAULTS);
-        $convertClientPxs = $this->convertPxsKeyValues($pxClientPxData, self::PX_CLIENT);
-
-        $a = 1;
+ 
 
         // If there is parameter data, convert the data to a LaData friendly format to use in PDO paramter binding.
         if (!empty($pxClientPxData))
         {
-
+            $convertClientPxs = $this->convertPxsKeyValues($pxClientPxData, self::PX_CLIENT);
         }
-
-        // then do an array_merge with array_key_intersection from the $pxParameterData to get a return array
-        // that consists of any passed parameters combined w/ the default values where the passed parameters
-        // are precedent over defaults.
 
         $a = 1;
 
-        return $convertPxs;
+        return array_merge($convertDefaultPxs, $convertClientPxs);
     }
 
 
