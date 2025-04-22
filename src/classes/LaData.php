@@ -33,12 +33,16 @@ class LaData extends LaDataPxs {
         //
         $laConfig = new LaConfig();
         $dbFxSpecs = $laConfig->getConfigAttr('data', 'client_operation_to_db_fx', 'client_fx', $pxOperation);
+
+
+
         $dbSchema = $dbFxSpecs[self::SCHEMA_KEY];
         $dbFx = $dbFxSpecs[self::FX_KEY];
-
-
         $qryFile = dirname(__FILE__, 3) . "/" . $dbFxSpecs[self::FX_SQLFILE];
         $qry = file_get_contents($qryFile);
+
+
+
         $parameterData = $this->convertPxs($dbSchema, $dbFx, $pxParameterData);
 
         //
@@ -48,6 +52,9 @@ class LaData extends LaDataPxs {
 
     }
 
+    /**
+     * 
+     */
     
 
 

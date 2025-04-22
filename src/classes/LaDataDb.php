@@ -153,55 +153,61 @@ class LaDataDB
      */
     protected function fetchData
     (
-        string $pxQuery, 
-        array $pxParams = [], 
         string $pxResultsetType,
         string $pxFetchStyle
     )
     {
-        $this->openConnection();
-        $this->setPDOStmt($pxQuery, $pxParams);
-        $this->execPDOStatement();
-
+        //
         $fetchStyle = match($pxFetchStyle)
         {
             'assoc' => PDO::FETCH_ASSOC,
             'num'   => PDO::FETCH_NUM
-        };
+        };        
+        $fetchData = $this->pdoStmt->fetchall($fetchStyle);
 
-        $fetchData = $this->pdoStmt->fetchall($fetchStyle);        
-
+        //
         $fetchData = match($pxResultsetType)
         {
             self::RESULTSET_ARRAY =>  $fetchData[0],
             self::RESULTSET_SCALAR => $fetchData[0][0],
             self::RESULTSET_ROWS => $fetchData,
             default => $fetchData
-        };
-       
-
-        $this->closePDOStatement();
-
-        $this->closeConnection();
+        };    
 
         return $fetchData;
-    // 
 
-}
+    }
 
-/**
- * 
- */
-protected function dispatchCrudOperation
-(
-    string $qry, 
-    string $pxCrudType, 
-    array $parameterData, 
-    string $pxResultsetType, 
-    string $pxFetchType
-)
-{
+    /**
+     * 
+     */
+    protected function dispatchCrudOperation
+    (
+        string $qry, 
+        string $pxCrudType, 
+        array $parameterData, 
+        string $pxResultsetType, 
+        string $pxFetchStyle
+    )
+    {
+        $this->openConnection();
+        $this->setPDOStmt($pxQuery, $pxParams);
 
-}
+        try 
+        {
+            $this->execPDOStatement();
+            call_user_func_array($array($this, $pxCrudType), [$pxResultsetType, $pxFetchStyle]);
+        }
+        catch(PDOEception $pdoError)
+        {
+
+        }
+        finally
+        {
+            $this->closePDOStatement();
+            $this->closeConnection();
+        }
+  
+    }
 
 }
