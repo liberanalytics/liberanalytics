@@ -26,9 +26,9 @@ class LaData extends LaDataPxs {
     (
         string $pxOperation,
         string $pxCrudType,
-        array $pxParameterData,
-        string $pxResultsetType, //= self::RESULTSET_ROWS,
-        string $pxFetchType, // = self::FETCHSTYLE_ASSOC
+        array $pxClientPxs = [],
+        string $pxResultsetType = self::RESULTSET_ROWS,
+        string $pxFetchType = self::FETCHSTYLE_ASSOC
     )
     {
         //
@@ -37,7 +37,7 @@ class LaData extends LaDataPxs {
         $dbFxPxSpecs = $laConfig->getConfigAttr('data', 'crud', 'operation', self::FX_PX_OPERATION);
         $dbFxQry = $this->getCrudQuery($dbFxSpecs);
         $dbFxPxQry = $this->getCrudQuery($dbFxPxSpecs);
-        $dbFxPxParameterData = [$dbFxSpecs[self::SCHEMA_KEY], $dbFxSpecs[self::FX_KEY]];
+        $dbFxPxs = [$dbFxSpecs[self::SCHEMA_KEY], $dbFxSpecs[self::FX_KEY]];
 
 
 
@@ -46,11 +46,11 @@ class LaData extends LaDataPxs {
         $fxPxData = $this->dispatchCrudOperation(
             $dbFxPxQry, 
             self::CRUD_READ, 
-            $dbFxPxParameterData, 
+            $dbFxPxs, 
             self::RESULTSET_ROWS, 
             self::FETCHSTYLE_ASSOC
         );
-        $parameterData = $this->convertPxs($dbSchema, $dbFx, $pxParameterData);
+        $pxPxData = $this->convertPxs($fxPxData, $pxClientPxs);
 
         //
         $crudData = $this->dispatchCrudOperation($qry, $pxCrudType, $parameterData, $pxResultsetType, $pxFetchType);

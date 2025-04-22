@@ -15,7 +15,10 @@
     $pc = $laData->crudData(
         'getposts',
         $laData::CRUD_READ,
-        [], 
+        [
+            'post_category' => 'RDBMS',
+            'post_name' => 'pythonpostgreconnect'
+        ], 
         $laData::RESULTSET_ROWS,
         $laData::FETCHSTYLE_ASSOC
     );
