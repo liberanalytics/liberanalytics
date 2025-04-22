@@ -28,7 +28,7 @@ IF pxClauseType = 'AND' THEN
 			pxAlias || '.' || 
 			pxColumn || ' ' ||
 			pxOperator || ' ' ||
-			COALESCE(pxValueString::TEXT, CAST(pxValueInt AS TEXT));
+			COALESCE(CAST(pxValueInt AS TEXT), CAST(pxValueInt AS TEXT));
 	ELSE
 		txtDynamicSQLClause := '';
 	END IF;
