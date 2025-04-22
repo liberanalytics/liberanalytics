@@ -178,7 +178,7 @@ class LaDataDB
             $this->openConnection();            
             $this->setPDOStmt($pxQry, $pxParams);                  
             $this->execPDOStatement();
-            call_user_func_array([$this, $pxCrudType], [$pxResultsetType, $pxFetchStyle]);      
+            $dispatchCrudOperation = call_user_func_array([$this, $pxCrudType], [$pxResultsetType, $pxFetchStyle]);      
         }
         catch(Throwable $error)
         {
@@ -189,6 +189,8 @@ class LaDataDB
             $this->closePDOStatement();
             $this->closeConnection();
         }
+
+        return $dispatchCrudOperation;
   
     }
 

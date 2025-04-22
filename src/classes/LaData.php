@@ -38,6 +38,11 @@ class LaData extends LaDataPxs {
         $dbFxQry = $this->getCrudQuery($dbFxSpecs);
         $dbFxPxQry = $this->getCrudQuery($dbFxPxSpecs);
         $dbFxPxParameterData = [$dbFxSpecs[self::SCHEMA_KEY], $dbFxSpecs[self::FX_KEY]];
+
+
+
+
+        // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
         $fxPxData = $this->dispatchCrudOperation(
             $dbFxPxQry, 
             self::CRUD_READ, 
@@ -45,9 +50,6 @@ class LaData extends LaDataPxs {
             self::RESULTSET_ROWS, 
             self::FETCHSTYLE_ASSOC
         );
-
-
-
         $parameterData = $this->convertPxs($dbSchema, $dbFx, $pxParameterData);
 
         //
