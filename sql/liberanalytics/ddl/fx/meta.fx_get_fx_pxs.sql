@@ -25,10 +25,14 @@ SELECT
 
 	 pg_proc_arg_order.arg_ordinality AS px_order
 	,pg_proc_arg_defaults.arg_name AS px_name
-	,CAST(CASE 
-	 	WHEN LOWER(pg_proc_arg_defaults.default_value) LIKE '%null%' THEN 'NULL'
-		WHEN LOWER(pg_proc_arg_defaults.default_value) LIKE '%false%' THEN 'FALSE'
-	 END AS TEXT) AS px_default_value
+
+	,CAST(
+	 	CASE
+		 	WHEN LOWER(pg_proc_arg_defaults.default_value) LIKE '%null%' THEN 'NULL'
+			WHEN LOWER(pg_proc_arg_defaults.default_value) LIKE '%false%' THEN 'FALSE'
+			WHEN CAST(pg_proc_arg_defaults.default_value AS TEXT) ~ '^\d+$' THEN pg_proc_arg_defaults.default_value
+		 END 
+	 AS TEXT) AS px_default_value
 
 
 FROM
