@@ -185,20 +185,21 @@ class LaDataDB
     (
         string $qry, 
         string $pxCrudType, 
-        array $parameterData, 
+        array $pxParams, 
         string $pxResultsetType, 
         string $pxFetchStyle
     )
     {
-        $this->openConnection();
-        $this->setPDOStmt($pxQuery, $pxParams);
+
 
         try 
         {
             $this->execPDOStatement();
             call_user_func_array($array($this, $pxCrudType), [$pxResultsetType, $pxFetchStyle]);
+            $this->openConnection();
+            $this->setPDOStmt($pxQuery, $pxParams);            
         }
-        catch(PDOEception $pdoError)
+        catch(Error $pdoError)
         {
 
         }

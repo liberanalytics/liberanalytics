@@ -12,6 +12,7 @@ class LaData extends LaDataPxs {
     private const SCHEMA_KEY = 'schema';
     private const FX_KEY = 'fx';
     private const FX_SQLFILE = 'sqlfile';
+    private const FX_PX_OPERATION = 'getfxparameters';
 
     function __construct()
     {
@@ -32,14 +33,18 @@ class LaData extends LaDataPxs {
     {
         //
         $laConfig = new LaConfig();
-        $dbFxSpecs = $laConfig->getConfigAttr('data', 'client_operation_to_db_fx', 'client_fx', $pxOperation);
-
-
-
-        $dbSchema = $dbFxSpecs[self::SCHEMA_KEY];
-        $dbFx = $dbFxSpecs[self::FX_KEY];
-        $qryFile = dirname(__FILE__, 3) . "/" . $dbFxSpecs[self::FX_SQLFILE];
-        $qry = file_get_contents($qryFile);
+        $dbFxSpecs = $laConfig->getConfigAttr('data', 'crud', 'operation', $pxOperation);
+        $dbFxPxSpecs = $laConfig->getConfigAttr('data', 'crud', 'operation', self::FX_PX_OPERATION);
+        $dbFxQry = $this->getCrudQuery($dbFxSpecs);
+        $dbFxPxQry = $this->getCrudQuery($dbFxPxSpecs);
+        $dbFxPxParameterData = [$dbFxSpecs[self::SCHEMA_KEY], $dbFxSpecs[self::FX_KEY]];
+        $fxPxData = $this->dispatchCrudOperation(
+            $dbFxPxQry, 
+            $self::CRUD_READ, 
+            $dbFxPxParameterData, 
+            self::RESULTSET_ROWS, 
+            self::FETCHSTYLE_ASSOC
+        );
 
 
 
@@ -55,7 +60,14 @@ class LaData extends LaDataPxs {
     /**
      * 
      */
-    
+    private function getCrudQuery(array $pxCrudOperationSpecs)
+    {
+        $dbSchema = $pxCrudOperationSpecs[self::SCHEMA_KEY];
+        $dbFx = $pxCrudOperationSpecs[self::FX_KEY];
+        $qryFile = dirname(__FILE__, 3) . "/" . $pxCrudOperationSpecs[self::FX_SQLFILE];
+        $qry = file_get_contents($qryFile);
+        return $qry;
+    }
 
 
 }

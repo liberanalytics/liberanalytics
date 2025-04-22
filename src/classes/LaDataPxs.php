@@ -5,9 +5,6 @@ include('LaDataDb.php');
 
 class LaDataPxs extends LaDataDb {
 
-    private const COL_PX_KEY = 'px_name';
-    private const COL_PX_DEFAULTVALUE = 'px_default_value';
-
     function __construct()
     {
         parent::__construct();
@@ -70,15 +67,6 @@ class LaDataPxs extends LaDataDb {
     protected function convertPxs(string $pxSchema, string $pxFunction, array $pxParameterData)
     {
 
-        //
-        $qry = 
-        "SELECT
-
-        " .     self::COL_PX_KEY .
-        ",
-        " .   self::COL_PX_DEFAULTVALUE . "
-        
-        FROM meta.fx_get_fx_pxs";
         $dbPxDefaultsAsRows = $this->fetchData($qry, [$pxSchema, $pxFunction], self::RESULTSET_ROWS, self::FETCHSTYLE_ASSOC);
         $dbPxDefaultsAsArray = $this->convertDbPxDefaults($dbPxDefaultsAsRows);
 
