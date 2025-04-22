@@ -12,11 +12,6 @@ class LaData extends LaDataPxs {
     private const SCHEMA_KEY = 'schema';
     private const FX_KEY = 'fx';
     private const FX_SQLFILE = 'sqlfile';
-    public const CRUD_CREATE = 'create';
-    public const CRUD_READ = 'read';
-    public const CRUD_UPDATE = 'update';
-    public const CRUD_DELETE = 'delete';
-
 
     function __construct()
     {
@@ -47,10 +42,8 @@ class LaData extends LaDataPxs {
         $parameterData = $this->convertPxs($dbSchema, $dbFx, $pxParameterData);
 
         //
-        $crudData = match($pxCrudType)
-        {
-            self::CRUD_READ => $this->fetchData($qry, $parameterData, $pxResultsetType, $pxFetchType)
-        };
+        $crudData = $this->dispatchCrudOperation($qry, $pxCrudType, $parameterData, $pxResultsetType, $pxFetchType);
+
         return $crudData;
 
     }

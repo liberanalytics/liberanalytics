@@ -16,7 +16,11 @@ class LaDataDB
     public const RESULTSET_ROWS = 'rows';
     public const RESULTSET_SCALAR = 'scalar';
     public const FETCHSTYLE_ASSOC = 'assoc';
-    public const FETCHSTYLE_NUM = 'num'   ;
+    public const FETCHSTYLE_NUM = 'num';
+    public const CRUD_CREATE = 'create';
+    public const CRUD_READ = 'fetchData';
+    public const CRUD_UPDATE = 'update';
+    public const CRUD_DELETE = 'delete';    
     private LaConfig $laConfig;
     private LaAws $laAWS;
     private $connection;
@@ -182,6 +186,21 @@ class LaDataDB
 
         return $fetchData;
     // 
+
+}
+
+/**
+ * 
+ */
+protected function dispatchCrudOperation
+(
+    string $qry, 
+    string $pxCrudType, 
+    array $parameterData, 
+    string $pxResultsetType, 
+    string $pxFetchType
+)
+{
 
 }
 
