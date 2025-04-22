@@ -29,11 +29,11 @@ STABLE
 AS $$
 
 DECLARE
-	txtQueryBase VARCHAR(1024);
-	txtQueryAttrList VARCHAR(1024);
-	txtQuery VARCHAR(1024);
-	txtPostsAlias VARCHAR(16) := 'la';
-	txtPostTagsAlias VARCHAR(16) := 'post_tags';
+	txtQueryBase TEXT;
+	txtQueryAttrList TEXT;
+	txtQuery TEXT;
+	txtPostsAlias TEXT := 'la';
+	txtPostTagsAlias TEXT := 'post_tags';
 	txtPredFeatured TEXT;
 	txtPredPostName TEXT;
 	txtPredPostCategory TEXT;

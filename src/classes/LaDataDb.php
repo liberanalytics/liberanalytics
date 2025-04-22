@@ -41,30 +41,21 @@ class LaDataDB
             $this->laConfig->getConfigAttr('liberanalytics', 'config', 'env', 'dir') .
             $this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
 
-        //chmod($connFile, 0440);
+        //
+        chmod($connectionFile, 0440);
         $handle = fopen($connectionFile, 'rb');
-        //chmod($connFile, 0000);
+        chmod($connectionFile, 0000);
         $binary = fread($handle, filesize($connectionFile));
         
         // Decrypt the binary data in the database config file.
-        try
-        {
-            $connectionData = $this->laAWS->getAWSClient('awsKMS')->decrypt([
+        $connectionData = $this->laAWS->getAWSClient('awsKMS')->decrypt([
 
-                // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
-                'CiphertextBlob' => $binary,
-                'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
-                'KeyId' => $this->laConfig->getConfigAttr('aws', 'kms', 'key_desc', 'liberanalytics_db')
+            // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
+            'CiphertextBlob' => $binary,
+            'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
+            'KeyId' => $this->laConfig->getConfigAttr('aws', 'kms', 'key_desc', 'liberanalytics_db')
 
-            ]);
-        }
-        // Log any exceptions to the error log group / stream. Exit on failure
-        // since remaining program depends on decrypted data.
-        catch (Exception $e)
-        {
-            $this->laAWS->getAWSClient('logError')->log(['Problem decrypting : ' => $e->getAwsErrorMessage()]);
-            exit("Unable to decrypt the data in {$connectionFile}.");
-        }
+        ]);
         
         // Decode using base64 decoding, then split data into components per delimiter.
         $connectionData = base64_decode($connectionData['Plaintext']);
@@ -74,19 +65,10 @@ class LaDataDB
         $dbUser = $dbParams[$this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'user_ordinal')];
         $dbAuth = $dbParams[$this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'auth_ordinal')];
 
-        // Try to connect to postgres database. Log any errors to CloudWatch Logs.
-        try
-        {
-            $dsn = "pgsql:host={$dbHost};port=5432;dbname={$dbName};user={$dbUser};password={$dbAuth};sslmode=require";
-            $this->connection = new PDO($dsn);
-            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-        // Connection attempt failed - log failure to CloudWatch Logs and exit.
-        catch (PDOException $e)
-        {
-            $this->laAWS->getAWSClient('logError')->log(['Problem connecting : ' => $e->getMessage()]);
-            exit("Unable to connect to host : {$dbHost}.");
-        }
+        $dsn = "pgsql:host={$dbHost};port=5432;dbname={$dbName};user={$dbUser};password={$dbAuth};sslmode=require";
+        $this->connection = new PDO($dsn);
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
     }
 
 
@@ -183,7 +165,7 @@ class LaDataDB
      */
     protected function dispatchCrudOperation
     (
-        string $qry, 
+        string $pxQry, 
         string $pxCrudType, 
         array $pxParams, 
         string $pxResultsetType, 
@@ -191,15 +173,14 @@ class LaDataDB
     )
     {
 
-
         try 
         {
+            $this->openConnection();            
+            $this->setPDOStmt($pxQry, $pxParams);                  
             $this->execPDOStatement();
-            call_user_func_array($array($this, $pxCrudType), [$pxResultsetType, $pxFetchStyle]);
-            $this->openConnection();
-            $this->setPDOStmt($pxQuery, $pxParams);            
+            call_user_func_array([$this, $pxCrudType], [$pxResultsetType, $pxFetchStyle]);      
         }
-        catch(Error $pdoError)
+        catch(Throwable $error)
         {
 
         }

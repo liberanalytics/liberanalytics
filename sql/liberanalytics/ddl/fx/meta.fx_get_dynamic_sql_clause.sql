@@ -25,10 +25,10 @@ IF pxClauseType = 'AND' THEN
 		txtDynamicSQLClause :=
 			E'\n' ||
 			pxClauseType || ' ' || 
-			pxAlias || '.' || 
+			COALESCE(pxAlias || '.', '') || 
 			pxColumn || ' ' ||
 			pxOperator || ' ' ||
-			COALESCE(CAST(pxValueInt AS TEXT), CAST(pxValueInt AS TEXT));
+			COALESCE(CAST(pxValueString AS TEXT), CAST(pxValueInt AS TEXT));
 	ELSE
 		txtDynamicSQLClause := '';
 	END IF;

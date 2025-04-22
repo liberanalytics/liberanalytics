@@ -40,7 +40,7 @@ class LaData extends LaDataPxs {
         $dbFxPxParameterData = [$dbFxSpecs[self::SCHEMA_KEY], $dbFxSpecs[self::FX_KEY]];
         $fxPxData = $this->dispatchCrudOperation(
             $dbFxPxQry, 
-            $self::CRUD_READ, 
+            self::CRUD_READ, 
             $dbFxPxParameterData, 
             self::RESULTSET_ROWS, 
             self::FETCHSTYLE_ASSOC

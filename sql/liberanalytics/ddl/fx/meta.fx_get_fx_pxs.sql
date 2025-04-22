@@ -8,9 +8,9 @@ CREATE OR REPLACE FUNCTION meta.fx_get_fx_pxs
 
 RETURNS TABLE
 (
-	 pxOrder BIGINT
-	,pxName TEXT
-	,pxDefaultValue TEXT
+	 px_order BIGINT
+	,px_name TEXT
+	,px_default_value TEXT
 )
 
 LANGUAGE plpgsql
@@ -23,12 +23,12 @@ RETURN QUERY
 
 SELECT
 
-	 pg_proc_arg_order.arg_ordinality
-	,pg_proc_arg_defaults.arg_name
-	,CASE 
+	 pg_proc_arg_order.arg_ordinality AS px_order
+	,pg_proc_arg_defaults.arg_name AS px_name
+	,CAST(CASE 
 	 	WHEN LOWER(pg_proc_arg_defaults.default_value) LIKE '%null%' THEN 'NULL'
 		WHEN LOWER(pg_proc_arg_defaults.default_value) LIKE '%false%' THEN 'FALSE'
-	 END AS defualt_value
+	 END AS TEXT) AS px_default_value
 
 
 FROM
