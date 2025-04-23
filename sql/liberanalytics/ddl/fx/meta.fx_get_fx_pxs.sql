@@ -2,14 +2,14 @@ DROP FUNCTION IF EXISTS meta.fx_get_fx_pxs;
 
 CREATE OR REPLACE FUNCTION meta.fx_get_fx_pxs
 (
-     pxFxSchema VARCHAR(32)
-	,pxFxName VARCHAR(32)
+     px_fx_schema TEXT
+	,px_fx_name TEXT
 )
 
 RETURNS TABLE
 (
 	 px_schema_name NAME
-	,px_fx_name NAME
+	,px_function_name NAME
 	,px_order BIGINT
 	,px_name TEXT
 	,px_type NAME
@@ -62,8 +62,8 @@ AND pg_ns_args_inner.nspname NOT IN ('pg_catalog', 'information_schema'))
 
 WHERE 1=1
 AND pg_proc_args_inner.proargdefaults IS NOT NULL
-AND pg_ns_args_inner.nspname = pxFxSchema
-AND pg_proc_args_inner.proname = pxFxName
+AND pg_ns_args_inner.nspname = px_fx_schema
+AND pg_proc_args_inner.proname = px_fx_name
 
 ) AS pg_proc_arg_defaults_inner
 
@@ -89,12 +89,12 @@ FROM pg_proc AS pg_proc_order_inner
 JOIN pg_namespace AS pg_ns_order_inner
 ON (pg_proc_order_inner.pronamespace = pg_ns_order_inner.oid)
 
-LEFT JOIN unnest(pg_proc_order_inner.proargnames) WITH ORDINALITY AS pg_fx_argnames(arg_name, arg_ordinality) ON TRUE
+LEFT JOIN LATERAL unnest(pg_proc_order_inner.proargnames) WITH ORDINALITY AS pg_fx_argnames(arg_name, arg_ordinality) ON TRUE
 
 WHERE 1=1
 AND pg_proc_order_inner.proargdefaults IS NOT NULL
-AND pg_ns_order_inner.nspname = pxFxSchema
-AND pg_proc_order_inner.proname = pxFxName
+AND pg_ns_order_inner.nspname = px_fx_schema
+AND pg_proc_order_inner.proname = px_fx_name
 
 ) AS pg_proc_arg_order
 

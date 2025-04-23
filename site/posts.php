@@ -56,12 +56,12 @@ $laData = new LaData();
 						<li>
 							<label class="label-nonfirst">Tags</label>
 							<input type="text" class="input-control" maxlength="48"
-							 data-caption="Tags" data-datakey="tags" data-vx="vxText" data-len="48">
+							 data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48">
 						</li>
 						<li>
 							<label class="label-nonfirst">Keywords</label>
 							<input type="text" class="input-control" maxlength="48"
-							data-caption="Keywords" data-datakey="keywords" data-vx="vxText" data-len="48">
+							data-caption="Keywords" data-datakey="post_keywords" data-vx="vxText" data-len="48">
 						</li>
 						<li>
 							<input type="submit" value="SUBMIT">

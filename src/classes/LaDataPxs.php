@@ -18,10 +18,10 @@ class LaDataPxs extends LaDataDb {
     /**
      * 
      */
-    private function convertPxKey(array $pxKeySearch, array $pxKeyReplace, $pxSubject): string
+    private function convertClientPxKey(string $pxKey): string
     {
-        $convertPxKey = str_replace($pxKeySearch, $pxKeyReplace, $pxSubject);
-        return $convertPxKey;
+        $convertClientPxKey = 'px_'. $pxKey;
+        return $convertClientPxKey;
     }
 
     /**
@@ -57,12 +57,12 @@ class LaDataPxs extends LaDataDb {
             switch($pxSource)
             {
                 case self::PX_DB_DEFAULTS:
-                    $key = $this->convertPxKey(['px', '_'], [''], $pxVal[self::COL_PX_KEY]);
+                    $key = $pxVal[self::COL_PX_KEY];
                     $val = $this->coerceDbDefaultPxDataType($pxVal[self::COL_PX_DEFAULTVALUE]);
                     break;
                 
                 case self::PX_CLIENT:
-                    $key = $this->convertPxKey(['_'], [""], $pxPx);
+                    $key = $this->convertClientPxKey($pxPx);
                     $val = $pxVal;
                     break;
             };            
@@ -77,23 +77,18 @@ class LaDataPxs extends LaDataDb {
      */
     protected function convertPxs(array $pxDefaultPxData, array $pxClientPxData): array
     {
-
         //
         $convertDefaultPxs = $this->convertPxsKeyValues($pxDefaultPxData, self::PX_DB_DEFAULTS);
- 
 
         // If there is parameter data, convert the data to a LaData friendly format to use in PDO paramter binding.
+        $convertClientPxs = [];
         if (!empty($pxClientPxData))
         {
             $convertClientPxs = $this->convertPxsKeyValues($pxClientPxData, self::PX_CLIENT);
         }
 
-        $a = 1;
-
         return array_merge($convertDefaultPxs, $convertClientPxs);
     }
-
-
 
 }
 

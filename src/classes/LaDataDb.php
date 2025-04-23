@@ -93,40 +93,18 @@ class LaDataDB
     /**
      * 
      */
-    private function execPDOStatement()
+    private function execPDOStatement($pxParams)
     {
-        $this->pdoStmt->execute();
+        $this->pdoStmt->execute($pxParams);
     }
 
     /**
      * 
      * 
      */
-    private function setPDOStmt(string $pxQuery, array $pxParams = [])
+    private function setPDOStmt(string $pxQuery)
     {
-        //
-        $paramPlaceholders = "(" . implode(',', array_map(fn($ele) => "?", $pxParams)) . ")";
-        $qry = $pxQuery . $paramPlaceholders . ";";
-        $this->pdoStmt = $this->connection->prepare($qry);
-
-        if (!empty($pxParams))
-        {
-            //
-            $paramPosition = 1;
-            foreach($pxParams as $paramKey => $paramValue)
-            {
-                $paramType = match(gettype($paramValue))
-                {
-                    'string'    => PDO::PARAM_STR,
-                    'integer'   => PDO::PARAM_INT,
-                    'boolean'   => PDO::PARAM_BOOL,
-                    'NULL'      => PDO::PARAM_NULL
-                };
-
-                $this->pdoStmt->bindValue($paramPosition, $paramValue, $paramType);
-                $paramPosition += 1;
-            }
-        }         
+        $this->pdoStmt = $this->connection->prepare($pxQuery);   
     }
 
     /**
@@ -176,8 +154,8 @@ class LaDataDB
         try 
         {
             $this->openConnection();            
-            $this->setPDOStmt($pxQry, $pxParams);                  
-            $this->execPDOStatement();
+            $this->setPDOStmt($pxQry);                  
+            $this->execPDOStatement($pxParams);
             $dispatchCrudOperation = call_user_func_array([$this, $pxCrudType], [$pxResultsetType, $pxFetchStyle]);      
         }
         catch(Throwable $error)
