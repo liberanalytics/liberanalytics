@@ -2,14 +2,14 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 (
-	 pxFeatured INTEGER DEFAULT 1000
-	,pxPostName TEXT DEFAULT NULL
-	,pxPostCategory TEXT DEFAULT NULL
-	,pxPostTags TEXT[] DEFAULT NULL
-	,pxKeywords TEXT[] DEFAULT NULL
-	,pxOrderBy TEXT DEFAULT NULL
-	,pxOrderByAscDesc TEXT DEFAULT NULL
-	,pxLimit INTEGER DEFAULT NULL	
+	 px_featured INTEGER DEFAULT 1000
+	,px_post_name TEXT DEFAULT NULL
+	,px_post_category TEXT DEFAULT NULL
+	,px_post_tags TEXT[] DEFAULT NULL
+	,px_post_keywords TEXT[] DEFAULT NULL
+	,px_order_by TEXT DEFAULT NULL
+	,px_order_by_ascdesc TEXT DEFAULT NULL
+	,px_limit INTEGER DEFAULT NULL	
 )
 
 RETURNS TABLE
@@ -29,27 +29,27 @@ STABLE
 AS $$
 
 DECLARE
-	txtQueryBase TEXT;
-	txtQueryAttrList TEXT;
-	txtQuery TEXT;
-	txtPostsAlias TEXT := 'la';
-	txtPostTagsAlias TEXT := 'post_tags';
-	txtPredFeatured TEXT;
-	txtPredPostName TEXT;
-	txtPredPostCategory TEXT;
-	txtPredPostTags TEXT;
-	txtPredPostKeywords TEXT;
-	txtOrderBy TEXT;
-	txtOrderByAscDesc TEXT;
-	txtLimit TEXT;
+	txt_query_base TEXT;
+	txt_query_attr_list TEXT;
+	txt_query TEXT;
+	txt_posts_alias TEXT := 'la';
+	txt_post_tags_alias TEXT := 'post_tags';
+	txt_pred_featured TEXT;
+	txt_pred_post_name TEXT;
+	txt_pred_post_category TEXT;
+	txt_pred_post_tags TEXT;
+	txt_pred_post_keywords TEXT;
+	txt_order_by TEXT;
+	txt_order_by_ascdesc TEXT;
+	txt_limit TEXT;
 
 BEGIN
 
-txtPredFeatured := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'featured', '<=', NULL, pxFeatured);
-txtPredPostName := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'post_name', '=', QUOTE_LITERAL(pxPostName), NULL);
-txtPredPostCategory := meta.fx_get_dynamic_sql_clause('AND', txtPostsAlias, 'post_category', '=', QUOTE_LITERAL(pxPostCategory), NULL);
-txtOrderBy := meta.fx_get_dynamic_sql_clause('ORDER BY', txtPostsAlias, pxOrderBy, pxOrderByAscDesc, NULL, NULL); 
-txtLimit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, pxLimit); 
+txt_pred_featured := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'featured', '<=', NULL, px_featured);
+txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', QUOTE_LITERAL(px_post_name), NULL);
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', QUOTE_LITERAL(px_post_category), NULL);
+txt_order_by := meta.fx_get_dynamic_sql_clause('ORDER BY', txt_posts_alias, px_order_by, px_order_by_ascdesc, NULL, NULL); 
+txt_limit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, px_limit); 
 
 
 /*
@@ -61,43 +61,43 @@ END IF;
 */
 
 
-txtQueryAttrList := 
+txt_query_attr_list := 
 
-	txtPostsAlias || '.post_name' || E'\n' ||
-	',' || txtPostsAlias || '.post_category' || E'\n'
-	',' || txtPostsAlias || '.post_created' || E'\n' ||
-	',' || txtPostsAlias || '.short_desc' || E'\n' ||
-	',' || txtPostsAlias || '.long_desc' || E'\n' ||
-	',' || txtPostsAlias || '.post_img' || E'\n' ||
-	',' || txtPostsAlias || '.featured_img' || E'\n' ||
-	',' || txtPostsAlias || '.search_img' || E'\n\n';
+	txt_posts_alias || '.post_name' || E'\n' ||
+	',' || txt_posts_alias || '.post_category' || E'\n'
+	',' || txt_posts_alias || '.post_created' || E'\n' ||
+	',' || txt_posts_alias || '.short_desc' || E'\n' ||
+	',' || txt_posts_alias || '.long_desc' || E'\n' ||
+	',' || txt_posts_alias || '.post_img' || E'\n' ||
+	',' || txt_posts_alias || '.featured_img' || E'\n' ||
+	',' || txt_posts_alias || '.search_img' || E'\n\n';
 
-txtQueryBase :=
+txt_query_base :=
 
 'SELECT 
 
-' || txtQueryAttrList ||
+' || txt_query_attr_list ||
 
-'FROM liberanalytics.posts AS ' || txtPostsAlias || '
+'FROM liberanalytics.posts AS ' || txt_posts_alias || '
 
-LEFT JOIN liberanalytics.posts_tags AS ' || txtPostTagsAlias || '
+LEFT JOIN liberanalytics.posts_tags AS ' || txt_post_tags_alias || '
 ON (la.post_name = post_tags.post_name)
 
 WHERE 1=1
 ';
 
-txtQuery := 
-	txtQueryBase || 
-	txtPredFeatured ||
-	txtPredPostName ||
-	txtPredPostCategory ||
-	txtOrderBy ||
-	txtLimit ||
+txt_query := 
+	txt_query_base || 
+	txt_pred_featured ||
+	txt_pred_post_name ||
+	txt_pred_post_category ||
+	txt_order_by ||
+	txt_limit ||
 
 ';';
 
-RETURN QUERY EXECUTE txtQuery;
--- RAISE NOTICE 'Query txting: %', txtQuery;
+RETURN QUERY EXECUTE txt_query;
+--RAISE NOTICE 'Query txting: %', txt_query;
 --USING pxPostTags;
 
 END;

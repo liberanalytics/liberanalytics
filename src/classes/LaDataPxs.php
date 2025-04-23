@@ -57,7 +57,7 @@ class LaDataPxs extends LaDataDb {
             switch($pxSource)
             {
                 case self::PX_DB_DEFAULTS:
-                    $key = $this->convertPxKey(['px'], [''], $pxVal[self::COL_PX_KEY]);
+                    $key = $this->convertPxKey(['px', '_'], [''], $pxVal[self::COL_PX_KEY]);
                     $val = $this->coerceDbDefaultPxDataType($pxVal[self::COL_PX_DEFAULTVALUE]);
                     break;
                 
