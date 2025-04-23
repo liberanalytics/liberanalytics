@@ -35,8 +35,8 @@ class LaData extends LaDataPxs {
         $laConfig = new LaConfig();
         $dbFxSpecs = $laConfig->getConfigAttr('data', 'crud', 'operation', $pxOperation);
         $dbFxPxSpecs = $laConfig->getConfigAttr('data', 'crud', 'operation', self::FX_PX_OPERATION);
-        $dbFxQry = $this->getCrudQuery($dbFxSpecs);
-        $dbFxPxQry = $this->getCrudQuery($dbFxPxSpecs);
+        $dbFxQry = $this->getCrudQryFromSqlFile($dbFxSpecs);
+        $dbFxPxQry = $this->getCrudQryFromSqlFile($dbFxPxSpecs);
         $dbFxPxs = [$dbFxSpecs[self::SCHEMA_KEY], $dbFxSpecs[self::FX_KEY]];
 
         // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
@@ -58,7 +58,7 @@ class LaData extends LaDataPxs {
     /**
      * 
      */
-    private function getCrudQuery(array $pxCrudOperationSpecs)
+    private function getCrudQryFromSqlFile(array $pxCrudOperationSpecs)
     {
         $dbSchema = $pxCrudOperationSpecs[self::SCHEMA_KEY];
         $dbFx = $pxCrudOperationSpecs[self::FX_KEY];
