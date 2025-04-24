@@ -1,19 +1,15 @@
 <?php
 
 include('LaDataCrud.php');
-include('LaVx.php');
+include('LaDataVx.php');
 
 
-class LaDataPxs extends LaDataCrud {
+class LaDataPxs extends LaDataVx {
 
     private const FX_PX_OPERATION = 'getfxparameters';
     private const COL_PX_KEY = 'px_name';
     private const COL_PX_DEFAULTVALUE = 'px_default_value';
     private const COL_PX_TYPE = 'px_type';
-    private const PX_ATTR_LISTS = ['px_post_tags', 'px_post_keywords'];
-    private const PX_ATTR_REFDATA = [
-        'px_post_category' => 'getpostcategories'
-    ];
     private array $dbPxs;
     private array $clientPxs;
 
@@ -63,31 +59,13 @@ class LaDataPxs extends LaDataCrud {
             // Convert client key to db function p(x) name.
             $pxKey = $this->convertClientPxKey($key);
 
-            // Iterate through client p(x)'s and match to the database defaults by key to vx.
+            // Iterate through client p(x)'s and match to the database defaults by key to determine type.
             if (array_key_exists($pxKey, $this->dbPxs))
             {
                 //
-                if (array_key_exists($pxKey, self::PX_ATTR_REFDATA))
-                {
-                    $pxVal = $this->handleRefdata($pxCrudOperation, $pxKey, $value);
-                }
-
-                //
-                elseif (array_key_exists($pxKey, self::PX_ATTR_LISTS))
-                {
-                    // 1. iterate through the client submitted list data by each datum sanitizing and validating each value.
-                    // 2. form a postgresql array: e.g. "{val1, val2, val3}" from the list.
-                    $pxVal = $this->handleList();
-                }
-
-                //
-                else
-                {                    
-                    $dbPx = $this->dbPxs[$pxKey];
-                    $dbPxType = $this->dbPxs[$pxKey][self::COL_PX_TYPE];
-                    $pxVal = $this->handleScalar($pxCrudOperation, $pxKey, $value, $dbPxType);
-                }
-
+                $dbPx = $this->dbPxs[$pxKey];
+                $pxType = $dbPx[self::COL_PX_TYPE];
+                $pxVal = $this->vxHandler($pxCrudOperation, $pxKey, $value, $pxType);
             }
             else
             {
@@ -159,7 +137,7 @@ class LaDataPxs extends LaDataCrud {
 
         //
         $this->setDbPxs($fxPxData);
-        $this->setClientPxs($pxClientPxData);
+        $this->setClientPxs($pxCrudOperation, $pxClientPxData);
         return array_merge($this->dbPxs, $this->clientPxs);
     }
 

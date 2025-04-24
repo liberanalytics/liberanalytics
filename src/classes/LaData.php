@@ -18,8 +18,7 @@ class LaData extends LaDataPxs {
     /**
      * 
      */
-    public function crudData
-    (
+    public function crudData(
         string $pxCrudOperation,
         string $pxCrudType,
         array $pxClientPxs = [],
@@ -28,7 +27,7 @@ class LaData extends LaDataPxs {
     )
     {
         //
-        $dbFxQuery = $this->getCrudQryFromSqlFile($pxCrudOperation);
+        $dbFxQry = $this->getCrudQryFromSqlFile($pxCrudOperation);
 
         try
         {

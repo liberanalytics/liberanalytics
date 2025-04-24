@@ -12,14 +12,4 @@
         $laData::FETCHSTYLE_ASSOC
     );
 
-    // $pcs = $laData->crudData(
-    //     'getpostcategories',
-    //     $laData::CRUD_READ,
-    //     ['post_category' => 'Analytics'],
-    //     $laData::RESULTSET_ROWS,
-    //     $laData::FETCHSTYLE_ASSOC        
-    // );
-    $a = 1;
-
-
     ?>
