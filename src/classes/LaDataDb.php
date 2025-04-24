@@ -21,8 +21,8 @@ class LaDataDB
     public const CRUD_READ = 'fetchData';
     public const CRUD_UPDATE = 'update';
     public const CRUD_DELETE = 'delete';    
-    private LaConfig $laConfig;
-    private LaAws $laAWS;
+    private LaConfig $laConfig; 
+    private LaAws $laAWS;       
     private $connection;
     private $pdoStmt;
 
@@ -42,9 +42,9 @@ class LaDataDB
             $this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
 
         //
-        chmod($connectionFile, 0440);
+        // chmod($connectionFile, 0440);
         $handle = fopen($connectionFile, 'rb');
-        chmod($connectionFile, 0000);
+        // chmod($connectionFile, 0000);
         $binary = fread($handle, filesize($connectionFile));
         
         // Decrypt the binary data in the database config file.
@@ -70,8 +70,6 @@ class LaDataDB
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     }
-
-
 
     /**
      * 
@@ -150,23 +148,15 @@ class LaDataDB
         string $pxFetchStyle
     )
     {
+        //
+        $this->openConnection();   
 
-        try 
-        {
-            $this->openConnection();            
-            $this->setPDOStmt($pxQry);                  
-            $this->execPDOStatement($pxParams);
-            $dispatchCrudOperation = call_user_func_array([$this, $pxCrudType], [$pxResultsetType, $pxFetchStyle]);      
-        }
-        catch(Throwable $error)
-        {
+        $this->setPDOStmt($pxQry);                  
+        $this->execPDOStatement($pxParams);
+        $dispatchCrudOperation = call_user_func_array([$this, $pxCrudType], [$pxResultsetType, $pxFetchStyle]);    
+        $this->closePDOStatement();
 
-        }
-        finally
-        {
-            $this->closePDOStatement();
-            $this->closeConnection();
-        }
+        $this->closeConnection();
 
         return $dispatchCrudOperation;
   

@@ -4,15 +4,9 @@
     require_once(dirname(__DIR__) . "/" . "classes/LaVx.php");
  
     $laData = new LaData();
-    $laVx = new LaVx();    
-    // $laData->openConn();
-    // $laData = new LaData();
-    // $laVx = new LaVx();    
-    // // $laData->openConn();
-
+    $laVx = new LaVx();     
  
- 
-    $pc = $laData->crudData(
+    $posts = $laData->crudData(
         'getposts',
         $laData::CRUD_READ,
         [], 
@@ -20,14 +14,14 @@
         $laData::FETCHSTYLE_ASSOC
     );
 
-            // 'post_category' => 'RDBMS',
-            // 'post_name' => 'pythonpostgreconnect'
-    // $pc = $laData->crudData(
+    // $pcs = $laData->crudData(
     //     'getpostcategories',
     //     $laData::CRUD_READ,
-    //     [], 
+    //     ['post_category' => 'Analytics'],
     //     $laData::RESULTSET_ROWS,
-    //     $laData::FETCHSTYLE_ASSOC
+    //     $laData::FETCHSTYLE_ASSOC        
     // );
+    $a = 1;
+
 
     ?>

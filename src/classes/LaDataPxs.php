@@ -1,6 +1,7 @@
 <?php
 
 include('LaDataDb.php');
+include('LaVx.php');
 
 
 class LaDataPxs extends LaDataDb {
@@ -8,11 +9,59 @@ class LaDataPxs extends LaDataDb {
     private CONST COL_PX_KEY = 'px_name';
     private CONST COL_PX_DEFAULTVALUE = 'px_default_value';
     private CONST PX_DB_DEFAULTS = 'px_db_defaults';
-    private CONST PX_CLIENT = 'px_client';    
+    private CONST PX_CLIENT = 'px_client';
+    private array $dbPxs;
+    private array $clientPxs;
 
     function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * 
+     */
+    private function setDbPxs($pxDbPxData): array
+    {
+        //
+        $setDbPxDefaults = [];
+        foreach($pxDbPxData as $row => $values)
+        {
+            //
+            $pxNameKey = $values[self::COL_PX_KEY];
+
+            //
+            foreach($values as $key => $value)
+            {
+                //
+                if($key == self::COL_PX_DEFAULTVALUE)
+                {
+                    $value = $this->coerceDbDefaultPxDataType($values[self::COL_PX_DEFAULTVALUE]);
+                }
+                else
+                {
+                    $value = $value;
+                }
+                $setDbPxDefaults[$pxNameKey][$key] = $value;
+            }
+        }       
+        return $setDbPxDefaults;
+    }
+
+    /**
+     * 
+     */
+    private function setClientPxs(array $pxClientPxData)
+    {
+        //
+        $setClientPxs = [];
+        foreach ($pxClientPxData as $pxKey => $pxVal)
+        {
+            $key = $this->convertClientPxKey($pxKey);
+            $val = $pxVal; // sanitize here
+            $setClientPxs[$key] = $pxVal;
+        };     
+        return $setClientPxs;
     }
 
     /**
@@ -46,46 +95,18 @@ class LaDataPxs extends LaDataDb {
         return $coercePxDataType;
     }
 
-    /**
-     * 
-     */    
-    private function convertPxsKeyValues(array $pxPxs, string $pxSource): array
-    {
-        $convertPxsKeyValues = [];
-        foreach ($pxPxs as $pxPx => $pxVal)
-        {
-            switch($pxSource)
-            {
-                case self::PX_DB_DEFAULTS:
-                    $key = $pxVal[self::COL_PX_KEY];
-                    $val = $this->coerceDbDefaultPxDataType($pxVal[self::COL_PX_DEFAULTVALUE]);
-                    break;
-                
-                case self::PX_CLIENT:
-                    $key = $this->convertClientPxKey($pxPx);
-                    $val = $pxVal;
-                    break;
-            };            
-
-            $convertPxsKeyValues[$key] = $val;
-        }
-        return $convertPxsKeyValues;
-    }
 
     /**
      * 
      */
-    protected function convertPxs(array $pxDefaultPxData, array $pxClientPxData): array
+    protected function convertPxs(array $pxDbPxData, array $pxClientPxData): array
     {
         //
-        $convertDefaultPxs = $this->convertPxsKeyValues($pxDefaultPxData, self::PX_DB_DEFAULTS);
+        $this->dbPxs = $this->setDbPxs($pxDbPxData);
+        $this->clientPxs = $this->setClientPxs($pxClientPxData);
 
-        // If there is parameter data, convert the data to a LaData friendly format to use in PDO paramter binding.
-        $convertClientPxs = [];
-        if (!empty($pxClientPxData))
-        {
-            $convertClientPxs = $this->convertPxsKeyValues($pxClientPxData, self::PX_CLIENT);
-        }
+
+
 
         return array_merge($convertDefaultPxs, $convertClientPxs);
     }

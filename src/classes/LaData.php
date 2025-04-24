@@ -13,10 +13,12 @@ class LaData extends LaDataPxs {
     private const FX_KEY = 'fx';
     private const FX_SQLFILE = 'sqlfile';
     private const FX_PX_OPERATION = 'getfxparameters';
+    
 
     function __construct()
     {
         parent::__construct();
+                
     }
 
     /**
@@ -44,18 +46,30 @@ class LaData extends LaDataPxs {
             'px_fx_name' => $dbFxSpecs[self::FX_KEY]
         ];
 
-        // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
-        $fxPxData = $this->dispatchCrudOperation(
-            $dbFxPxQry, 
-            self::CRUD_READ, 
-            $dbFxPxs, 
-            self::RESULTSET_ROWS, 
-            self::FETCHSTYLE_ASSOC
-        );
-        $pxPxData = $this->convertPxs($fxPxData, $pxClientPxs);
+        try
+        {
+            // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
+            $fxPxData = $this->dispatchCrudOperation(
+                $dbFxPxQry, 
+                self::CRUD_READ, 
+                $dbFxPxs, 
+                self::RESULTSET_ROWS, 
+                self::FETCHSTYLE_ASSOC
+            );
+            $pxPxData = $this->convertPxs($fxPxData, $pxClientPxs);
 
-        //
-        $crudData = $this->dispatchCrudOperation($dbFxQry, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
+            //
+            $crudData = $this->dispatchCrudOperation($dbFxQry, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
+        }
+        catch(Throwable $error)
+        {
+
+        }
+        finally
+        {
+
+        }
+
         return $crudData;
 
     }

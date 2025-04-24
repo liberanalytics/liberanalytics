@@ -5,12 +5,14 @@ require_once('LaConfig.php');
 /**
  * 
  */
-class LaVx extends LaConfig
+class LaVx
 {
+
+    private LaConfig $laConfig;
 
     function __construct()
     {
-        parent::__construct();
+        $this->laConfig = new LaConfig();
     }
 
     /**

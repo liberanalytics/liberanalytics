@@ -29,8 +29,8 @@ STABLE
 AS $$
 
 DECLARE
-	txt_query_base TEXT;
 	txt_query_attr_list TEXT;
+	txt_query_base TEXT;
 	txt_query TEXT;
 	txt_posts_alias TEXT := 'la';
 	txt_post_tags_alias TEXT := 'post_tags';

@@ -2,7 +2,7 @@ DROP FUNCTION IF EXISTS refdata.fx_get_post_categories;
 
 CREATE OR REPLACE FUNCTION refdata.fx_get_post_categories
 (
-    pxPostCategory VARCHAR(32) DEFAULT NULL
+    px_post_category TEXT DEFAULT NULL
 )
 
 RETURNS TABLE
@@ -14,40 +14,43 @@ LANGUAGE plpgsql
 AS $$
 
 DECLARE
-	strQueryBase VARCHAR(1024);
-	strQueryAttrList VARCHAR(1024);
-	strQuery VARCHAR(1024);
-    strPostCategoriesAlias VARCHAR(8) := 'pc';
-    strPredPostCategory VARCHAR(64);
+	txt_query_attr_list TEXT;
+	txt_query_base TEXT;
+	txt_query TEXT;
+	txt_post_categories_alias TEXT := 'pc';
+    txt_pred_post_category TEXT;
 
 BEGIN
 
-strPredPostCategory = COALESCE('AND ' ||  strPostCategoriesAlias || '.post_category = ' || QUOTE_LITERAL(pxPostCategory), '');
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_post_categories_alias, 'post_category', '=', QUOTE_LITERAL(px_post_category), NULL);
+-- strPredPostCategory = COALESCE('AND ' ||  strPostCategoriesAlias || '.post_category = ' || QUOTE_LITERAL(pxPostCategory), '');
 
-strQueryAttrList := '
+txt_query_attr_list := '
 
-' || strPostCategoriesAlias || '.post_category
+' || txt_post_categories_alias || '.post_category
 
 ';
 
-strQueryBase :=
+txt_query_base :=
 
-'SELECT ' || strQueryAttrList ||
+'SELECT ' || txt_query_attr_list ||
 
-'FROM refdata.post_category AS ' || strPostCategoriesAlias ||
+'FROM refdata.post_category AS ' || txt_post_categories_alias ||
 
 '
 WHERE 1=1
 ';
 
 
-strQuery :=
-    strQueryBase ||
-    strPredPostCategory;
+txt_query :=
+    txt_query_base ||
+    txt_pred_post_category ||
 
-RETURN QUERY EXECUTE strQuery;
+';';
 
---RAISE NOTICE 'Query String: %', strQuery;
+RETURN QUERY EXECUTE txt_query;
+
+--RAISE NOTICE 'Query String: %', txt_query;
 
 END;
 $$
