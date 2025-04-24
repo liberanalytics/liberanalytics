@@ -21,8 +21,8 @@ class LaDataDB
     public const CRUD_READ = 'fetchData';
     public const CRUD_UPDATE = 'update';
     public const CRUD_DELETE = 'delete';    
-    private LaConfig $laConfig; 
-    private LaAws $laAWS;       
+    protected LaConfig $laConfig; 
+    protected LaAws $laAWS;       
     private $connection;
     private $pdoStmt;
 

@@ -1,18 +1,16 @@
 <?php
 
-require_once('LaConfig.php');
+require_once('LaDataCrud.php');
 
 /**
  * 
  */
-class LaVx
+class LaDataVx extends LaDataCrud
 {
 
-    private LaConfig $laConfig;
-
-    function __construct()
+    protected function __construct()
     {
-        $this->laConfig = new LaConfig();
+        parent::__construct();
     }
 
     /**

@@ -9,13 +9,7 @@ require_once('LaDataPxs.php');
 
 class LaData extends LaDataPxs {
 
-    private const SCHEMA_KEY = 'schema';
-    private const FX_KEY = 'fx';
-    private const FX_SQLFILE = 'sqlfile';
-    private const FX_PX_OPERATION = 'getfxparameters';
-    
-
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
                 
@@ -34,31 +28,12 @@ class LaData extends LaDataPxs {
     )
     {
         //
-        $laConfig = new LaConfig();
-        $dbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxOperation);
-        $dbFxPxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', self::FX_PX_OPERATION);
-        $dbFxQry = $this->getCrudQryFromSqlFile($dbFxSpecs);
-
-        //
-        $dbFxPxQry = $this->getCrudQryFromSqlFile($dbFxPxSpecs);
-        $dbFxPxs = [
-            'px_fx_schema' => $dbFxSpecs[self::SCHEMA_KEY], 
-            'px_fx_name' => $dbFxSpecs[self::FX_KEY]
-        ];
+        $dbFxQuery = $this->getCrudQryFromSqlFile($pxOperation);
 
         try
         {
-            // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
-            $fxPxData = $this->dispatchCrudOperation(
-                $dbFxPxQry, 
-                self::CRUD_READ, 
-                $dbFxPxs, 
-                self::RESULTSET_ROWS, 
-                self::FETCHSTYLE_ASSOC
-            );
-            $pxPxData = $this->convertPxs($fxPxData, $pxClientPxs);
-
             //
+            $pxPxData = $this->convertPxs($pxOperation, $pxClientPxs);
             $crudData = $this->dispatchCrudOperation($dbFxQry, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
         }
         catch(Throwable $error)
@@ -69,21 +44,6 @@ class LaData extends LaDataPxs {
         {
             return $crudData;
         }
-
-
-
-    }
-
-    /**
-     * 
-     */
-    private function getCrudQryFromSqlFile(array $pxCrudOperationSpecs)
-    {
-        $dbSchema = $pxCrudOperationSpecs[self::SCHEMA_KEY];
-        $dbFx = $pxCrudOperationSpecs[self::FX_KEY];
-        $qryFile = dirname(__FILE__, 3) . "/" . $pxCrudOperationSpecs[self::FX_SQLFILE];
-        $qry = file_get_contents($qryFile);
-        return $qry;
     }
 
 }

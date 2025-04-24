@@ -1,11 +1,12 @@
 <?php
 
-include('LaDataDb.php');
+include('LaDataCrud.php');
 include('LaVx.php');
 
 
-class LaDataPxs extends LaDataDb {
+class LaDataPxs extends LaDataCrud {
 
+    private const FX_PX_OPERATION = 'getfxparameters';
     private const COL_PX_KEY = 'px_name';
     private const COL_PX_DEFAULTVALUE = 'px_default_value';
     private const COL_PX_TYPE = 'px_type';
@@ -55,7 +56,6 @@ class LaDataPxs extends LaDataDb {
      */
     private function setClientPxs(array $pxClientPxData)
     {
-        $laVx = new LaVx();
         //
         $this->clientPxs = [];
         foreach ($pxClientPxData as $pxKey => $pxValue)
@@ -67,15 +67,26 @@ class LaDataPxs extends LaDataDb {
             if (array_key_exists($key, $this->dbPxs))
             {
                 //
-                if(array_key_exists($key, self::PX_ATTR_REFDATA))
+                if (array_key_exists($key, self::PX_ATTR_REFDATA))
                 {
-                    
+                    // only validate as refdata in ladatavx.
                 }
-                // 
-                $dbPx = $this->dbPxs[$key];
-                $pxValue = $laVx->sanitize($pxValue, $this->dbPxs[$key][self::COL_PX_TYPE]);
 
-                if (!$laVx->validate($pxValue, $this->dbPxs[$key][self::COL_PX_TYPE]))
+                //
+                elseif (array_key_exists($key, self::PX_ATTR_LISTS))
+                {
+                    // 1. iterate through the client submitted list data by each datum sanitizing and validating each value.
+                    // 2. form a postgresql array: e.g. "{val1, val2, val3}" from the list.
+                }
+
+                //
+                else
+                {
+                    $dbPx = $this->dbPxs[$key];
+                    $pxValue = $this>sanitize($pxValue, $this->dbPxs[$key][self::COL_PX_TYPE]);
+                }
+
+                if (!$this->validate($pxValue, $this->dbPxs[$key][self::COL_PX_TYPE]))
                 {
                     throw new Exception("");
                 }
@@ -125,10 +136,32 @@ class LaDataPxs extends LaDataDb {
     /**
      * 
      */
-    protected function convertPxs(array $pxDbPxData, array $pxClientPxData): array
+    protected function convertPxs(string $pxOperation, array $pxClientPxData): array
     {
+
         //
-        $this->setDbPxs($pxDbPxData);
+        $dbFxPxQry = $this->getCrudQryFromSqlFile(self::FX_PX_OPERATION);
+
+
+        // $dbFxPxs = [
+        //     'px_fx_schema' => $dbFxSpecs[self::SCHEMA_KEY], 
+        //     'px_fx_name' => $dbFxSpecs[self::FX_KEY]
+        // ];
+
+
+
+        // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
+        $dbFxPxs = $this->getCrudDbFxSpecs($pxOperation);
+        $fxPxData = $this->dispatchCrudOperation(
+            $dbFxPxQry, 
+            self::CRUD_READ, 
+            $dbFxPxs, 
+            self::RESULTSET_ROWS, 
+            self::FETCHSTYLE_ASSOC
+        );        
+
+        //
+        $this->setDbPxs($fxPxData);
         $this->setClientPxs($pxClientPxData);
         return array_merge($this->dbPxs, $this->clientPxs);
     }

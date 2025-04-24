@@ -1,10 +1,8 @@
 <?php
 
     require_once(dirname(__DIR__) . "/" . "classes/LaData.php");
-    require_once(dirname(__DIR__) . "/" . "classes/LaVx.php");
  
-    $laData = new LaData();
-    $laVx = new LaVx();     
+    $laData = new LaData();   
  
     $posts = $laData->crudData(
         'getposts',
