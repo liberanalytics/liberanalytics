@@ -6,21 +6,21 @@ class LaDataCrud extends LaDataDb {
 
     private const FX_SCHEMA = 'schema';
     private const FX_NAME = 'fx';
-    private const FX_SQLFILE = 'sqlfile';    
-    
+    private const FX_SQLFILE = 'sqlfile';
+
 
     protected function __construct()
     {
-        parent::__construct();                
+        parent::__construct();       
     }
 
     /**
      * 
      */
-    protected function getCrudDbFxSpecs(string $pxOperation): array
+    protected function getCrudDbFxSpecs(string $pxCrudOperation): array
     {
         //
-        $operationDbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxOperation);
+        $operationDbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation);
         $getCrudDbFxSpecs = [
             'px_fx_schema' => $operationDbFxSpecs[self::FX_SCHEMA], 
             'px_fx_name' => $operationDbFxSpecs[self::FX_NAME]
@@ -31,11 +31,10 @@ class LaDataCrud extends LaDataDb {
     /**
      * 
      */
-    protected function getCrudQryFromSqlFile(string $pxOperation)
+    protected function getCrudQryFromSqlFile(string $pxCrudOperation)
     {
-        $crudOperationSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxOperation);
-        // $dbSchema = $pxCrudOperationSpecs[self::SCHEMA_KEY];
-        // $dbFx = $pxCrudOperationSpecs[self::FX_KEY];
+        //
+        $crudOperationSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation);
         $crudQryFile = dirname(__FILE__, 3) . "/" . $crudOperationSpecs[self::FX_SQLFILE];
         $getCrudQryFromSqlFile = file_get_contents($crudQryFile);
         return $getCrudQryFromSqlFile;

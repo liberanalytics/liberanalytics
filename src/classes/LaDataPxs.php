@@ -54,50 +54,47 @@ class LaDataPxs extends LaDataCrud {
     /**
      * 
      */
-    private function setClientPxs(array $pxClientPxData)
+    private function setClientPxs(string $pxCrudOperation, array $pxClientPxData)
     {
         //
         $this->clientPxs = [];
-        foreach ($pxClientPxData as $pxKey => $pxValue)
+        foreach ($pxClientPxData as $key => $value)
         {
             // Convert client key to db function p(x) name.
-            $key = $this->convertClientPxKey($pxKey);
+            $pxKey = $this->convertClientPxKey($key);
 
             // Iterate through client p(x)'s and match to the database defaults by key to vx.
-            if (array_key_exists($key, $this->dbPxs))
+            if (array_key_exists($pxKey, $this->dbPxs))
             {
                 //
-                if (array_key_exists($key, self::PX_ATTR_REFDATA))
+                if (array_key_exists($pxKey, self::PX_ATTR_REFDATA))
                 {
-                    // only validate as refdata in ladatavx.
+                    $pxVal = $this->handleRefdata($pxCrudOperation, $pxKey, $value);
                 }
 
                 //
-                elseif (array_key_exists($key, self::PX_ATTR_LISTS))
+                elseif (array_key_exists($pxKey, self::PX_ATTR_LISTS))
                 {
                     // 1. iterate through the client submitted list data by each datum sanitizing and validating each value.
                     // 2. form a postgresql array: e.g. "{val1, val2, val3}" from the list.
+                    $pxVal = $this->handleList();
                 }
 
                 //
                 else
-                {
-                    $dbPx = $this->dbPxs[$key];
-                    $pxValue = $this>sanitize($pxValue, $this->dbPxs[$key][self::COL_PX_TYPE]);
-                }
-
-                if (!$this->validate($pxValue, $this->dbPxs[$key][self::COL_PX_TYPE]))
-                {
-                    throw new Exception("");
+                {                    
+                    $dbPx = $this->dbPxs[$pxKey];
+                    $dbPxType = $this->dbPxs[$pxKey][self::COL_PX_TYPE];
+                    $pxVal = $this->handleScalar($pxCrudOperation, $pxKey, $value, $dbPxType);
                 }
 
             }
             else
             {
-                throw new Exception("Invalid key: {$pxKey}");
+                throw new Exception("Invalid key: {$key}");
             }
 
-            $this->clientPxs[$key] = $pxVal;
+            $this->clientPxs[$pxKey] = $pxVal;
         };     
     }
 
@@ -136,7 +133,7 @@ class LaDataPxs extends LaDataCrud {
     /**
      * 
      */
-    protected function convertPxs(string $pxOperation, array $pxClientPxData): array
+    protected function convertPxs(string $pxCrudOperation, array $pxClientPxData): array
     {
 
         //
@@ -151,7 +148,7 @@ class LaDataPxs extends LaDataCrud {
 
 
         // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
-        $dbFxPxs = $this->getCrudDbFxSpecs($pxOperation);
+        $dbFxPxs = $this->getCrudDbFxSpecs($pxCrudOperation);
         $fxPxData = $this->dispatchCrudOperation(
             $dbFxPxQry, 
             self::CRUD_READ, 

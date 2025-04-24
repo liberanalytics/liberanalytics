@@ -20,7 +20,7 @@ class LaData extends LaDataPxs {
      */
     public function crudData
     (
-        string $pxOperation,
+        string $pxCrudOperation,
         string $pxCrudType,
         array $pxClientPxs = [],
         string $pxResultsetType = self::RESULTSET_ROWS,
@@ -28,12 +28,12 @@ class LaData extends LaDataPxs {
     )
     {
         //
-        $dbFxQuery = $this->getCrudQryFromSqlFile($pxOperation);
+        $dbFxQuery = $this->getCrudQryFromSqlFile($pxCrudOperation);
 
         try
         {
             //
-            $pxPxData = $this->convertPxs($pxOperation, $pxClientPxs);
+            $pxPxData = $this->convertPxs($pxCrudOperation, $pxClientPxs);
             $crudData = $this->dispatchCrudOperation($dbFxQry, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
         }
         catch(Throwable $error)

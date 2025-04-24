@@ -16,19 +16,27 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    public function validate($pxValue, $pxVxType, $pxRefdataMembers = []): bool
+    protected function handleRefdata(string $pxCrudOperation, $pxKey, $pxValue)
     {
-        return true;
+
     }
 
     /**
      * 
      */
-    public function sanitize($pxValue, $pxVxType)
+    protected function handleListData(string $pxCrudOperation)
     {
-
-        return $pxValue;
+        
     }
+    
+    /**
+     * 
+     */
+    protected function handleScalar(string $pxCrudOperation, $pxKey, $pxValue, $pxType)
+    {
+        
+    }      
+
 
 }
 
