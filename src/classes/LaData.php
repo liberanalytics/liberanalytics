@@ -1,7 +1,7 @@
 <?php
 
 require_once('LaDataPxs.php');
-require_once('LaConfig.php');
+
 
 /**
  * todo: merge data from handler into params.
@@ -35,8 +35,8 @@ class LaData extends LaDataPxs {
     {
         //
         $laConfig = new LaConfig();
-        $dbFxSpecs = $laConfig->getConfigAttr('data', 'crud', 'operation', $pxOperation);
-        $dbFxPxSpecs = $laConfig->getConfigAttr('data', 'crud', 'operation', self::FX_PX_OPERATION);
+        $dbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxOperation);
+        $dbFxPxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', self::FX_PX_OPERATION);
         $dbFxQry = $this->getCrudQryFromSqlFile($dbFxSpecs);
 
         //

@@ -18,9 +18,18 @@ class LaVx
     /**
      * 
      */
-    public function validate(): boolval
+    public function validate($pxValue, $pxVxType, $pxRefdataMembers = []): bool
     {
-        
+        return true;
+    }
+
+    /**
+     * 
+     */
+    public function sanitize($pxValue, $pxVxType)
+    {
+
+        return $pxValue;
     }
 
 }
