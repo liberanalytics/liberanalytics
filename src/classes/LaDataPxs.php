@@ -10,6 +10,7 @@ class LaDataPxs extends LaDataDb {
     private CONST COL_PX_DEFAULTVALUE = 'px_default_value';
     private CONST PX_DB_DEFAULTS = 'px_db_defaults';
     private CONST PX_CLIENT = 'px_client';
+    private CONST PX_CLIENT_LIST_ATTRS = ['post_tags', 'post_keywords'];
     private array $dbPxs;
     private array $clientPxs;
 
@@ -21,10 +22,9 @@ class LaDataPxs extends LaDataDb {
     /**
      * 
      */
-    private function setDbPxs($pxDbPxData): array
+    private function setDbPxs($pxDbPxData)
     {
         //
-        $setDbPxDefaults = [];
         foreach($pxDbPxData as $row => $values)
         {
             //
@@ -42,10 +42,9 @@ class LaDataPxs extends LaDataDb {
                 {
                     $value = $value;
                 }
-                $setDbPxDefaults[$pxNameKey][$key] = $value;
+                $this->dbPxs[$pxNameKey][$key] = $value;
             }
         }       
-        return $setDbPxDefaults;
     }
 
     /**
@@ -57,8 +56,25 @@ class LaDataPxs extends LaDataDb {
         $setClientPxs = [];
         foreach ($pxClientPxData as $pxKey => $pxVal)
         {
+            // Convert client key to db function p(x) name.
             $key = $this->convertClientPxKey($pxKey);
-            $val = $pxVal; // sanitize here
+
+            // Iterate through client p(x)'s and match to the database defaults by key to vx.
+            if (array_key_exists($key, $this->dbPxs))
+            {
+                //
+                $dbPx = $this->dbPxs[$key];
+                
+                // sanitize the client value.
+
+                // use the $dbpx type to determine how to validate.
+
+            }
+            else
+            {
+                throw new Exception('Invalid key: {$pxKey}');
+            }
+
             $setClientPxs[$key] = $pxVal;
         };     
         return $setClientPxs;
@@ -102,13 +118,12 @@ class LaDataPxs extends LaDataDb {
     protected function convertPxs(array $pxDbPxData, array $pxClientPxData): array
     {
         //
-        $this->dbPxs = $this->setDbPxs($pxDbPxData);
-        $this->clientPxs = $this->setClientPxs($pxClientPxData);
+        $this->setDbPxs($pxDbPxData);
+        $this->setClientPxs($pxClientPxData);
 
+        
 
-
-
-        return array_merge($convertDefaultPxs, $convertClientPxs);
+        return array_merge($this->dbPxs, $this->clientPxs);
     }
 
 }

@@ -63,14 +63,14 @@ class LaData extends LaDataPxs {
         }
         catch(Throwable $error)
         {
-
+            echo $error->getMessage();
         }
         finally
         {
-
+            return $crudData;
         }
 
-        return $crudData;
+
 
     }
 
@@ -85,7 +85,6 @@ class LaData extends LaDataPxs {
         $qry = file_get_contents($qryFile);
         return $qry;
     }
-
 
 }
 
