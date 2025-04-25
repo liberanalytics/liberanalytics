@@ -12,6 +12,9 @@ class LaDataVx extends LaDataCrud
     private const PX_ATTR_REFDATA = [
         'px_post_category' => 'getpostcategories'
     ];
+    private const SZ_FX = 'vxSz';
+    private const VX_FX = 'vxFx';
+
 
     protected function __construct()
     {
@@ -77,16 +80,38 @@ class LaDataVx extends LaDataCrud
      */
     protected function vxScalar(string $pxCrudOperation, string $pxKey, mixed $pxValue, string $pxType)
     {
-        //
+
+        $vxFxs = match($pxType)
+        {
+            'text' =>   [
+                'szFx'  =>  'sanitizeText',
+                'vxFx'  =>  'validateText'
+            ],
+            'int4' =>   [
+                'vxFx'  =>  'validateInt'
+            ]
+        };
+
+
         
     }
 
     /**
      * 
      */
-    protected function validateText($pxValue)
+    protected function sanitizeText($pxTextValue)
     {
 
+    }
+
+    /**
+     * 
+     */
+    protected function validateText($pxTextValue)
+    {
+        $validateText = true;
+
+        return $validateText;
     }
 
 
