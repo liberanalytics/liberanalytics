@@ -116,14 +116,11 @@ class LaDataPxs extends LaDataVx {
      */
     protected function convertPxs(string $pxCrudOperation, array $pxClientPxData): array
     {
-
-        //
-        $dbFxPxQry = $this->getCrudQryFromSqlFile(self::FX_PX_OPERATION);
-
         // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
         $dbFxPxs = $this->getCrudDbFxSpecs($pxCrudOperation);
+        // $dbFxPxQry = $this->getCrudQryFromSqlFile(self::FX_PX_OPERATION);        
         $fxPxData = $this->dispatchCrudOperation(
-            $dbFxPxQry, 
+            self::FX_PX_OPERATION, 
             self::CRUD_READ, 
             $dbFxPxs, 
             self::RESULTSET_ROWS, 

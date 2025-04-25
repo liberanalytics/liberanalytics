@@ -13,4 +13,6 @@
         $laData::FETCHSTYLE_ASSOC
     );
 
+    $a = 1;
+
     ?>

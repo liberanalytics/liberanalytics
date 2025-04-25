@@ -12,15 +12,9 @@ class LaDataDB
     /**
      * 
      */
-    public const RESULTSET_ARRAY = 'array';
-    public const RESULTSET_ROWS = 'rows';
-    public const RESULTSET_SCALAR = 'scalar';
     public const FETCHSTYLE_ASSOC = 'assoc';
-    public const FETCHSTYLE_NUM = 'num';
-    public const CRUD_CREATE = 'create';
-    public const CRUD_READ = 'fetchData';
-    public const CRUD_UPDATE = 'update';
-    public const CRUD_DELETE = 'delete';    
+    public const FETCHSTYLE_NUM = 'num';  
+    public const FETCHSTYLE_ROWCOUNT = 'rowcount';
     protected LaConfig $laConfig; 
     protected LaAws $laAWS;       
     private $connection;
@@ -107,58 +101,41 @@ class LaDataDB
 
     /**
      * 
-     * 
      */
-    protected function fetchData
-    (
-        string $pxResultsetType,
-        string $pxFetchStyle
-    )
+    private function returnExecResults($pxFetchStyle)
     {
         //
+        $returnExecResults = null;
         $fetchStyle = match($pxFetchStyle)
         {
-            'assoc' => PDO::FETCH_ASSOC,
-            'num'   => PDO::FETCH_NUM
-        };        
-        $fetchData = $this->pdoStmt->fetchall($fetchStyle);
+            self::FETCHSTYLE_ASSOC => PDO::FETCH_ASSOC,
+            self::FETCHSTYLE_NUM   => PDO::FETCH_NUM,
+            self::FETCHSTYLE_ROWCOUNT => ''
+        }; 
 
         //
-        $fetchData = match($pxResultsetType)
-        {
-            self::RESULTSET_ARRAY =>  $fetchData[0],
-            self::RESULTSET_SCALAR => $fetchData[0][0],
-            self::RESULTSET_ROWS => $fetchData,
-            default => $fetchData
-        };    
-
-        return $fetchData;
-
+        $returnExecResults = ($fetchStyle) ? $this->pdoStmt->fetchall($fetchStyle) : $this->pdoStmt->rowCount();
+        return $returnExecResults;
     }
 
     /**
      * 
      */
-    protected function dispatchCrudOperation
-    (
-        string $pxQry, 
-        string $pxCrudType, 
+    protected function executeCrudOperation(
+        string $pxQry,
         array $pxParams, 
-        string $pxResultsetType, 
         string $pxFetchStyle
     )
     {
         //
-        $this->openConnection();   
-
-        $this->setPDOStmt($pxQry);                  
+        $this->openConnection();
+        $this->setPDOStmt($pxQry);
         $this->execPDOStatement($pxParams);
-        $dispatchCrudOperation = call_user_func_array([$this, $pxCrudType], [$pxResultsetType, $pxFetchStyle]);    
+        $executeCrudOperation = $this->returnExecResults($pxFetchStyle);
         $this->closePDOStatement();
-
         $this->closeConnection();
 
-        return $dispatchCrudOperation;
+        return $executeCrudOperation;
   
     }
 

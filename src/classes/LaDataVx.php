@@ -125,7 +125,7 @@ class LaDataVx extends LaDataCrud
      */
     protected function validateRefdata($pxKey, $pxValue): bool
     {
-
+        $refdataCrudOperation = PX_REFDATA_FX_OPS[$pxKey];
     }
 
 }
