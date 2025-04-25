@@ -24,6 +24,31 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
+    private function getSzVxMap($pxKey = ''): array
+    {
+        // _text for postgre text arrays (TEXT[]).
+        return
+        [
+            'text' =>   [
+                self::SZ_FX =>  'sanitizeText',
+                self::VX_FX =>  'validateText'
+            ],
+            'int4' =>   [
+                self::VX_FX =>  'validateInt'
+            ],
+            '_text'  =>   [
+                self::SZ_FX => 'sanitizeList',
+                self::VX_FX =>  'validateList'
+            ],
+            'refdata'   =>  [
+                self::VX_FX =>  self::PX_ATTR_REFDATA[$pxKey]
+            ] 
+        ];
+    }    
+
+    /**
+     * 
+     */
     protected function vxHandler(
         string $pxCrudOperation, 
         string $pxKey, 
@@ -40,8 +65,8 @@ class LaDataVx extends LaDataCrud
             case 'refdata':
                 $vxHandler = $this->vxRefdata($pxCrudOperation, $pxKey, $pxValue);
                 break;
-            case 'list':
-
+            case '_text':
+                $vxHandler = $this->vxList($pxCrudOperation, $pxKey, $pxValue);
                 break;
             case 'text':
             case 'int4':
@@ -62,38 +87,39 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function vxRefdata(string $pxCrudOperation, $pxKey, $pxValue)
-    {
-
-    }
-
-    /**
-     * 
-     */
-    protected function vxListData(string $pxCrudOperation)
-    {
-        
-    }
-    
-    /**
-     * 
-     */
     protected function vxScalar(string $pxCrudOperation, string $pxKey, mixed $pxValue, string $pxType)
     {
+        $vxScalarFxs = $this->getSzVxMap()[$pxType];
+        $vxScalarSzFx = $vxScalarFxs[self::SZ_FX];
+        $vxScalarVxFx = $vxScalarFxs[self::VX_FX];
+    }
 
-        $vxFxs = match($pxType)
-        {
-            'text' =>   [
-                'szFx'  =>  'sanitizeText',
-                'vxFx'  =>  'validateText'
-            ],
-            'int4' =>   [
-                'vxFx'  =>  'validateInt'
-            ]
-        };
+    /**
+     * 
+     */
+    protected function validateText($pxTextValue)
+    {
+        $validateText = true;
+        return $validateText;
+    }
 
+    /**
+     * 
+     */
+    protected function vxRefdata(string $pxCrudOperation, $pxKey, $pxValue)
+    {
+        $vxRefdataFxs = $this->getSzVxMap()[$pxType];
+        $vxRefdataVxFx = $vxRefdataFxs[self::VX_FX];
+    }
 
-        
+    /**
+     * 
+     */
+    protected function vxList(string $pxCrudOperation)
+    {
+        $vxListFxs = $this->getSzVxMap()[$pxType];
+        $vxListSzFx = $vxListFxs[self::SZ_FX];
+        $vxListVxFx = $vxListFxs[self::VX_FX]; 
     }
 
     /**
@@ -103,17 +129,6 @@ class LaDataVx extends LaDataCrud
     {
 
     }
-
-    /**
-     * 
-     */
-    protected function validateText($pxTextValue)
-    {
-        $validateText = true;
-
-        return $validateText;
-    }
-
 
 }
 
