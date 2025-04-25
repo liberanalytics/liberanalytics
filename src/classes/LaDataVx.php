@@ -9,7 +9,7 @@ class LaDataVx extends LaDataCrud
 {
 
     private const PX_ATTR_LISTS = ['px_post_tags', 'px_post_keywords'];
-    private const PX_ATTR_REFDATA = [
+    private const PX_REFDATA_FXS = [
         'px_post_category' => 'getpostcategories'
     ];
     private const SZ_FX = 'vxSz';
@@ -24,7 +24,7 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    private function getSzVxMap($pxKey = ''): array
+    private function getSzVxFxMap($pxKey = ''): array
     {
         // _text for postgre text arrays (TEXT[]).
         return
@@ -39,12 +39,19 @@ class LaDataVx extends LaDataCrud
             '_text'  =>   [
                 self::SZ_FX => 'sanitizeList',
                 self::VX_FX =>  'validateList'
-            ],
-            'refdata'   =>  [
-                self::VX_FX =>  self::PX_ATTR_REFDATA[$pxKey]
-            ] 
+            ]
         ];
-    }    
+    }
+
+    /**
+     * 
+     */
+    private function getSzVxFxHandler(string $pxType, string $fxType, string $pxKey = ''): string
+    {
+        $mapSzVxFxHandler = $this->getSzVxFxMap($pxType);
+        $getSzVxFxHandler = $mapSzVxFxHandler[$pxType][$fxType];
+        return $getSzVxFxHandler;
+    }
 
     /**
      * 
@@ -57,20 +64,20 @@ class LaDataVx extends LaDataCrud
     )
     {
         // Determine if its a refdata key.
-        $pxType = (array_key_exists($pxKey, self::PX_ATTR_REFDATA)) ? 'refdata' : $pxType;
+        $pxType = (array_key_exists($pxKey, self::PX_REFDATA_FXS)) ? 'refdata' : $pxType;
 
         //
         switch ($pxType)
         {
             case 'refdata':
-                $vxHandler = $this->vxRefdata($pxCrudOperation, $pxKey, $pxValue);
+                $vxHandler = $this->processRefdata($pxCrudOperation, $pxKey, $pxValue);
                 break;
             case '_text':
-                $vxHandler = $this->vxList($pxCrudOperation, $pxKey, $pxValue);
+                $vxHandler = $this->processList($pxCrudOperation, $pxKey, $pxValue);
                 break;
             case 'text':
             case 'int4':
-                $vxHandler = $this->vxScalar($pxCrudOperation, $pxKey, $pxValue, $pxType);
+                $vxHandler = $this->processScalar($pxCrudOperation, $pxKey, $pxValue, $pxType);
                 break;
         }
 
@@ -87,11 +94,10 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function vxScalar(string $pxCrudOperation, string $pxKey, mixed $pxValue, string $pxType)
+    protected function processScalar(string $pxCrudOperation, string $pxKey, mixed $pxValue, string $pxType)
     {
-        $vxScalarFxs = $this->getSzVxMap()[$pxType];
-        $vxScalarSzFx = $vxScalarFxs[self::SZ_FX];
-        $vxScalarVxFx = $vxScalarFxs[self::VX_FX];
+        $vxScalarSzFx = $this->getSzVxFxHandler($pxType, self::SZ_FX);
+        $vxScalarVxFx = $this->getSzVxFxHandler($pxType, self::VX_FX);
     }
 
     /**
@@ -106,16 +112,15 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function vxRefdata(string $pxCrudOperation, $pxKey, $pxValue)
+    protected function processRefdata(string $pxCrudOperation, $pxKey, $pxValue)
     {
-        $vxRefdataFxs = $this->getSzVxMap()[$pxType];
-        $vxRefdataVxFx = $vxRefdataFxs[self::VX_FX];
+        $vxRefdataVxFx = self::PX_REFDATA_FXS[$pxKey];
     }
 
     /**
      * 
      */
-    protected function vxList(string $pxCrudOperation)
+    protected function processList(string $pxCrudOperation)
     {
         $vxListFxs = $this->getSzVxMap()[$pxType];
         $vxListSzFx = $vxListFxs[self::SZ_FX];
