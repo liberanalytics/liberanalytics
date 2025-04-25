@@ -26,7 +26,7 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    private function getSzVxFxMap($pxKey = ''): array
+    private function getSzVxFxMap(): array
     {
         // _text for postgre text arrays (TEXT[]).
         return
@@ -65,17 +65,21 @@ class LaDataVx extends LaDataCrud
         }
         else
         {
+            $vxSz = null;
             $vxFx = self::PX_REFDATA_FX;
         }
 
         //
-        $pxValue = ($vxSz) ? call_user_func([$this, $vxSz], $pxValue) : $pxValue;
+        $pxValue = ($vxSz) ? call_user_func_array([$this, $vxSz], [$pxKey, $pxValue]) : $pxValue;
+        $vxValueIsValid = call_user_func_array([$this, $vxFx], [$pxKey, $pxValue]);
+        return ($vxValueIsValid) ? $pxValue : throw new Exception("{$pxKey} {$pxValue} is invalid.");
+
     }    
 
     /**
      * 
      */
-    protected function validateText($pxTextValue):bool
+    protected function validateText($pxKey, $pxTextValue): bool
     {
         $validateText = true;
         return $validateText;
@@ -84,9 +88,10 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function sanitizeText($pxTextValue)
+    protected function sanitizeText($pxKey, $pxTextValue): string
     {
-
+        $sanitizeText = $pxTextValue;
+        return $sanitizeText;
     }
 
     /**
