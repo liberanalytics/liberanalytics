@@ -11,6 +11,7 @@ class LaDataPxs extends LaDataVx {
     private const COL_PX_DEFAULTVALUE = 'px_default_value';
     private const COL_PX_TYPE = 'px_type';
     private array $dbPxs;
+    private array $dbPxDefaults;
     private array $clientPxs;
 
     function __construct()
@@ -37,12 +38,14 @@ class LaDataPxs extends LaDataVx {
                 if($key == self::COL_PX_DEFAULTVALUE)
                 {
                     $value = $this->coerceDbDefaultPxDataType($values[self::COL_PX_DEFAULTVALUE]);
+                    $this->dbPxDefaults[$pxNameKey] = $value;
                 }
                 else
                 {
                     $value = $value;
                 }
                 $this->dbPxs[$pxNameKey][$key] = $value;
+                
             }
         }       
     }
@@ -138,7 +141,7 @@ class LaDataPxs extends LaDataVx {
         //
         $this->setDbPxs($fxPxData);
         $this->setClientPxs($pxCrudOperation, $pxClientPxData);
-        return array_merge($this->dbPxs, $this->clientPxs);
+        return array_merge($this->dbPxDefaults, $this->clientPxs);
     }
 
 }

@@ -59,9 +59,9 @@ class LaDataVx extends LaDataCrud
         $pxType = (array_key_exists($pxKey, self::PX_REFDATA_FX_OPS)) ? self::PX_REFDATA_TYPE : $pxType;
         if ($pxType != self::PX_REFDATA_TYPE)
         {
-            $fxs = $this->getSzVxMap()[$pxType];
-            $vxSz = $fxs[self::VX_FX]; 
-            $vxFx = $fxs[self::SZ_FX];
+            $fxs = $this->getSzVxFxMap()[$pxType];
+            $vxSz = $fxs[self::SZ_FX]; 
+            $vxFx = $fxs[self::VX_FX];
         }
         else
         {
