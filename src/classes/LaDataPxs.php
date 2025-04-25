@@ -120,14 +120,6 @@ class LaDataPxs extends LaDataVx {
         //
         $dbFxPxQry = $this->getCrudQryFromSqlFile(self::FX_PX_OPERATION);
 
-
-        // $dbFxPxs = [
-        //     'px_fx_schema' => $dbFxSpecs[self::SCHEMA_KEY], 
-        //     'px_fx_name' => $dbFxSpecs[self::FX_KEY]
-        // ];
-
-
-
         // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
         $dbFxPxs = $this->getCrudDbFxSpecs($pxCrudOperation);
         $fxPxData = $this->dispatchCrudOperation(

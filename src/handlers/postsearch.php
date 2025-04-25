@@ -7,7 +7,8 @@
     $posts = $laData->crudData(
         'getposts',
         $laData::CRUD_READ,
-        ['post_name' => 'whydata'], 
+        ['post_name' => 'whydata',
+        'limit' => 100], 
         $laData::RESULTSET_ROWS,
         $laData::FETCHSTYLE_ASSOC
     );

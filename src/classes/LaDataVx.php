@@ -36,6 +36,7 @@ class LaDataVx extends LaDataCrud
                 self::VX_FX =>  'validateText'
             ],
             'int4' =>   [
+                self::SZ_FX =>  'sanitizeInt',
                 self::VX_FX =>  'validateInt'
             ],
             '_text'  =>   [
@@ -74,24 +75,49 @@ class LaDataVx extends LaDataCrud
         $vxValueIsValid = call_user_func_array([$this, $vxFx], [$pxKey, $pxValue]);
         return ($vxValueIsValid) ? $pxValue : throw new Exception("{$pxKey} {$pxValue} is invalid.");
 
-    }    
+    }
 
     /**
      * 
      */
-    protected function validateText($pxKey, $pxTextValue): bool
+    protected function sanitizeText($pxKey, $pxValue): string
     {
-        $validateText = true;
-        return $validateText;
-    }    
-
-    /**
-     * 
-     */
-    protected function sanitizeText($pxKey, $pxTextValue): string
-    {
-        $sanitizeText = $pxTextValue;
+        $sanitizeText = trim($pxValue);
+        $sanitizeText = strip_tags($sanitizeText);        
+        $sanitizeText = preg_replace('/\s+/', ' ', $sanitizeText);
+        $sanitizeText = preg_replace('/[[:cntrl:]]/', '', $sanitizeText);
         return $sanitizeText;
+    }
+
+    /**
+     * 
+     */
+    protected function sanitizeInt($pxKey, $pxValue): int
+    {
+        $sanitizeInt = $pxValue;
+        return $sanitizeInt;
+    }
+
+    /**
+     * 
+     */
+    protected function validateText($pxKey, $pxValue): bool
+    {
+        $validChars = (preg_match('/^([\x20-\x7E]){3,}$/', $pxValue));
+        $validType = (gettype($pxValue) === 'string');
+        $validateText = ($validChars && $validType);
+        return $validateText;
+    }
+
+    /**
+     * 
+     */
+    protected function validateInt($pxKey, $pxValue): bool
+    {
+        $validChars = (preg_match('/^\d+$/', $pxValue));
+        $validType = (gettype($pxValue) === 'integer');
+        $validateInt = ($validChars && $validType);
+        return $validateInt;
     }
 
     /**
