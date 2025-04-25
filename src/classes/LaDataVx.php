@@ -9,7 +9,9 @@ class LaDataVx extends LaDataCrud
 {
 
     private const PX_ATTR_LISTS = ['px_post_tags', 'px_post_keywords'];
-    private const PX_REFDATA_FXS = [
+    private const PX_REFDATA_TYPE = 'refdata';
+    private const PX_REFDATA_FX = 'validateRefdata';
+    private const PX_REFDATA_FX_OPS = [
         'px_post_category' => 'getpostcategories'
     ];
     private const SZ_FX = 'vxSz';
@@ -46,16 +48,6 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    private function getSzVxFxHandler(string $pxType, string $fxType, string $pxKey = ''): string
-    {
-        $mapSzVxFxHandler = $this->getSzVxFxMap($pxType);
-        $getSzVxFxHandler = $mapSzVxFxHandler[$pxType][$fxType];
-        return $getSzVxFxHandler;
-    }
-
-    /**
-     * 
-     */
     protected function vxHandler(
         string $pxCrudOperation, 
         string $pxKey, 
@@ -64,73 +56,43 @@ class LaDataVx extends LaDataCrud
     )
     {
         // Determine if its a refdata key.
-        $pxType = (array_key_exists($pxKey, self::PX_REFDATA_FXS)) ? 'refdata' : $pxType;
-
-        //
-        switch ($pxType)
+        $pxType = (array_key_exists($pxKey, self::PX_REFDATA_FX_OPS)) ? self::PX_REFDATA_TYPE : $pxType;
+        if ($pxType != self::PX_REFDATA_TYPE)
         {
-            case 'refdata':
-                $vxHandler = $this->processRefdata($pxCrudOperation, $pxKey, $pxValue);
-                break;
-            case '_text':
-                $vxHandler = $this->processList($pxCrudOperation, $pxKey, $pxValue);
-                break;
-            case 'text':
-            case 'int4':
-                $vxHandler = $this->processScalar($pxCrudOperation, $pxKey, $pxValue, $pxType);
-                break;
-        }
-
-        if (!$vxHandler)
-        {
-            throw new Exception("Invalid key: {$key}");
+            $fxs = $this->getSzVxMap()[$pxType];
+            $vxSz = $fxs[self::VX_FX]; 
+            $vxFx = $fxs[self::SZ_FX];
         }
         else
         {
-            return $vxHandler;
+            $vxFx = self::PX_REFDATA_FX;
         }
-    }
+
+        //
+        $pxValue = ($vxSz) ? call_user_func([$this, $vxSz], $pxValue) : $pxValue;
+    }    
 
     /**
      * 
      */
-    protected function processScalar(string $pxCrudOperation, string $pxKey, mixed $pxValue, string $pxType)
-    {
-        $vxScalarSzFx = $this->getSzVxFxHandler($pxType, self::SZ_FX);
-        $vxScalarVxFx = $this->getSzVxFxHandler($pxType, self::VX_FX);
-    }
-
-    /**
-     * 
-     */
-    protected function validateText($pxTextValue)
+    protected function validateText($pxTextValue):bool
     {
         $validateText = true;
         return $validateText;
-    }
-
-    /**
-     * 
-     */
-    protected function processRefdata(string $pxCrudOperation, $pxKey, $pxValue)
-    {
-        $vxRefdataVxFx = self::PX_REFDATA_FXS[$pxKey];
-    }
-
-    /**
-     * 
-     */
-    protected function processList(string $pxCrudOperation)
-    {
-        $vxListFxs = $this->getSzVxMap()[$pxType];
-        $vxListSzFx = $vxListFxs[self::SZ_FX];
-        $vxListVxFx = $vxListFxs[self::VX_FX]; 
-    }
+    }    
 
     /**
      * 
      */
     protected function sanitizeText($pxTextValue)
+    {
+
+    }
+
+    /**
+     * 
+     */
+    protected function validateRefdata($pxKey, $pxValue): bool
     {
 
     }
