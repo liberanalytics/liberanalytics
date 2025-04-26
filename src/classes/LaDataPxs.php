@@ -25,13 +25,9 @@ class LaDataPxs extends LaDataVx {
     private function setDbPxs($pxDbPxData)
     {
         //
-        $this->dbPxs = [];
         foreach($pxDbPxData as $row => $values)
         {
-            //
             $pxNameKey = $values[self::COL_PX_KEY];
-
-            //
             foreach($values as $key => $value)
             {
                 //
@@ -91,6 +87,20 @@ class LaDataPxs extends LaDataVx {
     /**
      * 
      */
+    private function getCrudDbFxSpecs(string $pxCrudOperation): array
+    {
+        //
+        $operationDbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation);
+        $getCrudDbFxSpecs = [
+            'px_fx_schema' => $operationDbFxSpecs[self::FX_SCHEMA], 
+            'px_fx_name' => $operationDbFxSpecs[self::FX_NAME]
+        ];
+        return $getCrudDbFxSpecs;
+    }    
+
+    /**
+     * 
+     */
     private function coerceDbDefaultPxDataType($pxValue)
     {
 
@@ -117,8 +127,7 @@ class LaDataPxs extends LaDataVx {
     protected function convertPxs(string $pxCrudOperation, array $pxClientPxData): array
     {
         // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
-        $dbFxPxs = $this->getCrudDbFxSpecs($pxCrudOperation);
-        // $dbFxPxQry = $this->getCrudQryFromSqlFile(self::FX_PX_OPERATION);        
+        $dbFxPxs = $this->getCrudDbFxSpecs($pxCrudOperation);     
         $fxPxData = $this->dispatchCrudOperation(
             self::FX_PX_OPERATION, 
             self::CRUD_READ, 

@@ -7,7 +7,7 @@
     $posts = $laData->crudData(
         'getposts',
         $laData::CRUD_READ,
-        ['post_name' => 'whydata',
+        ['post_category' => 'RDBMS',
         'limit' => 100], 
         $laData::RESULTSET_ROWS,
         $laData::FETCHSTYLE_ASSOC

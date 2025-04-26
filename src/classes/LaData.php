@@ -30,7 +30,6 @@ class LaData extends LaDataPxs {
         try
         {
             $pxPxData = $this->convertPxs($pxCrudOperation, $pxClientPxs);
-            // $dbFxQry = $this->getCrudQryFromSqlFile($pxCrudOperation);
             $crudData = $this->dispatchCrudOperation($pxCrudOperation, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
         }
         catch(Throwable $error)

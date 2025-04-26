@@ -80,7 +80,7 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function sanitizeText($pxKey, $pxValue): string
+    private function sanitizeText($pxKey, $pxValue): string
     {
         $sanitizeText = trim($pxValue);
         $sanitizeText = strip_tags($sanitizeText);        
@@ -92,7 +92,7 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function sanitizeInt($pxKey, $pxValue): int
+    private function sanitizeInt($pxKey, $pxValue): int
     {
         $sanitizeInt = $pxValue;
         return $sanitizeInt;
@@ -101,7 +101,7 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function validateText($pxKey, $pxValue): bool
+    private function validateText($pxKey, $pxValue): bool
     {
         $validChars = (preg_match('/^([\x20-\x7E]){3,}$/', $pxValue));
         $validType = (gettype($pxValue) === 'string');
@@ -112,7 +112,7 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function validateInt($pxKey, $pxValue): bool
+    private function validateInt($pxKey, $pxValue): bool
     {
         $validChars = (preg_match('/^\d+$/', $pxValue));
         $validType = (gettype($pxValue) === 'integer');
@@ -123,9 +123,18 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    protected function validateRefdata($pxKey, $pxValue): bool
+    private function validateRefdata($pxKey, $pxValue): bool
     {
-        $refdataCrudOperation = PX_REFDATA_FX_OPS[$pxKey];
+        $refdataCrudOperation = self::PX_REFDATA_FX_OPS[$pxKey];
+        $refdataMember = $this->dispatchCrudOperation(
+            $refdataCrudOperation, 
+            self::CRUD_READ, 
+            [$pxValue], 
+            self::RESULTSET_ROWS, 
+            self::FETCHSTYLE_ASSOC
+        );
+        $validateRefdata = ($refdataMember) ? 1 : 0;
+        return $validateRefdata;
     }
 
 }

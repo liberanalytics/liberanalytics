@@ -4,9 +4,9 @@ require_once('LaDataDb.php');
 
 class LaDataCrud extends LaDataDb {
 
-    private const FX_SCHEMA = 'schema';
-    private const FX_NAME = 'fx';
-    private const FX_SQLFILE = 'sqlfile';
+    protected const FX_SCHEMA = 'schema';
+    protected const FX_NAME = 'fx';
+    protected const FX_SQLFILE = 'sqlfile';
     public const CRUD_CREATE = 'create';
     public const CRUD_READ = 'read';
     public const CRUD_UPDATE = 'update';
@@ -18,20 +18,6 @@ class LaDataCrud extends LaDataDb {
     protected function __construct()
     {
         parent::__construct();       
-    }
-
-    /**
-     * 
-     */
-    protected function getCrudDbFxSpecs(string $pxCrudOperation): array
-    {
-        //
-        $operationDbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation);
-        $getCrudDbFxSpecs = [
-            'px_fx_schema' => $operationDbFxSpecs[self::FX_SCHEMA], 
-            'px_fx_name' => $operationDbFxSpecs[self::FX_NAME]
-        ];
-        return $getCrudDbFxSpecs;
     }
 
     /**

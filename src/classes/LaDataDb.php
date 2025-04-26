@@ -134,9 +134,7 @@ class LaDataDB
         $executeCrudOperation = $this->returnExecResults($pxFetchStyle);
         $this->closePDOStatement();
         $this->closeConnection();
-
-        return $executeCrudOperation;
-  
+        return $executeCrudOperation;  
     }
 
 }
