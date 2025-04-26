@@ -1,18 +1,8 @@
 <?php
 
-include('LaDataCrud.php');
 include('LaDataVx.php');
 
-
 class LaDataPxs extends LaDataVx {
-
-    private const FX_PX_OPERATION = 'getfxparameters';
-    private const COL_PX_KEY = 'px_name';
-    private const COL_PX_DEFAULTVALUE = 'px_default_value';
-    private const COL_PX_TYPE = 'px_type';
-    private array $dbPxs;
-    private array $dbPxDefaults;
-    private array $clientPxs;
 
     function __construct()
     {
@@ -22,57 +12,32 @@ class LaDataPxs extends LaDataVx {
     /**
      * 
      */
-    private function setDbPxs($pxDbPxData)
+    private function setClientPxs(string $pxCrudOperation, array $pxClientPxData, array $pxDbFxPxSpecs): array
     {
         //
-        foreach($pxDbPxData as $row => $values)
-        {
-            $pxNameKey = $values[self::COL_PX_KEY];
-            foreach($values as $key => $value)
-            {
-                //
-                if($key == self::COL_PX_DEFAULTVALUE)
-                {
-                    $value = $this->coerceDbDefaultPxDataType($values[self::COL_PX_DEFAULTVALUE]);
-                    $this->dbPxDefaults[$pxNameKey] = $value;
-                }
-                else
-                {
-                    $value = $value;
-                }
-                $this->dbPxs[$pxNameKey][$key] = $value;
-                
-            }
-        }       
-    }
-
-    /**
-     * 
-     */
-    private function setClientPxs(string $pxCrudOperation, array $pxClientPxData)
-    {
-        //
-        $this->clientPxs = [];
+        $setClientPxs = [];
         foreach ($pxClientPxData as $key => $value)
         {
             // Convert client key to db function p(x) name.
             $pxKey = $this->convertClientPxKey($key);
 
             // Iterate through client p(x)'s and match to the database defaults by key to determine type.
-            if (array_key_exists($pxKey, $this->dbPxs))
+            if (array_key_exists($pxKey, $pxDbFxPxSpecs))
             {
                 //
-                $dbPx = $this->dbPxs[$pxKey];
+                $dbPx = $pxDbFxPxSpecs[$pxKey];
                 $pxType = $dbPx[self::COL_PX_TYPE];
                 $pxVal = $this->vxHandler($pxCrudOperation, $pxKey, $value, $pxType);
             }
             else
             {
-                throw new Exception("Invalid key: {$key}");
+                throw new \Exception("Invalid key: {$key}");
             }
 
-            $this->clientPxs[$pxKey] = $pxVal;
-        };     
+            $setClientPxs[$pxKey] = $pxVal;
+        };
+
+        return $setClientPxs;
     }
 
     /**
@@ -87,59 +52,12 @@ class LaDataPxs extends LaDataVx {
     /**
      * 
      */
-    private function getCrudDbFxSpecs(string $pxCrudOperation): array
-    {
-        //
-        $operationDbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation);
-        $getCrudDbFxSpecs = [
-            'px_fx_schema' => $operationDbFxSpecs[self::FX_SCHEMA], 
-            'px_fx_name' => $operationDbFxSpecs[self::FX_NAME]
-        ];
-        return $getCrudDbFxSpecs;
-    }    
-
-    /**
-     * 
-     */
-    private function coerceDbDefaultPxDataType($pxValue)
-    {
-
-        //
-        $pxValueLower = strtolower($pxValue);
-        $coercePxDataType = match($pxValueLower)
-        {
-            'null' => null,
-            'false' => false,           
-            default => null
-        };
-        //
-        if ($coercePxDataType === null && preg_match('/^\d+$/', $pxValue))
-        {
-            $coercePxDataType = (int)$pxValue;
-        }
-        return $coercePxDataType;
-    }
-
-
-    /**
-     * 
-     */
     protected function convertPxs(string $pxCrudOperation, array $pxClientPxData): array
     {
-        // Get the default p(x)'s and place the incoming p(x) data over the defaults based on array keys.
-        $dbFxPxs = $this->getCrudDbFxSpecs($pxCrudOperation);     
-        $fxPxData = $this->dispatchCrudOperation(
-            self::FX_PX_OPERATION, 
-            self::CRUD_READ, 
-            $dbFxPxs, 
-            self::RESULTSET_ROWS, 
-            self::FETCHSTYLE_ASSOC
-        );        
-
-        //
-        $this->setDbPxs($fxPxData);
-        $this->setClientPxs($pxCrudOperation, $pxClientPxData);
-        return array_merge($this->dbPxDefaults, $this->clientPxs);
+        $crudDbFxSpecs = $this->getCrudDbFxPxSpecs($pxCrudOperation);
+        $crudDbFxPxDefaults = $this->getCrudDbFxPxDefaults($crudDbFxSpecs);
+        $clientPxs = $this->setClientPxs($pxCrudOperation, $pxClientPxData, $crudDbFxSpecs);
+        return array_merge($crudDbFxPxDefaults, $clientPxs);
     }
 
 }

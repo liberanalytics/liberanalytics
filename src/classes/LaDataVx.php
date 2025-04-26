@@ -133,8 +133,18 @@ class LaDataVx extends LaDataCrud
             self::RESULTSET_ROWS, 
             self::FETCHSTYLE_ASSOC
         );
-        $validateRefdata = ($refdataMember) ? 1 : 0;
+        $validateRefdata = !empty($refdataMember);
         return $validateRefdata;
+    }
+
+    /**
+     * 
+     */
+    private function sanitizeList(string $pxKey, string $pxValue): string
+    {
+        // Sanitize entire list before looping through members.
+        $sanitizeList = $this->sanitizeText($pxKey, $pxValue);
+
     }
 
 }
