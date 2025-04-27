@@ -1,6 +1,8 @@
 <?php
+namespace classes;
 
 require_once('LaDataPxs.php');
+
 
 
 /**
