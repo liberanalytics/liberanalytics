@@ -1,0 +1,8 @@
+{
+    "autoload": {
+        "psr-4": {
+            "classes\\": "src/classes/",
+            "enums\\": "src/enums/"
+        }
+    }
+}

@@ -2,12 +2,6 @@
 
 namespace classes;
 
-require_once('LaDataDb.php');
-require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
-require_once(dirname(__DIR__) . "/" . "enums/CrudType.php");
-require_once(dirname(__DIR__) . "/" . "enums/CrudResultsetType.php");
-require_once(dirname(__DIR__) . "/" . "enums/CrudFetchStyle.php");
-
 use enums\CrudOperation;
 use enums\CrudFetchStyle;
 use enums\CrudResultsetType;
