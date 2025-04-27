@@ -2,13 +2,8 @@ site/assets/
 python/classes/__pycache__/
 *.ini
 .vscode/
-vendor/
-vendor
-vendor/*
-vendor*
-vendor/composer/*
+/vendor/
 src/*.json
-*.lock
 *__pycache__*
 *.pem
 .venv/
