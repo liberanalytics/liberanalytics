@@ -130,8 +130,7 @@ class LaDataVx extends LaDataCrud
      */
     private function validateRefdata($pxKey, $pxValue): bool
     {
-        // $refdataCrudOperation = self::PX_REFDATA_FX_OPS[$pxKey];
-        $refdataCrudOperation = 
+        $refdataCrudOperation = self::PX_REFDATA_FX_OPS[$pxKey];
         $refdataMember = $this->dispatchCrudOperation(
             $refdataCrudOperation, 
             self::CRUD_READ, 
