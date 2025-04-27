@@ -133,12 +133,12 @@ class LaDataCrud extends LaDataDb {
     {
         $qry = $this->getCrudQryFromSqlFile($pxCrudOperation);
         $executeCrudOperation = $this->executeCrudOperation($qry, $pxParams, $pxFetchStyle);
-        $dispatchCrudOperation = match($pxResultsetType->value)
+        $dispatchCrudOperation = match($pxResultsetType)
         {
             CrudResultsetType::RESULTSET_ARRAY =>  $executeCrudOperation[0],
             CrudResultsetType::RESULTSET_SCALAR => $executeCrudOperation[0][0],
-            CrudResultsetType::RESULTSET_ROWS => $executeCrudOperation,
-            default => $executeCrudOperation
+            CrudResultsetType::RESULTSET_ROWS => $executeCrudOperation
+            // default => $executeCrudOperation
         };    
 
         return $dispatchCrudOperation;

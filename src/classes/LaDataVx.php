@@ -141,7 +141,7 @@ class LaDataVx extends LaDataCrud
             $refdataCrudOperation, 
             CrudType::CRUDREAD, 
             [$pxValue], 
-            CrudResultsetType::RESULTSETROWS, 
+            CrudResultsetType::RESULTSET_ROWS, 
             CrudFetchStyle::FETCHSTYLE_ASSOC
         );
         $validateRefdata = !empty($refdataMember);

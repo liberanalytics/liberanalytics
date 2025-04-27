@@ -107,7 +107,7 @@ class LaDataDB
     {
         //
         $returnExecResults = null;
-        $fetchStyle = match($pxFetchStyle->value)
+        $fetchStyle = match($pxFetchStyle)
         {
             CrudFetchStyle::FETCHSTYLE_ASSOC => PDO::FETCH_ASSOC,
             CrudFetchStyle::FETCHSTYLE_NUM  => PDO::FETCH_NUM,
