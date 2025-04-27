@@ -4,5 +4,9 @@
             "classes\\": "src/classes/",
             "enums\\": "src/enums/"
         }
+    },
+    "require": {
+        "aws/aws-sdk-php": "^3.342",
+        "legalthings/cloudwatch-logger-php": "^0.1.3"
     }
 }

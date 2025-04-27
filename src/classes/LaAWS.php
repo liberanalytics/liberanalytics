@@ -2,9 +2,6 @@
 
 namespace classes;
 
-require_once(dirname(__DIR__) . "/" . "vendor/autoload.php");
-require_once('LaConfig.php');
-
 use Aws\CloudWatchLogs\CloudWatchLogsClient;
 use Aws\Kms\KmsClient;
 use LegalThings\CloudWatchLogger;
