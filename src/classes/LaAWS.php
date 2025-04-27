@@ -5,6 +5,10 @@ namespace classes;
 require_once(dirname(__DIR__) . "/" . "vendor/autoload.php");
 require_once('LaConfig.php');
 
+use Aws\CloudWatchLogs\CloudWatchLogsClient;
+use Aws\Kms\KmsClient;
+use LegalThings\CloudWatchLogger;
+
 class LaAWS {
 
     private LaConfig $laConfig;
@@ -17,7 +21,6 @@ class LaAWS {
     {
         $this->laConfig = new LaConfig();
         $this->setAWSClients();
-
     }
 
     private function setAWSClients(): void
@@ -27,19 +30,19 @@ class LaAWS {
         // Create CloudWatch Logs / KMS / CloudWatchLogger instances.
         try 
         {
-            $this->awsCWLogs = new Aws\CloudWatchLogs\CloudWatchLogsClient([
+            $this->awsCWLogs = new CloudWatchLogsClient([
                 'profile' => 'default',
                 'region' => $awsRegion,
                 'version' => 'latest'
             ]);
 
-            $this->awsKMS = new Aws\Kms\KmsClient([
+            $this->awsKMS = new KmsClient([
                 'profile' => 'default',
                 'region' => $awsRegion,
                 'version' => 'latest'
             ]);
 
-            $this->logError = new LegalThings\CloudWatchLogger([
+            $this->logError = new CloudWatchLogger([
                 'aws' => [
                     'profile' => 'default',
                     'region' => $awsRegion,
@@ -49,7 +52,7 @@ class LaAWS {
                 'stream_name' => $this->laConfig->getConfigAttr('aws', 'cloudwatch', 'log_stream', 'php_db_errors')
             ]);
             
-            $this->logSQL = new LegalThings\CloudWatchLogger([
+            $this->logSQL = new CloudWatchLogger([
                 'aws' => [
                     'profile' => 'default',
                     'region' => $awsRegion,

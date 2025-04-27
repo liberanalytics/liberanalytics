@@ -11,7 +11,11 @@ class LaDataCrud extends LaDataDb {
      
     public const RESULTSET_ARRAY = 'array';
     public const RESULTSET_ROWS = 'rows';
-    public const RESULTSET_SCALAR = 'scalar';    
+    public const RESULTSET_SCALAR = 'scalar';
+    public const CRUD_CREATE = 'create';
+    public const CRUD_READ = 'read';
+    public const CRUD_UPDATE = 'update';
+    public const CRUD_DELETE = 'delete';
     protected const FX_SCHEMA = 'schema';
     protected const FX_NAME = 'fx';
     protected const FX_SQLFILE = 'sqlfile';
