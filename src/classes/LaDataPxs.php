@@ -3,7 +3,7 @@
 namespace classes;
 
 require_once('LaDataVx.php');
-require_once(dirname(__DIR__ . "/" . "enums/CrudOperation.php"));
+require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
 
 use enums\CrudOperation;
 

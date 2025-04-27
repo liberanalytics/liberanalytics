@@ -1,6 +1,11 @@
 <?php
 
+namespace classes;
+
 require_once('LaDataCrud.php');
+require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
+
+use enums\CrudOperation;
 
 /**
  * 
@@ -50,7 +55,7 @@ class LaDataVx extends LaDataCrud
      * 
      */
     protected function vxHandler(
-        string $pxCrudOperation, 
+        CrudOperation $pxCrudOperation, 
         string $pxKey, 
         mixed $pxValue, 
         string $pxType

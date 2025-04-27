@@ -1,7 +1,12 @@
 <?php
 
+namespace classes;
+
 require_once('LaConfig.php');
 require_once('LaAWS.php');
+require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
+
+use enums\CrudOperation;
 
 /**
  * 

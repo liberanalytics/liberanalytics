@@ -1,13 +1,14 @@
 <?php
 
+namespace classes;
+
 require_once('LaDataDb.php');
+require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
+
+use enums\CrudOperation;
 
 class LaDataCrud extends LaDataDb {
-
-    public const CRUD_CREATE = 'create';
-    public const CRUD_READ = 'read';
-    public const CRUD_UPDATE = 'update';
-    public const CRUD_DELETE = 'delete';       
+     
     public const RESULTSET_ARRAY = 'array';
     public const RESULTSET_ROWS = 'rows';
     public const RESULTSET_SCALAR = 'scalar';    
@@ -27,10 +28,10 @@ class LaDataCrud extends LaDataDb {
     /**
      * 
      */
-    private function getCrudQryFromSqlFile(string $pxCrudOperation)
+    private function getCrudQryFromSqlFile(CrudOperation $pxCrudOperation)
     {
         //
-        $crudOperationSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation);
+        $crudOperationSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation->value);
         $crudQryFile = dirname(__FILE__, 3) . "/" . $crudOperationSpecs[self::FX_SQLFILE];
         $getCrudQryFromSqlFile = file_get_contents($crudQryFile);
         return $getCrudQryFromSqlFile;
@@ -39,10 +40,10 @@ class LaDataCrud extends LaDataDb {
     /**
      * 
      */
-    protected function getCrudDbFxPxSpecs(string $pxCrudOperation): array
+    protected function getCrudDbFxPxSpecs(CrudOperation $pxCrudOperation): array
     {
         //
-        $operationDbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation);
+        $operationDbFxSpecs = $this->laConfig->getConfigAttr('data', 'crud', 'operation', $pxCrudOperation->value);
         $dbFxSpecs = [
             'px_fx_schema' => $operationDbFxSpecs[self::FX_SCHEMA], 
             'px_fx_name' => $operationDbFxSpecs[self::FX_NAME]
@@ -121,14 +122,14 @@ class LaDataCrud extends LaDataDb {
      * 
      */
     protected function dispatchCrudOperation(
-        string $pxCrudOperation, 
+        CrudOperation $pxCrudOperation, 
         string $pxCrudType, 
         array $pxParams, 
         string $pxResultsetType, 
         string $pxFetchStyle
     )
     {
-        $qry = $this->getCrudQryFromSqlFile($pxCrudOperation);
+        $qry = $this->getCrudQryFromSqlFile($pxCrudOperation->value);
         $executeCrudOperation = $this->executeCrudOperation($qry, $pxParams, $pxFetchStyle);
         $dispatchCrudOperation = match($pxResultsetType)
         {
