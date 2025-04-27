@@ -7,6 +7,7 @@ require_once('LaAWS.php');
 require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
 
 use enums\CrudOperation;
+use \PDO;
 
 /**
  * 

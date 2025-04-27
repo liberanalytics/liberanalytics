@@ -17,7 +17,7 @@ class LaDataVx extends LaDataCrud
     private const PX_REFDATA_TYPE = 'refdata';
     private const PX_REFDATA_FX = 'validateRefdata';
     private const PX_REFDATA_FX_OPS = [
-        'px_post_category' => 'getpostcategories'
+        'px_post_category' => CrudOperation::GETPOSTCATEGORIES
     ];
     private const SZ_FX = 'vxSz';
     private const VX_FX = 'vxFx';
@@ -130,7 +130,8 @@ class LaDataVx extends LaDataCrud
      */
     private function validateRefdata($pxKey, $pxValue): bool
     {
-        $refdataCrudOperation = self::PX_REFDATA_FX_OPS[$pxKey];
+        // $refdataCrudOperation = self::PX_REFDATA_FX_OPS[$pxKey];
+        $refdataCrudOperation = 
         $refdataMember = $this->dispatchCrudOperation(
             $refdataCrudOperation, 
             self::CRUD_READ, 

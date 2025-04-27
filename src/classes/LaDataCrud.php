@@ -55,7 +55,7 @@ class LaDataCrud extends LaDataDb {
 
         //     
         $getCrudDbFxSpecsAsRows = $this->dispatchCrudOperation(
-            self::FX_PX_OPERATION, 
+            CrudOperation::GETFXPARAMETERS, 
             self::CRUD_READ, 
             $dbFxSpecs, 
             self::RESULTSET_ROWS, 
@@ -133,7 +133,7 @@ class LaDataCrud extends LaDataDb {
         string $pxFetchStyle
     )
     {
-        $qry = $this->getCrudQryFromSqlFile($pxCrudOperation->value);
+        $qry = $this->getCrudQryFromSqlFile($pxCrudOperation);
         $executeCrudOperation = $this->executeCrudOperation($qry, $pxParams, $pxFetchStyle);
         $dispatchCrudOperation = match($pxResultsetType)
         {

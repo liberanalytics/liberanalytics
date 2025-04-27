@@ -32,7 +32,7 @@ class LaDataPxs extends LaDataVx {
                 //
                 $dbPx = $pxDbFxPxSpecs[$pxKey];
                 $pxType = $dbPx[self::COL_PX_TYPE];
-                $pxVal = $this->vxHandler($pxCrudOperation->value, $pxKey, $value, $pxType);
+                $pxVal = $this->vxHandler($pxCrudOperation, $pxKey, $value, $pxType);
             }
             else
             {
@@ -59,9 +59,9 @@ class LaDataPxs extends LaDataVx {
      */
     protected function convertPxs(CrudOperation $pxCrudOperation, array $pxClientPxData): array
     {
-        $crudDbFxSpecs = $this->getCrudDbFxPxSpecs($pxCrudOperation->value);
+        $crudDbFxSpecs = $this->getCrudDbFxPxSpecs($pxCrudOperation);
         $crudDbFxPxDefaults = $this->getCrudDbFxPxDefaults($crudDbFxSpecs);
-        $clientPxs = $this->setClientPxs($pxCrudOperation->value, $pxClientPxData, $crudDbFxSpecs);
+        $clientPxs = $this->setClientPxs($pxCrudOperation, $pxClientPxData, $crudDbFxSpecs);
         return array_merge($crudDbFxPxDefaults, $clientPxs);
     }
 

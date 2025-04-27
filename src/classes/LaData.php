@@ -28,7 +28,7 @@ class LaData extends LaDataPxs {
         //
         try
         {
-            $pxPxData = $this->convertPxs($pxCrudOperation->value, $pxClientPxs);
+            $pxPxData = $this->convertPxs($pxCrudOperation, $pxClientPxs);
             $crudData = $this->dispatchCrudOperation($pxCrudOperation->value, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
         }
         catch (\Throwable $error)
