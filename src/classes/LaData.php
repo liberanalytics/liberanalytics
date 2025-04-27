@@ -3,8 +3,13 @@ namespace classes;
 
 require_once('LaDataPxs.php');
 require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
-
+require_once(dirname(__DIR__) . "/" . "enums/CrudType.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudResultsetType.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudFetchStyle.php");
 use enums\CrudOperation;
+use enums\CrudType;
+use enums\CrudResultsetType;
+use enums\CrudFetchStyle;
 
 class LaData extends LaDataPxs {
 
@@ -19,17 +24,17 @@ class LaData extends LaDataPxs {
      */
     public function crudData(
         CrudOperation $pxCrudOperation,
-        string $pxCrudType,
+        CrudType $pxCrudType,
         array $pxClientPxs = [],
-        string $pxResultsetType = self::RESULTSET_ROWS,
-        string $pxFetchType = self::FETCHSTYLE_ASSOC
+        CrudResultsetType $pxResultsetType,
+        CrudFetchStyle $pxFetchStyle
     )
     {
         //
         try
         {
             $pxPxData = $this->convertPxs($pxCrudOperation, $pxClientPxs);
-            $crudData = $this->dispatchCrudOperation($pxCrudOperation, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
+            $crudData = $this->dispatchCrudOperation($pxCrudOperation, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchStyle);
         }
         catch (\Throwable $error)
         {

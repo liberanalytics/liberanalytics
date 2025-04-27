@@ -4,9 +4,9 @@ namespace classes;
 
 require_once('LaConfig.php');
 require_once('LaAWS.php');
-require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudFetchStyle.php");
 
-use enums\CrudOperation;
+use enums\CrudFetchStyle;
 use \PDO;
 
 /**
@@ -15,12 +15,7 @@ use \PDO;
  */
 class LaDataDB
 {
-    /**
-     * 
-     */
-    public const FETCHSTYLE_ASSOC = 'assoc';
-    public const FETCHSTYLE_NUM = 'num';  
-    public const FETCHSTYLE_ROWCOUNT = 'rowcount';
+
     protected LaConfig $laConfig; 
     protected LaAws $laAWS;       
     private $connection;
@@ -108,15 +103,15 @@ class LaDataDB
     /**
      * 
      */
-    private function returnExecResults($pxFetchStyle)
+    private function returnExecResults(CrudFetchStyle $pxFetchStyle)
     {
         //
         $returnExecResults = null;
-        $fetchStyle = match($pxFetchStyle)
+        $fetchStyle = match($pxFetchStyle->value)
         {
-            self::FETCHSTYLE_ASSOC => PDO::FETCH_ASSOC,
-            self::FETCHSTYLE_NUM   => PDO::FETCH_NUM,
-            self::FETCHSTYLE_ROWCOUNT => ''
+            CrudFetchStyle::FETCHSTYLE_ASSOC => PDO::FETCH_ASSOC,
+            CrudFetchStyle::FETCHSTYLE_NUM  => PDO::FETCH_NUM,
+            CrudFetchStyle::FETCHSTYLE_ROWCOUNT => ''
         }; 
 
         //
@@ -130,7 +125,7 @@ class LaDataDB
     protected function executeCrudOperation(
         string $pxQry,
         array $pxParams, 
-        string $pxFetchStyle
+        CrudFetchStyle $pxFetchStyle
     )
     {
         //

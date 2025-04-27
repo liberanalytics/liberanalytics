@@ -4,8 +4,14 @@ namespace classes;
 
 require_once('LaDataCrud.php');
 require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudType.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudResultsetType.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudFetchStyle.php");
 
 use enums\CrudOperation;
+use enums\CrudType;
+use enums\CrudResultsetType;
+use enums\CrudFetchStyle;
 
 /**
  * 
@@ -17,7 +23,7 @@ class LaDataVx extends LaDataCrud
     private const PX_REFDATA_TYPE = 'refdata';
     private const PX_REFDATA_FX = 'validateRefdata';
     private const PX_REFDATA_FX_OPS = [
-        'px_post_category' => CrudOperation::GETPOSTCATEGORIES
+        'px_post_category' => 'getpostcategories'
     ];
     private const SZ_FX = 'vxSz';
     private const VX_FX = 'vxFx';
@@ -130,13 +136,13 @@ class LaDataVx extends LaDataCrud
      */
     private function validateRefdata($pxKey, $pxValue): bool
     {
-        $refdataCrudOperation = self::PX_REFDATA_FX_OPS[$pxKey];
+        $refdataCrudOperation = CrudOperation::from(self::PX_REFDATA_FX_OPS[$pxKey]);
         $refdataMember = $this->dispatchCrudOperation(
             $refdataCrudOperation, 
-            self::CRUD_READ, 
+            CrudType::CRUDREAD, 
             [$pxValue], 
-            self::RESULTSET_ROWS, 
-            self::FETCHSTYLE_ASSOC
+            CrudResultsetType::RESULTSETROWS, 
+            CrudFetchStyle::FETCHSTYLE_ASSOC
         );
         $validateRefdata = !empty($refdataMember);
         return $validateRefdata;

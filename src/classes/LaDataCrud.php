@@ -4,25 +4,23 @@ namespace classes;
 
 require_once('LaDataDb.php');
 require_once(dirname(__DIR__) . "/" . "enums/CrudOperation.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudType.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudResultsetType.php");
+require_once(dirname(__DIR__) . "/" . "enums/CrudFetchStyle.php");
 
 use enums\CrudOperation;
+use enums\CrudFetchStyle;
+use enums\CrudResultsetType;
+use enums\CrudType;
 
 class LaDataCrud extends LaDataDb {
      
-    public const RESULTSET_ARRAY = 'array';
-    public const RESULTSET_ROWS = 'rows';
-    public const RESULTSET_SCALAR = 'scalar';
-    public const CRUD_CREATE = 'create';
-    public const CRUD_READ = 'read';
-    public const CRUD_UPDATE = 'update';
-    public const CRUD_DELETE = 'delete';
-    protected const FX_SCHEMA = 'schema';
-    protected const FX_NAME = 'fx';
-    protected const FX_SQLFILE = 'sqlfile';
     protected const COL_PX_KEY = 'px_name';
     protected const COL_PX_DEFAULTVALUE = 'px_default_value';
     protected const COL_PX_TYPE = 'px_type';
-    protected const FX_PX_OPERATION = 'getfxparameters';
+    private const FX_SCHEMA = 'schema';
+    private const FX_NAME = 'fx';
+    private const FX_SQLFILE = 'sqlfile'; 
 
     protected function __construct()
     {
@@ -56,10 +54,10 @@ class LaDataCrud extends LaDataDb {
         //     
         $getCrudDbFxSpecsAsRows = $this->dispatchCrudOperation(
             CrudOperation::GETFXPARAMETERS, 
-            self::CRUD_READ, 
+            CrudType::CRUDREAD, 
             $dbFxSpecs, 
-            self::RESULTSET_ROWS, 
-            self::FETCHSTYLE_ASSOC
+            CrudResultsetType::RESULTSET_ROWS, 
+            CrudFetchStyle::FETCHSTYLE_ASSOC
         );
 
         foreach($getCrudDbFxSpecsAsRows as $row => $values)
@@ -127,19 +125,19 @@ class LaDataCrud extends LaDataDb {
      */
     protected function dispatchCrudOperation(
         CrudOperation $pxCrudOperation, 
-        string $pxCrudType, 
+        CrudType $pxCrudType, 
         array $pxParams, 
-        string $pxResultsetType, 
-        string $pxFetchStyle
+        CrudResultsetType $pxResultsetType, 
+        CrudFetchStyle $pxFetchStyle
     )
     {
         $qry = $this->getCrudQryFromSqlFile($pxCrudOperation);
         $executeCrudOperation = $this->executeCrudOperation($qry, $pxParams, $pxFetchStyle);
-        $dispatchCrudOperation = match($pxResultsetType)
+        $dispatchCrudOperation = match($pxResultsetType->value)
         {
-            self::RESULTSET_ARRAY =>  $executeCrudOperation[0],
-            self::RESULTSET_SCALAR => $executeCrudOperation[0][0],
-            self::RESULTSET_ROWS => $executeCrudOperation,
+            CrudResultsetType::RESULTSET_ARRAY =>  $executeCrudOperation[0],
+            CrudResultsetType::RESULTSET_SCALAR => $executeCrudOperation[0][0],
+            CrudResultsetType::RESULTSET_ROWS => $executeCrudOperation,
             default => $executeCrudOperation
         };    
 
