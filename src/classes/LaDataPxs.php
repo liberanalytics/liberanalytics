@@ -1,6 +1,11 @@
 <?php
 
-include('LaDataVx.php');
+namespace classes;
+
+require_once('LaDataVx.php');
+require_once(dirname(__DIR__ . "/" . "enums/CrudOperation.php"));
+
+use enums\CrudOperation;
 
 class LaDataPxs extends LaDataVx {
 
@@ -12,7 +17,7 @@ class LaDataPxs extends LaDataVx {
     /**
      * 
      */
-    private function setClientPxs(string $pxCrudOperation, array $pxClientPxData, array $pxDbFxPxSpecs): array
+    private function setClientPxs(CrudOperation $pxCrudOperation, array $pxClientPxData, array $pxDbFxPxSpecs): array
     {
         //
         $setClientPxs = [];
@@ -27,7 +32,7 @@ class LaDataPxs extends LaDataVx {
                 //
                 $dbPx = $pxDbFxPxSpecs[$pxKey];
                 $pxType = $dbPx[self::COL_PX_TYPE];
-                $pxVal = $this->vxHandler($pxCrudOperation, $pxKey, $value, $pxType);
+                $pxVal = $this->vxHandler($pxCrudOperation->value, $pxKey, $value, $pxType);
             }
             else
             {
@@ -52,11 +57,11 @@ class LaDataPxs extends LaDataVx {
     /**
      * 
      */
-    protected function convertPxs(string $pxCrudOperation, array $pxClientPxData): array
+    protected function convertPxs(CrudOperation $pxCrudOperation, array $pxClientPxData): array
     {
-        $crudDbFxSpecs = $this->getCrudDbFxPxSpecs($pxCrudOperation);
+        $crudDbFxSpecs = $this->getCrudDbFxPxSpecs($pxCrudOperation->value);
         $crudDbFxPxDefaults = $this->getCrudDbFxPxDefaults($crudDbFxSpecs);
-        $clientPxs = $this->setClientPxs($pxCrudOperation, $pxClientPxData, $crudDbFxSpecs);
+        $clientPxs = $this->setClientPxs($pxCrudOperation->value, $pxClientPxData, $crudDbFxSpecs);
         return array_merge($crudDbFxPxDefaults, $clientPxs);
     }
 

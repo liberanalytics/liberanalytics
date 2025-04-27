@@ -2,12 +2,9 @@
 namespace classes;
 
 require_once('LaDataPxs.php');
+require_once(dirname(__DIR__ . "/" . "enums/CrudOperation.php"));
 
-
-
-/**
- * todo: merge data from handler into params.
- */
+use enums\CrudOperation;
 
 class LaData extends LaDataPxs {
 
@@ -21,7 +18,7 @@ class LaData extends LaDataPxs {
      * 
      */
     public function crudData(
-        string $pxCrudOperation,
+        CrudOperation $pxCrudOperation,
         string $pxCrudType,
         array $pxClientPxs = [],
         string $pxResultsetType = self::RESULTSET_ROWS,
@@ -31,8 +28,8 @@ class LaData extends LaDataPxs {
         //
         try
         {
-            $pxPxData = $this->convertPxs($pxCrudOperation, $pxClientPxs);
-            $crudData = $this->dispatchCrudOperation($pxCrudOperation, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
+            $pxPxData = $this->convertPxs($pxCrudOperation->value, $pxClientPxs);
+            $crudData = $this->dispatchCrudOperation($pxCrudOperation->value, $pxCrudType, $pxPxData, $pxResultsetType, $pxFetchType);
         }
         catch (\Throwable $error)
         {
