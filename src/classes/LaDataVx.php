@@ -148,12 +148,7 @@ class LaDataVx extends LaDataCrud
      */
     private function sanitizeList(string $pxKey, string $pxValue): string
     {
-        // Sanitize entire list before looping through members.
-
-        // '/^([\x20-\x7E]){3,}$/'
-        // $sanitizeList = $this->sanitizeText($pxKey, $pxValue);
-
-        // Remove characters not in char class: [A-Za-z0-9\-,\s].
+        // Sanitize list - remove unwanted characters.
         $sanitizePatterns = [
             '/[\x21-\x2B]/',
             '/[\x2E-\x2F]/',
@@ -163,16 +158,24 @@ class LaDataVx extends LaDataCrud
         ];
         $sanitizeList = preg_replace($sanitizePatterns, '', $pxValue);
 
+        // Sanitize list - remove extraneous spaces and commas.
+        $sanitizeList = preg_replace(
+            [
+                '/(\s){2,}/',
+                '/(\s*,\s*|,+\s*)/',
+                '/(,){2,}/'
+            ],
+            [
+                ' ',
+                ',',
+                ','
+            ],
+            $sanitizeList
+        );
 
-        // "rdbms,  sql,   postgresql , joins, execution       plan  ,"
-        $sanitizeList = preg_replace('/(\s){2,}/', ' ', $sanitizeList);
-        $sanitizeList = preg_replace('/(,){2,}/', ',', $sanitizeList);
+        // Sanitize list - trim from beginning and end extraneous spaces and commas.
         $sanitizeList = trim($sanitizeList);
         $sanitizeList = trim($sanitizeList, ',');
-        $sanitizeList = trim($sanitizeList);
-
-        // Finally put values in clean comma delimited list.
-        $sanitizeList = preg_replace('/(,){2,}/', ',', (preg_replace('/\s/', ',', $sanitizeList)));
 
         return $sanitizeList;
 

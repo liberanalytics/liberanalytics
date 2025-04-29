@@ -14,7 +14,7 @@ $posts = $laData->crudData(
     CrudOperation::GETPOSTS,
     CrudType::CRUDREAD,
     [
-        'post_tags' => 'rdbms sql,   join ,   execution-plan  , ',
+        'post_tags' => ' rd(bms&, sql, , j^oin, exep%lan- Ttest, ',
         'limit' => 100
     ], 
     CrudResultsetType::RESULTSET_ROWS,
