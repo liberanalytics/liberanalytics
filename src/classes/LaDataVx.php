@@ -156,26 +156,38 @@ class LaDataVx extends LaDataCrud
             '/[\x5B-\x60]/',
             '/[\x7B-\xFF]/'
         ];
-        $sanitizeList = preg_replace($sanitizePatterns, '', $pxValue);
+        $sanitizeListAsString = preg_replace($sanitizePatterns, '', $pxValue);
 
         // Sanitize list - remove extraneous spaces and commas.
-        $sanitizeList = preg_replace(
+        $sanitizeListAsString = preg_replace(
             [
                 '/(\s){2,}/',
                 '/(\s*,\s*|,+\s*)/',
-                '/(,){2,}/'
+                '/(,){2,}/',
+                '/\s/'
             ],
             [
                 ' ',
                 ',',
+                ',',
                 ','
             ],
-            $sanitizeList
+            $sanitizeListAsString
         );
-
+        
         // Sanitize list - trim from beginning and end extraneous spaces and commas.
-        $sanitizeList = trim($sanitizeList);
-        $sanitizeList = trim($sanitizeList, ',');
+        $sanitizeListAsString = trim($sanitizeListAsString);
+        $sanitizeListAsString = trim($sanitizeListAsString, ',');
+
+        // Serialize a postgresql array.
+        $sanitizeListAsArray = preg_split('/,/', $sanitizeListAsString);
+        $sanitizeListLastKey = array_key_last($sanitizeListAsArray);
+        $sanitizeList = "{";
+        foreach ($sanitizeListAsArray as $key => $value)
+        {   
+            $sanitizeList .= "'" . $value . "'" ;
+            $sanitizeList .= ($key != $sanitizeListLastKey) ? "," : "}";
+        }
 
         return $sanitizeList;
 
