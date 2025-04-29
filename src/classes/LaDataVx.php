@@ -109,7 +109,7 @@ class LaDataVx extends LaDataCrud
      */
     private function validateText($pxKey, $pxValue): bool
     {
-        $validChars = (preg_match('/^([\x20-\x7E]){3,}$/', $pxValue));
+        $validChars = (preg_match('/^([\x20-\x7E]){2,}$/', $pxValue));
         $validType = (gettype($pxValue) === 'string');
         $validateText = ($validChars && $validType);
         return $validateText;
@@ -184,13 +184,34 @@ class LaDataVx extends LaDataCrud
         $sanitizeListLastKey = array_key_last($sanitizeListAsArray);
         $sanitizeList = "{";
         foreach ($sanitizeListAsArray as $key => $value)
-        {   
+        {
             $sanitizeList .= "'" . $value . "'" ;
             $sanitizeList .= ($key != $sanitizeListLastKey) ? "," : "}";
         }
 
         return $sanitizeList;
 
+    }
+
+    /**
+     * 
+     */
+    private function validateList(string $pxKey, string $pxList): bool
+    {
+        $validateList = TRUE;
+        $pxList = ltrim($pxList, "{");
+        $pxList = rtrim($pxList, "}");
+        $pxListAsArray = preg_split('/,/', $pxList);
+        foreach ($pxListAsArray as $key => $val)
+        {
+            if (!$this->validateText($pxKey, trim($val, "'")))
+            {
+                $validateList = FALSE;
+                return $validateList;
+            }
+        }
+
+        return $validateList ;
     }
 
 }
