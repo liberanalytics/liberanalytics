@@ -2,8 +2,14 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
-	include_once('../src/classes/LaData.php');
-	$laData = new LaData();
+	require_once(dirname(__DIR__, 1) . "/" . 'vendor/autoload.php');
+
+	use enums\CrudOperation;
+	use enums\CrudType;
+	use enums\CrudResultsetType;
+	use enums\CrudFetchStyle;	
+
+	$laData = new classes\LaData();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,18 +36,13 @@
 				<header>
 					<?php
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
-						$laData->openConn();
-						$post = $laData->getPosts
-						(
-							$pFeatured = TRUE, 
-							$pPostName = $postName,           
-							$pCategory = NULL, 
-							$pOrderBy = NULL,
-							$pOrderByAscDesc = NULL,
-							$pLimit = NULL
-						);
-						$post = $post->fetch(PDO::FETCH_ASSOC);
-						$laData->closeConn();
+						$post = $laData->crudData(
+							CrudOperation::GETPOSTS,
+							CrudType::CRUDREAD,
+							CrudResultsetType::RESULTSET_ROWS,
+							CrudFetchStyle::FETCHSTYLE_ASSOC,
+							[ 'post_name' => $postName]						
+						)[0];
 					?>
 
 					<h1 class="blog-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>

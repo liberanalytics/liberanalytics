@@ -2,8 +2,15 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
-	include_once('../src/classes/LaData.php');
-	$laData = new LaData();
+	
+	require_once(dirname(__DIR__, 1) . "/" . 'vendor/autoload.php');
+
+	use enums\CrudOperation;
+	use enums\CrudType;
+	use enums\CrudResultsetType;
+	use enums\CrudFetchStyle;	
+
+	$laData = new classes\LaData();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,18 +39,18 @@
 					/**
 					 * 
 					 */
-					$laData->openConn();
-					$featuredPosts = $laData->getPosts
-					(
-						$pFeatured = TRUE, 
-						$pPostName = NULL ,           
-						$pCategory = NULL, 
-						$pOrderBy = 'featured',
-						$pOrderByAscDesc = 'ASC',
-						$pLimit = NULL
+					$featuredPosts = $laData->crudData(
+						CrudOperation::GETPOSTS,
+						CrudType::CRUDREAD,
+						CrudResultsetType::RESULTSET_ROWS,
+						CrudFetchStyle::FETCHSTYLE_ASSOC,
+						[
+							'order_by' => 'featured',
+							'order_by_ascdesc' => 'ASC'
+						]						
 					);
 					$iter = 1;
-					while ($post = $featuredPosts->fetch(PDO::FETCH_ASSOC))
+					foreach ($featuredPosts as $postnum => $post)
 					{                     
 						if ($iter == 1) {
 							$htmlFormatting = "";
@@ -86,17 +93,18 @@
 				<div id="latest_posts_nav">
 				<?php
 
-					$latestPosts = $laData->getPosts
-					(
-						$pFeatured = TRUE,                  // ^ to false once more posts have been +'d.
-						$pPostName = NULL ,           
-						$pCategory = NULL, 
-						$pOrderBy = 'post_category', // ^ to post_created once more posts have been +'d.
-						$pOrderByAscDesc = 'DESC',
-						$pLimit = NULL
+					$latestPosts = $laData->crudData(
+						CrudOperation::GETPOSTS,
+						CrudType::CRUDREAD,
+						CrudResultsetType::RESULTSET_ROWS,
+						CrudFetchStyle::FETCHSTYLE_ASSOC,
+						[
+							'order_by' => 'post_category',
+							'order_by_ascdesc' => 'DESC'
+						]						
 					);
 					$iter = 1;
-					while ($post = $latestPosts->fetch(PDO::FETCH_ASSOC))
+					foreach ($latestPosts as $postNum => $post)
 					{
 						if ($iter == 1) {
 							$htmlFormatting = "\t";
@@ -109,7 +117,6 @@
 
 						$iter += 1;
 					}
-					$laData->closeConn();
 				?>
 
 				</div><!-- End latest_posts_nav -->      

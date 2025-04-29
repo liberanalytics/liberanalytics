@@ -14,11 +14,17 @@ $posts = $laData->crudData(
     CrudOperation::GETPOSTS,
     CrudType::CRUDREAD,
     [
-        'post_tags' => ' rd(bms&, sql, , j^oin, exep%lan- Ttest, ',
-        'limit' => 100
-    ], 
+        'order_by' => 'featured',
+        'order_by_ascdesc' => 'ASC'
+    ],
     CrudResultsetType::RESULTSET_ROWS,
     CrudFetchStyle::FETCHSTYLE_ASSOC
 );
+
+$a = 1;
+
+
+    // 'post_tags' => ' rd(bms&, sql, , j^oin, exep%lan- Ttest, ',
+    // 'limit' => 100
 
 ?>

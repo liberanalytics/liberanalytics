@@ -21,9 +21,9 @@ class LaData extends LaDataPxs {
     public function crudData(
         CrudOperation $pxCrudOperation,
         CrudType $pxCrudType,
-        array $pxClientPxs = [],
         CrudResultsetType $pxResultsetType,
-        CrudFetchStyle $pxFetchStyle
+        CrudFetchStyle $pxFetchStyle,
+        array $pxClientPxs = []
     )
     {
         //
