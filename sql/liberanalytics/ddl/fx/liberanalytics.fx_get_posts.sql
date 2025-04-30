@@ -80,7 +80,7 @@ txt_query_base :=
 
 'FROM liberanalytics.posts AS ' || txt_posts_alias || '
 
-LEFT JOIN liberanalytics.posts_tags AS ' || txt_post_tags_alias || '
+LEFT JOIN liberanalytics.post_tags AS ' || txt_post_tags_alias || '
 ON (la.post_name = post_tags.post_name)
 
 WHERE 1=1

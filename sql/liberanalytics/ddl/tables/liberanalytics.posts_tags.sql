@@ -1,27 +1,27 @@
 -- Table: liberanalytics.posts_post_tags
 
--- DROP TABLE IF EXISTS liberanalytics.posts_tags;
+DROP TABLE IF EXISTS liberanalytics.post_tags;
 
-CREATE TABLE IF NOT EXISTS liberanalytics.posts_tags
+CREATE TABLE IF NOT EXISTS liberanalytics.post_tags
 (
     post_name character varying(32) COLLATE pg_catalog."default" NOT NULL,
-    tag character varying(32) COLLATE pg_catalog."default" NOT NULL,
+    post_tag character varying(32) COLLATE pg_catalog."default" NOT NULL,
     post_tag_created timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT posts_post_tags_pk PRIMARY KEY (post_name, tag),
+    CONSTRAINT liberanalytics_post_tags_pk PRIMARY KEY (post_name, post_tag),
     
-    CONSTRAINT posts_post_tags_post_name_fkey FOREIGN KEY (post_name)
+    CONSTRAINT post_tags_post_name_fkey FOREIGN KEY (post_name)
         REFERENCES liberanalytics.posts (post_name) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
 
-     CONSTRAINT posts_post_tags_post_tag_fkey FOREIGN KEY (tag)
-        REFERENCES refdata.post_tags (tag) MATCH SIMPLE
+     CONSTRAINT post_tags_post_tag_fkey FOREIGN KEY (post_tag)
+        REFERENCES refdata.post_tags (post_tag) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS liberanalytics.posts_post_tags
+ALTER TABLE IF EXISTS liberanalytics.post_tags
     OWNER to liberanalytics;
