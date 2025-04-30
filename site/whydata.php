@@ -99,7 +99,7 @@
 					<p>
 						Using quality data to derive insights about organizations is imperative in an operational decision making process. Without data the
 						ability to confidently stand on impactul decisions would be compromised and  would inevitably lead to less than desirable outcomes.
-						With the advent of big data and AI data that is effectively analysed and translated to meaningful business information has never
+						With the advent of big data and AI data that is effectively analysed and translated to meaningful business information data has never
 						been more critical.
 					</p>
 

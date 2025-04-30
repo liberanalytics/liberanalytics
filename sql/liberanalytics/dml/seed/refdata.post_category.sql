@@ -8,6 +8,4 @@ INSERT INTO refdata.post_categories (
 
 VALUES
 
-     ('Analytics', 'Analytics', DEFAULT)
-    ,('RDBMS', 'RDBMS', DEFAULT)
-    ,('Cloud Computing', 'Cloud Computing', DEFAULT);
+     ('Why Data', 'Why Data', DEFAULT);

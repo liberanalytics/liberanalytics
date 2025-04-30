@@ -1,4 +1,5 @@
-INSERT INTO liberanalytics.posts (
+INSERT INTO liberanalytics.posts 
+(
 
      post_name
     ,post_category
@@ -9,12 +10,12 @@ INSERT INTO liberanalytics.posts (
     ,post_img
     ,featured_img
     ,search_img
-    
-) VALUES
+)
+ VALUES
 
      (
          'whydata'
-        ,'Analytics'
+        ,'Why Data'
         , NOW()
         ,'Why do we need Data?'
         ,'Explores the importance of data and information in decision making.'
@@ -22,28 +23,4 @@ INSERT INTO liberanalytics.posts (
         ,'whydata_820.png'
         ,'whydata_195.png'
         ,NULL
-     )
-    
-    ,(
-         'pythonpostgreconnect'
-        ,'RDBMS'
-        , NOW()
-        ,'Connecting Python to a Postgresql database'
-        ,'Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.'
-        ,2
-        ,'pythonpostgreconnect_820.png'
-        ,'pythonpostgreconnect_195.png'
-        ,NULL
-    )
-
-    ,(
-         'phppcloudwatchlogs'
-        ,'Cloud Computing'
-        , NOW()
-        ,'Logging database errors and queries to Amazon Web Services CloudWatch Logs'
-        ,'Exemplifies a PHP way to use Amazon Web Services CloudWatch to log database errors and queries run. (Yes, PHP in 2025!).'
-        ,3
-        ,'as_cw_820.png'
-        ,'as_cw_195.png'
-        ,NULL
-    );  
+     );
