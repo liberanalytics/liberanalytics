@@ -1,4 +1,4 @@
--- Table: liberanalytics.posts_post_tags
+-- Table: liberanalytics.post_tags
 
 DROP TABLE IF EXISTS liberanalytics.post_tags;
 

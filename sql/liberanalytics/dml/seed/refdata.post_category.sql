@@ -1,4 +1,4 @@
-INSERT INTO refdata.post_category (
+INSERT INTO refdata.post_categories (
 
      post_category
     ,post_category_desc

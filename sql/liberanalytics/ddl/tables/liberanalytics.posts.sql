@@ -1,6 +1,6 @@
 -- Table: liberanalytics.posts
 
--- DROP TABLE IF EXISTS liberanalytics.posts;
+DROP TABLE IF EXISTS liberanalytics.posts;
 
 CREATE TABLE IF NOT EXISTS liberanalytics.posts
 (
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS liberanalytics.posts
     CONSTRAINT posts_pk PRIMARY KEY (post_name),
     
     CONSTRAINT posts_post_category_fkey FOREIGN KEY (post_category)
-        REFERENCES refdata.post_category (post_category) MATCH SIMPLE
+        REFERENCES refdata.post_categories (post_category) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )

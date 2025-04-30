@@ -1,8 +1,6 @@
--- Table: refdata.post_category
+DROP TABLE IF EXISTS refdata.post_categories;
 
--- DROP TABLE IF EXISTS refdata.post_category;
-
-CREATE TABLE IF NOT EXISTS refdata.post_category
+CREATE TABLE IF NOT EXISTS refdata.post_categories
 (
     post_category character varying(32) COLLATE pg_catalog."default" NOT NULL,
     post_category_desc character varying(32) COLLATE pg_catalog."default",
@@ -12,5 +10,5 @@ CREATE TABLE IF NOT EXISTS refdata.post_category
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS refdata.post_category
+ALTER TABLE IF EXISTS refdata.post_categories
     OWNER to liberanalytics;
