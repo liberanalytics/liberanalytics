@@ -27,6 +27,6 @@ VALUES
     ('phpcloudwatchlogs', 'AWS-KMS', DEFAULT), 
     ('phpcloudwatchlogs', 'AWS-IAM', DEFAULT),
     ('phpcloudwatchlogs', 'AWS-PHP SDK', DEFAULT),
-    ('phpcloudwatchlogs', 'Encryption', DEFAULT),   
+    ('phpcloudwatchlogs', 'Logging', DEFAULT),   
     ('phpcloudwatchlogs', 'PHP', DEFAULT),
     ('phpcloudwatchlogs', 'PostgreSQL in PHP', DEFAULT);

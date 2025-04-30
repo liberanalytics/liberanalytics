@@ -30,6 +30,7 @@ AS $$
 
 DECLARE
 	txt_query_attr_list TEXT;
+	txt_query_group_by TEXT;
 	txt_query_base TEXT;
 	txt_query TEXT;
 	txt_posts_alias TEXT := 'la';
@@ -72,6 +73,10 @@ txt_query_attr_list :=
 	',' || txt_posts_alias || '.featured_img' || E'\n' ||
 	',' || txt_posts_alias || '.search_img' || E'\n\n';
 
+txt_query_group_by :=
+
+	E'\n\n' || 'GROUP BY' || E'\n\n' || txt_query_attr_list;
+
 txt_query_base :=
 
 'SELECT 
@@ -91,6 +96,7 @@ txt_query :=
 	txt_pred_featured ||
 	txt_pred_post_name ||
 	txt_pred_post_category ||
+	txt_query_group_by ||
 	txt_order_by ||
 	txt_limit ||
 

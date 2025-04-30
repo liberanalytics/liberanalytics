@@ -16,7 +16,7 @@ LANGUAGE plpgsql
 AS $$
 
 DECLARE
-	txtDynamicSQLClause VARCHAR(1024);
+	txtDynamicSQLClause TEXT;
 
 BEGIN
 
