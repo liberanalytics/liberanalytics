@@ -46,11 +46,11 @@ DECLARE
 
 BEGIN
 
-txt_pred_featured := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'featured', '<=', NULL, px_featured);
-txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', (px_post_name), NULL);
-txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', (px_post_category), NULL);
-txt_order_by := meta.fx_get_dynamic_sql_clause('ORDER BY', txt_posts_alias, px_order_by, px_order_by_ascdesc, NULL, NULL); 
-txt_limit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, px_limit); 
+txt_pred_featured := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'featured', '<=', NULL, px_featured, NULL);
+txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', px_post_name, NULL, 1);
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', px_post_category, NULL, 2);
+txt_order_by := meta.fx_get_dynamic_sql_clause('ORDER BY', txt_posts_alias, px_order_by, px_order_by_ascdesc, NULL, NULL, NULL); 
+txt_limit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, px_limit, NULL); 
 
 
 /*
@@ -102,7 +102,11 @@ txt_query :=
 
 ';';
 
-RETURN QUERY EXECUTE txt_query;
+RETURN QUERY EXECUTE txt_query
+USING 
+	 px_post_name 
+	,px_post_category;
+
 --RAISE NOTICE 'Query txting: %', txt_query;
 --USING pxPostTags;
 
