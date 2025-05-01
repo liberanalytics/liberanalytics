@@ -6,8 +6,8 @@ CREATE OR REPLACE FUNCTION meta.fx_get_dynamic_sql_clause
 	,pxAlias TEXT
 	,pxColumn TEXT
 	,pxOperator TEXT
-	,pxValueString TEXT
-	,pxValueInt INTEGER
+	,pxValueString TEXT[]
+	,pxValueInt INTEGER[]
 )
 
 RETURNS TEXT
@@ -23,12 +23,18 @@ BEGIN
 IF pxClauseType = 'AND' THEN
 	IF (pxValueString IS NOT NULL OR pxValueInt IS NOT NULL) THEN
 		txtDynamicSQLClause :=
+
 			E'\n' ||
 			pxClauseType || ' ' || 
 			COALESCE(pxAlias || '.', '') || 
 			pxColumn || ' ' ||
 			pxOperator || ' ' ||
-			COALESCE(CAST(pxValueString AS TEXT), CAST(pxValueInt AS TEXT));
+			'ANY(ARRAY[' ||
+
+			COALESCE( CAST(pxValueInt AS TEXT), CAST(pxValueString AS TEXT) ) ||
+
+			'])';
+
 	ELSE
 		txtDynamicSQLClause := '';
 	END IF;
