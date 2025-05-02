@@ -135,9 +135,9 @@ class LaDataVx extends LaDataCrud
         $refdataMember = $this->dispatchCrudOperation(
             $refdataCrudOperation, 
             CrudType::CRUDREAD, 
-            [$pxValue], 
             CrudResultsetType::RESULTSET_ROWS, 
-            CrudFetchStyle::FETCHSTYLE_ASSOC
+            CrudFetchStyle::FETCHSTYLE_ASSOC,
+            [$pxValue]
         );
         $validateRefdata = !empty($refdataMember);
         return $validateRefdata;
@@ -185,7 +185,7 @@ class LaDataVx extends LaDataCrud
         $sanitizeList = "{";
         foreach ($sanitizeListAsArray as $key => $value)
         {
-            $sanitizeList .= "'" . $value . "'" ;
+            $sanitizeList .= '"' . $value . '"' ;
             $sanitizeList .= ($key != $sanitizeListLastKey) ? "," : "}";
         }
 

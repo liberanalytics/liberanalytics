@@ -2,8 +2,14 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-include('../src/classes/LaData.php');
-$laData = new LaData();
+require_once(dirname(__DIR__, 1) . "/" . 'vendor/autoload.php');
+
+use enums\CrudOperation;
+use enums\CrudType;
+use enums\CrudResultsetType;
+use enums\CrudFetchStyle;	
+
+$laData = new classes\LaData();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +29,7 @@ $laData = new LaData();
 
 <body>
 
-	<?php include_once('../src/site_header.php'); ?>
+	<?php include_once('site_header.php'); ?>
 
 	<main>
 	<div id="page_w">
@@ -40,13 +46,17 @@ $laData = new LaData();
 								<option class="control">Select Category</option>
 								
 								<?php
-									// $laData->openConn();
-									$postCategories = $laData->getPostCategories();
-									foreach($postCategories as $postCategory)
+									$postCategories = $laData->crudData(
+										CrudOperation::GETPOSTCATEGORIES,
+										CrudType::CRUDREAD,
+										CrudResultsetType::RESULTSET_ROWS,
+										CrudFetchStyle::FETCHSTYLE_ASSOC,
+										[]						
+									);
+									foreach($postCategories as $postCategoryIndex => $postCategoryArray)
 									{
-										echo "<option>{$postCategory}</option>";
+										echo "<option>{$postCategoryArray['post_category']}</option>";
 									}
-									// $laData->closeConn();
 								?>
 
 							</select>
@@ -88,7 +98,7 @@ $laData = new LaData();
 	</div><!-- End page_w -->
 	</main>
 
-	<?php include_once('../src/site_footer.php'); ?>
+	<?php include_once('site_footer.php'); ?>
 
 </body>
 </html>

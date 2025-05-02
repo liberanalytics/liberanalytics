@@ -48,10 +48,10 @@ class LaDataCrud extends LaDataDb {
         //     
         $getCrudDbFxSpecsAsRows = $this->dispatchCrudOperation(
             CrudOperation::GETFXPARAMETERS, 
-            CrudType::CRUDREAD, 
-            $dbFxSpecs, 
+            CrudType::CRUDREAD,  
             CrudResultsetType::RESULTSET_ROWS, 
-            CrudFetchStyle::FETCHSTYLE_ASSOC
+            CrudFetchStyle::FETCHSTYLE_ASSOC,
+            $dbFxSpecs            
         );
 
         foreach($getCrudDbFxSpecsAsRows as $row => $values)
@@ -119,10 +119,10 @@ class LaDataCrud extends LaDataDb {
      */
     protected function dispatchCrudOperation(
         CrudOperation $pxCrudOperation, 
-        CrudType $pxCrudType, 
-        array $pxParams, 
+        CrudType $pxCrudType,        
         CrudResultsetType $pxResultsetType, 
-        CrudFetchStyle $pxFetchStyle
+        CrudFetchStyle $pxFetchStyle,
+        array $pxParams
     )
     {
         $qry = $this->getCrudQryFromSqlFile($pxCrudOperation);

@@ -10,21 +10,22 @@ use enums\CrudFetchStyle;
 
 $laData = new LaData();   
 
-$posts = $laData->crudData(
+// $posts = $laData->crudData(
+//     CrudOperation::GETPOSTS,
+//     CrudType::CRUDREAD,
+//     CrudResultsetType::RESULTSET_ROWS,
+//     CrudFetchStyle::FETCHSTYLE_ASSOC,
+//     []    
+// );
+
+$post = $laData->crudData(
     CrudOperation::GETPOSTS,
     CrudType::CRUDREAD,
-    [
-        'order_by' => 'featured',
-        'order_by_ascdesc' => 'ASC'
-    ],
     CrudResultsetType::RESULTSET_ROWS,
-    CrudFetchStyle::FETCHSTYLE_ASSOC
+    CrudFetchStyle::FETCHSTYLE_ASSOC,
+    [ 'post_name' => "whydata"]						
 );
 
-$a = 1;
-
-
-    // 'post_tags' => ' rd(bms&, sql, , j^oin, exep%lan- Ttest, ',
-    // 'limit' => 100
+$a=1;
 
 ?>

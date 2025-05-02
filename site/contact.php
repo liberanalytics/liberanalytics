@@ -2,8 +2,14 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
-	include_once('../src/classes/LaData.php');
-	$laData = new LaData();
+	require_once(dirname(__DIR__, 1) . "/" . 'vendor/autoload.php');
+
+	use enums\CrudOperation;
+	use enums\CrudType;
+	use enums\CrudResultsetType;
+	use enums\CrudFetchStyle;	
+
+	$laData = new classes\LaData();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +29,7 @@
 
 <body>
 
-	<?php include_once('../src/site_header.php'); ?>
+	<?php include_once('site_header.php'); ?>
 
 	<main>
 	<div id="page_w">
@@ -98,7 +104,7 @@
 	</div><!-- End page_w -->
 	</main>
 
-	<?php include_once('../src/site_footer.php'); ?>
+	<?php include_once('site_footer.php'); ?>
 
 </body>
 </html>
