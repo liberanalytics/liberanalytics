@@ -1,0 +1,64 @@
+DROP FUNCTION IF EXISTS refdata.fx_get_post_tags;
+
+CREATE OR REPLACE FUNCTION refdata.fx_get_post_tags
+(
+     px_post_tags TEXT[] DEFAULT NULL
+    ,px_post_category TEXT[] DEFAULT NULL
+)
+
+RETURNS TABLE
+(
+    post_tags VARCHAR(32)
+)
+
+LANGUAGE plpgsql
+AS $$
+
+DECLARE
+	txt_query_attr_list TEXT;
+	txt_query_base TEXT;
+	txt_query TEXT;
+	txt_post_tags_alias TEXT := 'pt';
+    int_ordinal_post_tags INTEGER := CASE WHEN px_post_tags IS NULL THEN NULL ELSE 1 END;
+    int_ordinal_post_category INTEGER := CASE WHEN px_post_category IS NULL THEN NULL ELSE 2 END;
+    txt_pred_post_tags TEXT;
+    txt_pred_post_category TEXT;
+
+BEGIN
+
+txt_pred_post_tags := meta.fx_get_dynamic_sql_clause('AND', txt_post_tags_alias, 'post_tag', '=', NULL, NULL, int_ordinal_post_tags);
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_post_tags_alias, 'post_category', '=', NULL, NULL, int_ordinal_post_category);
+
+txt_query_attr_list := '
+
+' || txt_post_tags_alias || '.post_tag
+
+';
+
+txt_query_base :=
+
+'SELECT ' || txt_query_attr_list ||
+
+'FROM refdata.post_tags AS ' || txt_post_tags_alias ||
+
+'
+WHERE 1=1
+';
+
+
+txt_query :=
+    txt_query_base ||
+    txt_pred_post_tags ||
+    txt_pred_post_category ||
+
+';';
+
+RETURN QUERY EXECUTE txt_query
+USING 
+     px_post_tags
+    ,px_post_category;
+
+--RAISE NOTICE 'Query String: %', txt_query;
+
+END;
+$$

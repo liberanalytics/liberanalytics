@@ -9,4 +9,4 @@ FROM meta.fx_get_fx_pxs
 (
      :px_fx_schema
     ,:px_fx_name
-)
+);

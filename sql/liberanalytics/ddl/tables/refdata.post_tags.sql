@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS refdata.post_tags;
 CREATE TABLE refdata.post_tags (
 
     post_tag character varying(32) COLLATE pg_catalog."default" NOT NULL,
-    post_tag_category character varying(32) COLLATE pg_catalog."default" NOT NULL,
+    post_category character varying(32) COLLATE pg_catalog."default" NOT NULL,
     post_tag_foundational boolean DEFAULT FALSE,
     post_tag_created timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

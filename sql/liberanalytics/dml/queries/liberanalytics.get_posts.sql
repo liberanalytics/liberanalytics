@@ -19,4 +19,4 @@ FROM liberanalytics.fx_get_posts
 	,:px_order_by
 	,:px_order_by_ascdesc
 	,:px_limit
-)
+);

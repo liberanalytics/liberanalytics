@@ -5,4 +5,4 @@ SELECT
 FROM refdata.fx_get_post_categories
 (
      :px_post_category
-)
+);
