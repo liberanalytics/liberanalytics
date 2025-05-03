@@ -20,7 +20,7 @@ $laData = new classes\LaData();
 	<title>LiberAnalytics</title>
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/posts.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/postsearch.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="text/javascript" src="js/LAStyles.js"></script>
 	<script type="text/javascript" src="js/la.js"></script>
 	<script type="text/javascript" src="js/LAvx.js"></script>
