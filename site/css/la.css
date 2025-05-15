@@ -20,7 +20,16 @@ html {
 /** ----------------------------------------- Root Styles ----------------------------------------- **/
 
 :root {
-    
+    --clr-primary-blk: rgb(51,51,51);
+    --clr-primary-link: rgba(88,135,191,1);
+    --clr-primary-link-hvr: rgba(101,149,202,1);
+    --clr-form-submit: rgba(88,135,191,.75);
+    --clr-form-submit-hvr: rgba(88,135,191,1);
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 /** ----------------------------------------- Site Header ----------------------------------------- **/
@@ -29,7 +38,7 @@ html {
 #site_header {    
     padding: 20px 0 0 0;
     border-bottom: 2px solid #dddbd9;
-    background-color: rgba(51,51,51);
+    background-color: var(--clr-primary-blk);
 }
 
 .site-logo-c {
@@ -86,17 +95,17 @@ html {
     font-family: "Helvetica";    
     font-size: 18px;
     font-weight: 300;
-    color: rgba(88,135,191,1);
+    color: var(--clr-primary-link);
     text-decoration: none;
 }
 
 #site_menu nav a:visited {
-    color: rgba(88,135,191,1);
+    color: var(--clr-primary-link);
 }
 
 #site_menu nav a:hover {
     color: white;
-    background-color: rgba(101,149,202,1);    
+    background-color: var(--clr-primary-link-hvr);    
     transition-duration: .3s;
 }
 
@@ -113,7 +122,7 @@ html {
     font-size: 14px;
     color: white;
     border-radius: 15px;
-    background: url('../assets/mg.svg') rgba(88,135,191,.75) no-repeat center left;
+    background: url('../assets/mg.svg') var(--clr-form-submit) no-repeat center left;
 }
 
 #site_search input[type=search]::placeholder {
@@ -122,7 +131,7 @@ html {
 
 #site_search input[type=search]:focus {
     outline: none;
-    background-color: rgba(88,135,191,1);
+    background-color: var(--clr-form-submit-hvr);
 }
 
 #site_search input[type=search]:focus::placeholder {
@@ -141,7 +150,7 @@ html {
 #site_footer {
     padding: 20px 0 0 0;
     border-bottom: 2px solid #dddbd9;
-    background-color: rgba(51,51,51);
+    background-color: var(--clr-primary-blk);
 }
 
 #site_footer_content {
@@ -154,7 +163,7 @@ html {
 
 #site_footer_nav > span {
     padding: 0 10px 0 10px;
-    border-right: 1px solid rgba(88,135,191,1);;
+    border-right: 1px solid var(--clr-primary-link);;
 }
 
 #site_footer_nav > span.last {
@@ -166,13 +175,13 @@ html {
     font-family: "Helvetica";    
     font-size: 18px;
     font-weight: 300;
-    color: rgba(88,135,191,1);
+    color: var(--clr-primary-link);
     text-decoration: none;
-    border-bottom: 1px solid rgba(88,135,191,1);;    
+    border-bottom: 1px solid var(--clr-primary-link);
 }
 
 #site_footer_nav a:hover {
-    border-bottom: 3px solid rgba(101,149,202,1);
+    border-bottom: 3px solid var(--clr-primary-link-hvr);
     transition-duration: .2s;
 }
 
@@ -282,12 +291,12 @@ ul li, ol li {
     font-family: Studio-Feixen-Sans;
     font-size: 18px;
     font-weight: 300;   
-    color: rgb(51,51,51);
+    color: var(--clr-prmary-blk);
     text-decoration: none;;
 }
 
 .site-href:hover {
-    color: rgba(101,149,202,1);
+    color: var(--clr-primary-link-hvr);
     transition-duration: .3s;
 }
 
@@ -310,23 +319,23 @@ a:link {
     font-family: Studio-Feixen-Sans;    
     font-size: 18px;
     font-weight: 300;
-    color: rgba(88,135,191,1);
+    color: var(--clr-primary-link);
     text-decoration: none;    
 }
 
 a:hover {
-    color: rgba(101,149,202,1);
+    color: var(--clr-primary-link-hvr);
     text-decoration: underline;    
     transition-duration: .3s;   
 }
 
 a:visited {
-    color: rgba(88,135,191,1);
+    color: var(--clr-primary-link);
     text-decoration: none;    
 }
 
 a:active {
-    color: rgba(101,149,202,1);
+    color: var(--clr-primary-link-hvr);
     text-decoration: underline;    
     transition-duration: .3s;   
 }

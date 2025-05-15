@@ -590,7 +590,7 @@
 	</div><!-- End page_w -->
 	</main>
 
-    <?php include_once('../src/site_footer.php'); ?>
+    <?php include_once('site_footer.php'); ?>
 
 </body>
 </html>
