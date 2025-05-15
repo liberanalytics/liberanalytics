@@ -88,8 +88,12 @@ $laData = new classes\LaData();
 
 		<div id="postsearch_results_w">
 
-			<div id="postsearch_results">
+			
 
+			<div id="postsearch_filters">				
+			</div><!-- End postsearch_filters -->
+
+			<div id="postsearch_results">
 			</div><!-- End postsearch_results -->
 
 		</div><!-- End postsearch_results_w -->
