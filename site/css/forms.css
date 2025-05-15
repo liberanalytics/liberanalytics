@@ -17,7 +17,7 @@ form label {
     font-family: Helvetica;
     font-size: 18px;
     font-weight: 600;
-    color: rgb(78,79,95);
+    color: var(--clr-site-font-std);
 }
 
 form em {

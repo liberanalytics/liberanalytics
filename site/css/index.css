@@ -65,7 +65,7 @@
     font-family: Studio-Feixen-Sans;
     font-size: 18px;
     line-height: 1.5;
-    color: rgb(78,79,95);
+    color: var(--clr-site-font-std);
     
 }
 
@@ -78,7 +78,7 @@
     font-family: Studio-Feixen-Sans;    
     font-size: 18px;
     font-weight: 300;
-    color: rgb(117,117,117);     
+    color: var(--clr-site-font-date);     
 }
 
 .featured-post-cat:link {

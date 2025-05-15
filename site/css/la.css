@@ -20,6 +20,9 @@ html {
 /** ----------------------------------------- Root Styles ----------------------------------------- **/
 
 :root {
+    --clr-site-font-std: rgb(78,79,95);
+    --clr-site-font-date: rgb(117,117,117);
+    --clr-site-font-green: rgb(20,124,123);
     --clr-primary-blk: rgb(51,51,51);
     --clr-primary-link: rgba(88,135,191,1);
     --clr-primary-link-hvr: rgba(101,149,202,1);
@@ -249,7 +252,7 @@ ul li, ol li {
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
-    color: rgb(78,79,95);
+    color: var(--clr-site-font-std);
 }
 
 .site-font-stdl {
@@ -257,7 +260,7 @@ ul li, ol li {
     font-size: 18px;
     font-weight: 300;
     line-height: 27px;
-    color: rgb(78,79,95);
+    color: var(--clr-site-font-std);
 }
 
 .site-font-emphs {
@@ -265,7 +268,7 @@ ul li, ol li {
     font-size: 18px;
     font-weight: 300;
     line-height: 21px;
-    color: rgb(78,79,95);
+    color: var(--clr-site-font-std);
 }
 
 .site-font-emph {
@@ -273,7 +276,7 @@ ul li, ol li {
     font-size: 20px;
     font-weight: 300;
     line-height: 24px;
-    color: rgb(78,79,95);
+    color: var(--clr-site-font-std);
 }
 
 .site-font-fancyl {
@@ -281,7 +284,7 @@ ul li, ol li {
     font-size: 24px;
     font-weight: 600;
     font-style: normal;
-    color: rgba(20,124,123,1);
+    color: var(--clr-site-font-green);
 }
 
 .site-href:link, .site-href:visited {
