@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>LiberAnalytics</title>
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">	
 	<link href="css/about.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="text/javascript" src="js/LAStyles.js"></script>
 	<script type="text/javascript" src="js/la.js"></script>
