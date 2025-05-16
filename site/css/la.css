@@ -20,6 +20,11 @@ html {
 /** ----------------------------------------- Root Styles ----------------------------------------- **/
 
 :root {
+
+
+    font-size: 16px;
+
+
     --clr-site-font-std: rgb(78,79,95);
     --clr-site-font-date: rgb(117,117,117);
     --clr-site-font-green: rgb(20,124,123);
@@ -28,6 +33,9 @@ html {
     --clr-primary-link-hvr: rgba(101,149,202,1);
     --clr-form-submit: rgba(88,135,191,.75);
     --clr-form-submit-hvr: rgba(88,135,191,1);
+
+    --clr-gradient-light: rgba(248,248,248, 1);
+    --clr-gradient-semilight: rgba(196,196,196, 1);
 }
 
 *::before,
@@ -246,6 +254,12 @@ ul li, ol li {
     padding: 0 10px 0 10px;
     margin: 30px 0 0 0;
 }
+
+.site-box-shadow {
+    border-radius: .25rem;
+    box-shadow: 0 .25rem .5rem 0 rgb(0 0 0 / 30%);
+}
+
 
 .site-font-std {
     font-family: Studio-Feixen-Sans, Helvetica;

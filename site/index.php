@@ -58,7 +58,7 @@
 							$htmlFormatting = "\n\t\t\t\t";
 						}
 
-						echo $htmlFormatting .'<article class="featured-post clear">'
+						echo $htmlFormatting .'<article class="site-box-shadow featured-post clear">'
 						. "\n\t\t\t\t\t" . '<div class="featured-post-content clear">'                       
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
 						. "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}.php\">"
