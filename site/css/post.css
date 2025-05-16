@@ -5,13 +5,13 @@
     font-size: 42px;
     font-weight: 300;
     line-height: 45px;
-    color: var(--clr-site-font-green);
+    color: var(--clr-med-green);
 }
 
 .blog-date {
     margin: 20px 0 20px 0;
     font-size: 16px;
-    color: var(--clr-site-font-date);
+    color: var(--clr-xlt-dark);
 }
 
 .blog-desc {
@@ -26,7 +26,7 @@
     margin: 20px 0 10px 0;
     font-size: 24px;
     font-weight: 300;
-    color: var(--clr-site-font-green);
+    color: var(--clr-med-green);
 }
 
 .blog-snippet {
@@ -56,7 +56,7 @@
 }
 
 #blog_w ul li::marker {
-    color: var(--clr-site-font-green); 
+    color: var(--clr-med-green); 
 }
 
 #blog_w ol {

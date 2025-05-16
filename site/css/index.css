@@ -27,7 +27,7 @@
     padding: 0 0 5px 0;
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-image: linear-gradient( to left, var(--clr-gradient-semilight) , var(--clr-gradient-light) ) 1;    
+    border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
     font-family: 'Times New Roman', Times, serif;
     font-size: 22px;
     font-weight: 300;
@@ -36,11 +36,11 @@
 }
 
 .featured-post-hdrtxt:visited {
-
+    color: rgba(51,51,51,1);
 }
 
 .featured-post-hdrtxt:hover {
-    color: var(--clr-primary-link-hvr);
+    color: var(--clr-lt-blue);
     text-decoration: underline;    
     transition-duration: .3s;  
     cursor: pointer;
@@ -67,7 +67,7 @@
     font-family: Studio-Feixen-Sans;
     font-size: 18px;
     line-height: 1.5;
-    color: var(--clr-site-font-std);
+    color: var(--clr-lt-dark);
     
 }
 
@@ -80,7 +80,7 @@
     font-family: Studio-Feixen-Sans;    
     font-size: 18px;
     font-weight: 300;
-    color: var(--clr-site-font-date);     
+    color: var(--clr-xlt-dark);     
 }
 
 .featured-post-cat:link {
@@ -88,12 +88,12 @@
     font-family: Studio-Feixen-Sans;    
     font-size: 18px;
     font-weight: 300;
-    color: var(--clr-primary-link);
+    color: var(--clr-med-blue);
     text-decoration: none;    
 }
 
 .featured-post-cat:hover {
-    color: var(--clr-primary-link-hvr);
+    color: var(--clr-lt-blue);
     text-decoration: underline;    
     transition-duration: .3s;   
 }
