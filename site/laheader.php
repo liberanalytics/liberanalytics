@@ -9,7 +9,7 @@
 		<h1 class="site-name"><span><em>Liber</em>Analytics</span></h1>
 
 		<div id="site_masthead_stmt">
-			<h2 class="site-stmt">Liberating data analytics to create value.</h2>
+			<h2 class="site-tagline">Liberating data analytics to create value.</h2>
 		</div>
 
 	</div><!-- End site_masthead_top -->

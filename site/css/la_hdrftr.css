@@ -36,8 +36,7 @@
     float: right;
 }
 
-.site-stmt {
-    padding: 0 0 0 .675rem;
+.site-tagline {
     font-size: 1.5em;
     font-weight: 100;
     font-family: 'Times New Roman', Times, serif;
@@ -161,9 +160,8 @@
     align-items: center;
 }
 
-#site_footer_stmt > .site-stmt {
-    padding: 0 0 0 .675rem;
-    margin-left: var(--la-logo-width);
+#site_footer_stmt > .site-tagline {
+    margin-left: calc(var(--la-logo-width) + .625rem);
 }
 
 .site-footer-legal {
