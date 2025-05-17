@@ -6,12 +6,10 @@
 			<img src="assets/logo_120.png">
 		</div>
 
-		<div id="site_header_name" class="site-name">             
-			<span><em>Liber</em>Analytics</span>
-		</div>
+		<h1 class="site-name"><span><em>Liber</em>Analytics</span></h1>
 
 		<div id="site_header_stmt">
-			<h1 class="site-stmt">Liberating data analytics to create value.</h1>
+			<h2 class="site-stmt">Liberating data analytics to create value.</h2>
 		</div>
 
 	</div><!-- End header_top_w -->
