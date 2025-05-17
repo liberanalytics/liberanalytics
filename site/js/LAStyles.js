@@ -31,7 +31,7 @@ class LAStyles {
             },
 
             // Site header statment to be centered according to logo height.
-            '#site_header_stmt' : {
+            '#site_masthead_stmt' : {
                 'lineHeight' : {
                     '.site-logo-c' : 'height'
                 }

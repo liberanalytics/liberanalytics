@@ -30,7 +30,7 @@ $laData = new classes\LaData();
 
 <body>
 
-	<?php include_once('site_header.php'); ?>
+	<?php include_once('laheader.php'); ?>
 
 	<main>
 	<div id="page_w">
@@ -103,7 +103,7 @@ $laData = new classes\LaData();
 	</div><!-- End page_w -->
 	</main>
 
-	<?php include_once('site_footer.php'); ?>
+	<?php include_once('lafooter.php'); ?>
 
 </body>
 </html>

@@ -1,18 +1,18 @@
-<header id="site_header">
+<header id="site_masthead">
 
-	<div id="site_header_top" class="page-wrap clear">
+	<div id="site_masthead_top" class="page-wrap clear">
 
-		<div id="site_header_logo" class="site-logo-c">
+		<div id="site_masthead_logo" class="site-logo-c">
 			<img src="assets/logo_120.png">
 		</div>
 
 		<h1 class="site-name"><span><em>Liber</em>Analytics</span></h1>
 
-		<div id="site_header_stmt">
+		<div id="site_masthead_stmt">
 			<h2 class="site-stmt">Liberating data analytics to create value.</h2>
 		</div>
 
-	</div><!-- End header_top_w -->
+	</div><!-- End site_masthead_top -->
 
 	<div id="site_menu_w">
 

@@ -1,7 +1,7 @@
 /** ----------------------------------------- Site Header ----------------------------------------- **/
 
 
-#site_header {    
+#site_masthead {    
     padding: 1.25rem 0 0 0;
     border-bottom: 2px solid #dddbd9;
     background-color: var(--clr-med-dark);
@@ -17,7 +17,7 @@
 }
 
 .site-name span {
-    font-size: 48px;
+    font-size: 3em;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 300;
     color: rgba(196,196,196, 1);
@@ -29,13 +29,13 @@
     color: rgb(255,255,255);
 }
 
-#site_header_stmt {
+#site_masthead_stmt {
     float: right;
 }
 
 .site-stmt {
-    padding: 0 0 0 10px;
-    font-size: 18px;
+    padding: 0 0 0 .675rem;
+    font-size: 1.5em;
     font-weight: 100;
     font-family: 'Times New Roman', Times, serif;
     color: rgb(255,255,255);    

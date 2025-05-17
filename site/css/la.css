@@ -7,10 +7,12 @@ thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, 
 hgroup, menu, nav, section, summary, time, mark, audio, video {
 
     padding: 0;
-    border: 0;
+    border: none;
     margin: 0;
     outline: 0;
     vertical-align: baseline;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 html {
