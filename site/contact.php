@@ -37,7 +37,7 @@
 		<div id="contact_w">
 			<section>
 				<h1 class="page-section-heading">Contact Us</h1>
-				<div id="contact_form_w">
+				<div id="contact_form_w" class="site-block-std">
 					<div id="contact_form">
 
 						<p class="site-font-emph">

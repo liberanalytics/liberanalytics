@@ -2,7 +2,7 @@
 
 	<div id="site_footer_masthead" class="page-wrap">
 		
-		<div id="site_footer_logo" class="site-logo-c">
+		<div id="site_footer_logo">
 			<img src="assets/logo_120.png">
 		</div>
 

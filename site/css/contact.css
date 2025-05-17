@@ -2,7 +2,7 @@
 
 #contact_form_w {
     padding: 0 0 10px 0;
-    margin: 30px 0 0 0;
+    /* margin: 30px 0 0 0; */
     border-bottom: 1px solid transparent;
     border-image: linear-gradient( to right, 
         var(--clr-lt-light) 0%, 
