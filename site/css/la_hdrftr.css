@@ -120,7 +120,7 @@
     background-color: var(--clr-med-dark);
 }
 
-#site_footer_content {
+#site_footer_masthead {
     display: flex;
     align-items: center;
 }
@@ -139,7 +139,7 @@
     border-right: none;
 }
 
-#site_footer_nav a {
+#site_footer_nav a, a:visited {
     font-family: "Helvetica";    
     font-size: 1.175em;
     font-weight: 300;
@@ -151,4 +151,18 @@
 #site_footer_nav a:hover {
     border-bottom: 3px solid var(--clr-lt-blue);
     transition-duration: .2s;
+}
+
+#site_footer_stmt {
+    display: flex;
+    align-items: center;
+}
+
+.site-footer-legal {
+    margin-left: auto;
+    margin-right: .675rem;
+    font-size: 1em;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255,255,255); 
 }

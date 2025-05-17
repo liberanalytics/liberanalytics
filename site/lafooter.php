@@ -1,5 +1,6 @@
 <footer id="site_footer">
-	<div id="site_footer_content" class="page-wrap">
+	
+	<div id="site_footer_masthead" class="page-wrap">
 		
 		<div id="site_footer_logo" class="site-logo-c">
 			<img src="assets/logo_120.png">
@@ -17,7 +18,11 @@
 			<span><a href="privacy.php">Privacy</a></span>
 		</nav>
 
-		
+	</div><!-- End site_footer_masthead -->
 
-	</div><!-- End site_footer_content -->
+	<div id="site_footer_stmt" class="page-wrap">
+		<span class="site-stmt">Liberating data analytics to create value.</span>
+		<span class="site-footer-legal">&copy; LiberAnalytics 2025</span>
+	</div><!-- End site_footer_stmt -->
+
 </footer>
