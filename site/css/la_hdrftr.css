@@ -1,5 +1,8 @@
 /** ----------------------------------------- Site Header ----------------------------------------- **/
 
+:root {
+    --la-logo-width: 120px;
+}
 
 #site_masthead {    
     padding: 1.25rem 0 0 0;
@@ -156,6 +159,11 @@
 #site_footer_stmt {
     display: flex;
     align-items: center;
+}
+
+#site_footer_stmt > .site-stmt {
+    padding: 0 0 0 .675rem;
+    margin-left: var(--la-logo-width);
 }
 
 .site-footer-legal {
