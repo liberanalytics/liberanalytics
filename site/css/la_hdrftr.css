@@ -115,11 +115,40 @@
 
 
 #site_footer {
-    padding: 20px 0 0 0;
+    padding: 1.25rem 0 1.25rem 0;
     border-bottom: 2px solid #dddbd9;
     background-color: var(--clr-med-dark);
 }
 
 #site_footer_content {
-    padding: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+#site_footer_nav {
+    display: flex;
+    margin-left: auto;
+}
+
+#site_footer_nav > span {
+    padding: 0 10px 0 10px;
+    border-right: 1px solid var(--clr-med-blue);;
+}
+
+#site_footer_nav > span:last-child {
+    border-right: none;
+}
+
+#site_footer_nav a {
+    font-family: "Helvetica";    
+    font-size: 1.175em;
+    font-weight: 300;
+    color: var(--clr-med-blue);
+    text-decoration: none;
+    border-bottom: 1px solid var(--clr-med-blue);
+}
+
+#site_footer_nav a:hover {
+    border-bottom: 3px solid var(--clr-lt-blue);
+    transition-duration: .2s;
 }
