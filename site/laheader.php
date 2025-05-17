@@ -1,22 +1,22 @@
-<header id="site_masthead">
+<header id="site_header">
 
-	<div id="site_masthead_top" class="page-wrap clear">
+	<div id="site_header_masthead" class="page-wrap clear">
 
-		<div id="site_masthead_logo" class="site-logo-c">
+		<div id="site_header_logo" class="site-logo-c">
 			<img src="assets/logo_120.png">
 		</div>
 
 		<h1 class="site-name"><span><em>Liber</em>Analytics</span></h1>
 
-		<div id="site_masthead_stmt">
+		<div id="site_header_stmt">
 			<h2 class="site-tagline">Liberating data analytics to create value.</h2>
 		</div>
 
-	</div><!-- End site_masthead_top -->
+	</div><!-- End site_header_masthead -->
 
 	<div id="site_menu_w">
 
-		<div id="site_menu" class="page-wrap clear">
+		<div id="site_menu" class="page-wrap">
 
 			<nav id="site_header_nav"> 					
 				<a href="index.php">Home</a>
@@ -33,6 +33,6 @@
 
 		</div><!-- End site_menu -->
 
-	</div><!-- End site_menu_w -->
+	</div><!-- End site_menu_w -->	
 
 </header>
