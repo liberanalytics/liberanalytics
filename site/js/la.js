@@ -7,6 +7,6 @@ window.addEventListener("load", () => {
 la.setStyles = () => {
     
     //
-    const laStyle = new LAStyles();
-    laStyle.setTargettoSourceStyles(laStyle.getLAHdrFtrStyles());
+    // const laStyle = new LAStyles();
+    // laStyle.setTargettoSourceStyles(laStyle.getLAHdrFtrStyles());
 }
