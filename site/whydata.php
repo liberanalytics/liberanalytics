@@ -64,7 +64,7 @@
 						of organizations.
 					</p>
 
-					<h1 class="post-subheading">Data Integrity</h1>
+					<h4 class="post-subheading">Data Integrity</h1>
 
 					<p>
 						High integrity data is a purely objective form of facts not influenced by human subjectivity. 
@@ -74,7 +74,7 @@
 						And consistency means that the values of each individual datum in the working dataset exist within the realm of possible phenomena.            
 					</p>
 
-					<h1 class="post-subheading">Necessity of data in decision making</h1>
+					<h4 class="post-subheading">Necessity of data in decision making</h1>
 
 					<p>
 						Whether making journal entries to a general ledger, recording a hospital's daily admissions and discharges, or predicting the extent of
@@ -86,7 +86,7 @@
 
 					<img src="assets/whydata_ps.png" alt="whydata_ps" style="display: block; margin: 0 auto 0 auto;">
 
-					<h1 class="post-subheading">Data versus information</h1>
+					<h4 class="post-subheading">Data versus information</h1>
 
 					<p>
 						The words data and information are often used interchangeably. However, in the context of data analytics, data and information become terms
@@ -95,7 +95,7 @@
 						and meaning to data ultimately leading to the fruits of data's labor. Summary statistics, graphs, charts, financial statements, and reports
 						in general are examples of information that humans use to make decisions.
 
-					<h1 class="post-subheading">Summary</h1>
+					<h4 class="post-subheading">Summary</h1>
 
 					<p>
 						Using quality data to derive insights about organizations is imperative in an operational decision making process. Without data the
