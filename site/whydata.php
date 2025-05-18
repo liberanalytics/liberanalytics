@@ -32,7 +32,7 @@
 
 	<main>
 	<div id="page_w">
-		<div id="blog_w" class="site-font-stdl">
+		<div id="blog_w">
 			<article>
 				<header>
 					<?php

@@ -1,50 +1,56 @@
 /** ----------------------------------------- Blog Styles ----------------------------------------- **/
 
+:root {
+    --clr-bg-snippet: rgb(30,30,30);
+}
+
 .blog-heading {
-    margin: 20px 0 20px 0;
-    font-size: 42px;
+    margin: 1.25rem 0 1.25rem 0;
+    font-size: 2.625rem;
     font-weight: 300;
-    line-height: 45px;
     color: var(--clr-med-green);
 }
 
 .blog-date {
-    margin: 20px 0 20px 0;
-    font-size: 16px;
+    margin: 1.25rem 0 1.25rem 0;
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 1.125rem;   
     color: var(--clr-xlt-dark);
 }
 
 .blog-desc {
-    margin: 20px 0 20px 0;
+    margin: 1.25rem 0 1.25rem 0;
 }
 
 .blog-img {
-    margin: 0 0 30px 0;
+    margin: 0 0 1.875rem 0;
 }
 
 .blog-subheading {
-    margin: 20px 0 10px 0;
-    font-size: 24px;
+    margin: 1.25rem 0 .625rem 0;
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 1.5rem;
     font-weight: 300;
+    line-height: 1.5;
     color: var(--clr-med-green);
 }
 
 .blog-snippet {
-    width: 800px;
-    padding: 10px;
-    margin: 30px 0 30px 0;
-    background-color: rgb(30,30,30);
-    font-size: 16px;
+    width: 50rem;
+    padding: .625rem;
+    margin: 1.875rem 0 1.875rem 0;
+    background-color: var(--clr-bg-snippet);
+    font-size: 1rem;
     color: #FFF;
 }
 
 #blog_w {
-    width: 820px;
-    margin: 30px auto 0 auto;
+    width: 51.25rem;
+    margin: 1.875rem auto 0 auto;
 }
 
 #blog_w p {
-    margin: 20px 0 20px 0;
+    margin: 1.25rem 0 1.25rem 0;
 }
 
 #blog_w ul li {
@@ -52,7 +58,7 @@
 }
 
 #blog_w ul {
-    padding: 0 20px 0 20px;
+    padding: 0 1.25rem 0 1.25rem;
 }
 
 #blog_w ul li::marker {
@@ -60,7 +66,7 @@
 }
 
 #blog_w ol {
-    margin: 0 0 10px 0;
+    margin: 0 0 .625rem 0;
 }
 
 #blog_w ol li {
@@ -68,5 +74,5 @@
 }
 
 #blog_w ol li.space {
-    margin: 20px 0 0 0;
+    margin: 1.25rem0 0 0;
 }
