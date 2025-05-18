@@ -11,5 +11,4 @@ config/git_rsa
 config/git_rsa.pub
 shell/ssh*
 liberanalytics_db.config
-whoami.php
 *log*
