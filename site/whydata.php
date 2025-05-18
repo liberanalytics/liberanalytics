@@ -32,7 +32,7 @@
 
 	<main>
 	<div id="page_w">
-		<div id="blog_w">
+		<div id="post_w">
 			<article>
 				<header>
 					<?php
@@ -46,13 +46,13 @@
 						)[0];
 					?>
 
-					<h1 class="blog-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>
-					<h3 class="blog-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
-					<h2 class="blog-desc site-font-emph"><?php echo $post['long_desc']; ?></h2>
-					<img <?php echo "src=\"assets/{$post['post_img']}\""; ?> class="blog-img">
+					<h1 class="post-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>
+					<h3 class="post-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
+					<h2 class="post-desc site-font-emph"><?php echo $post['long_desc']; ?></h2>
+					<img <?php echo "src=\"assets/{$post['post_img']}\" alt=\"{$postName}\""; ?> class="post-img">
 				</header>        
 
-				<section>
+				<section class="site-font-stdl">
 
 					<p> 
 						<em class="site-font-fancyl">Why</em> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
@@ -64,7 +64,7 @@
 						of organizations.
 					</p>
 
-					<h1 class="blog-subheading">Data Integrity</h1>
+					<h1 class="post-subheading">Data Integrity</h1>
 
 					<p>
 						High integrity data is a purely objective form of facts not influenced by human subjectivity. 
@@ -74,7 +74,7 @@
 						And consistency means that the values of each individual datum in the working dataset exist within the realm of possible phenomena.            
 					</p>
 
-					<h1 class="blog-subheading">Necessity of data in decision making</h1>
+					<h1 class="post-subheading">Necessity of data in decision making</h1>
 
 					<p>
 						Whether making journal entries to a general ledger, recording a hospital's daily admissions and discharges, or predicting the extent of
@@ -84,9 +84,9 @@
 						like the below.
 					</p>
 
-					<img src="assets/whydata_ps.png" style="display: block; margin: 0 auto 0 auto;">
+					<img src="assets/whydata_ps.png" alt="whydata_ps" style="display: block; margin: 0 auto 0 auto;">
 
-					<h1 class="blog-subheading">Data versus information</h1>
+					<h1 class="post-subheading">Data versus information</h1>
 
 					<p>
 						The words data and information are often used interchangeably. However, in the context of data analytics, data and information become terms
@@ -95,7 +95,7 @@
 						and meaning to data ultimately leading to the fruits of data's labor. Summary statistics, graphs, charts, financial statements, and reports
 						in general are examples of information that humans use to make decisions.
 
-					<h1 class="blog-subheading">Summary</h1>
+					<h1 class="post-subheading">Summary</h1>
 
 					<p>
 						Using quality data to derive insights about organizations is imperative in an operational decision making process. Without data the
@@ -107,7 +107,7 @@
 				</section>
 		
 			</article>
-		</div><!-- End blog_w -->
+		</div><!-- End post_w -->
 	</div><!-- End page_w -->
 	</main>
 

@@ -33,7 +33,7 @@
 
     <main>
 	<div id="page_w">
-		<div id="blog_w">
+		<div id="post_w">
 			<article>
 				<header>
 					<?php
@@ -47,13 +47,13 @@
 						)[0];
 					?>
 
-					<h1 class="blog-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>
-					<h3 class="blog-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
-					<h2 class="blog-desc site-font-emph"><?php echo $post['long_desc']; ?></h2>
-					<img <?php echo "src=\"assets/{$post['post_img']}\""; ?> class="blog-img">
+					<h1 class="post-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>
+					<h3 class="post-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
+					<h2 class="post-desc site-font-emph"><?php echo $post['long_desc']; ?></h2>
+					<img <?php echo "src=\"assets/{$post['post_img']}\" alt=\"{$postName}\""; ?> class="post-img">
 				</header>
 
-				<section>
+				<section class="site-font-stdl">
 
 					<p>
 					<em class="site-font-fancyl">Connecting</em> Python to Postgresql is made seamless with the psycopg2 library.
@@ -63,7 +63,7 @@
 					We will use a symmetric AWS KMS key to encrypt and decrypt database credentials.
 					</p>
 
-					<h1 class="blog-subheading">Requirements</h1>
+					<h1 class="post-subheading">Requirements</h1>
 
 					<ul>
 					<li>Python 3 (preferably running on Ubuntu)</li>
@@ -72,7 +72,7 @@
 					<li>Postgresql database cluster (needs to accept TCP/IP connections)</li>
 					</ul>
 
-					<h1 class="blog-subheading">Get database connection parameters</h1>
+					<h1 class="post-subheading">Get database connection parameters</h1>
 
 					<p>
 					First we will need to know the database host and database name which will be used to create a config file
@@ -84,7 +84,7 @@
 					</p>
 
 					<div
-					class="blog-snippet"
+					class="post-snippet"
 					style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; line-height: 19px; margin: auto;">
 					<div><br></div>
 					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
@@ -288,7 +288,7 @@
 					<div><br></div>
 					</div>
 
-					<h1 class="blog-subheading">Connecting to the postgresql database</h1>
+					<h1 class="post-subheading">Connecting to the postgresql database</h1>
 
 					<p>
 					Now that we have the connection config file created we are ready to connect to the postgresql
@@ -304,7 +304,7 @@
 					</p>
 					
 					<div
-					class="blog-snippet"
+					class="post-snippet"
 					style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; line-height: 19px; margin: auto;">
 					<div><br></div>
 					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
@@ -566,7 +566,7 @@
 					<div><br></div>
 					</div>
 
-					<h1 class="blog-subheading">Key Takeaways</h1>
+					<h1 class="post-subheading">Key Takeaways</h1>
 
 					<p>
 					In this article we have connected to a postgresql database cluster hosted in AWS EC2
@@ -587,7 +587,7 @@
 				</section>
 	
 			</article>
-		</div><!-- End blog_w -->
+		</div><!-- End post_w -->
 	</div><!-- End page_w -->
 	</main>
 
