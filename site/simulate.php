@@ -21,15 +21,11 @@ $laData = new classes\LaData();
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">	
 	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/contact.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="text/javascript" src="js/LAStyles.js"></script>
 	<script type="text/javascript" src="js/la.js"></script>
 	<script type="text/javascript" src="js/simulate.js"></script>
 
-	<style>
-
-		
-
+	<style>	
 
 	</style>
 
@@ -40,13 +36,9 @@ $laData = new classes\LaData();
 	<?php include_once('laheader.php'); ?>
 
 	<main>
-	<div id="page_w">
-	<div id="simulate_ww">	
-				
 
+	
 
-	</div><!-- End simulate_ww -->
-	</div><!-- End page_w -->
 	</main>
 
 	<?php include_once('lafooter.php'); ?>

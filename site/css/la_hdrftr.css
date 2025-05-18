@@ -135,7 +135,7 @@
     border-right: none;
 }
 
-#site_footer_nav a, a:visited {
+#site_footer_nav a, #site_footer_nav a:visited {
     font-family: "Helvetica";    
     font-size: 1.175em;
     font-weight: 300;
