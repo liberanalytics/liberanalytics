@@ -35,56 +35,15 @@
 		<div id="posts_w">
 			<section id="posts_l">
 				<h1 class="page-section-heading">Featured</h1>
-				<?php
-
-					/**
-					 * 
-					 */
-					$featuredPosts = $laData->crudData(
-						CrudOperation::GETPOSTS,
-						CrudType::CRUDREAD,
-						CrudResultsetType::RESULTSET_ROWS,
-						CrudFetchStyle::FETCHSTYLE_ASSOC,
-						[
-							'order_by' => 'featured',
-							'order_by_ascdesc' => 'ASC'
-						]						
-					);
-					$iter = 1;
-					foreach ($featuredPosts as $postnum => $post)
-					{                     
-						if ($iter == 1) {
-							$htmlFormatting = "";
-						} else {
-							$htmlFormatting = "\n\t\t\t\t";
-						}
-
-						echo $htmlFormatting .'<article class="featured-post site-box-shadow clear">'
-						. "\n\t\t\t\t\t" . '<div class="featured-post-content clear">'                       
-						. "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
-						. "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}.php\">"
-						. "<img src=\"assets/{$post['featured_img']}\"></a>"
-						. "\n\t\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-hdrtxt\" href=\"{$post['post_name']}.php\">"
-						. "{$post['short_desc']}</a>"
-						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desctxt\">"
-						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
-						. "\n\t\t\t\t\t\t\t" . "</p>"
-						. "\n\t\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t" . '<div class="featured-post-attrs clear">'
-						. "\n\t\t\t\t\t\t" . "<span class=\"featured-post-date\">"
-						. date("F j, Y", strtotime($post['post_created'])) . "</span>"
-						. "\n\t\t\t\t\t\t" . "<a href=\"blog?category={$post['post_category']}\" class=\"featured-post-cat\">"
-						. "{$post['post_category']}</a>"
-						. "\n\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t" . '</article>';
-
-						$iter += 1;
-					}
 				
-				?>
+				<article class="featured-post site-box-shadow">
+					<div class="featured-post-content">
+						<a href="whydata.php"><img src="assets/whydata_195.png"></a>
+						<a class="featured-post-hdrtxt" href="whydata.php">Why do we need Data?</a>
+
+					</div>
+				</article>
+
 
 			</section>
 

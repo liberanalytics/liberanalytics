@@ -22,6 +22,17 @@
     background-color: #fff;
 }
 
+.featured-post-content {
+    display: grid;
+    grid-template-columns: 12.1875rem 23.75rem;
+    gap: .625rem;
+    padding: 0 0 0 0;
+}
+
+.featured-post-img {
+
+}
+
 .featured-post-hdrtxt {
     display: block;
     padding: 0 0 .3125rem 0;
@@ -45,13 +56,9 @@
     cursor: pointer;
 }
 
-.featured-post-content {
-    padding: 0 0 0 0;
-}
 
-.featured-post-img {
-    float: left;
-}
+
+
 
 .featured-post-desc {
     float: left;
@@ -113,7 +120,7 @@
 
 .latest-post-link:visited {
     color: var(--clr-prmary-blk);
-    text-decoration: none;;   
+    text-decoration: none; 
 }
 
 .latest-post-link:hover {
