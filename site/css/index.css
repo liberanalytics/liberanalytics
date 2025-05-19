@@ -34,6 +34,7 @@
 }
 
 .featured-post-hdrtxt {
+    align-self: start;
     display: block;
     padding: 0 0 .3125rem 0;
     border-bottom-width: 2px;

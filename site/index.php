@@ -40,7 +40,9 @@
 					<div class="featured-post-content">
 						<a href="whydata.php"><img src="assets/whydata_195.png"></a>
 						<a class="featured-post-hdrtxt" href="whydata.php">Why do we need Data?</a>
-
+						<p class="featured-post-desctxt">
+							Explores the importance of data and information in decision making.
+						</p>
 					</div>
 				</article>
 
