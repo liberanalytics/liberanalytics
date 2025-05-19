@@ -36,7 +36,7 @@ $laData = new classes\LaData();
 			<div id="posts_w">
 				<section id="posts_l">	
 					<h1 class="page-section-heading">Featured</h1>			
-					<article class="featured-post site-box-shadow clear">
+					<article class="featured-post site-box-shadow">
 						<div class="featured-post-content clear">
 							<div class="featured-post-img">
 								<a href="whydata.php"><img src="assets/whydata_195.png"></a>
@@ -48,6 +48,10 @@ $laData = new classes\LaData();
 								</p>
 							</div>
 						</div>
+						<div class="featured-post-attrs">
+							<span class="featured-post-date">April 30, 2025</span>
+							<a href="blog?category=Why Data" class="featured-post-cat">Why Data</a>
+						</div>						
 					</article>
 				</section>
 
