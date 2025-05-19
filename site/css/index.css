@@ -25,9 +25,16 @@
 .featured-post-content {
     display: grid;
     grid-template-columns: 12.1875rem 23.75rem;
+    grid-template-rows: auto auto;
     gap: .625rem;
     padding: 0 0 0 0;
 }
+
+.featured-post-content > a:first-child {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
 
 .featured-post-img {
 
@@ -35,6 +42,7 @@
 
 .featured-post-hdrtxt {
     align-self: start;
+    grid-column: 2;
     display: block;
     padding: 0 0 .3125rem 0;
     border-bottom-width: 2px;
@@ -68,6 +76,8 @@
 }
 
 .featured-post-desctxt {
+    grid-column: 2;
+    align-self: start;
     padding: 5px 0 0 0;
     font-family: Studio-Feixen-Sans;
     font-size: 18px;
