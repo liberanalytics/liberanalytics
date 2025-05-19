@@ -1,8 +1,8 @@
 /** ----------------------------------------- Postsearch styles ----------------------------------------- **/
 
 #postsearch_w {
-    padding: 0 0 10px 0;
-    margin: 30px 0 0 0;
+    padding: 0 0 .625rem 0;
+    margin: 1.875rem 0 0 0;
     border-bottom: 1px solid transparent;
     border-image: linear-gradient( to right, 
         var(--clr-lt-light) 0%, 
@@ -15,7 +15,7 @@
 }
 
 #postsearch_form ul {
-    width: 522px;
+    width: 32.625rem;
     margin: 0 auto 0 auto;
 }
 
@@ -25,33 +25,33 @@
 }
 
 #postsearch_form ul li label {
-    width: 200px;
+    width: 12.5rem;
 }
 
 #postsearch_form ul li label.label-first {
-    margin: 10px 0 0 0;
+    margin: .625rem 0 0 0;
 }
 
 #postsearch_form ul li label.label-nonfirst {
-    margin: 30px 0 0 0;
+    margin: 1.875rem 0 0 0;
 }
 
 #postsearch_form select {
-    width: 320px;
+    width: 20rem;
 }
 
 #postsearch_form input[type=text] {
-    width: 300px;
-    margin: 20px 0 0 0;
+    width: 18.75rem;
+    margin: 1.25rem 0 0 0;
 }
 
 #postsearch_form input[type=submit] {
-    width: 522px;
-    margin: 30px 0 0 0;
+    width: 32.625rem;
+    margin: 1.875rem 0 0 0;
 }
 
 #postsearch_form .error-msg {
-    margin: 10px auto 0 auto;
+    margin: .625rem auto 0 auto;
 }
 
 /** ----------------------------------------- Postsearch results styles ----------------------------------------- **/

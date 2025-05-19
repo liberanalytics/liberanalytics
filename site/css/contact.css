@@ -14,7 +14,7 @@
 }
 
 #contact_form ul {
-    width: 34rem;
+    max-width: 34rem;
     margin: 1.875rem auto 0 auto;
 }
 
