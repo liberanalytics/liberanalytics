@@ -35,25 +35,61 @@ $laData = new classes\LaData();
 		<div id="page_w">
 			<div id="posts_w">
 				<section id="posts_l">	
-					<h1 class="page-section-heading">Featured</h1>			
-					<article class="featured-post site-box-shadow">
-						<div class="featured-post-content clear">
-							<div class="featured-post-img">
-								<a href="whydata.php"><img src="assets/whydata_195.png"></a>
-							</div>
-							<div class="featured-post-desc">
-								<a class="featured-post-hdrtxt" href="whydata.php">Why do we need Data?</a>
-								<p class="featured-post-desctxt">
-									Explores the importance of data and information in decision making.
-								</p>
-							</div>
-						</div>
-						<div class="featured-post-attrs">
-							<span class="featured-post-date">April 30, 2025</span>
-							<a href="blog?category=Why Data" class="featured-post-cat">Why Data</a>
-						</div>						
-					</article>
-				</section>
+					<h1 class="page-section-heading">Featured</h1>
+					
+					<?php
+
+					/**
+					 * 
+					 */
+					$featuredPosts = $laData->crudData(
+						CrudOperation::GETPOSTS,
+						CrudType::CRUDREAD,
+						CrudResultsetType::RESULTSET_ROWS,
+						CrudFetchStyle::FETCHSTYLE_ASSOC,
+						[
+							'order_by' => 'featured',
+							'order_by_ascdesc' => 'ASC'
+						]						
+					);
+					$iter = 1;
+					foreach ($featuredPosts as $postnum => $post)
+					{                     
+						if ($iter == 1) {
+							$htmlFormatting = "";
+						} else {
+							$htmlFormatting = "\n\t\t\t\t";
+						}
+
+						echo $htmlFormatting .'<article class="featured-post site-box-shadow">'
+						. "\n\t\t\t\t\t" . '<div class="featured-post-content">'                       
+						. "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
+						. "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}.php\">"
+						. "<img src=\"assets/{$post['featured_img']}\"></a>"
+						. "\n\t\t\t\t\t\t" . '</div>'
+						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc">'
+						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-hdrtxt\" href=\"{$post['post_name']}.php\">"
+						. "{$post['short_desc']}</a>"
+						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desctxt\">"
+						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
+						. "\n\t\t\t\t\t\t\t" . "</p>"
+						. "\n\t\t\t\t\t\t" . '</div>'
+						. "\n\t\t\t\t\t" . '</div>'
+						. "\n\t\t\t\t\t" . '<div class="featured-post-attrs">'
+						. "\n\t\t\t\t\t\t" . "<span class=\"featured-post-date\">"
+						. date("F j, Y", strtotime($post['post_created'])) . "</span>"
+						. "\n\t\t\t\t\t\t" . "<a href=\"blog?category={$post['post_category']}\" class=\"featured-post-cat\">"
+						. "{$post['post_category']}</a>"
+						. "\n\t\t\t\t\t" . '</div>'
+						. "\n\t\t\t\t" . '</article>';
+
+						$iter += 1;
+					}
+				
+				?>					
+
+
+				</section><!-- End posts_l -->
 
 				<section id="posts_r">
 
@@ -93,36 +129,31 @@ $laData = new classes\LaData();
 							?>
 						</ul>
 	
-					</div><!-- End latest_posts_nav -->      
-	
-				</section>				
-		</div><!-- End posts_w -->
+					</div><!-- End latest_posts_nav -->   
+				</section><!-- End posts_r -->
+			</div><!-- End posts_w -->
 
-		<section id="mission_w">
+			<section id="mission_w">
+				<h1 class="page-section-heading">Our Mission</h1>
 
-			<h1 class="page-section-heading">Our Mission</h1>
+				<div id="mission" class="site-block-std">
 
-			<div id="mission" class="site-block-std">
+					<p class="site-font-emph">
+						<em class="site-font-fancyl">LiberAnalytics</em>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
+						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
+						are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
+						We hope that the content published will illuminate how to exercise a <em class="site-font-fancyl">liber</em> (free)
+						mind while working with data as well as inspire individuals to keep improving!
+					</p>
 
-				<p class="site-font-emph">
-					<em class="site-font-fancyl">LiberAnalytics</em>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
-					individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
-					are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
-					We hope that the content published will illuminate how to exercise a <em class="site-font-fancyl">liber</em> (free)
-					mind while working with data as well as inspire individuals to keep improving!
-				</p>
+					<div id="mission_graphic">
+						<img src="assets/mission.png">
+					</div>                    
 
-				<div id="mission_graphic">
-					<img src="assets/mission.png">
-				</div>                    
-
-			</div><!-- End mission -->
-
-		</section>
+				</div><!-- End mission -->
+			</section><!-- End mission_w -->
 		
-		</div>
-
-
+		</div><!-- End page_w -->
 	</main>
 
 	<?php include_once('lafooter.php'); ?>
