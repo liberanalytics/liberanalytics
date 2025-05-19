@@ -1,16 +1,16 @@
 <?php
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	
-	require_once(dirname(__DIR__, 1) . "/" . 'vendor/autoload.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
-	use enums\CrudOperation;
-	use enums\CrudType;
-	use enums\CrudResultsetType;
-	use enums\CrudFetchStyle;	
+require_once(dirname(__DIR__, 1) . "/" . 'vendor/autoload.php');
 
-	$laData = new classes\LaData();
+use enums\CrudOperation;
+use enums\CrudType;
+use enums\CrudResultsetType;
+use enums\CrudFetchStyle;	
+
+$laData = new classes\LaData();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +24,7 @@
 	<link href="css/index.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="text/javascript" src="js/LAStyles.js"></script>
 	<script type="text/javascript" src="js/la.js"></script>
+
 </head>
 
 <body>
@@ -31,66 +32,66 @@
 	<?php include_once('laheader.php'); ?>
 
 	<main>
-	<div id="page_w">
-		<div id="posts_w">
-			<section id="posts_l">
-				<h1 class="page-section-heading">Featured</h1>
-				
-				<article class="featured-post site-box-shadow">
-					<div class="featured-post-content">
-						<a href="whydata.php"><img src="assets/whydata_195.png"></a>
-						<a class="featured-post-hdrtxt" href="whydata.php">Why do we need Data?</a>
-						<p class="featured-post-desctxt">
-							Explores the importance of data and information in decision making.
-						</p>
-					</div>
-				</article>
+		<div id="page_w">
+			<div id="posts_w">
+				<section id="posts_l">	
+					<h1 class="page-section-heading">Featured</h1>			
+					<article class="featured-post site-box-shadow clear">
+						<div class="featured-post-content clear">
+							<div class="featured-post-img">
+								<a href="whydata.php"><img src="assets/whydata_195.png"></a>
+							</div>
+							<div class="featured-post-desc">
+								<a class="featured-post-hdrtxt" href="whydata.php">Why do we need Data?</a>
+								<p class="featured-post-desctxt">
+									Explores the importance of data and information in decision making.
+								</p>
+							</div>
+						</div>
+					</article>
+				</section>
 
+				<section id="posts_r">
 
-			</section>
-
-			<section id="posts_r">
-
-				<h1 class="page-section-heading">Latest Posts</h1>
-				<div id="latest_posts_nav">
-					<ul>
-						<?php
-
-							$latestPosts = $laData->crudData(
-								CrudOperation::GETPOSTS,
-								CrudType::CRUDREAD,
-								CrudResultsetType::RESULTSET_ROWS,
-								CrudFetchStyle::FETCHSTYLE_ASSOC,
-								[
-									'order_by' => 'post_category',
-									'order_by_ascdesc' => 'DESC'
-								]						
-							);
-							$iter = 1;
-							foreach ($latestPosts as $postNum => $post)
-							{
-								if ($iter == 1) {
-									$htmlFormatting = "\t";
+					<h1 class="page-section-heading">Latest Posts</h1>
+					<div id="latest_posts_nav">
+						<ul>
+							<?php
+	
+								$latestPosts = $laData->crudData(
+									CrudOperation::GETPOSTS,
+									CrudType::CRUDREAD,
+									CrudResultsetType::RESULTSET_ROWS,
+									CrudFetchStyle::FETCHSTYLE_ASSOC,
+									[
+										'order_by' => 'post_category',
+										'order_by_ascdesc' => 'DESC'
+									]						
+								);
+								$iter = 1;
+								foreach ($latestPosts as $postNum => $post)
+								{
+									if ($iter == 1) {
+										$htmlFormatting = "\t";
+									}
+									else {
+										$htmlFormatting = "\n\t\t\t\t\t"; 
+									}
+	
+									echo 
+										"<li>" .
+											 $htmlFormatting . 
+											 "<a href=\"{$post['post_name']}.php\" class=\"latest-post-link\">{$post['short_desc']}</a>" .
+										"</li>";
+	
+									$iter += 1;
 								}
-								else {
-									$htmlFormatting = "\n\t\t\t\t\t"; 
-								}
-
-								echo 
-									"<li>" .
-										 $htmlFormatting . 
-										 "<a href=\"{$post['post_name']}.php\" class=\"latest-post-link\">{$post['short_desc']}</a>" .
-									"</li>";
-
-								$iter += 1;
-							}
-						?>
-					</ul>
-
-				</div><!-- End latest_posts_nav -->      
-
-			</section>
-
+							?>
+						</ul>
+	
+					</div><!-- End latest_posts_nav -->      
+	
+				</section>				
 		</div><!-- End posts_w -->
 
 		<section id="mission_w">
@@ -114,8 +115,10 @@
 			</div><!-- End mission -->
 
 		</section>
+		
+		</div>
 
-	</div><!-- End page_w -->
+
 	</main>
 
 	<?php include_once('lafooter.php'); ?>
