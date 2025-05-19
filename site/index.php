@@ -92,33 +92,39 @@
 
 				<h1 class="page-section-heading">Latest Posts</h1>
 				<div id="latest_posts_nav">
-				<?php
+					<ul>
+						<?php
 
-					$latestPosts = $laData->crudData(
-						CrudOperation::GETPOSTS,
-						CrudType::CRUDREAD,
-						CrudResultsetType::RESULTSET_ROWS,
-						CrudFetchStyle::FETCHSTYLE_ASSOC,
-						[
-							'order_by' => 'post_category',
-							'order_by_ascdesc' => 'DESC'
-						]						
-					);
-					$iter = 1;
-					foreach ($latestPosts as $postNum => $post)
-					{
-						if ($iter == 1) {
-							$htmlFormatting = "\t";
-						}
-						else {
-							$htmlFormatting = "\n\t\t\t\t\t"; 
-						}
+							$latestPosts = $laData->crudData(
+								CrudOperation::GETPOSTS,
+								CrudType::CRUDREAD,
+								CrudResultsetType::RESULTSET_ROWS,
+								CrudFetchStyle::FETCHSTYLE_ASSOC,
+								[
+									'order_by' => 'post_category',
+									'order_by_ascdesc' => 'DESC'
+								]						
+							);
+							$iter = 1;
+							foreach ($latestPosts as $postNum => $post)
+							{
+								if ($iter == 1) {
+									$htmlFormatting = "\t";
+								}
+								else {
+									$htmlFormatting = "\n\t\t\t\t\t"; 
+								}
 
-						echo $htmlFormatting . "<a href=\"{$post['post_name']}.php\" class=\"site-href\">{$post['short_desc']}</a>";
+								echo 
+									"<li>" .
+										 $htmlFormatting . 
+										 "<a href=\"{$post['post_name']}.php\" class=\"latest-post-link\">{$post['short_desc']}</a>" .
+									"</li>";
 
-						$iter += 1;
-					}
-				?>
+								$iter += 1;
+							}
+						?>
+					</ul>
 
 				</div><!-- End latest_posts_nav -->      
 

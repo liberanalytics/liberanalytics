@@ -28,8 +28,7 @@
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.375em;
+    font-size: 1.125rem;
     font-weight: 300;
     color: var(--clr-med-dark);
     text-decoration: none; 
@@ -52,8 +51,6 @@
 
 .featured-post-img {
     float: left;
-    /* width: 195px;
-    height: 135px; */
 }
 
 .featured-post-desc {
@@ -67,8 +64,7 @@
     font-family: Studio-Feixen-Sans;
     font-size: 18px;
     line-height: 1.5;
-    color: var(--clr-lt-dark);
-    
+    color: var(--clr-lt-dark);    
 }
 
 .featured-post-attrs {
@@ -103,6 +99,26 @@
 #latest_posts_nav {
     padding: 0 0 0 .3125rem;
     margin: 1.875rem 0 0 0;
+}
+
+#latest_posts_nav ul li {
+    border-bottom: 1px solid var(--clr-med-light);
+}
+
+.latest-post-link {
+    display: block;
+    padding: .625rem 0 .625rem 0;
+    color: var(--clr-prmary-blk);
+}
+
+.latest-post-link:visited {
+    color: var(--clr-prmary-blk);
+    text-decoration: none;;   
+}
+
+.latest-post-link:hover {
+    color: var(--clr-lt-blue);
+    transition-duration: .3s;
 }
 
 /** ----------------------------------------- Mission ----------------------------------------- **/

@@ -119,7 +119,7 @@ ul li, ol li {
 }
 
 .site-font-emph {
-    font-family: Studio-Feixen-Sans;
+    font-family: Studio-Feixen-Sans, Helvetica;
     font-size: 1.25rem;
     font-weight: 300;
     line-height: 1.2;
@@ -132,22 +132,6 @@ ul li, ol li {
     font-weight: 600;
     font-style: normal;
     color: var(--clr-med-green);
-}
-
-.site-href:link, .site-href:visited {
-    display: block;
-    padding: 10px 0 10px 0;
-    border-bottom: 1px solid rgba(196,196,196, 1);
-    font-family: Studio-Feixen-Sans;
-    font-size: 18px;
-    font-weight: 300;   
-    color: var(--clr-prmary-blk);
-    text-decoration: none;;
-}
-
-.site-href:hover {
-    color: var(--clr-lt-blue);
-    transition-duration: .3s;
 }
 
 .page-wrap {   
@@ -165,9 +149,9 @@ ul li, ol li {
     color: white;
 }
 
-a:link {
-    font-family: Studio-Feixen-Sans;    
-    font-size: 18px;
+a {
+    font-family: Studio-Feixen-Sans, Helvetica, serif; 
+    font-size: 1.125rem;
     font-weight: 300;
     color: var(--clr-med-blue);
     text-decoration: none;    
