@@ -1,8 +1,7 @@
 /** ----------------------------------------- Contact Styles ----------------------------------------- **/
 
 #contact_form_w {
-    padding: 0 0 10px 0;
-    /* margin: 30px 0 0 0; */
+    padding: 0 0 .625rem 0;
     border-bottom: 1px solid transparent;
     border-image: linear-gradient( to right, 
         var(--clr-lt-light) 0%, 
@@ -11,12 +10,12 @@
 }
 
 #contact_form {
-    margin: 0 0 0 10px;
+    margin: 0 0 0 .625rem;
 }
 
 #contact_form ul {
-    width: 544px;
-    margin: 30px auto 0 auto;
+    width: 34rem;
+    margin: 1.875rem auto 0 auto;
 }
 
 #contact_form ul li {
@@ -29,48 +28,48 @@
 }
 
 #contact_form form[name=contact] ul li > .label-first {
-    width: 240px;
-    margin: 10px 0 5px 5px;
+    width: 15rem;
+    margin: .625rem 0 .3125rem .3125rem;
 }
 
 #contact_form form[name=contact] ul li > .label-second {
-    width: 240px;
-    margin: 10px 0 5px 42px;
+    width: 15rem;
+    margin: .625rem 0 .3125rem 2.625rem;
 }
 
 #contact_form form[name=contact] ul li > .input-first {
-    width: 240px;
-    padding: 10px;
-    margin: 0 0 5px 0;
+    width: 15rem;
+    padding: .625rem;
+    margin: 0 0 .3125rem 0;
 }
 
 #contact_form form[name=contact] ul li > .input-second {
-    width: 240px;
-    padding: 10px;
-    margin: 0 0 5px 20px;
+    width: 15rem;
+    padding: .625rem;
+    margin: 0 0 .3125rem 1.25rem;
 }
 
 #contact_form form[name=contact] ul li > .input-only {
-    width: 522px;
-    padding: 10px;
-    margin: 0 0 5px 0;
+    width: 32.625rem;
+    padding: .625rem;
+    margin: 0 0 .3125rem 0;
 }
 
 #contact_form form[name=contact] ul li > .error-msg {
-    margin: 10px auto 0 auto;
+    margin: .625rem auto 0 auto;
 }
 
 #contact_form form[name=contact] ul li > textarea {
-    width: 522px;
-    padding: 10px;
+    width: 32.625rem;
+    padding: .625rem;
     border: 1px solid #ccc;
-    margin: 0 0 10px 0;
-    border-radius: 10px;
+    margin: 0 0 .625rem 0;
+    border-radius: .625rem;
     resize: none;
 }
 
 #contact_form form[name=contact] ul li > input[type=submit] {
-    width: 544px;
-    padding: 15px 0 15px 0;  
-    margin: 20px 0 0 0;
+    width: 34rem;
+    padding: 1.3125rem 0 1.3125rem 0;  
+    margin: 1.25rem 0 0 0;
 }
