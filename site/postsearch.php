@@ -101,12 +101,23 @@ $laData = new classes\LaData();
 				<a class="search-card-desc" href="#" >Why do we need Data?</a>
 
 				<div class="search-card-components">
-					<a class="search-card-img" href="whydata.php"><img src="assets/whydata_195.png"></a>
-					<span class="search-card-longdesc">
-						Explores the importance of data and information in decision making.
-					</span>
 
-				</div>			
+					<a class="search-card-img" href="whydata.php"><img src="assets/whydata_195.png"></a>
+					<p class="search-card-longdesc">
+						Logging database errors and queries to Amazon Web Services CloudWatch Logs
+					</p>
+					<p class="search-card-intro site-font-stdl">
+						Why do we go through extensive efforts to collect, transform, load, store,
+						and aalyze volumes of data? Startups and corporations employ teams of professionals
+						who often specialize in niche functions within data analytics such as data architect, data ana ... [Read More]
+					</p>					
+
+				</div>	
+				
+				<div class="search-card-attrs">
+					<span class="search-card-date">April 30, 2025</span>
+					<a href="blog?category=Why Data" class="search-card-cat">Why Data</a>
+				</div>				
 
 			</div>
 
