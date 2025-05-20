@@ -107,9 +107,10 @@ $laData = new classes\LaData();
 						Logging database errors and queries to Amazon Web Services CloudWatch Logs
 					</p>
 					<p class="search-card-intro site-font-stdl">
-						Why do we go through extensive efforts to collect, transform, load, store,
-						and aalyze volumes of data? Startups and corporations employ teams of professionals
-						who often specialize in niche functions within data analytics such as data architect, data ana ... [Read More]
+						Connecting Python to Postgresql is made seamless with the psycopg2 library. 
+						This article demonstrates how to connect to a Postgresql database using Python
+						without storing credentials in plain text or in the .pgpass file.
+
 					</p>					
 
 				</div>	
