@@ -113,19 +113,21 @@
 }
 
 .search-card-intro, .search-card-intro:visited {
-
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: calc(1.125 * calc(1.35rem * 3));
-
+    max-height: calc(1.125 * 1.35rem * 3);
     font-family: Studio-Feixen-Sans, Helvetica;
     font-size: 1.125rem;
     font-weight: 300;
     line-height: 1.5rem;
     color: var(--clr-lt-dark);
+}
+
+.search-card-longdesc:hover, .search-card-intro:hover {
+    text-decoration: none;
 }
 
 .search-card-attrs {
