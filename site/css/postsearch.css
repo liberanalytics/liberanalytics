@@ -72,6 +72,7 @@
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1; 
+    font-family: Studio-Feixen-Sans, Helvetica, serif;
     font-size: 1.25rem;
     font-weight: 300;
     color: var(--clr-med-green);
@@ -107,7 +108,7 @@
     margin: 0;
     font-family: Studio-Feixen-Sans, Helvetica, serif;
     font-size: 1.25rem;
-    line-height: 1.5;
+    line-height: 1;
     color: var(--clr-lt-dark); 
 }
 

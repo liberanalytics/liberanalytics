@@ -98,13 +98,13 @@ $laData = new classes\LaData();
 
 			<div class="site-box-shadow search-card">
 
-				<a class="search-card-desc" href="#" >Why do we need Data?</a>
+				<h2 class="search-card-desc" href="#" >Why do we need Data?</h2>
 
 				<div class="search-card-components">
 
 					<a class="search-card-img" href="whydata.php"><img src="assets/whydata_195.png"></a>
 					<p class="search-card-longdesc">
-						Logging database errors and queries to Amazon Web Services CloudWatch Logs
+						Logging database errors and 
 					</p>
 					<p class="search-card-intro site-font-stdl">
 						Why do we go through extensive efforts to collect, transform, load, store,

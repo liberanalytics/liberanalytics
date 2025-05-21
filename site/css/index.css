@@ -46,13 +46,12 @@
     border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
     font-size: 1.125rem;
     font-weight: 300;
-    /* color: var(--clr-med-dark); */
-    color: var(--clr-med-green);
+    color: var(--clr-med-dark);
     text-decoration: none;    
 }
 
 .featured-post-hdrtxt:visited {
-    color: var(--clr-med-green);
+    color: var(--clr-med-dark);
 }
 
 .featured-post-hdrtxt:hover {
