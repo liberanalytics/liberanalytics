@@ -103,14 +103,14 @@ $laData = new classes\LaData();
 				<div class="search-card-components">
 
 					<a class="search-card-img" href="whydata.php"><img src="assets/whydata_195.png"></a>
-					<p class="search-card-longdesc">
-						Logging database errors and 
-					</p>
-					<p class="search-card-intro site-font-stdl">
+					<a class="search-card-longdesc" href="whydata.php">
+						Logging database errors and queries t Amazon Web Services CloudWatch Logs
+					</a>
+					<a class="search-card-intro" href="whydata.php">
 						Why do we go through extensive efforts to collect, transform, load, store,
 						and aalyze volumes of data? Startups and corporations employ teams of professionals
 						who often specialize in niche functions within data analytics such as data architect, data ana ... [Read More]
-					</p>					
+					</a>					
 
 				</div>	
 				

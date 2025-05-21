@@ -87,7 +87,7 @@
     'one three';
     grid-template-columns: 12.1875rem 1fr;
     gap: 0 1rem;
-    padding: 1rem 0 0 0;
+    padding: 1rem 0 .3125rem 0;
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-image: linear-gradient( to right, var(--clr-med-light) , var(--clr-lt-light) ) 1;     
@@ -96,32 +96,36 @@
 .search-card-img {
     grid-area: one;
     display: block;
-
     padding: 0;
     margin: 0;
 }
 
-.search-card-longdesc {
+.search-card-longdesc, .search-card-longdesc:visited {
+    display: block;
     padding: 0 0 .3125rem 0;
     margin: 0;
     grid-area: two;
     margin: 0;
     font-family: Studio-Feixen-Sans, Helvetica, serif;
     font-size: 1.25rem;
-    line-height: 1;
+    line-height: 1.25;
     color: var(--clr-lt-dark); 
 }
 
-.search-card-intro {
-    padding: 0 0 .3125rem 0;
-       
+.search-card-intro, .search-card-intro:visited {
 
-    font-family: Studio-Feixen-Sans, Helvetica, serif;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    line-clamp: 3;    
-    overflow: hidden;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(1.125 * calc(1.35rem * 3));
+
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+    color: var(--clr-lt-dark);
 }
 
 .search-card-attrs {
