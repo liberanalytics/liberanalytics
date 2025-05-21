@@ -101,10 +101,9 @@
 }
 
 .search-card-longdesc, .search-card-longdesc:visited {
+    grid-area: two;
     display: block;
     padding: 0 0 .3125rem 0;
-    margin: 0;
-    grid-area: two;
     margin: 0;
     font-family: Studio-Feixen-Sans, Helvetica, serif;
     font-size: 1.25rem;

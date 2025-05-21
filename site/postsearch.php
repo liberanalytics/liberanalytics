@@ -98,7 +98,7 @@ $laData = new classes\LaData();
 
 			<div class="site-box-shadow search-card">
 
-				<h2 class="search-card-desc" href="#" >Why do we need Data?</h2>
+				<h2 class="search-card-desc" >Why do we need Data?</h2>
 
 				<div class="search-card-components">
 
