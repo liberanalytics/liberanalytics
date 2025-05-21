@@ -71,10 +71,10 @@
     padding: 0 0 .3125rem 0;
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
+    border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1; 
     font-size: 1.25rem;
     font-weight: 300;
-    color: var(--clr-med-dark);
+    color: var(--clr-med-green);
     text-decoration: none;
     text-align: center;
 }
@@ -87,6 +87,9 @@
     grid-template-columns: 12.1875rem 1fr;
     gap: 0 1rem;
     padding: 1rem 0 0 0;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-image: linear-gradient( to right, var(--clr-med-light) , var(--clr-lt-light) ) 1;     
 }
 
 .search-card-img {
@@ -98,7 +101,7 @@
 }
 
 .search-card-longdesc {
-    padding: 0;
+    padding: 0 0 .3125rem 0;
     margin: 0;
     grid-area: two;
     margin: 0;
@@ -109,11 +112,15 @@
 }
 
 .search-card-intro {
+    padding: 0 0 .3125rem 0;
+       
+
+    font-family: Studio-Feixen-Sans, Helvetica, serif;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     line-clamp: 3;    
-    overflow: hidden;
+    overflow: hidden;    
 }
 
 .search-card-attrs {
