@@ -1,26 +1,25 @@
-var posts = {};
-posts.form = {};
+var postsearch = {};
+postsearch.form = {};
 
 window.addEventListener("load", () => 
 {
-    posts.setVars();
-    posts.bindEvents();
+    postsearch.setVars();
+    postsearch.bindEvents();
 });
 
-posts.setVars = () => 
+postsearch.setVars = () => 
 {
-    posts.form = document.querySelector('#search');
+    postsearch.form = document.querySelector('#postsearch');
 }
 
-posts.bindEvents = () => 
+postsearch.bindEvents = () => 
 {
-    posts.form.addEventListener('submit', (event) => {
+    postsearch.form.addEventListener('submit', (event) => {
         event.preventDefault();
-        posts.submit();
+        postsearch.submit();
     });
 }
 
-posts.submit = () => {
-
+postsearch.submit = () => {
 
 }
