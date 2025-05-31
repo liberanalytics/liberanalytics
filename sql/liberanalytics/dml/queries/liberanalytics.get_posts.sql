@@ -5,6 +5,7 @@ SELECT
     post_created,
     short_desc,
     long_desc,
+    intro,
     post_img,
     featured_img,
     search_img

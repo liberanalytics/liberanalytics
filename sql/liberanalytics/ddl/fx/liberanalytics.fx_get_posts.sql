@@ -19,6 +19,7 @@ RETURNS TABLE
     ,post_created TIMESTAMP
     ,short_desc VARCHAR(256)
     ,long_desc VARCHAR(256)
+	,intro VARCHAR(512)
     ,post_img VARCHAR(64)
     ,featured_img VARCHAR(64)
     ,search_img VARCHAR(64)
@@ -63,6 +64,7 @@ txt_query_attr_list :=
 	',' || txt_posts_alias || '.post_created' || E'\n' ||
 	',' || txt_posts_alias || '.short_desc' || E'\n' ||
 	',' || txt_posts_alias || '.long_desc' || E'\n' ||
+	',' || txt_posts_alias || '.intro' || E'\n' ||
 	',' || txt_posts_alias || '.post_img' || E'\n' ||
 	',' || txt_posts_alias || '.featured_img' || E'\n' ||
 	',' || txt_posts_alias || '.search_img' || E'\n\n';
