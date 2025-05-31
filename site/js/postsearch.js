@@ -21,5 +21,21 @@ postsearch.bindEvents = () =>
 }
 
 postsearch.submit = () => {
+    
+    postsearch.submitSearch();
+}
+
+postsearch.submitSearch = () => {
+
+    return fetch(
+        '/liberanalytics/site/api/postsearch.php',
+        {
+            method: "POST",
+            body:  
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    )
 
 }
