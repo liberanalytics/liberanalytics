@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS liberanalytics.posts
     post_created timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     short_desc character varying(256) COLLATE pg_catalog."default" NOT NULL,
     long_desc character varying(256) COLLATE pg_catalog."default" NOT NULL,
+    intro character varying(512) COLLATE pg_catalog."default" NOT NULL,
     featured smallint NOT NULL,
     post_img character varying(64) COLLATE pg_catalog."default" NOT NULL,
     featured_img character varying(64) COLLATE pg_catalog."default",

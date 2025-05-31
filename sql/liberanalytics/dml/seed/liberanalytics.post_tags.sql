@@ -11,7 +11,7 @@ VALUES
     ('whydata', 'Data Integrity', DEFAULT),
     ('whydata', 'Datasets', DEFAULT),
     ('whydata', 'Data Accuracy', DEFAULT),
-    ('whydata', 'Data Analysis', DEFAULT);
+    ('whydata', 'Data Analysis', DEFAULT),
 
     -- Pythonpostgresql post.
 	('pythonpostgreconnect', 'AWS', DEFAULT),
@@ -20,7 +20,7 @@ VALUES
     ('pythonpostgreconnect', 'AWS-Python SDK', DEFAULT),
     ('pythonpostgreconnect', 'Encryption', DEFAULT),
     ('pythonpostgreconnect', 'Python', DEFAULT),
-    ('pythonpostgreconnect', 'PostgreSQL in Python', DEFAULT);
+    ('pythonpostgreconnect', 'PostgreSQL in Python', DEFAULT),
   
     -- PHP CloudWatch logs post.
 	('phpcloudwatchlogs', 'AWS', DEFAULT),

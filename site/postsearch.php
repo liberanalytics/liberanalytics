@@ -102,9 +102,9 @@ $laData = new classes\LaData();
             Logging database errors and queries t Amazon Web Services CloudWatch Logs
         </a>
         <a class="search-card-intro" href="whydata.php">
-            Why do we go through extensive efforts to collect, transform, load, store,
-            and aalyze volumes of data? Startups and corporations employ teams of professionals
-            who often specialize in niche functions within data analytics such as data architect, data ana ... [Read More]
+		Ever grow tired of storing logs on a server then having to manage access to the logs for individual
+users working in a collaborative development team? This post explores an alternative method to
+manage database logging by making use of the Amazon Web Services (AWS) CloudWatch Logs service.
         </a>					
 
     </div>	

@@ -10,7 +10,7 @@ VALUES
 
      ('Why Data', 'Why Data', DEFAULT),
      ('DB Security', 'DB Security', DEFAULT),
-     ('DB AWS', 'AWS', DEFAULT),
+     ('AWS', 'AWS', DEFAULT),
      ('Python', 'Python', DEFAULT),
      ('PHP', 'PHP', DEFAULT),
      ('Instrumentation', 'Instrumentation', DEFAULT);
