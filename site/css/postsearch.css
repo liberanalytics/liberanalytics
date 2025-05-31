@@ -89,9 +89,10 @@
     grid-template-columns: 12.1875rem 1fr;
     /* gap: 0 1rem; */
     padding: 1rem 0 .3125rem 0;
+    box-sizing: border-box;
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-image: linear-gradient( to right, var(--clr-med-light) , var(--clr-lt-light) ) 1;     
+    border-image: linear-gradient( to right, var(--clr-med-light) , var(--clr-lt-light) ) 1;
 }
 
 .search-card-components:hover {
