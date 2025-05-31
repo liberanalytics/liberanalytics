@@ -10,12 +10,14 @@ use enums\CrudFetchStyle;
 
 $laData = new LaData();  
 
-$post = $laData->crudData(
+$posts = $laData->crudData(
     CrudOperation::GETPOSTS,
     CrudType::CRUDREAD,
     CrudResultsetType::RESULTSET_ROWS,
     CrudFetchStyle::FETCHSTYLE_ASSOC,
     []						
 );
+
+return $posts;
 
 ?>

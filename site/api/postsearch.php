@@ -6,7 +6,9 @@ ini_set('display_startup_errors', 1);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    include(dirname(dirname(__DIR__)) . "/" . "src/handlers/postsearch.php");
+    $posts = include(dirname(__DIR__, 2) . "/" . "src/api/postsearch.php");
+    $postsJSON = json_encode($posts);
+    echo($postsJSON);
 }
 
 ?>
