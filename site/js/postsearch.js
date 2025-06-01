@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', () =>
 postsearch.setVars = () => 
 {
     postsearch.form = document.querySelector('#postsearch');
+    postsearch.category = document.querySelector('#postsearch_category');
     postsearch.searchResultsContainer = document.querySelector('#postsearch_results');
 }
 
@@ -33,6 +34,9 @@ postsearch.submitSearch = () => {
         '/liberanalytics/site/api/postsearch.php',
         {
             method: "POST", 
+            body: {
+                'post_category': postsearch.post_category.value
+            },
             headers: {
                 'Content-Type': 'application/json'
             }

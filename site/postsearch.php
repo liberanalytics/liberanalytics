@@ -42,7 +42,7 @@ $laData = new classes\LaData();
 						<li>
 							<label class="label-first">Post Category</label>
 							<div class="select-parent">
-							<select class="select-control"
+							<select id="postsearch_category" class="select-control"
 							 data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
 								<option class="control">Select Category</option>
 								
