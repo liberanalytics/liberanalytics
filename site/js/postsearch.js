@@ -115,8 +115,6 @@ postsearch.renderCard = (cardData) => {
         </a>
     </div>
     `;
-
-
     postsearch.searchResultsContainer.appendChild(card);
 
 }
