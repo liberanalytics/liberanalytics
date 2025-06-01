@@ -65,15 +65,26 @@ postsearch.renderSearchResults = (searchResults) => {
 
 postsearch.normalizeCardData = (cardData) => {
     return {
-        title: cardData.post_name,
-        category: cardData.post_category,
-        date: postsearch.normalizeCardDate(cardData.post_created)
-
+        post_name: cardData.post_name,
+        post_category: cardData.post_category,
+        post_created: postsearch.normalizeCardDate(cardData.post_created),
+        short_desc: cardData.short_desc,
+        long_desc: cardData.long_desc,
+        intro: intro,
+        search_img: search_img
     };
 }
 
 postsearch.normalizeCardDate = (cardDate) => {
 
+    //
+    const cardDate = new Date(cardDate);
+    const normalizedCardDate = cardDate.toLocaleDateString('en-US',{
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    return normalizedCardDate;
 }
 
 postsearch.renderCard = (cardData) => {

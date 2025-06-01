@@ -24,7 +24,7 @@ INSERT INTO liberanalytics.posts
         ,1
         ,'whydata_820.png'
         ,'whydata_195.png'
-        ,NULL
+        ,'whydata_195.png'
     ),
 
     (
@@ -37,7 +37,7 @@ INSERT INTO liberanalytics.posts
         ,2
         ,'pythonpostgreconnect_820.png'
         ,'pythonpostgreconnect_195.png'
-        ,NULL
+        ,'pythonpostgreconnect_195.png'
     ),
 
     (
@@ -50,5 +50,5 @@ INSERT INTO liberanalytics.posts
         ,3
         ,'aws_cw_820.png'
         ,'aws_cw_195.png'
-        ,NULL
+        ,'aws_cw_195.png'
     );         
