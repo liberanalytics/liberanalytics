@@ -70,16 +70,16 @@ postsearch.normalizeCardData = (cardData) => {
         post_created: postsearch.normalizeCardDate(cardData.post_created),
         short_desc: cardData.short_desc,
         long_desc: cardData.long_desc,
-        intro: intro,
-        search_img: search_img
+        intro: cardData.intro,
+        search_img: cardData.search_img
     };
 }
 
 postsearch.normalizeCardDate = (cardDate) => {
 
     //
-    const cardDate = new Date(cardDate);
-    const normalizedCardDate = cardDate.toLocaleDateString('en-US',{
+    const jsDate = new Date(cardDate);
+    const normalizedCardDate = jsDate.toLocaleDateString('en-US',{
         year: 'numeric',
         month: 'long',
         day: 'numeric'
@@ -90,9 +90,33 @@ postsearch.normalizeCardDate = (cardDate) => {
 postsearch.renderCard = (cardData) => {
 
     //
-    const cardData = postsearch.normalizeCardData(cardData);
+    const normalizedCardData = postsearch.normalizeCardData(cardData);
     const card = document.createElement('div');
     card.classList.add('site-box-shadow', 'search-card');
+
+    //
+    card.innerHTML = `
+    <h2 class="search-card-desc">${normalizedCardData.short_desc}</h2>
+    <div class="search-card-components">
+        <a class="search-card-img" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+            <img src="assets/${normalizedCardData.search_img}">
+        </a>
+        <a class="search-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+        ${normalizedCardData.long_desc}
+        </a>
+        <a class="search-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+        ${normalizedCardData.intro}
+        </a>
+    </div>
+    <div class="search-card-attrs">
+        <span class="search-card-date">${normalizedCardData.post_created}</span>
+        <a class="search-card-cat" href="${encodeURIComponent(normalizedCardData.post_category)}.php">
+        ${normalizedCardData.post_category}
+        </a>
+    </div>
+    `;
+
+
     postsearch.searchResultsContainer.appendChild(card);
 
 }
