@@ -46,7 +46,7 @@ postsearch.submitSearch = () => {
         console.error('Error: ', error);
     })
     .finally(() => {
-            // Todo: Unrender ajax spinner.
+        // Todo: Unrender ajax spinner.
     });
 }
 
@@ -59,8 +59,6 @@ postsearch.renderSearchResults = (searchResults) => {
     searchResults.forEach(searchResult => {
         postsearch.renderCard(searchResult);
     });
-
-
 }
 
 postsearch.normalizeCardData = (cardData) => {
@@ -102,19 +100,18 @@ postsearch.renderCard = (cardData) => {
             <img src="assets/${normalizedCardData.search_img}">
         </a>
         <a class="search-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
-        ${normalizedCardData.long_desc}
+            ${normalizedCardData.long_desc}
         </a>
         <a class="search-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
-        ${normalizedCardData.intro}
+            ${normalizedCardData.intro}
         </a>
     </div>
     <div class="search-card-attrs">
         <span class="search-card-date">${normalizedCardData.post_created}</span>
         <a class="search-card-cat" href="${encodeURIComponent(normalizedCardData.post_category)}.php">
-        ${normalizedCardData.post_category}
+            ${normalizedCardData.post_category}
         </a>
     </div>
-    `;
+    `.trim();
     postsearch.searchResultsContainer.appendChild(card);
-
 }
