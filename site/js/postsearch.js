@@ -1,7 +1,7 @@
 var postsearch = {};
 postsearch.form = {};
 
-window.addEventListener("load", () => 
+window.addEventListener('DOMContentLoaded', () => 
 {
     postsearch.setVars();
     postsearch.bindEvents();
@@ -63,11 +63,25 @@ postsearch.renderSearchResults = (searchResults) => {
 
 }
 
+postsearch.normalizeCardData = (cardData) => {
+    return {
+        title: cardData.post_name,
+        category: cardData.post_category,
+        date: postsearch.normalizeCardDate(cardData.post_created)
+
+    };
+}
+
+postsearch.normalizeCardDate = (cardDate) => {
+
+}
+
 postsearch.renderCard = (cardData) => {
 
     //
+    const cardData = postsearch.normalizeCardData(cardData);
     const card = document.createElement('div');
     card.classList.add('site-box-shadow', 'search-card');
     postsearch.searchResultsContainer.appendChild(card);
-    
+
 }
