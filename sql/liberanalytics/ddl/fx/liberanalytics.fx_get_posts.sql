@@ -52,17 +52,23 @@ BEGIN
 txt_pred_featured := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'featured', '<=', NULL, px_featured, NULL);
 txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', NULL, NULL, int_ordinal_post_name);
 txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', NULL, NULL, int_ordinal_post_category);
-txt_pred_post_tags := meta.fx_get_dynamic_sql_clause('AND', txt_post_tags_alias, 'post_tag', '=', NULL, NULL, int_ordinal_post_tags);
 txt_order_by := meta.fx_get_dynamic_sql_clause('ORDER BY', txt_posts_alias, px_order_by, px_order_by_ascdesc, NULL, NULL, NULL); 
 txt_limit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, px_limit, NULL);
 
-txt_pred_post_tags := 
-E'\n' || 'AND ($3 IS NULL OR EXISTS
+txt_pred_post_tags := format(
+	E'\nAND ($%s IS NULL OR EXISTS
 	(SELECT 1
-	FROM liberanalytics.post_tags AS ' || txt_post_tags_alias || E'\n'
-	'WHERE ' || txt_post_tags_alias || '.post_name = ' || txt_posts_alias || '.post_name' || E'\n'
-	'AND ' || txt_post_tags_alias || '.post_tag = ANY($3) ' || E'\n'
-	'))';
+	FROM liberanalytics.post_tags AS %I
+	WHERE  %I.post_name = %I.post_name
+	AND %I.post_tag = ANY($%s)
+	))',
+	int_ordinal_post_tags,
+	txt_post_tags_alias,
+	txt_post_tags_alias,
+	txt_posts_alias,
+	txt_post_tags_alias,
+	int_ordinal_post_tags
+	);
 
 txt_query_attr_list := 
 
