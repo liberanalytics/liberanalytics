@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     //
     header('Content-Type: application/json');
-    $requestPxs = json_encode(file_get_contents('PHP://input'), true);
+    $requestPxs = json_decode(file_get_contents('PHP://input'), true);
     $posts = include(dirname(__DIR__, 2) . "/" . "src/api/postsearch.php");
     $postsJSON = json_encode($posts);
     echo($postsJSON);

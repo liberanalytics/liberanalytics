@@ -11,6 +11,7 @@ use enums\CrudFetchStyle;
 $laData = new LaData();  
 
 $postPxs = [];
+// $postCategory = $requestPxs['postCategory'];
 $postCategory = ($requestPxs['postCategory'] == 'Select Category' ? NULL : $requestPxs['postCategory']);
 $postPxs =[
     'post_category' => $postCategory
@@ -21,7 +22,7 @@ $posts = $laData->crudData(
     CrudType::CRUDREAD,
     CrudResultsetType::RESULTSET_ROWS,
     CrudFetchStyle::FETCHSTYLE_ASSOC,
-    []						
+    ['post_category' => 'Why Data']						
 );
 
 return $posts;
