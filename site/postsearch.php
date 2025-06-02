@@ -67,7 +67,8 @@ $laData = new classes\LaData();
 						<li>
 							<label class="label-nonfirst">Tags</label>
 							<input id="postsearch_tags" type="text" class="input-control" maxlength="48"
-							 data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48">
+							 data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48"
+							 placeholder="Enter Tags separated by commas" title="Examples: SQL, AWS, DB Security">
 						</li>
 						<li>
 							<input type="submit" value="SUBMIT">
