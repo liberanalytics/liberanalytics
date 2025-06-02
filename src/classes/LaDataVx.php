@@ -14,11 +14,6 @@ class LaDataVx extends LaDataCrud
 {
 
     private const PX_ATTR_LISTS = ['px_post_tags', 'px_post_keywords'];
-    private const PX_REFDATA_TYPE = 'refdata';
-    private const PX_REFDATA_FX = 'validateRefdata';
-    private const PX_REFDATA_FX_OPS = [
-        'px_post_category' => 'getpostcategories'
-    ];
     private const SZ_FX = 'vxSz';
     private const VX_FX = 'vxFx';
 
@@ -63,8 +58,7 @@ class LaDataVx extends LaDataCrud
         string $pxType
     )
     {
-        // Determine if its a refdata key.
-        // $pxType = (array_key_exists($pxKey, self::PX_REFDATA_FX_OPS)) ? self::PX_REFDATA_TYPE : $pxType;
+
         $fxs = $this->getSzVxFxMap()[$pxType];
         $vxSz = $fxs[self::SZ_FX];         
         $vxFx = $fxs[self::VX_FX];
