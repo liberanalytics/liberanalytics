@@ -22,7 +22,7 @@ $posts = $laData->crudData(
     CrudType::CRUDREAD,
     CrudResultsetType::RESULTSET_ROWS,
     CrudFetchStyle::FETCHSTYLE_ASSOC,
-    ['post_category' => 'Why Data']						
+    $postPxs						
 );
 
 return $posts;

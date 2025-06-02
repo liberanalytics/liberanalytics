@@ -51,6 +51,8 @@ class LaDataVx extends LaDataCrud
         ];
     }
 
+    
+
     /**
      * 
      */
@@ -62,18 +64,10 @@ class LaDataVx extends LaDataCrud
     )
     {
         // Determine if its a refdata key.
-        $pxType = (array_key_exists($pxKey, self::PX_REFDATA_FX_OPS)) ? self::PX_REFDATA_TYPE : $pxType;
-        if ($pxType != self::PX_REFDATA_TYPE)
-        {
-            $fxs = $this->getSzVxFxMap()[$pxType];
-            $vxSz = $fxs[self::SZ_FX]; 
-            $vxFx = $fxs[self::VX_FX];
-        }
-        else
-        {
-            $vxSz = null;
-            $vxFx = self::PX_REFDATA_FX;
-        }
+        // $pxType = (array_key_exists($pxKey, self::PX_REFDATA_FX_OPS)) ? self::PX_REFDATA_TYPE : $pxType;
+        $fxs = $this->getSzVxFxMap()[$pxType];
+        $vxSz = $fxs[self::SZ_FX];         
+        $vxFx = $fxs[self::VX_FX];
 
         //
         $pxValue = ($vxSz) ? call_user_func_array([$this, $vxSz], [$pxKey, $pxValue]) : $pxValue;
@@ -163,12 +157,10 @@ class LaDataVx extends LaDataCrud
             [
                 '/(\s){2,}/',
                 '/(\s*,\s*|,+\s*)/',
-                '/(,){2,}/',
-                '/\s/'
+                '/(,){2,}/'
             ],
             [
                 ' ',
-                ',',
                 ',',
                 ','
             ],
