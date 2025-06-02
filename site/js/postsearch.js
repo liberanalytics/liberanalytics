@@ -11,6 +11,7 @@ postsearch.setVars = () =>
 {
     postsearch.form = document.querySelector('#postsearch');
     postsearch.category = document.querySelector('#postsearch_category');
+    postsearch.tags = document.querySelector('#postsearch_tags');
     postsearch.searchResultsContainer = document.querySelector('#postsearch_results');
 }
 
@@ -33,10 +34,10 @@ postsearch.submitSearch = () => {
     return fetch(
         '/liberanalytics/site/api/postsearch.php',
         {
-            method: "POST", 
-            body: {
-                'post_category': postsearch.post_category.value
-            },
+            method: 'POST', 
+            body: JSON.stringify({
+                'postCategory': postsearch.category.value
+            }),
             headers: {
                 'Content-Type': 'application/json'
             }

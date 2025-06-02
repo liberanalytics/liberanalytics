@@ -66,7 +66,7 @@ $laData = new classes\LaData();
 						</li>
 						<li>
 							<label class="label-nonfirst">Tags</label>
-							<input type="text" class="input-control" maxlength="48"
+							<input id="postsearch_tags" type="text" class="input-control" maxlength="48"
 							 data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48">
 						</li>
 						<li>
