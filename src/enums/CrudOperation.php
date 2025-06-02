@@ -5,6 +5,7 @@
     {
         CASE GETFXPARAMETERS = 'getfxparameters';
         CASE GETPOSTS = 'getposts';
-        CASE GETPOSTCATEGORIES = 'getpostcategories'; 
+        CASE GETPOSTCATEGORIES = 'getpostcategories';
+        CASE GETPOSTTAGSLIKE = 'getposttagslike';
     }
 ?>

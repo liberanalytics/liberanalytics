@@ -8,7 +8,7 @@ CREATE OR REPLACE FUNCTION refdata.fx_get_post_tags
 
 RETURNS TABLE
 (
-    post_tags VARCHAR(32)
+    post_tag VARCHAR(32)
 )
 
 LANGUAGE plpgsql
