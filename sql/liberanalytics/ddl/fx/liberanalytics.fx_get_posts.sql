@@ -30,6 +30,10 @@ STABLE
 AS $$
 
 DECLARE
+
+	/*
+
+	*/
 	txt_query_attr_list TEXT;
 	txt_query_base TEXT;
 	txt_query TEXT;
@@ -49,27 +53,41 @@ DECLARE
 
 BEGIN
 
+/*
+
+*/
 txt_pred_featured := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'featured', '<=', NULL, px_featured, NULL);
 txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', NULL, NULL, int_ordinal_post_name);
 txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', NULL, NULL, int_ordinal_post_category);
 txt_order_by := meta.fx_get_dynamic_sql_clause('ORDER BY', txt_posts_alias, px_order_by, px_order_by_ascdesc, NULL, NULL, NULL); 
 txt_limit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, px_limit, NULL);
 
-txt_pred_post_tags := format(
-	E'\nAND ($%s IS NULL OR EXISTS
-	(SELECT 1
-	FROM liberanalytics.post_tags AS %I
-	WHERE  %I.post_name = %I.post_name
-	AND %I.post_tag = ANY($%s)
-	))',
-	int_ordinal_post_tags,
-	txt_post_tags_alias,
-	txt_post_tags_alias,
-	txt_posts_alias,
-	txt_post_tags_alias,
-	int_ordinal_post_tags
-	);
+/*
 
+*/
+IF int_ordinal_post_tags IS NOT NULL THEN
+	txt_pred_post_tags := 
+	format(
+		E'\nAND ($%s IS NULL OR EXISTS
+		(SELECT 1
+		FROM liberanalytics.post_tags AS %I
+		WHERE  %I.post_name = %I.post_name
+		AND %I.post_tag = ANY($%s)
+		))',
+		int_ordinal_post_tags,
+		txt_post_tags_alias,
+		txt_post_tags_alias,
+		txt_posts_alias,
+		txt_post_tags_alias,
+		int_ordinal_post_tags
+		);
+ELSE
+	txt_pred_post_tags := '';
+END IF;
+
+/*
+
+*/
 txt_query_attr_list := 
 
 	txt_posts_alias || '.post_name' || E'\n' ||
@@ -83,6 +101,9 @@ txt_query_attr_list :=
 	',' || txt_posts_alias || '.search_img' || E'\n\n';
 
 
+/*
+
+*/
 txt_query_base :=
 
 'SELECT 
@@ -105,13 +126,16 @@ txt_query :=
 
 ';';
 
+/*
+
+*/
 RETURN QUERY EXECUTE txt_query
 USING 
 	 px_post_name 
 	,px_post_category
 	,px_post_tags;
 
---RAISE NOTICE 'Query txt_query: %', txt_query;
+RAISE NOTICE 'Query txt_query: %', txt_query;
 
 END;
 $$;
