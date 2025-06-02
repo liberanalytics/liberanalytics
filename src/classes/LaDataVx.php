@@ -14,8 +14,9 @@ class LaDataVx extends LaDataCrud
 {
 
     private const PX_ATTR_LISTS = ['px_post_tags', 'px_post_keywords'];
-    private const SZ_FX = 'vxSz';
-    private const VX_FX = 'vxFx';
+    private const PX_REFDATA_FX_OPS = [
+        'px_post_category' => 'getpostcategories'
+    ];
 
 
     protected function __construct()
@@ -26,27 +27,34 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    private function getSzVxFxMap(): array
+    private function getSzFx(string $pxType): string 
     {
-        // _text for postgre text arrays (TEXT[]).
-        return
-        [
-            'text' =>   [
-                self::SZ_FX =>  'sanitizeText',
-                self::VX_FX =>  'validateText'
-            ],
-            'int4' =>   [
-                self::SZ_FX =>  'sanitizeInt',
-                self::VX_FX =>  'validateInt'
-            ],
-            '_text'  =>   [
-                self::SZ_FX => 'sanitizeList',
-                self::VX_FX =>  'validateList'
-            ]
-        ];
+        return match($pxType)
+        {
+            'text' => 'sanitizeText',
+            'int4' => 'sanitizeInt',
+            '_text' => 'sanitizeList'
+        };
     }
 
-    
+    /**
+     * 
+     */
+    private function getVxFx(string $pxType, string $pxKey): string
+    {
+        if (array_key_exists($pxKey, self::PX_REFDATA_FX_OPS))
+        {
+            return 'validateRefdata';
+        }
+        else
+        {
+            return match($pxType) {
+                'text' => 'validateText',
+                'int4' => 'validateInt',
+                '_text' => 'validateList'                
+            };
+        }
+    }
 
     /**
      * 
@@ -59,12 +67,12 @@ class LaDataVx extends LaDataCrud
     )
     {
 
-        $fxs = $this->getSzVxFxMap()[$pxType];
-        $vxSz = $fxs[self::SZ_FX];         
-        $vxFx = $fxs[self::VX_FX];
+
+        $vxSz = $this->getSzFx($pxType);
+        $vxFx = $this->getVxFx($pxType, $pxKey);
 
         //
-        $pxValue = ($vxSz) ? call_user_func_array([$this, $vxSz], [$pxKey, $pxValue]) : $pxValue;
+        $pxValue = call_user_func_array([$this, $vxSz], [$pxKey, $pxValue]);
         $vxValueIsValid = call_user_func_array([$this, $vxFx], [$pxKey, $pxValue]);
         return ($vxValueIsValid) ? $pxValue : throw new Exception("{$pxKey} {$pxValue} is invalid.");
 
