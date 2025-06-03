@@ -10,19 +10,12 @@ use enums\CrudFetchStyle;
 
 $laData = new LaData();  
 
-// $postPxs = [];
-// // $postCategory = $requestPxs['postCategory'];
-// $postCategory = ($requestPxs['postCategory'] == 'Select Category' ? NULL : $requestPxs['postCategory']);
-// $postPxs =[
-//     'post_category' => $postCategory
-// ];
-
 $postTags = $laData->crudData(
     CrudOperation::GETPOSTTAGSLIKE,
     CrudType::CRUDREAD,
     CrudResultsetType::RESULTSET_ROWS,
     CrudFetchStyle::FETCHSTYLE_ASSOC,
-    ['post_tag_term' => 'AW']
+    ['post_tag_term' => $postTagTerm]
 );
 
 return $postTags;
