@@ -13,16 +13,19 @@ RETURNS TABLE
 STABLE
 LANGUAGE plpgsql
 AS $$
+BEGIN
 
+RETURN QUERY
 SELECT
 
     pt.post_tag
 
 FROM refdata.post_tags AS pt
-WHERE 1=1
-AND post_tag ILIKE px_post_tag_term || % 
-ORDER BY post_tag
+WHERE px_post_tag_term IS NULL
+OR pt.post_tag ILIKE px_post_tag_term || '%' 
+ORDER BY pt.post_tag
 LIMIT 10;
 
 --RAISE NOTICE 'Query String: %', txt_query;
+END;
 $$
