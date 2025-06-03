@@ -21,6 +21,10 @@ postsearch.bindEvents = () =>
         event.preventDefault();
         postsearch.submit();
     });
+
+    postsearch.tags.addEventListener('onKeyUp', (event) => {
+
+    });
 }
 
 postsearch.submit = () => {    
@@ -34,13 +38,14 @@ postsearch.submitSearch = () => {
     return fetch(
         '/liberanalytics/site/api/postsearch.php',
         {
-            method: 'POST', 
-            body: JSON.stringify({
-                'postCategory': postsearch.category.value
-            }),
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify({
+                'postCategory': postsearch.category.value
+            })
+
         }
     )
     .then(response => response.json())
@@ -119,4 +124,24 @@ postsearch.renderCard = (cardData) => {
     </div>
     `.trim();
     postsearch.searchResultsContainer.appendChild(card);
+}
+
+postsearch.getposttagslike = () => {
+
+    posttags = postsearch.tags.value;
+
+    fetch(
+        `/liberanalytics/site/api/getposttagslike.php?post_tag_term=${posttags}`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    )
+    .then(response => response.json())
+    .then(data=> {
+        console.log(data);
+    })
+    .catch(error => console.log(error))
 }
