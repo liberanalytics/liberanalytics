@@ -65,9 +65,12 @@ $laData = new classes\LaData();
 							</div>
 						</li>
 						<li>
-							<label class="label-nonfirst">Tags</label>
-							<input id="postsearch_tags" type="text" class="input-control" maxlength="48"
-							 data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48">
+							<div id="postsearch_tags_w">
+								<label class="label-nonfirst">Tags</label>
+								<input id="postsearch_tags" type="text" class="input-control" maxlength="48"
+								data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48">
+								<div id="postsearch_tag_suggestions" class="suggestions-box"></div>
+							</div>
 						</li>
 						<li>
 							<input type="submit" value="SUBMIT">

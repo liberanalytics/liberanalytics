@@ -13,6 +13,7 @@ postsearch.setVars = () =>
     postsearch.category = document.querySelector('#postsearch_category');
     postsearch.tags = document.querySelector('#postsearch_tags');
     postsearch.searchResultsContainer = document.querySelector('#postsearch_results');
+    postsearch.tagSuggestionsBox = document.querySelector('#postsearch_tag_suggestions');
 }
 
 postsearch.bindEvents = () => 
@@ -22,8 +23,12 @@ postsearch.bindEvents = () =>
         postsearch.submit();
     });
 
-    postsearch.tags.addEventListener('onKeyUp', (event) => {
-
+    let tagFetchTimeout;
+    postsearch.tags.addEventListener('keyup', (event) => {
+        clearTimeout(tagFetchTimeout);
+        tagFetchTimeout = setTimeout(() => {
+            postsearch.getposttagslike();
+        }, 250);
     });
 }
 
@@ -128,10 +133,20 @@ postsearch.renderCard = (cardData) => {
 
 postsearch.getposttagslike = () => {
 
-    posttags = postsearch.tags.value;
+    const allTags = postsearch.tags.value;
+    const lastTag = allTags.split(',').pop().trim();
+
+    if (!lastTag) {
+        return;
+    }
+
+    // if (!posttags || posttags.length < 2) {
+    //     postsearch.tagSuggestionsBox.innerHTML = '';
+    //     return;
+    // }
 
     fetch(
-        `/liberanalytics/site/api/getposttagslike.php?post_tag_term=${posttags}`,
+        `/liberanalytics/site/api/getposttagslike.php?post_tag_term=${encodeURIComponent(posttags)}`,
         {
             method: 'GET',
             headers: {
@@ -140,8 +155,28 @@ postsearch.getposttagslike = () => {
         }
     )
     .then(response => response.json())
-    .then(data=> {
-        console.log(data);
+    .then(suggestions => {
+        postsearch.renderTagSuggestions(suggestions, allTags);
     })
     .catch(error => console.log(error))
+}
+
+postsearch.renderTagSuggestions = (suggestions) => {
+    
+    postsearch.tagSuggestionsBox.innerHTML = '';
+
+    suggestions.forEach(suggestion => {
+
+        const item = document.createElement('div');
+        item.classList.add('suggestion-item');
+        item.textContent = suggestion.post_tag;
+
+        item.addEventListener('click', () => {
+            postsearch.tags.value = suggestion.post_tag;
+            postsearch.tagSuggestionsBox.innerHTML = '';
+        });
+
+        postsearch.tagSuggestionsBox.appendChild(item);
+    });
+
 }

@@ -49,6 +49,30 @@
     margin: .625rem auto 0 auto;
 }
 
+/** ------------------------------------------- Postsearch tags styles ------------------------------------------ **/
+
+#postsearch_tags_w {
+    position: relative;
+}
+
+.suggestions-box {
+    background-color: var(--clr-xlt-dark);
+    max-height: 12.5rem;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+}
+
+.suggestion-item {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
 /** ----------------------------------------- Postsearch results styles ----------------------------------------- **/
 
 #postsearch_results_w {
