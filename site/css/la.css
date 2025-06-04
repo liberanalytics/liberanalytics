@@ -176,3 +176,20 @@ a:active {
 
 /** ------------------------------------------- Tag Suggestion Styles ------------------------------------------ **/
 
+.tagsuggestions-box {
+    background-color: var(--clr-xlt-dark);
+    max-height: 12.5rem;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+}
+
+.tagsuggestion-item {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.tagsuggestion-item:hover {
+    background-color: #f0f0f0;
+}

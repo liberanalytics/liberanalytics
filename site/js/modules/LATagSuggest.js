@@ -10,6 +10,30 @@ export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
 
     let tagFetchTimeout;
 
+    inputParentEle.style.position = 'relative';
+
+
+    //
+    inputEle.addEventListener('keyup', () => {
+        clearTimeout(tagFetchTimeout);
+        tagFetchTimeout = setTimeout(getTagSuggestions, 250);
+    });
+
+    //
+    inputEle.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            tagSuggestionsEle.innerHTML = '';
+        }
+    });
+
+    //
+    document.addEventListener('click', (event) => {
+        if (!inputEle.contains(event.target) && !tagSuggestionsEle.contains(event.target)) {
+            tagSuggestionsEle.innerHTML = '';
+        }
+    });
+
+
     const getTagSuggestions = () => {
         
         const allTags = inputEle.value;
@@ -60,31 +84,9 @@ export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
 
         });
 
-            //
-            inputEle.addEventListener('keyup', () => {
-                clearTimeout(tagFetchTimeout);
-                tagFetchTimeout = setTimeout(() => {
-                    postsearch.getTagSuggestions();
-                }, 250);
-            });
-
-            //
-            inputEle.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    tagSuggestionsEle.innerHTML = '';
-                }
-            });
-
-            //
-            document.addEventListener('click', (event) => {
-                if (!inputEle.contains(event.target) && !tagSuggestionsEle.contains(event.target)) {
-                    tagSuggestionsEle.innerHTML = '';
-                }
-            });
-
-        }
-
-
     }
+
+
+}
 
 
