@@ -1,5 +1,9 @@
+
+
 var postsearch = {};
 postsearch.form = {};
+
+import { LATagSuggest } from "./modules/LATagSuggest.js";
 
 window.addEventListener('DOMContentLoaded', () => 
 {
@@ -11,7 +15,10 @@ postsearch.setVars = () =>
 {
     postsearch.form = document.querySelector('#postsearch');
     postsearch.category = document.querySelector('#postsearch_category');
+
+    postsearch.tagsParentEle = document.querySelector('#postsearch_tags_w');
     postsearch.tags = document.querySelector('#postsearch_tags');
+
     postsearch.searchResultsContainer = document.querySelector('#postsearch_results');
     postsearch.tagSuggestionsBox = document.querySelector('#postsearch_tag_suggestions');
 }
@@ -23,28 +30,9 @@ postsearch.bindEvents = () =>
         postsearch.submit();
     });
 
-    let tagFetchTimeout;
-    postsearch.tags.addEventListener('keyup', (event) => {
-        clearTimeout(tagFetchTimeout);
-        tagFetchTimeout = setTimeout(() => {
-            postsearch.getposttagslike();
-        }, 250);
-    });
+    LATagSuggest(postsearch.tagsParentEle, postsearch.tags, postsearch.tagSuggestionsBox);
 
-    postsearch.tags.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            postsearch.tagSuggestionsBox.innerHTML = '';
-        }
-    });
-
-    document.addEventListener('click', (event) => {
-        const clickedInside = 
-            postsearch.tags.contains(event.target) ||
-            postsearch.tagSuggestionsBox.contains(event.target);
-        if (!clickedInside) {
-            postsearch.tagSuggestionsBox.innerHTML = '';
-        }
-    })
+    
 }
 
 postsearch.submit = () => {    
@@ -146,57 +134,3 @@ postsearch.renderCard = (cardData) => {
     postsearch.searchResultsContainer.appendChild(card);
 }
 
-postsearch.getposttagslike = () => {
-
-    const allTags = postsearch.tags.value;
-    const lastTag = allTags.split(',').pop().trim();
-
-    if (!lastTag) {
-        return;
-    }
-
-    // if (!posttags || posttags.length < 2) {
-    //     postsearch.tagSuggestionsBox.innerHTML = '';
-    //     return;
-    // }
-
-    fetch(
-        `/liberanalytics/site/api/getposttagslike.php?post_tag_term=${encodeURIComponent(lastTag)}`,
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-    )
-    .then(response => response.json())
-    .then(suggestions => {
-        postsearch.renderTagSuggestions(suggestions);
-    })
-    .catch(error => console.log(error))
-}
-
-postsearch.renderTagSuggestions = (suggestions) => {
-    
-    postsearch.tagSuggestionsBox.innerHTML = '';
-
-    const currentInput = postsearch.tags.value;
-
-    suggestions.forEach(suggestion => {
-
-        const item = document.createElement('div');
-        item.classList.add('suggestion-item');
-        item.textContent = suggestion.post_tag;
-
-        item.addEventListener('click', () => {
-            let tags = currentInput.split(',');
-            tags[tags.length -1] = ` ${suggestion.post_tag}`;
-            postsearch.tags.value = tags.join(',').trim() + ', ';
-            postsearch.tags.focus();
-            postsearch.tagSuggestionsBox.innerHTML = '';
-        });
-
-        postsearch.tagSuggestionsBox.appendChild(item);
-    });
-
-}

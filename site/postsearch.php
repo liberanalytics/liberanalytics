@@ -25,7 +25,7 @@ $laData = new classes\LaData();
 	<script type="text/javascript" src="js/LAStyles.js"></script>
 	<script type="text/javascript" src="js/la.js"></script>
 	<script type="text/javascript" src="js/LAvx.js"></script>
-	<script type="text/javascript" src="js/postsearch.js"></script>
+	<script type="module" src="js/postsearch.js"></script>
 </head>
 
 <body>
