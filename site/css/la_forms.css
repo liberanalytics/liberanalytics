@@ -6,7 +6,7 @@ form input, textarea {
     font-size: 15px;
     font-weight: 300;
     color: var(--clr-prmary-blk);
-    box-shadow: 2px 2px 2px rgb(196,196,196);     
+    box-shadow: 2px 2px 2px var(--clr-med-light);
 }
 
 form input:focus, textarea:focus {    
@@ -27,8 +27,8 @@ form em {
 form input[type=text] {
     padding: 10px;
     border: 1px solid #CCC;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px rgb(196,196,196);    
+    border-radius: .5rem;
+    /* box-shadow: 2px 2px 2px rgb(196,196,196);     */
 }
 
 form input[type=submit] {
@@ -54,9 +54,9 @@ form input[type=submit]:active {
 form select {
     padding: 10px;
     border: 1px solid #CCC;
-    border-radius: 10px;
+    border-radius: .5rem;
     font-family: Helvetica;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 300;
     color: var(--clr-prmary-blk);
     background-color: #FFF;
