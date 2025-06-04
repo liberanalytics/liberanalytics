@@ -36,7 +36,7 @@ form input[type=submit] {
     border: none;
     border-radius: 15px;
     font-weight: 600;
-    background-color: rgba(88,135,191,.75);
+    background-color: var(--clr-dk-blue);
     color: #FFF;
 }
 

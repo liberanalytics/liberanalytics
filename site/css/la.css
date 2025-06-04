@@ -177,12 +177,16 @@ a:active {
 /** ------------------------------------------- Tag Suggestion Styles ------------------------------------------ **/
 
 .tagsuggestions-box {
-    background-color: var(--clr-xlt-dark);
     max-height: 12.5rem;
     overflow-y: auto;
     position: absolute;
     z-index: 1000;
     width: 100%;
+    background-color: var(--clr-med-dark);
+    color: #FFF;
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 1rem;
+
 }
 
 .tagsuggestion-item {
@@ -191,5 +195,7 @@ a:active {
 }
 
 .tagsuggestion-item:hover {
-    background-color: #f0f0f0;
+    color: var(--clr-lt-blue);
+    border-bottom: 1px solid var(--clr-lt-blue);
+    transition-duration: .2s;    
 }
