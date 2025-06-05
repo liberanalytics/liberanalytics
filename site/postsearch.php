@@ -69,7 +69,8 @@ $laData = new classes\LaData();
 							<div id="postsearch_tags_w">
 
 								<input id="postsearch_tags" type="text" class="input-control" maxlength="48"
-								data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48">
+								data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48"
+								autocomplete="off">
 								<div id="postsearch_tag_suggestions" class="tagsuggestions-box"></div>
 							</div>
 						</li>
@@ -77,7 +78,7 @@ $laData = new classes\LaData();
 							<input type="submit" value="SUBMIT">
 						</li>
 						<li>
-							<span id="error_form" class="error-msg"></span>
+							<span class="error-msg"></span>
 						</li>
 					</ul>
 
@@ -85,7 +86,7 @@ $laData = new classes\LaData();
 			</div><!-- End postsearch_form -->			
 		</div><!-- End postsearch_w -->
 
-		<div id="postsearch_results_w">			
+		<div id="postsearch_results_w">
 
 			<div id="postsearch_filters">				
 			</div><!-- End postsearch_filters -->

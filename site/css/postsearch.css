@@ -45,16 +45,12 @@
     margin: 1.875rem 0 0 0;
 }
 
-#postsearch_form .error-msg {
-    margin: .625rem auto 0 auto;
-}
-
 /** ----------------------------------------- Postsearch results styles ----------------------------------------- **/
 
 #postsearch_results_w {
     max-width: 50rem;
     padding: 2rem 0 0 0;
-    margin: 1.25rem auto 0 auto;
+    margin: 0 auto 0 auto;
     border-top: 1px solid transparent;
     border-image: linear-gradient( to right, 
         var(--clr-lt-light) 0%, 

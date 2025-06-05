@@ -112,10 +112,10 @@ form .select-arrow::after {
 }
 
 form .error-msg {
-    min-height: 30px;
+    min-height: 1.25rem;
+    padding: .625rem 0 .3125rem;
     font-family: Helvetica;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 1.125rem;
     font-weight: 300;
     color: rgb(255,0,0);  
 }
