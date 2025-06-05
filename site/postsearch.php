@@ -96,7 +96,7 @@ $laData = new classes\LaData();
 						<span class="search-results-label">Post Category | </span>
 						<span class="search-results-chip" data-type="post-category" data-value="Why Data">
 							Why Data
-							<button class="chip-remove" aria-label="Remove">x</button>
+							<button class="search-results-btn" aria-label="Remove">x</button>
 						</span>
 					</p>
 

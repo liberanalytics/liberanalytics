@@ -84,6 +84,24 @@
     color: var(--clr-xlt-dark);
 }
 
+.search-results-btn {
+    position: relative;
+    margin-left: .25rem;
+    padding: 0 .3125rem;
+    vertical-align: baseline;
+    font-size: 1.25rem;
+    top: -.125rem;
+    border-radius: .25rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-color: var(--clr-dk-blue);
+    color: #FFF;    
+}
+
+
+
+
+
 .search-card {
     padding: .625rem;
     margin: 0 0 2rem 0;
