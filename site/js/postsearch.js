@@ -58,7 +58,7 @@ postsearch.submitSearch = () => {
     )
     .then(response => response.json())
     .then(searchResults => {
-        postsearch.renderSearchResults(searchResults)
+        postsearch.renderSearchResults(searchResults);
     })
     .catch(error => {
         console.error('Error: ', error);
