@@ -71,7 +71,7 @@
 }
 
 .search-results-px {
-    padding: 0 0 0 .75rem;
+    padding: 0 0 .5rem .75rem;
 }
 
 .search-results-label {
@@ -80,6 +80,7 @@
 }
 
 .search-results-chip {
+    margin: 0 0 0 .5rem;
     font-size: 1.25rem;
     color: var(--clr-xlt-dark);
 }
@@ -98,7 +99,10 @@
     color: #FFF;    
 }
 
-
+.search-results-btn:hover {
+    background-color: var(--clr-med-blue);
+    transition-duration: .25s; 
+}
 
 
 
