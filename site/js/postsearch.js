@@ -1,7 +1,4 @@
-
-
 var postsearch = {};
-postsearch.form = {};
 
 import { LATagSuggest } from "./modules/LATagSuggest.js";
 
@@ -13,26 +10,23 @@ window.addEventListener('DOMContentLoaded', () =>
 
 postsearch.setVars = () => 
 {
-    postsearch.form = document.querySelector('#postsearch');
-    postsearch.category = document.querySelector('#postsearch_category');
-
+    postsearch.formEle = document.querySelector('#postsearch');
+    postsearch.categoryEle = document.querySelector('#postsearch_category');
     postsearch.tagsParentEle = document.querySelector('#postsearch_tags_w');
-    postsearch.tags = document.querySelector('#postsearch_tags');
-
-    postsearch.searchResultsContainer = document.querySelector('#postsearch_results');
-    postsearch.tagSuggestionsBox = document.querySelector('#postsearch_tag_suggestions');
+    postsearch.tagsEle = document.querySelector('#postsearch_tags');
+    postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
+    postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
+    postsearch.searchResultsFilterEle = document.querySelector('#postsearch_filters');
 }
 
 postsearch.bindEvents = () => 
 {
-    postsearch.form.addEventListener('submit', (event) => {
+    postsearch.formEle.addEventListener('submit', (event) => {
         event.preventDefault();
         postsearch.submit();
     });
 
-    LATagSuggest(postsearch.tagsParentEle, postsearch.tags, postsearch.tagSuggestionsBox);
-
-    
+    LATagSuggest(postsearch.tagsParentEle, postsearch.tagsEle, postsearch.tagSuggestionsEle);
 }
 
 postsearch.submit = () => {    
@@ -51,14 +45,14 @@ postsearch.submitSearch = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                'postCategory': postsearch.category.value
+                'postCategory': postsearch.categoryEle.value
             })
 
         }
     )
     .then(response => response.json())
     .then(searchResults => {
-        postsearch.renderSearchResults(searchResults);
+        postsearch.renderSearch(searchResults);
     })
     .catch(error => {
         console.error('Error: ', error);
@@ -68,10 +62,14 @@ postsearch.submitSearch = () => {
     });
 }
 
+postsearch.renderSearch = (searchResults) => {
+    postsearch.renderSearchResults(searchResults);
+}
+
 postsearch.renderSearchResults = (searchResults) => {
 
     //
-    postsearch.searchResultsContainer.innerHTML = '';
+    postsearch.searchResultsContainerEle.innerHTML = '';
 
     //
     searchResults.forEach(searchResult => {
@@ -131,6 +129,10 @@ postsearch.renderCard = (cardData) => {
         </a>
     </div>
     `.trim();
-    postsearch.searchResultsContainer.appendChild(card);
+    postsearch.searchResultsContainerEle.appendChild(card);
+}
+
+postsearch.renderFilters = (filterData) => {
+
 }
 
