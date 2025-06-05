@@ -52,7 +52,7 @@ postsearch.submitSearch = () => {
     )
     .then(response => response.json())
     .then(searchResults => {
-        postsearch.renderSearch(searchResults);
+        postsearch.renderSearch(searchResults, '');
     })
     .catch(error => {
         console.error('Error: ', error);
@@ -62,11 +62,11 @@ postsearch.submitSearch = () => {
     });
 }
 
-postsearch.renderSearch = (searchResults) => {
-    postsearch.renderSearchResults(searchResults);
+postsearch.renderSearch = (searchResults, searchResultsFilters) => {
+    postsearch.renderSearchResults(searchResults, searchResultsFilters);
 }
 
-postsearch.renderSearchResults = (searchResults) => {
+postsearch.renderSearchResults = (searchResults, searchResultsFilters) => {
 
     //
     postsearch.searchResultsContainerEle.innerHTML = '';
