@@ -113,31 +113,7 @@ $laData = new classes\LaData();
 							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
 								AWS-EC2
 								<button class="search-results-btn" aria-label="Remove">x</button>
-							</span>
-							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
-								AWS
-								<button class="search-results-btn" aria-label="Remove">x</button>
-							</span>
-							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
-								AWS-EC2
-								<button class="search-results-btn" aria-label="Remove">x</button>
-							</span>
-							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
-								AWS
-								<button class="search-results-btn" aria-label="Remove">x</button>
-							</span>
-							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
-								AWS-EC2
-								<button class="search-results-btn" aria-label="Remove">x</button>
-							</span>
-							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
-								AWS
-								<button class="search-results-btn" aria-label="Remove">x</button>
-							</span>
-							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
-								AWS-EC2
-								<button class="search-results-btn" aria-label="Remove">x</button>
-							</span>																					
+							</span>																												
 						</span>				
 					</p>
 
