@@ -88,7 +88,20 @@ $laData = new classes\LaData();
 
 		<div id="postsearch_results_w">
 
-			<div id="postsearch_filters">				
+			<div id="postsearch_filters">
+				<h2 class="search-results-heading">Showing results for:</h2>
+
+				<div class="search-results-chips">
+					<p class="search-results-px">
+						<span class="search-results-label">Post Category | </span>
+						<span class="search-results-chip" data-type="post-category" data-value="Why Data">
+							Why Data
+							<button class="chip-remove" aria-label="Remove">x</button>
+						</span>
+					</p>
+
+				</div><!-- End postsearch_filters_chips -->
+
 			</div><!-- End postsearch_filters -->
 
 			<div id="postsearch_results">

@@ -49,13 +49,39 @@
 
 #postsearch_results_w {
     max-width: 50rem;
-    padding: 2rem 0 0 0;
+    padding: .5rem 0 0 0;
     margin: 0 auto 0 auto;
     border-top: 1px solid transparent;
     border-image: linear-gradient( to right, 
         var(--clr-lt-light) 0%, 
         var(--clr-med-light) 50%, 
-        var(--clr-lt-light) 100% ) 1;    
+        var(--clr-lt-light) 100% ) 1; 
+    font-family: Helvetica, sans-serif;           
+}
+
+.search-results-chips {
+    padding: .5rem 0 0 0;
+}
+
+.search-results-heading {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--clr-med-green);
+    font-family: inherit;
+}
+
+.search-results-px {
+    padding: 0 0 0 .75rem;
+}
+
+.search-results-label {
+    font-size: 1.75rem;
+    color: var(--clr-lt-dark);
+}
+
+.search-results-chip {
+    font-size: 1.25rem;
+    color: var(--clr-xlt-dark);
 }
 
 .search-card {
