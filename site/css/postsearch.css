@@ -71,12 +71,20 @@
 }
 
 .search-results-px {
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    align-items: start;
     padding: 0 0 .5rem .75rem;
 }
 
 .search-results-label {
     font-size: 1.75rem;
     color: var(--clr-lt-dark);
+}
+
+.chip-wrap {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .search-results-chip {
@@ -101,7 +109,7 @@
 
 .search-results-btn:hover {
     background-color: var(--clr-med-blue);
-    transition-duration: .25s; 
+    transition-duration: .5s; 
 }
 
 

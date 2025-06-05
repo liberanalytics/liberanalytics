@@ -94,23 +94,27 @@ $laData = new classes\LaData();
 				<div class="search-results-chips">
 
 					<p class="search-results-px">
-						<span class="search-results-label">Post Category -> </span>
-						<span class="search-results-chip" data-type="post-category" data-value="Why Data">
-							Why Data
-							<button class="search-results-btn" aria-label="Remove">x</button>
+						<span class="search-results-label">Post Category -></span>
+						<span class="chip-wrap">
+							<span class="search-results-chip" data-type="post-category" data-value="Why Data">
+								Why Data
+								<button class="search-results-btn" aria-label="Remove">x</button>
+							</span>
 						</span>
 					</p>
 
 					<p class="search-results-px">
-						<span class="search-results-label">Post Tags -> </span>
-						<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
-							AWS
-							<button class="search-results-btn" aria-label="Remove">x</button>
-						</span>
-						<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
-							AWS-EC2
-							<button class="search-results-btn" aria-label="Remove">x</button>
-						</span>						
+						<span class="search-results-label">Post Tags -></span>
+						<span class="chip-wrap">
+							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
+								AWS
+								<button class="search-results-btn" aria-label="Remove">x</button>
+							</span>
+							<span class="search-results-chip" data-type="post-tag" data-value="Why Data">
+								AWS-EC2
+								<button class="search-results-btn" aria-label="Remove">x</button>
+							</span>
+						</span>				
 					</p>
 
 				</div><!-- End postsearch_filters_chips -->
