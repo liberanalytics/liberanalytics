@@ -2,6 +2,9 @@ var postsearch = {};
 
 import { LATagSuggest } from "./modules/LATagSuggest.js";
 
+const DEFAULT_CATEGORY_CAPTION = 'All Categories';
+const DEFAULT_TAGS_CAPTION = 'All Tags';
+
 window.addEventListener('DOMContentLoaded', () => 
 {
     postsearch.setVars();
@@ -37,31 +40,15 @@ postsearch.submit = () => {
 postsearch.normalizeFilterData = () => {
     
     //
-    let categoryFilter = postsearch.categoryEle.value;
-    if (categoryFilter === 'Select Category')
-    {
-        postsearch.categoryFilter = '';
-        postsearch.categoryCaption = 'All Categories';
-    }
-    else
-    {
-        postsearch.categoryFilter = categoryFilter;
-        postsearch.categoryCaption = categoryFilter;
-    }
+    let categoryFilter = postsearch.categoryEle.value.trim();
+    postsearch.categoryFilter = categoryFilter === 'Select Category' ? '' : categoryFilter;
+    postsearch.categoryCaption = categoryFilter ==='Select Category' ? DEFAULT_CATEGORY_CAPTION : postsearch.categoryFilter;
 
     //
-    let tagsFilter = postsearch.tagsEle.value;
-    
-    if (tagsFilter.trim() == '')
-    {
-        postsearch.tagsFilter = '';
-        postsearch.tagsCaption = 'All Tags';
-    }
-    else
-    {
-        postsearch.tagsFilter = tagsFilter.replace(/,*$/, '').trim();
-        postsearch.tagsCaption = postsearch.tagsVal;
-    }
+    let tagsFilter = postsearch.tagsEle.value.trim().replace(/,*$/, '');
+    postsearch.tagsFilter = tagsFilter;
+    postsearch.tagsCaption = tagsFilter === '' ? DEFAULT_TAGS_CAPTION : postsearch.tagsFilter;
+
 
     postsearch.filters = {
         'postCategory': postsearch.categoryFilter,
@@ -72,7 +59,6 @@ postsearch.normalizeFilterData = () => {
         'postCategory': postsearch.categoryCaption,
         'postTags': postsearch.tagsCaption
     };
-
 
 }
 
