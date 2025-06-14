@@ -88,7 +88,13 @@ $laData = new classes\LaData();
 
 		<div id="postsearch_results_w" class="site-gradient-border-top">
 
+			<div id="postsearch_filters">
 
+			</div>
+		
+			<div id="postsearch_results">
+				
+			</div>
 
 		</div><!-- End postsearch_results_w -->
 

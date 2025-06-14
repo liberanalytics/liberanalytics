@@ -17,8 +17,8 @@ postsearch.setVars = () =>
     postsearch.categoryEle = document.querySelector('#postsearch_category');
     postsearch.tagsParentEle = document.querySelector('#postsearch_tags_w');
     postsearch.tagsEle = document.querySelector('#postsearch_tags');
-    postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_results_w')
-    postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results_w');
+    postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_filters');
+    postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
     postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
     postsearch.searchResultsFilterEle = document.querySelector('#postsearch_filters');
 }
@@ -171,8 +171,14 @@ postsearch.normalizeFilterData = () => {
 
 postsearch.renderSearchFilters = () => {
 
+    postsearch.searchFiltersContainerEle.innerHTML = '';
+    postsearch.renderFilters();
+
+}
+
+postsearch.renderFilters = () => {
+
     const filters = document.createElement('div');
-    // filters.id = 'postsearch_filters';
     filters.classList.add('site-gradient-border-bottom');
 
     filters.innerHTML = `
