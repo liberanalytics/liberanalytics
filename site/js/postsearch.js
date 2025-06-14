@@ -20,7 +20,7 @@ postsearch.setVars = () =>
     postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_filters');
     postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
     postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
-    postsearch.searchResultsFilterEle = document.querySelector('#postsearch_filters');
+
 }
 
 postsearch.bindEvents = () => 
