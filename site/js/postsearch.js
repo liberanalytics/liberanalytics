@@ -29,8 +29,51 @@ postsearch.bindEvents = () =>
     LATagSuggest(postsearch.tagsParentEle, postsearch.tagsEle, postsearch.tagSuggestionsEle);
 }
 
-postsearch.submit = () => {    
+postsearch.submit = () => {
+    postsearch.normalizeFilterData();
     postsearch.submitSearch();
+}
+
+postsearch.normalizeFilterData = () => {
+    
+    //
+    let categoryVal = postsearch.categoryEle.value;
+    if (categoryVal === 'Select Category')
+    {
+        postsearch.categoryVal = '';
+        postsearch.categoryFilter = 'All Categories';
+    }
+    else
+    {
+        postsearch.categoryVal = categoryVal;
+        postsearch.categoryFilter = categoryVal;
+    }
+
+    //
+    let tagsVal = postsearch.tagsEle.value;
+    
+    if (tagsVal.trim() == '')
+    {
+        postsearch.tagsVal = '';
+        postsearch.tagsFilter = 'All Tags';
+    }
+    else
+    {
+        postsearch.tagsVal = tagsVal.replace(/,*$/, '').trim();
+        postsearch.tagsFilter = postsearch.tagsVal;
+    }
+
+    postsearch.filterVals = {
+        'postCategory': postsearch.categoryVal,
+        'postTags': postsearch.tagsVal
+    };
+    
+    postsearch.filterCaptions = {
+        'postCategory': postsearch.categoryFilter,
+        'postTags': postsearch.tagsFilter
+    };
+
+
 }
 
 postsearch.submitSearch = () => {
@@ -44,15 +87,15 @@ postsearch.submitSearch = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                'postCategory': postsearch.categoryEle.value
-            })
+            body: JSON.stringify(
+                postsearch.filterVals
+            )
 
         }
     )
     .then(response => response.json())
     .then(searchResults => {
-        postsearch.renderSearch(searchResults, '');
+        postsearch.renderSearch(searchResults);
     })
     .catch(error => {
         console.error('Error: ', error);
@@ -62,8 +105,11 @@ postsearch.submitSearch = () => {
     });
 }
 
-postsearch.renderSearch = (searchResults, searchResultsFilters) => {
-    postsearch.renderSearchResults(searchResults, searchResultsFilters);
+postsearch.renderSearch = (searchResults) => {
+
+    //
+    // postsearch.renderSearcFilters
+    postsearch.renderSearchResults(searchResults);
 }
 
 postsearch.renderSearchResults = (searchResults, searchResultsFilters) => {
@@ -131,8 +177,3 @@ postsearch.renderCard = (cardData) => {
     `.trim();
     postsearch.searchResultsContainerEle.appendChild(card);
 }
-
-postsearch.renderFilters = (filterData) => {
-
-}
-
