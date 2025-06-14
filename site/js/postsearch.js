@@ -37,40 +37,40 @@ postsearch.submit = () => {
 postsearch.normalizeFilterData = () => {
     
     //
-    let categoryVal = postsearch.categoryEle.value;
-    if (categoryVal === 'Select Category')
+    let categoryFilter = postsearch.categoryEle.value;
+    if (categoryFilter === 'Select Category')
     {
-        postsearch.categoryVal = '';
-        postsearch.categoryFilter = 'All Categories';
+        postsearch.categoryFilter = '';
+        postsearch.categoryCaption = 'All Categories';
     }
     else
     {
-        postsearch.categoryVal = categoryVal;
-        postsearch.categoryFilter = categoryVal;
+        postsearch.categoryFilter = categoryFilter;
+        postsearch.categoryCaption = categoryFilter;
     }
 
     //
-    let tagsVal = postsearch.tagsEle.value;
+    let tagsFilter = postsearch.tagsEle.value;
     
-    if (tagsVal.trim() == '')
+    if (tagsFilter.trim() == '')
     {
-        postsearch.tagsVal = '';
-        postsearch.tagsFilter = 'All Tags';
+        postsearch.tagsFilter = '';
+        postsearch.tagsCaption = 'All Tags';
     }
     else
     {
-        postsearch.tagsVal = tagsVal.replace(/,*$/, '').trim();
-        postsearch.tagsFilter = postsearch.tagsVal;
+        postsearch.tagsFilter = tagsFilter.replace(/,*$/, '').trim();
+        postsearch.tagsCaption = postsearch.tagsVal;
     }
 
-    postsearch.filterVals = {
-        'postCategory': postsearch.categoryVal,
-        'postTags': postsearch.tagsVal
-    };
-    
-    postsearch.filterCaptions = {
+    postsearch.filters = {
         'postCategory': postsearch.categoryFilter,
         'postTags': postsearch.tagsFilter
+    };
+    
+    postsearch.captions = {
+        'postCategory': postsearch.categoryCaption,
+        'postTags': postsearch.tagsCaption
     };
 
 
@@ -88,7 +88,7 @@ postsearch.submitSearch = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(
-                postsearch.filterVals
+                postsearch.filters
             )
 
         }
