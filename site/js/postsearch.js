@@ -17,7 +17,8 @@ postsearch.setVars = () =>
     postsearch.categoryEle = document.querySelector('#postsearch_category');
     postsearch.tagsParentEle = document.querySelector('#postsearch_tags_w');
     postsearch.tagsEle = document.querySelector('#postsearch_tags');
-    postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
+    postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_results_w')
+    postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results_w');
     postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
     postsearch.searchResultsFilterEle = document.querySelector('#postsearch_filters');
 }
@@ -37,30 +38,7 @@ postsearch.submit = () => {
     postsearch.submitSearch();
 }
 
-postsearch.normalizeFilterData = () => {
-    
-    //
-    let categoryFilter = postsearch.categoryEle.value.trim();
-    postsearch.categoryFilter = categoryFilter === 'Select Category' ? '' : categoryFilter;
-    postsearch.categoryCaption = categoryFilter ==='Select Category' ? DEFAULT_CATEGORY_CAPTION : postsearch.categoryFilter;
 
-    //
-    let tagsFilter = postsearch.tagsEle.value.trim().replace(/,*$/, '');
-    postsearch.tagsFilter = tagsFilter;
-    postsearch.tagsCaption = tagsFilter === '' ? DEFAULT_TAGS_CAPTION : postsearch.tagsFilter;
-
-
-    postsearch.filters = {
-        'postCategory': postsearch.categoryFilter,
-        'postTags': postsearch.tagsFilter
-    };
-    
-    postsearch.captions = {
-        'postCategory': postsearch.categoryCaption,
-        'postTags': postsearch.tagsCaption
-    };
-
-}
 
 postsearch.submitSearch = () => {
 
@@ -94,11 +72,11 @@ postsearch.submitSearch = () => {
 postsearch.renderSearch = (searchResults) => {
 
     //
-    // postsearch.renderSearcFilters
+    postsearch.renderSearchFilters();
     postsearch.renderSearchResults(searchResults);
 }
 
-postsearch.renderSearchResults = (searchResults, searchResultsFilters) => {
+postsearch.renderSearchResults = (searchResults) => {
 
     //
     postsearch.searchResultsContainerEle.innerHTML = '';
@@ -162,4 +140,45 @@ postsearch.renderCard = (cardData) => {
     </div>
     `.trim();
     postsearch.searchResultsContainerEle.appendChild(card);
+}
+
+
+postsearch.normalizeFilterData = () => {
+    
+    //
+    let categoryFilter = postsearch.categoryEle.value.trim();
+    postsearch.categoryFilter = categoryFilter === 'Select Category' ? '' : categoryFilter;
+    postsearch.categoryCaption = categoryFilter ==='Select Category' ? DEFAULT_CATEGORY_CAPTION : postsearch.categoryFilter;
+
+    //
+    let tagsFilter = postsearch.tagsEle.value.trim().replace(/,*$/, '');
+    postsearch.tagsFilter = tagsFilter;
+    postsearch.tagsCaption = tagsFilter === '' ? DEFAULT_TAGS_CAPTION : postsearch.tagsFilter;
+
+
+    postsearch.filters = {
+        'postCategory': postsearch.categoryFilter,
+        'postTags': postsearch.tagsFilter
+    };
+    
+    postsearch.captions = {
+        'postCategory': postsearch.categoryCaption,
+        'postTags': postsearch.tagsCaption
+    };
+
+}
+
+
+postsearch.renderSearchFilters = () => {
+
+    const filters = document.createElement('div');
+    // filters.id = 'postsearch_filters';
+    filters.classList.add('site-gradient-border-bottom');
+
+    filters.innerHTML = `
+    <h2 class="search-results-heading">Showing results for:</h2>
+    `;
+
+    postsearch.searchFiltersContainerEle.appendChild(filters);
+
 }
