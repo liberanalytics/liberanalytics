@@ -227,4 +227,22 @@ postsearch.renderFilters = () => {
 
     postsearch.searchFiltersContainerEle.appendChild(filters);
 
+    postsearch.bindChipRemovalEvent();
+    
+
+
+}
+
+postsearch.bindChipRemovalEvent = () => {
+
+    const chipEles = document.querySelectorAll('.search-results-btn');
+    chipEles.forEach(btn =>
+        btn.addEventListener('click', (event) => {
+            const chipEle = event.target.closest('.search-results-chip');
+            if (chipEle) {
+                chipEle.remove();
+            } 
+        })
+    );
+
 }
