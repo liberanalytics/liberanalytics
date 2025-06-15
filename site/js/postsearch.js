@@ -139,14 +139,9 @@ postsearch.renderCard = (cardData) => {
     postsearch.searchResultsContainerEle.appendChild(card);
 }
 
-
-
-
 postsearch.renderSearchFilters = () => {
-
     postsearch.searchFiltersContainerEle.innerHTML = '';
     postsearch.renderFilters();
-
 }
 
 
@@ -239,10 +234,34 @@ postsearch.bindChipRemovalEvent = () => {
     chipEles.forEach(btn =>
         btn.addEventListener('click', (event) => {
             const chipEle = event.target.closest('.search-results-chip');
-            if (chipEle) {
-                chipEle.remove();
-            } 
+                postsearch.removeChipFilter(chipEle);
         })
     );
 
+}
+
+postsearch.removeChipFilter = (chipEle) => {
+
+    const chipDataType = chipEle.getAttribute('data-type');
+
+    switch(chipDataType) {
+
+        case 'post-category':
+            postsearch.categoryEle.value = 'Select Category';
+        break;
+
+        case 'post-tag':
+
+            const tagValue = chipEle.getAttribute('data-value');
+            const filteredTagValues = postsearch.tagsEle.value
+            .split(',')
+            .map(tag => tag.trim())
+            .filter(tag => tag !== tagValue);
+
+            postsearch.tagsEle.value = filteredTagValues.join(', ');
+
+        break;
+    }
+
+    chipEle.remove();
 }
