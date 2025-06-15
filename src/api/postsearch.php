@@ -12,9 +12,10 @@ $laData = new LaData();
 
 $postPxs = [];
 // $postCategory = $requestPxs['postCategory'];
-$postCategory = ($requestPxs['postCategory'] == 'Select Category' ? NULL : $requestPxs['postCategory']);
+// $postCategory = ($requestPxs['postCategory'] == 'Select Category' ? NULL : $requestPxs['postCategory']);
 $postPxs =[
-    'post_category' => $postCategory
+    'post_category' => $postCategory,
+    'post_tags' => $postTags
 ];
 
 $posts = $laData->crudData(

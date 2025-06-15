@@ -153,11 +153,12 @@ postsearch.normalizeFilterData = (dataType) => {
     
     //
     let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
-    let categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? '' : categoryFilterTrimmed;
+    let categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
     let categoryCaption = categoryFilter === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
 
     //
-    let tagsFilter = postsearch.tagsEle.value.trim().replace(/,*$/, '');
+    let tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
+    let tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
     let tagsCaption = tagsFilter === '' ? DEFAULT_TAGS_CAPTION : tagsFilter;
 
 
