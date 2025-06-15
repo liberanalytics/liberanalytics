@@ -166,12 +166,12 @@ postsearch.normalizeFilterData = (dataType) => {
     let tagsCaption = tagsFilter === '' ? DEFAULT_TAGS_CAPTION : tagsFilter;
 
 
-    let filters = {
+    const filters = {
         'postCategory': categoryFilter,
         'postTags': tagsFilter
     };
     
-    let captions = {
+    const captions = {
         'postCategory': categoryCaption,
         'postTags': tagsCaption
     };
@@ -182,7 +182,21 @@ postsearch.normalizeFilterData = (dataType) => {
 
 postsearch.renderFilters = () => {
 
+    //
     const normalizedCaptionData = postsearch.normalizeFilterData('captions');
+
+    //
+    const tagCaptionData = normalizedCaptionData.postTags
+        .split(',')
+        .map(tag => tag.trim())
+        .filter(tag => tag !== '')
+        .map(tag =>
+            `<span class="search-results-chip" data-type="post-tag" data-value="${tag}">
+            ${tag}
+            <button class="search-results-btn" aria-label="Remove">x</button>
+            </span>
+        `)
+        .join('\n');
 
     const filters = document.createElement('div');
     filters.classList.add('site-gradient-border-bottom');
@@ -194,7 +208,7 @@ postsearch.renderFilters = () => {
         <p class="search-results-px">
             <span class="search-results-label">Post Category -></span>
             <span class="search-results-chips">
-                <span class="search-results-chip" data-type="post-category" data-value="Why Data">
+                <span class="search-results-chip" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
                     ${normalizedCaptionData.postCategory}
                     <button class="search-results-btn" aria-label="Remove">x</button>
                 </span>
@@ -204,7 +218,7 @@ postsearch.renderFilters = () => {
         <p class="search-results-px">
             <span class="search-results-label">Post Tags -></span>
             <span class="search-results-chips">
-                															
+                	${tagCaptionData}
             </span>				
         </p>        
         
