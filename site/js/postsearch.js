@@ -2,9 +2,6 @@ var postsearch = {};
 
 import { LATagSuggest } from "./modules/LATagSuggest.js";
 
-const DEFAULT_CATEGORY_CAPTION = 'All Categories';
-const DEFAULT_TAGS_CAPTION = 'All Tags';
-
 window.addEventListener('DOMContentLoaded', () => 
 {
     postsearch.setVars();
@@ -52,7 +49,7 @@ postsearch.submitSearch = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(
-                postsearch.filters
+                postsearch.normalizeFilterData('filters')
             )
 
         }
@@ -120,53 +117,29 @@ postsearch.renderCard = (cardData) => {
 
     //
     card.innerHTML = `
-    <h2 class="search-card-desc">${normalizedCardData.short_desc}</h2>
-    <div class="search-card-components">
-        <a class="search-card-img" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
-            <img src="assets/${normalizedCardData.search_img}">
-        </a>
-        <a class="search-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
-            ${normalizedCardData.long_desc}
-        </a>
-        <a class="search-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
-            ${normalizedCardData.intro}
-        </a>
-    </div>
-    <div class="search-card-attrs">
-        <span class="search-card-date">${normalizedCardData.post_created}</span>
-        <a class="search-card-cat" href="${encodeURIComponent(normalizedCardData.post_category)}.php">
-            ${normalizedCardData.post_category}
-        </a>
-    </div>
-    `.trim();
+        <h2 class="search-card-desc">${normalizedCardData.short_desc}</h2>
+        <div class="search-card-components">
+            <a class="search-card-img" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+                <img src="assets/${normalizedCardData.search_img}">
+            </a>
+            <a class="search-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+                ${normalizedCardData.long_desc}
+            </a>
+            <a class="search-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+                ${normalizedCardData.intro}
+            </a>
+        </div>
+        <div class="search-card-attrs">
+            <span class="search-card-date">${normalizedCardData.post_created}</span>
+            <a class="search-card-cat" href="${encodeURIComponent(normalizedCardData.post_category)}.php">
+                ${normalizedCardData.post_category}
+            </a>
+        </div>
+        `.trim();
     postsearch.searchResultsContainerEle.appendChild(card);
 }
 
 
-postsearch.normalizeFilterData = () => {
-    
-    //
-    let categoryFilter = postsearch.categoryEle.value.trim();
-    postsearch.categoryFilter = categoryFilter === 'Select Category' ? '' : categoryFilter;
-    postsearch.categoryCaption = categoryFilter ==='Select Category' ? DEFAULT_CATEGORY_CAPTION : postsearch.categoryFilter;
-
-    //
-    let tagsFilter = postsearch.tagsEle.value.trim().replace(/,*$/, '');
-    postsearch.tagsFilter = tagsFilter;
-    postsearch.tagsCaption = tagsFilter === '' ? DEFAULT_TAGS_CAPTION : postsearch.tagsFilter;
-
-
-    postsearch.filters = {
-        'postCategory': postsearch.categoryFilter,
-        'postTags': postsearch.tagsFilter
-    };
-    
-    postsearch.captions = {
-        'postCategory': postsearch.categoryCaption,
-        'postTags': postsearch.tagsCaption
-    };
-
-}
 
 
 postsearch.renderSearchFilters = () => {
@@ -176,13 +149,66 @@ postsearch.renderSearchFilters = () => {
 
 }
 
+
+postsearch.normalizeFilterData = (dataType) => {
+
+    const DEFAULT_CATEGORY_VALUE = 'Select Category';
+    const DEFAULT_CATEGORY_CAPTION = 'All Categories';
+    const DEFAULT_TAGS_CAPTION = 'All Tags';
+    
+    //
+    let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
+    let categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? '' : categoryFilterTrimmed;
+    let categoryCaption = categoryFilter === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
+
+    //
+    let tagsFilter = postsearch.tagsEle.value.trim().replace(/,*$/, '');
+    let tagsCaption = tagsFilter === '' ? DEFAULT_TAGS_CAPTION : tagsFilter;
+
+
+    let filters = {
+        'postCategory': categoryFilter,
+        'postTags': tagsFilter
+    };
+    
+    let captions = {
+        'postCategory': categoryCaption,
+        'postTags': tagsCaption
+    };
+
+    return dataType === 'filters' ? filters : captions;
+
+}
+
 postsearch.renderFilters = () => {
+
+    const normalizedCaptionData = postsearch.normalizeFilterData('captions');
 
     const filters = document.createElement('div');
     filters.classList.add('site-gradient-border-bottom');
 
     filters.innerHTML = `
-    <h2 class="search-results-heading">Showing results for:</h2>
+        <h2 class="search-results-heading">Showing results for:</h2>
+        <div id="postsearch_filter_chips">
+
+        <p class="search-results-px">
+            <span class="search-results-label">Post Category -></span>
+            <span class="search-results-chips">
+                <span class="search-results-chip" data-type="post-category" data-value="Why Data">
+                    ${normalizedCaptionData.postCategory}
+                    <button class="search-results-btn" aria-label="Remove">x</button>
+                </span>
+            </span>
+        </p>
+
+        <p class="search-results-px">
+            <span class="search-results-label">Post Tags -></span>
+            <span class="search-results-chips">
+                															
+            </span>				
+        </p>        
+        
+        </div><!-- End postsearch_filters_chips -->
     `;
 
     postsearch.searchFiltersContainerEle.appendChild(filters);
