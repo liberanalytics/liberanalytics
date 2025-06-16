@@ -31,7 +31,7 @@ postsearch.bindEvents = () =>
 }
 
 postsearch.submit = () => {
-    postsearch.normalizeFilterData();
+    // postsearch.normalizeFilterData();
     postsearch.submitSearch();
 }
 

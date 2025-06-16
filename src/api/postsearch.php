@@ -10,20 +10,21 @@ use enums\CrudFetchStyle;
 
 $laData = new LaData();  
 
-$postPxs = [];
-// $postCategory = $requestPxs['postCategory'];
-// $postCategory = ($requestPxs['postCategory'] == 'Select Category' ? NULL : $requestPxs['postCategory']);
-$postPxs =[
-    'post_category' => $postCategory,
-    'post_tags' => $postTags
-];
+// $postPxs = [];
+
+// $postPxs =[
+//     'post_category' => $postCategory,
+//     'post_tags' => $postTags
+// ];
+
+
 
 $posts = $laData->crudData(
     CrudOperation::GETPOSTS,
     CrudType::CRUDREAD,
     CrudResultsetType::RESULTSET_ROWS,
     CrudFetchStyle::FETCHSTYLE_ASSOC,
-    $postPxs						
+    $requestPxs						
 );
 
 return $posts;
