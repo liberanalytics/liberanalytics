@@ -66,15 +66,21 @@ class LaDataVx extends LaDataCrud
         string $pxType
     )
     {
+        if ($pxValue !== null)
+        {
+            //
+            $vxSz = $this->getSzFx($pxType);
+            $vxFx = $this->getVxFx($pxType, $pxKey);
 
-
-        $vxSz = $this->getSzFx($pxType);
-        $vxFx = $this->getVxFx($pxType, $pxKey);
-
-        //
-        $pxValue = call_user_func_array([$this, $vxSz], [$pxKey, $pxValue]);
-        $vxValueIsValid = call_user_func_array([$this, $vxFx], [$pxKey, $pxValue]);
-        return ($vxValueIsValid) ? $pxValue : throw new Exception("{$pxKey} {$pxValue} is invalid.");
+            //
+            $pxValue = call_user_func_array([$this, $vxSz], [$pxKey, $pxValue]);
+            $vxValueIsValid = call_user_func_array([$this, $vxFx], [$pxKey, $pxValue]);
+            return ($vxValueIsValid) ? $pxValue : throw new Exception("{$pxKey} {$pxValue} is invalid.");
+        }
+        else
+        {
+            return $pxValue;
+        }
 
     }
 
@@ -142,7 +148,7 @@ class LaDataVx extends LaDataCrud
     /**
      * 
      */
-    private function sanitizeList(string $pxKey, string $pxValue): string
+    private function sanitizeList(string $pxKey, ?string $pxValue): string
     {
         // Sanitize list - remove unwanted characters.
         $sanitizePatterns = [

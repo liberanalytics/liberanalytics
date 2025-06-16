@@ -47,7 +47,12 @@ class LaDataPxs extends LaDataVx {
      */
     private function convertClientPxKey(string $pxKey): string
     {
-        $convertClientPxKey = 'px_'. $pxKey;
+        $convertClientPxKey = 'px_'. preg_replace_callback(
+            '/([A-Z]){1}/',
+            function($matches) {
+                return '_' . strtolower($matches[1]);
+            },
+            $pxKey);
         return $convertClientPxKey;
     }
 

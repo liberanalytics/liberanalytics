@@ -154,12 +154,12 @@ postsearch.normalizeFilterData = (dataType) => {
     //
     let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
     let categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
-    let categoryCaption = categoryFilter === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
+    let categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
 
     //
     let tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
     let tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
-    let tagsCaption = tagsFilter === '' ? DEFAULT_TAGS_CAPTION : tagsFilter;
+    let tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;
 
 
     const filters = {
@@ -236,6 +236,7 @@ postsearch.bindChipRemovalEvent = () => {
         btn.addEventListener('click', (event) => {
             const chipEle = event.target.closest('.search-results-chip');
                 postsearch.removeChipFilter(chipEle);
+                postsearch.submitSearch();
         })
     );
 

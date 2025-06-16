@@ -10,15 +10,6 @@ use enums\CrudFetchStyle;
 
 $laData = new LaData();  
 
-// $postPxs = [];
-
-// $postPxs =[
-//     'post_category' => $postCategory,
-//     'post_tags' => $postTags
-// ];
-
-
-
 $posts = $laData->crudData(
     CrudOperation::GETPOSTS,
     CrudType::CRUDREAD,
