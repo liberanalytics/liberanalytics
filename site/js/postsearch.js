@@ -69,7 +69,6 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
     const DEFAULT_CATEGORY_CAPTION = 'All Categories';
     const DEFAULT_TAGS_CAPTION = 'All Tags';
 
-    let categoryFilterEle = null;
     let categoryFilterTrimmed = null;
     let categoryFilter = null;
     let tagsFilterTrimmed = null;
@@ -91,12 +90,10 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
         break;
         
         case 'dechip':
-            categoryFilterEle = document.querySelector('[data-type="post-category"]');
-            categoryFilter = 
-            (!categoryFilterEle) ? null : 
-            document.querySelector('[data-type="post-category"]').getAttribute('data-value');
-            categoryFilter = (categoryFilter !== null && categoryFilter !== DEFAULT_CATEGORY_CAPTION) ? categoryFilter : null;
-
+            const categoryFilterEle = document.querySelector('[data-type="post-category"]');
+            const categoryFilterValue = categoryFilterEle?.getAttribute('data-value');
+            categoryFilter = (categoryFilterValue && categoryFilterValue !== DEFAULT_CATEGORY_CAPTION) ? categoryFilterValue : null;
+            let a = 1;
 
         break;
     }
