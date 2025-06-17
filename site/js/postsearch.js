@@ -17,7 +17,8 @@ postsearch.setVars = () =>
     postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_filters');
     postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
     postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
-
+    postsearch.categoryFilterEle = document.querySelector('[data-type="post-category"]');
+    postsearch.tagsFilterEle = document.querySelector('[data-type="post-tag"]');
 }
 
 postsearch.bindEvents = () => 
@@ -62,8 +63,6 @@ postsearch.submitSearch = (submitType) => {
 }
 
 
-
-
 postsearch.normalizeFilterData = (submitType, dataType) => {
 
     const DEFAULT_CATEGORY_VALUE = 'Select Category';
@@ -88,10 +87,14 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
             tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;
         break;
         
-        // case 'dechip':
-        //     categoryFilter = document.querySelector('[data-type="post-category"]');
-        //     tagsFilter = document.querySelector('[data-type="post-tag"]');
-        // break;
+        case 'dechip':
+            categoryFilter 
+                = postsearch.categoryFilterEle.value = DEFAULT_CATEGORY_CAPTION || 
+                (postsearch.categoryFilterEle.value.length < 1) ? null : postsearch.categoryFilterEle.value;
+
+
+            // tagsFilter = document.querySelector('[data-type="post-tag"]');
+        break;
     }
 
     const filters = {
@@ -126,6 +129,96 @@ postsearch.renderSearchResults = (searchResults) => {
         postsearch.renderCard(searchResult);
     });
 }
+
+
+postsearch.renderSearchFilters = (submitType) => {
+
+
+    postsearch.searchFiltersContainerEle.innerHTML = '';
+    const normalizedCaptionData = postsearch.normalizeFilterData(submitType, 'captions');
+    const tagCaptionData = normalizedCaptionData.postTags
+        .split(',')
+        .map(tag => tag.trim())
+        .filter(tag => tag !== '')
+        .map(tag =>
+            `<span class="search-results-chip" data-type="post-tag" data-value="${tag}">
+            ${tag}
+            <button class="search-results-btn" aria-label="Remove">x</button>
+            </span>
+        `)
+        .join('\n');
+
+    const filters = document.createElement('div');
+    filters.classList.add('site-gradient-border-bottom');
+
+    filters.innerHTML = `
+        <h2 class="search-results-heading">Showing results for:</h2>
+        <div id="postsearch_filter_chips">
+
+        <p class="search-results-px">
+            <span class="search-results-label">Post Category -></span>
+            <span class="search-results-chips">
+                <span class="search-results-chip" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
+                    ${normalizedCaptionData.postCategory}
+                    <button class="search-results-btn" aria-label="Remove">x</button>
+                </span>
+            </span>
+        </p>
+
+        <p class="search-results-px">
+            <span class="search-results-label">Post Tags -></span>
+            <span class="search-results-chips">
+                	${tagCaptionData}
+            </span>				
+        </p>        
+        
+        </div><!-- End postsearch_filters_chips -->
+    `;
+
+    postsearch.searchFiltersContainerEle.appendChild(filters);
+    postsearch.bindChipRemovalEvent();
+
+}
+
+postsearch.bindChipRemovalEvent = () => {
+
+    const chipEles = document.querySelectorAll('.search-results-btn');
+    chipEles.forEach(btn =>
+        btn.addEventListener('click', (event) => {
+            const chipEle = event.target.closest('.search-results-chip');
+                postsearch.removeChipFilter(chipEle);
+                postsearch.submitSearch('dechip');
+        })
+    );
+
+}
+
+postsearch.removeChipFilter = (chipEle) => {
+
+    const chipDataType = chipEle.getAttribute('data-type');
+
+    switch(chipDataType) {
+
+        case 'post-category':
+            postsearch.categoryEle.value = 'Select Category';
+        break;
+
+        case 'post-tag':
+
+            const tagValue = chipEle.getAttribute('data-value');
+            const filteredTagValues = postsearch.tagsEle.value
+            .split(',')
+            .map(tag => tag.trim())
+            .filter(tag => tag !== tagValue);
+
+            postsearch.tagsEle.value = filteredTagValues.join(', ');
+
+        break;
+    }
+
+    chipEle.remove();
+}
+
 
 postsearch.normalizeCardData = (cardData) => {
     return {
@@ -180,103 +273,4 @@ postsearch.renderCard = (cardData) => {
         </div>
         `.trim();
     postsearch.searchResultsContainerEle.appendChild(card);
-}
-
-postsearch.renderSearchFilters = (submitType) => {
-    postsearch.searchFiltersContainerEle.innerHTML = '';
-    postsearch.renderFilters(submitType);
-}
-
-
-
-postsearch.renderFilters = (submitType) => {
-
-    //
-    const normalizedCaptionData = postsearch.normalizeFilterData(submitType, 'captions');
-
-    //
-    const tagCaptionData = normalizedCaptionData.postTags
-        .split(',')
-        .map(tag => tag.trim())
-        .filter(tag => tag !== '')
-        .map(tag =>
-            `<span class="search-results-chip" data-type="post-tag" data-value="${tag}">
-            ${tag}
-            <button class="search-results-btn" aria-label="Remove">x</button>
-            </span>
-        `)
-        .join('\n');
-
-    const filters = document.createElement('div');
-    filters.classList.add('site-gradient-border-bottom');
-
-    filters.innerHTML = `
-        <h2 class="search-results-heading">Showing results for:</h2>
-        <div id="postsearch_filter_chips">
-
-        <p class="search-results-px">
-            <span class="search-results-label">Post Category -></span>
-            <span class="search-results-chips">
-                <span class="search-results-chip" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
-                    ${normalizedCaptionData.postCategory}
-                    <button class="search-results-btn" aria-label="Remove">x</button>
-                </span>
-            </span>
-        </p>
-
-        <p class="search-results-px">
-            <span class="search-results-label">Post Tags -></span>
-            <span class="search-results-chips">
-                	${tagCaptionData}
-            </span>				
-        </p>        
-        
-        </div><!-- End postsearch_filters_chips -->
-    `;
-
-    postsearch.searchFiltersContainerEle.appendChild(filters);
-
-    postsearch.bindChipRemovalEvent();
-    
-
-
-}
-
-postsearch.bindChipRemovalEvent = () => {
-
-    const chipEles = document.querySelectorAll('.search-results-btn');
-    chipEles.forEach(btn =>
-        btn.addEventListener('click', (event) => {
-            const chipEle = event.target.closest('.search-results-chip');
-                postsearch.removeChipFilter(chipEle);
-                // postsearch.submitSearch('dechip');
-        })
-    );
-
-}
-
-postsearch.removeChipFilter = (chipEle) => {
-
-    const chipDataType = chipEle.getAttribute('data-type');
-
-    switch(chipDataType) {
-
-        case 'post-category':
-            postsearch.categoryEle.value = 'Select Category';
-        break;
-
-        case 'post-tag':
-
-            const tagValue = chipEle.getAttribute('data-value');
-            const filteredTagValues = postsearch.tagsEle.value
-            .split(',')
-            .map(tag => tag.trim())
-            .filter(tag => tag !== tagValue);
-
-            postsearch.tagsEle.value = filteredTagValues.join(', ');
-
-        break;
-    }
-
-    chipEle.remove();
 }
