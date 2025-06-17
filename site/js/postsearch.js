@@ -146,19 +146,27 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
     const DEFAULT_CATEGORY_CAPTION = 'All Categories';
     const DEFAULT_TAGS_CAPTION = 'All Tags';
 
+    let categoryFilter = null;
+    let tagsFilter = null;
+    let categoryCaption = DEFAULT_CATEGORY_CAPTION;
+    let tagsCaption = DEFAULT_TAGS_CAPTION;
+
+    //
     switch (submitType) {
 
-        case 'form':
-
-            //
+        case 'form':  
             let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
-            var categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
-            var categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
+            categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
+            categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
 
-            //
             let tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
-            var tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
-            var tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;        
+            tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
+            tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;
+        break;
+        
+        case 'dechip':
+
+        break;
     }
 
     const filters = {
