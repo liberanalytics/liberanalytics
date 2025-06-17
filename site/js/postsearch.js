@@ -17,8 +17,8 @@ postsearch.setVars = () =>
     postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_filters');
     postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
     postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
-    postsearch.categoryFilterEle = document.querySelector('[data-type="post-category"]');
-    postsearch.tagsFilterEle = document.querySelector('[data-type="post-tag"]');
+
+
 }
 
 postsearch.bindEvents = () => 
@@ -69,7 +69,10 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
     const DEFAULT_CATEGORY_CAPTION = 'All Categories';
     const DEFAULT_TAGS_CAPTION = 'All Tags';
 
+    let categoryFilterEle = null;
+    let categoryFilterTrimmed = null;
     let categoryFilter = null;
+    let tagsFilterTrimmed = null;
     let tagsFilter = null;
     let categoryCaption = null;
     let tagsCaption = null;
@@ -78,22 +81,23 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
     switch (submitType) {
 
         case 'form':  
-            let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
+            categoryFilterTrimmed = postsearch.categoryEle.value.trim();
             categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
             categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
 
-            let tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
+            tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
             tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
             tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;
         break;
         
         case 'dechip':
-            categoryFilter 
-                = postsearch.categoryFilterEle.value = DEFAULT_CATEGORY_CAPTION || 
-                (postsearch.categoryFilterEle.value.length < 1) ? null : postsearch.categoryFilterEle.value;
+            categoryFilterEle = document.querySelector('[data-type="post-category"]');
+            categoryFilter = 
+            (!categoryFilterEle) ? null : 
+            document.querySelector('[data-type="post-category"]').getAttribute('data-value');
+            categoryFilter = (categoryFilter !== null || categoryFilter !== DEFAULT_CATEGORY_CAPTION) ? categoryFilter : null;
 
 
-            // tagsFilter = document.querySelector('[data-type="post-tag"]');
         break;
     }
 
