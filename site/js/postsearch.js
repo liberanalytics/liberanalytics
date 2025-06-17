@@ -24,20 +24,15 @@ postsearch.bindEvents = () =>
 {
     postsearch.formEle.addEventListener('submit', (event) => {
         event.preventDefault();
-        postsearch.submit();
+        postsearch.submitSearch('form');
     });
 
     LATagSuggest(postsearch.tagsParentEle, postsearch.tagsEle, postsearch.tagSuggestionsEle);
 }
 
-postsearch.submit = () => {
-    // postsearch.normalizeFilterData();
-    postsearch.submitSearch();
-}
 
 
-
-postsearch.submitSearch = () => {
+postsearch.submitSearch = (submitType) => {
 
     // Todo: Render ajax spinner.
 
@@ -49,7 +44,7 @@ postsearch.submitSearch = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(
-                postsearch.normalizeFilterData('filters')
+                postsearch.normalizeFilterData(submitType, 'filters')
             )
 
         }
@@ -145,22 +140,26 @@ postsearch.renderSearchFilters = () => {
 }
 
 
-postsearch.normalizeFilterData = (dataType) => {
+postsearch.normalizeFilterData = (submitType, dataType) => {
 
     const DEFAULT_CATEGORY_VALUE = 'Select Category';
     const DEFAULT_CATEGORY_CAPTION = 'All Categories';
     const DEFAULT_TAGS_CAPTION = 'All Tags';
-    
-    //
-    let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
-    let categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
-    let categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
 
-    //
-    let tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
-    let tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
-    let tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;
+    switch (submitType) {
 
+        case 'form':
+
+            //
+            let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
+            var categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
+            var categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
+
+            //
+            let tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
+            var tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
+            var tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;        
+    }
 
     const filters = {
         'postCategory': categoryFilter,
@@ -236,7 +235,7 @@ postsearch.bindChipRemovalEvent = () => {
         btn.addEventListener('click', (event) => {
             const chipEle = event.target.closest('.search-results-chip');
                 postsearch.removeChipFilter(chipEle);
-                postsearch.submitSearch();
+                postsearch.submitSearch('dechip');
         })
     );
 
