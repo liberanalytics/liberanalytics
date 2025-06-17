@@ -95,7 +95,7 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
             categoryFilter = 
             (!categoryFilterEle) ? null : 
             document.querySelector('[data-type="post-category"]').getAttribute('data-value');
-            categoryFilter = (categoryFilter !== null || categoryFilter !== DEFAULT_CATEGORY_CAPTION) ? categoryFilter : null;
+            categoryFilter = (categoryFilter !== null && categoryFilter !== DEFAULT_CATEGORY_CAPTION) ? categoryFilter : null;
 
 
         break;
