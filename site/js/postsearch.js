@@ -51,7 +51,7 @@ postsearch.submitSearch = (submitType) => {
     )
     .then(response => response.json())
     .then(searchResults => {
-        postsearch.renderSearch(searchResults);
+        postsearch.renderSearch(submitType, searchResults);
     })
     .catch(error => {
         console.error('Error: ', error);
@@ -61,10 +61,58 @@ postsearch.submitSearch = (submitType) => {
     });
 }
 
-postsearch.renderSearch = (searchResults) => {
+
+
+
+postsearch.normalizeFilterData = (submitType, dataType) => {
+
+    const DEFAULT_CATEGORY_VALUE = 'Select Category';
+    const DEFAULT_CATEGORY_CAPTION = 'All Categories';
+    const DEFAULT_TAGS_CAPTION = 'All Tags';
+
+    let categoryFilter = null;
+    let tagsFilter = null;
+    let categoryCaption = null;
+    let tagsCaption = null;
 
     //
-    postsearch.renderSearchFilters();
+    switch (submitType) {
+
+        case 'form':  
+            let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
+            categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
+            categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
+
+            let tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
+            tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
+            tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;
+        break;
+        
+        // case 'dechip':
+        //     categoryFilter = document.querySelector('[data-type="post-category"]');
+        //     tagsFilter = document.querySelector('[data-type="post-tag"]');
+        // break;
+    }
+
+    const filters = {
+        'postCategory': categoryFilter,
+        'postTags': tagsFilter
+    };
+    
+    const captions = {
+        'postCategory': categoryCaption,
+        'postTags': tagsCaption
+    };
+
+    return dataType === 'filters' ? filters : captions;
+
+}
+
+
+postsearch.renderSearch = (submitType, searchResults) => {
+
+    //
+    postsearch.renderSearchFilters(submitType);
     postsearch.renderSearchResults(searchResults);
 }
 
@@ -134,59 +182,17 @@ postsearch.renderCard = (cardData) => {
     postsearch.searchResultsContainerEle.appendChild(card);
 }
 
-postsearch.renderSearchFilters = () => {
+postsearch.renderSearchFilters = (submitType) => {
     postsearch.searchFiltersContainerEle.innerHTML = '';
-    postsearch.renderFilters();
+    postsearch.renderFilters(submitType);
 }
 
 
-postsearch.normalizeFilterData = (submitType, dataType) => {
 
-    const DEFAULT_CATEGORY_VALUE = 'Select Category';
-    const DEFAULT_CATEGORY_CAPTION = 'All Categories';
-    const DEFAULT_TAGS_CAPTION = 'All Tags';
-
-    let categoryFilter = null;
-    let tagsFilter = null;
-    let categoryCaption = DEFAULT_CATEGORY_CAPTION;
-    let tagsCaption = DEFAULT_TAGS_CAPTION;
+postsearch.renderFilters = (submitType) => {
 
     //
-    switch (submitType) {
-
-        case 'form':  
-            let categoryFilterTrimmed = postsearch.categoryEle.value.trim();
-            categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
-            categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
-
-            let tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
-            tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
-            tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;
-        break;
-        
-        case 'dechip':
-
-        break;
-    }
-
-    const filters = {
-        'postCategory': categoryFilter,
-        'postTags': tagsFilter
-    };
-    
-    const captions = {
-        'postCategory': categoryCaption,
-        'postTags': tagsCaption
-    };
-
-    return dataType === 'filters' ? filters : captions;
-
-}
-
-postsearch.renderFilters = () => {
-
-    //
-    const normalizedCaptionData = postsearch.normalizeFilterData('captions');
+    const normalizedCaptionData = postsearch.normalizeFilterData(submitType, 'captions');
 
     //
     const tagCaptionData = normalizedCaptionData.postTags
@@ -243,7 +249,7 @@ postsearch.bindChipRemovalEvent = () => {
         btn.addEventListener('click', (event) => {
             const chipEle = event.target.closest('.search-results-chip');
                 postsearch.removeChipFilter(chipEle);
-                postsearch.submitSearch('dechip');
+                // postsearch.submitSearch('dechip');
         })
     );
 
