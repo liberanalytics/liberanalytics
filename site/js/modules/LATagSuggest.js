@@ -9,6 +9,7 @@
 export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
 
     let tagFetchTimeout;
+    let suggestionItemsIndex = 0;
 
     inputParentEle.style.position = 'relative';
 
@@ -21,8 +22,31 @@ export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
 
     //
     inputEle.addEventListener('keydown', (event) => {
+
+        const suggestionItems = tagSuggestionsEle.children;
+        const suggestionItemsCount = suggestionItems.length;
+        
+
         if (event.key === 'Escape') {
             tagSuggestionsEle.innerHTML = '';
+        }
+        else if (event.key === 'ArrowDown') {
+
+            if (suggestionItemsIndex < suggestionItemsCount - 1) {
+                suggestionItemsIndex++;
+            }
+
+        }
+        else if (event.key === 'ArrowUp') {
+
+            if (suggestionItemsIndex > 0) {
+                suggestionItemsIndex--;
+            }
+
+        }
+
+        for (let i = 0; i < suggestionItemsCount; i++) {
+            suggestionItems[i].classList.toggle('active', i === suggestionItemsIndex);
         }
     });
 

@@ -213,8 +213,10 @@ a:active {
     border-bottom: 1px solid transparent;    
 }
 
+.tagsuggestion-item.active,
 .tagsuggestion-item:hover {
     color: var(--clr-lt-blue);
     border-bottom: 1px solid var(--clr-lt-blue);
-    transition-duration: .2s;    
+    /* transition: all 0.2s ease-in-out;    */
+    /* transition: background-color 0.15s ease, color 0.15 ease; */
 }
