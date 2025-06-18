@@ -78,7 +78,10 @@ $laData = new classes\LaData();
 						. "\n\t\t\t\t\t" . '<div class="featured-post-attrs">'
 						. "\n\t\t\t\t\t\t" . "<span class=\"featured-post-date\">"
 						. date("F j, Y", strtotime($post['post_created'])) . "</span>"
-						. "\n\t\t\t\t\t\t" . "<a href=\"blog?category={$post['post_category']}\" class=\"featured-post-cat\">"
+						. "\n\t\t\t\t\t\t"
+						. "<a href=\"postsearch.php?post_category="
+						. rawurlencode($post['post_category']) 
+						. "\" class=\"featured-post-cat\">"
 						. "{$post['post_category']}</a>"
 						. "\n\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t" . '</article>';

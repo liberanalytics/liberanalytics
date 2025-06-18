@@ -28,10 +28,22 @@ postsearch.bindEvents = () =>
         postsearch.submitSearch('form');
     });
 
+    postsearch.initFromUrlPxs();
+
     LATagSuggest(postsearch.tagsParentEle, postsearch.tagsEle, postsearch.tagSuggestionsEle);
 }
 
+postsearch.initFromUrlPxs = () => {
 
+    const urlPxs = new URLSearchParams(window.location.search);
+    const pxPostCategory = urlPxs.get('post_category');
+
+    if (pxPostCategory) {
+        postsearch.categoryEle.value = pxPostCategory;
+        postsearch.submitSearch('form');
+    }
+
+}
 
 postsearch.submitSearch = (submitType) => {
 
@@ -284,7 +296,7 @@ postsearch.renderCard = (cardData) => {
         </div>
         <div class="search-card-attrs">
             <span class="search-card-date">${normalizedCardData.post_created}</span>
-            <a class="search-card-cat" href="postsearch.php?post_category=${encodeURIComponent(normalizedCardData.post_category)}.php">
+            <a class="search-card-cat" href="postsearch.php?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
                 ${normalizedCardData.post_category}
             </a>
         </div>

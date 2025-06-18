@@ -31,6 +31,7 @@ html {
     --clr-dk-light: rgba(196,196,196, 1);   /* placeholder for future growth */
     --clr-xdk-light: rgba(196,196,196, 1);  /* placeholder for future growth */
 
+    --clr-xlt-blue: rgba(101,149,202,.375);
     --clr-lt-blue: rgba(101,149,202,1);
     --clr-med-blue: rgba(88,135,191,1);
     --clr-dk-blue: rgba(88,135,191,.75);
