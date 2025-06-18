@@ -139,9 +139,10 @@ postsearch.renderSearchResults = (searchResults) => {
 
 postsearch.renderSearchFilters = (submitType) => {
 
-
-    postsearch.searchFiltersContainerEle.innerHTML = '';
     const normalizedCaptionData = postsearch.normalizeFilterData(submitType, 'captions');
+    postsearch.searchFiltersContainerEle.innerHTML = '';
+
+
     const tagCaptionData = normalizedCaptionData.postTags
         .split(',')
         .map(tag => tag.trim())
