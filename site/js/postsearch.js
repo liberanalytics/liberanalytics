@@ -93,7 +93,12 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
             const categoryFilterEle = document.querySelector('[data-type="post-category"]');
             const categoryFilterValue = categoryFilterEle?.getAttribute('data-value');
             categoryFilter = (categoryFilterValue && categoryFilterValue !== DEFAULT_CATEGORY_CAPTION) ? categoryFilterValue : null;
-            let a = 1;
+            categoryCaption = (categoryFilter !== null) ? categoryFilter : DEFAULT_CATEGORY_CAPTION;
+
+            const tagsFilterEle = document.querySelector('[data-type="post-tags"]');
+            const tagsFilterValue = tagsFilterEle?.getAttribute('data-value');
+            tagsFilter = (tagsFilterValue && tagsFilterValue !== DEFAULT_TAGS_CAPTION) ? tagsFilterValue : null;
+            tagsCaption = (tagsFilter !== null) ? tagsFilter : DEFAULT_TAGS_CAPTION;
 
         break;
     }
