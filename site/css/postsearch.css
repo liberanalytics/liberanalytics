@@ -119,25 +119,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .search-card {
     padding: .625rem;
     margin: 0 0 2rem 0;
@@ -172,7 +153,7 @@
 }
 
 .search-card-components:hover {
-    background-color: var(--clr-lt-light);
+    background-color: var(--clr-lt-blue);
     transition: background-color .2s ease-in-out;
 }
 
