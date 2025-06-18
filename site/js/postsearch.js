@@ -284,7 +284,7 @@ postsearch.renderCard = (cardData) => {
         </div>
         <div class="search-card-attrs">
             <span class="search-card-date">${normalizedCardData.post_created}</span>
-            <a class="search-card-cat" href="${encodeURIComponent(normalizedCardData.post_category)}.php">
+            <a class="search-card-cat" href="postsearch.php?post_category=${encodeURIComponent(normalizedCardData.post_category)}.php">
                 ${normalizedCardData.post_category}
             </a>
         </div>
