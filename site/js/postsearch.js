@@ -95,10 +95,20 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
             categoryFilter = (categoryFilterValue && categoryFilterValue !== DEFAULT_CATEGORY_CAPTION) ? categoryFilterValue : null;
             categoryCaption = (categoryFilter !== null) ? categoryFilter : DEFAULT_CATEGORY_CAPTION;
 
-            const tagsFilterEle = document.querySelector('[data-type="post-tags"]');
-            const tagsFilterValue = tagsFilterEle?.getAttribute('data-value');
-            tagsFilter = (tagsFilterValue && tagsFilterValue !== DEFAULT_TAGS_CAPTION) ? tagsFilterValue : null;
-            tagsCaption = (tagsFilter !== null) ? tagsFilter : DEFAULT_TAGS_CAPTION;
+            //
+            const tagsFilterEle = document.querySelectorAll('[data-type="post-tag"]');
+            if (tagsFilterEle.length > 0) {
+                tagsFilter = '';
+                tagsFilterEle.forEach(tag => {
+                    tagsFilter += tag.getAttribute('data-value') + ', ';
+                })
+                tagsFilter = tagsFilter.trim().replace(/(,\s*)+$/, '');
+                tagsFilter = (tagsFilter !== DEFAULT_TAGS_CAPTION) ? tagsFilter : null;
+            }
+            else {
+                tagsFilter = null;
+            }
+            tagsCaption = (tagsFilter === null) ? DEFAULT_TAGS_CAPTION : tagsFilter;
 
         break;
     }
