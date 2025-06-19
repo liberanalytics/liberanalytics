@@ -54,7 +54,9 @@ export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
         }
         else if (event.key === 'Enter') {
 
-            event.preventDefault();
+            if (suggestionItemsCount > 0 && suggestionItemsIndex >= 0) {
+                event.preventDefault();
+            }
 
             // Make sure there are suggestions and one has been selected in order to derive the
             // selected suggestion.

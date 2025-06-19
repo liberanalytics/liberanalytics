@@ -35,6 +35,7 @@ postsearch.initFromUrlPxs = () => {
 
     const urlPxs = new URLSearchParams(window.location.search);
     const pxPostCategory = urlPxs.get('post_category');
+    const pxPostTags = urlPxs.get('post_tags');
 
     if (pxPostCategory) {
         postsearch.categoryEle.value = pxPostCategory;
