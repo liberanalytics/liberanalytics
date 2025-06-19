@@ -33,6 +33,7 @@
 							type="search" 
 							title="Search for posts by tag" 
 							placeholder="search for posts by tag"
+							autocomplete="off"
 						>
 					</form>
 					<div id="laheader_tag_suggestions" class="tagsuggestions-box"></div>

@@ -26,7 +26,7 @@ la.bindEvents = () => {
 
 la.submitSiteSearch = () => {
 
-    tags = siteSearchEle.value.trim().replace(/,*$/);
+    const tags = la.siteSearchEle.value.trim().replace(/(,\s*)+$/, '');
 
     if (tags.length > 0) {
         window.location = `postsearch.php?post_tags=${encodeURIComponent(tags)}`;
