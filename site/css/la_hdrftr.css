@@ -80,14 +80,18 @@
     margin: .25rem 0 0 auto;
 }
 
-#site_search input[type=search] {
+#site_search {
     width: min(20rem, 90vw);
+}
+
+#site_search input[type=search] {
+    width: 100%;
     padding: .625rem .625rem .625rem 2.5rem;
     border: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: .875em;
     color: white;
-    border-radius: 1rem;
+    border-radius: .5rem;
     background: url('../assets/mg.svg') var(--clr-dk-blue) no-repeat .125rem center;
 }
 

@@ -3,7 +3,7 @@ var la = {};
 import { LATagSuggest } from "./modules/LATagSuggest.js";
 
 window.addEventListener('DOMContentLoaded', () => {
-    la.setvars();
+    la.setVars();
     la.bindEvents();
 });
 
