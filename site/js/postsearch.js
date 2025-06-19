@@ -41,6 +41,10 @@ postsearch.initFromUrlPxs = () => {
         postsearch.categoryEle.value = pxPostCategory;
         postsearch.submitSearch('form');
     }
+    else if (pxPostTags) {
+        postsearch.tagsEle.value = pxPostTags;
+        postsearch.submitSearch('form');
+    }
 
 }
 

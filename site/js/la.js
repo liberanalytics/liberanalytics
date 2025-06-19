@@ -18,9 +18,18 @@ la.bindEvents = () => {
 
     la.siteSearchFormEle.addEventListener('submit', (event) => {
         event.preventDefault();
-        window.location =
-
+        la.submitSiteSearch();
     });
 
     LATagSuggest(la.siteSearchParentEle, la.siteSearchEle, la.tagSuggestionsEle);
+}
+
+la.submitSiteSearch = () => {
+
+    tags = siteSearchEle.value.trim().replace(/,*$/);
+
+    if (tags.length > 0) {
+        window.location = `postsearch.php?post_tags=${encodeURIComponent(tags)}`;
+    }
+
 }
