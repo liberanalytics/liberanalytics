@@ -32,13 +32,13 @@
 							id="site_search_text" 
 							type="search" 
 							title="Search for posts by tag" 
-							placeholder="search for posts by tag"
+							placeholder="Search for posts by tag"
 							autocomplete="off"
 						>
 					</form>
 					<div id="laheader_tag_suggestions" class="tagsuggestions-box"></div>
-				</div>
-			</div>
+				</div><!-- End site_search -->
+			</div><!-- End site_search_w -->
 
 		</div><!-- End site_menu -->
 

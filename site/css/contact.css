@@ -62,7 +62,7 @@
 #contact_form form[name=contact] ul li > textarea {
     width: 32.625rem;
     padding: .625rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--clr-dk-grey);
     margin: 0 0 .625rem 0;
     border-radius: .625rem;
     resize: none;

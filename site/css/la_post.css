@@ -41,7 +41,7 @@
     margin: 1.875rem 0 1.875rem 0;
     background-color: var(--clr-bg-snippet);
     font-size: 1rem;
-    color: #FFF;
+    color: var(--clr-xlt-light);
 }
 
 #post_w {

@@ -28,7 +28,7 @@
 .featured-post {
     padding: .625rem .3125rem .625rem .3125rem;
     margin: 1.5rem 0 1.5rem 0;
-    background-color: #fff;
+    background-color: var(--clr-xlt-light);
 }
 
 .featured-post-content > a:first-child {
@@ -78,7 +78,6 @@
 
 .featured-post-attrs {
     display: flex;
-    /* margin: .3125rem 0 0 0; */
     padding: .3125rem 0 0 0;
     border-top-width: 2px;
     border-top-style: solid;

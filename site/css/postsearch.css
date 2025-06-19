@@ -110,7 +110,7 @@
     border: 1px solid transparent;
     cursor: pointer;
     background-color: var(--clr-dk-blue);
-    color: #FFF;    
+    color: var(--clr-xlt-light)  ;
 }
 
 .search-results-btn:hover {

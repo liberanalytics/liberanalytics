@@ -3,7 +3,7 @@
 
 form input, textarea {
     font-family: Helvetica;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 300;
     color: var(--clr-prmary-blk);
     box-shadow: 2px 2px 2px var(--clr-med-light);
@@ -15,29 +15,29 @@ form input:focus, textarea:focus {
 
 form label {
     font-family: Helvetica;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--clr-lt-dark);
 }
 
 form em {
-    color: rgb(255,0,0);
+    color: var(--clr-xdk-red);
 }
 
 form input[type=text] {
-    padding: 10px;
-    border: 1px solid #CCC;
+    padding: .625rem;
+    border: 1px solid var(--clr-dk-grey);
     border-radius: .5rem;
     /* box-shadow: 2px 2px 2px rgb(196,196,196);     */
 }
 
 form input[type=submit] {
-    padding: 15px 0 15px 0;   
+    padding: 1rem 0 1rem 0;   
     border: none;
-    border-radius: 15px;
+    border-radius: .625rem;
     font-weight: 600;
     background-color: var(--clr-dk-blue);
-    color: #FFF;
+    color: var(--clr-xlt-light);
 }
 
 form input[type=submit]:hover {
@@ -52,15 +52,15 @@ form input[type=submit]:active {
 }
 
 form select {
-    padding: 10px;
-    border: 1px solid #CCC;
+    padding: .625rem;
+    border: 1px solid var(--clr-dk-grey);
     border-radius: .5rem;
     font-family: Helvetica;
     font-size: 1rem;
     font-weight: 300;
     color: var(--clr-prmary-blk);
-    background-color: #FFF;
-    box-shadow: 2px 2px 2px rgb(196,196,196);
+    background-color: var(--clr-xlt-light);
+    box-shadow: 2px 2px 2px var(--clr-med-light);
     appearance: none;
 }
 
@@ -76,18 +76,18 @@ form select:active {
 form .select-arrow {
     position: absolute;
     display: block;
-    width: 45px;
+    width: 2.8125rem;
     height: 100%;
     top: 0;
     right: 0;
-    border-radius: 0 10px 10px 0;
-    background: rgba(88,135,191,.75);
+    border-radius: 0 .625rem .625rem 0;
+    background: var(--clr-dk-blue);
     pointer-events: none;
 }
 
 form .select-arrow::before,
 form .select-arrow::after {
-    --size: 8px;
+    --size: .5rem;
     content: '';
     position: absolute;
     width: 0;
@@ -100,14 +100,14 @@ form .select-arrow::after {
 form .select-arrow::before {
     border-left: var(--size) solid transparent;
     border-right: var(--size) solid transparent;
-    border-bottom: var(--size) solid rgba(255,255,255);
+    border-bottom: var(--size) solid var(--clr-xlt-light);
     top: 35%;
 }
 
 form .select-arrow::after {
     border-left: var(--size) solid transparent;
     border-right: var(--size) solid transparent;
-    border-top: var(--size) solid rgba(255,255,255);
+    border-top: var(--size) solid var(--clr-xlt-light);
     top: 65%;
 }
 
@@ -117,5 +117,5 @@ form .error-msg {
     font-family: Helvetica;
     font-size: 1.125rem;
     font-weight: 300;
-    color: rgb(255,0,0);  
+    color: var(--clr-xdk-red);
 }
