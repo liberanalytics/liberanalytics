@@ -14,11 +14,9 @@ postsearch.setVars = () =>
     postsearch.categoryEle = document.querySelector('#postsearch_category');
     postsearch.tagsParentEle = document.querySelector('#postsearch_tags_w');
     postsearch.tagsEle = document.querySelector('#postsearch_tags');
+    postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');    
     postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_filters');
     postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
-    postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
-
-
 }
 
 postsearch.bindEvents = () => 

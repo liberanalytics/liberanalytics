@@ -63,7 +63,11 @@ export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
 
                 // Remove the search term before adding the selected suggestion item.
                 let existingTags = 
-                inputEle.value.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+                inputEle.value
+                    .split(',')
+                    .map(tag => tag.trim())
+                    .filter(tag => tag.length > 0);
+                    
                 if (existingTags.length > 0) {
                     existingTags.pop();
                 }

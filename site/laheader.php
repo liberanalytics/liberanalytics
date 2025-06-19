@@ -27,8 +27,14 @@
 			
 			<div id="site_search_w">
 				<form id="site_search">
-					<input name="site_search_text" type="search" title="Search site for..." placeholder="search">
+					<input
+						id="site_search_text" 
+						type="search" 
+						title="Search for posts by tag" 
+						placeholder="search for posts by tag"
+					>
 				</form>
+				<div id="laheader_tag_suggestions" class="tagsuggestions-box"></div>
 			</div>
 
 		</div><!-- End site_menu -->
