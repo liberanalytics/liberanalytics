@@ -9,13 +9,17 @@
 export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
 
     let tagFetchTimeout;
-    let suggestionItemsIndex = 0;
+    let suggestionItemsIndex = -1;
 
     inputParentEle.style.position = 'relative';
 
-
     //
-    inputEle.addEventListener('keyup', () => {
+    inputEle.addEventListener('keyup', (event) => {
+
+        if (['ArrowDown', 'ArrowUp', 'Escape', 'Enter'].includes(event.key)) {
+            return;
+        }
+
         clearTimeout(tagFetchTimeout);
         tagFetchTimeout = setTimeout(getTagSuggestions, 250);
     });
@@ -32,21 +36,54 @@ export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
         }
         else if (event.key === 'ArrowDown') {
 
+            event.preventDefault();
             if (suggestionItemsIndex < suggestionItemsCount - 1) {
                 suggestionItemsIndex++;
             }
+            updateActiveTagSuggestion();
 
         }
         else if (event.key === 'ArrowUp') {
 
+            event.preventDefault();
             if (suggestionItemsIndex > 0) {
                 suggestionItemsIndex--;
+            }
+            updateActiveTagSuggestion();
+
+        }
+        else if (event.key === 'Enter') {
+
+            event.preventDefault();
+
+            // Make sure there are suggestions and one has been selected in order to derive the
+            // selected suggestion.
+            if (suggestionItemsCount > 0 && suggestionItemsIndex >= 0) {
+                const selectedSuggestionItem = suggestionItems[suggestionItemsIndex].textContent.trim();
+
+                // Remove the search term before adding the selected suggestion item.
+                let existingTags = 
+                inputEle.value.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+                if (existingTags.length > 0) {
+                    existingTags.pop();
+                }
+
+                existingTags.push(selectedSuggestionItem);
+                inputEle.value = existingTags.join(', ') + ', ';
+
+                tagSuggestionsEle.innerHTML = '';
+                suggestionItemsIndex = 0;
+
             }
 
         }
 
-        for (let i = 0; i < suggestionItemsCount; i++) {
-            suggestionItems[i].classList.toggle('active', i === suggestionItemsIndex);
+        function updateActiveTagSuggestion() {
+
+            for (let i = 0; i < suggestionItemsCount; i++) {
+                suggestionItems[i].classList.toggle('active', i === suggestionItemsIndex);
+            }
+
         }
     });
 
