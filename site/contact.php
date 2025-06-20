@@ -22,10 +22,8 @@
 	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/contact.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<script type="text/javascript" src="js/LAStyles.js"></script>
-	<script type="text/javascript" src="js/la.js"></script> 	
-	<script type="text/javascript" src="js/LAvx.js"></script>   
-	<script type="text/javascript" src="js/contact.js"></script>
+	<script type="module" src="js/la.js"></script> 	  
+	<script type="module" src="js/contact.js"></script>
 </head>
 
 <body>
@@ -53,11 +51,17 @@
 									<label class="label-second">Last Name<em>*</em></label>                                    
 								</li>
 								<li>
-									<input name="contact_fname" type="text" title="Enter First Name" class="input-first" 
-									maxlength="32" data-caption="First Name" data-id="first_name" data-req="1" data-vx="vxName" data-len="32">
+									<input 
+										name="contact_fname" type="text" title="Enter First Name" class="input-first" 
+										maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
+										data-vx="vxName" data-len="32" autocomplete="off"
+									>
 
-									<input name="contact_lname" type="text" title="Enter Last Name" class="input-second" 
-									maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1" data-vx="vxName" data-len="32">
+									<input 
+										name="contact_lname" type="text" title="Enter Last Name" class="input-second" 
+										maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
+										data-vx="vxName" data-len="32" autocomplete="off"
+									>
 
       
 								</li>
