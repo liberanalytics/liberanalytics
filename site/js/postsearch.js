@@ -54,8 +54,10 @@ postsearch.submitSearch = (submitType) => {
 
     // Todo: Render ajax spinner.
 
+    // Get the post search pxs.
     const postPxs = postsearch.normalizeFilterData(submitType, 'filters');
 
+    // Validate the search pxs are of a valid value - allow all nulls.
     postsearch.clearError();
     if (submitType === 'form') {
         for (let px in postPxs) {
@@ -70,6 +72,7 @@ postsearch.submitSearch = (submitType) => {
         }
     }
 
+    // Fetch the posts.
     return fetch(
         '/liberanalytics/site/api/postsearch.php',
         {
@@ -77,10 +80,7 @@ postsearch.submitSearch = (submitType) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(
-                postPxs
-            )
-
+            body: JSON.stringify(postPxs)
         }
     )
     .then(response => response.json())
