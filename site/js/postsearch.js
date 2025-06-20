@@ -1,6 +1,7 @@
 var postsearch = {};
 
 import { LATagSuggest } from "./modules/LATagSuggest.js";
+import { vxText } from "./modules/LAvx.js";
 
 window.addEventListener('DOMContentLoaded', () => 
 {
@@ -17,6 +18,7 @@ postsearch.setVars = () =>
     postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');    
     postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_filters');
     postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
+    postsearch.errorEle = document.querySelector('.error-msg');
 }
 
 postsearch.bindEvents = () => 
@@ -52,6 +54,22 @@ postsearch.submitSearch = (submitType) => {
 
     // Todo: Render ajax spinner.
 
+    const postPxs = postsearch.normalizeFilterData(submitType, 'filters');
+
+    postsearch.clearError();
+    if (submitType === 'form') {
+        for (let px in postPxs) {
+            if (postPxs.hasOwnProperty(px)) {
+                if (postPxs[px] !== null) {
+                    if(!vxText(postPxs[px], 64)) {
+                        postsearch.renderError(px, postPxs[px]);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
     return fetch(
         '/liberanalytics/site/api/postsearch.php',
         {
@@ -60,7 +78,7 @@ postsearch.submitSearch = (submitType) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(
-                postsearch.normalizeFilterData(submitType, 'filters')
+                postPxs
             )
 
         }
@@ -140,6 +158,14 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
 
     return dataType === 'filters' ? filters : captions;
 
+}
+
+postsearch.clearError = () => {
+    postsearch.errorEle.textContent = '';
+}
+
+postsearch.renderError = (key, errorValue) => {
+    postsearch.errorEle.textContent = `${key} value ${errorValue} is invalid.`
 }
 
 

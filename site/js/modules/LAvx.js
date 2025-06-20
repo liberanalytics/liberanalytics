@@ -1,12 +1,4 @@
-class LAvx {
 
-	/**
-	 * Creates a new LiberAnalytics validation class.
-	 * 
-	 */
-	constructor() {
-
-	}
 
 	/**
 	 * 
@@ -15,7 +7,7 @@ class LAvx {
 	 * @param {*} pxMinNumChars 
 	 * @returns {boolean}
 	 */
-	vxName = (pxVal, pxLen, pxMinNumChars = 2) => {
+	export const vxName = (pxVal, pxLen, pxMinNumChars = 2) => {
 
 		const vxName = 
 		
@@ -32,7 +24,7 @@ class LAvx {
 	 * @param {*} pxLen 
 	 * @returns {Boolean}
 	 */
-	vxEmail = (pxVal, pxLen) => {
+	export const vxEmail = (pxVal, pxLen) => {
 		
 		const vxEmail =
 		
@@ -48,7 +40,7 @@ class LAvx {
 	 * @param {*} pxMinNumChars 
 	 * @returns {Boolean}
 	 */
-	vxAlphaNum = (pxVal, pxLen, pxMinNumChars = 3) => {  
+	export const vxAlphaNum = (pxVal, pxLen, pxMinNumChars = 3) => {  
 
 		const vxAlphaNum = 
 
@@ -64,10 +56,10 @@ class LAvx {
 	 * @param {*} pxMinNumChars 
 	 * @returns {Boolean}
 	 */
-	vxText = (pxVal, pxLen, pxMinNumChars = 3) => 
+	export const vxText = (pxVal, pxLen, pxMinNumChars = 3) => 
 	{
 		const vxText = 
-			RegExp('^[A-Za-z0-9 \\.\\?\\!\\;\\/\\-]{' + pxMinNumChars.toString() + ',' + pxLen.toString() + '}$').test(pxVal);
+			RegExp('^[A-Za-z0-9 \\,\\.\\?\\!\\;\\/\\-]{' + pxMinNumChars.toString() + ',' + pxLen.toString() + '}$').test(pxVal);
 		return vxText;        
 	}
 
@@ -76,12 +68,8 @@ class LAvx {
 	 * @param {*} pxVal
 	 * @returns {string}
 	 */
-	szText = (pxVal) => 
+	export const szText = (pxVal) => 
 	{
 		const szText = String(pxVal).replace(/\s{2,}/, ' ');
 		return szText;
 	}
-
-	
-
-} // End class LAvx.
