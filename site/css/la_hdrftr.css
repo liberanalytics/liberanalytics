@@ -44,7 +44,7 @@
 
 #site_menu_w {
     margin: 1.875rem 0 0 0;
-    background-color: rgba(247,243,234);
+    background-color: var(--clr-med-beige);
 }
 
 #site_menu {
