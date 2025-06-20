@@ -54,24 +54,22 @@
 									<input 
 										name="contact_fname" type="text" title="Enter First Name" class="input-first" 
 										maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
-										data-vx="vxName" data-len="32" autocomplete="off"
-									>
+										data-vx="vxName" data-len="32" autocomplete="off">
 
 									<input 
 										name="contact_lname" type="text" title="Enter Last Name" class="input-second" 
 										maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
-										data-vx="vxName" data-len="32" autocomplete="off"
-									>
-
-      
+										data-vx="vxName" data-len="32" autocomplete="off">      
 								</li>
 
 								<li>
 									<label class="label-first">Email<em>*</em></label>
 								</li>
 								<li>
-									<input name="contact_email" type="text" title="Enter Email" class="input-only" 
-									maxlength="32" data-caption="Email" data-id="email" data-req="1" data-vx="vxEmail" data-len="32">
+									<input
+										name="contact_email" type="text" title="Enter Email" class="input-only" 
+										maxlength="32" data-caption="Email" data-id="email" data-req="1"
+										data-vx="vxEmail" data-len="32" autocomplete="off">
 
 								</li>
 								<li>
@@ -79,7 +77,8 @@
 								</li>
 								<li>
 									<input name="contact_subject" type="text" title="Enter Subject" class="input-only"
-									 maxlength="32" data-caption="Subject" data-id="subject" data-req="1" data-vx="vxAlphaNum" data-len="32">
+									 maxlength="32" data-caption="Subject" data-id="subject" data-req="1"
+									 data-vx="vxAlphaNum" data-len="32" autocomplete="off">
 
 								</li>
 								<li>
