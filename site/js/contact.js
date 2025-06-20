@@ -20,6 +20,7 @@ contact.bindEvents = () => {
 
 contact.submit = () => {
 
+    let formValid = true;
     const formData = new FormData(contact.form);
 
     for (const formEle of contact.form.elements) {
@@ -27,9 +28,14 @@ contact.submit = () => {
         const eleName = formEle.name;
         const eleValue = formData.get(eleName);
         const eleVx = formEle.dataset.vx;
-
-        console.log(eleName, eleValue, eleVx);
         
+        var tf = eleVx(eleValue);
+
+        console.log()
     }
+
+}
+
+contact.rendorError = (key, errorValue) => {
 
 }

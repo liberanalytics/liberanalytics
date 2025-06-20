@@ -90,10 +90,10 @@
 
 								</li>
 								<li>
-									<li><input name="contact_submit" type="submit" value="SUBMIT"></li> 
+									<li><input type="submit" value="SUBMIT"></li> 
 								</li>
 								<li>
-									<span id="error_form" class="error-msg"></span>
+									<span class="error-msg"></span>
 								</li>								
 							</ul>                            
 						
