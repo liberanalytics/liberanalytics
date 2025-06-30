@@ -1,6 +1,6 @@
-var contact = {};
-
 import * as LAvx from "./modules/LAvx.js";
+
+var contact = {};
 
 window.addEventListener("load", () => {
     contact.setVars();
@@ -27,11 +27,19 @@ contact.submit = () => {
 
         const eleName = formEle.name;
         const eleValue = formData.get(eleName);
-        const eleVx = formEle.dataset.vx;
+        const eleMaxLen = formEle.dataset.len;
+        const eleVxReq = formEle.dataset.req;
+        const eleVxName = formEle.dataset.vx;
+        const eleVx = LAvx[eleVxName];
         
-        var tf = eleVx(eleValue);
+        if (eleVxReq && typeof(eleVx) === 'function') {
+            const isFormValid = eleVx(eleValue, eleMaxLen)
+            if (!isFormValid) {
+                formValid = false;
+                //contact.rendorError()
+            }
+        }
 
-        console.log()
     }
 
 }

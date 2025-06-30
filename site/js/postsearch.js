@@ -1,7 +1,7 @@
-var postsearch = {};
-
 import { LATagSuggest } from "./modules/LATagSuggest.js";
 import { vxText } from "./modules/LAvx.js";
+
+var postsearch = {};
 
 window.addEventListener('DOMContentLoaded', () => 
 {
