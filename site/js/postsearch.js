@@ -1,5 +1,6 @@
 import { LATagSuggest } from "./modules/LATagSuggest.js";
 import { vxText } from "./modules/LAvx.js";
+import * as LArenderor from "./modules/LArenderor.js";
 
 var postsearch = {};
 
@@ -58,7 +59,7 @@ postsearch.submitSearch = (submitType) => {
     const postPxs = postsearch.normalizeFilterData(submitType, 'filters');
 
     // Validate the search pxs are of a valid value - allow all nulls.
-    postsearch.clearError();
+    LArenderor.clearError();
     if (submitType === 'form') {
         for (let px in postPxs) {
             if (postPxs.hasOwnProperty(px)) {
@@ -158,10 +159,6 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
 
     return dataType === 'filters' ? filters : captions;
 
-}
-
-postsearch.clearError = () => {
-    postsearch.errorEle.textContent = '';
 }
 
 postsearch.renderError = (key, errorValue) => {

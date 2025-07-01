@@ -1,4 +1,5 @@
 import * as LAvx from "./modules/LAvx.js";
+import * as LArenderor from "./modules/LArenderor.js";
 
 var contact = {};
 
@@ -14,12 +15,13 @@ contact.setVars = () => {
 contact.bindEvents = () => {
     contact.form.addEventListener('submit', (event) => {
         event.preventDefault();
-        contact.submit();
+        contact.submitContact();
     });
 }
 
-contact.submit = () => {
+contact.submitContact = () => {
 
+    LArenderor.clearError();
     let formValid = true;
     const formData = new FormData(contact.form);
 
@@ -36,14 +38,11 @@ contact.submit = () => {
             const isFormValid = eleVx(eleValue, eleMaxLen)
             if (!isFormValid) {
                 formValid = false;
-                //contact.rendorError()
+                const errorEle = document.querySelector('.error-msg');
+                LArenderor.renderError({ ele: errorEle, key: eleName, errorValue: eleValue});
             }
         }
 
     }
-
-}
-
-contact.rendorError = (key, errorValue) => {
 
 }
