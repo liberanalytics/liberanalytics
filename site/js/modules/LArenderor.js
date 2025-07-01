@@ -14,6 +14,6 @@ export const renderError = ({
     errorValue
 } = {}) => {
     if (errorEle) {
-        errorEle.textContent = `${errorKey} value ${errorValue} is invalid.`
+        errorEle.textContent = `${errorKey} value ${errorValue} is invalid.`;
     }
 }

@@ -65,7 +65,7 @@ postsearch.submitSearch = (submitType) => {
             if (postPxs.hasOwnProperty(px)) {
                 if (postPxs[px] !== null) {
                     if(!vxText(postPxs[px], 64)) {
-                        postsearch.renderError(px, postPxs[px]);
+                        LArenderor.renderError({errorKey: px, errorValue: postPxs[px]});
                         return;
                     }
                 }
