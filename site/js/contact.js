@@ -42,9 +42,5 @@ contact.submitContact = () => {
                 return;
             }
         }
-
-        
-
     }
-
 }

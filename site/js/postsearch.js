@@ -1,5 +1,5 @@
 import { LATagSuggest } from "./modules/LATagSuggest.js";
-import { vxText } from "./modules/LAvx.js";
+import * as LAvx from "./modules/LAvx.js";
 import * as LArenderor from "./modules/LArenderor.js";
 
 var postsearch = {};
@@ -19,7 +19,6 @@ postsearch.setVars = () =>
     postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');    
     postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_filters');
     postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
-    postsearch.errorEle = document.querySelector('.error-msg');
 }
 
 postsearch.bindEvents = () => 
@@ -61,14 +60,13 @@ postsearch.submitSearch = (submitType) => {
     // Validate the search pxs are of a valid value - allow all nulls.
     LArenderor.clearError();
     if (submitType === 'form') {
-        for (let px in postPxs) {
-            if (postPxs.hasOwnProperty(px)) {
-                if (postPxs[px] !== null) {
-                    if(!vxText(postPxs[px], 64)) {
-                        LArenderor.renderError({errorKey: px, errorValue: postPxs[px]});
-                        return;
-                    }
-                }
+        for (const[px, pxValue] of Object.entries(postPxs)) {
+            if (pxValue !== null && !LAvx.vxText(pxValue, 64)) {
+                LArenderor.renderError({
+                    errorKey: px, 
+                    errorValue: pxValue
+                });
+                return;
             }
         }
     }
@@ -159,10 +157,6 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
 
     return dataType === 'filters' ? filters : captions;
 
-}
-
-postsearch.renderError = (key, errorValue) => {
-    postsearch.errorEle.textContent = `${key} value ${errorValue} is invalid.`
 }
 
 
