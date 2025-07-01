@@ -1,11 +1,15 @@
-const defaultErrorEle = document.querySelector('.error-msg');
+const getDefaultErrorEle = () => { 
+    return document.querySelector('.error-msg');
+}
 
-export const clearError = (errorEle = defaultErrorEle) => {
+export const clearError = ({
+    errorEle = getDefaultErrorEle()
+} = {}) => {
     errorEle.textContent = '';
 }
 
 export const renderError = ({
-    errorEle = defaultErrorEle,
+    errorEle = getDefaultErrorEle(),
     errorKey,
     errorValue
 } = {}) => {

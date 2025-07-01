@@ -37,8 +37,7 @@ contact.submitContact = () => {
         if (eleVxReq && typeof(eleVx) === 'function') {
             const isFormValid = eleVx(eleValue, eleMaxLen)
             if (!isFormValid) {
-                formValid = false;
-                
+                formValid = false;                
                 LArenderor.renderError({errorKey: eleName, errorValue: eleValue});
                 return;
             }
