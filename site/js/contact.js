@@ -24,6 +24,7 @@ contact.submitContact = () => {
     LArenderor.clearError();
     let formValid = true;
     const formData = new FormData(contact.form);
+    const formDataJSON = {};
 
     for (const formEle of contact.form.elements) {
 
@@ -33,9 +34,13 @@ contact.submitContact = () => {
         const eleVxReq = formEle.dataset.req;
         const eleVxName = formEle.dataset.vx;
         const eleVx = LAvx[eleVxName];
+
+        if (eleName) {
+            formDataJSON[eleName] = eleValue;
+        }
         
         if (eleVxReq && typeof(eleVx) === 'function') {
-            const isFormValid = eleVx(eleValue, eleMaxLen)
+            const isFormValid = eleVx(eleValue, eleMaxLen);
             if (!isFormValid) {
                 formValid = false;                
                 LArenderor.renderError({errorKey: eleName, errorValue: eleValue});
@@ -43,4 +48,27 @@ contact.submitContact = () => {
             }
         }
     }
+
+    // Fetch the posts.
+    return fetch(
+        '/liberanalytics/site/api/contact.php',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formDataJSON)
+        }
+    )
+    .then(response => response.json())
+    .then(contactResult => {
+        
+    })
+    .catch(error => {
+        console.error('Error: ', error);
+    })
+    .finally(() => {
+        // Todo: Unrender ajax spinner.
+    });
+
 }
