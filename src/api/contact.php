@@ -10,15 +10,21 @@ use enums\CrudFetchStyle;
 
 $laData = new LaData();  
 
-$postTags = $laData->crudData(
-    CrudOperation::GETPOSTTAGSLIKE,
-    CrudType::CRUDREAD,
+$contactMsg = $laData->crudData(
+    CrudOperation::CREATECONTACT,
+    CrudType::CRUDCREATE,
     CrudResultsetType::RESULTSET_ROWS,
     CrudFetchStyle::FETCHSTYLE_ASSOC,
-    ['post_tag_term' => $postTagTerm]
+    [
+        'first_name' => 'phptestfname1',
+        'last_name' => 'phptestlname1',
+        'email' => 'test@test.com',
+        'contact_message' => 'phptestmsg1'
+    ]
 );
 
-return $postTags;
+return $contactMsg;
 
+$a = 1;
 
 ?>

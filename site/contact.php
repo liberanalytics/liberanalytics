@@ -86,7 +86,7 @@
 								</li>
 								<li>
 									<textarea name="contact_msg" rows="8" cols="48"
-									data-caption="Message" data-id="message" data-req="1" data-vx="vxText" data-len="512"></textarea>
+									data-caption="Message" data-id="contact_message" data-req="1" data-vx="vxText" data-len="512"></textarea>
 
 								</li>
 								<li>

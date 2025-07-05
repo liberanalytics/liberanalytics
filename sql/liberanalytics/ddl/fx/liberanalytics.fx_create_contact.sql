@@ -2,10 +2,10 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_create_contact;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_create_contact
 (
-     px_first_name TEXT
-    ,px_last_name TEXT
-    ,px_email TEXT
-    ,px_contact_message TEXT
+     px_first_name TEXT DEFAULT ''
+    ,px_last_name TEXT DEFAULT ''
+    ,px_email TEXT DEFAULT ''
+    ,px_contact_message TEXT DEFAULT ''
 )
 
 RETURNS TABLE

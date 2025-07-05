@@ -7,5 +7,6 @@
         CASE GETPOSTS = 'getposts';
         CASE GETPOSTCATEGORIES = 'getpostcategories';
         CASE GETPOSTTAGSLIKE = 'getposttagslike';
+        CASE CREATECONTACT = 'createcontact';
     }
 ?>
