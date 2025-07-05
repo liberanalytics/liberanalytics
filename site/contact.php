@@ -52,12 +52,12 @@
 								</li>
 								<li>
 									<input 
-										name="contact_fname" type="text" title="Enter First Name" class="input-first" 
+										name="first_name" type="text" title="Enter First Name" class="input-first" 
 										maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
 										data-vx="vxName" data-len="32" autocomplete="off">
 
 									<input 
-										name="contact_lname" type="text" title="Enter Last Name" class="input-second" 
+										name="last_name" type="text" title="Enter Last Name" class="input-second" 
 										maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
 										data-vx="vxName" data-len="32" autocomplete="off">      
 								</li>
@@ -67,7 +67,7 @@
 								</li>
 								<li>
 									<input
-										name="contact_email" type="text" title="Enter Email" class="input-only" 
+										name="email" type="text" title="Enter Email" class="input-only" 
 										maxlength="32" data-caption="Email" data-id="email" data-req="1"
 										data-vx="vxEmail" data-len="32" autocomplete="off">
 
@@ -85,7 +85,7 @@
 									<label class="label-first">Message<em>*</em></label> 
 								</li>
 								<li>
-									<textarea name="contact_msg" rows="8" cols="48"
+									<textarea name="contact_message" rows="8" cols="48"
 									data-caption="Message" data-id="contact_message" data-req="1" data-vx="vxText" data-len="512"></textarea>
 
 								</li>

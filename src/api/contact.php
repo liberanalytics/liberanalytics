@@ -10,21 +10,14 @@ use enums\CrudFetchStyle;
 
 $laData = new LaData();  
 
-$contactMsg = $laData->crudData(
+$contactData = $laData->crudData(
     CrudOperation::CREATECONTACT,
     CrudType::CRUDCREATE,
     CrudResultsetType::RESULTSET_ROWS,
     CrudFetchStyle::FETCHSTYLE_ASSOC,
-    [
-        'first_name' => 'phptestfname1',
-        'last_name' => 'phptestlname1',
-        'email' => 'test@test.com',
-        'contact_message' => 'phptestmsg1'
-    ]
+    $requestPxs
 );
 
-return $contactMsg;
-
-$a = 1;
+return $contactData;
 
 ?>

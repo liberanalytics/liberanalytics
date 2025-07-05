@@ -62,7 +62,7 @@ contact.submitContact = () => {
     )
     .then(response => response.json())
     .then(contactResult => {
-        
+        console.log(contactResult);
     })
     .catch(error => {
         console.error('Error: ', error);
