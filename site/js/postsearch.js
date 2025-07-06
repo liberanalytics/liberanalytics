@@ -198,7 +198,8 @@ postsearch.renderSearchFilters = (submitType) => {
         .join('\n');
 
     const filters = document.createElement('div');
-    filters.classList.add('site-gradient-border-bottom');
+    filters.classList.add('site-gradient-border-top');
+    filters.style.paddingTop = '1rem';
 
     filters.innerHTML = `
         <h2 class="search-results-heading">Showing results for:</h2>

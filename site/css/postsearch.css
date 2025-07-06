@@ -45,26 +45,33 @@
     margin: 1.875rem 0 0 0;
 }
 
+/** ----------------------------------------- Postsearch filter styles ----------------------------------------- **/
+
+#postsearch_filters {
+    max-width: 50rem;
+    margin: 0 auto 0 auto;
+    font-family: Helvetica, sans-serif;
+}
+
+#postsearch_filter_chips {
+    padding: .5rem 0 1rem 0;
+}
+
 /** ----------------------------------------- Postsearch results styles ----------------------------------------- **/
 
 #postsearch_results_w {
     max-width: 50rem;
-    padding: 1rem 0 0 0;
     margin: 0 auto 0 auto;
-    font-family: Helvetica, sans-serif;           
+           
 }
 
 #postsearch_results {
     padding: 1.5rem 0 0 0;
 }
 
-#postsearch_filters {
 
-}
 
-#postsearch_filter_chips {
-    padding: .5rem 0 1rem 0;
-}
+
 
 .search-results-heading {
     font-size: 2rem;
