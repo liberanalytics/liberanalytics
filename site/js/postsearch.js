@@ -52,7 +52,7 @@ postsearch.initFromUrlPxs = () => {
 
 postsearch.submitSearch = (submitType) => {
 
-    // Todo: Render ajax spinner.
+    LArenderor.renderAjaxSpinner();
 
     // Get the post search pxs.
     const postPxs = postsearch.normalizeFilterData(submitType, 'filters');
@@ -90,7 +90,7 @@ postsearch.submitSearch = (submitType) => {
         console.error('Error: ', error);
     })
     .finally(() => {
-        // Todo: Unrender ajax spinner.
+        LArenderor.unrenderAjaxSpinner();
     });
 }
 
