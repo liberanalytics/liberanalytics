@@ -11,8 +11,9 @@ contactSubmit.setVars = () => {
 
 contactSubmit.populateName = () => {
     const urlPxs = new URLSearchParams(window.location.search);
-    const contactName = urlPxs.get('name').replace(/[<>"']/g, '');
-    if (contactName) {
+    const rawName = urlPxs.get('name');
+    if (rawName) {
+        const contactName = rawName.replace(/[<>"']/g, '');
         contactSubmit.contactName.textContent = contactName;
     }
     else {
