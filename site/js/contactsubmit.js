@@ -11,8 +11,11 @@ contactSubmit.setVars = () => {
 
 contactSubmit.populateName = () => {
     const urlPxs = new URLSearchParams(window.location.search);
-    const contactName = urlPxs.get('name');
+    const contactName = urlPxs.get('name').replace(/[<>"']/g, '');
     if (contactName) {
         contactSubmit.contactName.textContent = contactName;
+    }
+    else {
+        window.location.href = 'contact.php';
     }
 }
