@@ -63,6 +63,7 @@ contact.submitContact = () => {
     .then(response => response.json())
     .then(contactResult => {
         console.log(contactResult);
+        //contact.contactSuccess(contactResult);
     })
     .catch(error => {
         console.error('Error: ', error);
@@ -71,4 +72,9 @@ contact.submitContact = () => {
         // Todo: Unrender ajax spinner.
     });
 
+}
+
+contact.contactSuccess = (contactResult) => {
+    //const firstName = 
+    window.location.href = 'contactsubmit.php';
 }

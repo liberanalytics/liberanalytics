@@ -13,7 +13,7 @@ $laData = new LaData();
 $contactData = $laData->crudData(
     CrudOperation::CREATECONTACT,
     CrudType::CRUDCREATE,
-    CrudResultsetType::RESULTSET_ROWS,
+    CrudResultsetType::RESULTSET_ARRAY,
     CrudFetchStyle::FETCHSTYLE_ASSOC,
     $requestPxs
 );
