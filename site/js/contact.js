@@ -21,6 +21,8 @@ contact.bindEvents = () => {
 
 contact.submitContact = () => {
 
+    LArenderor.renderAjaxSpinner();
+
     LArenderor.clearError();
     let formValid = true;
     const formData = new FormData(contact.form);
@@ -69,7 +71,7 @@ contact.submitContact = () => {
         console.error('Error: ', error);
     })
     .finally(() => {
-        // Todo: Unrender ajax spinner.
+        LArenderor.unrenderAjaxSpinner();
     });
 
 }

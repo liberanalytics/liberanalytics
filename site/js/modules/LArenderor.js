@@ -23,11 +23,9 @@ export const renderError = ({
 }
 
 export const renderAjaxSpinner = () => {
-    const overlayEle = getAjaxOverlayEle();
-    overlayEle.classList.remove('.hidden');
+    getAjaxOverlayEle().classList.remove('hidden');
 }
 
 export const unrenderAjaxSpinner = () => {
-    const overlayEle = getAjaxOverlayEle();
-    overlayEle.classList.add('.hidden');
+    getAjaxOverlayEle().classList.add('hidden');
 }

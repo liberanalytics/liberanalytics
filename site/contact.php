@@ -100,6 +100,11 @@
 						</form> 
 
 					</div> <!-- End contact_form -->
+
+					<div class="site-ajax-overlay hidden">
+						<div class="site-ajax-spinner"></div>
+					</div>
+
 				</div> <!-- End contact_form_w -->
 
 			</section>
