@@ -23,7 +23,7 @@
 	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/contact.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="module" src="js/la.js"></script> 	  
-	<script type="module" src="js/contact.js"></script>
+	<script type="module" src="js/contactsubmit.js"></script>
 </head>
 
 <body>
@@ -38,6 +38,14 @@
 				<div id="contact_submit_w" class="site-block-std">
 
 					<div id ="contact_submit">
+
+					<p class="site-font-emph" style="line-height: 1.5;">
+						Thank you for contacting LiberAnalytics, 
+						<span id="contact_name" class="site-font-fancyl"></span>!
+						We are glad to hear from you. We'll get back to you shortly if a response is needed.
+						In the meantime, feel free to explore our latest 
+						<a href="postsearch.php" style="font-size: 1.25rem;">insights</a>.
+					</p>
 
 					</div> <!-- End contact_submit -->
 					

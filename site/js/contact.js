@@ -62,8 +62,8 @@ contact.submitContact = () => {
     )
     .then(response => response.json())
     .then(contactResult => {
-        console.log(contactResult);
-        //contact.contactSuccess(contactResult);
+        //console.log(contactResult);
+        contact.contactSuccess(contactResult);
     })
     .catch(error => {
         console.error('Error: ', error);
@@ -75,6 +75,8 @@ contact.submitContact = () => {
 }
 
 contact.contactSuccess = (contactResult) => {
-    //const firstName = 
-    window.location.href = 'contactsubmit.php';
+    const firstName = contactResult['first_name'];
+    
+    //console.log(firstName);
+    window.location.href = `contactsubmit.php?name=${encodeURIComponent(firstName)}`;
 }
