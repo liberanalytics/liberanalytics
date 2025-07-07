@@ -21,8 +21,6 @@ contact.bindEvents = () => {
 
 contact.submitContact = () => {
 
-    LArenderor.renderAjaxSpinner();
-
     LArenderor.clearError();
     let formValid = true;
     const formData = new FormData(contact.form);
@@ -50,6 +48,8 @@ contact.submitContact = () => {
             }
         }
     }
+
+    LArenderor.renderAjaxSpinner();    
 
     // Fetch the posts.
     return fetch(

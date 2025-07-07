@@ -101,18 +101,16 @@
 
 					</div> <!-- End contact_form -->
 
-					<div class="site-ajax-overlay hidden">
-						<div class="site-ajax-spinner-centerer">
-							<div class="site-ajax-spinner-8spoke ">
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-							</div>
+					<div class="site-ajax-overlay-flex hidden">
+						<div class="site-ajax-spinner-8spoke ">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
 						</div>
 					</div>						
 
