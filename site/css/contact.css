@@ -1,8 +1,7 @@
 /** ----------------------------------------- Contact Styles ----------------------------------------- **/
 
 #contact_form_w {
-    position: relative;
-    padding: 0 0 .625rem 0;
+    padding: 1.875rem 0 .625rem 0;
     border-bottom: 1px solid transparent;
     border-image: linear-gradient( to right, 
         var(--clr-lt-light) 0%, 

@@ -35,7 +35,7 @@
 		<div id="contact_w">
 			<section>
 				<h1 class="page-section-heading">Contact Us</h1>
-				<div id="contact_form_w" class="site-block-std">
+				<div id="contact_form_w" class="site-ajax-overlay-relative">
 					<div id="contact_form">
 
 						<p class="site-font-emph">
@@ -102,10 +102,23 @@
 					</div> <!-- End contact_form -->
 
 					<div class="site-ajax-overlay hidden">
-						<div class="site-ajax-spinner"></div>
-					</div>
+						<div class="site-ajax-spinner-centerer">
+							<div class="site-ajax-spinner-8spoke ">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					</div>						
 
 				</div> <!-- End contact_form_w -->
+
+			
 
 			</section>
 
