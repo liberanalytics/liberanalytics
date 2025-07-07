@@ -22,7 +22,7 @@ $laData = new classes\LaData();
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">	
 	<link href="css/index.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<script type="module" src="js/la.js"></script>
+	<script type="text/javascript" src="js/la.js"></script>
 
 </head>
 
