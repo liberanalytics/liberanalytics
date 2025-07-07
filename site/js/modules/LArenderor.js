@@ -3,16 +3,11 @@ const getDefaultErrorEle = () => {
 }
 
 const getAjaxOverlayEle = () => {
-
-    const getAjaxOverlayEle = 
-        (document.querySelector('.site-ajax-overlay')) ?
-        document.querySelector('.site-ajax-overlay') :
+    const overLayEle = 
+        document.querySelector('.site-ajax-overlay') ||
         document.querySelector('.site-ajax-overlay-flex');
-    return getAjaxOverlayEle;
-
+    return overLayEle;
 }
-
-
 
 export const clearError = ({
     errorEle = getDefaultErrorEle()
