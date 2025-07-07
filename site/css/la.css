@@ -179,6 +179,10 @@ ul li, ol li {
     z-index: 1000;
 } */
 
+.site-ajax-overlay-relative {
+    position: relative;
+}
+
 .site-ajax-overlay {
     display: flex;
     justify-content: center;
@@ -193,8 +197,6 @@ ul li, ol li {
     background-color: var(--clr-ajax-translucent);
     z-index: 1000;
 }
-
-
 
 .site-ajax-spinner-8spoke {
     position: relative;
