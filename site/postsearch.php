@@ -87,7 +87,16 @@ $laData = new classes\LaData();
 			</div><!-- End postsearch_filters -->
 
 			<div class="site-ajax-overlay hidden">
-				<div class="site-ajax-spinner"></div>
+				<div class="site-ajax-spinner-8spoke ">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
 			</div>
 
 		</div><!-- End postsearch_w -->

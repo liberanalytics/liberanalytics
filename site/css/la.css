@@ -166,13 +166,28 @@ ul li, ol li {
     max-width: 61.25rem;
 }
 
-.site-ajax-overlay {
+/* .site-ajax-overlay {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-ajax-translucent);
+    z-index: 1000;
+} */
+
+.site-ajax-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     background-color: var(--clr-ajax-translucent);
@@ -193,6 +208,63 @@ ul li, ol li {
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+.site-ajax-spinner-8spoke {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: auto;
+}
+
+.site-ajax-spinner-8spoke div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 18px;
+    background-color: var(--clr-med-green);
+    transform-origin: center -12px;
+    animation: fade 1s linear infinite;
+    opacity: .25;
+    border-radius: 2px;
+}
+
+.site-ajax-spinner-8spoke div div:nth-child(1) { 
+    transform: rotate(0deg) translateY(-12px); animation-delay: 0s; 
+}
+
+.site-ajax-spinner-8spoke div div:nth-child(2) { 
+    transform: rotate(45deg) translateY(-12px); animation-delay: 0.125s; 
+}
+
+.site-ajax-spinner-8spoke div div:nth-child(3) { 
+    transform: rotate(90deg) translateY(-12px); animation-delay: 0.25s; 
+}
+
+.site-ajax-spinner-8spoke div div:nth-child(4) { 
+    transform: rotate(135deg) translateY(-12px); animation-delay: 0.375s; 
+}
+
+.site-ajax-spinner-8spoke div div:nth-child(5) { 
+    transform: rotate(180deg) translateY(-12px); animation-delay: 0.5s; 
+}
+
+.site-ajax-spinner-8spoke div div:nth-child(6) { 
+    transform: rotate(225deg) translateY(-12px); animation-delay: 0.625s; 
+}
+
+.site-ajax-spinner-8spoke div div:nth-child(7) { 
+    transform: rotate(270deg) translateY(-12px); animation-delay: 0.75s; 
+}
+
+.site-ajax-spinner-8spoke div div:nth-child(8) { 
+    transform: rotate(315deg) translateY(-12px); animation-delay: 0.875s; 
+}
+
+@keyframes fade {
+    0% { opacity: 1; }
+    100% { opacity: 0.25; }
 }
 
 .hidden {
