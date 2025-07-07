@@ -183,27 +183,34 @@ ul li, ol li {
     position: relative;
 }
 
+
 .site-ajax-overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
     width: 100%;
     height: 100%;
     background-color: var(--clr-ajax-translucent);
     z-index: 1000;
-}
-
-.site-ajax-spinner-8spoke {
+    pointer-events: all;
+  }
+  
+  .site-ajax-spinner-centerer {
+    display: flex;
+    justify-content: center;
+    /* spinner vertical center relative to controls height */
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateY(calc(var(--postsearch-controls-height, 0px) / 2));
+  }
+  
+  .site-ajax-spinner-8spoke {
     position: relative;
     width: 2.5rem;
     height: 2.5rem;
-    margin: auto;
-}
+  }
 
 .site-ajax-spinner-8spoke div {
     position: absolute;

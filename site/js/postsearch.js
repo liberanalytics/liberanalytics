@@ -16,7 +16,8 @@ postsearch.setVars = () =>
     postsearch.categoryEle = document.querySelector('#postsearch_category');
     postsearch.tagsParentEle = document.querySelector('#postsearch_tags_w');
     postsearch.tagsEle = document.querySelector('#postsearch_tags');
-    postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');    
+    postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
+    postsearch.searchControlsContainerEle = document.querySelector('#postsearch_controls');
     postsearch.searchFiltersContainerEle = document.querySelector('#postsearch_filters');
     postsearch.searchResultsContainerEle = document.querySelector('#postsearch_results');
 }
@@ -50,9 +51,22 @@ postsearch.initFromUrlPxs = () => {
 
 }
 
+postsearch.renderAjaxSpinner = () => {
+    const overlaySpinnerCentererEle = document.querySelector('.site-ajax-spinner-centerer');
+    const targetHeight = postsearch.searchControlsContainerEle.offsetHeight;
+    overlaySpinnerCentererEle.style.setProperty('--postsearch-controls-height', `${targetHeight}px`);
+    LArenderor.renderAjaxSpinner();
+}
+
+postsearch.unrenderAjaxSpinner = () => {
+    // postsearch.searchResultsContainerEle.classList.remove('site-ajax-overlay');
+    LArenderor.unrenderAjaxSpinner();
+}
+
 postsearch.submitSearch = (submitType) => {
 
-    LArenderor.renderAjaxSpinner();
+    postsearch.renderAjaxSpinner();
+
 
     // Get the post search pxs.
     const postPxs = postsearch.normalizeFilterData(submitType, 'filters');
@@ -90,7 +104,7 @@ postsearch.submitSearch = (submitType) => {
         console.error('Error: ', error);
     })
     .finally(() => {
-        LArenderor.unrenderAjaxSpinner();
+        postsearch.unrenderAjaxSpinner();
     });
 }
 
