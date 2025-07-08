@@ -22,7 +22,7 @@ DECLARE
 
 BEGIN
 
-txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_post_categories_alias, 'post_category', '=', QUOTE_LITERAL(px_post_category), NULL);
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_post_categories_alias, 'post_category', '=', QUOTE_LITERAL(px_post_category), NULL, NULL);
 -- strPredPostCategory = COALESCE('AND ' ||  strPostCategoriesAlias || '.post_category = ' || QUOTE_LITERAL(pxPostCategory), '');
 
 txt_query_attr_list := '
@@ -35,7 +35,7 @@ txt_query_base :=
 
 'SELECT ' || txt_query_attr_list ||
 
-'FROM refdata.post_category AS ' || txt_post_categories_alias ||
+'FROM refdata.post_categories AS ' || txt_post_categories_alias ||
 
 '
 WHERE 1=1

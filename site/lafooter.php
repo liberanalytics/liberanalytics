@@ -22,7 +22,7 @@
 	</div><!-- End site_footer_masthead -->
 
 	<div id="site_footer_stmt" class="page-wrap">
-		<span class="site-tagline">Liberating data analytics to create value.</span>
+		<span class="site-tagline">Freeing analytics from the ordinary.</span>
 		<span class="site-footer-legal">&copy; LiberAnalytics 2025</span>
 	</div><!-- End site_footer_stmt -->
 

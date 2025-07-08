@@ -9,6 +9,6 @@ src/*.json
 .venv/
 config/git_rsa
 config/git_rsa.pub
+config/la_data*
 shell/ssh*
-liberanalytics_db.config
 *log*

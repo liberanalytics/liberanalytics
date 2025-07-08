@@ -1,6 +1,6 @@
-var la = {};
-
 import { LATagSuggest } from "./modules/LATagSuggest.js";
+
+var la = {};
 
 window.addEventListener('DOMContentLoaded', () => {
     la.setVars();
