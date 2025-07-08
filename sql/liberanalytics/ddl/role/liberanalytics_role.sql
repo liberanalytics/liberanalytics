@@ -4,8 +4,16 @@
 DO
 $$
 BEGIN
-CREATE ROLE liberanalytics LOGIN;
-EXCEPTION WHEN duplicate_object THEN RAISE NOTICE '%, %, skipping', SQLERRM, SQLSTATE USING ERRCODE = SQLSTATE;
-END
 
-$$ LANGUAGE plpgsql
+IF NOT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_roles WHERE rolname = 'liberanalytics'
+)
+THEN
+    CREATE ROLE liberanalytics LOGIN;
+ELSE
+    RAISE NOTICE 'Role liberanalytics already exists, skipping.';
+END IF;
+
+END;
+
+$$ LANGUAGE plpgsql;

@@ -35,16 +35,16 @@ IF pxClauseType = 'AND' THEN
 				WHEN pxAnyOrdinalPosition IS NOT NULL THEN
 					'ANY($' || CAST(pxAnyOrdinalPosition AS TEXT) || ')'
 				ELSE
-					COALESCE( CAST(pxValueInt AS TEXT), CAST(pxValueString AS TEXT) ) ||
-			END
+					COALESCE( CAST(pxValueInt AS TEXT), CAST('''' || pxValueString || '''' AS TEXT) )
+			END;
 
 		ELSE
 			txtDynamicSQLClause := '';
 		END IF;
 
-	ELSE
-		txtDynamicSQLClause := '';
-	END IF;
+	-- ELSE
+	-- 	txtDynamicSQLClause := '';
+	-- END IF;
 	
 ELSIF pxClauseType = 'ORDER BY' THEN
 	IF pxColumn IS NOT NULL THEN
