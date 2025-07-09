@@ -6,7 +6,7 @@ CREATE OR REPLACE FUNCTION meta.fx_get_dynamic_sql_clause
 	,pxAlias TEXT
 	,pxColumn TEXT
 	,pxOperator TEXT
-	,pxValueString TEXT
+	,pxValueString TEXT[]
 	,pxValueInt INTEGER
 	,pxAnyOrdinalPosition INTEGER
 )
