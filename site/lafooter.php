@@ -15,7 +15,7 @@
 			<span><a href="postsearch.php">Posts</a></span>
 			<span><a href="about.php">About</a></span>
 			<span><a href="contact.php">Contact</a></span>
-			<span><a href="contact.php">Site</a></span>
+			<!-- <span><a href="contact.php">Site</a></span> -->
 			<span><a href="privacy.php">Privacy</a></span>
 		</nav>
 
