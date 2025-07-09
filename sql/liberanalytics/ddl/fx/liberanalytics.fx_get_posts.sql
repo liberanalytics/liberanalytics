@@ -44,9 +44,9 @@ DECLARE
 	txt_pred_post_category TEXT;
 	txt_pred_post_tags TEXT;
 	txt_pred_post_keywords TEXT;
-	int_ordinal_post_name INTEGER := CASE WHEN px_post_name IS NULL THEN NULL ELSE 1 END;
-	int_ordinal_post_category INTEGER := CASE WHEN px_post_category IS NULL THEN NULL ELSE 2 END;
-	int_ordinal_post_tags INTEGER := CASE WHEN px_post_tags IS NULL THEN NULL ELSE 3 END;
+	int_ordinal_post_name INTEGER := 1;
+	int_ordinal_post_category INTEGER := 2;
+	int_ordinal_post_tags INTEGER := 3;
 	txt_order_by TEXT;
 	txt_order_by_ascdesc TEXT;
 	txt_limit TEXT;
@@ -57,15 +57,15 @@ BEGIN
 
 */
 txt_pred_featured := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'featured', '<=', NULL, px_featured, NULL);
-txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', NULL, NULL, int_ordinal_post_name);
-txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', NULL, NULL, int_ordinal_post_category);
+txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', px_post_name, NULL, int_ordinal_post_name);
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', px_post_category, NULL, int_ordinal_post_category);
 txt_order_by := meta.fx_get_dynamic_sql_clause('ORDER BY', txt_posts_alias, px_order_by, px_order_by_ascdesc, NULL, NULL, NULL); 
 txt_limit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, px_limit, NULL);
 
 /*
 
 */
-IF int_ordinal_post_tags IS NOT NULL THEN
+IF px_post_tags IS NOT NULL THEN
 	txt_pred_post_tags := 
 	format(
 		E'\nAND ($%s IS NULL OR EXISTS
