@@ -15,7 +15,6 @@ VALUES
     ('Data Analysis', 'Why Data', FALSE, DEFAULT),
 
     -- Pythonpostgresql post.
-    -- ('PostgreSQL', 'RDBMS', TRUE, DEFAULT),
 	('AWS', 'AWS', TRUE, DEFAULT),
     ('AWS-KMS', 'AWS', FALSE, DEFAULT),
     ('AWS-EC2', 'AWS', FALSE, DEFAULT),
@@ -25,7 +24,6 @@ VALUES
     ('PostgreSQL in Python', 'Python', FALSE, DEFAULT),
   
     -- PHP CloudWatch Logs post.
-    -- ('PostgreSQL', 'RDBMS', TRUE, DEFAULT),
 	('AWS-CloudWatch', 'AWS', FALSE, DEFAULT),
     ('AWS-IAM', 'AWS', FALSE, DEFAULT),
     ('AWS-PHP SDK', 'AWS', FALSE, DEFAULT),

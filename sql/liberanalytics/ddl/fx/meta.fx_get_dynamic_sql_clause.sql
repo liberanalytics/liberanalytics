@@ -6,7 +6,7 @@ CREATE OR REPLACE FUNCTION meta.fx_get_dynamic_sql_clause
 	,pxAlias TEXT
 	,pxColumn TEXT
 	,pxOperator TEXT
-	,pxValueString TEXT[]
+	,pxValueString TEXT
 	,pxValueInt INTEGER
 	,pxAnyOrdinalPosition INTEGER
 )
@@ -41,10 +41,6 @@ IF pxClauseType = 'AND' THEN
 		ELSE
 			txtDynamicSQLClause := '';
 		END IF;
-
-	-- ELSE
-	-- 	txtDynamicSQLClause := '';
-	-- END IF;
 	
 ELSIF pxClauseType = 'ORDER BY' THEN
 	IF pxColumn IS NOT NULL THEN
@@ -73,4 +69,4 @@ END IF;
 RETURN txtDynamicSQLClause;
 
 END;
-$$
+$$;

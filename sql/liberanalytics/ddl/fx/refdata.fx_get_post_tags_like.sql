@@ -26,6 +26,5 @@ OR pt.post_tag ILIKE px_post_tag_term || '%'
 ORDER BY pt.post_tag
 LIMIT 10;
 
---RAISE NOTICE 'Query String: %', txt_query;
 END;
-$$
+$$;

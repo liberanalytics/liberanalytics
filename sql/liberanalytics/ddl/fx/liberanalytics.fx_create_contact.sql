@@ -18,6 +18,7 @@ RETURNS TABLE
     ,contact_message TEXT
     ,contact_sent TIMESTAMP
 )
+
 LANGUAGE plpgsql
 AS $$
 BEGIN
@@ -57,4 +58,4 @@ BEGIN
     ));
 
 END;
-$$
+$$;

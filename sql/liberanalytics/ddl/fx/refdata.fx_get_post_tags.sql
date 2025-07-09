@@ -45,7 +45,6 @@ txt_query_base :=
 WHERE 1=1
 ';
 
-
 txt_query :=
     txt_query_base ||
     txt_pred_post_tags ||
@@ -58,7 +57,5 @@ USING
      px_post_tags
     ,px_post_category;
 
---RAISE NOTICE 'Query String: %', txt_query;
-
 END;
-$$
+$$;
