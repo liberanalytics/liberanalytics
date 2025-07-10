@@ -53,7 +53,7 @@ contact.submitContact = () => {
 
     // Fetch the posts.
     return fetch(
-        '/liberanalytics/site/api/contact.php',
+        '/api/contact',
         {
             method: 'POST',
             headers: {
@@ -80,5 +80,5 @@ contact.contactSuccess = (contactResult) => {
     const firstName = contactResult['first_name'];
     
     //console.log(firstName);
-    window.location.href = `contactsubmit.php?name=${encodeURIComponent(firstName)}`;
+    window.location.href = `contactsubmit?name=${encodeURIComponent(firstName)}`;
 }

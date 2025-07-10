@@ -19,10 +19,10 @@
 		<div id="site_menu" class="page-wrap">
 
 			<nav id="site_header_nav"> 					
-				<a href="index.php">Home</a>
-				<a href="postsearch.php">Posts</a>
-				<a href="about.php">About</a>
-				<a href="contact.php">Contact</a>
+				<a href="index">Home</a>
+				<a href="postsearch">Posts</a>
+				<a href="about">About</a>
+				<a href="contact">Contact</a>
 			</nav>
 			
 			<div id="site_search_w">

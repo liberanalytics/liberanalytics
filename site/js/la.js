@@ -29,7 +29,7 @@ la.submitSiteSearch = () => {
     const tags = la.siteSearchEle.value.trim().replace(/(,\s*)+$/, '');
 
     if (tags.length > 0) {
-        window.location = `postsearch.php?post_tags=${encodeURIComponent(tags)}`;
+        window.location = `postsearch?post_tags=${encodeURIComponent(tags)}`;
     }
 
 }

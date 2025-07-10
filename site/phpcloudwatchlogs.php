@@ -79,7 +79,7 @@
 				
 				<p>
 					This post depends on setting up a database configuration file which is covered in a previous post:  
-					<a href="pythonpostgreconnect.php">Connecting Python to a Postgresql database</a>.
+					<a href="pythonpostgreconnect">Connecting Python to a Postgresql database</a>.
 				</p>
 
 				<h4 class="post-subheading">Requirements</h1>
@@ -124,7 +124,7 @@
 
 				<p>
 					Now we will need to identify the database and user details used to connect to a PostgreSQL cluster and database.
-					From the previous post, <a href="pythonpostgreconnect.php">Connecting Python to a Postgresql database</a>, the
+					From the previous post, <a href="pythonpostgreconnect">Connecting Python to a Postgresql database</a>, the
 					connection details will be read from a file storing the sensitive data in encrypted format. Then the AWS KMS key used to encrypt the data will be used to decrypt the connection details so a connection can be made to the PostgreSQL database.
 				</p>
 				

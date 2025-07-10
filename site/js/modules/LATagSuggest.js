@@ -113,7 +113,7 @@ export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
 
         fetch(
 
-            `/liberanalytics/site/api/getposttagslike.php?post_tag_term=${encodeURIComponent(lastTag)}`,
+            `/api/getposttagslike?post_tag_term=${encodeURIComponent(lastTag)}`,
             {
                 method: 'GET',
                 headers: {

@@ -87,7 +87,7 @@ postsearch.submitSearch = (submitType) => {
 
     // Fetch the posts.
     return fetch(
-        '/liberanalytics/site/api/postsearch.php',
+        '/api/postsearch',
         {
             method: 'POST',
             headers: {
@@ -319,19 +319,19 @@ postsearch.renderCard = (cardData) => {
     card.innerHTML = `
         <h2 class="search-card-desc">${normalizedCardData.short_desc}</h2>
         <div class="search-card-components">
-            <a class="search-card-img" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+            <a class="search-card-img" href="${encodeURIComponent(normalizedCardData.post_name)}">
                 <img src="assets/${normalizedCardData.search_img}">
             </a>
-            <a class="search-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+            <a class="search-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.long_desc}
             </a>
-            <a class="search-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}.php">
+            <a class="search-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.intro}
             </a>
         </div>
         <div class="search-card-attrs">
             <span class="search-card-date">${normalizedCardData.post_created}</span>
-            <a class="search-card-cat" href="postsearch.php?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
+            <a class="search-card-cat" href="postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
                 ${normalizedCardData.post_category}
             </a>
         </div>

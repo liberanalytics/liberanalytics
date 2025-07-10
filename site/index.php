@@ -63,11 +63,11 @@ $laData = new classes\LaData();
 						echo $htmlFormatting .'<article class="featured-post site-box-shadow">'
 						. "\n\t\t\t\t\t" . '<div class="featured-post-content">'                       
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
-						. "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}.php\">"
+						. "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}\">"
 						. "<img src=\"assets/{$post['featured_img']}\"></a>"
 						. "\n\t\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-hdrtxt\" href=\"{$post['post_name']}.php\">"
+						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-hdrtxt\" href=\"{$post['post_name']}\">"
 						. "{$post['short_desc']}</a>"
 						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desctxt\">"
 						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
@@ -78,7 +78,7 @@ $laData = new classes\LaData();
 						. "\n\t\t\t\t\t\t" . "<span class=\"featured-post-date\">"
 						. date("F j, Y", strtotime($post['post_created'])) . "</span>"
 						. "\n\t\t\t\t\t\t"
-						. "<a href=\"postsearch.php?post_category="
+						. "<a href=\"postsearch?post_category="
 						. rawurlencode($post['post_category']) 
 						. "\" class=\"featured-post-cat\">"
 						. "{$post['post_category']}</a>"
@@ -123,7 +123,7 @@ $laData = new classes\LaData();
 									echo 
 										"<li>" .
 											 $htmlFormatting . 
-											 "<a href=\"{$post['post_name']}.php\" class=\"latest-post-link\">{$post['short_desc']}</a>" .
+											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link\">{$post['short_desc']}</a>" .
 										"</li>";
 	
 									$iter += 1;
