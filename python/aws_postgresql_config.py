@@ -71,7 +71,7 @@ def main():
             file.write(encryption_data['CiphertextBlob'])
 
         # Reset file perms.
-        os.chmod(db_conn_file, 000)      
+        # os.chmod(db_conn_file, 000)      
 
     except Exception as e:
         print(e)
