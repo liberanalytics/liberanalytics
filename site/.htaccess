@@ -1,10 +1,14 @@
 RewriteEngine On
 
+# Skip if request already ends in .php
+RewriteCond %{REQUEST_URI} \.php$
+RewriteRule ^ - [L]
+
 # Remove .php extension from URLs
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.+)$ $1.php [L]
 
-# Optional: redirect URLs with .php to clean version
+# Redirect URLs with .php to clean version (only on initial request)
 RewriteCond %{THE_REQUEST} \s/([^\s]+)\.php[\s?]
 RewriteRule ^ %1 [R=301,L]
