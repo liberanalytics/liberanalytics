@@ -15,14 +15,6 @@ class LaConfig {
         $this->setConfig();
     }
 
-
-    
-    /**
-     * 
-     * 
-     * 
-     * 
-     */
     private function setConfig(): void
     {        
         if (file_exists(getenv('LA_CONFIG_FILE'))) {

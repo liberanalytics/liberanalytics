@@ -12,3 +12,5 @@ config/git_rsa.pub
 config/la_data*
 shell/ssh*
 *log*
+tests/
+*scratch*

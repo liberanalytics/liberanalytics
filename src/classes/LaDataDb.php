@@ -33,9 +33,7 @@ class LaDataDB
             $this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
 
         //
-        // chmod($connectionFile, 0440);
         $handle = fopen($connectionFile, 'rb');
-        // chmod($connectionFile, 0000);
         $binary = fread($handle, filesize($connectionFile));
         
         // Decrypt the binary data in the database config file.
