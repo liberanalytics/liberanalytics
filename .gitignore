@@ -16,3 +16,4 @@ tests/
 *scratch*
 scratch.html
 config/la_config.json
+config/la_data_prod.config
