@@ -25,7 +25,7 @@ def main():
     aws_kms = boto3.client('kms', config['aws']['account']['region']['default'])
 
     # KMS key id.
-    the_key = config['aws']['kms']['key_desc']['liberanalytics_db']    
+    the_key = config['aws']['kms']['key_desc']['la_test']    
 
     '''
     Wrap section in try / except logging any errors to Cloudwatch logs.
