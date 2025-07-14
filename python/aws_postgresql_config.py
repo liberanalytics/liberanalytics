@@ -22,10 +22,10 @@ def main():
         config = json.load(file)
 
     # AWS profile, region, KMS key id.
-    aws_profile = 'la_prod'
+    aws_profile = 'default'
     aws_profile_user = config['aws']['account']['profile'][aws_profile]
     aws_region = config['aws']['account']['region']['default']
-    the_key = config['aws']['kms']['key_desc'][aws_profile]         
+    the_key = config['aws']['kms']['key_desc'][aws_profile_user]         
 
     # Instantiate an AWS KMS client instance.
     # aws_kms = boto3.client('kms', config['aws']['account']['region']['default'])
@@ -50,8 +50,8 @@ def main():
         print('Please provide connection parameters for database:' + '\n')
         db_host = input('Please enter database host:')
         db_name = input('Please enter database name:')
-        db_user = input('Please enter database user name:')
-        db_auth = input('Please enter user password:')
+        db_user = getpass('Please enter database user name:')
+        db_auth = getpass('Please enter user password:')
 
         # Delete the config file if exists.
         db_config_dir = os.getenv(config['liberanalytics']['config']['env']['dir'])

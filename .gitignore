@@ -12,6 +12,6 @@ shell/ssh*
 *log*
 tests/
 scratch.html
-config/la_config.json
+config/la_config_test.json
 site/phpinfo.php
 site/simulate.php

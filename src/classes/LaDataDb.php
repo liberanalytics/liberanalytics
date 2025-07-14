@@ -32,6 +32,8 @@ class LaDataDB
             $this->laConfig->getConfigAttr('liberanalytics', 'config', 'env', 'dir') .
             $this->laConfig->getConfigAttr('data', 'database', 'liberanalytics', 'conn_file');
 
+        $awsProfile = $this->laConfig->getConfigAttr('aws', 'account', 'profile', 'default');
+
         //
         $handle = fopen($connectionFile, 'rb');
         $binary = fread($handle, filesize($connectionFile));
@@ -42,7 +44,7 @@ class LaDataDB
             // AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.
             'CiphertextBlob' => $binary,
             'EncryptionAlgorithm' => 'SYMMETRIC_DEFAULT',
-            'KeyId' => $this->laConfig->getConfigAttr('aws', 'kms', 'key_desc', 'liberanalytics_db')
+            'KeyId' => $this->laConfig->getConfigAttr('aws', 'kms', 'key_desc', $awsProfile)
 
         ]);
         

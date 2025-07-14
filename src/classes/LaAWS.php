@@ -22,26 +22,32 @@ class LaAWS {
 
     private function setAWSClients(): void
     {
+        if ($this->laConfig->getConfigAttr('aws', 'account', 'profile', 'default') == 'la_test')
+        {
+            putenv('HOME=/home/liberanalytics');
+            putenv('AWS_SHARED_CREDENTIALS_FILE=/home/liberanalytics/.aws/credentials');
+        }
+
         $awsRegion = $this->laConfig->getConfigAttr('aws', 'account', 'region', 'default');
 
         // Create CloudWatch Logs / KMS / CloudWatchLogger instances.
         try 
         {
             $this->awsCWLogs = new CloudWatchLogsClient([
-                'profile' => 'default',
+                // 'profile' => 'la_prod',
                 'region' => $awsRegion,
                 'version' => 'latest'
             ]);
 
             $this->awsKMS = new KmsClient([
-                'profile' => 'default',
+                // 'profile' => 'la_prod',
                 'region' => $awsRegion,
                 'version' => 'latest'
             ]);
 
             $this->logError = new CloudWatchLogger([
                 'aws' => [
-                    'profile' => 'default',
+                    // 'profile' => 'la_prod',
                     'region' => $awsRegion,
                     'version' => 'latest'
                 ],
@@ -51,7 +57,7 @@ class LaAWS {
             
             $this->logSQL = new CloudWatchLogger([
                 'aws' => [
-                    'profile' => 'default',
+                    // 'profile' => 'la_prod',
                     'region' => $awsRegion,
                     'version' => 'latest'
                 ],
