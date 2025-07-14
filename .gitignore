@@ -13,4 +13,3 @@ shell/ssh*
 tests/
 scratch.html
 config/la_config_test.json
-site/simulate.php
