@@ -21,11 +21,18 @@ def main():
     with open(config_file, 'r') as file:
         config = json.load(file)
 
-    # Instantiate an AWS KMS client instance.
-    aws_kms = boto3.client('kms', config['aws']['account']['region']['default'])
+    # AWS profile, region, KMS key id.
+    aws_profile = 'la_prod'
+    aws_profile_user = config['aws']['account']['profile'][aws_profile]
+    aws_region = config['aws']['account']['region']['default']
+    the_key = config['aws']['kms']['key_desc'][aws_profile]         
 
-    # KMS key id.
-    the_key = config['aws']['kms']['key_desc']['la_test']    
+    # Instantiate an AWS KMS client instance.
+    # aws_kms = boto3.client('kms', config['aws']['account']['region']['default'])
+    aws_kms_session = boto3.session.Session(profile_name=aws_profile_user)
+    aws_kms = aws_kms_session.client('kms', region_name=aws_region)
+
+   
 
     '''
     Wrap section in try / except logging any errors to Cloudwatch logs.
