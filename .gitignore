@@ -13,5 +13,6 @@ tests/
 scratch.html
 config/la_config_test.json
 config/la_data_test.config
+config/la_data_prod.config
 site/simulate.php
 site/phpinfo.php
