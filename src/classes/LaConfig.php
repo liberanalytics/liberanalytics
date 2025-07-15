@@ -8,7 +8,7 @@ namespace classes;
 class LaConfig {
 
     public const EC2PROFILE = 'ec2';
-    // private const ENV = 'env';
+    private const ENV = 'env';
     private array $config;
 
 
