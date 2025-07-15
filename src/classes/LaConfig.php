@@ -7,8 +7,10 @@ namespace classes;
  */
 class LaConfig {
 
-    private const ENV = "env";
+    public const EC2PROFILE = 'ec2';
+    // private const ENV = 'env';
     private array $config;
+
 
     function __construct()
     {
