@@ -7,9 +7,11 @@ src/*.json
 *__pycache__*
 *.pem
 .venv/
-config/la_data_test.config
 shell/ssh*
 *log*
 tests/
 scratch.html
 config/la_config_test.json
+config/la_data_test.config
+site/simulate.php
+site/phpinfo.php
