@@ -32,7 +32,7 @@ $laData = new classes\LaData();
 
 	<main>
 	<div id="page_w">
-		<h1 class="page-section-heading">Search for posts on Liber<em>Analytics</em></h1>
+		<h1 class="site-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 		<div id="postsearch_w" class="site-ajax-overlay-relative">
 			<div id="postsearch_controls">
 				<div id="postsearch_form">

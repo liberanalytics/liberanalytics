@@ -19,7 +19,7 @@
 	<div id="page_w">
 
 		<section id="about_us_w">
-			<h1 class="page-section-heading">About LiberAnalytics</h1>
+			<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
 			<div id="about" class="site-block-std">
 

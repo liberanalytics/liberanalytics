@@ -34,7 +34,7 @@
 	<div id="page_w">
 		<div id="contact_w">
 			<section>
-				<h1 class="page-section-heading">Thank you</h1>
+				<h1 class="site-primary-heading">Thank you</h1>
 				<div id="contact_submit_w" class="site-block-std">
 
 					<div id ="contact_submit">

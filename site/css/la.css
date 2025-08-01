@@ -53,6 +53,44 @@ html {
     --clr-xdk-dark: rgba(51,51,51,1);  /* placeholder for future growth */
 
     --clr-ajax-translucent: rgba(51,51,51, .5);
+
+    /* Site sizes. */
+    --sz-100: .3125rem;
+    --sz-200: .5rem;
+    --sz-300: .625rem;
+    --sz-400: 1rem;
+    --sz-500: 1.125rem;
+    --sz-600: 1.25rem;
+    --sz-700: 1.5rem;
+    --sz-800: 1.875rem;
+
+    /* Site font-sizes. */
+    --fsz-100: 1rem;
+    --fsz-200: 1.125rem;
+    --fsz-300: 1.25rem;
+    --fsz-400: 1.5rem;
+
+    /* Site font-weights. */
+    --fw-light: 300;
+    --fw-semibold: 600;
+    --fw-bold: 900;
+
+    /* Site font-styles. */
+    --fs-main: Studio-Feixen-Sans, Helvetica, sans-serif;
+    --fs-primary-heading: Helvetica, sans-serif;
+    --fs-secondary-heading: var(--fs-main);
+
+    /* Site line-height values. */
+    --lh-100: 1.0;
+    --lh-200: 1.2;
+    --lh-300: 1.5;
+
+    /* Site line-height monikers. */
+    --lh-xtight: var(--lh-100);
+    --lh-tight: var(--lh-200);
+    --lh-med: var(--lh-300);
+
+
 }
 
 *::before,
@@ -276,14 +314,22 @@ height: 2.5rem;
     display: none;
 }
 
-.page-section-heading {
-    padding: .625rem 0 .3125rem .625rem;
-    /* margin: 0 0 1.25rem; */
+.site-primary-heading {
+    padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
     background-color: var(--clr-med-dark);
-    font-family: Helvetica;
-    font-size: 1.5em;
-    font-weight: 300;
+    font-family: var(--fs-primary-heading);
+    font-size: var(--fsz-400);
+    font-weight: var(--fw-light);
     color: var(--clr-xlt-light);
+}
+
+.site-secondary-heading {
+    margin: var(--sz-600) 0 var(--sz-300) 0;
+    font-family: var(--fs-secondary-heading);
+    font-size: var(--fsz-400);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-med);
+    color: var(--clr-med-green);
 }
 
 a {
