@@ -68,6 +68,10 @@ html {
     src: url('../assets/sfs.woff2') format('woff2');
 }
 
+html {
+    font-size: 100%;
+}
+
 body, html {
     height: 100%;
 }

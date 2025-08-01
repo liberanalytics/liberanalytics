@@ -1,6 +1,45 @@
 /** ----------------------------------------- Privacy Styles ----------------------------------------- **/
 
-#about_us_w {
-    margin: 1.875rem 0 0 0;
+:root {
+
+    --sz-100: .3125rem;
+    --sz-200: .5rem;
+    --sz-300: .625rem;
+    --sz-400: 1rem;
+    --sz-500: 1.125rem;
+    --sz-600: 1.25rem;
+    --sz-700: 1.5rem;
+    --sz-800: 1.875rem;
+
+    --fs-100: 1.25rem;
+    --fs-200: 1.5rem;
+    --fs-300: ;
+
+    --fw-bold: 900;
 }
 
+#privacy_w {
+    margin: var(--sz-800) 0 0 0;
+}
+
+.eff-date {
+    padding-right: var(--sz-300);
+}
+
+.privacy-font-std {
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: var(--fs-100)
+}
+
+.privacy-fw-bold {
+    font-weight: var(--fw-bold);
+}
+
+.privacy-subheading {
+    margin: 1.25rem 0 .625rem 0;
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: var(--fs-200);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--clr-med-green);
+}
