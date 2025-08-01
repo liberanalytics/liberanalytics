@@ -58,7 +58,7 @@
 			<section class="site-font-stdl">
 
 				<p>
-					<em class="site-font-fancyl">Ever</em> grow tired of storing logs on a server then having to manage
+					<span class="site-font-fancyl">Ever</span> grow tired of storing logs on a server then having to manage
 					access to the logs for individual users working in a collaborative development team? This post explores
 					an alternative method to manage database logging by making use of the Amazon Web Services (AWS) CloudWatch
 					Logs service. After reading this post you should have an idea of how to code PHP to send database logs

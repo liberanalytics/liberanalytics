@@ -161,7 +161,13 @@ ul li, ol li {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     font-weight: 600;
-    font-style: normal;
+    color: var(--clr-med-green);
+}
+
+.site-font-brand {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: var(--clr-med-green);
 }
 

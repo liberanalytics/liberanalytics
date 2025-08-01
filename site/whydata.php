@@ -54,7 +54,7 @@
 				<section class="site-font-stdl">
 
 					<p> 
-						<em class="site-font-fancyl">Why</em> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
+						<span class="site-font-fancyl">Why</span> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
 						Startups and corporations employ teams of professionals who often specialize in niche functions within
 						data analytics such as data architect, data analyst, or data scientist in order to provide maximum value
 						of their respective function to the enterprise. There must exist a valid and profit driven reason to place

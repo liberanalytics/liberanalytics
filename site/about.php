@@ -24,7 +24,7 @@
 			<div id="about" class="site-block-std">
 
 				<p class="site-font-emph">
-					<em class="site-font-fancyl">LiberAnalytics</em>
+					<span class="site-font-brand">LiberAnalytics</span>
 					is a data dedicated organization which specializes in educating data practitioners
 					about the many facets of the world of data. We believe that showing a variety of different avenues
 					through which problems in data can be navigated will cultivate creative problem solving mindsets.

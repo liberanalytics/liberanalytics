@@ -27,18 +27,18 @@
 					<span class="eff-date | privacy-fw-bold">Effective Date:</span> July 8, 2025
 				</p>
 				<p class="privacy-block-std privacy-font-std">
-					At <em class="site-font-fancyl">LiberAnalytics</em>, your privacy is important. 
+					At <span class="site-font-fancyl">LiberAnalytics</span>, your privacy is important. 
 					This page outlines what information we collect, how we use it, and your rights.
 				</p>
-				<h1 class="privacy-subheading">Information We Collect</h1>
+				<h2 class="privacy-subheading">Information We Collect</h2>
 				<ul class="privacy-list">
 					<li>If you submit a message through our contact form, we collect your name and email address.</li>
 					<li>We do not sell, rent, or share your personal information with third parties.</li>
 				</ul>
-				<h1 class="privacy-subheading">Cookies and Analytics</h1>
+				<h2 class="privacy-subheading">Cookies and Analytics</h2>
 				<ul class="privacy-list">
 					<li>
-						<em class="site-font-fancyl">LiberAnalytics</em> 
+						<span class="site-font-fancyl">LiberAnalytics</span> 
 						may use basic website analytics (such as Google Analytics) to understand site usage.
 					</li>
 					<li>
@@ -46,14 +46,14 @@
 						browser type, and pages visited.
 					</li>
 				</ul>
-				<h1 class="privacy-subheading">Your Rights</h1>
+				<h2 class="privacy-subheading">Your Rights</h2>
 				<ul class="privacy-list">
 					<li>
 						You may request deletion of your submitted information
 						at any time by contacting us at liber@liberanalytics.com.
 					</li>
 				</ul>
-				<h1 class="privacy-subheading">Contact</h1>
+				<h2 class="privacy-subheading">Contact</h2>
 				<ul class="privacy-list">
 					<li>For questions about this policy, contact us at: liber@liberanalytics.com</li>
 				</ul>				
