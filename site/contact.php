@@ -34,7 +34,7 @@
 	<div id="page_w">
 		<div id="contact_w">
 			<section>
-				<h1 class="page-section-heading">Contact Us</h1>
+				<h1 class="site-primary-heading">Contact Us</h1>
 				<div id="contact_form_w" class="site-ajax-overlay-relative">
 					<div id="contact_form">
 

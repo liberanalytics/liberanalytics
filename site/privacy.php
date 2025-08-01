@@ -20,7 +20,7 @@
 
 		<section id="privacy_w">
 
-			<h1 class="page-section-heading">Privacy at LiberAnalytics</h1>
+			<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
 			<div id="privacy" class="site-block-std">
 				<p class="privacy-font-std">

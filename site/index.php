@@ -34,7 +34,7 @@ $laData = new classes\LaData();
 		<div id="page_w">
 			<div id="posts_w">
 				<section id="posts_l">	
-					<h1 class="page-section-heading">Featured</h1>
+					<h1 class="site-primary-heading">Featured</h1>
 					
 					<?php
 
@@ -95,7 +95,7 @@ $laData = new classes\LaData();
 
 				<section id="posts_r">
 
-					<h1 class="page-section-heading">Latest Posts</h1>
+					<h1 class="site-primary-heading">Latest Posts</h1>
 					<div id="latest_posts_nav">
 						<ul>
 							<?php
@@ -136,7 +136,7 @@ $laData = new classes\LaData();
 			</div><!-- End posts_w -->
 
 			<section id="mission_w">
-				<h1 class="page-section-heading">Our Mission</h1>
+				<h1 class="site-primary-heading">Our Mission</h1>
 
 				<div id="mission" class="site-block-std">
 
