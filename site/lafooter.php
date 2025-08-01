@@ -22,7 +22,7 @@
 
 	<div id="site_footer_stmt" class="page-wrap">
 		<span class="site-tagline">Freeing analytics from the ordinary.</span>
-		<span class="site-footer-legal">&copy; LiberAnalytics 2025</span>
+		<span class="site-footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</span>
 	</div><!-- End site_footer_stmt -->
 
 </footer>
