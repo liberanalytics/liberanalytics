@@ -15,8 +15,7 @@
 			<span><a href="postsearch">Posts</a></span>
 			<span><a href="about">About</a></span>
 			<span><a href="contact">Contact</a></span>
-			<!-- <span><a href="contact.php">Site</a></span> -->
-			<!-- <span><a href="privacy">Privacy</a></span> -->
+			<span><a href="privacy">Privacy</a></span>
 		</nav>
 
 	</div><!-- End site_footer_masthead -->
