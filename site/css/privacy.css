@@ -1,23 +1,5 @@
 /** ----------------------------------------- Privacy Styles ----------------------------------------- **/
 
-:root {
-
-    --sz-100: .3125rem;
-    --sz-200: .5rem;
-    --sz-300: .625rem;
-    --sz-400: 1rem;
-    --sz-500: 1.125rem;
-    --sz-600: 1.25rem;
-    --sz-700: 1.5rem;
-    --sz-800: 1.875rem;
-
-    --fs-100: 1.125rem;
-    --fs-200: 1.25rem;
-    --fs-300: 1.5rem;
-
-    --fw-bold: 900;
-}
-
 #privacy_w {
     margin: var(--sz-800) 0 0 0;
 }
@@ -32,7 +14,7 @@
 
 .privacy-font-std {
     font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: var(--fs-200)
+    font-size: var(--fsz-300)
 }
 
 .privacy-fw-bold {
@@ -42,7 +24,7 @@
 .privacy-subheading {
     margin: 1.25rem 0 .625rem 0;
     font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: var(--fs-300);
+    font-size: var(--fsz-400);
     font-weight: 300;
     line-height: 1.5;
     color: var(--clr-med-green);
@@ -55,7 +37,7 @@
 
 .privacy-list li {
     /* margin: var(--sz-300) 0 0 0; */
-    font-size: var(--fs-100);
+    font-size: var(--fsz-200);
     line-height: 1.5;
     list-style-type: disc;
 }
