@@ -21,16 +21,16 @@
 		<section id="about_us_w">
 			<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
-			<div id="about" class="site-block-std">
+			<div class="site-block-std">
 
-				<p class="site-font-emph">
-					<span class="site-font-brand">LiberAnalytics</span>
-					is a data dedicated organization which specializes in educating data practitioners
-					about the many facets of the world of data. We believe that showing a variety of different avenues
-					through which problems in data can be navigated will cultivate creative problem solving mindsets.
-					With enough exposure to concepts, techniques, tools, and practice we gain confidence in our ability to both work with
-					and extract meaning from data.
+				<p>
+					LiberAnalytics, LLC is a solo-built data platform dedicated to clarity, 
+					precision, and personal freedom—because good systems, like good lives, 
+					are designed with intention.
 				</p>
+			
+
+
 
 			</div><!-- End about -->
 

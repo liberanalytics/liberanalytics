@@ -45,7 +45,7 @@
 						)[0];
 					?>
 
-					<h1 class="post-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>
+					<h1 class="post-heading site-font-brand"><?php echo $post['short_desc']; ?></h1>
 					<h3 class="post-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
 					<h2 class="post-desc site-font-emph"><?php echo $post['long_desc']; ?></h2>
 					<img <?php echo "src=\"assets/{$post['post_img']}\" alt=\"{$postName}\""; ?> class="post-img">
@@ -54,7 +54,7 @@
 				<section class="site-font-stdl">
 
 					<p> 
-						<span class="site-font-fancyl">Why</span> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
+						<span class="site-font-brand">Why</span> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
 						Startups and corporations employ teams of professionals who often specialize in niche functions within
 						data analytics such as data architect, data analyst, or data scientist in order to provide maximum value
 						of their respective function to the enterprise. There must exist a valid and profit driven reason to place

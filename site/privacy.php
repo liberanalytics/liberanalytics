@@ -27,7 +27,7 @@
 					<span class="eff-date | privacy-fw-bold">Effective Date:</span> July 8, 2025
 				</p>
 				<p class="privacy-block-std privacy-font-std">
-					At <span class="site-font-fancyl">LiberAnalytics</span>, your privacy is important. 
+					At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 					This page outlines what information we collect, how we use it, and your rights.
 				</p>
 				<h2 class="privacy-subheading">Information We Collect</h2>
@@ -38,7 +38,7 @@
 				<h2 class="privacy-subheading">Cookies and Analytics</h2>
 				<ul class="privacy-list">
 					<li>
-						<span class="site-font-fancyl">LiberAnalytics</span> 
+						<span class="site-font-brand">LiberAnalytics</span> 
 						may use basic website analytics (such as Google Analytics) to understand site usage.
 					</li>
 					<li>

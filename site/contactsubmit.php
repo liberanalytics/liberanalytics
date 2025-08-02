@@ -41,7 +41,7 @@
 
 					<p class="site-font-emph" style="line-height: 1.5;">
 						Thank you for contacting LiberAnalytics, 
-						<span id="contact_name" class="site-font-fancyl"></span>!
+						<span id="contact_name" class="site-font-brand"></span>!
 						We are glad to hear from you. We'll get back to you shortly if a response is needed.
 						In the meantime, feel free to explore our latest 
 						<a href="postsearch.php" style="font-size: 1.25rem;">insights</a>.

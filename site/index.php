@@ -144,7 +144,7 @@ $laData = new classes\LaData();
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
 						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
 						are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
-						We hope that the content published will illuminate how to exercise a <em class="site-font-fancyl">liber</em> (free)
+						We hope that the content published will illuminate how to exercise a <em class="site-font-brand">liber</em> (free)
 						mind while working with data as well as inspire individuals to keep improving!
 					</p>
 
