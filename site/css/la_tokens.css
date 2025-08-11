@@ -1,0 +1,46 @@
+/** ----------------------------------------- Liber CSS Tokens ----------------------------------------- **/
+
+:root {
+
+    font-size: 16px;
+
+    --clr-xlt-light: rgba(255,255,255, 1);
+    --clr-lt-light: rgba(248,248,248, 1);
+    --clr-med-light: rgba(196,196,196, 1);
+    --clr-dk-light: rgba(192,192,192, 1);   
+    --clr-xdk-light: rgba(196,196,196, 1);  /* placeholder for future growth */
+
+    --clr-xlt-blue: rgba(101,149,202,.375);
+    --clr-lt-blue: rgba(101,149,202,1);
+    --clr-med-blue: rgba(88,135,191,1);
+    --clr-dk-blue: rgba(88,135,191,.75);
+
+    --clr-med-green: rgba(20,124,123,1);
+    --clr-med-beige: rgba(247,243,234,1);
+    --clr-xdk-red: rgba(255,0,0,1);
+
+    --clr-xlt-grey: rgba(221,219,217,1);    /* placeholder for future growth */
+    --clr-lt-grey: rgba(221,219,217,1);     /* placeholder for future growth */  
+    --clr-med-grey: rgba(221,219,217,1);
+    --clr-dk-grey: rgba(204,204,204,1);     /* placeholder for future growth */
+    --clr-xdk-grey: rgba(221,219,217,1);    /* placeholder for future growth */  
+
+    --clr-xlt-dark: rgba(117,117,117,1);
+    --clr-lt-dark: rgba(78,79,95,1);
+    --clr-med-dark: rgba(51,51,51,1);
+    --clr-dk-dark: rgba(51,51,51,1);   /* placeholder for future growth */
+    --clr-xdk-dark: rgba(51,51,51,1);  /* placeholder for future growth */
+
+    --clr-ajax-translucent: rgba(51,51,51, .5);
+
+    /* Site sizes. */
+    --sz-100: .3125rem;
+    --sz-200: .5rem;
+    --sz-300: .625rem;
+    --sz-400: 1rem;
+    --sz-500: 1.125rem;
+    --sz-600: 1.25rem;
+    --sz-700: 1.5rem;
+    --sz-800: 1.875rem;
+    
+}

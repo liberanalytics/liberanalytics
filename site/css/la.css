@@ -19,72 +19,9 @@ html {
 
 :root {
 
-    font-size: 16px;
+    
 
-    --clr-xlt-light: rgba(255,255,255, 1);
-    --clr-lt-light: rgba(248,248,248, 1);
-    --clr-med-light: rgba(196,196,196, 1);
-    --clr-dk-light: rgba(192,192,192, 1);   
-    --clr-xdk-light: rgba(196,196,196, 1);  /* placeholder for future growth */
 
-    --clr-xlt-blue: rgba(101,149,202,.375);
-    --clr-lt-blue: rgba(101,149,202,1);
-    --clr-med-blue: rgba(88,135,191,1);
-    --clr-dk-blue: rgba(88,135,191,.75);
-
-    --clr-med-green: rgba(20,124,123,1);
-    --clr-med-beige: rgba(247,243,234,1);
-    --clr-xdk-red: rgba(255,0,0,1);
-
-    --clr-xlt-grey: rgba(221,219,217,1);    /* placeholder for future growth */
-    --clr-lt-grey: rgba(221,219,217,1);     /* placeholder for future growth */  
-    --clr-med-grey: rgba(221,219,217,1);
-    --clr-dk-grey: rgba(204,204,204,1);     /* placeholder for future growth */
-    --clr-xdk-grey: rgba(221,219,217,1);    /* placeholder for future growth */  
-
-    --clr-xlt-dark: rgba(117,117,117,1);
-    --clr-lt-dark: rgba(78,79,95,1);
-    --clr-med-dark: rgba(51,51,51,1);
-    --clr-dk-dark: rgba(51,51,51,1);   /* placeholder for future growth */
-    --clr-xdk-dark: rgba(51,51,51,1);  /* placeholder for future growth */
-
-    --clr-ajax-translucent: rgba(51,51,51, .5);
-
-    /* Site sizes. */
-    --sz-100: .3125rem;
-    --sz-200: .5rem;
-    --sz-300: .625rem;
-    --sz-400: 1rem;
-    --sz-500: 1.125rem;
-    --sz-600: 1.25rem;
-    --sz-700: 1.5rem;
-    --sz-800: 1.875rem;
-
-    /* Site font-sizes. */
-    --fsz-100: 1rem;
-    --fsz-200: 1.125rem;
-    --fsz-300: 1.25rem;
-    --fsz-400: 1.5rem;
-
-    /* Site font-weights. */
-    --fw-light: 300;
-    --fw-semibold: 600;
-    --fw-bold: 900;
-
-    /* Site font-styles. */
-    --fs-main: Studio-Feixen-Sans, Helvetica, sans-serif;
-    --fs-primary-heading: Helvetica, sans-serif;
-    --fs-secondary-heading: var(--fs-main);
-
-    /* Site line-height values. */
-    --lh-100: 1.0;
-    --lh-200: 1.2;
-    --lh-300: 1.5;
-
-    /* Site line-height monikers. */
-    --lh-xtight: var(--lh-100);
-    --lh-tight: var(--lh-200);
-    --lh-med: var(--lh-300);
 
 
 }
@@ -157,36 +94,7 @@ ul li, ol li {
         var(--clr-lt-light) 100% ) 1;
 }
 
-.site-font-std {
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.25;
-    color: var(--clr-lt-dark);
-}
 
-.site-font-stdl {
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: 1.125em;
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--clr-lt-dark);
-}
-
-.site-font-emph {
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: 1.25rem;
-    font-weight: 300;
-    line-height: 1.2;
-    color: var(--clr-lt-dark);
-}
-
-.site-font-brand {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--clr-med-green);
-}
 
 .page-wrap {   
     margin: 0 auto 0 auto;

@@ -1,0 +1,62 @@
+/** ----------------------------------------- Liber Font Styles ----------------------------------------- **/
+
+:root {
+
+    /* Site font-sizes. */
+    --fsz-100: 1rem;
+    --fsz-200: 1.125rem;
+    --fsz-300: 1.25rem;
+    --fsz-400: 1.5rem;
+
+    /* Site font-weights. */
+    --fw-light: 300;
+    --fw-semibold: 600;
+    --fw-bold: 900;
+
+    /* Site font-styles. */
+    --fs-main: Studio-Feixen-Sans, Helvetica, sans-serif;
+    --fs-primary-heading: Helvetica, sans-serif;
+    --fs-secondary-heading: var(--fs-main);
+
+    /* Site line-height values. */
+    --lh-100: 1.0;
+    --lh-200: 1.2;
+    --lh-300: 1.5;
+
+    /* Site line-height monikers. */
+    --lh-xtight: var(--lh-100);
+    --lh-tight: var(--lh-200);
+    --lh-med: var(--lh-300);
+
+}
+
+.site-font-std {
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.25;
+    color: var(--clr-lt-dark);
+}
+
+.site-font-stdl {
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 1.125em;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--clr-lt-dark);
+}
+
+.site-font-emph {
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--clr-lt-dark);
+}
+
+.site-font-brand {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--clr-med-green);
+}
