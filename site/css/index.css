@@ -135,15 +135,14 @@
 
 /** ----------------------------------------- Mission ----------------------------------------- **/
 
-#mission {
-    display: flex;
-    gap: 1.875rem;
-}
+.mission-text { flex-basis: calc(25 * var(--sz-800)) }
+.mission-graphic { flex-basis: 0; }
 
-#mission p {
+
+/* #mission p {
     flex: 1 1 45.625rem;
 }
 
 #mission_graphic {
     flex: 1 1 0;
-}
+} */

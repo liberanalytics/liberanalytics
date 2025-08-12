@@ -154,6 +154,10 @@ a:active {
 .site-justify-between { justify-content: space-between; }
 .site-gap-400 { gap: var(--sz-400); }
 .site-gap-800 { gap: var(--sz-800); }
+.site-flex-grow-shrink { 
+    flex-grow: 1; 
+    flex-shrink: 1; 
+}
 
 /** ------------------------------------------- Tag Suggestion Styles ------------------------------------------ **/
 
