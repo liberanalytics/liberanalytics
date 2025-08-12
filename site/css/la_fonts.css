@@ -3,10 +3,10 @@
 :root {
 
     /* Site font-sizes. */
-    --fsz-100: 1rem;
-    --fsz-200: 1.125rem;
-    --fsz-300: 1.25rem;
-    --fsz-400: 1.5rem;
+    --fsz-100: var(--sz-400);
+    --fsz-200: var(--sz-500);
+    --fsz-300: var(--sz-600);
+    --fsz-400: var(--sz-700);
 
     /* Site font-weights. */
     --fw-light: 300;
