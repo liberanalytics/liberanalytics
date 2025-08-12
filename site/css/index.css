@@ -108,12 +108,12 @@
 
 /** ----------------------------------------- Latest Posts ----------------------------------------- **/
 
-#latest_posts_nav {
+.latest-posts {
     padding: 0 0 0 .3125rem;
     margin: 1.5rem 0 0 0;
 }
 
-#latest_posts_nav ul li {
+.latest-posts ul li {
     border-bottom: 1px solid var(--clr-med-light);
 }
 

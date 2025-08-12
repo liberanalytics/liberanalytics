@@ -98,7 +98,7 @@ $laData = new classes\LaData();
 				<section id="posts_r">
 
 					<h1 class="site-primary-heading">Latest Posts</h1>
-					<div id="latest_posts_nav">
+					<div class="latest-posts">
 						<ul>
 							<?php
 	
