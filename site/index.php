@@ -137,7 +137,7 @@ $laData = new classes\LaData();
 				</section><!-- End posts_r -->
 			</div><!-- End posts_w -->
 
-			<section id="mission_w">
+			<section class="site-mt-std">
 				<h1 class="site-primary-heading">Our Mission</h1>
 
 				<div id="mission" class="site-block-std">
