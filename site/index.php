@@ -34,7 +34,7 @@ $laData = new classes\LaData();
 
 	<main>
 		<div id="page_w">
-			<div id="posts_w">
+			<div class="site-flex site-flex-wrap site-gap-800">
 				<section id="posts_l">	
 					<h1 class="site-primary-heading">Featured</h1>
 					

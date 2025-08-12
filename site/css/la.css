@@ -148,6 +148,8 @@ a:active {
 /** --------------------------------------- Site Flex Styles --------------------------------------- **/
 
 .site-flex { display: flex; }
+.site-flex-wrap { flex-wrap: wrap; }
+.site-flex-nowrap { flex-wrap: nowrap; }
 .site-flex-row { flex-direction: row; }
 .site-flex-col { flex-direction: column; }
 .site-items-center { align-items: center; }
