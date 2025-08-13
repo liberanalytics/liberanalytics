@@ -41,8 +41,8 @@ form input[type=submit] {
 }
 
 form input[type=submit]:hover {
-    background-color: var(--clr-med-blue);
-    transition-duration: .5s; 
+    background-color: var(--clr-hover-btn-primary-bg);
+    transition-duration: var(--transition-med);
     cursor: pointer;    
 }
 

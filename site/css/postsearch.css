@@ -158,8 +158,8 @@
 }
 
 .search-card-components:hover {
-    background-color: var(--clr-xlt-blue);
-    transition: background-color .2s ease-in-out;
+    background-color: var(--clr-hover-card-bg);
+    transition: background-color var(--transition-fast) ease-in-out;
 }
 
 .search-card-img {
@@ -196,7 +196,7 @@
 }
 
 .search-card-longdesc:hover, .search-card-intro:hover {
-    color: var(--clr-lt-dark);
+    color: var(--clr-hover-text-muted);
     text-decoration: none;
 }
 
@@ -222,7 +222,7 @@
 }
 
 .search-card-cat:hover {
-    color: var(--clr-lt-blue);
+    color: var(--clr-hover-link);
     text-decoration: underline;    
-    transition-duration: .3s;   
+    transition-duration: var(--transition-fast);   
 }

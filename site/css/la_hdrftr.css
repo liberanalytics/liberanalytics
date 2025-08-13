@@ -71,9 +71,9 @@
 }
 
 #site_menu nav a:hover {
-    color: var(--clr-xlt-light);
-    background-color: var(--clr-lt-blue);    
-    transition-duration: .3s;
+    color: var(--clr-hover-nav-text);
+    background-color: var(--clr-hover-nav-bg);    
+    transition-duration: var(--transition-fast);
 }
 
 #site_search_w {
@@ -151,8 +151,8 @@
 }
 
 #site_footer_nav a:hover {
-    border-bottom: 3px solid var(--clr-lt-blue);
-    transition-duration: .2s;
+    border-bottom: 3px solid var(--clr-hover-border-accent);
+    transition-duration: var(--transition-fast);
 }
 
 #site_footer_stmt {

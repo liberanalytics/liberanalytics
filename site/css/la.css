@@ -122,16 +122,16 @@ ul li, ol li {
 
 a {
     font-family: Studio-Feixen-Sans, Helvetica, serif; 
-    font-size: 1.125rem;
-    font-weight: 300;
+    font-size: var(--fsz-200);
+    font-weight: var(--fw-light);
     color: var(--clr-med-blue);
-    text-decoration: none;    
+    text-decoration: none;
 }
 
 a:hover {
-    color: var(--clr-lt-blue);
+    color: var(--clr-hover-link);
     text-decoration: underline;    
-    transition-duration: .3s;   
+    transition-duration: var(--transition-fast);   
 }
 
 a:visited {
@@ -141,8 +141,8 @@ a:visited {
 
 a:active {
     color: var(--clr-lt-blue);
-    text-decoration: underline;    
-    transition-duration: .3s;   
+    text-decoration: underline;
+    transition-duration: var(--transition-fast);
 }
 
 /** --------------------------------------- Site Flex Styles --------------------------------------- **/
@@ -185,9 +185,10 @@ a:active {
 
 .tagsuggestion-item.active,
 .tagsuggestion-item:hover {
-    color: var(--clr-lt-blue);
-    border-bottom: 1px solid var(--clr-lt-blue);
-    transition: all 0.2s ease-in-out;
+  color: var(--clr-hover-link);
+  border-bottom: 1px solid var(--clr-hover-border-accent);
+  transition: color var(--transition-fast) ease-in-out,
+              border-color var(--transition-fast) ease-in-out;
 }
 
 /** -------------------------------------- Site Ajax Styles -------------------------------------- **/

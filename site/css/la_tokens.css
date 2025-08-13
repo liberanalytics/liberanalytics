@@ -42,5 +42,20 @@
     --sz-600: 1.25rem;
     --sz-700: 1.5rem;
     --sz-800: 1.875rem;
+
+    /* Site transitions. */
+    --transition-slow: 1s;
+    --transition-med: .5s;
+    --transition-fast: .3s;
+
+    /* Site hover colors. */
+    --clr-hover-link: var(--clr-lt-blue);
+    --clr-hover-text-muted: var(--clr-lt-dark);
+    --clr-hover-btn-primary-bg: var(--clr-med-blue);
+    --clr-hover-card-bg: var(--clr-xlt-blue);
+    --clr-hover-nav-bg: var(--clr-lt-blue);
+    --clr-hover-nav-text: var(--clr-xlt-light);
+    --clr-hover-border-accent: var(--clr-lt-blue);
+
     
 }

@@ -9,7 +9,7 @@
 
 .featured-post-content {
     display: grid;
-    grid-template-columns: calc(6.5 * var(--sz-800)) calc(12.67 * var(--sz-800));
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: min-content min-content;
     gap: 0 var(--sz-300);
     padding: 0 0 var(--sz-100) 0;
@@ -45,9 +45,9 @@
 }
 
 .featured-post-name:hover {
-    color: var(--clr-lt-blue);
+    color: var(--clr-hover-link);
     text-decoration: underline;    
-    transition-duration: .3s;  
+    transition-duration: var(--transition-fast);  
     cursor: pointer;
 }
 
@@ -87,9 +87,9 @@
 }
 
 .featured-post-cat:hover {
-    color: var(--clr-lt-blue);
+    color: var(--clr-hover-link);
     text-decoration: underline;    
-    transition-duration: .3s;   
+    transition-duration: var(--transition-fast);   
 }
 
 /** ----------------------------------------- Latest Posts ----------------------------------------- **/
@@ -115,6 +115,6 @@
 }
 
 .latest-post-link:hover {
-    color: var(--clr-lt-blue);
-    transition-duration: .3s;
+    color: var(--clr-hover-link);
+    transition-duration: var(--transition-fast);
 }
