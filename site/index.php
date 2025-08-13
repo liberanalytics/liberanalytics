@@ -68,7 +68,7 @@ $laData = new classes\LaData();
 						. "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}\">"
 						. "<img src=\"assets/{$post['featured_img']}\"></a>"
 						. "\n\t\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc">'
+						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc-container">'
 						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name\" href=\"{$post['post_name']}\">"
 						. "{$post['short_desc']}</a>"
 						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc\">"
