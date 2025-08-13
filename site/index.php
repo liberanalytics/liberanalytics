@@ -69,9 +69,9 @@ $laData = new classes\LaData();
 						. "<img src=\"assets/{$post['featured_img']}\"></a>"
 						. "\n\t\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-hdrtxt\" href=\"{$post['post_name']}\">"
+						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name\" href=\"{$post['post_name']}\">"
 						. "{$post['short_desc']}</a>"
-						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desctxt\">"
+						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc\">"
 						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
 						. "\n\t\t\t\t\t\t\t" . "</p>"
 						. "\n\t\t\t\t\t\t" . '</div>'
@@ -90,10 +90,9 @@ $laData = new classes\LaData();
 						$iter += 1;
 					}
 				
-				?>					
+				?>		
 
-
-				</section><!-- End posts_l -->
+				</section>
 
 				<section class="latest-posts-container | site-flex-grow-shrink">
 
@@ -133,9 +132,9 @@ $laData = new classes\LaData();
 							?>
 						</ul>
 	
-					</div><!-- End latest_posts_nav -->   
-				</section><!-- End posts_r -->
-			</div><!-- End posts_w -->
+					</div>  
+				</section>
+			</div>
 
 			<section class="site-mt-std">
 				<h1 class="site-primary-heading">Our Mission</h1>
