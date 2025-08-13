@@ -20,7 +20,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LiberAnalytics</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" type="text/css" charset="utf-8"> 
-    <link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
+	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">	
     <link href="css/la_post.css" rel="stylesheet" type="text/css" charset="utf-8">
     <script type="module" src="js/la.js"></script>

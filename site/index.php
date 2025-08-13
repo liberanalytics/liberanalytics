@@ -18,7 +18,7 @@ $laData = new classes\LaData();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LiberAnalytics</title>
+	<title>LiberAnalytics -> Home</title>
 	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
