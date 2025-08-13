@@ -34,8 +34,8 @@
     border-bottom-width: 2px;
     border-bottom-style: solid;
     border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
-    font-size: 1.125rem;
-    font-weight: 300;
+    font-size: var(--fsz-200);
+    font-weight: var(--fw-light);
     color: var(--clr-med-dark);
     text-decoration: none;    
 }
@@ -56,9 +56,9 @@
     align-self: start;
     padding: var(--sz-100) 0 0 0;
     margin: 0;
-    font-family: Studio-Feixen-Sans, Helvetica, serif;
-    font-size: 1.125rem;
-    line-height: 1.5;
+    font-family: var(--fs-main);
+    font-size: var(--fsz-200);
+    line-height: var(--lh-med);
     color: var(--clr-lt-dark);    
 }
 
@@ -80,8 +80,8 @@
 .featured-post-cat {
     margin-left: auto;
     font-family: Studio-Feixen-Sans, Helvetica, serif;      
-    font-size: 1.125rem;
-    font-weight: 300;
+    font-size: var(--fsz-200);
+    font-weight: var(--fw-light);
     color: var(--clr-med-blue);
     text-decoration: none;    
 }
