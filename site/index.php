@@ -35,7 +35,7 @@ $laData = new classes\LaData();
 	<main>
 		<div id="page_w">
 			<div class="site-flex site-flex-wrap site-gap-800">
-				<section id="posts_l">	
+				<section class="featured-posts-container | site-flex-grow-shrink">	
 					<h1 class="site-primary-heading">Featured</h1>
 					
 					<?php
@@ -95,7 +95,7 @@ $laData = new classes\LaData();
 
 				</section><!-- End posts_l -->
 
-				<section id="posts_r">
+				<section class="latest-posts-container | site-flex-grow-shrink">
 
 					<h1 class="site-primary-heading">Latest Posts</h1>
 					<div class="latest-posts">

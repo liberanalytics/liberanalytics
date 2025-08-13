@@ -1,21 +1,11 @@
 /** ----------------------------------------- Index Styles ----------------------------------------- **/
 
-#posts_w {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.875rem;
-}
-
-#posts_l {
-    flex: 1 1 37.5rem;
-}
-
-#posts_r {
-    flex: 1 1 21.875rem;
-}
+.featured-posts-container { flex-basis: calc(20 * var(--sz-800)) }
+.latest-posts-container { flex-basis: calc(11.667 * var(--sz-800)) }
+.mission-text { flex-basis: calc(25 * var(--sz-800)) }
+.mission-graphic { flex-basis: 0; }
 
 /** ----------------------------------------- Featured Posts----------------------------------------- **/
-
 
 .featured-post-content {
     display: grid;
@@ -132,17 +122,3 @@
     color: var(--clr-lt-blue);
     transition-duration: .3s;
 }
-
-/** ----------------------------------------- Mission ----------------------------------------- **/
-
-.mission-text { flex-basis: calc(25 * var(--sz-800)) }
-.mission-graphic { flex-basis: 0; }
-
-
-/* #mission p {
-    flex: 1 1 45.625rem;
-}
-
-#mission_graphic {
-    flex: 1 1 0;
-} */
