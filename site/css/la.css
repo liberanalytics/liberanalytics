@@ -68,9 +68,7 @@ ul li, ol li {
     margin: 1.5rem 0 0 0;
 }
 
-.site-mt-std {
-    margin-top: var(--sz-800)
-}
+.site-mt-std { margin-top: var(--sz-800); }
 
 .site-box-shadow {
     border-radius: .25rem;

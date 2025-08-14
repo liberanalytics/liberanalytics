@@ -26,9 +26,10 @@
 
 			<div class="site-block-std">
 				<p class="site-font-std site-fs-med site-flh-tight">
-					<span class="eff-date site-fw-bold site-fc-xdark">Effective Date:</span> July 8, 2025
+					<span class="eff-date site-fw-bold site-fc-xdark">Effective Date:</span>
+					<time datetime="2025-07-08">July 8, 2025</time>
 				</p>
-				<p class="privacy-block-std privacy-font-std">
+				<p class="legal-mt-std privacy-font-std">
 					At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 					This page outlines what information we collect, how we use it, and your rights.
 				</p>
