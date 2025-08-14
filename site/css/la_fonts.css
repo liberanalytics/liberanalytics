@@ -53,17 +53,17 @@
     color: var(--clr-med-green);
 }
 
-.site-fs-xsmall { font-size: var(--fsz-100);}
-.site-fs-small { font-size: var(--fsz-200);}
-.site-fs-med { font-size: var(--fsz-300);}
+.site-fs-xsmall { font-size: var(--fsz-100); }
+.site-fs-small { font-size: var(--fsz-200); }
+.site-fs-med { font-size: var(--fsz-300); }
 
 .site-fc-light { color: var(--fc-light); }
 .site-fc-med { color: var(--fc-med); }
 .site-fc-xdark { color: var(--fc-xdark); }
 
 .site-fw-light { font-weight: var(--fw-light); }
-.site-fw-med { font-weight: var(--fw-med) }
-.site-fw-bold { font-weight: var(--fw-bold) }
+.site-fw-med { font-weight: var(--fw-med); }
+.site-fw-bold { font-weight: var(--fw-bold); }
 
 .site-flh-xtight { line-height: var(--flh-xtight); }
 .site-flh-tight { line-height: var(--flh-tight); }
