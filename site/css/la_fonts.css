@@ -30,35 +30,19 @@
 
 }
 
-.site-font-stds {
-    font-family: var(--fs-main);
-    font-size: var(--fsz-100);
-    font-weight: var(--fw-light);
-    line-height: 1.5;
-    color: var(--clr-lt-dark);
-}
+.site-fs-xsmall { font-size: var(--fsz-100);}
+.site-fs-small { font-size: var(--fsz-200);}
+.site-fs-med { font-size: var(--fsz-300);}
+.site-lh-xtight { line-height: var(--lh-xtight); }
+.site-lh-tight { line-height: var(--lh-tight); }
+.site-lh-med { line-height: var(--lh-med); }
+
 
 .site-font-std {
     font-family: var(--fs-main);
     font-size: var(--fsz-200);
     font-weight: var(--fw-light);
-    line-height: 1.5;
-    color: var(--clr-lt-dark);
-}
-
-.site-font-stdl {
-    font-family: var(--fs-main);
-    font-size: var(--fsz-300);
-    font-weight: var(--fw-light);
-    line-height: 1.5;
-    color: var(--clr-lt-dark);
-}
-
-.site-font-emph {
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: 1.25rem;
-    font-weight: 300;
-    line-height: 1.2;
+    line-height: var(--lh-med);
     color: var(--clr-lt-dark);
 }
 
@@ -69,6 +53,3 @@
     color: var(--clr-med-green);
 }
 
-.site-lh-xtight { line-height: var(--lh-xtight); }
-.site-lh-tight { line-height: var(--lh-tight); }
-.site-lh-med { line-height: var(--lh-med); }
