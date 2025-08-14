@@ -15,16 +15,16 @@
 
     /* Site font colors. */
     --fc-xlight: var(--clr-xlt-dark);   /* placeholder for future growth */
-    --fc-light: var(--clr-xlt-dark);
-    --fc-med: var(--clr-lt-dark);
-    --fc-dark: var(--clr-lt-dark);   /* placeholder for future growth */
+    --fc-light: var(--clr-lt-dark);
+    --fc-med: var(--clr-med-dark);
+    --fc-dark: var(--clr-dk-dark);   /* placeholder for future growth */
     --fc-xdark: var(--clr-xdk-dark);
 
     /* Site font-styles. */
-    --fs-main: Studio-Feixen-Sans, Helvetica, sans-serif;
-    --fs-primary-heading: Helvetica, sans-serif;
-    --fs-secondary-heading: var(--fs-main);
-    --fs-fancy: 'Times New Roman', Times, serif;
+    --ff-main: Studio-Feixen-Sans, Helvetica, sans-serif;
+    --ff-primary-heading: Helvetica, sans-serif;
+    --ff-secondary-heading: var(--fs-main);
+    --ff-fancy: 'Times New Roman', Times, serif;
 
     /* Site line-height values. */
     --lh-100: 1.0;
@@ -42,15 +42,14 @@
     font-family: var(--fs-main);
     font-size: var(--fsz-200);
     font-weight: var(--fw-light);
-    line-height: var(--lh-med);
-    /* color: var(--clr-lt-dark); */
-    color: var(--fc-med);
+    line-height: var(--flh-med);
+    color: var(--fc-light);
 }
 
 .site-font-brand {
     font-family: var(--fs-fancy);
     font-size: var(--fsz-400);
-    font-weight: var(--fw-semibold);
+    font-weight: var(--fw-med);
     color: var(--clr-med-green);
 }
 
@@ -59,7 +58,7 @@
 .site-fs-med { font-size: var(--fsz-300);}
 
 .site-fc-light { color: var(--fc-light); }
-.site-fc-med { color: var(--fc-light); }
+.site-fc-med { color: var(--fc-med); }
 .site-fc-dark { color: var(--fc-xdark); }
 
 .site-fw-light { font-weight: var(--fw-light); }

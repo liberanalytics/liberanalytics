@@ -105,7 +105,7 @@ ul li, ol li {
 .site-primary-heading {
     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
     background-color: var(--clr-med-dark);
-    font-family: var(--fs-primary-heading);
+    font-family: var(--ff-primary-heading);
     font-size: var(--fsz-400);
     font-weight: var(--fw-light);
     color: var(--clr-xlt-light);
@@ -113,7 +113,7 @@ ul li, ol li {
 
 .site-secondary-heading {
     margin: var(--sz-600) 0 var(--sz-300) 0;
-    font-family: var(--fs-secondary-heading);
+    font-family: var(--ff-secondary-heading);
     font-size: var(--fsz-400);
     font-weight: var(--fw-light);
     line-height: var(--lh-med);

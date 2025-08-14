@@ -26,7 +26,7 @@
 
 			<div class="site-block-std">
 				<p class="site-font-std site-fs-med site-flh-tight">
-					<span class="eff-date | site-fw-bold site-fc-dark" style="color: black;">Effective Date:</span> July 8, 2025
+					<span class="eff-date site-fw-bold site-fc-dark">Effective Date:</span> July 8, 2025
 				</p>
 				<p class="privacy-block-std privacy-font-std">
 					At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
