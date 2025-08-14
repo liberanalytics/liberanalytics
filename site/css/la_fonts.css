@@ -59,7 +59,7 @@
 
 .site-fc-light { color: var(--fc-light); }
 .site-fc-med { color: var(--fc-med); }
-.site-fc-dark { color: var(--fc-xdark); }
+.site-fc-xdark { color: var(--fc-xdark); }
 
 .site-fw-light { font-weight: var(--fw-light); }
 .site-fw-med { font-weight: var(--fw-med) }
