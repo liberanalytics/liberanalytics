@@ -12,10 +12,10 @@
 
 		<nav id="site_footer_nav"> 			
 			<span><a href="index">Home</a></span>
-			<span><a href="postsearch">Posts</a></span>
 			<span><a href="about">About</a></span>
 			<span><a href="contact">Contact</a></span>
 			<span><a href="privacy">Privacy</a></span>
+			<span><a href="terms">Terms</a></span>
 		</nav>
 
 	</div><!-- End site_footer_masthead -->
