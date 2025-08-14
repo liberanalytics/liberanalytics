@@ -30,18 +30,26 @@
 
 }
 
+.site-font-stds {
+    font-family: var(--fs-main);
+    font-size: var(--fsz-100);
+    font-weight: var(--fw-light);
+    line-height: 1.5;
+    color: var(--clr-lt-dark);
+}
+
 .site-font-std {
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.25;
+    font-family: var(--fs-main);
+    font-size: var(--fsz-200);
+    font-weight: var(--fw-light);
+    line-height: 1.5;
     color: var(--clr-lt-dark);
 }
 
 .site-font-stdl {
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: 1.125em;
-    font-weight: 300;
+    font-family: var(--fs-main);
+    font-size: var(--fsz-300);
+    font-weight: var(--fw-light);
     line-height: 1.5;
     color: var(--clr-lt-dark);
 }
@@ -60,3 +68,7 @@
     font-weight: 600;
     color: var(--clr-med-green);
 }
+
+.site-lh-xtight { line-height: var(--lh-xtight); }
+.site-lh-tight { line-height: var(--lh-tight); }
+.site-lh-med { line-height: var(--lh-med); }

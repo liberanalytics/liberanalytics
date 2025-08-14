@@ -53,7 +53,7 @@
 					<img <?php echo "src=\"assets/{$post['post_img']}\" alt=\"{$postName}\""; ?> class="post-img">
 				</header>        
 
-				<section class="site-font-stdl">
+				<section class="site-font-stds">
 
 					<p> 
 						<span class="site-font-brand">Why</span> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?

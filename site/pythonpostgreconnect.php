@@ -54,7 +54,7 @@
 					<img <?php echo "src=\"assets/{$post['post_img']}\" alt=\"{$postName}\""; ?> class="post-img">
 				</header>
 
-				<section class="site-font-stdl">
+				<section class="site-font-stds">
 
 					<p>
 					<span class="site-font-brand">Connecting</span> Python to Postgresql is made seamless with the psycopg2 library.
