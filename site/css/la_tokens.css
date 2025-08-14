@@ -29,7 +29,7 @@
     --clr-lt-dark: rgba(78,79,95,1);
     --clr-med-dark: rgba(51,51,51,1);
     --clr-dk-dark: rgba(51,51,51,1);   /* placeholder for future growth */
-    --clr-xdk-dark: rgba(51,51,51,1);  /* placeholder for future growth */
+    --clr-xdk-dark: rgba(0,0,0,1);
 
     --clr-ajax-translucent: rgba(51,51,51, .5);
 

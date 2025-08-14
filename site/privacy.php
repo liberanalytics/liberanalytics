@@ -9,7 +9,7 @@
 	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">		
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">	
-	<link href="css/privacy.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/legal.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="module" src="js/la.js"></script>
 </head>
 
@@ -20,13 +20,13 @@
 	<main>
 	<div id="page_w">
 
-		<section id="privacy_w">
+		<section class="site-mt-std">
 
 			<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
-			<div id="privacy" class="site-block-std">
-				<p class="privacy-font-std">
-					<span class="eff-date | privacy-fw-bold">Effective Date:</span> July 8, 2025
+			<div class="site-block-std">
+				<p class="site-font-std site-fs-med site-flh-tight">
+					<span class="eff-date | site-fw-bold site-fc-dark" style="color: black;">Effective Date:</span> July 8, 2025
 				</p>
 				<p class="privacy-block-std privacy-font-std">
 					At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
