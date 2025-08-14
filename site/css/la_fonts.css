@@ -19,11 +19,12 @@
     --fc-med: var(--clr-med-dark);
     --fc-dark: var(--clr-dk-dark);   /* placeholder for future growth */
     --fc-xdark: var(--clr-xdk-dark);
+    --fc-med-green: var(--clr-med-green);
 
     /* Site font-styles. */
     --ff-main: Studio-Feixen-Sans, Helvetica, sans-serif;
     --ff-primary-heading: Helvetica, sans-serif;
-    --ff-secondary-heading: var(--fs-main);
+    --ff-secondary-heading: var(--ff-main);
     --ff-fancy: 'Times New Roman', Times, serif;
 
     /* Site line-height values. */
@@ -39,7 +40,7 @@
 }
 
 .site-font-std {
-    font-family: var(--fs-main);
+    font-family: var(--ff-main);
     font-size: var(--fsz-200);
     font-weight: var(--fw-light);
     line-height: var(--flh-med);
@@ -50,7 +51,7 @@
     font-family: var(--fs-fancy);
     font-size: var(--fsz-400);
     font-weight: var(--fw-med);
-    color: var(--clr-med-green);
+    color: var(--fc-med-green);
 }
 
 .site-fs-xsmall { font-size: var(--fsz-100); }
