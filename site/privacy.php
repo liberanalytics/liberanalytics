@@ -33,6 +33,7 @@
 					At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 					This page outlines what information we collect, how we use it, and your rights.
 				</p>
+				<h2 class="privacy-subheading">Information We Collect</h2>
 								
 			</div>
 

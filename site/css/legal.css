@@ -1,5 +1,12 @@
 /** ----------------------------------------- Privacy Styles ----------------------------------------- **/
 
+:root {
+    --legal-fsz-300: var(--fsz-300);
+    --legal-flh-med: var(--flh-med);
+    --legal-fw-light: var(--fw-light);
+    --legal-fc-xdark: var(--fc-xdark);
+}
+
 .eff-date {
     padding-right: var(--sz-300);
 }
@@ -8,36 +15,10 @@
     margin: var(--sz-600) 0 0 0;
 }
 
-.privacy-font-std {
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: var(--fsz-300)
-}
-
-.privacy-fw-xbold {
-    font-weight: var(--fw-xbold);
-}
-
-.privacy-subheading {
-    margin: 1.25rem 0 .625rem 0;
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: var(--fsz-400);
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--clr-med-green);
-}
-
-.privacy-list {
-    padding: 0 var(--sz-600) 0 var(--sz-600);
-    font-family: Studio-Feixen-Sans, Helvetica;
-}
-
-.privacy-list li {
-    /* margin: var(--sz-300) 0 0 0; */
-    font-size: var(--fsz-200);
-    line-height: 1.5;
-    list-style-type: disc;
-}
-
-.privacy-list li::marker {
-    color: var(--clr-med-green); 
+.legal-text {
+    font-family: var(--ff-main);
+    font-size: var(--legal-fsz-300);
+    line-height: var(--legal-flh-med);
+    font-weight: var(--legal-fw-light);
+    color: var(--legal-fc-xdark);
 }
