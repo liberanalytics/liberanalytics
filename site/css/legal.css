@@ -38,6 +38,7 @@
 
 .privacy-list li { list-style-type: disc; }
 .privacy-list li::marker { color: var(--legal-fc-med-green); }
+.privay-list li + li { margin-block-start: var(--sz-300); }
 
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
 .legal-flh-med { line-height: var(--legal-flh-med); }
@@ -45,6 +46,6 @@
 .legal-fw-xlight { font-weight: var(--legal-fw-xlight); }
 .legal-fc-med-green { color: var(--legal-fc-med-green); }
 
-.legal-mt-std { margin-top: var(--sz-600); }
-.legal-mb-std { margin-bottom: var(--sz-300); }
+.legal-mt-std { margin-block-start: var(--sz-600); }
+.legal-mb-std { margin-block-end: var(--sz-300); }
 .legal-pr-300 { padding-right: var(--sz-300); }

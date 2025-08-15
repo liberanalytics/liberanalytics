@@ -33,8 +33,7 @@
 					At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 					This page outlines what information we collect, how we use it, and your rights.
 				</p>
-				<h2 class=
-				"legal-mt-std legal-mb-std legal-text legal-fsz-large legal-flh-med legal-fw-xlight legal-fc-med-green">
+				<h2 class="legal-mt-std legal-mb-std legal-heading">
 					Information We Collect
 				</h2>
 				<ul class="privacy-list">
@@ -44,7 +43,27 @@
 				<h2 class="legal-mt-std legal-mb-std legal-heading">
 					Cookies and Analytics
 				</h2>
-								
+				<ul class="privacy-list">
+					<li>
+						<span class="site-font-brand">LiberAnalytics</span> 
+						may use basic website analytics (such as Google Analytics) to understand site usage.
+					</li>
+					<li>
+						These tools may use cookies to gather anonymized data like IP address,
+						browser type, and pages visited.
+					</li>
+				</ul>
+				<h2 class="legal-mt-std legal-mb-std legal-heading">Your Rights</h2>
+				<ul class="privacy-list">
+					<li>
+						You may request deletion of your submitted information
+						at any time by contacting us at liber@liberanalytics.com.
+					</li>
+				</ul>
+				<h2 class="legal-mt-std legal-mb-std legal-heading">Contact</h2>
+				<ul class="privacy-list">
+					<li>For questions about this policy, contact us at: liber@liberanalytics.com</li>
+				</ul>								
 			</div>
 
 		</section>
