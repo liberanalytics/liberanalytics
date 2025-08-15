@@ -38,7 +38,6 @@
 
 .privacy-list li { list-style-type: disc; }
 .privacy-list li::marker { color: var(--legal-fc-med-green); }
-.privay-list li + li { margin-block-start: var(--sz-300); }
 
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
 .legal-flh-med { line-height: var(--legal-flh-med); }
