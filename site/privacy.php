@@ -25,7 +25,7 @@
 			<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
 			<div class="site-block-std">
-				<p class="legal-text site-flh-tight">
+				<p class="legal-text legal-flh-tight">
 					<span class="eff-date site-fw-xbold site-fc-xdark">Effective Date:</span>
 					<time datetime="2025-07-08">July 8, 2025</time>
 				</p>

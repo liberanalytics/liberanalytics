@@ -3,7 +3,7 @@
 .legal {
     --legal-ff: var(--ff-main);
     --legal-fsz-300: var(--fsz-300);
-    --legal-flh-tight: var(--flh-med);
+    --legal-flh-tight: var(--flh-tight);
     --legal-flh-med: var(--flh-med);
     --legal-fw-light: var(--fw-light);
     --legal-fc-xdark: var(--fc-xdark);
@@ -19,3 +19,5 @@
     font-weight: var(--legal-fw-light, var(--fw-light));
     color: var(--legal-fc-xdark, var(--fc-xdark));
 }
+
+.legal-flh-tight { line-height: var(--legal-flh-tight); }
