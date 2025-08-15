@@ -13,8 +13,8 @@
     font-size: var(--fsz-300)
 }
 
-.privacy-fw-bold {
-    font-weight: var(--fw-bold);
+.privacy-fw-xbold {
+    font-weight: var(--fw-xbold);
 }
 
 .privacy-subheading {

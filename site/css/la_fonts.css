@@ -9,9 +9,10 @@
     --fsz-400: var(--sz-700);
 
     /* Site font-weights. */
-    --fw-light: 300;
-    --fw-med: 600;
-    --fw-bold: 900;
+    --fw-xlight: 300;
+    --fw-light: 400;
+    --fw-bold: 600;
+    --fw-xbold: 900;
 
     /* Site font colors. */
     --fc-xlight: var(--clr-xlt-dark);   /* placeholder for future growth */
@@ -42,15 +43,15 @@
 .site-font-std {
     font-family: var(--ff-main);
     font-size: var(--fsz-200);
-    font-weight: var(--fw-light);
-    line-height: var(--flh-med);
+    font-weight: var(--fw-xlight);
+    line-height: var(--flh-tight);
     color: var(--fc-light);
 }
 
 .site-font-brand {
     font-family: var(--ff-fancy);
     font-size: var(--fsz-400);
-    font-weight: var(--fw-med);
+    font-weight: var(--fw-bold);
     color: var(--fc-med-green);
 }
 
@@ -62,9 +63,10 @@
 .site-fc-med { color: var(--fc-med); }
 .site-fc-xdark { color: var(--fc-xdark); }
 
+.site-fw-xlight { font-weight: var(--fw-xlight); }
 .site-fw-light { font-weight: var(--fw-light); }
-.site-fw-med { font-weight: var(--fw-med); }
 .site-fw-bold { font-weight: var(--fw-bold); }
+.site-fw-xbold { font-weight: var(--fw-xbold); }
 
 .site-flh-xtight { line-height: var(--flh-xtight); }
 .site-flh-tight { line-height: var(--flh-tight); }

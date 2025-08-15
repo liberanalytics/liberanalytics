@@ -35,7 +35,7 @@
     border-bottom-style: solid;
     border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
     font-size: var(--fsz-200);
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-xlight);
     color: var(--clr-med-dark);
     text-decoration: none;    
 }
@@ -81,7 +81,7 @@
     margin-left: auto;
     font-family: Studio-Feixen-Sans, Helvetica, serif;      
     font-size: var(--fsz-200);
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-xlight);
     color: var(--clr-med-blue);
     text-decoration: none;    
 }

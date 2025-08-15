@@ -105,7 +105,7 @@ ul li, ol li {
     background-color: var(--clr-med-dark);
     font-family: var(--ff-primary-heading);
     font-size: var(--fsz-400);
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-xlight);
     color: var(--clr-xlt-light);
 }
 
@@ -113,7 +113,7 @@ ul li, ol li {
     margin: var(--sz-600) 0 var(--sz-300) 0;
     font-family: var(--ff-secondary-heading);
     font-size: var(--fsz-400);
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-xlight);
     line-height: var(--lh-med);
     color: var(--clr-med-green);
 }
@@ -121,7 +121,7 @@ ul li, ol li {
 a {
     font-family: Studio-Feixen-Sans, Helvetica, serif; 
     font-size: var(--fsz-200);
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-xlight);
     color: var(--clr-med-blue);
     text-decoration: none;
 }
