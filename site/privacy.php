@@ -33,10 +33,14 @@
 					At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 					This page outlines what information we collect, how we use it, and your rights.
 				</p>
-				<h2 class="
-				legal-mt-std legal-mb-std legal-text legal-fsz-large legal-flh-med legal-fw-xlight legal-fc-med-green">
+				<h2 class=
+				"legal-mt-std legal-mb-std legal-text legal-fsz-large legal-flh-med legal-fw-xlight legal-fc-med-green">
 					Information We Collect
 				</h2>
+				<ul class="privacy-list">
+					<li>If you submit a message through our contact form, we collect your name and email address.</li>
+					<li>We do not sell, rent, or share your personal information with third parties.</li>
+				</ul>				
 								
 			</div>
 

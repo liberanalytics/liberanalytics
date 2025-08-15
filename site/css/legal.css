@@ -13,7 +13,6 @@
 }
 
 .eff-date { padding-right: var(--sz-300); }
-.legal-mt-std { margin-top: var(--sz-600); }
 
 .legal-text {
     font-family: var(--legal-ff, var(--ff-main));
@@ -21,15 +20,6 @@
     line-height: var(--legal-flh-tight, var(--flh-tight));
     font-weight: var(--legal-fw-light, var(--fw-light));
     color: var(--legal-fc-xdark, var(--fc-xdark));
-}
-
-.legal-subheading {
-    margin: 1.25rem 0 .625rem 0;
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: var(--fsz-400);
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--clr-med-green);
 }
 
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
