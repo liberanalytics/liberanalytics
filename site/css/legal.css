@@ -1,24 +1,21 @@
 /** ----------------------------------------- Privacy Styles ----------------------------------------- **/
 
-:root {
+.legal {
+    --legal-ff: var(--ff-main);
     --legal-fsz-300: var(--fsz-300);
+    --legal-flh-tight: var(--flh-med);
     --legal-flh-med: var(--flh-med);
     --legal-fw-light: var(--fw-light);
     --legal-fc-xdark: var(--fc-xdark);
 }
 
-.eff-date {
-    padding-right: var(--sz-300);
-}
-
-.legal-mt-std {
-    margin: var(--sz-600) 0 0 0;
-}
+.eff-date { padding-right: var(--sz-300); }
+.legal-mt-std { margin-top: var(--sz-600); }
 
 .legal-text {
-    font-family: var(--ff-main);
-    font-size: var(--legal-fsz-300);
-    line-height: var(--legal-flh-med);
-    font-weight: var(--legal-fw-light);
-    color: var(--legal-fc-xdark);
+    font-family: var(--legal-ff, var(--ff-main));
+    font-size: var(--legal-fsz-300, var(--fsz-300));
+    line-height: var(--legal-flh-med, var(--flh-med));
+    font-weight: var(--legal-fw-light, var(--fw-light));
+    color: var(--legal-fc-xdark, var(--fc-xdark));
 }
