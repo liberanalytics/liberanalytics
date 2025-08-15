@@ -3,10 +3,13 @@
 .legal {
     --legal-ff: var(--ff-main);
     --legal-fsz-300: var(--fsz-300);
+    --legal-fsz-400: var(--fsz-400);
     --legal-flh-tight: var(--flh-tight);
     --legal-flh-med: var(--flh-med);
+    --legal-fw-xlight: var(--fw-xlight);
     --legal-fw-light: var(--fw-light);
     --legal-fc-xdark: var(--fc-xdark);
+    --legal-fc-med-green: var(--fc-med-green);
 }
 
 .eff-date { padding-right: var(--sz-300); }
@@ -15,9 +18,21 @@
 .legal-text {
     font-family: var(--legal-ff, var(--ff-main));
     font-size: var(--legal-fsz-300, var(--fsz-300));
-    line-height: var(--legal-flh-med, var(--flh-med));
+    line-height: var(--legal-flh-tight, var(--flh-tight));
     font-weight: var(--legal-fw-light, var(--fw-light));
     color: var(--legal-fc-xdark, var(--fc-xdark));
 }
 
+.legal-subheading {
+    margin: 1.25rem 0 .625rem 0;
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: var(--fsz-400);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--clr-med-green);
+}
+
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
+.legal-fsz-large { font-size: var(--legal-fsz-400); }
+.legal-fw-xlight { font-weight: var(--legal-fw-xlight); }
+.legal-fc-med-green { color: var(--legal-fc-med-green); }

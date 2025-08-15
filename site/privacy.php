@@ -25,15 +25,17 @@
 			<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
 			<div class="site-block-std">
-				<p class="legal-text legal-flh-tight">
+				<p class="legal-text">
 					<span class="eff-date site-fw-xbold site-fc-xdark">Effective Date:</span>
 					<time datetime="2025-07-08">July 8, 2025</time>
 				</p>
-				<p class="legal-mt-std site-font-std site-fs-med site-fw-light site-fc-xdark">
+				<p class="legal-mt-std legal-text">
 					At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 					This page outlines what information we collect, how we use it, and your rights.
 				</p>
-				<!-- <h2 class="privacy-subheading">Information We Collect</h2> -->
+				<h2 class="legal-text legal-fsz-large legal-fw-xlight legal-fc-med-green">
+					Information We Collect
+				</h2>
 								
 			</div>
 
