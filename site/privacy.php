@@ -26,7 +26,7 @@
 
 			<div class="site-block-std">
 				<p class="legal-text">
-					<span class="eff-date site-fw-xbold site-fc-xdark">Effective Date:</span>
+					<span class="legal-pr-300 site-fw-xbold site-fc-xdark">Effective Date:</span>
 					<time datetime="2025-07-08">July 8, 2025</time>
 				</p>
 				<p class="legal-mt-std legal-text">
@@ -37,7 +37,7 @@
 				"legal-mt-std legal-mb-std legal-text legal-fsz-large legal-flh-med legal-fw-xlight legal-fc-med-green">
 					Information We Collect
 				</h2>
-				<ul class="privacy-list">
+				<ul class="privacy-list legal-text">
 					<li>If you submit a message through our contact form, we collect your name and email address.</li>
 					<li>We do not sell, rent, or share your personal information with third parties.</li>
 				</ul>				

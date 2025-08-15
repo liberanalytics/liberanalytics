@@ -2,6 +2,7 @@
 
 .legal {
     --legal-ff: var(--ff-main);
+    --legal-fsz-200: var(--fsz-200);
     --legal-fsz-300: var(--fsz-300);
     --legal-fsz-400: var(--fsz-400);
     --legal-flh-tight: var(--flh-tight);
@@ -12,8 +13,6 @@
     --legal-fc-med-green: var(--fc-med-green);
 }
 
-.eff-date { padding-right: var(--sz-300); }
-
 .legal-text {
     font-family: var(--legal-ff, var(--ff-main));
     font-size: var(--legal-fsz-300, var(--fsz-300));
@@ -21,6 +20,16 @@
     font-weight: var(--legal-fw-light, var(--fw-light));
     color: var(--legal-fc-xdark, var(--fc-xdark));
 }
+
+.privacy-list {
+    padding: 0 var(--sz-600);
+    font-size: var(--legal-fsz-200);
+    line-height: var(--legal-flh-med);
+}
+
+.privacy-list li { list-style-type: disc; }
+
+.privacy-list li::marker { color: var(--legal-fc-med-green); }
 
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
 .legal-flh-med { line-height: var(--legal-flh-med); }
@@ -30,3 +39,4 @@
 
 .legal-mt-std { margin-top: var(--sz-600); }
 .legal-mb-std { margin-bottom: var(--sz-300); }
+.legal-pr-300 { padding-right: var(--sz-300); }
