@@ -33,6 +33,10 @@
 }
 
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
+.legal-flh-med { line-height: var(--legal-flh-med); }
 .legal-fsz-large { font-size: var(--legal-fsz-400); }
 .legal-fw-xlight { font-weight: var(--legal-fw-xlight); }
 .legal-fc-med-green { color: var(--legal-fc-med-green); }
+
+.legal-mt-std { margin-top: var(--sz-600); }
+.legal-mb-std { margin-bottom: var(--sz-300); }
