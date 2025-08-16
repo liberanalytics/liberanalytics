@@ -11,6 +11,7 @@
     --legal-flh-med: var(--flh-med);
     --legal-fw-xlight: var(--fw-xlight);
     --legal-fw-light: var(--fw-light);
+    --legal-fw-bold: var(--fw-bold);
     --legal-fc-xdark: var(--fc-xdark);
     --legal-fc-med-green: var(--fc-med-green);
 }
@@ -43,12 +44,21 @@ ul.legal-list li {
     list-style-position: outside;
 }
 
+ol.legal-list { 
+    padding-inline-start: var(--sz-800); 
+    list-style: none;
+}
+
 ol.legal-list li {
-    list-style-type: decimal;
-    list-style-position: outside;
+
 }
 
 ul.legal-list li::marker { color: var(--legal-fc-med-green); }
+
+ol.legal-list li::marker { 
+    color: var(--legal-fc-xdark);
+    font-weight: var(--legal-fw-bold);
+ }
 
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
 .legal-flh-med { line-height: var(--legal-flh-med); }
@@ -62,6 +72,7 @@ ul.legal-list li::marker { color: var(--legal-fc-med-green); }
 
 .legal-flow { --legal-flow-margin: var(--legal-flow-spacer-lg); }
 .legal-flow ul { --legal-flow-margin: var(--legal-flow-spacer-med); }
+.legal-flow ol { --legal-flow-margin: var(--legal-flow-spacer-lg); }
 
 :where(.legal-flow :not(:first-child)) {
     margin-block-start: var(--legal-flow-margin);
