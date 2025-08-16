@@ -2,6 +2,8 @@
 
 .legal {
     --legal-ff: var(--ff-main);
+    --legal-flow-spacer-lg: var(--sz-600);
+    --legal-flow-spacer-med: var(--sz-300);
     --legal-fsz-small: var(--fsz-200);
     --legal-fsz-med: var(--fsz-300);
     --legal-fsz-large: var(--fsz-400);
@@ -48,3 +50,19 @@
 .legal-mt-std { margin-block-start: var(--sz-600); }
 .legal-mb-std { margin-block-end: var(--sz-300); }
 .legal-pr-300 { padding-right: var(--sz-300); }
+
+.legal-flow {
+    --legal-flow-margin: var(--legal-flow-spacer-lg);
+}
+
+.legal-flow ul {
+    --legal-flow-margin: var(--legal-flow-spacer-med);
+}
+
+:where(.legal-flow :not(:first-child):not(li)) {
+    margin-top: var(--legal-flow-margin);
+}
+
+.legal-stack > * + * {
+    margin-top: var(--legal-flow-spacer, var(--sz-600));    
+}
