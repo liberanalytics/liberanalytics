@@ -54,8 +54,7 @@ ol.legal-list { padding-inline-start: var(--sz-600); }
 
 .legal-list-nocounter li {
     position: relative;
-    padding-inline-start: var(--sz-600);
-    
+    padding-inline-start: var(--sz-600);    
 }
 
 .legal-list-nocounter li:nth-child(odd) { counter-increment: alt; }
@@ -64,9 +63,8 @@ ol.legal-list { padding-inline-start: var(--sz-600); }
     position: absolute;
     left: 0;
     top: var(--sz-100);
-
     color: var(--legal-fc-xdark);
-    content: counter(alt) ".";    
+    content: counter(alt) ".";
 }  
 
 ul.legal-list li::marker { color: var(--legal-fc-med-green); }
@@ -94,7 +92,3 @@ ol.legal-list li::marker {
 .legal-flow :is(h2) { margin-block-start: var(--legal-flow-spacer-lg);}
 .legal-flow :is(p) { margin-block-start: var(--legal-flow-spacer-med);}
 .legal-flow .legal-list > li + li { margin-block-start: var(--legal-flow-spacer-med);}
-
-.legal-stack > * + * {
-    margin-block-start: var(--legal-flow-margin);    
-}

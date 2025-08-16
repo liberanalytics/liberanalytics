@@ -49,13 +49,9 @@
 					<li><h2 class="legal-heading">Use of the Site</h2></li>
 					<li>
 						<p class="legal-text">You agree to use the Site for lawful purposes only. You must not:</p>
-						<ul>
-							<p class="legal-pl-300 legal-fsz-small legal-fc-med">a) Attempt to gain unauthorized access to the Site or its systems.</p>
-							<p class="legal-pl-300 legal-fsz-small legal-fc-med">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
-							<p class="legal-pl-300 legal-fsz-small legal-fc-med">c) Use the Site in a manner that violates applicable laws or regulations.</p>
-						</ul>
-
-
+						<p class="legal-pl-300 legal-fsz-small legal-fc-med">a) Attempt to gain unauthorized access to the Site or its systems.</p>
+						<p class="legal-pl-300 legal-fsz-small legal-fc-med">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
+						<p class="legal-pl-300 legal-fsz-small legal-fc-med">c) Use the Site in a manner that violates applicable laws or regulations.</p>
 					</li>
 					<li><h2 class="legal-heading">Intellectual Property</h2></li>
 					<li>
