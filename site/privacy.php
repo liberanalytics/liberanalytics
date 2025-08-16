@@ -36,14 +36,14 @@
 				<h2 class="legal-heading">
 					Information We Collect
 				</h2>
-				<ul class="privacy-list">
+				<ul class="legal-list">
 					<li>If you submit a message through our contact form, we collect your name and email address.</li>
 					<li>We do not sell, rent, or share your personal information with third parties.</li>
 				</ul>
 				<h2 class="legal-heading">
 					Cookies and Analytics
 				</h2>
-				<ul class="privacy-list">
+				<ul class="legal-list">
 					<li>
 						<span class="site-font-brand">LiberAnalytics</span> 
 						may use basic website analytics (such as Google Analytics) to understand site usage.
@@ -54,14 +54,14 @@
 					</li>
 				</ul>
 				<h2 class="legal-heading">Your Rights</h2>
-				<ul class="privacy-list">
+				<ul class="legal-list">
 					<li>
 						You may request deletion of your submitted information
 						at any time by contacting us at liber@liberanalytics.com.
 					</li>
 				</ul>
 				<h2 class="legal-heading">Contact</h2>
-				<ul class="privacy-list">
+				<ul class="legal-list">
 					<li>For questions about this policy, contact us at: liber@liberanalytics.com</li>
 				</ul>								
 			</div>

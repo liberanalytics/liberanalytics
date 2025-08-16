@@ -31,19 +31,24 @@
     color: var(--legal-fc-med-green, var(--fc-med-green));
 }
 
-.privacy-list {
+.legal-list {
     padding-inline: var(--sz-600);
     font-family: var(--legal-ff, var(--ff-main));
     font-size: var(--legal-fsz-small);
     line-height: var(--legal-flh-med);
 }
 
-.privacy-list li { 
+ul.legal-list li { 
     list-style-type: disc;
     list-style-position: outside;
 }
 
-.privacy-list li::marker { color: var(--legal-fc-med-green); }
+ol.legal-list li {
+    list-style-type: decimal;
+    list-style-position: outside;
+}
+
+ul.legal-list li::marker { color: var(--legal-fc-med-green); }
 
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
 .legal-flh-med { line-height: var(--legal-flh-med); }
@@ -51,12 +56,14 @@
 .legal-fw-xlight { font-weight: var(--legal-fw-xlight); }
 .legal-fc-med-green { color: var(--legal-fc-med-green); }
 
+.legal-mt-std { margin-block-start: var(--sz-600); }
+.legal-mb-std { margin-block-end: var(--sz-300); }
 .legal-pr-300 { padding-right: var(--sz-300); }
 
 .legal-flow { --legal-flow-margin: var(--legal-flow-spacer-lg); }
 .legal-flow ul { --legal-flow-margin: var(--legal-flow-spacer-med); }
 
-:where(.legal-flow :not(:first-child):not(li)) {
+:where(.legal-flow :not(:first-child)) {
     margin-block-start: var(--legal-flow-margin);
 }
 
