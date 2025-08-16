@@ -32,7 +32,7 @@
 				<ol class="legal-list legal-list-nocounter">
 					<li><h2 class="legal-heading">Acceptance of Terms</h2></li>
 					<li>
-						<p class="legal-text">
+						<p class="legal-text legal-flow-med">
 							By accessing and using <span class="site-font-brand">LiberAnalytics.com</span> (“the Site”),
 							you agree to comply with and be bound by these Terms of Use. 
 							If you do not agree with these terms, please do not use the Site.

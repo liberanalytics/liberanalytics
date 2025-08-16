@@ -94,7 +94,8 @@ ol.legal-list li::marker {
 
 .legal-flow { --legal-flow-margin: var(--legal-flow-spacer-lg); }
 .legal-flow ul { --legal-flow-margin: var(--legal-flow-spacer-med); }
-.legal-flow ol { --legal-flow-margin: var(--legal-flow-spacer-lg); }
+.legal-flow p { --legal-flow-margin: var(--legal-flow-spacer-med); }
+/* .legal-flow ol { --legal-flow-margin: var(--legal-flow-spacer-lg); } */
 
 :where(.legal-flow :not(:first-child)) {
     margin-block-start: var(--legal-flow-margin);
