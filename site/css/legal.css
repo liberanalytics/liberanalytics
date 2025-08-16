@@ -44,12 +44,12 @@ ul.legal-list li {
     list-style-position: outside;
 }
 
-ol.legal-list { 
-    padding-inline-start: var(--sz-800); 
-    list-style: none;
-}
+ol.legal-list { padding-inline-start: var(--sz-800); }
 
-.legal-list-nocounter { counter-reset: alt; }
+.legal-list-nocounter { 
+    list-style: none;
+    counter-reset: alt; 
+}
 
 ol.legal-list li {
 
