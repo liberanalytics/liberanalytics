@@ -67,10 +67,7 @@ ol.legal-list { padding-inline-start: var(--sz-600); }
 
     color: var(--legal-fc-xdark);
     content: counter(alt) ".";    
-  }
-
-.alt-numbered li:nth-child(even)::before { content: ""; }
-  
+}  
 
 ul.legal-list li::marker { color: var(--legal-fc-med-green); }
 
@@ -94,12 +91,9 @@ ol.legal-list li::marker {
 
 .legal-flow { --legal-flow-margin: var(--legal-flow-spacer-lg); }
 .legal-flow ul { --legal-flow-margin: var(--legal-flow-spacer-med); }
-.legal-flow p { --legal-flow-margin: var(--legal-flow-spacer-med); }
-/* .legal-flow ol { --legal-flow-margin: var(--legal-flow-spacer-lg); } */
-
-:where(.legal-flow :not(:first-child)) {
-    margin-block-start: var(--legal-flow-margin);
-}
+.legal-flow :is(h2) { margin-block-start: var(--legal-flow-spacer-lg);}
+.legal-flow :is(p) { margin-block-start: var(--legal-flow-spacer-med);}
+.legal-flow .legal-list > li + li { margin-block-start: var(--legal-flow-spacer-med);}
 
 .legal-stack > * + * {
     margin-block-start: var(--legal-flow-margin);    
