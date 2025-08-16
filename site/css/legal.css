@@ -49,6 +49,8 @@ ol.legal-list {
     list-style: none;
 }
 
+.legal-list-nocounter { counter-reset: alt; }
+
 ol.legal-list li {
 
 }
