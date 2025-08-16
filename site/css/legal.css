@@ -38,7 +38,11 @@
     line-height: var(--legal-flh-med);
 }
 
-.privacy-list li { list-style-type: disc; }
+.privacy-list li { 
+    list-style-type: disc;
+    list-style-position: outside;
+}
+
 .privacy-list li::marker { color: var(--legal-fc-med-green); }
 
 .legal-flh-tight { line-height: var(--legal-flh-tight); }
@@ -47,22 +51,15 @@
 .legal-fw-xlight { font-weight: var(--legal-fw-xlight); }
 .legal-fc-med-green { color: var(--legal-fc-med-green); }
 
-.legal-mt-std { margin-block-start: var(--sz-600); }
-.legal-mb-std { margin-block-end: var(--sz-300); }
 .legal-pr-300 { padding-right: var(--sz-300); }
 
-.legal-flow {
-    --legal-flow-margin: var(--legal-flow-spacer-lg);
-}
-
-.legal-flow ul {
-    --legal-flow-margin: var(--legal-flow-spacer-med);
-}
+.legal-flow { --legal-flow-margin: var(--legal-flow-spacer-lg); }
+.legal-flow ul { --legal-flow-margin: var(--legal-flow-spacer-med); }
 
 :where(.legal-flow :not(:first-child):not(li)) {
-    margin-top: var(--legal-flow-margin);
+    margin-block-start: var(--legal-flow-margin);
 }
 
 .legal-stack > * + * {
-    margin-top: var(--legal-flow-spacer, var(--sz-600));    
+    margin-block-start: var(--legal-flow-margin);    
 }
