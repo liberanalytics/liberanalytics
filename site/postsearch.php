@@ -23,6 +23,7 @@ $laData = new classes\LaData();
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">	
 	<link href="css/postsearch.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="module" src="js/la.js"></script>
 	<script type="module" src="js/postsearch.js"></script>
@@ -72,7 +73,7 @@ $laData = new classes\LaData();
 									<input id="postsearch_tags" type="text" class="input-control" maxlength="48"
 									data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48"
 									autocomplete="off">
-									<div id="postsearch_tag_suggestions" class="tagsuggestions-box"></div>
+									<div id="postsearch_tag_suggestions" class="tag-suggestion-box"></div>
 								</div>
 							</li>
 							<li>

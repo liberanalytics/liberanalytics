@@ -155,36 +155,6 @@ a:active {
     flex-shrink: 1; 
 }
 
-/** ------------------------------------------- Tag Suggestion Styles ------------------------------------------ **/
-
-.tagsuggestions-box {
-    max-height: 12.5rem;
-    overflow-y: auto;
-    position: absolute;
-    z-index: 1000;
-    width: 100%;
-    background-color: var(--clr-med-dark);
-    color: var(--clr-xlt-light);
-    font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: 1rem;
-    border-bottom-left-radius: .3125rem;
-    border-bottom-right-radius: .3125rem;
-}
-
-.tagsuggestion-item {
-    padding: .5rem;
-    cursor: pointer;
-    border-bottom: 1px solid transparent;    
-}
-
-.tagsuggestion-item.active,
-.tagsuggestion-item:hover {
-  color: var(--clr-hover-link);
-  border-bottom: 1px solid var(--clr-hover-border-accent);
-  transition: color var(--transition-fast) ease-in-out,
-              border-color var(--transition-fast) ease-in-out;
-}
-
 /** -------------------------------------- Site Ajax Styles -------------------------------------- **/
 
 .site-ajax-overlay-relative {
@@ -217,20 +187,20 @@ a:active {
 }
   
 .site-ajax-spinner-centerer {
-display: flex;
-justify-content: center;
-/* spinner vertical center relative to controls height */
-height: 0;
-position: absolute;
-top: 0;
-width: 100%;
-transform: translateY(calc(var(--postsearch-controls-height, 0px) / 2));
+    display: flex;
+    justify-content: center;
+    /* spinner vertical center relative to controls height */
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateY(calc(var(--postsearch-controls-height, 0px) / 2));
 }
   
 .site-ajax-spinner-8spoke {
-position: relative;
-width: 2.5rem;
-height: 2.5rem;
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .site-ajax-spinner-8spoke div {

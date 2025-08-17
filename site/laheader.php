@@ -36,7 +36,7 @@
 							autocomplete="off"
 						>
 					</form>
-					<div id="laheader_tag_suggestions" class="tagsuggestions-box"></div>
+					<div id="laheader_tag_suggestions" class="tag-suggestion-box"></div>
 				</div><!-- End site_search -->
 			</div><!-- End site_search_w -->
 

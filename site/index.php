@@ -18,11 +18,12 @@ $laData = new classes\LaData();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LiberAnalytics -> Home</title>
+	<title>LiberAnalytics | Home</title>
 	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">	
+	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/index.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="module" src="js/la.js"></script>
 
@@ -69,9 +70,9 @@ $laData = new classes\LaData();
 						. "<img src=\"assets/{$post['featured_img']}\"></a>"
 						. "\n\t\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc-container">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name\" href=\"{$post['post_name']}\">"
+						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-font-std site-fc-med\" href=\"{$post['post_name']}\">"
 						. "{$post['short_desc']}</a>"
-						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-std site-fw-light\">"
+						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-std site-fw-light site-flh-med\">"
 						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
 						. "\n\t\t\t\t\t\t\t" . "</p>"
 						. "\n\t\t\t\t\t\t" . '</div>'
@@ -141,7 +142,7 @@ $laData = new classes\LaData();
 
 				<div class="site-block-std site-flex site-gap-800">
 
-					<p class="mission-text site-flex-grow-shrink site-font-emph">
+					<p class="site-flex-grow-shrink site-font-std ">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
 						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
 						are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.

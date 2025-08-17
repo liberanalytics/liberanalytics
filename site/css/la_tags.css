@@ -1,0 +1,29 @@
+/** ------------------------------------------- Tags Styles ------------------------------------------ **/
+
+.tag-suggestion-box {
+    max-height: 12.5rem;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    background-color: var(--clr-med-dark);
+    color: var(--clr-xlt-light);
+    font-family: Studio-Feixen-Sans, Helvetica;
+    font-size: 1rem;
+    border-bottom-left-radius: .3125rem;
+    border-bottom-right-radius: .3125rem;
+}
+
+.tag-suggestion-item {
+    padding: .5rem;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;    
+}
+
+.tag-suggestion-item.active,
+.tag-suggestion-item:hover {
+  color: var(--clr-hover-link);
+  border-bottom: 1px solid var(--clr-hover-border-accent);
+  transition: color var(--transition-fast) ease-in-out,
+              border-color var(--transition-fast) ease-in-out;
+}
