@@ -36,7 +36,7 @@
     border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
-    color: var(--clr-med-dark);
+    color: var(--fc-med);
     text-decoration: none;    
 }
 
@@ -55,11 +55,7 @@
     grid-column: 2;
     align-self: start;
     padding: var(--sz-100) 0 0 0;
-    margin: 0;
-    font-family: var(--fs-main);
-    font-size: var(--fsz-200);
-    line-height: var(--lh-med);
-    color: var(--clr-lt-dark);    
+    margin: 0;    
 }
 
 .featured-post-attrs {

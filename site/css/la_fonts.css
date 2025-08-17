@@ -44,7 +44,7 @@
     font-family: var(--ff-main);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
-    line-height: var(--flh-tight);
+    line-height: var(--flh-med);
     color: var(--fc-light);
 }
 
