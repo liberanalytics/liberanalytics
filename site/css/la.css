@@ -59,33 +59,6 @@ main {
     flex: 1;
 }
 
-/** ----------------------------------------- Site Link Styles ----------------------------------------- **/
-
-a {
-    font-family: var(--ff-main);
-    font-size: var(--fsz-200);
-    font-weight: var(--fw-xlight);
-    /* color: var(--clr-med-blue); */
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--clr-hover-link);
-    text-decoration: underline;    
-    transition-duration: var(--transition-fast);   
-}
-
-a:visited {
-    color: var(--clr-med-blue);
-    text-decoration: none;    
-}
-
-a:active {
-    color: var(--clr-lt-blue);
-    text-decoration: underline;
-    transition-duration: var(--transition-fast);
-}
-
 /** ----------------------------------- Site Component Classes ------------------------------------ **/
 
 .page {

@@ -100,15 +100,5 @@
 .latest-post-link {
     display: block;
     padding-block: var(--sz-300);
-    color: var(--clr-prmary-blk);
 }
 
-.latest-post-link:visited {
-    color: var(--clr-prmary-blk);
-    text-decoration: none; 
-}
-
-.latest-post-link:hover {
-    color: var(--clr-hover-link);
-    transition-duration: var(--transition-fast);
-}

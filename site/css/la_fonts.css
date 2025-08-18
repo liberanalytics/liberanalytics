@@ -22,6 +22,15 @@
     --fc-xdark: var(--clr-xdk-dark);
     --fc-med-green: var(--clr-med-green);
 
+    /* Site font hover colors. */
+    --fc-hover-link: var(--clr-lt-blue);
+    --fc-hover-text-muted: var(--clr-lt-dark);
+    --fc-hover-btn-primary-bg: var(--clr-med-blue);
+    --fc-hover-card-bg: var(--clr-xlt-blue);
+    --fc-hover-nav-bg: var(--clr-lt-blue);
+    --fc-hover-nav-text: var(--clr-xlt-light);
+    --fc-hover-border-accent: var(--clr-lt-blue);    
+
     /* Site font-styles. */
     --ff-main: Studio-Feixen-Sans, Helvetica, sans-serif;
     --ff-primary-heading: Helvetica, sans-serif;
@@ -56,6 +65,13 @@
     font-weight: var(--fw-xlight);
     color: var(--clr-med-blue);
     text-decoration: none;
+}
+
+.site-link-std:hover,
+.site-link-std:active {
+    color: var(--fc-hover-link);
+    text-decoration: underline;    
+    transition-duration: var(--transition-fast);
 }
 
 .site-font-brand {
