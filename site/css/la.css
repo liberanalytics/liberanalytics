@@ -105,15 +105,6 @@ ul li, ol li {
     color: var(--clr-xlt-light);
 }
 
-.site-secondary-heading {
-    margin: var(--sz-600) 0 var(--sz-300) 0;
-    font-family: var(--ff-secondary-heading);
-    font-size: var(--fsz-400);
-    font-weight: var(--fw-xlight);
-    line-height: var(--lh-med);
-    color: var(--clr-med-green);
-}
-
 a {
     font-family: Studio-Feixen-Sans, Helvetica, serif; 
     font-size: var(--fsz-200);
