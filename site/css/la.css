@@ -15,6 +15,10 @@ html {
     height: 100%;
 }
 
+ul li, ol li {
+    list-style-type: none;
+}
+
 /** ----------------------------------------- Root Styles ----------------------------------------- **/
 
 :root {
@@ -54,13 +58,43 @@ main {
     flex: 1;
 }
 
+/** ----------------------------------------- Site Link Styles ----------------------------------------- **/
+
+a {
+    font-family: Studio-Feixen-Sans, Helvetica, serif; 
+    font-size: var(--fsz-200);
+    font-weight: var(--fw-xlight);
+    color: var(--clr-med-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--clr-hover-link);
+    text-decoration: underline;    
+    transition-duration: var(--transition-fast);   
+}
+
+a:visited {
+    color: var(--clr-med-blue);
+    text-decoration: none;    
+}
+
+a:active {
+    color: var(--clr-lt-blue);
+    text-decoration: underline;
+    transition-duration: var(--transition-fast);
+}
+
+/** ----------------------------------- Site Component Classes ------------------------------------ **/
+
 #page_w {
     margin: 3rem auto 3rem auto;
     max-width: 61.25rem;
 }
 
-ul li, ol li {
-    list-style-type: none;
+.page-wrap {   
+    margin: 0 auto 0 auto;
+    max-width: 61.25rem;
 }
 
 .site-block-std {
@@ -91,11 +125,6 @@ ul li, ol li {
         var(--clr-lt-light) 100% ) 1;
 }
 
-.page-wrap {   
-    margin: 0 auto 0 auto;
-    max-width: 61.25rem;
-}
-
 .site-primary-heading {
     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
     background-color: var(--clr-med-dark);
@@ -105,30 +134,7 @@ ul li, ol li {
     color: var(--clr-xlt-light);
 }
 
-a {
-    font-family: Studio-Feixen-Sans, Helvetica, serif; 
-    font-size: var(--fsz-200);
-    font-weight: var(--fw-xlight);
-    color: var(--clr-med-blue);
-    text-decoration: none;
-}
 
-a:hover {
-    color: var(--clr-hover-link);
-    text-decoration: underline;    
-    transition-duration: var(--transition-fast);   
-}
-
-a:visited {
-    color: var(--clr-med-blue);
-    text-decoration: none;    
-}
-
-a:active {
-    color: var(--clr-lt-blue);
-    text-decoration: underline;
-    transition-duration: var(--transition-fast);
-}
 
 /** --------------------------------------- Site Flex Styles --------------------------------------- **/
 
