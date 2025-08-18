@@ -48,6 +48,16 @@
     color: var(--fc-light);
 }
 
+.site-link-std,
+.site-link-std:link,
+.site-link-std:visited {
+    font-family: var(--ff-main);
+    font-size: var(--fsz-200);
+    font-weight: var(--fw-xlight);
+    color: var(--clr-med-blue);
+    text-decoration: none;
+}
+
 .site-font-brand {
     font-family: var(--ff-fancy);
     font-size: var(--fsz-400);

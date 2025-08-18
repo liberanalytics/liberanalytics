@@ -2,8 +2,6 @@
 
 .featured-posts-container { flex-basis: calc(20 * var(--sz-800)) }
 .latest-posts-container { flex-basis: calc(11.667 * var(--sz-800)) }
-.mission-text { flex-basis: calc(25 * var(--sz-800)) }
-.mission-graphic { flex-basis: 0; }
 
 /** ----------------------------------------- Featured Posts----------------------------------------- **/
 
@@ -101,7 +99,7 @@
 
 .latest-post-link {
     display: block;
-    padding: var(--sz-300) 0 var(--sz-300) 0;
+    padding-block: var(--sz-300);
     color: var(--clr-prmary-blk);
 }
 

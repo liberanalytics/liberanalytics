@@ -71,9 +71,9 @@ $laData = new classes\LaData();
 						. "<img src=\"assets/{$post['featured_img']}\"></a>"
 						. "\n\t\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc-container">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-font-std site-fc-med\" href=\"{$post['post_name']}\">"
+						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-fs-med site-fc-med\" href=\"{$post['post_name']}\">"
 						. "{$post['short_desc']}</a>"
-						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-std site-fw-light site-flh-med\">"
+						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-fw-light site-flh-med\">"
 						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
 						. "\n\t\t\t\t\t\t\t" . "</p>"
 						. "\n\t\t\t\t\t\t" . '</div>'
@@ -143,7 +143,7 @@ $laData = new classes\LaData();
 
 				<div class="site-block-std site-flex site-gap-800">
 
-					<p class="site-flex-grow-shrink site-font-std ">
+					<p class="site-flex-grow-shrink site-fs-med">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
 						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
 						are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
@@ -151,14 +151,14 @@ $laData = new classes\LaData();
 						mind while working with data as well as inspire individuals to keep improving!
 					</p>
 
-					<div class="mission-graphic site-flex-grow-shrink">
+					<div class="site-flex-grow-shrink">
 						<img src="assets/mission.png">
 					</div>                    
 
-				</div><!-- End mission -->
-			</section><!-- End mission_w -->
+				</div>
+			</section>
 		
-		</div><!-- End page_w -->
+		</div>
 	</main>
 
 	<?php include_once('lafooter.php'); ?>
