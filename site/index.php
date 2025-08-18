@@ -34,7 +34,7 @@ $laData = new classes\LaData();
 
 	<?php include_once('laheader.php'); ?>
 
-	<main>
+	<main class="page">
 		<div class="page-wrap">
 			<div class="site-flex site-flex-wrap site-gap-800">
 				<section class="featured-posts-container | site-flex-grow-shrink">	

@@ -24,8 +24,6 @@ ul li, ol li {
 :root {
 
     font-size: 16px;
-
-    --content-width: calc(var(--sz-400) * 61.25);
 }
 
 *::before,
@@ -90,9 +88,15 @@ a:active {
 
 /** ----------------------------------- Site Component Classes ------------------------------------ **/
 
+.page {
+    --content-width: calc(var(--sz-400) * 61.25);
+    --content-vertical-margin: calc(var(--sz-400) * 3);
+}
+
 .page-wrap {
-    margin: 3rem auto 3rem auto;
-    max-width: 61.25rem;
+    max-width: var(--content-width);
+    margin-block: var(--content-vertical-margin);
+    margin-inline: auto;
 }
 
 .page-wrap-hdrftr {   
