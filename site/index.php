@@ -30,11 +30,11 @@ $laData = new classes\LaData();
 
 </head>
 
-<body>
+<body class="page site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 
-	<main class="page">
+	<main>
 		<div class="page-wrap">
 			<div class="site-flex site-flex-wrap site-gap-800">
 				<section class="featured-posts-container | site-flex-grow-shrink">	

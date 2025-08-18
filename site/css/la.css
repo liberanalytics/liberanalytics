@@ -62,7 +62,7 @@ main {
 /** ----------------------------------------- Site Link Styles ----------------------------------------- **/
 
 a {
-    font-family: Studio-Feixen-Sans, Helvetica, serif; 
+    font-family: var(--ff-main);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
     color: var(--clr-med-blue);
