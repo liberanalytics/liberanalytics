@@ -4,6 +4,7 @@
 
     font-size: 16px;
 
+    /* Site colors. */
     --clr-xlt-light: rgba(255,255,255, 1);
     --clr-lt-light: rgba(248,248,248, 1);
     --clr-med-light: rgba(196,196,196, 1);

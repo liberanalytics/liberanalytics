@@ -35,7 +35,7 @@ $laData = new classes\LaData();
 	<?php include_once('laheader.php'); ?>
 
 	<main>
-		<div id="page_w">
+		<div class="page-wrap">
 			<div class="site-flex site-flex-wrap site-gap-800">
 				<section class="featured-posts-container | site-flex-grow-shrink">	
 					<h1 class="site-primary-heading">Featured</h1>

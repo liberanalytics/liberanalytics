@@ -1,6 +1,6 @@
 <header id="site_header">
 
-	<div id="site_header_masthead" class="page-wrap clear">
+	<div id="site_header_masthead" class="page-wrap-hdrftr">
 
 		<div id="site_header_logo">
 			<img src="assets/logo_120.png">
@@ -16,7 +16,7 @@
 
 	<div id="site_menu_w">
 
-		<div id="site_menu" class="page-wrap">
+		<div id="site_menu" class="page-wrap-hdrftr">
 
 			<nav id="site_header_nav"> 					
 				<a href="index">Home</a>

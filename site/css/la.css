@@ -22,7 +22,10 @@ ul li, ol li {
 /** ----------------------------------------- Root Styles ----------------------------------------- **/
 
 :root {
+
     font-size: 16px;
+
+    --content-width: calc(var(--sz-400) * 61.25);
 }
 
 *::before,
@@ -87,12 +90,12 @@ a:active {
 
 /** ----------------------------------- Site Component Classes ------------------------------------ **/
 
-#page_w {
+.page-wrap {
     margin: 3rem auto 3rem auto;
     max-width: 61.25rem;
 }
 
-.page-wrap {   
+.page-wrap-hdrftr {   
     margin: 0 auto 0 auto;
     max-width: 61.25rem;
 }
