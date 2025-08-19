@@ -15,7 +15,7 @@
     --fw-xbold: 900;
 
     /* Site font colors. */
-    --fc-xlight: var(--clr-xlt-light);   /* placeholder for future growth */
+    --fc-xlight: var(--clr-xlt-light);
     --fc-light: var(--clr-lt-dark);
     --fc-med: var(--clr-med-dark);
     --fc-dark: var(--clr-dk-dark);   /* placeholder for future growth */
