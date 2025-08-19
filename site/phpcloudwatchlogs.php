@@ -18,7 +18,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LiberAnalytics</title>
+	<title>LiberAnalytics | PHP CloudWatch Logs</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" type="text/css" charset="utf-8"> 
 	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
@@ -83,8 +83,10 @@
 				
 				<p>
 					This post depends on setting up a database configuration file which is covered in a previous post:  
-					<a href="pythonpostgreconnect">Connecting Python to a Postgresql database</a>.
+					<a href="pythonpostgreconnect" class="site-link-std site-link-flh-med">Connecting Python to a Postgresql database</a>.					
 				</p>
+
+				
 
 				<h4 class="post-subheading">Requirements</h1>
 
