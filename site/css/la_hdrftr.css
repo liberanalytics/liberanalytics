@@ -7,7 +7,6 @@
 /** ----------------------------------------- Site Header Styles ------------------------------------- **/
 
 .site-header-container {
-    width: 100%;
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-dark);
 }
