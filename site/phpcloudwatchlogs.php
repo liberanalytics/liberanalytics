@@ -86,8 +86,6 @@
 					<a href="pythonpostgreconnect" class="site-link-std site-link-flh-med">Connecting Python to a Postgresql database</a>.					
 				</p>
 
-				
-
 				<h4 class="post-subheading">Requirements</h1>
 
 				<ul>

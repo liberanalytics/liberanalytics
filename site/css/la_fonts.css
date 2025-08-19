@@ -15,7 +15,7 @@
     --fw-xbold: 900;
 
     /* Site font colors. */
-    --fc-xlight: var(--clr-xlt-dark);   /* placeholder for future growth */
+    --fc-xlight: var(--clr-xlt-light);   /* placeholder for future growth */
     --fc-light: var(--clr-lt-dark);
     --fc-med: var(--clr-med-dark);
     --fc-dark: var(--clr-dk-dark);   /* placeholder for future growth */
@@ -77,7 +77,10 @@
     text-decoration: none;
     text-decoration-thickness: .08em;
     text-underline-offset: .15em;
-    transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+    transition: 
+        color var(--transition-fast),
+        text-decoration-color var(--transition-fast),
+        outline-color var(--transition-fast);
 }
 
 .site-link-std:link,
