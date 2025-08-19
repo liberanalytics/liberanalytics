@@ -94,6 +94,9 @@
 }
 
 .site-link-fc-med { --link-color: var(--fc-med); }
+.site-link-fc-muted { --link-color: var(--fc-light); }
+.site-link-fc-accent { --link-color: var(--fc-med-green); }
+.site-link-fc-xdark { --link-color: var(--fc-xdark); }
 
 .site-fs-xsmall { font-size: var(--fsz-100); }
 .site-fs-small { font-size: var(--fsz-200); }

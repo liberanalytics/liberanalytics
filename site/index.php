@@ -84,7 +84,7 @@ $laData = new classes\LaData();
 						. "\n\t\t\t\t\t\t"
 						. "<a href=\"postsearch?post_category="
 						. rawurlencode($post['post_category']) 
-						. "\" class=\"featured-post-cat\">"
+						. "\" class=\"featured-post-cat site-link-std\">"
 						. "{$post['post_category']}</a>"
 						. "\n\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t" . '</article>';
@@ -126,7 +126,7 @@ $laData = new classes\LaData();
 									echo 
 										"<li>" .
 											 $htmlFormatting . 
-											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-link-std\">{$post['short_desc']}</a>" .
+											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-link-std site-link-fc-xdark\">{$post['short_desc']}</a>" .
 										"</li>";
 	
 									$iter += 1;
