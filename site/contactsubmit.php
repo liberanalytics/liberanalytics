@@ -30,35 +30,35 @@
 	<script type="module" src="js/contactsubmit.js"></script>
 </head>
 
-<body>
+<body class="page site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 
 	<main>
-	<div id="page_w">
-		<div id="contact_w">
-			<section>
-				<h1 class="site-primary-heading">Thank you</h1>
-				<div id="contact_submit_w" class="site-block-std">
+		<div class="page-wrap">
+			<div id="contact_w">
+				<section>
+					<h1 class="site-primary-heading">Thank you</h1>
+					<div id="contact_submit_w" class="site-block-std">
 
-					<div id ="contact_submit">
+						<div id ="contact_submit">
 
-					<p class="site-font-emph" style="line-height: 1.5;">
-						Thank you for contacting LiberAnalytics, 
-						<span id="contact_name" class="site-font-brand"></span>!
-						We are glad to hear from you. We'll get back to you shortly if a response is needed.
-						In the meantime, feel free to explore our latest 
-						<a href="postsearch.php" style="font-size: 1.25rem;">insights</a>.
-					</p>
+						<p class="site-font-emph" style="line-height: 1.5;">
+							Thank you for contacting LiberAnalytics, 
+							<span id="contact_name" class="site-font-brand"></span>!
+							We are glad to hear from you. We'll get back to you shortly if a response is needed.
+							In the meantime, feel free to explore our latest 
+							<a href="postsearch.php" style="font-size: 1.25rem;">insights</a>.
+						</p>
 
-					</div> <!-- End contact_submit -->
-					
-				</div> <!-- End contact_submit_w -->
+						</div>
+						
+					</div>
 
-			</section>
+				</section>
 
-		</div><!-- End contact_w -->
-	</div><!-- End page_w -->
+			</div>
+		</div>
 	</main>
 
 	<?php include_once('lafooter.php'); ?>

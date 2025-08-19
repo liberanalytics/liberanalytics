@@ -30,12 +30,12 @@ $laData = new classes\LaData();
 	<script type="module" src="js/postsearch.js"></script>
 </head>
 
-<body>
+<body class="page site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 
 	<main>
-	<div id="page_w">
+	<div class="page-wrap">
 		<h1 class="site-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 		<div id="postsearch_w" class="site-ajax-overlay-relative">
 			<div id="postsearch_controls">
