@@ -34,8 +34,6 @@
     border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;  
 }
 
-
-
 .featured-post-desc {
     grid-column: 2;
     align-self: start;

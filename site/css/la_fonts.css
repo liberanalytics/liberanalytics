@@ -22,7 +22,8 @@
     --fc-xdark: var(--clr-xdk-dark);
     --fc-med-green: var(--clr-med-green);
 
-    /* Site font hover colors. */
+    /* Site font link & hover colors. */
+    --fc-link: var(--clr-med-blue);
     --fc-hover-link: var(--clr-lt-blue);
     --fc-hover-text-muted: var(--clr-lt-dark);
     --fc-hover-btn-primary-bg: var(--clr-med-blue);
@@ -57,14 +58,24 @@
     color: var(--fc-light);
 }
 
-.site-link-std,
-.site-link-std:link,
-.site-link-std:visited {
+.site-font-brand {
+    font-family: var(--ff-fancy);
+    font-size: var(--fsz-400);
+    font-weight: var(--fw-bold);
+    color: var(--fc-med-green);
+}
+
+.site-link-std {
     font-family: var(--ff-main);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
-    color: var(--clr-med-blue);
+    color: var(--fc-link);
     text-decoration: none;
+}
+
+.site-link-std:link,
+.site-link-std:visited {
+    color: inherit;
 }
 
 .site-link-std:hover,
@@ -73,13 +84,6 @@
     text-decoration: underline;    
     transition-duration: var(--transition-fast);
     cursor: pointer;
-}
-
-.site-font-brand {
-    font-family: var(--ff-fancy);
-    font-size: var(--fsz-400);
-    font-weight: var(--fw-bold);
-    color: var(--fc-med-green);
 }
 
 .site-fs-xsmall { font-size: var(--fsz-100); }
@@ -98,3 +102,4 @@
 .site-flh-xtight { line-height: var(--flh-xtight); }
 .site-flh-tight { line-height: var(--flh-tight); }
 .site-flh-med { line-height: var(--flh-med); }
+
