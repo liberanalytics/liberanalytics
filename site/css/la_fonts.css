@@ -70,6 +70,9 @@
     --link-color-hover: var(--fc-hover-link);
     color: var(--link-color);
     text-decoration: none;
+    text-decoration-thickness: .08em;
+    text-underline-offset: .15em;
+    transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
 }
 
 .site-link-std:link,
@@ -83,6 +86,11 @@
     text-decoration: underline;    
     transition-duration: var(--transition-fast);
     cursor: pointer;
+}
+
+.site-link-std:focus-visible {
+    outline: 2px solid var(--fc-hover-link);
+    outline-offset: 2px;
 }
 
 .site-link-fc-med { --link-color: var(--fc-med); }
