@@ -58,10 +58,11 @@
     color: var(--fc-light);
 }
 
-.site-font-brand {
+.site-font-brand {    
     font-family: var(--ff-fancy);
     font-size: var(--fsz-400);
     font-weight: var(--fw-bold);
+    line-height: inherit;
     color: var(--fc-med-green);
 }
 
@@ -101,12 +102,13 @@
     outline-offset: 2px;
 }
 
+
+.site-link-flh-med { --link-flh: var(--flh-med); }
+
 .site-link-fc-med { --link-fc: var(--fc-med); }
 .site-link-fc-muted { --link-fc: var(--fc-light); }
 .site-link-fc-accent { --link-fc: var(--fc-med-green); }
 .site-link-fc-xdark { --link-fc: var(--fc-xdark); }
-
-.site-link-flh-med { --link-flh: var(--flh-med); }
 
 .site-fs-xsmall { font-size: var(--fsz-100); }
 .site-fs-small { font-size: var(--fsz-200); }

@@ -17,7 +17,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">    
-	<title>LiberAnalytics</title>
+	<title>LiberAnalytics | Why Data</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" type="text/css" charset="utf-8"> 
 	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
