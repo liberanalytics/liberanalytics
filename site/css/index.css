@@ -31,23 +31,10 @@
     padding: 0 0 var(--sz-100) 0;
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
-    font-size: var(--fsz-200);
-    font-weight: var(--fw-xlight);
-    color: var(--fc-med);
-    text-decoration: none;    
+    border-image: linear-gradient( to left, var(--clr-med-light) , var(--clr-lt-light) ) 1;  
 }
 
-.featured-post-name:visited {
-    color: var(--clr-med-dark);
-}
 
-.featured-post-name:hover {
-    color: var(--clr-hover-link);
-    text-decoration: underline;    
-    transition-duration: var(--transition-fast);  
-    cursor: pointer;
-}
 
 .featured-post-desc {
     grid-column: 2;
@@ -78,12 +65,6 @@
     font-weight: var(--fw-xlight);
     color: var(--clr-med-blue);
     text-decoration: none;    
-}
-
-.featured-post-cat:hover {
-    color: var(--clr-hover-link);
-    text-decoration: underline;    
-    transition-duration: var(--transition-fast);   
 }
 
 /** ----------------------------------------- Latest Posts ----------------------------------------- **/

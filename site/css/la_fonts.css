@@ -68,10 +68,11 @@
 }
 
 .site-link-std:hover,
-.site-link-std:active {
+.site-link-std:focus {
     color: var(--fc-hover-link);
     text-decoration: underline;    
     transition-duration: var(--transition-fast);
+    cursor: pointer;
 }
 
 .site-font-brand {
