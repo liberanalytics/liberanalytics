@@ -66,25 +66,26 @@
 }
 
 .site-link-std {
-    font-family: var(--ff-main);
-    font-size: var(--fsz-200);
-    font-weight: var(--fw-xlight);
-    color: var(--fc-link);
+    --link-color: var(--fc-link);
+    --link-color-hover: var(--fc-hover-link);
+    color: var(--link-color);
     text-decoration: none;
 }
 
 .site-link-std:link,
 .site-link-std:visited {
-    color: inherit;
+    color: var(--link-color);
 }
 
 .site-link-std:hover,
 .site-link-std:focus {
-    color: var(--fc-hover-link);
+    color: var(--link-color-hover);
     text-decoration: underline;    
     transition-duration: var(--transition-fast);
     cursor: pointer;
 }
+
+.site-link-fc-med { --link-color: var(--fc-med); }
 
 .site-fs-xsmall { font-size: var(--fsz-100); }
 .site-fs-small { font-size: var(--fsz-200); }
