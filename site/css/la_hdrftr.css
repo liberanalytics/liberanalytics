@@ -7,8 +7,15 @@
 /** ----------------------------------------- Site Header Styles ------------------------------------- **/
 
 .site-header-container {
+    width: 100%;
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-dark);
+}
+
+.site-header-masthead {
+    max-width: var(--content-width);
+    padding: var(--sz-600) 0 var(--sz-350) 0;
+    margin-inline: auto;
 }
 
 /** -------------------------------------- Site Footer Styles -------------------------------------- **/
