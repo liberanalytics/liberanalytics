@@ -22,11 +22,12 @@
 .site-name-liber {
     padding: 0 0 0 var(--sz-300);
     font-size: calc(3 * var(--fsz-100));
-    font-weight: var(--fw-xlight);    
+    font-weight: var(--fw-bold);    
 }
 
 .site-name-analytics {
-    font-weight: var(--fw-bold);
+    font-size: calc(3 * var(--fsz-100));
+    font-weight: var(--fw-xlight);
     font-style: normal;
     color: var(--fc-medlight);
 }
