@@ -34,6 +34,17 @@
 
 .site-tagline {
     margin-left: auto;
+    font-size: var(--fsz-400);
+}
+
+.site-menu-container {
+    margin-block-start: var(--sz-800);
+    padding-block: var(--sz-300);
+    background-color: var(--clr-med-beige);
+}
+
+.site-menu {
+    margin-inline: auto;
 }
 
 /** -------------------------------------- Site Footer Styles -------------------------------------- **/
