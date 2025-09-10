@@ -16,6 +16,7 @@
 
     /* Site font colors. */
     --fc-xlight: var(--clr-xlt-light);
+    --fc-medlight: var(--clr-med-light);
     --fc-light: var(--clr-lt-dark);
     --fc-med: var(--clr-med-dark);
     --fc-dark: var(--clr-dk-dark);   /* placeholder for future growth */

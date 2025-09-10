@@ -15,6 +15,24 @@
     max-width: var(--content-width);
     padding: var(--sz-600) 0 var(--sz-350) 0;
     margin-inline: auto;
+    font-family: var(--ff-fancy);
+    color: var(--fc-xlight);    
+}
+
+.site-name-liber {
+    padding: 0 0 0 var(--sz-300);
+    font-size: calc(3 * var(--fsz-100));
+    font-weight: var(--fw-xlight);    
+}
+
+.site-name-analytics {
+    font-weight: var(--fw-bold);
+    font-style: normal;
+    color: var(--fc-medlight);
+}
+
+.site-tagline {
+    margin-left: auto;
 }
 
 /** -------------------------------------- Site Footer Styles -------------------------------------- **/
