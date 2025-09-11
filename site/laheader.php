@@ -7,12 +7,12 @@
 		</h2>
 		<h3 class="site-tagline">Freeing analytics from the ordinary.</h3>
 	</div>
-	<div class="site-menu-container">
-		<nav class="site-menu site-flex site-items-center"> 					
-			<a href="index">Home</a>
-			<a href="postsearch">Posts</a>
-			<a href="about">About</a>
-			<a href="contact">Contact</a>
-		</nav>
-	</div>
 </header>
+<div class="site-menu-container site-flex site-items-center">
+	<nav class="site-menu site-flex site-items-center"> 					
+		<a href="index">Home</a>
+		<a href="postsearch">Posts</a>
+		<a href="about">About</a>
+		<a href="contact">Contact</a>
+	</nav>
+</div>

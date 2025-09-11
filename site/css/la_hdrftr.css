@@ -38,6 +38,7 @@
 }
 
 .site-menu-container {
+    max-width: var(--content-width);
     margin-block-start: var(--sz-800);
     padding-block: var(--sz-300);
     background-color: var(--clr-med-beige);
@@ -45,7 +46,7 @@
 
 .site-menu {
     margin-inline: auto;
-    
+
 }
 
 /** -------------------------------------- Site Footer Styles -------------------------------------- **/
