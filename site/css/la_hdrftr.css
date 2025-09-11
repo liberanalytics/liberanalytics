@@ -7,6 +7,7 @@
 /** ----------------------------------------- Site Header Styles ------------------------------------- **/
 
 .site-header-container {
+    padding-block-end: var(--sz-800);
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-dark);
 }
@@ -38,15 +39,14 @@
 }
 
 .site-menu-container {
-    max-width: var(--content-width);
-    margin-block-start: var(--sz-800);
+
     padding-block: var(--sz-300);
     background-color: var(--clr-med-beige);
 }
 
 .site-menu {
+    max-width: var(--content-width);
     margin-inline: auto;
-
 }
 
 /** -------------------------------------- Site Footer Styles -------------------------------------- **/
