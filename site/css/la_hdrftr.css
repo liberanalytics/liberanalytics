@@ -44,6 +44,7 @@
 }
 
 .site-menu {
+    --link-fc-hover:: var(--fc-xlight);
     --link-bg-hover: var(--clr-lt-blue);
     --link-hover-decoration: none;
     max-width: var(--content-width);
@@ -51,6 +52,7 @@
 }
 
 .site-menu > a {
+    display: inline-block;
     padding: var(--sz-300);
     border-radius: var(--sz-300);
 }

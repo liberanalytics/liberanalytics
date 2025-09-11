@@ -70,10 +70,7 @@
 
 .site-link-std {
     --link-fc: var(--fc-link);
-    --link-fc-hover: var(--fc-hover-link);
     --link-flh: var(--flh-tight);
-    --link-bg-hover: transparent;
-    --link-hover-decoration: underline;
     font-family: var(--ff-link);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
@@ -96,9 +93,9 @@
 
 .site-link-std:hover,
 .site-link-std:focus {
-    color: var(--link-fc-hover);
-    background-color: var(--link-bg-hover);
-    text-decoration: var(--link-hover-decoration);
+    color: var(--link-fc-hover, --clr-lt-blue);
+    background-color: var(--link-bg-hover, transparent);
+    text-decoration: var(--link-hover-decoration, underline);
     transition-duration: var(--transition-fast);
     cursor: pointer;
 }
