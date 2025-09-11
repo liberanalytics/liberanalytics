@@ -38,6 +38,7 @@
     --ff-primary-heading: Helvetica, sans-serif;
     --ff-secondary-heading: var(--ff-main);
     --ff-fancy: 'Times New Roman', Times, serif;
+    --ff-link: Helvetica, sans-serif;
 
     /* Site line-height values. */
     --lh-100: 1.0;
@@ -71,7 +72,7 @@
     --link-fc: var(--fc-link);
     --link-fc-hover: var(--fc-hover-link);
     --link-flh: var(--flh-tight);
-    font-family: var(--ff-main);
+    font-family: var(--ff-link);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
     line-height: var(--link-flh);    

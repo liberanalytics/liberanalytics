@@ -49,6 +49,11 @@
     margin-inline: auto;
 }
 
+.site-menu > a {
+    padding: var(--sz-300);
+    border-radius: var(--sz-300);
+}
+
 /** -------------------------------------- Site Footer Styles -------------------------------------- **/
 
 

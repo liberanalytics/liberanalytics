@@ -10,9 +10,9 @@
 </header>
 <div class="site-menu-container">
 	<nav class="site-menu site-flex site-items-center"> 					
-		<a href="index">Home</a>
-		<a href="postsearch">Posts</a>
-		<a href="about">About</a>
-		<a href="contact">Contact</a>
+		<a href="index" class="site-link-std">Home</a>
+		<a href="postsearch" class="site-link-std">Posts</a>
+		<a href="about" class="site-link-std">About</a>
+		<a href="contact" class="site-link-std">Contact</a>
 	</nav>
 </div>
