@@ -39,12 +39,13 @@
 }
 
 .site-menu-container {
-
     padding-block: var(--sz-300);
     background-color: var(--clr-med-beige);
 }
 
 .site-menu {
+    --link-bg-hover: var(--clr-lt-blue);
+    --link-hover-decoration: none;
     max-width: var(--content-width);
     margin-inline: auto;
 }

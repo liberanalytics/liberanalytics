@@ -72,6 +72,8 @@
     --link-fc: var(--fc-link);
     --link-fc-hover: var(--fc-hover-link);
     --link-flh: var(--flh-tight);
+    --link-bg-hover: transparent;
+    --link-hover-decoration: underline;
     font-family: var(--ff-link);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
@@ -82,6 +84,7 @@
     text-underline-offset: .15em;
     transition: 
         color var(--transition-fast),
+        background-color var(--transition-fast),
         text-decoration-color var(--transition-fast),
         outline-color var(--transition-fast);
 }
@@ -94,7 +97,8 @@
 .site-link-std:hover,
 .site-link-std:focus {
     color: var(--link-fc-hover);
-    text-decoration: underline;    
+    background-color: var(--link-bg-hover);
+    text-decoration: var(--link-hover-decoration);
     transition-duration: var(--transition-fast);
     cursor: pointer;
 }
