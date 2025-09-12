@@ -93,7 +93,7 @@
 
 .site-link-std:hover,
 .site-link-std:focus {
-    color: var(--link-fc-hover, --clr-lt-blue);
+    color: var(--link-fc-hover, var(--clr-lt-blue));
     background-color: var(--link-bg-hover, transparent);
     text-decoration: var(--link-hover-decoration, underline);
     transition-duration: var(--transition-fast);

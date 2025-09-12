@@ -15,4 +15,15 @@
 		<a href="about" class="site-link-std">About</a>
 		<a href="contact" class="site-link-std">Contact</a>
 	</nav>
+	<div class="site-search-container">
+		<form id="site_search_form">
+			<input
+				id="site_search_text" 
+				type="search" 
+				title="Search for posts by tag" 
+				placeholder="Search for posts by tag"
+				autocomplete="off"
+			>
+		</form>
+	</div>
 </div>
