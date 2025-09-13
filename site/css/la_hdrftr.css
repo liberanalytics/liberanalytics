@@ -43,6 +43,16 @@
     background-color: var(--clr-med-beige);
 }
 
+
+
+
+
+
+
+
+
+
+
 .site-menu {
     --link-fc-hover: var(--fc-xlight);
     --link-bg-hover: var(--clr-lt-blue);
@@ -51,7 +61,7 @@
     margin-inline: auto;
 }
 
-.site-menu > a {
+.site-menu a {
     display: inline-block;
     padding: var(--sz-300);
     border-radius: var(--sz-300);
@@ -59,7 +69,11 @@
 
 .site-search-container {
     width: min(20rem, 90vw);
-    margin: var(--sz-025) 0 0 auto;
+    margin: 0 0 0 auto;
+}
+
+.site-search {
+
 }
 
 /** -------------------------------------- Site Footer Styles -------------------------------------- **/

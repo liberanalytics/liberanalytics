@@ -9,21 +9,25 @@
 	</div>
 </header>
 <div class="site-menu-container">
-	<nav class="site-menu site-flex site-items-center"> 					
-		<a href="index" class="site-link-std">Home</a>
-		<a href="postsearch" class="site-link-std">Posts</a>
-		<a href="about" class="site-link-std">About</a>
-		<a href="contact" class="site-link-std">Contact</a>
-	</nav>
-	<div class="site-search-container">
-		<form id="site_search_form">
-			<input
-				id="site_search_text" 
-				type="search" 
-				title="Search for posts by tag" 
-				placeholder="Search for posts by tag"
-				autocomplete="off"
-			>
-		</form>
+	<div class="site-menu">
+		<nav class="site-flex site-items-center"> 					
+			<a href="index" class="site-link-std">Home</a>
+			<a href="postsearch" class="site-link-std">Posts</a>
+			<a href="about" class="site-link-std">About</a>
+			<a href="contact" class="site-link-std">Contact</a>
+			<div class="site-search-container">
+				<form class="site-search">
+					<input
+						id="site_search_text" 
+						type="search" 
+						title="Search for posts by tag" 
+						placeholder="Search for posts by tag"
+						autocomplete="off"
+					>
+				</form>
+			</div>			
+		</nav>	
+
+
 	</div>
 </div>
