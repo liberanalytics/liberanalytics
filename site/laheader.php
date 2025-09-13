@@ -22,8 +22,7 @@
 					<label for="header_search" class="site-display-none">Search posts by tag</label>
 					<input
 						class="header-search site-font-input"
-						id="site_search_text"
-						name="header_search"
+						id="header_search"
 						type="search" 
 						title="Search for posts by tag" 
 						placeholder="Search for posts by tag"
