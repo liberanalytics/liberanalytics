@@ -15,9 +15,11 @@
 			<a href="postsearch" class="site-link-std">Posts</a>
 			<a href="about" class="site-link-std">About</a>
 			<a href="contact" class="site-link-std">Contact</a>
+			
 			<div class="site-search-container">
-				<form class="site-search">
+				<form>
 					<input
+						class="site-search"
 						id="site_search_text" 
 						type="search" 
 						title="Search for posts by tag" 
@@ -25,7 +27,8 @@
 						autocomplete="off"
 					>
 				</form>
-			</div>			
+			</div>
+
 		</nav>	
 
 
