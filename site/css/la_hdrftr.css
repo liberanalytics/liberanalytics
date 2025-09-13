@@ -21,6 +21,10 @@
     color: var(--fc-xlight);    
 }
 
+.header-masthead img {
+    width: var(--la-logo-width);
+    height: auto;
+}
 
 /* Header Menu */
 
