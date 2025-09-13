@@ -6,13 +6,13 @@
 
 /** ----------------------------------------- Site Header Styles ------------------------------------- **/
 
-.site-header-container {
+.header-container {
     padding-block-end: var(--sz-800);
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-dark);
 }
 
-.site-header-masthead {
+.header-masthead {
     max-width: var(--content-width);
     padding: var(--sz-600) 0 var(--sz-350) 0;
     margin-inline: auto;
@@ -20,41 +20,31 @@
     color: var(--fc-xlight);    
 }
 
-.site-name-liber {
+.hdrftr-name-liber {
     padding: 0 0 0 var(--sz-300);
     font-size: calc(3 * var(--fsz-100));
     font-weight: var(--fw-bold);    
 }
 
-.site-name-analytics {
+.hdrftr-name-analytics {
     font-size: calc(3 * var(--fsz-100));
     font-weight: var(--fw-xlight);
     font-style: normal;
     color: var(--fc-medlight);
 }
 
-.site-tagline {
+.hdrftr-tagline {
     margin-left: auto;
     font-size: var(--fsz-400);
 }
 
-.site-menu-container {
+.header-menu-container {
     padding-block: var(--sz-300);
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-beige);
 }
 
-
-
-
-
-
-
-
-
-
-
-.site-menu {
+.header-menu {
     --link-fc-hover: var(--fc-xlight);
     --link-bg-hover: var(--clr-lt-blue);
     --link-hover-decoration: none;
@@ -62,18 +52,17 @@
     margin-inline: auto;
 }
 
-.site-menu a {
+.header-menu a {
     display: inline-block;
     padding: var(--sz-300);
     border-radius: var(--sz-300);
 }
 
-.site-search-container {
-   
+.header-search-container {   
     margin: 0 0 0 auto;
 }
 
-.site-search {
+.header-search {
     width: min(calc(20 * var(--sz-400)), 90vw);
     padding: var(--sz-300) var(--sz-300) var(--sz-300) calc(2 * var(--sz-600));
     border: none;   
@@ -81,20 +70,20 @@
     background: url('../assets/mg.svg') var(--clr-dk-blue) no-repeat .125rem center;
 }
 
-.site-search::placeholder {
+.header-search::placeholder {
     color: var(--fc-xlight);
 }
 
-.site-search:focus {
+.header-search:focus {
     outline: none;
     background-color: var(--clr-med-blue);
 }
 
-.site-search:focus::placeholder {
+.header-search:focus::placeholder {
     color: transparent;
 }
 
-.site-search::-webkit-search-cancel-button {
+.header-search::-webkit-search-cancel-button {
     display: none;
 }
 
