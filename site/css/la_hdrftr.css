@@ -1,10 +1,11 @@
-/** -------------------------------- Site Header / Footer Styles ---------------------------------- **/
+/** -------------------------------- Site Header Styles ---------------------------------- **/
 
 :root {
     --la-logo-width: 120px;
 }
 
-/** ----------------------------------------- Site Header Styles ------------------------------------- **/
+
+/* Header Container & Masthead */
 
 .header-container {
     padding-block-end: var(--sz-800);
@@ -20,23 +21,8 @@
     color: var(--fc-xlight);    
 }
 
-.hdrftr-name-liber {
-    padding: 0 0 0 var(--sz-300);
-    font-size: calc(3 * var(--fsz-100));
-    font-weight: var(--fw-bold);    
-}
 
-.hdrftr-name-analytics {
-    font-size: calc(3 * var(--fsz-100));
-    font-weight: var(--fw-xlight);
-    font-style: normal;
-    color: var(--fc-medlight);
-}
-
-.hdrftr-tagline {
-    margin-left: auto;
-    font-size: var(--fsz-400);
-}
+/* Header Menu */
 
 .header-menu-container {
     padding-block: var(--sz-300);
@@ -57,6 +43,9 @@
     padding: var(--sz-300);
     border-radius: var(--sz-300);
 }
+
+
+/* Header Search */
 
 .header-search-container {   
     margin: 0 0 0 auto;
@@ -87,8 +76,29 @@
     display: none;
 }
 
-/** -------------------------------------- Site Footer Styles -------------------------------------- **/
 
+/* Shared Header/Footer Identities */
+
+.hdrftr-name-liber {
+    padding: 0 0 0 var(--sz-300);
+    font-size: calc(3 * var(--fsz-100));
+    font-weight: var(--fw-bold);    
+}
+
+.hdrftr-name-analytics {
+    font-size: calc(3 * var(--fsz-100));
+    font-weight: var(--fw-xlight);
+    font-style: normal;
+    color: var(--fc-medlight);
+}
+
+.hdrftr-tagline {
+    margin-left: auto;
+    font-size: var(--fsz-400);
+}
+
+
+/** -------------------------------- Site Footer Styles ---------------------------------- **/
 
 #site_footer {
     padding: 1.25rem 0 1.25rem 0;
