@@ -114,7 +114,9 @@ main {
     color: var(--fc-xlight);
 }
 
-
+.site-display-none {
+    display: none;
+}
 
 /** --------------------------------------- Site Flex Styles --------------------------------------- **/
 
