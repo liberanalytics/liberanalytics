@@ -39,6 +39,7 @@
     --ff-secondary-heading: var(--ff-main);
     --ff-fancy: 'Times New Roman', Times, serif;
     --ff-link: Helvetica, sans-serif;
+    --ff-sans-serif: Arial, Helvetica, sans-serif;
 
     /* Site line-height values. */
     --lh-100: 1.0;
@@ -53,11 +54,19 @@
 }
 
 .site-font-std {
-    font-family: var(--ff-main);
+    font-family: var(--ff-sans-serif);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
     line-height: var(--flh-tight);
     color: var(--fc-light);
+}
+
+.site-font-input {
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fsz-100);
+    font-weight: var(--fw-bold);
+    line-height: var(--flh-tight);
+    color: var(--fc-xlight);   
 }
 
 .site-font-brand {    

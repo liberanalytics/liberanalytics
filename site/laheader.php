@@ -19,7 +19,7 @@
 			<div class="site-search-container">
 				<form>
 					<input
-						class="site-search"
+						class="site-search site-font-input"
 						id="site_search_text" 
 						type="search" 
 						title="Search for posts by tag" 
