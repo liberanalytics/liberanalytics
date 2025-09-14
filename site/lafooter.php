@@ -21,9 +21,9 @@
 
 	</div>
 
-	<div id="site_footer_stmt" class="page-wrap-hdrftr">
-		<span class="site-tagline">Freeing analytics from the ordinary.</span>
-		<span class="site-footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</span>
+	<div class="footer-name site-flex site-items-center">
+		<span class="footer-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</span>
+		<span class="footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</span>
 	</div>
 
 </footer>

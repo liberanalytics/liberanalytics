@@ -7,7 +7,7 @@
 			<span class="hdrftr-name-liber">Liber</span><!--
 			--><span class="hdrftr-name-analytics">Analytics</span>
 		</h1>
-		<h2 class="hdrftr-tagline">Freeing analytics from the ordinary.</h2>
+		<h2 class="header-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</h2>
 	</div>
 </header>
 <div class="header-menu-container">
