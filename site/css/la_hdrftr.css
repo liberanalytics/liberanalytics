@@ -2,14 +2,18 @@
 
 :root {
     --la-logo-width: 120px;
-    --hdrftr-bg-color: var(--clr-med-dark)
+    --hdrftr-bg-color: var(--clr-med-dark);
+    --knob-hdrftr-bg-color: var(--clr-med-dark);
 }
 
 /* Header Container & Masthead */
 .header-container {
     padding-block-end: var(--sz-800);
     border-bottom: 2px solid var(--clr-med-grey);
-    background-color: var(--hdrftr-bg-color, var(--clr-med-dark));
+    background-color:
+        var(--knob-hdrftr-bg-color,
+        var(--hdrftr-bg-color,
+        var(--clr-med-dark)));
 }
 
 .header-masthead {
@@ -101,7 +105,10 @@
 /* Footer Container & Masthead */
 .footer-container {
     padding: 1.25rem 0 1.25rem 0;
-    background-color: var(--hdrftr-bg-color, var(--clr-med-dark));
+    background-color:
+        var(--knob-hdrftr-bg-color,
+        var(--hdrftr-bg-color,
+        var(--clr-med-dark)));
 }
 
 #site_footer_masthead {
