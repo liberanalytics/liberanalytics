@@ -1,4 +1,4 @@
-<footer class="footer-container">
+<footer class="footer-container" role="contentinfo">
 
 	<div class="footer-masthead site-flex site-items-center site-ff-fancy">
 		
@@ -6,12 +6,12 @@
 			<img src="assets/logo_120.png" alt="Liber Analytics logo">
 		</a>
 
-		<h1>
+		<h2>
 			<span class="hdrftr-name-liber">Liber</span><!--
 			--><span class="hdrftr-name-analytics">Analytics</span>
-		</h1>
+		</h2>
 
-		<nav class="footer-menu site-flex" aria-label="primary"> 			
+		<nav class="footer-menu site-flex" aria-label="Footer"> 			
 			<span><a href="index" class="site-link-std">Home</a></span>
 			<span><a href="about">About</a></span>
 			<span><a href="contact">Contact</a></span>
