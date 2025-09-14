@@ -1,4 +1,4 @@
-<footer id="site_footer">
+<footer class="footer-container">
 
 	<div id="site_footer_masthead" class="page-wrap-hdrftr">
 		

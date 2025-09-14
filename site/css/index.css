@@ -1,7 +1,7 @@
 /** ----------------------------------------- Index Styles ----------------------------------------- **/
 
-.featured-posts-container { flex-basis: calc(20 * var(--sz-800)) }
-.latest-posts-container { flex-basis: calc(11.667 * var(--sz-800)) }
+.featured-posts-container { flex-basis: calc(20 * var(--sz-800)); }
+.latest-posts-container { flex-basis: calc(11.667 * var(--sz-800)); }
 
 /** ----------------------------------------- Featured Posts----------------------------------------- **/
 
