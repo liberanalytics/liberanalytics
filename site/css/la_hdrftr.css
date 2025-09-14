@@ -3,7 +3,6 @@
 :root {
     --la-logo-width: 120px;
     --hdrftr-bg-color: var(--clr-med-dark);
-    --knob-hdrftr-bg-color: var(--clr-med-dark);
 }
 
 /* Header Container & Masthead */
@@ -20,8 +19,6 @@
     max-width: var(--content-width);
     padding: var(--sz-600) 0 var(--sz-350) 0;
     margin-inline: auto;
-    font-family: var(--ff-fancy);
-    color: var(--fc-xlight);    
 }
 
 /* Header Menu */
@@ -80,7 +77,8 @@
 .hdrftr-name-liber {
     padding: 0 0 0 var(--sz-300);
     font-size: calc(3 * var(--fsz-100));
-    font-weight: var(--fw-bold);    
+    font-weight: var(--fw-bold);  
+    color: var(--fc-xlight);
 }
 
 .hdrftr-name-analytics {
@@ -104,43 +102,42 @@
 
 /* Footer Container & Masthead */
 .footer-container {
-    padding: 1.25rem 0 1.25rem 0;
+    padding-block: var(--sz-600);
     background-color:
         var(--knob-hdrftr-bg-color,
         var(--hdrftr-bg-color,
         var(--clr-med-dark)));
 }
 
-#site_footer_masthead {
-    display: flex;
-    align-items: center;
+.footer-masthead {
+    max-width: var(--content-width);
+    margin-inline: auto;
 }
 
-#site_footer_nav {
-    display: flex;
+.footer-menu {
     margin-left: auto;
 }
 
-#site_footer_nav > span {
-    padding: 0 .625rem 0 .625rem;
+.footer-menu > span {
+    padding-inline: var(--sz-300);
     border-right: 1px solid var(--clr-med-blue);;
 }
 
-#site_footer_nav > span:last-child {
+.footer-menu > span:last-child {
     border-right: none;
 }
 
-#site_footer_nav a, #site_footer_nav a:visited {
-    font-family: "Helvetica";    
-    font-size: 1.175em;
-    font-weight: 300;
+.footer-menu a, .footer-menu a:visited {
+    font-family: var(--ff-link);
+    font-size: var(--fsz-500);
+    font-weight: var(--fw-xlight);
     color: var(--clr-med-blue);
     text-decoration: none;
     border-bottom: 1px solid var(--clr-med-blue);
 }
 
-#site_footer_nav a:hover {
-    border-bottom: 3px solid var(--clr-hover-border-accent);
+.footer-menu a:hover {
+    border-bottom: 3px solid var(--fc-hover-border-accent);
     transition-duration: var(--transition-fast);
 }
 

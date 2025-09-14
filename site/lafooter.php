@@ -1,28 +1,29 @@
 <footer class="footer-container">
 
-	<div id="site_footer_masthead" class="page-wrap-hdrftr">
+	<div class="footer-masthead site-flex site-items-center site-ff-fancy">
 		
-		<div id="site_footer_logo">
-			<img src="assets/logo_120.png">
-		</div>
+		<a href="index" aria-label="Home">
+			<img src="assets/logo_120.png" alt="Liber Analytics logo">
+		</a>
 
-		<div id="site_footer_name" class="site-name">
-			<span><em>Liber</em>Analytics</span>
-		</div>
+		<h1>
+			<span class="hdrftr-name-liber">Liber</span><!--
+			--><span class="hdrftr-name-analytics">Analytics</span>
+		</h1>
 
-		<nav id="site_footer_nav"> 			
-			<span><a href="index">Home</a></span>
+		<nav class="footer-menu site-flex" aria-label="primary"> 			
+			<span><a href="index" class="site-link-std">Home</a></span>
 			<span><a href="about">About</a></span>
 			<span><a href="contact">Contact</a></span>
 			<span><a href="privacy">Privacy</a></span>
 			<span><a href="terms">Terms</a></span>
 		</nav>
 
-	</div><!-- End site_footer_masthead -->
+	</div>
 
 	<div id="site_footer_stmt" class="page-wrap-hdrftr">
 		<span class="site-tagline">Freeing analytics from the ordinary.</span>
 		<span class="site-footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</span>
-	</div><!-- End site_footer_stmt -->
+	</div>
 
 </footer>

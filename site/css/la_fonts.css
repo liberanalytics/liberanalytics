@@ -2,6 +2,14 @@
 
 :root {
 
+    /* Site font-styles. */
+    --ff-main: Studio-Feixen-Sans, Helvetica, sans-serif;
+    --ff-primary-heading: Helvetica, sans-serif;
+    --ff-secondary-heading: var(--ff-main);
+    --ff-fancy: 'Times New Roman', Times, serif;
+    --ff-link: Helvetica, sans-serif;
+    --ff-sans-serif: Arial, Helvetica, sans-serif;
+
     /* Site font-sizes. */
     --fsz-100: var(--sz-400);
     --fsz-200: var(--sz-500);
@@ -31,15 +39,7 @@
     --fc-hover-card-bg: var(--clr-xlt-blue);
     --fc-hover-nav-bg: var(--clr-lt-blue);
     --fc-hover-nav-text: var(--clr-xlt-light);
-    --fc-hover-border-accent: var(--clr-lt-blue);    
-
-    /* Site font-styles. */
-    --ff-main: Studio-Feixen-Sans, Helvetica, sans-serif;
-    --ff-primary-heading: Helvetica, sans-serif;
-    --ff-secondary-heading: var(--ff-main);
-    --ff-fancy: 'Times New Roman', Times, serif;
-    --ff-link: Helvetica, sans-serif;
-    --ff-sans-serif: Arial, Helvetica, sans-serif;
+    --fc-hover-border-accent: var(--clr-lt-blue);
 
     /* Site line-height values. */
     --lh-100: 1.0;
@@ -114,18 +114,13 @@
     outline-offset: 2px;
 }
 
-
-.site-link-flh-med { --link-flh: var(--flh-med); }
-
-.site-link-fc-med { --link-fc: var(--fc-med); }
-.site-link-fc-muted { --link-fc: var(--fc-light); }
-.site-link-fc-accent { --link-fc: var(--fc-med-green); }
-.site-link-fc-xdark { --link-fc: var(--fc-xdark); }
+.site-ff-fancy { font-family: var(--ff-fancy); }
 
 .site-fs-xsmall { font-size: var(--fsz-100); }
 .site-fs-small { font-size: var(--fsz-200); }
 .site-fs-med { font-size: var(--fsz-300); }
 
+.site-fc-xlight { color: var(--fc-xlight); }
 .site-fc-light { color: var(--fc-light); }
 .site-fc-med { color: var(--fc-med); }
 .site-fc-xdark { color: var(--fc-xdark); }
@@ -139,3 +134,9 @@
 .site-flh-tight { line-height: var(--flh-tight); }
 .site-flh-med { line-height: var(--flh-med); }
 
+.site-link-flh-med { --link-flh: var(--flh-med); }
+
+.site-link-fc-med { --link-fc: var(--fc-med); }
+.site-link-fc-muted { --link-fc: var(--fc-light); }
+.site-link-fc-accent { --link-fc: var(--fc-med-green); }
+.site-link-fc-xdark { --link-fc: var(--fc-xdark); }
