@@ -74,13 +74,13 @@
 }
 
 .site-font-link-std {
-    --link-fc: var(--fc-link);
+    --knob-link-fc: var(--fc-link);
     --link-flh: var(--flh-tight);
     font-family: var(--ff-link);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
     line-height: var(--link-flh);    
-    color: var(--link-fc);
+    color: var(--knob-link-fc, var(--clr-lt-blue));
     text-decoration: none;
     text-decoration-thickness: .08em;
     text-underline-offset: .15em;
@@ -92,11 +92,11 @@
 }
 
 /* :any-link pseudo class covers :link & :visited */
-.site-font-link-std:any-link { color: var(--link-fc); }
+.site-font-link-std:any-link { color: var(--knob-link-fc); }
 
 .site-font-link-std:hover,
 .site-font-link-std:focus {
-    color: var(--link-fc-hover, var(--clr-lt-blue));
+    color: var(--knob-link-hover-fc, var(--fc-hover-link));
     background-color: var(--link-bg-hover, transparent);
     text-decoration: var(--link-hover-decoration, underline);
     transition-duration: var(--transition-fast);

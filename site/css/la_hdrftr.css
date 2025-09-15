@@ -33,7 +33,7 @@
 }
 
 .header-menu {
-    --link-fc-hover: var(--fc-xlight);
+    --knob-link-hover-fc: var(--fc-xlight);
     --link-bg-hover: var(--clr-lt-blue);
     --link-hover-decoration: none;
     max-width: var(--content-width);
