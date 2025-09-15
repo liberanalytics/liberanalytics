@@ -36,7 +36,7 @@ $laData = new classes\LaData();
 
 	<main>
 		<div class="page-wrap">
-			<div class="site-flex site-flex-wrap site-gap-800">
+			<div class="site-flex site-flex-wrap site-flex-gap-800">
 				<section class="featured-posts-container | site-flex-grow-shrink">	
 					<h1 class="site-primary-heading">Featured</h1>
 					
@@ -141,7 +141,7 @@ $laData = new classes\LaData();
 			<section class="site-mt-std">
 				<h1 class="site-primary-heading">Our Mission</h1>
 
-				<div class="site-block-std site-flex site-gap-800">
+				<div class="site-block-std site-flex site-flex-gap-800">
 
 					<p class="site-flex-grow-shrink site-fs-med">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an

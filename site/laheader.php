@@ -1,5 +1,5 @@
 <header class="header-container">
-	<div class="header-masthead site-flex site-items-center site-ff-fancy site-fc-xlight">
+	<div class="header-masthead site-flex site-flex-items-center site-ff-fancy site-fc-xlight">
 		<a href="index" aria-label="Home">
 			<img src="assets/logo_120.png" alt="Liber Analytics logo">
 		</a>
@@ -13,7 +13,7 @@
 <div class="header-menu-container">
 	<div class="header-menu">
 
-		<nav class="site-flex site-items-center" aria-label="primary"> 					
+		<nav class="site-flex site-flex-items-center" aria-label="primary"> 					
 			<a href="index" class="site-link-std">Home</a>
 			<a href="postsearch" class="site-link-std">Posts</a>
 			<a href="about" class="site-link-std">About</a>
