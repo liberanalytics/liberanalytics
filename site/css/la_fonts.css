@@ -33,13 +33,10 @@
 
     /* Site font link & hover colors. */
     --fc-link: var(--clr-med-blue);
-    --fc-hover-link: var(--clr-lt-blue);
-    --fc-hover-text-muted: var(--clr-lt-dark);
-    --fc-hover-btn-primary-bg: var(--clr-med-blue);
-    --fc-hover-card-bg: var(--clr-xlt-blue);
-    --fc-hover-nav-bg: var(--clr-lt-blue);
-    --fc-hover-nav-text: var(--clr-xlt-light);
-    --fc-hover-border-accent: var(--clr-lt-blue);
+    --fc-link-hover: var(--clr-lt-blue);
+
+    /* Site tag colors. */
+    --fc-tag-hover-border-accent: var(--clr-lt-blue);
 
     /* Site line-height monikers. */
     --flh-xtight: var(--lh-100);
@@ -75,11 +72,11 @@
 
 .site-font-link-std {
     --knob-link-fc: var(--fc-link);
-    --link-flh: var(--flh-tight);
+    --knob-link-flh: var(--flh-tight);
     font-family: var(--ff-link);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
-    line-height: var(--link-flh);    
+    line-height: var(--knob-link-flh);    
     color: var(--knob-link-fc, var(--clr-lt-blue));
     text-decoration: none;
     text-decoration-thickness: .08em;
@@ -97,17 +94,18 @@
 .site-font-link-std:hover,
 .site-font-link-std:focus {
     color: 
-        var(--knob-link-hover-fc, 
-        var(--fc-hover-link,
+        var(--knob-fc-link-hover, 
+        var(--fc-link-hover,
         var(--clr-lt-blue)));
-    background-color: var(--link-bg-hover, transparent);
+    background-color: 
+        var(--knob-link-hover-bg, transparent);
     text-decoration: var(--link-hover-decoration, underline);
     transition-duration: var(--transition-fast);
     cursor: pointer;
 }
 
 .site-font-link-std:focus-visible {
-    outline: 2px solid var(--fc-hover-link);
+    outline: 2px solid var(--fc-link-hover);
     outline-offset: 2px;
 }
 
@@ -131,7 +129,7 @@
 .site-flh-tight { line-height: var(--flh-tight); }
 .site-flh-med { line-height: var(--flh-med); }
 
-.site-link-flh-med { --link-flh: var(--flh-med); }
+.site-link-flh-med { --knob-link-flh: var(--flh-med); }
 
 .site-link-fc-med { --link-fc: var(--fc-med); }
 .site-link-fc-muted { --link-fc: var(--fc-light); }

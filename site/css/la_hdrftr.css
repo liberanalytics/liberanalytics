@@ -33,8 +33,8 @@
 }
 
 .header-menu {
-    --knob-link-hover-fc: var(--fc-xlight);
-    --link-bg-hover: var(--clr-lt-blue);
+    --knob-fc-link-hover: var(--fc-xlight);
+    --knob-link-hover-bg: var(--clr-lt-blue);
     --link-hover-decoration: none;
     max-width: var(--content-width);
     margin-inline: auto;
@@ -137,12 +137,12 @@
 }
 
 .footer-menu a:hover {
-    border-bottom: 3px solid var(--fc-hover-border-accent);
+    border-bottom: 3px solid var(--fc-tag-hover-border-accent);
     transition-duration: var(--transition-fast);
 }
 
 .footer-menu a:focus-visible {
-    outline: 2px solid var(--fc-hover-border-accent);
+    outline: 2px solid var(--fc-tag-hover-border-accent);
     outline-offset: 2px;
 }
 

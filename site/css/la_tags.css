@@ -22,8 +22,8 @@
 
 .tag-suggestion-item.active,
 .tag-suggestion-item:hover {
-  color: var(--fc-hover-link);
-  border-bottom: 1px solid var(--fc-hover-border-accent);
+  color: var(--fc-link-hover);
+  border-bottom: 1px solid var(--fc-tag-hover-border-accent);
   transition: color var(--transition-fast) ease-in-out,
               border-color var(--transition-fast) ease-in-out;
 }
