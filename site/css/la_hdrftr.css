@@ -124,7 +124,7 @@
 
 .footer-menu > span {
     padding-inline: var(--sz-300);
-
+    border-right: 1px solid var(--clr-med-blue);
 }
 
 .footer-menu > span:last-child {
@@ -132,15 +132,8 @@
 }
 
 .footer-menu a, .footer-menu a:visited {
-    display: inline-block;
-    border-right: 1px solid var(--clr-med-blue);
-    border-bottom: 1px solid var(--clr-med-blue);
-    font-family: var(--ff-link);
-    font-size: var(--fsz-500);
-    font-weight: var(--fw-xlight);
-    color: var(--clr-med-blue);
     text-decoration: none;
-
+    border-bottom: 1px solid var(--clr-med-blue);
 }
 
 .footer-menu a:hover {

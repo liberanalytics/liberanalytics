@@ -41,11 +41,6 @@
     --fc-hover-nav-text: var(--clr-xlt-light);
     --fc-hover-border-accent: var(--clr-lt-blue);
 
-    /* Site line-height values. */
-    --lh-100: 1.0;
-    --lh-200: 1.2;
-    --lh-300: 1.5;
-
     /* Site line-height monikers. */
     --flh-xtight: var(--lh-100);
     --flh-tight: var(--lh-200);
@@ -53,6 +48,7 @@
 
 }
 
+/* Site Font Component Classes */
 .site-font-std {
     font-family: var(--ff-sans-serif);
     font-size: var(--fsz-200);
@@ -77,7 +73,7 @@
     color: var(--fc-med-green);
 }
 
-.site-link-std {
+.site-font-link-std {
     --link-fc: var(--fc-link);
     --link-flh: var(--flh-tight);
     font-family: var(--ff-link);
@@ -95,13 +91,11 @@
         outline-color var(--transition-fast);
 }
 
-.site-link-std:link,
-.site-link-std:visited {
-    color: var(--link-fc);
-}
+/* :any-link pseudo class covers :link & :visited */
+.site-font-link-std:any-link { color: var(--link-fc); }
 
-.site-link-std:hover,
-.site-link-std:focus {
+.site-font-link-std:hover,
+.site-font-link-std:focus {
     color: var(--link-fc-hover, var(--clr-lt-blue));
     background-color: var(--link-bg-hover, transparent);
     text-decoration: var(--link-hover-decoration, underline);
@@ -109,7 +103,7 @@
     cursor: pointer;
 }
 
-.site-link-std:focus-visible {
+.site-font-link-std:focus-visible {
     outline: 2px solid var(--fc-hover-link);
     outline-offset: 2px;
 }

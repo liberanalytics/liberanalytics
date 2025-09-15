@@ -71,9 +71,9 @@ $laData = new classes\LaData();
 						. "<img src=\"assets/{$post['featured_img']}\"></a>"
 						. "\n\t\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc-container">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-link-std site-link-fc-med\" href=\"{$post['post_name']}\">"
+						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-font-link-std site-link-fc-med\" href=\"{$post['post_name']}\">"
 						. "{$post['short_desc']}</a>"
-						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-link-std site-link-fc-med site-link-flh-med\">"
+						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-link-std site-link-fc-med site-link-flh-med\">"
 						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
 						. "\n\t\t\t\t\t\t\t" . "</p>"
 						. "\n\t\t\t\t\t\t" . '</div>'
@@ -84,7 +84,7 @@ $laData = new classes\LaData();
 						. "\n\t\t\t\t\t\t"
 						. "<a href=\"postsearch?post_category="
 						. rawurlencode($post['post_category']) 
-						. "\" class=\"featured-post-cat site-link-std\">"
+						. "\" class=\"featured-post-cat site-font-link-std\">"
 						. "{$post['post_category']}</a>"
 						. "\n\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t" . '</article>';
@@ -126,7 +126,7 @@ $laData = new classes\LaData();
 									echo 
 										"<li>" .
 											 $htmlFormatting . 
-											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-link-std site-link-fc-xdark\">{$post['short_desc']}</a>" .
+											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-font-link-std site-link-fc-xdark\">{$post['short_desc']}</a>" .
 										"</li>";
 	
 									$iter += 1;

@@ -11,12 +11,12 @@
 			--><span class="hdrftr-name-analytics">Analytics</span>
 		</h2>
 
-		<nav class="footer-menu site-flex site-flex-gap-400" aria-label="Footer"> 			
-			<a href="index" class="site-link-std">Home</a>
-			<a href="about">About</a>
-			<a href="contact">Contact</a>
-			<a href="privacy">Privacy</a>
-			<a href="terms">Terms</a>
+		<nav class="footer-menu site-flex" aria-label="Footer"> 			
+			<span><a href="index" class="site-font-link-std">Home</a></span>
+			<span><a href="about" class="site-font-link-std">About</a></span>
+			<span><a href="contact" class="site-font-link-std">Contact</a></span>
+			<span><a href="privacy" class="site-font-link-std">Privacy</a></span>
+			<span><a href="terms" class="site-font-link-std">Terms</a></span>
 		</nav>
 
 	</div>

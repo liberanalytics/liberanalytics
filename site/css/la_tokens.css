@@ -46,6 +46,11 @@
     --sz-700: 1.5rem;
     --sz-800: 1.875rem;
 
+    /* Site line-height values. */
+    --lh-100: 1.0;
+    --lh-200: 1.2;
+    --lh-300: 1.5;    
+
     /* Site transitions. */
     --transition-slow: 1s;
     --transition-med: .5s;

@@ -14,10 +14,10 @@
 	<div class="header-menu">
 
 		<nav class="site-flex site-flex-items-center" aria-label="primary"> 					
-			<a href="index" class="site-link-std">Home</a>
-			<a href="postsearch" class="site-link-std">Posts</a>
-			<a href="about" class="site-link-std">About</a>
-			<a href="contact" class="site-link-std">Contact</a>	
+			<a href="index" class="site-font-link-std">Home</a>
+			<a href="postsearch" class="site-font-link-std">Posts</a>
+			<a href="about" class="site-font-link-std">About</a>
+			<a href="contact" class="site-font-link-std">Contact</a>	
 
 			<div class="header-search-container">
 				<form role="search">
