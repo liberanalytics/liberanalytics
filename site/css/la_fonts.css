@@ -96,7 +96,10 @@
 
 .site-font-link-std:hover,
 .site-font-link-std:focus {
-    color: var(--knob-link-hover-fc, var(--fc-hover-link));
+    color: 
+        var(--knob-link-hover-fc, 
+        var(--fc-hover-link,
+        var(--clr-lt-blue)));
     background-color: var(--link-bg-hover, transparent);
     text-decoration: var(--link-hover-decoration, underline);
     transition-duration: var(--transition-fast);
