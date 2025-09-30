@@ -131,14 +131,22 @@
     border-right: none;
 }
 
-.footer-menu a, .footer-menu a:visited {
+.footer-menu a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--clr-med-blue);
+    transition:
+        border-bottom-width var(--transition-fast) ease,
+        border-bottom-color var(--transition-fast) ease;
+}
+
+.footer-menu a:visited {
     text-decoration: none;
     border-bottom: 1px solid var(--clr-med-blue);
 }
 
 .footer-menu a:hover {
-    border-bottom: 3px solid var(--fc-tag-hover-border-accent);
-    transition-duration: var(--transition-fast);
+    border-bottom: 2px solid var(--fc-tag-hover-border-accent);
+    transition-duration: .3s;
 }
 
 .footer-menu a:focus-visible {
