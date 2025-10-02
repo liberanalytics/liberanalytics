@@ -126,7 +126,7 @@ $laData = new classes\LaData();
 									echo 
 										"<li>" .
 											 $htmlFormatting . 
-											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-font-link-std site-link-fc-xdark\">{$post['short_desc']}</a>" .
+											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-font-link-std site-fc-link-xdark\">{$post['short_desc']}</a>" .
 										"</li>";
 	
 									$iter += 1;
