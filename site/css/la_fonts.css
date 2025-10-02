@@ -78,7 +78,7 @@
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
     line-height: var(--knob-link-flh);    
-    color: var(--knob-link-fc, var(--fc-link));
+    color: var(--knob-link-fc);
     text-decoration: none;
     text-decoration-thickness: .08em;
     text-underline-offset: .15em;
