@@ -73,7 +73,7 @@ $laData = new classes\LaData();
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc-container">'
 						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-font-link-std site-link-fc-med\" href=\"{$post['post_name']}\">"
 						. "{$post['short_desc']}</a>"
-						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-link-std site-link-fc-med site-link-flh-med\">"
+						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-std site-flh-med\">"
 						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
 						. "\n\t\t\t\t\t\t\t" . "</p>"
 						. "\n\t\t\t\t\t\t" . '</div>'
