@@ -94,10 +94,7 @@
 
 .site-font-link-std:hover,
 .site-font-link-std:focus {
-    color: 
-        var(--knob-link-fc-hover, 
-        var(--fc-link-hover,
-        var(--clr-lt-blue)));
+    color: var(--knob-link-fc-hover, var(--fc-link-hover));
     background-color: 
         var(--knob-link-hover-bg, transparent);
     text-decoration: var(--link-hover-decoration, underline);
