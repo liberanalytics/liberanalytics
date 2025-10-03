@@ -128,12 +128,10 @@
 .site-flh-med { line-height: var(--flh-med); }
 
 
-/* 
-Site wide link styles - uses knob custom variables 
-to dial property values.
- */
-
-
+/* ---------------------------------------------------------
+   Site-wide link styles
+   Uses knob custom variables to dial property values
+--------------------------------------------------------- */
 .site-link-flh-med { --knob-link-flh: var(--flh-med); }
 .site-link-fc-med { --knob-link-fc: var(--fc-med); }
 .site-link-fc-muted { --knob-link-fc: var(--fc-light); }
