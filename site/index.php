@@ -71,7 +71,7 @@ $laData = new classes\LaData();
 						. "<img src=\"assets/{$post['featured_img']}\"></a>"
 						. "\n\t\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc-container">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-font-link-std site-fc-link-dark\" href=\"{$post['post_name']}\">"
+						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-font-link-std site-link-fc-dark\" href=\"{$post['post_name']}\">"
 						. "{$post['short_desc']}</a>"
 						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-std site-flh-med\">"
 						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
@@ -126,7 +126,7 @@ $laData = new classes\LaData();
 									echo 
 										"<li>" .
 											 $htmlFormatting . 
-											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-font-link-std site-fc-link-xdark\">{$post['short_desc']}</a>" .
+											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-font-link-std site-link-fc-xdark\">{$post['short_desc']}</a>" .
 										"</li>";
 	
 									$iter += 1;

@@ -95,8 +95,7 @@
 .site-font-link-std:hover,
 .site-font-link-std:focus {
     color: var(--knob-link-fc-hover, var(--fc-link-hover));
-    background-color: 
-        var(--knob-link-hover-bg, transparent);
+    background-color: var(--knob-link-hover-bg, transparent);
     text-decoration: var(--link-hover-decoration, underline);
     transition-duration: var(--transition-fast);
     cursor: pointer;
@@ -128,10 +127,16 @@
 .site-flh-tight { line-height: var(--flh-tight); }
 .site-flh-med { line-height: var(--flh-med); }
 
-.site-link-flh-med { --knob-link-flh: var(--flh-med); }
 
-.site-fc-link-med { --knob-link-fc: var(--fc-med); }
-.site-fc-link-muted { --knob-link-fc: var(--fc-light); }
-.site-fc-link-accent { --knob-link-fc: var(--fc-med-green); }
-.site-fc-link-dark { --knob-link-fc: var(--fc-dark); }
-.site-fc-link-xdark { --knob-link-fc: var(--fc-xdark); }
+/* 
+Site wide link styles - uses knob custom variables 
+to dial property values.
+ */
+
+
+.site-link-flh-med { --knob-link-flh: var(--flh-med); }
+.site-link-fc-med { --knob-link-fc: var(--fc-med); }
+.site-link-fc-muted { --knob-link-fc: var(--fc-light); }
+.site-link-fc-accent { --knob-link-fc: var(--fc-med-green); }
+.site-link-fc-dark { --knob-link-fc: var(--fc-dark); }
+.site-link-fc-xdark { --knob-link-fc: var(--fc-xdark); }
