@@ -25,6 +25,7 @@
     /* Site font colors. */
     --fc-xlight: var(--clr-xlt-light);
     --fc-medlight: var(--clr-med-light);
+    --fc-midlight: var(--clr-xlt-dark);
     --fc-light: var(--clr-lt-dark);
     --fc-med: var(--clr-med-dark);
     --fc-dark: var(--clr-dk-dark);   /* placeholder for future growth */
@@ -45,7 +46,7 @@
 
 }
 
-/* Site Font Component Classes */
+/* Site Font (non-link) Component Classes. */
 .site-font-std {
     --knob-font-ff: var(--ff-main);
     font-family: var(--knob-font-ff, var(--ff-main));
@@ -71,6 +72,7 @@
     color: var(--fc-med-green);
 }
 
+/* Site Font (link) Component Classes */
 .site-font-link-std {
     --knob-link-fc: var(--fc-link);
     --knob-link-flh: var(--flh-tight);
@@ -106,6 +108,7 @@
     outline-offset: 2px;
 }
 
+/* Site font utility classes */
 .site-ff-fancy { font-family: var(--ff-fancy); }
 
 .site-fs-xsmall { font-size: var(--fsz-100); }
@@ -113,6 +116,7 @@
 .site-fs-med { font-size: var(--fsz-300); }
 
 .site-fc-xlight { color: var(--fc-xlight); }
+.site-fc-midlight { color: var(--fc-midlight); }
 .site-fc-light { color: var(--fc-light); }
 .site-fc-med { color: var(--fc-med); }
 .site-fc-dark { color: var(--fc-dark); }
@@ -129,8 +133,8 @@
 
 
 /* ---------------------------------------------------------
-   Site-wide link styles
-   Uses knob custom variables to dial property values
+   Site font link utility classes.
+   Uses knob custom variables to dial property values.
 --------------------------------------------------------- */
 .site-link-flh-med { --knob-link-flh: var(--flh-med); }
 .site-link-fc-med { --knob-link-fc: var(--fc-med); }

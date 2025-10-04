@@ -79,7 +79,7 @@ $laData = new classes\LaData();
 						. "\n\t\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t\t" . '</div>'
 						. "\n\t\t\t\t\t" . '<div class="featured-post-attrs">'
-						. "\n\t\t\t\t\t\t" . "<span class=\"featured-post-date\">"
+						. "\n\t\t\t\t\t\t" . "<span class=\"site-font-std site-fc-midlight\">"
 						. date("F j, Y", strtotime($post['post_created'])) . "</span>"
 						. "\n\t\t\t\t\t\t"
 						. "<a href=\"postsearch?post_category="
