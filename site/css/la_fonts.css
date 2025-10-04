@@ -7,8 +7,7 @@
     --ff-primary-heading: Helvetica, sans-serif;
     --ff-secondary-heading: var(--ff-main);
     --ff-fancy: 'Times New Roman', Times, serif;
-    --ff-link: Helvetica, sans-serif;
-    --ff-sans-serif: Arial, Helvetica, sans-serif;
+    --ff-sans-serif: Helvetica, Arial, sans-serif;
 
     /* Site font-sizes. */
     --fsz-100: var(--sz-400);
@@ -137,6 +136,7 @@
    Site font link utility classes.
    Uses knob custom variables to dial property values.
 --------------------------------------------------------- */
+.site-link-ff-sans-serif { --knob-link-ff: var(--ff-sans-serif); }
 .site-link-flh-med { --knob-link-flh: var(--flh-med); }
 .site-link-fc-med { --knob-link-fc: var(--fc-med); }
 .site-link-fc-muted { --knob-link-fc: var(--fc-light); }
