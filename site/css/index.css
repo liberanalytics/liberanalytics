@@ -1,7 +1,17 @@
 /** ----------------------------------------- Index Styles ----------------------------------------- **/
 
-.featured-posts-container { flex-basis: calc(20 * var(--sz-800)); }
-.latest-posts-container { flex-basis: calc(11.667 * var(--sz-800)); }
+/* .featured-posts-container { flex: 0 0 600px; }
+.latest-posts-container { flex: 0 0 320px; } */
+
+.featured-posts-container {
+    flex: 0 1 calc(var(--sz-800) * 20);
+    min-width: 0; 
+}
+
+.latest-posts-container {
+    flex: 0 1 calc(var(--sz-800) * 11.667);
+    min-width: 0;
+}
 
 /** ----------------------------------------- Featured Posts----------------------------------------- **/
 
