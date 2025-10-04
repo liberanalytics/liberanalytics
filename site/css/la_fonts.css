@@ -74,9 +74,10 @@
 
 /* Site Font (link) Component Classes */
 .site-font-link-std {
+    --knob-link-ff: var(--ff-main);
     --knob-link-fc: var(--fc-link);
     --knob-link-flh: var(--flh-tight);
-    font-family: var(--ff-link);
+    font-family: var(--knob-link-ff);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
     line-height: var(--knob-link-flh);    
