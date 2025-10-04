@@ -73,14 +73,11 @@
 
 /* Site Font (link) Component Classes */
 .site-font-link-std {
-    --knob-link-ff: var(--ff-main);
-    --knob-link-fc: var(--fc-link);
-    --knob-link-flh: var(--flh-tight);
-    font-family: var(--knob-link-ff);
+    font-family: var(--knob-link-ff, var(--ff-main));
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
-    line-height: var(--knob-link-flh);    
-    color: var(--knob-link-fc);
+    line-height: var(--knob-link-flh, var(--flh-tight));    
+    color: var(--knob-link-fc, var(--fc-link));
     text-decoration: none;
     text-decoration-thickness: .08em;
     text-underline-offset: .15em;
@@ -92,7 +89,7 @@
 }
 
 /* :any-link pseudo class covers :link & :visited */
-.site-font-link-std:any-link { color: var(--knob-link-fc); }
+.site-font-link-std:any-link { color: var(--knob-link-fc, var(--fc-link)); }
 
 .site-font-link-std:hover,
 .site-font-link-std:focus {
@@ -143,3 +140,4 @@
 .site-link-fc-accent { --knob-link-fc: var(--fc-med-green); }
 .site-link-fc-dark { --knob-link-fc: var(--fc-dark); }
 .site-link-fc-xdark { --knob-link-fc: var(--fc-xdark); }
+.site-link-hover-fc-xlight { --knob-link-fc-hover: var(--fc-xlight); }
