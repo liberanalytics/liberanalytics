@@ -71,11 +71,6 @@ main {
     margin-inline: auto;
 }
 
-.page-wrap-hdrftr {   
-    margin: 0 auto 0 auto;
-    max-width: 61.25rem;
-}
-
 .site-block-std {
     padding: 0 .625rem 0 .625rem;
     margin: 1.5rem 0 0 0;
@@ -111,6 +106,10 @@ main {
     font-size: var(--fsz-400);
     font-weight: var(--fw-xlight);
     color: var(--fc-xlight);
+}
+
+.site-stack > * + * {
+    margin-top: var(--sz-400);
 }
 
 .site-display-none {
