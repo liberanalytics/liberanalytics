@@ -9,7 +9,7 @@
 	<link rel="canonical" href="https://liberanalytics.com/about">
 
 	<meta property="og:title" content="About | LiberAnalytics">
-	<meta property="og:description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving across AWS, PostgreSQL, PHP, and modern front-end patterns.">
+	<meta property="og:description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
 	<meta property="og:url" content="https://liberanalytics.com/about">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="https://liberanalytics.com/assets/social/about.jpg">
