@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>About | LiberAnalytics</title>
-	<meta name="description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving across all domains of data analytics.">
+	<meta name="description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
 	<link rel="canonical" href="https://liberanalytics.com/about">
 
 	<meta property="og:title" content="About | LiberAnalytics">
