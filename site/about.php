@@ -4,13 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
 	<title>LiberAnalytics | About</title>
-	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link rel="canonical" href="https://liberanalytics.com/about">
+	<link href="css/la_tokens.css" rel="stylesheet">
+	<link href="css/la_fonts.css" rel="stylesheet">
+	<link href="css/la.css" rel="stylesheet">
+	<link href="css/la_hdrftr.css" rel="stylesheet">
+	<link href="css/la_tags.css" rel="stylesheet">
+	<link href="css/la_ajax.css" rel="stylesheet">
 	<script type="module" src="js/la.js"></script>
 </head>
 
@@ -30,11 +32,11 @@
 						<span class="site-font-brand">LiberAnalytics, LLC</span>
 						is a solo-built data platform dedicated to clarity, 
 						precision, and personal freedom—because good systems, like good lives, 
-						are designed with intention. We are a data dedicated organization which
+						are designed with intention. We are a data-dedicated organization which
 						specializes in educating data practitioners about the many facets of the
-						world of data. We believe that by showing a variety of different avenues
-						that problems in data can be navigated will cultivate creative problem
-						solving mindsets. With enough exposure to concepts, techniques, tools,
+						world of data. We believe that by showing multiple avenues
+						to solve data problems cultivates creative problem-solving.
+						With enough exposure to concepts, techniques, tools,
 						and practice we gain confidence in our ability to both work with and
 						extract meaning from data.
 					</p>
