@@ -33,7 +33,7 @@
 			<section>
 				<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
-				<div class="site-block-std site-stack site-fs-med">
+				<div class="site-block-std site-stack-mt site-fs-med">
 
 					<p>
 						<span class="site-font-brand">LiberAnalytics</span>

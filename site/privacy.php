@@ -22,7 +22,7 @@
 	<main>
 		<div class="page-wrap">
 
-			<section class="legal site-mt-std">
+			<section class="legal">
 
 				<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
