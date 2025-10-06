@@ -35,7 +35,7 @@
 		}
 
 		.about-summary {
-			margin-block-start: var(--sz-600);
+			margin-block-end: var(--sz-400);
 		}
 
 		@media (min-width: 61.25em) {
@@ -58,16 +58,22 @@
 
 				<section class="about-summary-card">
 					<h2 class="site-primary-heading">About LiberAnalytics</h2>
-					<article>
-						<p class="abbout-summary">What it is, how it's built, and why the stack is bespoke.</p>
+					<article class="site-block-std">
+						<p class="about-summary">
+							What LiberAnalytics is, why it was built, the tech stack that runs it, 
+							and the inspiration and goals the site aspires to uphold.
+						</p>
 						<h3><a href="#liber_about" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
 					</article>
 				</section>
 
 				<section class="about-summary-card">
 					<h2 class="site-primary-heading">LiberAnalytics Philosophy</h2>
-					<article>
-						<p>Emerson x Jung x Nietzsche - creation as self-realization.</p>
+					<article class="site-block-std">
+						<p class="about-summary">
+							The ideologies LiberAnalytics is grounded in during both
+							the site's development and composition of its blog posts.
+						</p>
 						<h3><a href="#liber_philosophy" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
 					</article>
 				</section>
