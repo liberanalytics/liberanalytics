@@ -24,26 +24,19 @@
 
 		.sim-even-columns {
 			display: grid;
+			align-items: start;
 			gap: var(--sz-400);
+			grid-template-columns: 1fr;
 		}
 
-		.sim-liber-philosophy {
-
-		}
-
-		.sim-liber-stack {
-			
-		}
-
-		.sim-liber-philosophy,
+		/* .sim-liber-philosophy,
 		.sim-liber-stack {
 			margin-block: var(--sz-800);
-		}
+		} */
 
 		@media (min-width: 60em) {
 			.sim-even-columns {
-				grid-auto-flow: column;
-				grid-auto-columns: 1fr;
+				grid-template-columns: 1fr 1fr;
 			}
 		}
 
@@ -56,9 +49,7 @@
 
 	<main class="sim-even-columns">
 
-		<section>
-
-			<div class="sim-liber-philosophy site-block-std site-stack-mt site-fs-med">
+		<section class="sim-liber-philosophy site-block-std site-stack-mt site-fs-med">
 			
 			<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
@@ -103,54 +94,48 @@
 				creative demonstrations of how to solve real-world problems with data.
 			</p>			
 
-		</div>
-
 	</section>
 
-	<section>
-
-		<div class="sim-liber-stack site-block-std site-stack-mt site-fs-med">
+	<section class="sim-liber-stack site-block-std site-stack-mt site-fs-med">
 		
-			<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
+		<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
 
-			<p>
-				LiberAnalytics exists at the intersection of Emerson’s transcendentalism, Jung’s
-				individuation, and Nietzsche’s amor fati — three philosophies that together
-				define both the project and the person behind it.
-			</p>
+		<p>
+			LiberAnalytics exists at the intersection of Emerson’s transcendentalism, Jung’s
+			individuation, and Nietzsche’s amor fati — three philosophies that together
+			define both the project and the person behind it.
+		</p>
 
-			<p>
-				From Emerson, LiberAnalytics draws the principle of self-reliance — the conviction
-				that truth and purpose originate from within, not from institutions or convention.
-				The process of building LiberAnalytics is itself an act of transcendence: a refusal
-				to outsource meaning or creativity, a declaration that thought and craft must arise
-				from direct experience.
-			</p>
+		<p>
+			From Emerson, LiberAnalytics draws the principle of self-reliance — the conviction
+			that truth and purpose originate from within, not from institutions or convention.
+			The process of building LiberAnalytics is itself an act of transcendence: a refusal
+			to outsource meaning or creativity, a declaration that thought and craft must arise
+			from direct experience.
+		</p>
 
-			<p>
-				From Jung, it inherits the journey of individuation — the lifelong work of 
-				integrating the fragments of the self into a coherent whole. Every refactor,
-				every design revision, every abstraction of code mirrors that internal ordering
-				— transforming chaos into structure, and instinct into form.
-			</p>
+		<p>
+			From Jung, it inherits the journey of individuation — the lifelong work of 
+			integrating the fragments of the self into a coherent whole. Every refactor,
+			every design revision, every abstraction of code mirrors that internal ordering
+			— transforming chaos into structure, and instinct into form.
+		</p>
 
-			<p>
-				And from Nietzsche, LiberAnallytics embodies amor fati — love of one’s fate.
-				The acceptance that every challenge, delay, and difficulty is not a detour
-				but the path itself. Rather than resist the constraints of life and time,
-				LiberAnalytics absorbs them into its creative momentum.
-			</p>
+		<p>
+			And from Nietzsche, LiberAnalytics embodies amor fati — love of one’s fate.
+			The acceptance that every challenge, delay, and difficulty is not a detour
+			but the path itself. Rather than resist the constraints of life and time,
+			LiberAnalytics absorbs them into its creative momentum.
+		</p>
 
-			<p>
-				Together, these philosophies converge in LiberAnalytics as a single principle:
-			</p>
+		<p>
+			Together, these philosophies converge in LiberAnalytics as a single principle:
+		</p>
 
-			<p>
-				The act of creation as self-realization — to build freely, think deeply,
-				and become whole through one’s own work.
-			</p>
-
-		</div>
+		<p>
+			The act of creation as self-realization — to build freely, think deeply,
+			and become whole through one’s own work.
+		</p>
 
 	</section>
 
