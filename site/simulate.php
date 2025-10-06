@@ -78,7 +78,7 @@
 			
 				<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
-				<div class="site-block-std site-stack-mt">
+				<div class="site-block-std site-stack-mtmb">
 			
 					<p>
 						<span class="site-font-brand">LiberAnalytics</span>
@@ -125,11 +125,11 @@
 			
 			</section>
 			
-			<section id="liber_philosophy" class="site-stack-mt" tabindex="1">
+			<section id="liber_philosophy" tabindex="1">
 			
 				<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
 
-				<div class="site-block-std site-stack-mt">
+				<div class="site-block-std site-stack-mtmb">
 			
 				<p>
 					LiberAnalytics exists at the intersection of Emerson’s transcendentalism, Jung’s

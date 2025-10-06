@@ -109,8 +109,9 @@ main {
 
 /** ------------------------------------ Site Utility Classes -------------------------------------- **/
 
-.site-stack-mt > * + * {    
+.site-stack-mtmb > * + * {    
     margin-top: var(--knob-stack-mt, var(--sz-400));
+    margin-bottom: var(--knob-stack-mb, var(--sz-400));
 }
 
 .site-stack-mt-600 {
