@@ -99,6 +99,7 @@ main {
 
 .site-primary-heading {
     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
+    margin-block-end: var(--sz-600);
     background-color: var(--clr-med-dark);
     font-family: var(--ff-primary-heading);
     font-size: var(--fsz-400);
