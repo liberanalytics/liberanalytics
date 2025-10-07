@@ -64,7 +64,7 @@
 							What LiberAnalytics is, why it was built, the tech stack that runs it, 
 							and the inspiration and goals the site upholds.
 						</p>
-						<h3>
+						<h2>
 							<a 
 								href="#liber_about"
 								class="site-font-link-std site-fs-med"
@@ -72,7 +72,7 @@
 							>
 							Jump to section ->
 							</a>
-						</h3>
+						</h2>
 					</article>
 				</section>
 
@@ -83,7 +83,7 @@
 							The ideologies LiberAnalytics is grounded in during both
 							the site's development and composition of its blog posts.
 						</p>
-						<h3>
+						<h2>
 							<a
 								href="#liber_philosophy"
 								class="site-font-link-std site-fs-med"
@@ -91,7 +91,7 @@
 							>
 							Jump to section ->
 							</a>
-						</h3>
+						</h2>
 					</article>
 				</section>
 
@@ -99,7 +99,7 @@
 
 			<section id="liber_about" tabindex="0">
 			
-				<h3 class="site-primary-heading">About LiberAnalytics</h3>
+				<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
 				<div class="site-block-std site-stack-mtmb">
 			
@@ -150,7 +150,7 @@
 			
 			<section id="liber_philosophy" tabindex="0">
 			
-				<h3 class="site-primary-heading">LiberAnalytics Philosophy</h1>
+				<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
 
 				<div class="site-block-std site-stack-mtmb">
 			
