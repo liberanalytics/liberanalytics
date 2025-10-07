@@ -30,13 +30,12 @@
 	<meta property="og:image:height" content="630">
 	<meta property="og:image:alt" content="LiberAnalytics wordmark on a clean, minimalist background">
 
-	<!-- Styling preferences for address bar. -->
+	<!-- Browser UI styling for address bar. -->
 	<meta name="theme-color" content="#333333">
 	<meta name="theme-color" content="#333333" media="(prefers-color-scheme: dark)">
 	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
-	<!-- Outbound links - don't send the http referrer header when going
-	 	 from https to http. -->
+	<!-- Referrer policy: omit referrer header when navigating from HTTPS to HTTP. -->
 	<meta name="referrer" content="no-referrer-when-downgrade">
 	
 	<!-- Stylesheets and javascript modules/files. -->
