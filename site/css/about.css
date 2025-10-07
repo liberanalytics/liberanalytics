@@ -38,7 +38,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* section[id="liber_about"],
+section[id="liber_about"],
 section[id="liber_philosophy"] {
     scroll-snap-align: start;
-} */
+}
