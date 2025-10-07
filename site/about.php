@@ -12,19 +12,26 @@
 	<!-- Favicon. -->
 	<link rel="icon" href="/favicon.ico" sizes="any">
 	<link rel="icon" type="image/svg+xml" href="/icon.svg">
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
-	<!-- Social media data points. -->
+	<!-- Social media Open Graph data points. -->
 	<meta property="og:title" content="About | LiberAnalytics">
 	<meta property="og:description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
 	<meta property="og:url" content="https://liberanalytics.com/about">
 	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="LiberAnalytics">
+	<meta property="og:locale" content="en_US">
 
 	<!-- Social media image. -->
 	<meta property="og:image" content="https://liberanalytics.com/assets/social/about.jpg">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	<meta property="og:image:alt" content="LiberAnalytics wordmark on a clean, minimalist background">
+
+	<!-- Minor quality-of-life -->
+	<meta name="theme-color" content="#ffffff"> <!-- matches your light theme -->
+	<meta name="color-scheme" content="light dark"> <!-- let UA pick if you add dark later -->
+	<meta name="referrer" content="no-referrer-when-downgrade">
 	
 	<!-- Stylesheets and javascript modules/files. -->
 	<link href="css/la_tokens.css" rel="stylesheet">
