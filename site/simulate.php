@@ -24,26 +24,38 @@
 
 	<style>
 
-		.about-summaries {
+		.sim-even-cols {
 			display: grid;
-			gap: var(--sz-400);
-			margin-block-end: var(--sz-600);
 		}
 
-		.about-summary-card {
-
+		.sim-intro {
+			margin-bottom: var(--sz-600);
 		}
 
-		.about-summary {
-			margin-block-end: var(--sz-400);
+		.sim-anchor-link {
+			display: inline-block;
+			margin-bottom: var(--sz-600);
 		}
 
 		@media (min-width: 61.25em) {
-			.about-summaries {
+			.sim-even-cols {
 				grid-template-columns: 1fr 1fr;
 				align-items: start;
+				gap: var(--sz-600);
+			}
+
+			.page-wrap::after {
+				display: block;
+				content: "";
+				height: 20vh;
 			}
 		}
+
+		html {
+			scroll-snap-type: y proximity;
+			scroll-behavior: smooth;
+		}
+		
 
 	</style>
 </head>
@@ -54,38 +66,63 @@
 
 	<main>
 		<div class="page-wrap site-fs-med">
-			<nav class="about-summaries" aria-label="Page summary">
 
-				<section class="about-summary-card">
+			<nav class="sim-even-cols">
+
+				<div>
 					<h2 class="site-primary-heading">About LiberAnalytics</h2>
-					<article class="site-block-std">
-						<p class="about-summary">
-							What LiberAnalytics is, why it was built, the tech stack that runs it, 
-							and the inspiration and goals the site aspires to uphold.
-						</p>
-						<h3><a href="#liber_about" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
-					</article>
-				</section>
 
-				<section class="about-summary-card">
+					<div class="site-block-std">
+						<p class="sim-intro site-fw-bold">LiberAnalytics is a data focused website with the following goals:</p>
+						<ul class="site-stack-mtmb">
+							<li>Educate data practioners on best practices when working with data.</li>
+							<li>
+								Demonstrate through example how to avoid common pitfalls
+								while traversing the domain of data analytics.
+							</li>
+							<li>
+								Inspire data practioners to think in terms of non-deterministic
+								creative problem solving when tackling cleansing, analysis,
+								predictive, and prescriptive data challenges.
+							</li>
+						</ul>
+						<a href="#liber_about" class="sim-anchor-link | site-font-link-std site-fs-med">Jump to section -></a>
+					</div>
+				</div>
+
+				<div>
 					<h2 class="site-primary-heading">LiberAnalytics Philosophy</h2>
-					<article class="site-block-std">
-						<p class="about-summary">
-							The ideologies LiberAnalytics is grounded in during both
-							the site's development and composition of its blog posts.
+					<div class="site-block-std">
+						<p class="sim-intro site-fw-bold">LiberAnalytics philosophy is simple to comprehend while profound
+							in underlying principle: to motivate others in solving data
+							problems by tapping into the creative self.
 						</p>
-						<h3><a href="#liber_philosophy" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
-					</article>
-				</section>
+						<ul class="site-stack-mtmb">
+							<li>
+								Nietzsche's amor fati - to embrace one's fate and accept
+								that difficulty, challenges, and detours in data and one's
+								life are the path forward and can be sublimated into creative
+								drive.
+							</li>
+							<li>
+								Jung's individuation - the fragmented parts of ourselves can
+								be synthesized into a greater, synergistic whole that is
+								greater than the sum of the parts.
+							</li>
+							<li>
+								Emerson's transcendentalism - to look within oneself in the pursuit
+								of individual meaning and productivity.
+							</li>
+						</ul>
+						<a href="#liber_philosophy" class="sim-anchor-link | site-font-link-std site-fs-med">Jump to section -></a>
+					</div>
+				</div>
 
 			</nav>
 
-			<section id="liber_about" tabindex="1">
-			
-				<h1 class="site-primary-heading">About LiberAnalytics</h1>
-
-				<div class="site-block-std site-stack-mtmb">
-			
+			<section id="liber_about">				
+				<h1 class="site-primary-heading">What we are about</h1>
+				<div class="site-stack-mtmb">
 					<p>
 						<span class="site-font-brand">LiberAnalytics</span>
 						was built on a simple idea: that data systems and personal
@@ -126,57 +163,51 @@
 						The goal is simple: to educate and inspire data practitioners through practical,
 						creative demonstrations of how to solve real-world problems with data.
 					</p>
-				
 				</div>
-			
 			</section>
-			
-			<section id="liber_philosophy" tabindex="1">
-			
-				<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
 
-				<div class="site-block-std site-stack-mtmb">
-			
-				<p>
-					LiberAnalytics exists at the intersection of Emerson’s transcendentalism, Jung’s
-					individuation, and Nietzsche’s amor fati — three philosophies that together
-					define both the project and the person behind it.
-				</p>
-				
-				<p>
-					From Emerson, LiberAnalytics draws the principle of self-reliance — the conviction
-					that truth and purpose originate from within, not from institutions or convention.
-					The process of building LiberAnalytics is itself an act of transcendence: a refusal
-					to outsource meaning or creativity, a declaration that thought and craft must arise
-					from direct experience.
-				</p>
-				
-				<p>
-					From Jung, it inherits the journey of individuation — the lifelong work of 
-					integrating the fragments of the self into a coherent whole. Every refactor,
-					every design revision, every abstraction of code mirrors that internal ordering
-					— transforming chaos into structure, and instinct into form.
-				</p>
-				
-				<p>
-					And from Nietzsche, LiberAnalytics embodies amor fati — love of one’s fate.
-					The acceptance that every challenge, delay, and difficulty is not a detour
-					but the path itself. Rather than resist the constraints of life and time,
-					LiberAnalytics absorbs them into its creative momentum.
-				</p>
-				
-				<p>
-					Together, these philosophies converge in LiberAnalytics as a single principle:
-				</p>
-				
-				<p>
-					The act of creation as self-realization — to build freely, think deeply,
-					and become whole through one’s own work.
-				</p>	
+			<section id="liber_philosophy">
+				<h1 class="site-primary-heading">Philosophies that form our core values</h1>
+				<div class="site-stack-mtmb">
+					<p>
+						LiberAnalytics exists at the intersection of Emerson’s transcendentalism, Jung’s
+						individuation, and Nietzsche’s amor fati — three philosophies that together
+						define both the project and the person behind it.
+					</p>
+					
+					<p>
+						From Emerson, LiberAnalytics draws the principle of self-reliance — the conviction
+						that truth and purpose originate from within, not from institutions or convention.
+						The process of building LiberAnalytics is itself an act of transcendence: a refusal
+						to outsource meaning or creativity, a declaration that thought and craft must arise
+						from direct experience.
+					</p>
+					
+					<p>
+						From Jung, it inherits the journey of individuation — the lifelong work of 
+						integrating the fragments of the self into a coherent whole. Every refactor,
+						every design revision, every abstraction of code mirrors that internal ordering
+						— transforming chaos into structure, and instinct into form.
+					</p>
+					
+					<p>
+						And from Nietzsche, LiberAnalytics embodies amor fati — love of one’s fate.
+						The acceptance that every challenge, delay, and difficulty is not a detour
+						but the path itself. Rather than resist the constraints of life and time,
+						LiberAnalytics absorbs them into its creative momentum.
+					</p>
+					
+					<p>
+						Together, these philosophies converge in LiberAnalytics as a single principle:
+					</p>
+					
+					<p>
+						The act of creation as self-realization — to build freely, think deeply,
+						and become whole through one’s own work.
+					</p>
+				</div>
+			</section>
 
-			</div>
-			
-			</section>			
 
 		</div>
 	</main>
