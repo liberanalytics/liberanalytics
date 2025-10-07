@@ -58,13 +58,21 @@
 			<nav class="about-summaries" aria-label="Page summary">
 
 				<section class="about-summary-card">
-					<h2 class="site-primary-heading">About LiberAnalytics</h2>
+					<h1 class="site-primary-heading">About LiberAnalytics</h1>
 					<article class="site-block-std">
 						<p class="about-summary">
 							What LiberAnalytics is, why it was built, the tech stack that runs it, 
 							and the inspiration and goals the site upholds.
 						</p>
-						<h3><a href="#liber_about" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
+						<h3>
+							<a 
+								href="#liber_about"
+								class="site-font-link-std site-fs-med"
+								aria-label="Jump to section: About LiberAnalytics"
+							>
+							Jump to section ->
+							</a>
+						</h3>
 					</article>
 				</section>
 
@@ -75,15 +83,23 @@
 							The ideologies LiberAnalytics is grounded in during both
 							the site's development and composition of its blog posts.
 						</p>
-						<h3><a href="#liber_philosophy" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
+						<h3>
+							<a
+								href="#liber_philosophy"
+								class="site-font-link-std site-fs-med"
+								aria-label="Jump to section: LiberAnalytics Philosophy"
+							>
+							Jump to section ->
+							</a>
+						</h3>
 					</article>
 				</section>
 
 			</nav>
 
-			<section tabindex="0">
+			<section id="liber_about" tabindex="0">
 			
-				<h1 id="liber_about" class="site-primary-heading">About LiberAnalytics</h1>
+				<h3 class="site-primary-heading">About LiberAnalytics</h3>
 
 				<div class="site-block-std site-stack-mtmb">
 			
@@ -134,7 +150,7 @@
 			
 			<section id="liber_philosophy" tabindex="0">
 			
-				<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
+				<h3 class="site-primary-heading">LiberAnalytics Philosophy</h1>
 
 				<div class="site-block-std site-stack-mtmb">
 			

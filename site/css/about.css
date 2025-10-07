@@ -42,3 +42,11 @@ section[id="liber_about"],
 section[id="liber_philosophy"] {
     scroll-snap-align: start;
 }
+
+/* For users who prefer a reduced motion on scroll experience (OS level setting). */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    html { scroll-snap-type: none; }
+    section[id="liber_about"],
+    section[id="liber_philosophy"] { scroll-snap-align: none; }
+  }
