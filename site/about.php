@@ -59,7 +59,7 @@
 
 				<section class="about-summary-card">
 					<h2 class="site-primary-heading">About LiberAnalytics</h2>
-					<article class="site-block-std">
+					<div class="site-block-std">
 						<p class="about-summary">
 							What LiberAnalytics is, why it was built, the tech stack that runs it, 
 							and the inspiration and goals the site upholds.
@@ -73,12 +73,12 @@
 							Jump to section ->
 							</a>
 						</p>
-					</article>
+					</div>
 				</section>
 
 				<section class="about-summary-card">
 					<h2 class="site-primary-heading">LiberAnalytics Philosophy</h2>
-					<article class="site-block-std">
+					<div class="site-block-std">
 						<p class="about-summary">
 							The ideologies LiberAnalytics is grounded in during both
 							the site's development and composition of its blog posts.
@@ -92,7 +92,7 @@
 							Jump to section ->
 							</a>
 						</p>
-					</article>
+					</div>
 				</section>
 
 			</nav>
