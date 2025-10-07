@@ -37,7 +37,7 @@
 					<article class="site-block-std">
 						<p class="about-summary">
 							What LiberAnalytics is, why it was built, the tech stack that runs it, 
-							and the inspiration and goals the site aspires to uphold.
+							and the inspiration and goals the site upholds.
 						</p>
 						<h3><a href="#liber_about" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
 					</article>
@@ -56,9 +56,9 @@
 
 			</nav>
 
-			<section id="liber_about" tabindex="1">
+			<section tabindex="0">
 			
-				<h1 class="site-primary-heading">About LiberAnalytics</h1>
+				<h1 id="liber_about" class="site-primary-heading">About LiberAnalytics</h1>
 
 				<div class="site-block-std site-stack-mtmb">
 			
@@ -107,7 +107,7 @@
 			
 			</section>
 			
-			<section id="liber_philosophy" tabindex="1">
+			<section id="liber_philosophy" tabindex="0">
 			
 				<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
 
