@@ -8,12 +8,10 @@
 	<meta name="description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
 	<link rel="canonical" href="https://liberanalytics.com/about">
 
-	<meta property="og:title" content="About | LiberAnalytics">
-	<meta property="og:description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
-	<meta property="og:url" content="https://liberanalytics.com/about">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="https://liberanalytics.com/assets/social/about.jpg">
-	<meta property="og:image:alt" content="LiberAnalytics wordmark on a clean, minimalist background">
+	<meta name="theme-color" content="#333333">
+	<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
 	<link href="css/la_tokens.css" rel="stylesheet">
 	<link href="css/la_fonts.css" rel="stylesheet">
 	<link href="css/la.css" rel="stylesheet">
@@ -55,7 +53,17 @@
 			scroll-snap-type: y proximity;
 			scroll-behavior: smooth;
 		}
+
+		section[id="liber_about"],
+		section[id="liber_philosophy"] {
+    		scroll-snap-align: start;
+		}
 		
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-snap-type: none; scroll-behavior: auto; }
+			section[id="liber_about"],
+			section[id="liber_philosophy"] { scroll-snap-align: none; }
+		}
 
 	</style>
 </head>
