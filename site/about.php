@@ -25,7 +25,7 @@
 	<meta property="og:locale" content="en_US">
 
 	<!-- Social media image. -->
-	<meta property="og:image" content="https://liberanalytics.com/assets/social/about.jpg">
+	<meta property="og:image" content="https://liberanalytics.com/assets/social/og_core.jpg">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	<meta property="og:image:alt" content="LiberAnalytics wordmark on a clean, minimalist background">
