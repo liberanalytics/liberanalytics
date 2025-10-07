@@ -1,2 +1,22 @@
 /** ----------------------------------------- About Styles ----------------------------------------- **/
 
+.about-summaries {
+    display: grid;
+    gap: var(--sz-400);
+    margin-block-end: var(--sz-600);
+}
+
+.about-summary-card {
+
+}
+
+.about-summary {
+    margin-block-end: var(--sz-400);
+}
+
+@media (min-width: 61.25em) {
+    .about-summaries {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}

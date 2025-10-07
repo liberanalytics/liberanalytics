@@ -20,6 +20,7 @@
 	<link href="css/la_hdrftr.css" rel="stylesheet">
 	<link href="css/la_tags.css" rel="stylesheet">
 	<link href="css/la_ajax.css" rel="stylesheet">
+	<link href="css/about.css" rel="stylesheet">
 	<script type="module" src="js/la.js"></script>
 </head>
 
@@ -28,25 +29,51 @@
 	<?php include_once('laheader.php'); ?>
 
 	<main>
-		<div class="page-wrap">
+		<div class="page-wrap site-fs-med">
+			<nav class="about-summaries" aria-label="Page summary">
 
-			<section>
+				<section class="about-summary-card">
+					<h2 class="site-primary-heading">About LiberAnalytics</h2>
+					<article class="site-block-std">
+						<p class="about-summary">
+							What LiberAnalytics is, why it was built, the tech stack that runs it, 
+							and the inspiration and goals the site aspires to uphold.
+						</p>
+						<h3><a href="#liber_about" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
+					</article>
+				</section>
+
+				<section class="about-summary-card">
+					<h2 class="site-primary-heading">LiberAnalytics Philosophy</h2>
+					<article class="site-block-std">
+						<p class="about-summary">
+							The ideologies LiberAnalytics is grounded in during both
+							the site's development and composition of its blog posts.
+						</p>
+						<h3><a href="#liber_philosophy" class="site-font-link-std site-fs-med">Jump to section -></a></h3>
+					</article>
+				</section>
+
+			</nav>
+
+			<section id="liber_about" tabindex="1">
+			
 				<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
-				<div class="site-block-std site-stack-mt site-fs-med">
-
+				<div class="site-block-std site-stack-mtmb">
+			
 					<p>
 						<span class="site-font-brand">LiberAnalytics</span>
 						was built on a simple idea: that data systems and personal
 						growth both thrive on clarity, precision, and intention.
 					</p>
-
+				
 					<p>
 						The platform is entirely custom-built — from database architecture
 						and PHP classes to responsive front-end design — to demonstrate how modern,
 						efficient, human-readable systems can be built without frameworks or bloat.
 					</p>
-
+				
 					<p>
 						LiberAnalytics was created by Nathan W. Rose, an AWS Certified Developer and 
 						data architect who believes that the craft of analytics should be as thoughtful
@@ -54,7 +81,7 @@
 						LiberAnalytics as a personal lab for exploring the intersection of data engineering,
 						cloud design, and creative independence.
 					</p>
-
+				
 					<p>
 						The site runs on AWS infrastructure with a PostgreSQL backend and a lightweight PHP
 						data layer designed for transparency and security. The front end follows a semantic,
@@ -69,16 +96,63 @@
 						</a>’s
 						component/utility class model.
 					</p>
-
+				
 					<p>
 						LiberAnalytics will continue evolving — with new posts, tools, and experiments in data analytics.
 						The goal is simple: to educate and inspire data practitioners through practical,
 						creative demonstrations of how to solve real-world problems with data.
 					</p>
-
+				
 				</div>
-
+			
 			</section>
+			
+			<section id="liber_philosophy" tabindex="1">
+			
+				<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
+
+				<div class="site-block-std site-stack-mtmb">
+			
+				<p>
+					LiberAnalytics exists at the intersection of Emerson’s transcendentalism, Jung’s
+					individuation, and Nietzsche’s amor fati — three philosophies that together
+					define both the project and the person behind it.
+				</p>
+				
+				<p>
+					From Emerson, LiberAnalytics draws the principle of self-reliance — the conviction
+					that truth and purpose originate from within, not from institutions or convention.
+					The process of building LiberAnalytics is itself an act of transcendence: a refusal
+					to outsource meaning or creativity, a declaration that thought and craft must arise
+					from direct experience.
+				</p>
+				
+				<p>
+					From Jung, it inherits the journey of individuation — the lifelong work of 
+					integrating the fragments of the self into a coherent whole. Every refactor,
+					every design revision, every abstraction of code mirrors that internal ordering
+					— transforming chaos into structure, and instinct into form.
+				</p>
+				
+				<p>
+					And from Nietzsche, LiberAnalytics embodies amor fati — love of one’s fate.
+					The acceptance that every challenge, delay, and difficulty is not a detour
+					but the path itself. Rather than resist the constraints of life and time,
+					LiberAnalytics absorbs them into its creative momentum.
+				</p>
+				
+				<p>
+					Together, these philosophies converge in LiberAnalytics as a single principle:
+				</p>
+				
+				<p>
+					The act of creation as self-realization — to build freely, think deeply,
+					and become whole through one’s own work.
+				</p>	
+
+			</div>
+			
+			</section>			
 
 		</div>
 	</main>
