@@ -2,18 +2,31 @@
 <html lang="en">
 
 <head>
+	<!-- Recommended small additions -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>About | LiberAnalytics</title>
 	<meta name="description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
 	<link rel="canonical" href="https://liberanalytics.com/about">
 
+	<!-- Icons (safe placeholders until you have final assets) -->
+	<link rel="icon" href="/favicon.ico" sizes="any">
+	<link rel="icon" type="image/svg+xml" href="/icon.svg">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<!-- Recommended small additions -->
 	<meta property="og:title" content="About | LiberAnalytics">
 	<meta property="og:description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
 	<meta property="og:url" content="https://liberanalytics.com/about">
 	<meta property="og:type" content="website">
+
+	<!-- Recommended small additions -->
 	<meta property="og:image" content="https://liberanalytics.com/assets/social/about.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
 	<meta property="og:image:alt" content="LiberAnalytics wordmark on a clean, minimalist background">
+	
+	<!-- Recommended small additions -->
 	<link href="css/la_tokens.css" rel="stylesheet">
 	<link href="css/la_fonts.css" rel="stylesheet">
 	<link href="css/la.css" rel="stylesheet">
