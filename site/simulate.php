@@ -130,7 +130,7 @@
 
 			<section id="liber_about">				
 				<h1 class="site-primary-heading">What we are about</h1>
-				<div class="site-stack-mtmb">
+				<div class="site-block-std site-stack-mtmb">
 					<p>
 						<span class="site-font-brand">LiberAnalytics</span>
 						was built on a simple idea: that data systems and personal
@@ -176,7 +176,7 @@
 
 			<section id="liber_philosophy">
 				<h1 class="site-primary-heading">Philosophies that form our core values</h1>
-				<div class="site-stack-mtmb">
+				<div class="site-block-std site-stack-mtmb">
 					<p>
 						LiberAnalytics exists at the intersection of Emerson’s transcendentalism, Jung’s
 						individuation, and Nietzsche’s amor fati — three philosophies that together
@@ -216,7 +216,7 @@
 				</div>
 			</section>
 
-
+			
 		</div>
 	</main>
 
