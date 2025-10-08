@@ -38,12 +38,12 @@
 
 				<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
-				<div class="site-block-std site-fs-med">
+				<div class="site-block-std site-fs-med site-stack-mtmb">
 					<p class="">
 						<span class="legal-pr-300 site-fw-xbold site-fc-xdark">Effective Date:</span>
 						<time datetime="2025-07-08">July 8, 2025</time>
 					</p>
-					<p class="legal-text">
+					<p class="site-fc-xdark site-fw-light">
 						At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 						This page outlines what information we collect, how we use it, and your rights.
 					</p>
