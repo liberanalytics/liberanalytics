@@ -28,22 +28,4 @@ ol.legal-list li::marker {
     color: var(--legal-fc-xdark);
     font-weight: var(--legal-fw-bold);
  }
-
-.legal-flh-tight { line-height: var(--legal-flh-tight); }
-.legal-flh-med { line-height: var(--legal-flh-med); }
-.legal-fsz-small { font-size: var(--legal-fsz-small); }
-.legal-fsz-large { font-size: var(--legal-fsz-large); }
-.legal-fw-xlight { font-weight: var(--legal-fw-xlight); }
-.legal-fc-med { color: var(--legal-fc-med); }
-.legal-fc-med-green { color: var(--legal-fc-med-green); }
-
-.legal-mt-std { margin-block-start: var(--sz-600); }
-.legal-mb-std { margin-block-end: var(--sz-300); }
-.legal-pr-300 { padding-inline-end: var(--sz-300); }
-.legal-pl-300 { padding-inline-start: var(--sz-300); }
-
-.legal-flow { --legal-flow-margin: var(--legal-flow-spacer-lg); }
-.legal-flow ul { --legal-flow-margin: var(--legal-flow-spacer-med); }
-.legal-flow :is(h2) { margin-block-start: var(--legal-flow-spacer-lg);}
-.legal-flow :is(p) { margin-block-start: var(--legal-flow-spacer-med);}
-.legal-flow .legal-list > li + li { margin-block-start: var(--legal-flow-spacer-med);}
+ 
