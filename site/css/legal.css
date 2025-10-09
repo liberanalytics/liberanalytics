@@ -17,36 +17,6 @@
     --legal-fc-med-green: var(--fc-med-green);
 }
 
-.legal-text {
-    font-family: var(--legal-ff, var(--ff-main));
-    font-size: var(--legal-fsz-med, var(--fsz-300));
-    line-height: var(--legal-flh-tight, var(--flh-tight));
-    font-weight: var(--legal-fw-light, var(--fw-light));
-    color: var(--legal-fc-xdark, var(--fc-xdark));
-}
-
-.legal-heading {
-    font-family: var(--legal-ff, var(--ff-main));
-    font-size: var(--legal-fsz-large, var(--fsz-400));
-    line-height: var(--legal-flh-med, var(--flh-med));
-    font-weight: var(--legal-fw-xlight, var(--fw-xlight));
-    color: var(--legal-fc-med-green, var(--fc-med-green));
-}
-
-.legal-list {
-    padding-inline: var(--sz-600);
-    font-family: var(--legal-ff, var(--ff-main));
-    font-size: var(--legal-fsz-small);
-    line-height: var(--legal-flh-med);
-}
-
-ul.legal-list li { 
-    list-style-type: disc;
-    list-style-position: outside;
-}
-
-ol.legal-list { padding-inline-start: var(--sz-600); }
-
 .legal-list-nocounter { 
     list-style: none;
     counter-reset: alt; 

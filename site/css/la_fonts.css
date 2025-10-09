@@ -54,14 +54,6 @@
     color: var(--fc-light);
 }
 
-.site-font-secondary-heading {
-    font-family: var(--ff-main);
-    font-size: var(--fsz-400);
-    font-weight: var(--fw-xlight);
-    line-height: var(--flh-tight);
-    color: var(--fc-med-green);   
-}
-
 .site-font-input {
     font-family: var(--ff-sans-serif);
     font-size: var(--fsz-100);

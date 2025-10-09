@@ -107,6 +107,17 @@ main {
     color: var(--fc-xlight);
 }
 
+.site-secondary-heading {
+    margin-block-start: var(--sz-600);
+    margin-block-end: var(--sz-300);
+    font-family: var(--ff-main);
+    font-size: var(--fsz-400);
+    font-weight: var(--fw-xlight);
+    line-height: var(--flh-tight);
+    color: var(--fc-med-green);   
+}
+
+
 /** ------------------------------------ Site Utility Classes -------------------------------------- **/
 
 .site-stack-mtmb > * + * {    
