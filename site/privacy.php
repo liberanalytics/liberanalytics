@@ -38,7 +38,7 @@
 
 				<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
-				<div class="site-block-std site-stack-mtmb">
+				<div class="site-block-std">
 					<p class="site-fs-med">
 						<span 
 							class="site-fw-xbold site-fc-xdark" 
@@ -48,7 +48,7 @@
 						</span>
 						<time class="site-fw-light" datetime="2025-07-08">July 8, 2025</time>
 					</p>
-					<p class="site-fc-xdark site-fw-light site-fs-med">
+					<p class="site-mt-300 site-fc-xdark site-fw-light site-fs-med">
 						At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 						This page outlines what information we collect, how we use it, and your rights.
 					</p>

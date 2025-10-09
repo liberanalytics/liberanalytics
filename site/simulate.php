@@ -26,7 +26,7 @@
 
 				<h1 class="site-primary-heading">LiberAnalytics Terms of Use</h1>
 
-				<div class="site-block-std site-stack-mtmb">
+				<div class="site-block-std">
 					<p class="site-fs-med">
 						<span 
 							class="site-fw-xbold site-fc-xdark" 
@@ -36,7 +36,7 @@
 						</span>
 						<time class="site-fw-light" datetime="2025-07-08">July 8, 2025</time>
 					</p>
-					<ol class="site-stack-mtmb">
+					<ol class="">
 						<li><h2 class="site-secondary-heading">Acceptance of Terms</h2></li>
 						<li>
 							<p class="">

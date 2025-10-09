@@ -125,9 +125,9 @@ main {
     margin-bottom: var(--knob-stack-mb, var(--sz-400));
 }
 
-.site-stack-mt-600 {
-    --knob-stack-mt: var(--sz-600);
-}
+.site-stack-mt-600 { --knob-stack-mt: var(--sz-600); }
+
+.site-mt-300 { margin-block-start: var(--sz-300); }
 
 .site-list {
     padding-inline-start:  var(--sz-600);
