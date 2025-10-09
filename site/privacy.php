@@ -34,7 +34,7 @@
 	<main>
 		<div class="page-wrap">
 
-			<section class="legal">
+			<section>
 
 				<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
