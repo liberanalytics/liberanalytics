@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Privacy | LiberAnalytics</title>
 	<meta name="description" content="Learn how LiberAnalytics collects, uses, and protects your information. Transparency and data privacy are core to our commitment to visitors.">
-	<link rel="canonical" href="https://liberanalytics.com/about">
+	<link rel="canonical" href="https://liberanalytics.com/privacy">
 
 	<!-- Favicon. -->
 	<link rel="icon" href="/favicon.ico" sizes="any">

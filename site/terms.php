@@ -127,7 +127,8 @@
 								Your use of the Site is also governed by our 
 								Privacy Policy which explains
 								how we collect, use, and protect your information.
-								You can view it here: <a href="privacy" class="site-font-link-std site-fs-med">Privacy Policy</a>.
+								You can view it here:
+								<a href="/privacy" class="site-font-link-std site-fs-med">View ourPrivacy Policy</a>.
 							</p>
 						</li>
 						<li><h2 class="site-secondary-heading">Governing Law</h2></li>
