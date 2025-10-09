@@ -4,27 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>About | LiberAnalytics</title>
-	<meta name="description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
-	<link rel="canonical" href="https://liberanalytics.com/about">
-
-	<meta name="theme-color" content="#333333">
-	<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-
-	<link href="css/la_tokens.css" rel="stylesheet">
-	<link href="css/la_fonts.css" rel="stylesheet">
-	<link href="css/la.css" rel="stylesheet">
-	<link href="css/la_hdrftr.css" rel="stylesheet">
-	<link href="css/la_tags.css" rel="stylesheet">
-	<link href="css/la_ajax.css" rel="stylesheet">
+	<title>LiberAnalytics | Terms of Use</title>
+	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">		
+	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/legal.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="module" src="js/la.js"></script>
-
-	<style>
-
-
-
-	</style>
 </head>
 
 <body class="page site-font-std">
@@ -36,53 +24,89 @@
 
 			<section class="legal">
 
-				<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
+				<h1 class="site-primary-heading">LiberAnalytics Terms of Use</h1>
 
-				<div class="site-block-std site-stack-mtmb">
-					<p class="site-fs-med">
-						<span 
-							class="site-fw-xbold site-fc-xdark" 
-							style="padding-inline-end: var(--sz-300);"
-						>
-						Effective Date:
-						</span>
-						<time class="site-fw-light" datetime="2025-07-08">July 8, 2025</time>
+				<div class="site-block-std legal-flow">
+					<p class="legal-text">
+						<span class="legal-pr-300 site-fw-xbold site-fc-xdark">Effective Date:</span>
+						<time datetime="2025-07-08">July 8, 2025</time>
 					</p>
-					<p class="site-fc-xdark site-fw-light site-fs-med">
-						At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
-						This page outlines what information we collect, how we use it, and your rights.
-					</p>
-					<h2 class="site-fs-large site-fc-med-green">
-						Information We Collect
-					</h2>
-					<ul class="site-list site-flh-med site-fc-xdark">
-						<li>If you submit a message through our contact form, we collect your name and email address.</li>
-						<li>We do not sell, rent, or share your personal information with third parties.</li>
-					</ul>
-					<h2 class="site-fs-large site-fc-med-green">
-						Cookies and Analytics
-					</h2>
-					<ul class="site-list site-flh-med site-fc-xdark">
+					<ol class="legal-list legal-list-nocounter">
+						<li><h2 class="legal-heading">Acceptance of Terms</h2></li>
 						<li>
-							<span class="site-font-brand">LiberAnalytics</span> 
-							may use basic website analytics (such as Google Analytics) to understand site usage.
+							<p class="legal-text legal-flow-med">
+								By accessing and using <span class="site-font-brand">LiberAnalytics.com</span> (“the Site”),
+								you agree to comply with and be bound by these Terms of Use. 
+								If you do not agree with these terms, please do not use the Site.
+							</p>
 						</li>
+						<li><h2 class="legal-heading">Changes to Terms</h2></li>
 						<li>
-							These tools may use cookies to gather anonymized data like IP address,
-							browser type, and pages visited.
+							<p class="legal-text">
+								We may update these Terms from time to time.
+								Any changes will be posted on this page with an updated effective date.
+								Continued use of the Site after changes are posted means you accept the updated Terms.
+							</p>
 						</li>
-					</ul>
-					<h2 class="site-fs-large site-fc-med-green">Your Rights</h2>
-					<ul class="site-list site-flh-med site-fc-xdark">
+						<li><h2 class="legal-heading">Use of the Site</h2></li>
 						<li>
-							You may request deletion of your submitted information
-							at any time by contacting us at liber@liberanalytics.com.
+							<p class="legal-text">You agree to use the Site for lawful purposes only. You must not:</p>
+							<p class="legal-pl-300 legal-fsz-small legal-fc-med">a) Attempt to gain unauthorized access to the Site or its systems.</p>
+							<p class="legal-pl-300 legal-fsz-small legal-fc-med">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
+							<p class="legal-pl-300 legal-fsz-small legal-fc-med">c) Use the Site in a manner that violates applicable laws or regulations.</p>
 						</li>
-					</ul>
-					<h2 class="site-fs-large site-fc-med-green">Contact</h2>
-					<ul class="site-list site-flh-med site-fc-xdark">
-						<li>For questions about this policy, contact us at: liber@liberanalytics.com</li>
-					</ul>								
+						<li><h2 class="legal-heading">Intellectual Property</h2></li>
+						<li>
+							<p class="legal-text">
+								All content on the Site, including but not limited to 
+								text, graphics, logos, and software, is the property of
+								<span class="site-font-brand">LiberAnalytics, LLC</span>
+								or its content providers and is protected by applicable copyright,
+								trademark, and intellectual property laws. You may not reproduce,
+								distribute, or create derivative works without prior written consent.
+							</p>
+						</li>
+						<li><h2 class="legal-heading">Disclaimers</h2></li>
+						<li>
+							<p class="legal-text">
+								The Site is provided “as is” without warranties of any kind, express or implied.
+								We do not guarantee the accuracy, completeness, or reliability of the content
+								on the Site. Your use of the Site is at your own risk.
+							</p>
+						</li>
+						<li><h2 class="legal-heading">Limitation of Liability</h2></li>
+						<li>
+							<p class="legal-text">
+								To the fullest extent permitted by law, 
+								<span class="site-font-brand">LiberAnalytics, LLC</span> will not
+								be liable for any damages arising from your use or inability to use the Site.
+							</p>
+						</li>
+						<li><h2 class="legal-heading">Privacy Policy</h2></li>
+						<li>
+							<p class="legal-text">
+								Your use of the Site is also governed by our 
+								Privacy Policy which explains
+								how we collect, use, and protect your information.
+								You can view it here: <a href="privacy">Privacy Policy</a>.
+							</p>
+						</li>
+						<li><h2 class="legal-heading">Governing Law</h2></li>
+						<li>
+							<p class="legal-text">
+								These Terms are governed by and construed in accordance
+								with the laws of the State of Ohio, without regard to its
+								conflict of law provisions.
+							</p>
+						</li>
+						<li><h2 class="legal-heading">Contact Information</h2></li>
+						<li>
+							<p class="legal-text">
+								For questions about these terms, contact us at: liber@liberanalytics.com
+							</p>
+						</li>																										
+					</ol>				
+
 				</div>
 
 			</section>
