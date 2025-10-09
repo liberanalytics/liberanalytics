@@ -127,11 +127,10 @@ main {
 
 .site-stack-mt-600 { --knob-stack-mt: var(--sz-600); }
 
+.site-pl-300 { padding-inline-start: var(--sz-300);}
 .site-mt-300 { margin-block-start: var(--sz-300); }
 
-.site-list {
-    padding-inline-start:  var(--sz-600);
-}
+.site-list { padding-inline-start:  var(--sz-600); }
 
 .site-list li {
     list-style-type: disc;

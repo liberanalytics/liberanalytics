@@ -1,21 +1,6 @@
-/** ----------------------------------------- Legal Styles ----------------------------------------- **/
-
-.legal {
-    --legal-ff: var(--ff-main);
-    --legal-flow-spacer-lg: var(--sz-600);
-    --legal-flow-spacer-med: var(--sz-300);
-    --legal-fsz-small: var(--fsz-200);
-    --legal-fsz-med: var(--fsz-300);
-    --legal-fsz-large: var(--fsz-400);
-    --legal-flh-tight: var(--flh-tight);
-    --legal-flh-med: var(--flh-med);
-    --legal-fw-xlight: var(--fw-xlight);
-    --legal-fw-light: var(--fw-light);
-    --legal-fw-bold: var(--fw-bold);
-    --legal-fc-med: var(--fc-med);
-    --legal-fc-xdark: var(--fc-xdark);
-    --legal-fc-med-green: var(--fc-med-green);
-}
+/*  ---------------------------------------------------------
+    legal.css
+--------------------------------------------------------- */
 
 .legal-list-nocounter { 
     list-style: none;
@@ -32,8 +17,8 @@
 .legal-list-nocounter li:nth-child(odd)::before {
     position: absolute;
     left: 0;
-    top: var(--sz-100);
-    color: var(--legal-fc-xdark);
+    top: calc(var(--sz-100) / 2);
+    color: var(--clr-xdk-dark);
     content: counter(alt) ".";
 }  
 

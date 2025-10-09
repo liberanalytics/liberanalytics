@@ -11,7 +11,7 @@
 	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<!-- <link href="css/legal.css" rel="stylesheet" type="text/css" charset="utf-8"> -->
+	<link href="css/legal.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="module" src="js/la.js"></script>
 </head>
 
@@ -36,7 +36,7 @@
 						</span>
 						<time class="site-fw-light" datetime="2025-07-08">July 8, 2025</time>
 					</p>
-					<ol class="">
+					<ol class="legal-list-nocounter site-block-std site-fw-light site-fc-xdark site-fs-med">
 						<li><h2 class="site-secondary-heading">Acceptance of Terms</h2></li>
 						<li>
 							<p class="">
@@ -54,11 +54,11 @@
 							</p>
 						</li>
 						<li><h2 class="site-secondary-heading">Use of the Site</h2></li>
-						<li>
-							<p class="legal-text">You agree to use the Site for lawful purposes only. You must not:</p>
-							<p class="">a) Attempt to gain unauthorized access to the Site or its systems.</p>
-							<p class="">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
-							<p class="">c) Use the Site in a manner that violates applicable laws or regulations.</p>
+						<li class="site-fs-small">
+							<p class="site-fs-med">You agree to use the Site for lawful purposes only. You must not:</p>
+							<p class="site-mt-300 site-pl-300 site-fc-med site-flh-med">a) Attempt to gain unauthorized access to the Site or its systems.</p>
+							<p class="site-mt-300 site-pl-300 site-fc-med site-flh-med">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
+							<p class="site-mt-300 site-pl-300 site-fc-med site-flh-med">c) Use the Site in a manner that violates applicable laws or regulations.</p>
 						</li>
 						<li><h2 class="site-secondary-heading">Intellectual Property</h2></li>
 						<li>
@@ -93,7 +93,7 @@
 								Your use of the Site is also governed by our 
 								Privacy Policy which explains
 								how we collect, use, and protect your information.
-								You can view it here: <a href="privacy">Privacy Policy</a>.
+								You can view it here: <a href="privacy" class="site-font-link-std site-fs-med">Privacy Policy</a>.
 							</p>
 						</li>
 						<li><h2 class="site-secondary-heading">Governing Law</h2></li>
