@@ -38,26 +38,31 @@
 
 				<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
-				<div class="site-block-std site-fs-med site-stack-mtmb">
-					<p class="">
-						<span class="legal-pr-300 site-fw-xbold site-fc-xdark">Effective Date:</span>
-						<time datetime="2025-07-08">July 8, 2025</time>
+				<div class="site-block-std site-stack-mtmb">
+					<p class="site-fs-med">
+						<span 
+							class="site-fw-xbold site-fc-xdark" 
+							style="padding-inline-end: var(--sz-300);"
+						>
+						Effective Date:
+						</span>
+						<time class="site-fw-light" datetime="2025-07-08">July 8, 2025</time>
 					</p>
-					<p class="site-fc-xdark site-fw-light">
+					<p class="site-fc-xdark site-fw-light site-fs-med">
 						At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 						This page outlines what information we collect, how we use it, and your rights.
 					</p>
-					<h2 class="legal-heading">
+					<h2 class="site-fs-large site-fc-med-green">
 						Information We Collect
 					</h2>
-					<ul class="legal-list">
+					<ul class="site-list site-flh-med site-fc-xdark">
 						<li>If you submit a message through our contact form, we collect your name and email address.</li>
 						<li>We do not sell, rent, or share your personal information with third parties.</li>
 					</ul>
-					<h2 class="legal-heading">
+					<h2 class="site-fs-large site-fc-med-green">
 						Cookies and Analytics
 					</h2>
-					<ul class="legal-list">
+					<ul class="site-list site-flh-med site-fc-xdark">
 						<li>
 							<span class="site-font-brand">LiberAnalytics</span> 
 							may use basic website analytics (such as Google Analytics) to understand site usage.
@@ -67,15 +72,15 @@
 							browser type, and pages visited.
 						</li>
 					</ul>
-					<h2 class="legal-heading">Your Rights</h2>
-					<ul class="legal-list">
+					<h2 class="site-fs-large site-fc-med-green">Your Rights</h2>
+					<ul class="site-list site-flh-med site-fc-xdark">
 						<li>
 							You may request deletion of your submitted information
 							at any time by contacting us at liber@liberanalytics.com.
 						</li>
 					</ul>
-					<h2 class="legal-heading">Contact</h2>
-					<ul class="legal-list">
+					<h2 class="site-fs-large site-fc-med-green">Contact</h2>
+					<ul class="site-list site-flh-med site-fc-xdark">
 						<li>For questions about this policy, contact us at: liber@liberanalytics.com</li>
 					</ul>								
 				</div>

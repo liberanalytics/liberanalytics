@@ -118,6 +118,17 @@ main {
     --knob-stack-mt: var(--sz-600);
 }
 
+.site-list {
+    padding-inline-start:  var(--sz-600);
+}
+
+.site-list li {
+    list-style-type: disc;
+    list-style-position: outside;
+}
+
+.site-list li::marker { color: var(--clr-med-green); }
+
 .site-display-none {
     display: none;
 }

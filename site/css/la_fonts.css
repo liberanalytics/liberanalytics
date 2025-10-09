@@ -110,6 +110,7 @@
 .site-fs-xsmall { font-size: var(--fsz-100); }
 .site-fs-small { font-size: var(--fsz-200); }
 .site-fs-med { font-size: var(--fsz-300); }
+.site-fs-large { font-size: var(--fsz-400); }
 
 .site-fc-xlight { color: var(--fc-xlight); }
 .site-fc-midlight { color: var(--fc-midlight); }
@@ -117,6 +118,7 @@
 .site-fc-med { color: var(--fc-med); }
 .site-fc-dark { color: var(--fc-dark); }
 .site-fc-xdark { color: var(--fc-xdark); }
+.site-fc-med-green { color: var(--fc-med-green); }
 
 .site-fw-xlight { font-weight: var(--fw-xlight); }
 .site-fw-light { font-weight: var(--fw-light); }
