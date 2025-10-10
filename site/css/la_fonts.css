@@ -1,9 +1,10 @@
-/** ----------------------------------------- Liber Font Styles ----------------------------------------- **/
-
+/*  ---------------------------------------------------------
+    la_fonts.css
+--------------------------------------------------------- */
 :root {
 
     /* Site font-styles. */
-    --ff-main: Studio-Feixen-Sans, Helvetica, sans-serif;
+    --ff-main: 'Studio-Feixen-Sans', Helvetica, sans-serif;
     --ff-primary-heading: Helvetica, sans-serif;
     --ff-secondary-heading: var(--ff-main);
     --ff-fancy: 'Times New Roman', Times, serif;

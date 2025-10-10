@@ -1,5 +1,8 @@
-/** -------------------------------- Site Header Styles ---------------------------------- **/
+/*  ---------------------------------------------------------
+    la_hdrftr.css
+--------------------------------------------------------- */
 
+/* Header & footer custom variables. */
 :root {
     --la-logo-width: 120px;
     --hdrftr-bg-color: var(--clr-med-dark);
@@ -26,6 +29,7 @@
 }
 
 /* Header Menu */
+
 .header-menu-container {
     padding-block: var(--sz-300);
     border-bottom: 2px solid var(--clr-med-grey);
@@ -78,7 +82,7 @@
 
 /* Shared Header/Footer Identities */
 .hdrftr-name-liber {
-    padding: 0 0 0 var(--sz-300);
+    padding-inline-end: var(--sz-300);
     font-size: calc(3 * var(--fsz-100));
     font-weight: var(--fw-bold);  
     color: var(--fc-xlight);
@@ -102,7 +106,7 @@
     height: auto;
 }
 
-/** -------------------------------- Site Footer Styles ---------------------------------- **/
+/* Footer styles. */
 
 /* Footer Container & Masthead */
 .footer-container {

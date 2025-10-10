@@ -49,4 +49,4 @@ section[id="liber_philosophy"] {
     html { scroll-snap-type: none; }
     section[id="liber_about"],
     section[id="liber_philosophy"] { scroll-snap-align: none; }
-  }
+}

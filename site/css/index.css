@@ -1,7 +1,6 @@
-/** ----------------------------------------- Index Styles ----------------------------------------- **/
-
-/* .featured-posts-container { flex: 0 0 600px; }
-.latest-posts-container { flex: 0 0 320px; } */
+/*  ---------------------------------------------------------
+    index.css
+--------------------------------------------------------- */
 
 .featured-posts-container {
     flex: 0 1 calc(var(--sz-800) * 20);
@@ -13,8 +12,7 @@
     min-width: 0;
 }
 
-/** ----------------------------------------- Featured Posts----------------------------------------- **/
-
+/* Featured posts. */
 .featured-post-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -59,17 +57,9 @@
     border-image: linear-gradient( to right, var(--clr-med-light) , var(--clr-lt-light) ) 1;    
 }
 
-.featured-post-date {
-    font-family: Studio-Feixen-Sans, Helvetica, serif;    
-    font-size: 1.125rem;
-    font-weight: 300;
-    color: var(--clr-xlt-dark);     
-}
-
 .featured-post-cat { margin-left: auto; }
 
-/** ----------------------------------------- Latest Posts ----------------------------------------- **/
-
+/* Latest posts. */
 .latest-posts {
     padding: 0 0 0 var(--sz-100);
     margin: var(--sz-700) 0 0 0;
@@ -83,4 +73,3 @@
     display: block;
     padding-block: var(--sz-300);
 }
-

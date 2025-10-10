@@ -27,5 +27,4 @@ ul.legal-list li::marker { color: var(--legal-fc-med-green); }
 ol.legal-list li::marker { 
     color: var(--legal-fc-xdark);
     font-weight: var(--legal-fw-bold);
- }
- 
+}

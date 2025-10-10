@@ -1,5 +1,8 @@
-/** ----------------------------------------- Reset UA Styles ----------------------------------------- **/
+/*  ---------------------------------------------------------
+    la.css
+--------------------------------------------------------- */
 
+/* Reset UA Styles */
 * {
     padding: 0;
     border: none;
@@ -18,24 +21,17 @@ ul li, ol li {
     list-style-type: none;
 }
 
-/** ----------------------------------------- Root Styles ----------------------------------------- **/
-
-:root {
-
-    font-size: 16px;
-}
-
+/* Before & After pseudo elements - use border box box sizing. */
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-
-/** ----------------------------------------- Site Styles ----------------------------------------- **/
-
+/* Site Styles */
 @font-face {
-    font-family: Studio-Feixen-Sans;
+    font-family: 'Studio-Feixen-Sans';
     src: url('../assets/sfs.woff2') format('woff2');
+    font-display: swap;
 }
 
 html {
@@ -58,8 +54,7 @@ main {
     flex: 1;
 }
 
-/** ----------------------------------- Site Component Classes ------------------------------------ **/
-
+/* Site Component Classes */
 .page {
     --content-width: calc(var(--sz-400) * 61.25);
     --content-vertical-margin: calc(var(--sz-400) * 3);
@@ -72,8 +67,8 @@ main {
 }
 
 .site-block-std {
-    padding: 0 .625rem 0 .625rem;
-    margin: var(--sz-600) 0 0 0;
+    padding-inline: var(--sz-300);
+    margin-block-start: var(--sz-600);
 }
 
 .site-box-shadow {
@@ -117,9 +112,7 @@ main {
     color: var(--fc-med-green);   
 }
 
-
-/** ------------------------------------ Site Utility Classes -------------------------------------- **/
-
+/* Site Utility Classes */
 .site-stack-mtmb > * + * {    
     margin-top: var(--knob-stack-mt, var(--sz-400));
     margin-bottom: var(--knob-stack-mb, var(--sz-400));
@@ -139,12 +132,9 @@ main {
 
 .site-list li::marker { color: var(--clr-med-green); }
 
-.site-display-none {
-    display: none;
-}
+.site-display-none { display: none; }
 
-/** --------------------------------------- Site Flex Styles --------------------------------------- **/
-
+/* Site Flex Styles */
 .site-flex { display: flex; }
 .site-flex-wrap { flex-wrap: wrap; }
 .site-flex-nowrap { flex-wrap: nowrap; }

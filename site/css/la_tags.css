@@ -1,7 +1,9 @@
-/** ------------------------------------------- Tags Styles ------------------------------------------ **/
+/*  ---------------------------------------------------------
+    la_tags.css
+--------------------------------------------------------- */
 
 .tag-suggestion-box {
-    max-height: 12.5rem;
+    max-height: calc(var(--sz-400) * 12.5);
     overflow-y: auto;
     position: absolute;
     z-index: 1000;
@@ -9,13 +11,13 @@
     background-color: var(--clr-med-dark);
     color: var(--clr-xlt-light);
     font-family: Studio-Feixen-Sans, Helvetica;
-    font-size: 1rem;
-    border-bottom-left-radius: .3125rem;
-    border-bottom-right-radius: .3125rem;
+    font-size: var(--sz-400);
+    border-bottom-left-radius: var(--sz-100);
+    border-bottom-right-radius: var(--sz-100);
 }
 
 .tag-suggestion-item {
-    padding: .5rem;
+    padding: var(--sz-200);
     cursor: pointer;
     border-bottom: 1px solid transparent;    
 }
