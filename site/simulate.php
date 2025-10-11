@@ -16,13 +16,45 @@
 	<style>
 
 		.contact-container {
-			padding: 1.5rem 0 .625rem 0;
+			margin-block-start: var(--sz-600);
 			border-bottom: 1px solid transparent;
 			border-image: linear-gradient( to right, 
 				var(--clr-lt-light) 0%, 
 				var(--clr-med-light) 50%, 
 				var(--clr-lt-light) 100% ) 1;
 		}
+
+		.site-form-std {
+
+		}
+
+		.site-form-std input, 
+
+		/* form input, textarea {
+			font-family: Helvetica;
+			font-size: 1rem;
+			font-weight: 300;
+			color: var(--clr-prmary-blk);
+			box-shadow: 2px 2px 2px var(--clr-med-light);
+		}
+
+		form input:focus, textarea:focus {    
+			outline: 1px solid var(--clr-prmary-blk);
+		}
+
+		form label {
+			font-family: Helvetica;
+			font-size: 1.125rem;
+			font-weight: 600;
+			color: var(--clr-lt-dark);
+		}
+
+		form input[type=text] {
+			padding: .625rem;
+			border: 1px solid var(--clr-dk-grey);
+			border-radius: .5rem;
+			/* box-shadow: 2px 2px 2px rgb(196,196,196);     */
+		} */
 
 	</style>
 
@@ -42,22 +74,29 @@
 				</div>
 
 				<div class="contact-container">
-					<form name="contact" id="contact" method="post" 
-					data-composite="0" data-erroreleid="error_form" action="contact_handler.php">
+					<form
+						id="contact_form"
+						name="contact" 
+						method="post"
+						data-composite="0"
+						data-erroreleid="error_form"
+						action="contact_handler.php"
+						class="site-form-std"
+					>
 
 						<ul>
-							<li>
-								<label class="">First Name<em class="site-fc-med-red">*</em></label>
-								<label class="">Last Name<em class="site-fc-med-red">*</em></label>                                    
-							</li>
+							<li><label class="">First Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 
-									name="first_name" type="text" title="Enter First Name" class="" 
+									name="first_name" type="text" title="Enter First Name" class="site-font-form-input" 
 									maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
 									data-vx="vxName" data-len="32" autocomplete="off">
+							</li>
 
+							<li><label class="">Last Name<em class="site-fc-med-red">*</em></label></li>
+							<li>
 								<input 
-									name="last_name" type="text" title="Enter Last Name" class="" 
+									name="last_name" type="text" title="Enter Last Name" class="site-font-form-input" 
 									maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
 									data-vx="vxName" data-len="32" autocomplete="off">      
 							</li>
