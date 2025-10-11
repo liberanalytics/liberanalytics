@@ -97,7 +97,7 @@
 
 			</nav>
 
-			<section id="liber_about">
+			<section id="liber_about" class="liber-about">
 			
 				<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
@@ -148,7 +148,7 @@
 			
 			</section>
 			
-			<section id="liber_philosophy">
+			<section id="liber_philosophy" class="liber-philosophy">
 			
 				<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
 

@@ -2,6 +2,11 @@
     about.css
 --------------------------------------------------------- */
 
+/* Add 20 vh at bottom of page for larger viewports. */
+@media (min-width: 61.25em) {
+    .page-wrap { padding-block-end: 20vh; }
+}
+
 /* About component classes. */
 .about-summaries {
     display: grid;
@@ -9,26 +14,11 @@
     margin-block-end: var(--sz-600);
 }
 
-.about-summary-card {
-
-}
-
-.about-summary {
-    margin-block-end: var(--sz-400);
-}
-
-/* Desktop styles - 980px minimum. */
-@media (min-width: 61.25em) {
-    
+/* Enhance at ~980px. */
+@media (min-width: 61.25em) {    
     .about-summaries {
         grid-template-columns: 1fr 1fr;
         align-items: start;
-    }
-
-    .page-wrap::after {
-        content: "";
-        display: block;
-        height: 20vh;
     }
 }
 
@@ -38,15 +28,14 @@ html {
     scroll-behavior: smooth;
 }
 
-section[id="liber_about"],
-section[id="liber_philosophy"] {
-    scroll-snap-align: start;
-}
+.liber-about, .liber-philosophy { scroll-snap-align: start; }
 
 /* For users who prefer a reduced motion on scroll experience (OS level setting). */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     html { scroll-snap-type: none; }
-    section[id="liber_about"],
-    section[id="liber_philosophy"] { scroll-snap-align: none; }
+    .liber-about,
+    .liber-philosophy{ 
+        scroll-snap-align: none; 
+    }
 }
