@@ -31,6 +31,7 @@
     --fc-dark: var(--clr-dk-dark);   /* placeholder for future growth */
     --fc-xdark: var(--clr-xdk-dark);
     --fc-med-green: var(--clr-med-green);
+    --fc-med-red: var(--clr-xdk-red);
 
     /* Site font link & hover colors. */
     --fc-link: var(--clr-med-blue);
@@ -120,6 +121,7 @@
 .site-fc-dark { color: var(--fc-dark); }
 .site-fc-xdark { color: var(--fc-xdark); }
 .site-fc-med-green { color: var(--fc-med-green); }
+.site-fc-med-red { color: var(--fc-med-red); }
 
 .site-fw-xlight { font-weight: var(--fw-xlight); }
 .site-fw-light { font-weight: var(--fw-light); }

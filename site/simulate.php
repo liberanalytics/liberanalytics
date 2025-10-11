@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LiberAnalytics | Terms of Use</title>
+	<title>LiberAnalytics | Contact Us</title>
 	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">		
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
@@ -12,6 +12,20 @@
 	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<script type="module" src="js/la.js"></script>
+
+	<style>
+
+		.contact-container {
+			padding: 1.5rem 0 .625rem 0;
+			border-bottom: 1px solid transparent;
+			border-image: linear-gradient( to right, 
+				var(--clr-lt-light) 0%, 
+				var(--clr-med-light) 50%, 
+				var(--clr-lt-light) 100% ) 1;
+		}
+
+	</style>
+
 </head>
 
 <body class="page site-font-std">
@@ -27,14 +41,14 @@
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
 				</div>
 
-				<div>
+				<div class="contact-container">
 					<form name="contact" id="contact" method="post" 
 					data-composite="0" data-erroreleid="error_form" action="contact_handler.php">
 
 						<ul>
 							<li>
-								<label class="">First Name<em>*</em></label>
-								<label class="">Last Name<em>*</em></label>                                    
+								<label class="">First Name<em class="site-fc-med-red">*</em></label>
+								<label class="">Last Name<em class="site-fc-med-red">*</em></label>                                    
 							</li>
 							<li>
 								<input 
@@ -48,39 +62,7 @@
 									data-vx="vxName" data-len="32" autocomplete="off">      
 							</li>
 
-							<li>
-								<label class="">Email<em>*</em></label>
-							</li>
-							<li>
-								<input
-									name="email" type="text" title="Enter Email" class="" 
-									maxlength="32" data-caption="Email" data-id="email" data-req="1"
-									data-vx="vxEmail" data-len="32" autocomplete="off">
-
-							</li>
-							<li>
-								<label class="">Subject<em>*</em></label> 
-							</li>
-							<li>
-								<input name="contact_subject" type="text" title="Enter Subject" class=""
-								maxlength="32" data-caption="Subject" data-id="subject" data-req="1"
-								data-vx="vxAlphaNum" data-len="32" autocomplete="off">
-
-							</li>
-							<li>
-								<label class="">Message<em>*</em></label> 
-							</li>
-							<li>
-								<textarea name="contact_message" rows="8" cols="48"
-								data-caption="Message" data-id="contact_message" data-req="1" data-vx="vxText" data-len="512"></textarea>
-
-							</li>
-							<li>
-								<li><input type="submit" value="SUBMIT"></li> 
-							</li>
-							<li>
-								<span class="error-msg"></span>
-							</li>								
+														
 						</ul>                            
 					
 					</form> 					
