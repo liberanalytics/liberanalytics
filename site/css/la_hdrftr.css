@@ -29,7 +29,6 @@
 }
 
 /* Header Menu */
-
 .header-menu-container {
     padding-block: var(--sz-300);
     border-bottom: 2px solid var(--clr-med-grey);
@@ -82,7 +81,7 @@
 
 /* Shared Header/Footer Identities */
 .hdrftr-name-liber {
-    padding-inline-end: var(--sz-300);
+    padding-inline-start: var(--sz-300);
     font-size: calc(3 * var(--fsz-100));
     font-weight: var(--fw-bold);  
     color: var(--fc-xlight);
