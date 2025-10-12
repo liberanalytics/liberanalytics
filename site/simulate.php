@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>LiberAnalytics | Contact Us</title>
 	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">		
+	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="css/la_forms.css" rel="stylesheet" type="text/css" charset="utf-8">			
 	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
@@ -23,44 +24,6 @@
 				var(--clr-med-light) 50%, 
 				var(--clr-lt-light) 100% ) 1;
 		}
-
-		.site-form-std {
-
-		}
-
-		.site-form-std input,
-		.site-form-std textarea {
-			padding: var(--sz-300);
-			border: 1px solid var(--clr-dk-grey);
-			border-radius: .5rem;			
-			box-shadow: 2px 2px 2px var(--clr-med-light);
-		}
-
-		/* form input, textarea {
-			font-family: Helvetica;
-			font-size: 1rem;
-			font-weight: 300;
-			color: var(--clr-prmary-blk);
-			box-shadow: 2px 2px 2px var(--clr-med-light);
-		}
-
-		form input:focus, textarea:focus {    
-			outline: 1px solid var(--clr-prmary-blk);
-		}
-
-		form label {
-			font-family: Helvetica;
-			font-size: 1.125rem;
-			font-weight: 600;
-			color: var(--clr-lt-dark);
-		}
-
-		form input[type=text] {
-			padding: .625rem;
-			border: 1px solid var(--clr-dk-grey);
-			border-radius: .5rem;
-			/* box-shadow: 2px 2px 2px rgb(196,196,196);     */
-		} */
 
 	</style>
 

@@ -2,3 +2,23 @@
     la_forms.css
 --------------------------------------------------------- */
 
+.site-form-std {
+
+}
+
+/* Force inheritance on font properties to override UA styles. */
+.site-font-form-std :where(input, textarea, select, button) {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+.site-form-std input,
+.site-form-std textarea {
+    padding: var(--sz-300);
+    border: 1px solid var(--clr-dk-grey);
+    border-radius: .5rem;			
+    box-shadow: 2px 2px 2px var(--clr-med-light);
+}
