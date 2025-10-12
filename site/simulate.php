@@ -97,7 +97,7 @@
 								>
 								</textarea>							
 							</li>
-							<li><input type="submit" value="SUBMIT"></li> 
+							<li><input type="submit" value="SUBMIT" class=""></li> 
 							<li><span class="error-msg"></span></li>														
 						</ul>					
 					</form> 					

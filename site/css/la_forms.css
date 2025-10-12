@@ -7,7 +7,7 @@
 }
 
 /* Force inheritance on font properties to override UA styles. */
-.site-font-form-std :where(input, textarea, select) {
+.site-font-form-std :where(input[type="text"], input[type="submit"], textarea, select) {
     font: inherit;
     font-family: inherit;
     font-size: inherit;
@@ -16,7 +16,7 @@
     color: inherit;
 }
 
-.site-form-std :where(input, textarea, select) {
+.site-form-std :where(input[type="text"], textarea, select) {
     box-sizing: border-box;
     inline-size: 100%;
     display: block;    
@@ -27,5 +27,26 @@
     box-shadow: 2px 2px 2px var(--clr-med-light);
 }
 
-.site-form-std input:focus, 
-.site-form-std textarea:focus { outline: 1px solid var(--clr-prmary-blk); }
+.site-form-std :is(input, textarea):focus-visible {
+    outline: 2px solid var(--clr-med-dark);
+}
+
+.site-form-std :where(input[type="submit"]) {
+    padding-block: var(--sz-400);  
+    border: none;
+    border-radius: .625rem;
+    background-color: var(--clr-dk-blue);
+    font-weight: var(--fw-bold);
+    color: var(--fc-xlight);
+}
+
+.site-form-std :where(input[type=submit]):hover {
+    background-color: var(--clr-med-blue);
+    transition-duration: var(--transition-med);
+    cursor: pointer;    
+}
+
+form input[type=submit]:focus,
+form input[type=submit]:active {
+    outline: none;
+}
