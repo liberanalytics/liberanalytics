@@ -7,7 +7,11 @@
 }
 
 /* Force inheritance on font properties to override UA styles. */
-.site-font-form-std :where(input, textarea, select, button) {
+.site-font-form-std :where(input, textarea, select) {
+    box-sizing: border-box;
+    inline-size: 100%;
+    display: block;
+    font: inherit;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -15,10 +19,10 @@
     color: inherit;
 }
 
-.site-form-std input,
-.site-form-std textarea {
+.site-form-std :where(input, textarea, select) {
     padding: var(--sz-300);
     border: 1px solid var(--clr-dk-grey);
-    border-radius: .5rem;			
+    border-radius: .5rem;
+    background-color: var(--clr-xlt-light);
     box-shadow: 2px 2px 2px var(--clr-med-light);
 }

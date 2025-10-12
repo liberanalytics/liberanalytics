@@ -17,6 +17,7 @@
 	<style>
 
 		.contact-container {
+			padding-block-end: var(--sz-300);
 			margin-block-start: var(--sz-600);
 			border-bottom: 1px solid transparent;
 			border-image: linear-gradient( to right, 
@@ -54,18 +55,18 @@
 					>
 
 						<ul class="site-font-form-std">
-							<li><label class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
+							<li><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 
-									name="first_name" type="text" title="Enter First Name" class="" 
+									id="first_name" name="first_name" type="text" title="Enter First Name" class="" 
 									maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
 									data-vx="vxName" data-len="32" autocomplete="off">
 							</li>
 
-							<li><label class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
+							<li><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 
-									name="last_name" type="text" title="Enter Last Name" class="" 
+									id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
 									maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
 									data-vx="vxName" data-len="32" autocomplete="off">      
 							</li>
