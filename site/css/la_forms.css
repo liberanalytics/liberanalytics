@@ -8,9 +8,6 @@
 
 /* Force inheritance on font properties to override UA styles. */
 .site-font-form-std :where(input, textarea, select) {
-    box-sizing: border-box;
-    inline-size: 100%;
-    display: block;
     font: inherit;
     font-family: inherit;
     font-size: inherit;
@@ -20,9 +17,15 @@
 }
 
 .site-form-std :where(input, textarea, select) {
+    box-sizing: border-box;
+    inline-size: 100%;
+    display: block;    
     padding: var(--sz-300);
     border: 1px solid var(--clr-dk-grey);
     border-radius: .5rem;
     background-color: var(--clr-xlt-light);
     box-shadow: 2px 2px 2px var(--clr-med-light);
 }
+
+.site-form-std input:focus, 
+.site-form-std textarea:focus { outline: 1px solid var(--clr-prmary-blk); }
