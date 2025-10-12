@@ -27,8 +27,13 @@
     box-shadow: 2px 2px 2px var(--clr-med-light);
 }
 
-.site-form-std :is(input, textarea):focus-visible {
+.site-form-std :is(input[type="text"], textarea, select):focus {
     outline: 2px solid var(--clr-med-dark);
+}
+
+@supports selector(::focus-visible) {
+    .site-form-std :is(input[type="text"], textarea, select):focus { outline: none; }
+    .site-form-std :is(input[type="text"], textarea, select):focus-visible { outline: none; }
 }
 
 .site-form-std :where(input[type="submit"]) {
@@ -38,15 +43,11 @@
     background-color: var(--clr-dk-blue);
     font-weight: var(--fw-bold);
     color: var(--fc-xlight);
+    cursor: pointer;
 }
 
 .site-form-std :where(input[type=submit]):hover {
     background-color: var(--clr-med-blue);
     transition-duration: var(--transition-med);
     cursor: pointer;    
-}
-
-form input[type=submit]:focus,
-form input[type=submit]:active {
-    outline: none;
 }
