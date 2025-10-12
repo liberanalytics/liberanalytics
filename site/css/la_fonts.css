@@ -64,16 +64,12 @@
     color: var(--fc-med-green);
 }
 
-.site-font-form-input {
+.site-font-form-std {
     font-family: var(--ff-sans-serif);
     font-size: var(--fsz-200);
     font-weight: var(--fw-xlight);
     line-height: var(--flh-tight);
-    color: var(--fc-light);   
-}
-
-.site-font-form-label {
-    
+    color: var(--fc-light);
 }
 
 /* Site Font (link) Component Classes */

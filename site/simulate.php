@@ -28,7 +28,13 @@
 
 		}
 
-		.site-form-std input, 
+		.site-form-std input,
+		.site-form-std textarea {
+			padding: var(--sz-300);
+			border: 1px solid var(--clr-dk-grey);
+			border-radius: .5rem;			
+			box-shadow: 2px 2px 2px var(--clr-med-light);
+		}
 
 		/* form input, textarea {
 			font-family: Helvetica;
@@ -84,19 +90,19 @@
 						class="site-form-std"
 					>
 
-						<ul>
-							<li><label class="">First Name<em class="site-fc-med-red">*</em></label></li>
+						<ul class="site-font-form-std">
+							<li><label class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 
-									name="first_name" type="text" title="Enter First Name" class="site-font-form-input" 
+									name="first_name" type="text" title="Enter First Name" class="" 
 									maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
 									data-vx="vxName" data-len="32" autocomplete="off">
 							</li>
 
-							<li><label class="">Last Name<em class="site-fc-med-red">*</em></label></li>
+							<li><label class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 
-									name="last_name" type="text" title="Enter Last Name" class="site-font-form-input" 
+									name="last_name" type="text" title="Enter Last Name" class="" 
 									maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
 									data-vx="vxName" data-len="32" autocomplete="off">      
 							</li>
