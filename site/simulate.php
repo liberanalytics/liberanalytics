@@ -97,7 +97,7 @@
 								>
 								</textarea>							
 							</li>
-							<li><input type="submit" value="SUBMIT" class=""></li> 
+							<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
 							<li><span class="error-msg"></span></li>														
 						</ul>					
 					</form> 					

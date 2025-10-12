@@ -6,8 +6,11 @@
 
 }
 
-/* Force inheritance on font properties to override UA styles. */
-.site-font-form-std :where(input[type="text"], input[type="submit"], textarea, select) {
+/* Make form controls inherit the wrapper’s font tokens.
+   Because the class is inside :where(), this has *zero* class specificity.
+   Result: any utility class placed directly on a control will override it,
+   even if utilities are defined earlier in la_fonts.css. */
+:where(.site-font-form-std) :where(input[type="text"], input[type="submit"], textarea, select) {
     font: inherit;
     font-family: inherit;
     font-size: inherit;
@@ -33,7 +36,7 @@
 
 @supports selector(::focus-visible) {
     .site-form-std :is(input[type="text"], textarea, select):focus { outline: none; }
-    .site-form-std :is(input[type="text"], textarea, select):focus-visible { outline: none; }
+    .site-form-std :is(input[type="text"], textarea, select):focus-visible { outline: 2px solid var(--clr-med-dark); }
 }
 
 .site-form-std :where(input[type="submit"]) {
@@ -41,8 +44,6 @@
     border: none;
     border-radius: .625rem;
     background-color: var(--clr-dk-blue);
-    font-weight: var(--fw-bold);
-    color: var(--fc-xlight);
     cursor: pointer;
 }
 
