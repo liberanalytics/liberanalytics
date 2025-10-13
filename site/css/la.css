@@ -58,13 +58,41 @@ main {
 .page {
     --page-pad: var(--sz-400);
     --page-max: 46rem;
-    --page-vmargin: var(--sz-600)
+    --page-vmargin: var(--sz-800);
 }
+
+@media (min-width: 30em) {
+    .page {
+        --page-pad: var(--sz-600);
+        --page-max: 52rem;
+    }
+}
+
+@media (min-width: 45em) {
+    .page {
+        --page-pad: var(--sz-700);
+        --page-max: 58rem;
+    }
+}
+
+@media (min-width: 60em) {
+    .page {
+        --page-pad: var(--sz-900);
+        --page-max: 64rem;
+    }
+}
+
+/* @media (min-width: 75em) {
+    .page {
+        --page-pad: var(--sz-950);
+        --page-max: 80rem;
+    }
+} */
 
 .page-wrap {
     inline-size: min(100% - (var(--page-pad) * 2), var(--page-max));
     margin-inline: auto;
-    margin-block: var(--content-vertical-margin);
+    margin-block: var(--page-vmargin);
 }
 
 .site-block-std {

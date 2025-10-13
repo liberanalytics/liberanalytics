@@ -20,9 +20,10 @@
 			</nav>
 
 		</div>
-	</div>
-	<div class="footer-name hdrftr-wrap site-flex site-flex-items-center">
-		<span class="footer-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</span>
-		<span class="footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</span>
-	</div>
+
+		<div class="site-flex site-flex-items-center">
+			<span class="footer-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</span>
+			<span class="footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</span>
+		</div>
+	</div>	
 </footer>
