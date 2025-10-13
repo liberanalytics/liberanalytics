@@ -101,7 +101,7 @@
 .hdrftr-masthead > .site-logo-link { grid-area: logo; }
 
 .hdrftr-masthead > .site-logo-link > .site-logo {
-    block-size: clamp(60px, 10vw, 80px);
+    block-size: clamp(60px, 60px, 80px);
     inline-size: auto;
     object-fit: contain;
 }
@@ -109,15 +109,6 @@
 .hdrftr-masthead > .site-name {
     grid-area: site-name;
     white-space: nowrap;
-}
-
-.hdrftr-masthead > .hdrftr-tagline { grid-area: tagline; }
-
-.hdrftr-font-tagline {
-    font-family: var(--ff-fancy);
-    font-size: clamp(1.0rem, 1.25rem, 1.25rem);
-    line-height: 1;
-    color: var(--fc-xlight);
 }
 
 .hdrftr-name-liber,
@@ -134,6 +125,15 @@
 .hdrftr-name-analytics {
     font-weight: var(--fw-xlight);
     color: var(--fc-medlight);
+}
+
+.hdrftr-masthead > .hdrftr-tagline { grid-area: tagline; }
+
+.hdrftr-font-tagline {
+    font-family: var(--ff-fancy);
+    font-size: clamp(1.0rem, 1.25rem, 1.5rem);
+    line-height: 1;
+    color: var(--fc-xlight);
 }
 
 
