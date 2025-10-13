@@ -54,6 +54,11 @@ main {
     flex: 1;
 }
 
+/* img, svg, video {
+    max-inline-size: 100%;
+    block-size: auto;
+} */
+
 /* Site Component Classes */
 .page {
     --page-pad: var(--sz-400);

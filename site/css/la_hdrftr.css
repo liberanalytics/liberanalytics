@@ -10,7 +10,12 @@
 
 /* Header Container & Masthead */
 .header-container {
-    padding-block-end: var(--sz-800);
+    display: grid;
+    gap: var(--sz-300);
+    align-items: center;
+    justify-items: start;
+    padding-block-start: var(--sz-600);
+    padding-block-end: var(--sz-300);
     border-bottom: 2px solid var(--clr-med-grey);
     background-color:
         var(--knob-hdrftr-bg-color,
@@ -19,13 +24,11 @@
 }
 
 .header-masthead {
-    /* max-width: var(--content-width); */
-    padding: var(--sz-600) 0 var(--sz-350) 0;
-    /* margin-inline: auto; */
+
 }
 
 .header-tagline {
-    margin-left: auto;
+    /* margin-left: auto; */
 }
 
 /* Header Menu */
