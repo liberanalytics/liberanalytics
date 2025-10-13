@@ -82,13 +82,6 @@ main {
     }
 }
 
-/* @media (min-width: 75em) {
-    .page {
-        --page-pad: var(--sz-950);
-        --page-max: 80rem;
-    }
-} */
-
 .page-wrap {
     inline-size: min(100% - (var(--page-pad) * 2), var(--page-max));
     margin-inline: auto;
