@@ -9,38 +9,15 @@
 }
 
 /* Header Container & Masthead */
-.header-container {
-    padding-block-start: var(--sz-600);
-    padding-block-end: var(--sz-300);
-    border-bottom: 2px solid var(--clr-med-grey);
-    background-color:
-        var(--knob-hdrftr-bg-color,
-        var(--hdrftr-bg-color,
-        var(--clr-med-dark)));
-}
-
-/* Masthead -> 2 rows: [logo | brand] over [tagline]. */
-.header-masthead {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-areas: 
-        "logo site-name"
-        "tagline tagline-name";
-    column-gap: var(--sz-300);
-    row-gap: var(--sz-300);
-    align-items: center;
-}
-
-.header-masthead > a { grid-area: logo; }
-.header-masthead > h1 {
-    grid-area: site-name;
-    white-space: no-wrap;
-}
-
-.header-masthead > .header-tagline { grid-area: tagline-name; }
 
 .header-tagline {
     /* margin-left: auto; */
+}
+
+.header-masthead img {
+    block-size: clamp(28px, 4vw, 40px);
+    inline-size: auto;
+    object-fit: contain;
 }
 
 /* Header Menu */
@@ -95,10 +72,40 @@
 }
 
 /* Shared Header/Footer Identities */
+.hdrftr-container {
+    padding-block-start: var(--sz-600);
+    padding-block-end: var(--sz-300);
+    border-bottom: 2px solid var(--clr-med-grey);
+    background-color:
+        var(--knob-hdrftr-bg-color,
+        var(--hdrftr-bg-color,
+        var(--clr-med-dark)));
+}
+
 .hdrftr-wrap {
     inline-size: min(100% - (var(--page-pad) * 2), var(--page-max));
     margin-inline: auto;
 }
+
+/* Masthead -> 2 rows: [logo | brand] over [tagline]. */
+.hdrftr-masthead {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+        "logo site-name"
+        "tagline tagline-name";
+    column-gap: var(--sz-300);
+    row-gap: var(--sz-300);
+    align-items: center;
+}
+
+.hdrftr-masthead > .site-logo { grid-area: logo; }
+.hdrftr-masthead > .site-name {
+    grid-area: site-name;
+    white-space: no-wrap;
+}
+
+.hdrftr-masthead > .hdrftr-tagline { grid-area: tagline-name; }
 
 .hdrftr-name-liber {
     /* padding-inline-start: var(--sz-300); */
@@ -128,7 +135,7 @@
 /* Footer styles. */
 
 /* Footer Container & Masthead */
-.footer-container {
+/* .footer-container {
     padding-block: var(--sz-600);
     background-color:
         var(--knob-hdrftr-bg-color,
@@ -139,7 +146,7 @@
 .footer-masthead {
     max-width: var(--content-width);
     margin-inline: auto;
-}
+} */
 
 .footer-menu {
     margin-left: auto;

@@ -1,14 +1,14 @@
-<header class="header-container">
+<header class="hdrftr-container">
 	<div class="hdrftr-wrap">
-		<div class="header-masthead site-flex site-flex-items-center site-ff-fancy site-fc-xlight">
-			<a href="index" aria-label="Home">
+		<div class="hdrftr-masthead site-ff-fancy site-fc-xlight">
+			<a href="index" class="site-logo" aria-label="Home">
 				<img src="assets/logo_120.png" alt="Liber Analytics logo">
 			</a>
-			<h1>
+			<h2 class="site-name">
 				<span class="hdrftr-name-liber">Liber</span><!--
 				--><span class="hdrftr-name-analytics">Analytics</span>
-			</h1>
-			<h2 class="header-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</h2>
+			</h2>
+			<h3 class="hdrftr-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</h3>
 		</div>
 	</div>
 </header>
