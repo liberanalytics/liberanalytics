@@ -56,14 +56,15 @@ main {
 
 /* Site Component Classes */
 .page {
-    --content-width: calc(var(--sz-400) * 61.25);
-    --content-vertical-margin: calc(var(--sz-400) * 3);
+    --page-pad: var(--sz-400);
+    --page-max: 46rem;
+    --page-vmargin: var(--sz-600)
 }
 
 .page-wrap {
-    max-width: var(--content-width);
-    margin-block: var(--content-vertical-margin);
+    inline-size: min(100% - (var(--page-pad) * 2), var(--page-max));
     margin-inline: auto;
+    margin-block: var(--content-vertical-margin);
 }
 
 .site-block-std {

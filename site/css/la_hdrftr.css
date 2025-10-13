@@ -19,9 +19,9 @@
 }
 
 .header-masthead {
-    max-width: var(--content-width);
+    /* max-width: var(--content-width); */
     padding: var(--sz-600) 0 var(--sz-350) 0;
-    margin-inline: auto;
+    /* margin-inline: auto; */
 }
 
 .header-tagline {
@@ -80,6 +80,11 @@
 }
 
 /* Shared Header/Footer Identities */
+.hdrftr-wrap {
+    inline-size: min(100% - (var(--page-pad) * 2), var(--page-max));
+    margin-inline: auto;
+}
+
 .hdrftr-name-liber {
     padding-inline-start: var(--sz-300);
     font-size: calc(3 * var(--fsz-100));
