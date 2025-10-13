@@ -1,4 +1,4 @@
-<header class="hdrftr-container">
+<header class="hdrftr-container" style="border-bottom: 2px solid var(--clr-med-grey);">
 	<div class="hdrftr-wrap">
 		<div class="hdrftr-masthead site-ff-fancy site-fc-xlight">
 			<a href="index" class="site-logo-link" aria-label="Home">
