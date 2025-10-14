@@ -116,7 +116,6 @@
 
 @media (min-width: 25em) {
     .hdrftr-masthead > .site-logo-link > .site-logo {
-        /* block-size: clamp(3.125rem, 14vw + 1.0rem, 5.687rem); */
         block-size: clamp(4.5rem, calc(24.05vw - 1.512rem), 5.687rem);
     }
 }
