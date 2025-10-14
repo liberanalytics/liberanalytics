@@ -75,7 +75,7 @@
 /* Site Font (link) Component Classes */
 .site-font-link-std {
     font-family: var(--knob-link-ff, var(--ff-main));
-    font-size: var(--fsz-200);
+    font-size: var(--knob-link-fs, var(--fsz-200));
     font-weight: var(--fw-xlight);
     line-height: var(--knob-link-flh, var(--flh-tight));    
     color: var(--knob-link-fc, var(--fc-link));
@@ -138,10 +138,11 @@
    Uses knob custom variables to dial property values.
 --------------------------------------------------------- */
 .site-link-ff-sans-serif { --knob-link-ff: var(--ff-sans-serif); }
-.site-link-flh-med { --knob-link-flh: var(--flh-med); }
+.site-link-fs-xsmall { --knob-link-fs: var(--fsz-100); }
 .site-link-fc-med { --knob-link-fc: var(--fc-med); }
 .site-link-fc-muted { --knob-link-fc: var(--fc-light); }
 .site-link-fc-accent { --knob-link-fc: var(--fc-med-green); }
 .site-link-fc-dark { --knob-link-fc: var(--fc-dark); }
 .site-link-fc-xdark { --knob-link-fc: var(--fc-xdark); }
+.site-link-flh-med { --knob-link-flh: var(--flh-med); }
 .site-link-hover-fc-xlight { --knob-link-fc-hover: var(--fc-xlight); }

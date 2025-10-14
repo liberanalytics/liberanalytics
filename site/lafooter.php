@@ -10,5 +10,14 @@
 			</h2>
 			<h3 class="hdrftr-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</h3>
 		</div>
+	</div>
+	<div class="footer-menu-container">
+		<nav class="footer-menu" aria-label="Footer"> 			
+			<span><a href="/posts" class="site-font-link-std site-link-fs-xsmall">Posts</a></span>
+			<span><a href="/about" class="site-font-link-std site-link-fs-xsmall">About</a></span>
+			<span><a href="/contact" class="site-font-link-std site-link-fs-xsmall">Contact</a></span>
+			<span><a href="/privacy" class="site-font-link-std site-link-fs-xsmall">Privacy</a></span>
+			<span><a href="/terms" class="site-font-link-std site-link-fs-xsmall">Terms</a></span>
+		</nav>
 	</div>	
 </footer>
