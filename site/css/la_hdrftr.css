@@ -128,7 +128,7 @@
 
 .hdrftr-name-liber,
 .hdrftr-name-analytics {    
-    font-size: clamp(2.0rem, 10.8vw - 0.196rem, 2.5rem);
+    font-size: clamp(2.0rem, calc(10.8vw - 0.196rem), 2.5rem);
     line-height: 1;
 }
 
