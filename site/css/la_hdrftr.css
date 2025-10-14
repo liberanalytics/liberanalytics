@@ -101,7 +101,7 @@
 .hdrftr-masthead > .site-logo-link { grid-area: logo; }
 
 .hdrftr-masthead > .site-logo-link > .site-logo {
-    block-size: clamp(60px, 60px, 80px);
+    block-size: clamp(50px, 14vw + 14px, 72px);
     inline-size: auto;
     object-fit: contain;
 }
@@ -113,7 +113,7 @@
 
 .hdrftr-name-liber,
 .hdrftr-name-analytics {    
-    font-size: clamp(2.0rem, 2.0rem, 2.5rem);
+    font-size: clamp(2.0rem, 10.8vw - 0.196rem, 2.5rem);
     line-height: 1;
 }
 
@@ -131,12 +131,11 @@
 
 .hdrftr-font-tagline {
     font-family: var(--ff-fancy);
-    font-size: clamp(1.0rem, 1.25rem, 1.5rem);
+    font-size: clamp(1.0rem, 1.125rem, 1.5rem);
     line-height: 1;
     color: var(--fc-xlight);
+    text-align: center;
 }
-
-
 
 .header-masthead img, .footer-masthead img {
     width: var(--la-logo-width);
