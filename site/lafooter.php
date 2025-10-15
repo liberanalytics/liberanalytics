@@ -1,7 +1,8 @@
 <footer class="hdrftr-container" role="contentinfo">
 	<div class="hdrftr-wrap">
+
 		<div class="hdrftr-masthead site-ff-fancy site-fc-xlight">
-			<a href="index" class="site-logo-link" aria-label="Home">
+			<a href="/index" class="site-logo-link" aria-label="Home">
 				<img src="assets/logo_120.png" class="site-logo" alt="Liber Analytics logo">
 			</a>
 			<h2 class="site-name">
@@ -11,14 +12,15 @@
 			<h3 class="hdrftr-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</h3>
 		</div>
 	
-	<div class="footer-menu-container">
-		<nav class="footer-menu" aria-label="Footer"> 			
-			<span><a href="/postsearch" class="footer-menu-link site-font-link-std">Posts</a></span>
-			<span><a href="/about" class="footer-menu-link site-font-link-std">About</a></span>
-			<span><a href="/contact" class="footer-menu-link site-font-link-std">Contact</a></span>
-			<span><a href="/privacy" class="footer-menu-link site-font-link-std">Privacy</a></span>
-			<span><a href="/terms" class="footer-menu-link site-font-link-std">Terms</a></span>
-		</nav>
-	</div>
-</div>	
+		<div class="footer-menu-container">
+			<nav class="footer-menu" aria-label="Footer"> 			
+				<span><a href="/postsearch" class="footer-menu-link site-font-link-std">Posts</a></span>
+				<span><a href="/about" class="footer-menu-link site-font-link-std">About</a></span>
+				<span><a href="/contact" class="footer-menu-link site-font-link-std">Contact</a></span>
+				<span><a href="/privacy" class="footer-menu-link site-font-link-std">Privacy</a></span>
+				<span><a href="/terms" class="footer-menu-link site-font-link-std">Terms</a></span>
+			</nav>
+		</div>
+
+	</div>	
 </footer>
