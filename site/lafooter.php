@@ -21,6 +21,7 @@
 				<span><a href="/terms" class="footer-menu-link site-font-link-std">Terms</a></span>
 			</nav>
 		</div>
+		<h3 class="footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</h3>
 
 	</div>	
 </footer>

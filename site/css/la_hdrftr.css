@@ -176,7 +176,7 @@
 
 /* Footer styles. */
 .footer-menu-container {
-    margin-block-start: var(--sz-600);
+    margin-block-start: var(--sz-400);
 }
 
 .footer-menu {
