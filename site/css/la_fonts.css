@@ -13,6 +13,7 @@
     /* Site font-sizes. */
     --fsz-100: var(--sz-400);
     --fsz-200: var(--sz-500);
+    --fsz-225: var(--sz-525);
     --fsz-300: var(--sz-600);
     --fsz-400: var(--sz-700);
 
