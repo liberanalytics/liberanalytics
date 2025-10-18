@@ -9,7 +9,7 @@
 				<span class="hdrftr-name-liber">Liber</span><!--
 				--><span class="hdrftr-name-analytics">Analytics</span>
 			</h2>
-			<h3 class="hdrftr-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</h3>
+			
 		</div>
 	
 		<div class="footer-menu-container">
@@ -21,6 +21,7 @@
 				<span><a href="/terms" class="footer-menu-link site-font-link-std">Terms</a></span>
 			</nav>
 		</div>
+		<h3 class="hdrftr-tagline hdrftr-font-tagline">Freeing analytics from the ordinary.</h3>
 		<h3 class="footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</h3>
 
 	</div>	
