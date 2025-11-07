@@ -179,8 +179,9 @@
 }
 
 .footer-menu {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 0.4rem 1.2rem;
 }
 
 .footer-menu > span {
