@@ -180,8 +180,15 @@
 
 .footer-menu {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(3, auto);
     gap: 0.4rem 1.2rem;
+    justify-content: center;
+}
+
+@media (min-width: 25em) {
+    .footer-menu {
+        grid-template-columns: repeat(4, auto);
+    }
 }
 
 .footer-menu > span {
@@ -193,6 +200,7 @@
 }
 
 .footer-menu .footer-menu-link {
+    display: inline-block;
     text-decoration: none;
     border-bottom: 1px solid var(--clr-med-blue);
     transition:
