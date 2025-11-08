@@ -169,6 +169,7 @@ main {
 .site-flex-col { flex-direction: column; }
 .site-flex-items-center { align-items: center; }
 .site-flex-justify-between { justify-content: space-between; }
+.site-flex-justify-center { justify-content: center; }
 .site-flex-gap-300 { gap: var(--sz-300); }
 .site-flex-gap-400 { gap: var(--sz-400); }
 .site-flex-gap-800 { gap: var(--sz-800); }
