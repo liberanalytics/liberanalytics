@@ -175,7 +175,7 @@
 
 /* Footer styles. */
 .footer-menu-container {
-    margin-block-start: var(--sz-400);
+    margin-block-start: var(--sz-300);
 }
 
 .footer-menu {
@@ -235,6 +235,7 @@
 }
 
 .footer-legal {
+    margin-block-start: var(--sz-300);
     font-size: clamp(.875rem, calc(2.703vw + 0.326rem), 1.0rem);
     font-weight: var(--fw-xlight);
     font-family: var(--ff-fancy);
