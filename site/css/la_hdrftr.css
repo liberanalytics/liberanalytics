@@ -235,10 +235,9 @@
 }
 
 .footer-legal {
-    margin-left: auto;
-    margin-right: var(--sz-300);
-    font-size: var(--fsz-100);
+    font-size: clamp(.875rem, calc(2.703vw + 0.326rem), 1.0rem);
     font-weight: var(--fw-xlight);
     font-family: var(--ff-fancy);
     color: var(--fc-xlight);
+    text-align: center;
 }
