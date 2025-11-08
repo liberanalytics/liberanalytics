@@ -42,7 +42,9 @@
 
 /* Header Search */
 .header-search-container {   
-    margin-left: auto;
+    /* margin-left: auto; */
+    width: 100%;
+    margin-inline: auto;
 }
 
 .header-search {
