@@ -10,7 +10,7 @@
 
 /* Header Container & Masthead */
 .header-tagline {
-    /* margin-left: auto; */
+    /* margin-left: auto; -- Desktop layout -- */
 }
 
 .header-masthead img {
@@ -42,16 +42,20 @@
 
 /* Header Search */
 .header-search-container {   
-    /* margin-left: auto; */
+    /* margin-left: auto; -- Desktop layout -- */
+    flex: 0 0 100%;
     width: 100%;
-    margin-inline: auto;
 }
 
 .header-search {
-    width: min(calc(20 * var(--sz-400)), 90vw);
+    /* width: min(calc(20 * var(--sz-400)), 90vw); -- Desktop layout -- */
+    display: block;
+    box-sizing: border-box;
+    width: min(100%, calc(100vw - (var(--sz-300) * 2))); /* Leave 10px margin on left & right. */
     padding: var(--sz-300) var(--sz-300) var(--sz-300) calc(2 * var(--sz-600));
     border: none;   
     border-radius: var(--sz-200);
+    margin-inline: auto;
     background: url('../assets/mg.svg') var(--clr-dk-blue) no-repeat var(--sz-025) center;
 }
 
