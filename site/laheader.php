@@ -12,4 +12,18 @@
 		</div>
 	</div>
 </header>
+<div class="header-menu-container">
+	<div class="header-menu">
 
+		<nav class="site-flex site-flex-wrap site-flex-items-center site-link-ff-sans-serif site-link-hover-fc-xlight" aria-label="primary"> 					
+			<a href="/index" class="site-font-link-std">Home</a>
+			<a href="/postsearch" class="site-font-link-std">Posts</a>
+			<a href="/about" class="site-font-link-std">About</a>
+			<a href="/contact" class="site-font-link-std">Contact</a>
+			<a href="/about" class="site-font-link-std">Recent</a>
+			<a href="/contact" class="site-font-link-std">Authored</a>	
+			<a href="/contact" class="site-font-link-std">Popular</a>	
+			
+		</nav>	
+	</div>
+</div>
