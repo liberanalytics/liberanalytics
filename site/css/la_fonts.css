@@ -66,11 +66,17 @@
 }
 
 .site-font-form-std {
-    font-family: var(--ff-sans-serif);
-    font-size: var(--fsz-200);
-    font-weight: var(--fw-xlight);
-    line-height: var(--flh-tight);
-    color: var(--fc-light);
+    --ff-form: var(--ff-sans-serif);
+    --fs-form: var(--fsz-200);
+    --fw-form: var(--fw-xlight);
+    --flh-form: var(--flh-tight);
+    --fc-form: var(--fc-light);
+  
+    font-family: var(--ff-form);
+    font-size: var(--fs-form);
+    font-weight: var(--fw-form);
+    line-height: var(--flh-form);
+    color: var(--fc-form);    
 }
 
 /* Site Font (link) Component Classes */

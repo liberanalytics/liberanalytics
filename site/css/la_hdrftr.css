@@ -49,6 +49,9 @@
 
 .header-search {
     /* width: min(calc(20 * var(--sz-400)), 90vw); -- Desktop layout -- */
+    --fs-form: var(--fsz-100);
+    --fw-form: var(--fw-bold);
+    --fc-form: var(--fc-xlight);
     display: block;
     box-sizing: border-box;
     width: calc(100vw - (var(--sz-300) * 2)); /* Leave 10px margin on left & right. */

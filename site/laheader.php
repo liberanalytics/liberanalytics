@@ -24,7 +24,7 @@
 				<form role="search">
 					<label for="header_search" class="site-display-none">Search posts by tag</label>
 					<input
-						class="header-search site-font-input"
+						class="header-search site-font-form-std"
 						id="header_search"
 						type="search" 
 						title="Search for posts by tag" 
