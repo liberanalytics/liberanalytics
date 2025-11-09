@@ -21,7 +21,7 @@
 			<a href="/contact" class="site-font-link-std">Contact</a>
 
 			<div id="site_search_container" class="header-search-container">
-				<form id="site_search_form" role="search">
+				<form id="site_search_form" class="header-search-form" role="search">
 					<label for="site_search" class="site-display-none">Search posts by tag</label>
 					<input
 						class="header-search site-font-form-std"
@@ -31,6 +31,7 @@
 						placeholder="Search for posts by tag"
 						autocomplete="off"
 					>
+					<button class="header-search-btn" type="submit" aria-label="Search"></button>
 				</form>
 				<div id="site_search_tag_suggestions" class="tag-suggestions-box"></div>
 			</div>	

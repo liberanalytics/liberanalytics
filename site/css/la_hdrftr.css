@@ -47,6 +47,10 @@
     width: 100%;
 }
 
+.header-search-form {
+    position: relative;
+}
+
 .header-search {
     /* width: min(calc(20 * var(--sz-400)), 90vw); -- Desktop layout -- */
     --fs-form: var(--fsz-100);
@@ -60,6 +64,16 @@
     border-radius: var(--sz-200);
     margin-inline: auto;
     background: url('../assets/mg.svg') var(--clr-dk-blue) no-repeat var(--sz-025) center;
+}
+
+.header-search-btn {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    inset-block: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .header-search::placeholder {
