@@ -20,18 +20,19 @@
 			<a href="/about" class="site-font-link-std">About</a>
 			<a href="/contact" class="site-font-link-std">Contact</a>
 
-			<div class="header-search-container">
-				<form role="search">
-					<label for="header_search" class="site-display-none">Search posts by tag</label>
+			<div id="site_search_container" class="header-search-container">
+				<form id="site_search_form" role="search">
+					<label for="site_search" class="site-display-none">Search posts by tag</label>
 					<input
 						class="header-search site-font-form-std"
-						id="header_search"
+						id="site_search"
 						type="search" 
 						title="Search for posts by tag" 
 						placeholder="Search for posts by tag"
 						autocomplete="off"
 					>
 				</form>
+				<div id="site_search_tag_suggestions" class="tag-suggestions-box"></div>
 			</div>	
 								
 		</nav>	

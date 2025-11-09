@@ -2,7 +2,7 @@
     la_tags.css
 --------------------------------------------------------- */
 
-.tag-suggestion-box {
+.tag-suggestions-box {
     max-height: calc(var(--sz-400) * 12.5);
     overflow-y: auto;
     position: absolute;
