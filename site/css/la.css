@@ -59,43 +59,17 @@ main {
     flex: 1;
 }
 
-/* img, svg, video {
-    max-inline-size: 100%;
-    block-size: auto;
-} */
-
 /* Site Component Classes */
 .page {
-    --page-pad: var(--sz-400);
-    --page-max: 46rem;
-    --page-vmargin: var(--sz-800);
-}
-
-@media (min-width: 30em) {
-    .page {
-        --page-pad: var(--sz-600);
-        --page-max: 52rem;
-    }
-}
-
-@media (min-width: 45em) {
-    .page {
-        --page-pad: var(--sz-700);
-        --page-max: 58rem;
-    }
-}
-
-@media (min-width: 60em) {
-    .page {
-        --page-pad: var(--sz-900);
-        --page-max: 64rem;
-    }
+    --site-page-pad-inline: var(--sz-400);
+    --site-page-max-width: calc(var(--sz-400) * 25);
+    --site-page-vmargin: var(--sz-400);
 }
 
 .page-wrap {
-    inline-size: min(100% - (var(--page-pad) * 2), var(--page-max));
+    inline-size: min(100% - (var(--site-page-pad-inline) * 2), var(--site-page-max-width));
     margin-inline: auto;
-    margin-block: var(--page-vmargin);
+    margin-block: var(--site-page-vmargin);
 }
 
 .site-block-std {
