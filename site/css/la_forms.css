@@ -55,6 +55,9 @@
 }
 
 .error-msg {
-    display: inline-block;
+    display: block;
     min-height: var(--knob-error-height, var(--sz-400));
+    font-size: var(--knob-error-fs, var(--fsz-100));
+    color: var(--fc-med-red);
+    text-align: center;
 }
