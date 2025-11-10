@@ -43,7 +43,7 @@
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
 				</div>
 
-				<div class="contact-container">
+				<div class="contact-form-container site-gradient-border-bottom">
 					<form
 						id="contact_form"
 						name="contact" 
@@ -54,7 +54,7 @@
 						class="site-form-std"
 					>
 
-						<ul class="site-font-form-std">
+						<ul class="site-font-form-std site-stack-mt">
 							<li><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 

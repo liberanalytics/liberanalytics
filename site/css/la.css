@@ -121,7 +121,7 @@ main {
 
 .site-primary-heading {
     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
-    margin-block-end: var(--sz-600);
+    margin-block-end: var(--sz-400);
     background-color: var(--clr-med-dark);
     font-family: var(--ff-primary-heading);
     font-size: var(--fsz-400);
@@ -141,8 +141,12 @@ main {
 
 /* Site Utility Classes */
 .site-stack-mtmb > * + * {    
-    margin-top: var(--knob-stack-mt, var(--sz-400));
-    margin-bottom: var(--knob-stack-mb, var(--sz-400));
+    margin-block-start: var(--knob-stack-mt, var(--sz-400));
+    margin-block-end: var(--knob-stack-mb, var(--sz-400));
+}
+
+.site-stack-mt > * + * {
+    margin-block-start: var(--knob-stack-mt, var(--sz-400));
 }
 
 .site-stack-mt-600 { --knob-stack-mt: var(--sz-600); }

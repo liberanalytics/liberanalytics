@@ -2,12 +2,11 @@
     contact.css
 --------------------------------------------------------- */
 
-.contact-container {
+.contact-form-container {
     padding-block-end: var(--sz-300);
-    margin-block-start: var(--sz-600);
-    border-bottom: 1px solid transparent;
-    border-image: linear-gradient( to right, 
-        var(--clr-lt-light) 0%, 
-        var(--clr-med-light) 50%, 
-        var(--clr-lt-light) 100% ) 1;
+    margin-block-start: var(--sz-400);
+}
+
+.contact-form-container label {
+    display: inline-block;
 }
