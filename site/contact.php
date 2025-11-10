@@ -54,7 +54,7 @@
 						class="site-form-std"
 					>
 
-						<ul class="site-font-form-std site-stack-mt">
+						<ul class="site-font-form-std contact-form-stack">
 							<li><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 

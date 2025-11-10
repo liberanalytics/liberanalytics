@@ -10,3 +10,8 @@
 .contact-form-container label {
     display: inline-block;
 }
+
+.contact-form-stack label,
+.contact-form-stack input[type="submit"] {
+    margin-block-start: var(--sz-300);
+}
