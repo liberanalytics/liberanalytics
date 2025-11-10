@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
 });
 
 contact.setVars = () => {
-    contact.form = document.querySelector('#contact');
+    contact.form = document.querySelector('#contact_form');
 }
 
 contact.bindEvents = () => {

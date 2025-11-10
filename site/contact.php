@@ -50,7 +50,7 @@
 						method="post"
 						data-composite="0"
 						data-erroreleid="error_form"
-						action="contact_handler.php"
+						action="/api/contact.php"
 						class="site-form-std"
 					>
 
@@ -98,7 +98,7 @@
 								</textarea>							
 							</li>
 							<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-							<li><span class="error-msg"></span></li>														
+							<li><span class="error-msg" aria-live="polite"></span></li>														
 						</ul>					
 					</form> 					
 				</div>
