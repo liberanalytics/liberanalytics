@@ -40,6 +40,7 @@
 }
 
 .site-form-std :where(input[type="submit"]) {
+    width: var(--knob-submit-width, calc(100vw - (var(--sz-300) * 2))); /* Leave 10px margin on left & right. */
     padding-block: var(--sz-400);  
     border: none;
     border-radius: .625rem;
