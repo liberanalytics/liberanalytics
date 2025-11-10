@@ -14,11 +14,15 @@
 </header>
 <div class="header-menu-container">
 	<div class="header-menu">
-		<nav class="site-flex site-flex-wrap site-flex-items-center site-flex-justify-center site-link-ff-sans-serif site-link-hover-fc-xlight" aria-label="primary"> 					
+		<nav class="
+				site-flex site-flex-wrap site-flex-items-center site-flex-justify-center site-flex-rowgap-300
+				site-link-ff-sans-serif site-link-hover-fc-xlight" 
+			aria-label="primary"
+		> 					
 			<a href="/index" class="site-font-link-std">Home</a>
 			<a href="/postsearch" class="site-font-link-std">Posts</a>
 			<a href="/about" class="site-font-link-std">About</a>
-			<a href="/contact" class="site-font-link-std">Contact</a>
+			<a href="/contact" class="site-font-link-std">Contact</a>		
 
 			<div id="site_search_container" class="header-search-container">
 				<form id="site_search_form" class="header-search-form" role="search">

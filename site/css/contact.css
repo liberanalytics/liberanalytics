@@ -12,7 +12,10 @@
 }
 
 .contact-form-stack label,
-.contact-form-stack input[type="submit"],
 .contact-form-stack .error-msg {
     margin-block-start: var(--sz-300);
+}
+
+.contact-form-stack input[type="submit"] {
+    margin-block-start: var(--sz-400);
 }
