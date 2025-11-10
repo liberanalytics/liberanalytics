@@ -2,6 +2,11 @@
     la.css
 --------------------------------------------------------- */
 
+/* Site semantic & calc variables. */
+:root {
+    --site-vw-inline: calc(100vw - (var(--sz-300) * 2)); /* Leave 10px margin on left & right. */
+}
+
 /* Reset UA Styles */
 * {
     padding: 0;

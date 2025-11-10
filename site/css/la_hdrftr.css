@@ -58,7 +58,7 @@
     --fc-form: var(--fc-xlight);
     display: block;
     box-sizing: border-box;
-    width: calc(100vw - (var(--sz-300) * 2)); /* Leave 10px margin on left & right. */
+    width: var(--site-vw-inline);
     padding: var(--sz-300) var(--sz-300) var(--sz-300) calc(2 * var(--sz-600));
     border: none;   
     border-radius: var(--sz-200);
