@@ -53,3 +53,8 @@
     transition-duration: var(--transition-med);
     cursor: pointer;    
 }
+
+.error-msg {
+    display: inline-block;
+    min-height: var(--sz-600);
+}
