@@ -169,3 +169,8 @@ main {
     flex-grow: 1; 
     flex-shrink: 1; 
 }
+
+/* Site elements directly targeted @ specific breakpoints. */
+.site-primary-heading {
+    --knob-primary-heading-fs: var(--fs-clamp-18x20);
+}
