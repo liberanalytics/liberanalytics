@@ -29,6 +29,7 @@ contact.submitContact = () => {
     for (const formEle of contact.form.elements) {
 
         const eleName = formEle.name;
+        const eleCaption = formEle.dataset.caption;
         const eleValue = formData.get(eleName);
         const eleMaxLen = formEle.dataset.len;
         const eleVxReq = formEle.dataset.req;
@@ -43,7 +44,7 @@ contact.submitContact = () => {
             const isFormValid = eleVx(eleValue, eleMaxLen);
             if (!isFormValid) {
                 formValid = false;                
-                LArenderor.renderError({errorKey: eleName, errorValue: eleValue});
+                LArenderor.renderError({errorKey: eleCaption, errorValue: eleValue});
                 return;
             }
         }
