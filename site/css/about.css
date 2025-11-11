@@ -6,15 +6,12 @@
     --knob-std-fs: var(--fs-clamp-18x20);
 }
 
-
 /* About component classes. */
 .about-summaries {
     display: grid;
     gap: var(--sz-400);
     margin-block-end: var(--sz-600);
 }
-
-
 
 /* Smooth out the scrolling behavior for anchor links. */
 html {
@@ -35,15 +32,21 @@ html {
 }
 
 
-/* Add 20 vh at bottom of page for larger viewports. */
+
+
+
+
+
+/* 
+Add 20 vh at bottom of page for larger viewports.
 @media (min-width: 61.25em) {
     .page-wrap { padding-block-end: 20vh; }
 }
 
-/* Enhance at ~980px. */
+Enhance at ~980px.
 @media (min-width: 61.25em) {    
     .about-summaries {
         grid-template-columns: 1fr 1fr;
         align-items: start;
     }
-}
+} */

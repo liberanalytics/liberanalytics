@@ -67,7 +67,7 @@ main {
     --site-page-vmargin: var(--sz-400);
 
     --site-block-pad-inline: var(--sz-300);
-    --site-block-margin-block: var(--sz-400);
+    --site-block-margin-block: var(--sz-300);
 
 }
 
@@ -111,7 +111,7 @@ main {
     margin-block-end: var(--sz-400);
     background-color: var(--clr-med-dark);
     font-family: var(--ff-primary-heading);
-    font-size: var(--knob-primary-heading-fs, var(--fsz-400));
+    font-size: var(--knob-primary-heading-fs, var(--fs-clamp-18x20));
     font-weight: var(--fw-xlight);
     color: var(--fc-xlight);
 }
@@ -171,6 +171,8 @@ main {
 }
 
 /* Site elements directly targeted @ specific breakpoints. */
-.site-primary-heading {
-    --knob-primary-heading-fs: var(--fs-clamp-18x20);
+@media (min-width: 25em) {
+    .site-primary-heading {
+        --knob-primary-heading-fs: var(--fs-clamp-18x20);
+    }
 }
