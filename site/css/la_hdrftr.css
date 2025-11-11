@@ -10,7 +10,7 @@
 
 /* Header Container & Masthead */
 .page-header {
-    
+    --knob-primary-heading-fs: var(--fs-clamp-18x20);
 }
 
 .header-tagline {

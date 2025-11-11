@@ -111,7 +111,7 @@ main {
     margin-block-end: var(--sz-400);
     background-color: var(--clr-med-dark);
     font-family: var(--ff-primary-heading);
-    font-size: var(--fsz-400);
+    font-size: var(--knob-primary-heading-fs, var(--fsz-400));
     font-weight: var(--fw-xlight);
     color: var(--fc-xlight);
 }
