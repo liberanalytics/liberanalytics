@@ -58,7 +58,7 @@
 							<li><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 
-									id="first_name" name="First Name" type="text" title="Enter First Name" class="" 
+									id="first_name" name="first_name" type="text" title="Enter First Name" class="" 
 									maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
 									data-vx="vxName" data-len="32" autocomplete="given-name"
 								>
@@ -67,7 +67,7 @@
 							<li><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input 
-									id="last_name" name="Last Name" type="text" title="Enter Last Name" class="" 
+									id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
 									maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
 									data-vx="vxName" data-len="32" autocomplete="family-name"
 								>      
@@ -75,7 +75,7 @@
 							<li><label for="email" class="site-fw-bold">Email<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input
-									id="email" name="Email" type="text" title="Enter Email" class="" 
+									id="email" name="email" type="text" title="Enter Email" class="" 
 									maxlength="32" data-caption="Email" data-id="email" data-req="1"
 									data-vx="vxEmail" data-len="32" autocomplete="email"
 								>							
@@ -83,7 +83,7 @@
 							<li><label for="subject" class="site-fw-bold">Subject<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<input
-									id="subject" name="Subject" type="text" title="Enter Subject" class=""
+									id="subject" name="contact_subject" type="text" title="Enter Subject" class=""
 									maxlength="32" data-caption="Subject" data-id="subject" data-req="1"
 									data-vx="vxAlphaNum" data-len="32" autocomplete="off"
 							>							
@@ -91,7 +91,7 @@
 							<li><label for="message" class="site-fw-bold">Message<em class="site-fc-med-red">*</em></label></li>
 							<li>
 								<textarea 
-									id="subject" name="Message" rows="8" class=""
+									id="subject" name="contact_message" rows="8" class=""
 									data-caption="Message" data-id="contact_message" data-req="1"
 									data-vx="vxText" data-len="512"
 								>
