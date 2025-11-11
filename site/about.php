@@ -58,7 +58,7 @@
 			<nav class="about-summaries" aria-label="Page summary">
 
 				<section class="about-summary-card">
-					<h2 class="site-primary-heading">About LiberAnalytics</h2>
+					<h1 class="site-primary-heading">About LiberAnalytics</h1>
 					<div class="site-block-std">
 						<p class="about-summary">
 							What LiberAnalytics is, why it was built, the tech stack that runs it, 
