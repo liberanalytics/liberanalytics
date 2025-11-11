@@ -36,7 +36,7 @@
 
 	<main>
 		<div class="page-wrap">
-			<section>
+			<section class="site-ajax-overlay-relative">
 				<h1 class="site-primary-heading">Contact Us</h1>
 
 				<div class="site-block-std">					
@@ -103,21 +103,18 @@
 					</div>
 				</div>
 
-				<div class="site-ajax-overlay hidden">
-					<div class="site-ajax-spinner-centerer">
-						<div class="site-ajax-spinner-8spoke ">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</div>
-				</div>				
-					
+				<div class="site-ajax-overlay-flex hidden">					
+					<div class="site-ajax-spinner-8spoke ">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>					
+				</div>					
 			</section>
 		</div>
 	</main>
