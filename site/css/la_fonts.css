@@ -51,7 +51,7 @@
 /* Site Font (non-link) Component Classes. */
 .site-font-std {
     font-family: var(--knob-font-ff, var(--ff-main));
-    font-size: var(--fsz-200);
+    font-size: var(--knob-std-fs, var(--fsz-200));
     font-weight: var(--fw-xlight);
     line-height: var(--flh-tight);
     color: var(--fc-light);

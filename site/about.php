@@ -49,7 +49,7 @@
 	<script type="module" src="js/la.js"></script>
 </head>
 
-<body class="page site-font-std">
+<body class="page page-about site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 
@@ -57,7 +57,7 @@
 		<div class="page-wrap site-fs-med">
 			<nav class="about-summaries" aria-label="Page summary">
 
-				<section class="about-summary-card">
+				<section>
 					<h1 class="site-primary-heading">About LiberAnalytics</h1>
 					<div class="site-block-std">
 						<p class="about-summary">
@@ -76,7 +76,7 @@
 					</div>
 				</section>
 
-				<section class="about-summary-card">
+				<section>
 					<h2 class="site-primary-heading">LiberAnalytics Philosophy</h2>
 					<div class="site-block-std">
 						<p class="about-summary">

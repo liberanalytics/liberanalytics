@@ -78,7 +78,10 @@ main {
 }
 
 .site-block-std {
-    padding-inline: var(--site-block-pad-inline);
+    padding-inline: var(--site-block-pad-inline);    
+}
+
+.site-block-mt {
     margin-block-start: var(--site-block-margin-block);
 }
 
