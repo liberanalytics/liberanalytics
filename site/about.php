@@ -54,7 +54,7 @@
 	<?php include_once('laheader.php'); ?>
 
 	<main>
-		<div class="page-wrap site-fs-med">
+		<div class="page-wrap">
 			<nav class="about-summaries" aria-label="Page summary">
 
 				<section>

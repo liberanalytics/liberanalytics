@@ -3,7 +3,7 @@
 --------------------------------------------------------- */
 
 .page-about {
-    --knob-std-fs: clamp(1rem, calc(2.703vw + 0.451rem), 1.125rem);
+    --knob-std-fs: var(--fs-clamp-18x20);
 }
 
 

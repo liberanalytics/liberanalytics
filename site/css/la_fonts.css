@@ -46,6 +46,9 @@
     --flh-tight: var(--lh-200);
     --flh-med: var(--lh-300);
 
+    /* Site font size clamps. */
+    --fs-clamp-18x20: clamp(1.125rem, calc(2.703vw + 0.576rem), 1.25rem);
+
 }
 
 /* Site Font (non-link) Component Classes. */
