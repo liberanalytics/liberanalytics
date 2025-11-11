@@ -61,9 +61,14 @@ main {
 
 /* Site Component Classes */
 .page {
+    
     --site-page-pad-inline: var(--sz-400);
     --site-page-max-width: calc(var(--sz-400) * 25);
     --site-page-vmargin: var(--sz-400);
+
+    --site-block-pad-inline: var(--sz-300);
+    --site-block-margin-block: var(--sz-400);
+
 }
 
 .page-wrap {
@@ -73,8 +78,8 @@ main {
 }
 
 .site-block-std {
-    padding-inline: var(--sz-300);
-    margin-block-start: var(--sz-400);
+    padding-inline: var(--site-block-pad-inline);
+    margin-block-start: var(--site-block-margin-block);
 }
 
 .site-box-shadow {
