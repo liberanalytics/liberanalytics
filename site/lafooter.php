@@ -1,4 +1,4 @@
-<footer class="hdrftr-container" role="contentinfo">
+<footer class="page-footer hdrftr-container" role="contentinfo">
 	<div class="hdrftr-wrap">
 		<div class="hdrftr-masthead site-ff-fancy site-fc-xlight">
 			<a href="index" class="site-logo-link" aria-label="Home">

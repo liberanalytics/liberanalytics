@@ -47,6 +47,10 @@
     --flh-med: var(--lh-300);
 
     /* Site font size clamps. */
+    --fs-clamp-14x16: clamp(.875rem, calc(2.703vw + 0.326rem), 1rem);
+    --fs-clamp-16x18: clamp(1rem, calc(2.703vw + 0.451rem), 1.125rem);
+    --fs-clamp-16x18-8: clamp(1.0rem, calc(3.784vw + .231rem), 1.175rem);
+    --fs-clamp-18x18-8: clamp(1.125rem, calc(1.081vw + .905rem), 1.175rem);
     --fs-clamp-18x20: clamp(1.125rem, calc(2.703vw + 0.576rem), 1.25rem);
 
 }

@@ -9,6 +9,10 @@
 }
 
 /* Header Container & Masthead */
+.page-header {
+    
+}
+
 .header-tagline {
     /* margin-left: auto; -- Desktop layout -- */
 }
@@ -34,10 +38,11 @@
     margin-inline: auto;
 }
 
-.header-menu a {
+.header-menu .header-menu-link {
     display: inline-block;
     padding: var(--sz-300);
     border-radius: var(--sz-300);
+    font-size: var(--fs-clamp-18x18-8);
 }
 
 /* Header Search */
@@ -197,6 +202,10 @@
 }
 
 /* Footer styles. */
+.page-footer {
+
+}
+
 .footer-menu-container {
     margin-block-start: var(--sz-300);
 }
@@ -229,7 +238,7 @@
     transition:
         border-bottom-width var(--transition-fast) ease,
         border-bottom-color var(--transition-fast) ease;
-    font-size: clamp(1.0rem, calc(3.783vw + .237rem), 1.175rem);
+    font-size: var(--fs-clamp-16x18-8);
 }
 
 .footer-menu .footer-menu-link:visited {
@@ -259,7 +268,7 @@
 
 .footer-legal {
     margin-block-start: var(--sz-300);
-    font-size: clamp(.875rem, calc(2.703vw + 0.326rem), 1.0rem);
+    font-size: var(--fs-clamp-14x16);
     font-weight: var(--fw-xlight);
     font-family: var(--ff-fancy);
     color: var(--fc-xlight);
