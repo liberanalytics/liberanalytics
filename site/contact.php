@@ -43,7 +43,7 @@
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
 				</div>
 
-				<div class="contact-form-container site-gradient-border-bottom">
+				<div class="contact-form-container site-block-std site-gradient-border-bottom">
 					<form
 						id="contact_form"
 						name="contact" 

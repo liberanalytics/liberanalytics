@@ -40,7 +40,7 @@
 }
 
 .site-form-std :where(input[type="submit"]) {
-    width: var(--knob-submit-width, var(--site-vw-inline));
+    width: var(--knob-submit-width, 100%);
     padding-block: var(--sz-400);  
     border: none;
     border-radius: .625rem;
