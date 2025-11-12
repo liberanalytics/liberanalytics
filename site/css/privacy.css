@@ -9,8 +9,3 @@
 .eff-date > span {
     padding-inline-end: var(--sz-300);
 }
-
-.eff-date span,
-.eff-date time {
-       
-}
