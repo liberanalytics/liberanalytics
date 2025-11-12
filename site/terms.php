@@ -70,7 +70,7 @@
 					<ol class="legal-list-nocounter site-stack-mt site-fw-light site-fc-xdark">
 						<li><h2 class="site-font-secondary-heading">Acceptance of Terms</h2></li>
 						<li>
-							<p class="">
+							<p >
 								By accessing and using <span class="site-font-brand">LiberAnalytics.com</span> (“the Site”),
 								you agree to comply with and be bound by these Terms of Use. 
 								If you do not agree with these terms, please do not use the Site.
@@ -78,7 +78,7 @@
 						</li>
 						<li><h2 class="site-font-secondary-heading">Changes to Terms</h2></li>
 						<li>
-							<p class="">
+							<p >
 								We may update these Terms from time to time.
 								Any changes will be posted on this page with an updated effective date.
 								Continued use of the Site after changes are posted means you accept the updated Terms.
@@ -93,7 +93,7 @@
 						</li>
 						<li><h2 class="site-font-secondary-heading">Intellectual Property</h2></li>
 						<li>
-							<p class="">
+							<p >
 								All content on the Site, including but not limited to 
 								text, graphics, logos, and software, is the property of
 								<span class="site-font-brand">LiberAnalytics, LLC</span>
@@ -104,7 +104,7 @@
 						</li>
 						<li><h2 class="site-font-secondary-heading">Disclaimers</h2></li>
 						<li>
-							<p class="">
+							<p >
 								The Site is provided “as is” without warranties of any kind, express or implied.
 								We do not guarantee the accuracy, completeness, or reliability of the content
 								on the Site. Your use of the Site is at your own risk.
@@ -112,7 +112,7 @@
 						</li>
 						<li><h2 class="site-font-secondary-heading">Limitation of Liability</h2></li>
 						<li>
-							<p class="">
+							<p >
 								To the fullest extent permitted by law, 
 								<span class="site-font-brand">LiberAnalytics, LLC</span> will not
 								be liable for any damages arising from your use or inability to use the Site.
@@ -120,7 +120,7 @@
 						</li>
 						<li><h2 class="site-font-secondary-heading">Privacy Policy</h2></li>
 						<li>
-							<p class="">
+							<p >
 								Your use of the Site is also governed by our 
 								Privacy Policy which explains
 								how we collect, use, and protect your information.
@@ -130,7 +130,7 @@
 						</li>
 						<li><h2 class="site-font-secondary-heading">Governing Law</h2></li>
 						<li>
-							<p class="">
+							<p >
 								These Terms are governed by and construed in accordance
 								with the laws of the State of Ohio, without regard to its
 								conflict of law provisions.
@@ -138,8 +138,13 @@
 						</li>
 						<li><h2 class="site-font-secondary-heading">Contact Information</h2></li>
 						<li>
-							<p class="">
-								For questions about these terms, contact us at: liber@liberanalytics.com
+							<p>
+								For questions about these terms, contact us at:
+								<a 
+									href="mailto:liber@liberanalytics.com?subject=Question%20%20about%20terms"
+									class="site-font-link-std">
+									liber@liberanalytics.com
+								</a>
 							</p>
 						</li>																										
 					</ol>				
