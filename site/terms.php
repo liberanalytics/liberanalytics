@@ -55,23 +55,20 @@
 
 	<main>
 		<div class="page-wrap">
-
 			<section>
+				<h1 class="site-primary-heading site-font-primary-heading">LiberAnalytics Terms of Use</h1>
 
-				<h1 class="site-primary-heading">LiberAnalytics Terms of Use</h1>
-
-				<div class="site-block-std">
-					<p class="site-fs-med">
+				<div class="site-block-std site-stack-mt">
+					<p class="eff-date">
 						<span 
-							class="site-fw-xbold site-fc-xdark" 
-							style="padding-inline-end: var(--sz-300);"
+							class="site-fw-xbold site-fc-xdark"
 						>
 						Effective Date:
 						</span>
-						<time class="site-fw-light" datetime="2025-07-08">July 8, 2025</time>
+						<time class="site-fw-light" datetime="2026-01-01">January 1, 2026</time>
 					</p>
-					<ol class="legal-list-nocounter site-block-std site-fw-light site-fc-xdark site-fs-med">
-						<li><h2 class="site-secondary-heading">Acceptance of Terms</h2></li>
+					<ol class="legal-list-nocounter site-stack-mt site-fw-light site-fc-xdark">
+						<li><h2 class="site-font-secondary-heading">Acceptance of Terms</h2></li>
 						<li>
 							<p class="">
 								By accessing and using <span class="site-font-brand">LiberAnalytics.com</span> (“the Site”),
@@ -79,7 +76,7 @@
 								If you do not agree with these terms, please do not use the Site.
 							</p>
 						</li>
-						<li><h2 class="site-secondary-heading">Changes to Terms</h2></li>
+						<li><h2 class="site-font-secondary-heading">Changes to Terms</h2></li>
 						<li>
 							<p class="">
 								We may update these Terms from time to time.
@@ -87,14 +84,14 @@
 								Continued use of the Site after changes are posted means you accept the updated Terms.
 							</p>
 						</li>
-						<li><h2 class="site-secondary-heading">Use of the Site</h2></li>
-						<li class="site-fs-small">
-							<p class="site-fs-med">You agree to use the Site for lawful purposes only. You must not:</p>
-							<p class="site-mt-300 site-pl-300 site-fc-med site-flh-med">a) Attempt to gain unauthorized access to the Site or its systems.</p>
-							<p class="site-mt-300 site-pl-300 site-fc-med site-flh-med">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
-							<p class="site-mt-300 site-pl-300 site-fc-med site-flh-med">c) Use the Site in a manner that violates applicable laws or regulations.</p>
+						<li><h2 class="site-font-secondary-heading">Use of the Site</h2></li>
+						<li class="site-stack-mt site-fs-small">
+							<p>You agree to use the Site for lawful purposes only. You must not:</p>
+							<p class="site-fc-med site-flh-med">a) Attempt to gain unauthorized access to the Site or its systems.</p>
+							<p class="site-fc-med site-flh-med">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
+							<p class="site-fc-med site-flh-med">c) Use the Site in a manner that violates applicable laws or regulations.</p>
 						</li>
-						<li><h2 class="site-secondary-heading">Intellectual Property</h2></li>
+						<li><h2 class="site-font-secondary-heading">Intellectual Property</h2></li>
 						<li>
 							<p class="">
 								All content on the Site, including but not limited to 
@@ -105,7 +102,7 @@
 								distribute, or create derivative works without prior written consent.
 							</p>
 						</li>
-						<li><h2 class="site-secondary-heading">Disclaimers</h2></li>
+						<li><h2 class="site-font-secondary-heading">Disclaimers</h2></li>
 						<li>
 							<p class="">
 								The Site is provided “as is” without warranties of any kind, express or implied.
@@ -113,7 +110,7 @@
 								on the Site. Your use of the Site is at your own risk.
 							</p>
 						</li>
-						<li><h2 class="site-secondary-heading">Limitation of Liability</h2></li>
+						<li><h2 class="site-font-secondary-heading">Limitation of Liability</h2></li>
 						<li>
 							<p class="">
 								To the fullest extent permitted by law, 
@@ -121,17 +118,17 @@
 								be liable for any damages arising from your use or inability to use the Site.
 							</p>
 						</li>
-						<li><h2 class="site-secondary-heading">Privacy Policy</h2></li>
+						<li><h2 class="site-font-secondary-heading">Privacy Policy</h2></li>
 						<li>
 							<p class="">
 								Your use of the Site is also governed by our 
 								Privacy Policy which explains
 								how we collect, use, and protect your information.
 								You can view it here:
-								<a href="/privacy" class="site-font-link-std site-fs-med">View ourPrivacy Policy</a>.
+								<a href="/privacy" class="site-font-link-std">View our Privacy Policy</a>.
 							</p>
 						</li>
-						<li><h2 class="site-secondary-heading">Governing Law</h2></li>
+						<li><h2 class="site-font-secondary-heading">Governing Law</h2></li>
 						<li>
 							<p class="">
 								These Terms are governed by and construed in accordance
@@ -139,7 +136,7 @@
 								conflict of law provisions.
 							</p>
 						</li>
-						<li><h2 class="site-secondary-heading">Contact Information</h2></li>
+						<li><h2 class="site-font-secondary-heading">Contact Information</h2></li>
 						<li>
 							<p class="">
 								For questions about these terms, contact us at: liber@liberanalytics.com

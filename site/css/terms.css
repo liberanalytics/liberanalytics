@@ -2,6 +2,14 @@
     terms.css
 --------------------------------------------------------- */
 
+.eff-date {
+    --knob-std-fs: var(--fs-clamp-16x18); 
+}
+
+.eff-date > span {
+    padding-inline-end: var(--sz-300);
+}
+
 .legal-list-nocounter { 
     list-style: none;
     counter-reset: alt; 
@@ -17,7 +25,7 @@
 .legal-list-nocounter li:nth-child(odd)::before {
     position: absolute;
     left: 0;
-    top: calc(var(--sz-100) / 2);
+    /* top: calc(var(--sz-100) / 2); */
     color: var(--clr-xdk-dark);
     content: counter(alt) ".";
 }  
