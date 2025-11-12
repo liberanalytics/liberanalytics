@@ -81,7 +81,7 @@
 
 .site-font-brand {    
     font-family: var(--ff-fancy);
-    font-size: var(--fsz-400);
+    font-size: var(--knob-brand-fs, var(--fs-clamp-18x20));
     font-weight: var(--fw-bold);
     line-height: inherit;
     color: var(--fc-med-green);
