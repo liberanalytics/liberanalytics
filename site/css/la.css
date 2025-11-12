@@ -61,14 +61,14 @@ main {
 
 /* Site Component Classes */
 .page {
-    
+    /* */
     --site-page-pad-inline: var(--sz-400);
     --site-page-max-width: calc(var(--sz-400) * 25);
     --site-page-vmargin: var(--sz-400);
 
+    /* */
     --site-block-pad-inline: var(--sz-300);
     --site-block-margin-block: var(--sz-300);
-
 }
 
 .page-wrap {

@@ -57,7 +57,7 @@
 
 /* Site Font (non-link) Component Classes. */
 .site-font-std {
-    font-family: var(--knob-font-ff, var(--ff-main));
+    font-family: var(--knob-std-ff, var(--ff-main));
     font-size: var(--knob-std-fs, var(--fsz-200));
     font-weight: var(--fw-xlight);
     line-height: var(--flh-tight);
@@ -108,7 +108,7 @@
 
 .site-font-link-std:hover,
 .site-font-link-std:focus {
-    color: var(--knob-link-fc-hover, var(--fc-link-hover));
+    color: var(--knob-link-hover-fc, var(--fc-link-hover));
     background-color: var(--knob-link-hover-bg, transparent);
     text-decoration: var(--link-hover-decoration, underline);
     transition-duration: var(--transition-fast);
@@ -159,4 +159,4 @@
 .site-link-fc-dark { --knob-link-fc: var(--fc-dark); }
 .site-link-fc-xdark { --knob-link-fc: var(--fc-xdark); }
 .site-link-flh-med { --knob-link-flh: var(--flh-med); }
-.site-link-hover-fc-xlight { --knob-link-fc-hover: var(--fc-xlight); }
+.site-link-hover-fc-xlight { --knob-link-hover-fc: var(--fc-xlight); }
