@@ -39,37 +39,35 @@
 	<meta name="referrer" content="no-referrer-when-downgrade">
 	
 	<!-- Stylesheets and javascript modules/files. -->
-	<link href="css/la_tokens.css" rel="stylesheet">
-	<link href="css/la_fonts.css" rel="stylesheet">
-	<link href="css/la.css" rel="stylesheet">
-	<link href="css/la_hdrftr.css" rel="stylesheet">
-	<link href="css/la_tags.css" rel="stylesheet">
-	<link href="css/la_ajax.css" rel="stylesheet">
-	<script type="module" src="js/la.js"></script>
+	<link href="/css/la_tokens.css" rel="stylesheet">
+	<link href="/css/la_fonts.css" rel="stylesheet">
+	<link href="/css/la.css" rel="stylesheet">
+	<link href="/css/la_hdrftr.css" rel="stylesheet">
+	<link href="/css/la_tags.css" rel="stylesheet">
+	<link href="/css/la_ajax.css" rel="stylesheet">
+	<link href="/css/privacy.css" rel="stylesheet">
+	<script type="module" src="/js/la.js"></script>
 </head>
 
-<body class="page site-font-std">
+<body class="page page-privacy site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 
 	<main>
 		<div class="page-wrap">
-
 			<section>
-
 				<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
 
 				<div class="site-block-std">
-					<p class="site-fs-med">
+					<p class="eff-date">
 						<span 
-							class="site-fw-xbold site-fc-xdark" 
-							style="padding-inline-end: var(--sz-300);"
+							class="site-fw-xbold site-fc-xdark"
 						>
 						Effective Date:
 						</span>
-						<time class="site-fw-light" datetime="2025-07-08">July 8, 2025</time>
+						<time class="site-fw-light" datetime="2026-01-01">January 1, 2026</time>
 					</p>
-					<p class="site-mt-300 site-fc-xdark site-fw-light site-fs-med">
+					<p class="site-mt-300 site-fc-xdark site-fw-light">
 						At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 						This page outlines what information we collect, how we use it, and your rights.
 					</p>
@@ -107,7 +105,6 @@
 				</div>
 
 			</section>
-
 		</div>
 	</main>
 
