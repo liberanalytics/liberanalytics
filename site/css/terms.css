@@ -2,6 +2,10 @@
     terms.css
 --------------------------------------------------------- */
 
+:root {
+    --legal-list-number-top: clamp(0rem, calc(2.708vw - 0.549rem), .125rem);
+}
+
 .eff-date {
     --knob-std-fs: var(--fs-clamp-16x18); 
 }
@@ -25,7 +29,7 @@
 .legal-list-nocounter li:nth-child(odd)::before {
     position: absolute;
     left: 0;
-    /* top: calc(var(--sz-100) / 2); */
+    top: var(--legal-list-number-top);
     color: var(--clr-xdk-dark);
     content: counter(alt) ".";
 }  

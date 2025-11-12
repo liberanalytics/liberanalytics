@@ -147,12 +147,10 @@
 								</a>
 							</p>
 						</li>																										
-					</ol>				
-
+					</ol>
 				</div>
 
 			</section>
-
 		</div>
 	</main>
 
