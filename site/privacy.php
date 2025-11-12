@@ -56,9 +56,9 @@
 	<main>
 		<div class="page-wrap">
 			<section>
-				<h1 class="site-primary-heading">Privacy at LiberAnalytics</h1>
+				<h1 class="site-primary-heading site-font-primary-heading">Privacy at LiberAnalytics</h1>
 
-				<div class="site-block-std">
+				<div class="site-block-std site-stack-mt">
 					<p class="eff-date">
 						<span 
 							class="site-fw-xbold site-fc-xdark"
@@ -67,18 +67,18 @@
 						</span>
 						<time class="site-fw-light" datetime="2026-01-01">January 1, 2026</time>
 					</p>
-					<p class="site-mt-300 site-fc-xdark site-fw-light">
+					<p class="site-fc-xdark site-fw-light">
 						At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
 						This page outlines what information we collect, how we use it, and your rights.
 					</p>
-					<h2 class="site-secondary-heading">
+					<h2 class="site-font-secondary-heading">
 						Information We Collect
 					</h2>
 					<ul class="site-list site-flh-med site-fc-xdark">
 						<li>If you submit a message through our contact form, we collect your name and email address.</li>
 						<li>We do not sell, rent, or share your personal information with third parties.</li>
 					</ul>
-					<h2 class="site-secondary-heading">
+					<h2 class="site-font-secondary-heading">
 						Cookies and Analytics
 					</h2>
 					<ul class="site-list site-flh-med site-fc-xdark">
@@ -91,14 +91,14 @@
 							browser type, and pages visited.
 						</li>
 					</ul>
-					<h2 class="site-secondary-heading">Your Rights</h2>
+					<h2 class="site-font-secondary-heading">Your Rights</h2>
 					<ul class="site-list site-flh-med site-fc-xdark">
 						<li>
 							You may request deletion of your submitted information
 							at any time by contacting us at liber@liberanalytics.com.
 						</li>
 					</ul>
-					<h2 class="site-secondary-heading">Contact</h2>
+					<h2 class="site-font-secondary-heading">Contact</h2>
 					<ul class="site-list site-flh-med site-fc-xdark">
 						<li>For questions about this policy, contact us at: liber@liberanalytics.com</li>
 					</ul>								

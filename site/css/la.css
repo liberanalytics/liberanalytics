@@ -110,20 +110,6 @@ main {
     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
     margin-block-end: var(--sz-400);
     background-color: var(--clr-med-dark);
-    font-family: var(--ff-primary-heading);
-    font-size: var(--knob-primary-heading-fs, var(--fs-clamp-18x20));
-    font-weight: var(--fw-xlight);
-    color: var(--fc-xlight);
-}
-
-.site-secondary-heading {
-    margin-block-start: var(--sz-600);
-    margin-block-end: var(--sz-300);
-    font-family: var(--ff-main);
-    font-size: var(--fsz-400);
-    font-weight: var(--fw-xlight);
-    line-height: var(--flh-tight);
-    color: var(--fc-med-green);   
 }
 
 /* Site Utility Classes */

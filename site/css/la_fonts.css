@@ -64,6 +64,21 @@
     color: var(--fc-light);
 }
 
+.site-font-primary-heading {
+    font-family: var(--ff-primary-heading);
+    font-size: var(--knob-primary-heading-fs, var(--fs-clamp-18x20));
+    font-weight: var(--fw-xlight);
+    color: var(--fc-xlight);
+}
+
+.site-font-secondary-heading {
+    font-family: var(--ff-main);
+    font-size: var(--knob-secondary-heading-fs, var(--fs-clamp-18x20));
+    font-weight: var(--fw-xlight);
+    line-height: var(--flh-tight);
+    color: var(--fc-med-green);   
+}
+
 .site-font-brand {    
     font-family: var(--ff-fancy);
     font-size: var(--fsz-400);
