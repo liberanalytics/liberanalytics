@@ -71,6 +71,7 @@
 			<article>
 				<header>
 					<?php
+						//
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
 						$post = $laData->crudData(
 							CrudOperation::GETPOSTS,
@@ -79,18 +80,35 @@
 							CrudFetchStyle::FETCHSTYLE_ASSOC,
 							[ 'post_name' => $postName]						
 						)[0];
+
+						//
+						if (!$post || !isset($post)) {
+							// header to 404.php
+						}
+
+						//
+						$postShortDesc	= htmlspecialchars($post['short_desc'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postLongDesc	= htmlspecialchars($post['long_desc'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postImg    	= htmlspecialchars($post['post_img'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postAlt		= $postShortDesc;
+						$postDate		= htmlspecialchars(date("F j, Y", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
+						[$postImgWidth, $postImgHeight]
+										= @getimagesize($_SERVER['DOCUMENT_ROOT']."/assets/"."{$postImg}");
 					?>
 
-					<h1 class="post-heading site-font-brand"><?php echo $post['short_desc']; ?></h1>
-					<h3 class="post-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
-					<h2 class="post-desc site-font-emph"><?php echo $post['long_desc']; ?></h2>
+					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
+					<h3 class="post-date"><?php echo "{$postDate}"; ?></h3>
+					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
 					<img 
 						<?php 
-							echo "src=\"assets/{$post['post_img']}\"
-							alt=\"{$postName}\""; 
+							echo "src=\"/assets/{$postImg}\"";
+							echo "alt=\"{$postAlt}\"";
 						?>
-						width="820" height="H"
+						width="<?php (int)$postImgWidth; ?>"
+						height="<?php (int)$postImgHeight; ?>"
 						class="post-img"
+						loading="lazy"
+						decoding="async"
 					>
 				</header>        
 
