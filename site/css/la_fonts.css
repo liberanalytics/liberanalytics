@@ -88,6 +88,11 @@
     color: var(--fc-med-green);
 }
 
+.site-font-date {
+    font: inherit;
+    color: var(--knob-std-fc, var(--fc-midlight));
+}
+
 .site-font-form-std {
     --ff-form: var(--ff-sans-serif);
     --fs-form: var(--fsz-200);

@@ -10,10 +10,6 @@
     --knob-brand-fs: var(--fs-clamp-20x22);
 }
 
-.post-date {
-    --knob-std-fc: var(--fc-midlight);
-}
-
 .post-img {
     display: block;
     inline-size: 100%;

@@ -92,6 +92,7 @@
 						$postImg    	= htmlspecialchars($post['post_img'] ?? '', ENT_QUOTES, 'UTF-8');
 						$postAlt		= $postShortDesc;
 						$postDate		= htmlspecialchars(date("F j, Y", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
+						$postISODate	= htmlspecialchars(date("Y-m-d", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
 						[$postImgWidth, $postImgHeight]
 										= @getimagesize($_SERVER['DOCUMENT_ROOT']."/assets/"."{$postImg}");
 						$postImgWidth	= (int)$postImgWidth;
@@ -99,8 +100,8 @@
 					?>
 
 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
-					<h3 class="post-date site-font-std">
-						<time datetime="<?php echo "{$postDate}"; ?>">
+					<h3 class="post-date site-font-date">
+						<time datetime="<?php echo "{$postISODate}"; ?>">
 							<?php echo "{$postDate}"; ?>
 						</time>
 					</h3>
