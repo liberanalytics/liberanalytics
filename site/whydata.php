@@ -94,18 +94,21 @@
 						$postDate		= htmlspecialchars(date("F j, Y", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
 						[$postImgWidth, $postImgHeight]
 										= @getimagesize($_SERVER['DOCUMENT_ROOT']."/assets/"."{$postImg}");
+						$postImgWidth	= (int)$postImgWidth;
+						$postImgHeight	= (int)$postImgHeight;
 					?>
 
 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
 					<h3 class="post-date"><?php echo "{$postDate}"; ?></h3>
 					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
 					<img 
-						<?php 
+						<?php
+							//
 							echo "src=\"/assets/{$postImg}\"";
 							echo "alt=\"{$postAlt}\"";
+							echo "width=\"{$postImgWidth}\"";
+							echo "height=\"{$postImgHeight}\"";
 						?>
-						width="<?php (int)$postImgWidth; ?>"
-						height="<?php (int)$postImgHeight; ?>"
 						class="post-img"
 						loading="lazy"
 						decoding="async"
