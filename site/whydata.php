@@ -100,7 +100,7 @@
 
 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
 					<h3 class="post-date site-font-std">
-						<time>
+						<time datetime="<?php echo "{$postDate}"; ?>">
 							<?php echo "{$postDate}"; ?>
 						</time>
 					</h3>
