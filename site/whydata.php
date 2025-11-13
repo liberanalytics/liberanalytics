@@ -99,15 +99,19 @@
 					?>
 
 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
-					<h3 class="post-date"><?php echo "{$postDate}"; ?></h3>
+					<h3 class="post-date site-font-std">
+						<time>
+							<?php echo "{$postDate}"; ?>
+						</time>
+					</h3>
 					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
 					<img 
 						<?php
 							//
-							echo "src=\"/assets/{$postImg}\"";
-							echo "alt=\"{$postAlt}\"";
-							echo "width=\"{$postImgWidth}\"";
-							echo "height=\"{$postImgHeight}\"";
+							echo " src=\"/assets/{$postImg}\"";
+							echo " alt=\"{$postAlt}\"";
+							echo " width=\"{$postImgWidth}\"";
+							echo " height=\"{$postImgHeight}\"";
 						?>
 						class="post-img"
 						loading="lazy"
@@ -115,7 +119,7 @@
 					>
 				</header>        
 
-				<section class="site-font-std">
+				<section class="">
 
 					<p> 
 						<span class="site-font-brand">Why</span> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
@@ -147,7 +151,7 @@
 						like the below.
 					</p>
 
-					<img src="assets/whydata_ps.png" alt="whydata_ps" style="display: block; margin: 0 auto 0 auto;">
+					<img src="assets/whydata_ps.png" alt="whydata_ps" class="post-img">
 
 					<h4 class="post-subheading">Data versus information</h1>
 

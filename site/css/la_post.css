@@ -6,6 +6,14 @@
     --clr-bg-snippet: rgb(30,30,30);
 }
 
+.post-heading {
+    --knob-brand-fs: var(--fs-clamp-20x22);
+}
+
+.post-date {
+    --knob-std-fc: var(--fc-midlight);
+}
+
 .post-img {
     display: block;
     inline-size: 100%;
