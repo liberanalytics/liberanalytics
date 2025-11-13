@@ -122,10 +122,8 @@ main {
     margin-block-start: var(--knob-stack-mt, var(--sz-400));
 }
 
-.site-stack-mt-600 { --knob-stack-mt: var(--sz-600); }
-
-.site-pl-300 { padding-inline-start: var(--sz-300);}
-.site-mt-300 { margin-block-start: var(--sz-300); }
+.site-pl { padding-inline-start: var(--knob-site-pl, var(--sz-300)); }
+.site-mt { margin-block-start: var(--knob-site-mt, var(--sz-400)); }
 
 .site-list { padding-inline-start:  var(--sz-600); }
 

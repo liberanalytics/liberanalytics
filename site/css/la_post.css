@@ -6,8 +6,13 @@
     --clr-bg-snippet: rgb(30,30,30);
 }
 
+.page-post {
+    --knob-std-flh: var(--flh-med);
+}
+
 .post-heading {
     --knob-brand-fs: var(--fs-clamp-20x22);
+    --knob-brand-flh: var(--flh-xtight);
 }
 
 .post-img {
