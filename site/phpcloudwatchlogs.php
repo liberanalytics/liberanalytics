@@ -16,33 +16,64 @@
 <html lang="en">
 
 <head>
+	<!-- Standard page metas/links/title. -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LiberAnalytics | PHP CloudWatch Logs</title>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" type="text/css" charset="utf-8"> 
-	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
-	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_post.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<script type="module" src="js/la.js"></script>
+	<title>PHP CloudWatch Logs | LiberAnalytics</title>
+	<meta name="description" content="Learn how LiberAnalytics collects, uses, and protects your information. Transparency and data privacy are core to our commitment to visitors.">
+	<link rel="canonical" href="https://liberanalytics.com/phpcloudwatchlogs">
 
+	<!-- Favicon. -->
+	<link rel="icon" href="/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">	
+	<link rel="icon" type="image/svg+xml" href="/icon.svg">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+
+	<!-- Social media Open Graph data points. -->
+	<meta property="og:title" content="Python PostGre Connect | LiberAnalytics">
+	<meta property="og:description" content="Learn how LiberAnalytics collects, uses, and protects your information. Transparency and data privacy are core to our commitment to visitors.">
+	<meta property="og:url" content="https://liberanalytics.com/phpcloudwatchlogs">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="LiberAnalytics">
+	<meta property="og:locale" content="en_US">
+
+	<!-- Social media image. -->
+	<meta property="og:image" content="https://liberanalytics.com/assets/social/og_core.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="LiberAnalytics wordmark on a clean, minimalist background">
+
+	<!-- Browser UI styling for address bar. -->
+	<meta name="theme-color" content="#333333">
+	<meta name="theme-color" content="#333333" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+	<!-- Referrer policy: omit referrer header when navigating from HTTPS to HTTP. -->
+	<meta name="referrer" content="no-referrer-when-downgrade">
+	
+	<!-- Stylesheets and javascript modules/files. -->
+	<link href="/css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="/css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
+	<link href="/css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="/css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="/css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="/css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="/css/la_post.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<script type="module" src="/js/la.js"></script>
 </head>
 
-<body class="page site-font-std">
+<body class="page page-post site-font-std">
 
-	<?php include_once('laheader.php'); ?>
+    <?php include_once('laheader.php'); ?>
 
-	<main>
+    <main>
 		<div class="page-wrap">
-			<div id="post_w">
-				<article>
-				<header>
+			<article>
+			<header class="site-stack-mt">
 					<?php
+						//
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
-
 						$post = $laData->crudData(
 							CrudOperation::GETPOSTS,
 							CrudType::CRUDREAD,
@@ -50,19 +81,50 @@
 							CrudFetchStyle::FETCHSTYLE_ASSOC,
 							[ 'post_name' => $postName]						
 						)[0];
-						
+
+						//
+						if (!$post || !isset($post)) {
+							// header to 404.php
+						}
+
+						//
+						$postShortDesc	= htmlspecialchars($post['short_desc'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postLongDesc	= htmlspecialchars($post['long_desc'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postImg    	= htmlspecialchars($post['post_img'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postAlt		= $postShortDesc;
+						$postDate		= htmlspecialchars(date("F j, Y", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
+						$postISODate	= htmlspecialchars(date("Y-m-d", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
+						[$postImgWidth, $postImgHeight]
+										= @getimagesize($_SERVER['DOCUMENT_ROOT']."/assets/"."{$postImg}");
+						$postImgWidth	= (int)$postImgWidth;
+						$postImgHeight	= (int)$postImgHeight;
 					?>
 
-					<h1 class="post-heading site-font-fancyl"><?php echo $post['short_desc']; ?></h1>
-					<h3 class="post-date"><?php echo date("F j, Y", strtotime($post['post_created'])); ?></h3>
-					<h2 class="post-desc site-font-emph"><?php echo $post['long_desc']; ?></h2>
-					<img <?php echo "src=\"assets/{$post['post_img']}\" alt=\"{$postName}\""; ?> class="post-img">
-				</header>        
+					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
+					<p class="post-date site-font-date">
+						<time datetime="<?php echo "{$postISODate}"; ?>">
+							<?php echo "{$postDate}"; ?>
+						</time>
+					</p>
+					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
+					<img 
+						<?php
+							//
+							echo " src=\"/assets/{$postImg}\"";
+							echo " alt=\"{$postAlt}\"";
+							echo " width=\"{$postImgWidth}\"";
+							echo " height=\"{$postImgHeight}\"";
+						?>
+						class="post-img"
+						loading="lazy"
+						decoding="async"
+					>
+				</header>     
 
-				<section class="site-font-stdl">
+				<section class="site-stack-mt">
 
-					<p>
-						<span class="site-font-fancyl">Ever</span> grow tired of storing logs on a server then having to manage
+					<p class="site-mt">
+						<span class="site-font-brand">Ever</span> grow tired of storing logs on a server then having to manage
 						access to the logs for individual users working in a collaborative development team? This post explores
 						an alternative method to manage database logging by making use of the Amazon Web Services (AWS) CloudWatch
 						Logs service. After reading this post you should have an idea of how to code PHP to send database logs
@@ -86,7 +148,7 @@
 						<a href="pythonpostgreconnect" class="site-link-std site-link-flh-med">Connecting Python to a Postgresql database</a>.					
 					</p>
 
-					<h4 class="post-subheading">Requirements</h1>
+					<h4 class="site-font-secondary-heading">Requirements</h1>
 
 					<ul>
 						<li>PHP 8 (preferably running on Ubuntu)</li>
@@ -99,7 +161,7 @@
 						<li>Database created on Postgresql cluster</li>
 					</ul>
 
-					<h4 class="post-subheading">Set up Log Group and Log Streams in AWS</h1>
+					<h4 class="site-font-secondary-heading">Set up Log Group and Log Streams in AWS</h1>
 
 					<p>
 						First we need to create a log group and two log streams within the group which will store our database sql queries and errors.
@@ -112,7 +174,7 @@
 
 					<img src="assets/phpcloudwatchlogs_logstreams.png" alt="phpcloudwatchlogs_logstreams">
 
-					<h4 class="post-subheading">Create CloudWatch Logs / KMS / CloudWatchLogger instances in PHP</h1>
+					<h4 class="site-font-secondary-heading">Create CloudWatch Logs / KMS / CloudWatchLogger instances in PHP</h1>
 
 					<p>
 						Use PHP composer to install the AWS PHP SDK and logging packages - note the cloudwatch-logger package 
@@ -122,9 +184,297 @@
 						for the programmatic user.
 					</p>
 								
-					<div class="post-snippet" style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; font-size: 16px; line-height: 19px; overflow: auto; white-space: nowrap;"><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">/**</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;phppdocloudwatchlogs.php</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Creates&nbsp;a&nbsp;pdo&nbsp;connection&nbsp;to&nbsp;a&nbsp;postgresql&nbsp;database&nbsp;and&nbsp;runs&nbsp;a&nbsp;sample</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;query.&nbsp;Demonstrates&nbsp;how&nbsp;to&nbsp;use&nbsp;AWS&nbsp;Key&nbsp;Management&nbsp;Service&nbsp;keys&nbsp;to&nbsp;</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;decrypt&nbsp;database&nbsp;connection&nbsp;parameters&nbsp;from&nbsp;a&nbsp;configuration&nbsp;file&nbsp;on</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;filesystem.&nbsp;The&nbsp;configuration&nbsp;file&nbsp;must&nbsp;have&nbsp;been&nbsp;created&nbsp;first</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;with&nbsp;the&nbsp;aws_postgresql_config.py&nbsp;program.&nbsp;Shows&nbsp;how&nbsp;to&nbsp;loq&nbsp;errors</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;encountered&nbsp;as&nbsp;well&nbsp;as&nbsp;queries&nbsp;run&nbsp;to&nbsp;CloudWatch&nbsp;Logs.</span></div><div><span style="color: #6a9955;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">require</span><span style="color: #d4d4d4;">&nbsp;(</span><span style="color: #ce9178;">'../vendor/autoload.php'</span><span style="color: #d4d4d4;">);</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Create&nbsp;CloudWatch&nbsp;Logs&nbsp;/&nbsp;KMS&nbsp;/&nbsp;CloudWatchLogger&nbsp;instances.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">try</span><span style="color: #d4d4d4;">&nbsp;{</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$aws_cwlogs_client</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #569cd6;">new</span><span style="color: #d4d4d4;">&nbsp;Aws\CloudWatchLogs\</span><span style="color: #4ec9b0;">CloudWatchLogsClient</span><span style="color: #d4d4d4;">([</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'profile'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'default'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'region'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'us-east-2'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'version'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'latest'</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$aws_kms_client</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #569cd6;">new</span><span style="color: #d4d4d4;">&nbsp;Aws\Kms\</span><span style="color: #4ec9b0;">KmsClient</span><span style="color: #d4d4d4;">([</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'profile'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'default'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'region'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'us-east-2'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'version'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'latest'</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$error_logger</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #569cd6;">new</span><span style="color: #d4d4d4;">&nbsp;LegalThings\</span><span style="color: #4ec9b0;">CloudWatchLogger</span><span style="color: #d4d4d4;">([</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'aws'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;[</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'profile'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'default'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'region'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'us-east-2'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'version'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'latest'</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'group_name'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'sdk'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'stream_name'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'php/database/errors/'</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$sql_logger</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #569cd6;">new</span><span style="color: #d4d4d4;">&nbsp;LegalThings\</span><span style="color: #4ec9b0;">CloudWatchLogger</span><span style="color: #d4d4d4;">([</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'aws'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;[</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'profile'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'default'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'region'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'us-east-2'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'version'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'latest'</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'group_name'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'sdk'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'stream_name'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'php/database/sql/'</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Report&nbsp;on&nbsp;any&nbsp;exceptions&nbsp;-&nbsp;exit&nbsp;program&nbsp;since&nbsp;all&nbsp;instances&nbsp;are&nbsp;needed.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">catch</span><span style="color: #d4d4d4;">&nbsp;(</span><span style="color: #4ec9b0;">Exxception</span><span style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;">)&nbsp;{</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">getTraceAsString</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">exit</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">'Couldn</span><span style="color: #d7ba7d;">\'</span><span style="color: #ce9178;">t&nbsp;instantiate&nbsp;a&nbsp;needed&nbsp;AWS&nbsp;or&nbsp;Logger&nbsp;class.&nbsp;Exiting.'</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div><br></div></div>
+					<div class="post-snippet site-stack-mt">
+						<!-- Docblock -->
+						<div class="site-mt">
+							<p><span class="code-php-comment-fc">/**</span></p>					
+							<p><span class="code-php-comment-fc"> * phppdocloudwatchlogs.php</span></p>
+							<p><span class="code-php-comment-fc"> *</span></p>
+							<p><span class="code-php-comment-fc"> * Creates a pdo connection to a postgresql database and runs a sample</span></p>
+							<p><span class="code-php-comment-fc"> * query. Demonstrates how to use AWS Key Management Service keys to </span></p>
+							<p><span class="code-php-comment-fc"> * decrypt database connection parameters from a configuration file on</span></p>						
+							<p><span class="code-php-comment-fc"> * filesystem. The configuration file must have been created first</span></p>						
+							<p><span class="code-php-comment-fc"> * with the aws_postgresql_config.py program. Shows how to loq errors</span></p>						
+							<p><span class="code-php-comment-fc"> * encountered as well as queries run to CloudWatch Logs.</span></p>						
+							<p><span class="code-php-comment-fc"> */</span></p>							
+						</div>
 
-					<h4 class="post-subheading">Read database connection properties from encrypted configuration file</h1>
+						<!-- require autoload -->
+						<div>
+							<p>
+								<span class="code-php-keyword-fc">require</span>
+								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-string-fc">'../vendor/autoload.php'</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+						</div>
+
+						<!-- blank line -->
+						<div>
+							<p></p>
+						</div>
+
+						<!-- Create AWS clients / loggers -->
+						<div>
+							<p><span class="code-php-comment-fc">// Create CloudWatch Logs / KMS / CloudWatchLogger instances.</span></p>
+						</div>
+
+						<div>
+							<p>
+								<span class="code-php-keyword-fc">try</span>
+								<span class="code-php-default-fc"> {</span>
+							</p>
+						</div>
+
+						<!-- CloudWatchLogsClient -->
+						<div>
+							<p>
+								<span class="code-php-var-fc">$aws_cwlogs_client</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-keyword-fc">new</span>
+								<span class="code-php-default-fc"> Aws\CloudWatchLogs\</span>
+								<span class="code-php-type-fc">CloudWatchLogsClient</span>
+								<span class="code-php-default-fc">([</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'profile'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'default'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'region'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'us-east-2'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'version'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'latest'</span>
+							</p>
+						</div>
+						<div>
+							<p><span class="code-php-default-fc">]);</span></p>
+						</div>
+
+						<!-- KmsClient -->
+						<div>
+							<p>
+								<span class="code-php-var-fc">$aws_kms_client</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-keyword-fc">new</span>
+								<span class="code-php-default-fc"> Aws\Kms\</span>
+								<span class="code-php-type-fc">KmsClient</span>
+								<span class="code-php-default-fc">([</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'profile'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'default'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'region'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'us-east-2'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'version'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'latest'</span>
+							</p>
+						</div>
+						<div>
+							<p><span class="code-php-default-fc">]);</span></p>
+						</div>
+
+						<!-- error_logger -->
+						<div>
+							<p>
+								<span class="code-php-var-fc">$error_logger</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-keyword-fc">new</span>
+								<span class="code-php-default-fc"> LegalThings\</span>
+								<span class="code-php-type-fc">CloudWatchLogger</span>
+								<span class="code-php-default-fc">([</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'aws'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-default-fc">[</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'profile'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'default'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'region'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'us-east-2'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'version'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'latest'</span>
+							</p>
+						</div>
+						<div>
+							<p><span class="code-php-default-fc">],</span></p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'group_name'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'sdk'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'stream_name'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'php/database/errors/'</span>
+							</p>
+						</div>
+						<div>
+							<p><span class="code-php-default-fc">]);</span></p>
+						</div>
+
+						<!-- spacer line -->
+						<div>
+							<p></p>
+						</div>
+
+						<!-- sql_logger -->
+						<div>
+							<p>
+								<span class="code-php-var-fc">$sql_logger</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-keyword-fc">new</span>
+								<span class="code-php-default-fc"> LegalThings\</span>
+								<span class="code-php-type-fc">CloudWatchLogger</span>
+								<span class="code-php-default-fc">([</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'aws'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-default-fc">[</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'profile'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'default'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'region'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'us-east-2'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'version'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'latest'</span>
+							</p>
+						</div>
+						<div>
+							<p><span class="code-php-default-fc">],</span></p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'group_name'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'sdk'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-string-fc">'stream_name'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'php/database/sql/'</span>
+							</p>
+						</div>
+						<div>
+							<p><span class="code-php-default-fc">]);</span></p>
+						</div>
+
+						<div>
+							<p><span class="code-php-default-fc">}</span></p>
+						</div>
+
+						<!-- catch / error handling -->
+						<div>
+							<p><span class="code-php-comment-fc">// Report on any exceptions - exit program since all instances are needed.</span></p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-keyword-fc">catch</span>
+								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-type-fc">Exxception</span>
+								<span class="code-php-default-fc"> </span>
+								<span class="code-php-var-fc">$e</span>
+								<span class="code-php-default-fc">) {</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-func-fc">echo</span>
+								<span class="code-php-default-fc"> </span>
+								<span class="code-php-var-fc">$e</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">getTraceAsString</span>
+								<span class="code-php-default-fc">();</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="code-php-keyword-fc">exit</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-string-fc">'Couldn\'t instantiate a needed AWS or Logger class. Exiting.'</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+						</div>
+						<div>
+							<p><span class="code-php-default-fc">}</span></p>
+						</div>	
+					</div>
+
+					<h4 class="site-font-secondary-heading">Read database connection properties from encrypted configuration file</h1>
 
 					<p>
 						Now we will need to identify the database and user details used to connect to a PostgreSQL cluster and database.
@@ -134,7 +484,7 @@
 					
 					<div class="post-snippet" style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; font-size: 16px; line-height: 19px; margin: auto; white-space: nowrap;"><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Open&nbsp;and&nbsp;read&nbsp;the&nbsp;database&nbsp;config&nbsp;file:&nbsp;reset&nbsp;perms&nbsp;on&nbsp;database&nbsp;config</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;file&nbsp;when&nbsp;finished&nbsp;opening.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #ce9178;">'la_demo_db.ini'</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #dcdcaa;">chmod</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">,&nbsp;</span><span style="color: #b5cea8;">0440</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #dcdcaa;">fopen</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">,&nbsp;</span><span style="color: #ce9178;">'rb'</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #dcdcaa;">chmod</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">,&nbsp;</span><span style="color: #b5cea8;">0000</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$binary_data</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #dcdcaa;">fread</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">,&nbsp;</span><span style="color: #dcdcaa;">filesize</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">));</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Decrypt&nbsp;the&nbsp;binary&nbsp;data&nbsp;in&nbsp;the&nbsp;database&nbsp;config&nbsp;file.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">try</span><span style="color: #d4d4d4;">&nbsp;{</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_config_data</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$aws_kms_client</span><span style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">decrypt</span><span style="color: #d4d4d4;">([</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;AWS&nbsp;KMS&nbsp;decrypt&nbsp;P(x)'s&nbsp;-&nbsp;Include&nbsp;EncryptionAlgorithm&nbsp;as&nbsp;best&nbsp;practice.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'CiphertextBlob'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #9cdcfe;">$binary_data</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'EncryptionAlgorithm'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'SYMMETRIC_DEFAULT'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'KeyId'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'keyid'</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Log&nbsp;any&nbsp;exceptions&nbsp;to&nbsp;the&nbsp;error&nbsp;log&nbsp;group&nbsp;/&nbsp;stream.&nbsp;Exit&nbsp;on&nbsp;failure</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;since&nbsp;remaining&nbsp;program&nbsp;depends&nbsp;on&nbsp;decrypted&nbsp;data.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">catch</span><span style="color: #d4d4d4;">&nbsp;(</span><span style="color: #4ec9b0;">Exception</span><span style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;">)&nbsp;{</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$error_logger</span><span style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">log</span><span style="color: #d4d4d4;">([</span><span style="color: #ce9178;">'Problem&nbsp;decrypting&nbsp;:&nbsp;'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">getAwsErrorMessage</span><span style="color: #d4d4d4;">()]);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">exit</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Unable&nbsp;to&nbsp;decrypt&nbsp;the&nbsp;data&nbsp;in&nbsp;</span><span style="color: #9cdcfe;">${db_config_file}</span><span style="color: #ce9178;">."</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Decode&nbsp;using&nbsp;base64&nbsp;decoding,&nbsp;then&nbsp;split&nbsp;data&nbsp;into&nbsp;components&nbsp;per&nbsp;delimiter.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_config_data</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #dcdcaa;">base64_decode</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_data</span><span style="color: #d4d4d4;">[</span><span style="color: #ce9178;">'Plaintext'</span><span style="color: #d4d4d4;">]);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #dcdcaa;">explode</span><span style="color: #d4d4d4;">(&nbsp;</span><span style="color: #dcdcaa;">chr</span><span style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">7</span><span style="color: #d4d4d4;">),&nbsp;</span><span style="color: #9cdcfe;">$db_config_data</span><span style="color: #d4d4d4;">&nbsp;);&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_host</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">];</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_name</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">];</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_user</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">];</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_auth</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">];</span></div><div><br></div></div>            
 
-					<h4 class="post-subheading">Capture decryption errors in AWS CloudWatch Logs</h1>
+					<h4 class="site-font-secondary-heading">Capture decryption errors in AWS CloudWatch Logs</h1>
 
 					<p>
 						If an error was encountered during the encryption attempt there will be a log in the AWS CloudWatch Logs log stream
@@ -144,7 +494,7 @@
 
 					<img src="assets/phpcloudwatchlogs_decrypt_error.png" alt="phpcloudwatchlogs_decrypt_error">
 
-					<h4 class="post-subheading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h1>
+					<h4 class="site-font-secondary-heading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h1>
 
 					<p>
 						Finally it is time to connect to the database. PHP's PDO data access layer is great for abstracting calls to database
@@ -152,70 +502,120 @@
 						is run here.
 					</p>
 
-					<div
-						class="post-snippet"
-						style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; font-size: 16px; line-height: 19px; margin: auto; white-space: nowrap;">
-						<div></div>
-						<div><br></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-								style="color: #6a9955;">//&nbsp;Try&nbsp;to&nbsp;connect&nbsp;to&nbsp;postgres&nbsp;database.&nbsp;Log&nbsp;any&nbsp;errors&nbsp;to&nbsp;CloudWatch&nbsp;Logs.</span>
-						</div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">try</span><span
-								style="color: #d4d4d4;">&nbsp;{</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-								style="color: #9cdcfe;">$pdo</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span
-								style="color: #569cd6;">new</span><span style="color: #d4d4d4;">&nbsp;</span><span
-								style="color: #4ec9b0;">PDO</span><span style="color: #d4d4d4;">(</span></div>
-						<div><span
-								style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-								style="color: #ce9178;">"pgsql:host=</span><span style="color: #9cdcfe;">${db_host}</span><span
-								style="color: #ce9178;">;</span></div>
-						<div><span
-								style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port=65535;</span>
-						</div>
-						<div><span
-								style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbname=</span><span
-								style="color: #9cdcfe;">${db_name}</span><span style="color: #ce9178;">;</span></div>
-						<div><span
-								style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user=</span><span
-								style="color: #9cdcfe;">${db_user}</span><span style="color: #ce9178;">;</span></div>
-						<div><span
-								style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password=</span><span
-								style="color: #9cdcfe;">${db_auth}</span><span style="color: #ce9178;">;</span></div>
-						<div><span
-								style="color: #ce9178;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslmode=require"</span>
-						</div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-								style="color: #6a9955;">//&nbsp;Set&nbsp;PDO&nbsp;error&nbsp;reporting&nbsp;to&nbsp;Exception.</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-								style="color: #9cdcfe;">$pdo</span><span style="color: #d4d4d4;">-&gt;</span><span
-								style="color: #dcdcaa;">setAttribute</span><span style="color: #d4d4d4;">(</span><span
-								style="color: #4ec9b0;">PDO</span><span style="color: #d4d4d4;">::ATTR_ERRMODE,&nbsp;</span><span
-								style="color: #4ec9b0;">PDO</span><span style="color: #d4d4d4;">::ERRMODE_EXCEPTION);</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-								style="color: #6a9955;">//&nbsp;Connection&nbsp;attempt&nbsp;failed&nbsp;-&nbsp;log&nbsp;failure&nbsp;to&nbsp;CloudWatch&nbsp;Logs&nbsp;and&nbsp;exit.</span>
-						</div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">catch</span><span
-								style="color: #d4d4d4;">&nbsp;(</span><span style="color: #4ec9b0;">PDOException</span><span
-								style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">$e</span><span
-								style="color: #d4d4d4;">)&nbsp;{</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-								style="color: #9cdcfe;">$error_logger</span><span style="color: #d4d4d4;">-&gt;</span><span
-								style="color: #dcdcaa;">log</span><span style="color: #d4d4d4;">([</span><span
-								style="color: #ce9178;">'Problem&nbsp;connecting&nbsp;:&nbsp;'</span><span
-								style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #9cdcfe;">$e</span><span
-								style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">getMessage</span><span
-								style="color: #d4d4d4;">()]);</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-								style="color: #c586c0;">exit</span><span style="color: #d4d4d4;">(</span><span
-								style="color: #ce9178;">"Unable&nbsp;to&nbsp;connect&nbsp;to&nbsp;host&nbsp;:&nbsp;</span><span
-								style="color: #9cdcfe;">${db_host}</span><span style="color: #ce9178;">."</span><span
-								style="color: #d4d4d4;">);</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
-						<div><br></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>    
+					<div class="post-snippet">
+						<p>
+							<span class="code-php-comment-fc">// Try to connect to postgres database. Log any errors to CloudWatch Logs.</span>
+						</p>
+					
+						<p>
+							<span class="code-php-keyword-fc">try</span>
+							<span class="code-php-default-fc"> {</span>
+						</p>
+					
+						<p>
+							<span class="code-php-var-fc">$pdo</span>
+							<span class="code-php-op-fc"> = </span>
+							<span class="code-php-keyword-fc">new</span>
+							<span class="code-php-type-fc"> PDO</span>
+							<span class="code-php-default-fc">(</span>
+						</p>
+					
+						<p>
+							<span class="code-php-string-fc">"pgsql:host=</span>
+							<span class="code-php-var-fc">${db_host}</span>
+							<span class="code-php-string-fc">;</span>
+						</p>
+					
+						<p>
+							<span class="code-php-string-fc">    port=65535;</span>
+						</p>
+					
+						<p>
+							<span class="code-php-string-fc">    dbname=</span>
+							<span class="code-php-var-fc">${db_name}</span>
+							<span class="code-php-string-fc">;</span>
+						</p>
+					
+						<p>
+							<span class="code-php-string-fc">    user=</span>
+							<span class="code-php-var-fc">${db_user}</span>
+							<span class="code-php-string-fc">;</span>
+						</p>
+					
+						<p>
+							<span class="code-php-string-fc">    password=</span>
+							<span class="code-php-var-fc">${db_auth}</span>
+							<span class="code-php-string-fc">;</span>
+						</p>
+					
+						<p>
+							<span class="code-php-string-fc">    sslmode=require"</span>
+						</p>
+					
+						<p>
+							<span class="code-php-default-fc">);</span>
+						</p>
+					
+						<p>
+							<span class="code-php-comment-fc">// Set PDO error reporting to Exception.</span>
+						</p>
+					
+						<p>
+							<span class="code-php-var-fc">$pdo</span>
+							<span class="code-php-op-fc">-&gt;</span>
+							<span class="code-php-func-fc">setAttribute</span>
+							<span class="code-php-default-fc">(</span>
+							<span class="code-php-type-fc">PDO</span>
+							<span class="code-php-op-fc">::</span>
+							<span class="code-php-default-fc">ATTR_ERRMODE, </span>
+							<span class="code-php-type-fc">PDO</span>
+							<span class="code-php-op-fc">::</span>
+							<span class="code-php-default-fc">ERRMODE_EXCEPTION);</span>
+						</p>
+					
+						<p>
+							<span class="code-php-default-fc">}</span>
+						</p>
+					
+						<p>
+							<span class="code-php-comment-fc">// Connection attempt failed - log failure to CloudWatch Logs and exit.</span>
+						</p>
+					
+						<p>
+							<span class="code-php-keyword-fc">catch</span>
+							<span class="code-php-default-fc"> (</span>
+							<span class="code-php-type-fc">PDOException</span>
+							<span class="code-php-default-fc"> </span>
+							<span class="code-php-var-fc">$e</span>
+							<span class="code-php-default-fc">) {</span>
+						</p>
+					
+						<p>
+							<span class="code-php-var-fc">$error_logger</span>
+							<span class="code-php-op-fc">-&gt;</span>
+							<span class="code-php-func-fc">log</span>
+							<span class="code-php-default-fc">([</span>
+							<span class="code-php-string-fc">'Problem connecting : '</span>
+							<span class="code-php-default-fc"> =&gt; </span>
+							<span class="code-php-var-fc">$e</span>
+							<span class="code-php-op-fc">-&gt;</span>
+							<span class="code-php-func-fc">getMessage</span>
+							<span class="code-php-default-fc">()]);</span>
+						</p>
+					
+						<p>
+							<span class="code-php-keyword-fc">exit</span>
+							<span class="code-php-default-fc">(</span>
+							<span class="code-php-string-fc">"Unable to connect to host : </span>
+							<span class="code-php-var-fc">${db_host}</span>
+							<span class="code-php-string-fc">."</span>
+							<span class="code-php-default-fc">);</span>
+						</p>
+					
+						<p>
+							<span class="code-php-default-fc">}</span>
+						</p>						
+
 					</div>
 				
 					<p>
@@ -226,7 +626,7 @@
 
 					<img src="assets/phpcloudwatchlogs_connect_error.png" alt="phpcloudwatchlogs_connect_error">
 
-					<h4 class="post-subheading">Log a succesfully run query</h1>
+					<h4 class="site-font-secondary-heading">Log a succesfully run query</h1>
 					
 					<div
 						class="post-snippet"
@@ -290,7 +690,7 @@
 						
 					<img src="assets/phpcloudwatchlogs_query.png" alt="phpcloudwatchlogs_query">
 
-					<h4 class="post-subheading">What can be learned from this article</h1>
+					<h4 class="site-font-secondary-heading">What can be learned from this article</h1>
 
 					<p>
 						Making use of AWS CloudWatch logs can simplify database error and query logging, especially
@@ -303,7 +703,7 @@
 				</section>
 
 				</article>
-			</div>
+
 		</div>
 	</main>
 

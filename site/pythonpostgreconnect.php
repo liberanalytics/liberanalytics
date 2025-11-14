@@ -70,35 +70,35 @@
     <main>
 		<div class="page-wrap">
 			<article>
-			<header class="site-stack-mt">
-				<?php
-					//
-					$postName = basename($_SERVER['PHP_SELF'], ".php");
-					$post = $laData->crudData(
-						CrudOperation::GETPOSTS,
-						CrudType::CRUDREAD,
-						CrudResultsetType::RESULTSET_ROWS,
-						CrudFetchStyle::FETCHSTYLE_ASSOC,
-						[ 'post_name' => $postName]						
-					)[0];
+				<header class="site-stack-mt">
+					<?php
+						//
+						$postName = basename($_SERVER['PHP_SELF'], ".php");
+						$post = $laData->crudData(
+							CrudOperation::GETPOSTS,
+							CrudType::CRUDREAD,
+							CrudResultsetType::RESULTSET_ROWS,
+							CrudFetchStyle::FETCHSTYLE_ASSOC,
+							[ 'post_name' => $postName]						
+						)[0];
 
-					//
-					if (!$post || !isset($post)) {
-						// header to 404.php
-					}
+						//
+						if (!$post || !isset($post)) {
+							// header to 404.php
+						}
 
-					//
-					$postShortDesc	= htmlspecialchars($post['short_desc'] ?? '', ENT_QUOTES, 'UTF-8');
-					$postLongDesc	= htmlspecialchars($post['long_desc'] ?? '', ENT_QUOTES, 'UTF-8');
-					$postImg    	= htmlspecialchars($post['post_img'] ?? '', ENT_QUOTES, 'UTF-8');
-					$postAlt		= $postShortDesc;
-					$postDate		= htmlspecialchars(date("F j, Y", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
-					$postISODate	= htmlspecialchars(date("Y-m-d", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
-					[$postImgWidth, $postImgHeight]
-									= @getimagesize($_SERVER['DOCUMENT_ROOT']."/assets/"."{$postImg}");
-					$postImgWidth	= (int)$postImgWidth;
-					$postImgHeight	= (int)$postImgHeight;
-				?>
+						//
+						$postShortDesc	= htmlspecialchars($post['short_desc'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postLongDesc	= htmlspecialchars($post['long_desc'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postImg    	= htmlspecialchars($post['post_img'] ?? '', ENT_QUOTES, 'UTF-8');
+						$postAlt		= $postShortDesc;
+						$postDate		= htmlspecialchars(date("F j, Y", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
+						$postISODate	= htmlspecialchars(date("Y-m-d", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
+						[$postImgWidth, $postImgHeight]
+										= @getimagesize($_SERVER['DOCUMENT_ROOT']."/assets/"."{$postImg}");
+						$postImgWidth	= (int)$postImgWidth;
+						$postImgHeight	= (int)$postImgHeight;
+					?>
 
 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
 					<p class="post-date site-font-date">
@@ -119,7 +119,7 @@
 						loading="lazy"
 						decoding="async"
 					>
-				</header>  
+				</header>
 
 				<section class="site-stack-mt">
 
