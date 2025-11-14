@@ -209,17 +209,9 @@
 							</p>
 						</div>
 
-						<!-- blank line -->
-						<div>
-							<p></p>
-						</div>
-
 						<!-- Create AWS clients / loggers -->
 						<div>
-							<p><span class="code-php-comment-fc">// Create CloudWatch Logs / KMS / CloudWatchLogger instances.</span></p>
-						</div>
-
-						<div>
+							<p><span class="code-php-comment-fc">// Create CloudWatch Logs / KMS / CloudWatchLogger instances.</span></p>							
 							<p>
 								<span class="code-php-keyword-fc">try</span>
 								<span class="code-php-default-fc"> {</span>
@@ -236,31 +228,23 @@
 								<span class="code-php-type-fc">CloudWatchLogsClient</span>
 								<span class="code-php-default-fc">([</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'profile'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'default'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'region'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'us-east-2'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'version'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'latest'</span>
 							</p>
-						</div>
-						<div>
 							<p><span class="code-php-default-fc">]);</span></p>
 						</div>
 
@@ -274,31 +258,23 @@
 								<span class="code-php-type-fc">KmsClient</span>
 								<span class="code-php-default-fc">([</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'profile'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'default'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'region'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'us-east-2'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'version'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'latest'</span>
 							</p>
-						</div>
-						<div>
 							<p><span class="code-php-default-fc">]);</span></p>
 						</div>
 
@@ -312,56 +288,40 @@
 								<span class="code-php-type-fc">CloudWatchLogger</span>
 								<span class="code-php-default-fc">([</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'aws'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-default-fc">[</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'profile'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'default'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'region'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'us-east-2'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'version'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'latest'</span>
 							</p>
-						</div>
-						<div>
 							<p><span class="code-php-default-fc">],</span></p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'group_name'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'sdk'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'stream_name'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'php/database/errors/'</span>
 							</p>
-						</div>
-						<div>
 							<p><span class="code-php-default-fc">]);</span></p>
 						</div>
 
@@ -380,68 +340,47 @@
 								<span class="code-php-type-fc">CloudWatchLogger</span>
 								<span class="code-php-default-fc">([</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'aws'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-default-fc">[</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'profile'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'default'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'region'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'us-east-2'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'version'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'latest'</span>
 							</p>
-						</div>
-						<div>
 							<p><span class="code-php-default-fc">],</span></p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'group_name'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'sdk'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-string-fc">'stream_name'</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-string-fc">'php/database/sql/'</span>
 							</p>
-						</div>
-						<div>
 							<p><span class="code-php-default-fc">]);</span></p>
-						</div>
-
-						<div>
 							<p><span class="code-php-default-fc">}</span></p>
 						</div>
 
 						<!-- catch / error handling -->
 						<div>
 							<p><span class="code-php-comment-fc">// Report on any exceptions - exit program since all instances are needed.</span></p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-keyword-fc">catch</span>
 								<span class="code-php-default-fc"> (</span>
@@ -450,8 +389,6 @@
 								<span class="code-php-var-fc">$e</span>
 								<span class="code-php-default-fc">) {</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-func-fc">echo</span>
 								<span class="code-php-default-fc"> </span>
@@ -460,16 +397,12 @@
 								<span class="code-php-func-fc">getTraceAsString</span>
 								<span class="code-php-default-fc">();</span>
 							</p>
-						</div>
-						<div>
 							<p>
 								<span class="code-php-keyword-fc">exit</span>
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-string-fc">'Couldn\'t instantiate a needed AWS or Logger class. Exiting.'</span>
 								<span class="code-php-default-fc">);</span>
 							</p>
-						</div>
-						<div>
 							<p><span class="code-php-default-fc">}</span></p>
 						</div>	
 					</div>
