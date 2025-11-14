@@ -151,210 +151,31 @@
 					do the aforementioned in Python.
 					</p>
 
-					<div
-					class="post-snippet"
-					style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; line-height: 19px; margin: auto;">
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;------------------------------------------------------------------</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;aws_postgresql_config.py</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">#</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Creates&nbsp;a&nbsp;.ini&nbsp;file&nbsp;containing&nbsp;encrypted&nbsp;credentials&nbsp;used</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;to&nbsp;connect&nbsp;to&nbsp;an&nbsp;AWS&nbsp;EC2&nbsp;hosted&nbsp;postgresql&nbsp;database.</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;------------------------------------------------------------------</span>
-					</div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">pwd</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">sys</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">os</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">from</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">getpass</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #dcdcaa;">getpass</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">json</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">traceback</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">base64</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">boto3</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #569cd6;">def</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #dcdcaa;">main</span><span
-						style="color: #cccccc;">():</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Instantiate&nbsp;an&nbsp;AWS&nbsp;KMS&nbsp;client&nbsp;instance.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">aws_kms</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #4ec9b0;">boto3</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">client</span><span style="color: #cccccc;">(</span><span
-						style="color: #ce9178;">'kms'</span><span style="color: #cccccc;">,&nbsp;</span><span
-						style="color: #ce9178;">'region'</span><span style="color: #cccccc;">)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;KMS&nbsp;key&nbsp;id.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">the_key</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'keyid'</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Prompt&nbsp;for&nbsp;the&nbsp;connection&nbsp;params.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #dcdcaa;">print</span><span style="color: #cccccc;">(</span><span
-						style="color: #ce9178;">'Please&nbsp;provide&nbsp;connection&nbsp;parameters&nbsp;for&nbsp;database:'</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #d4d4d4;">+</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #ce9178;">'</span><span
-						style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">'</span><span
-						style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_host</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #dcdcaa;">getpass</span><span style="color: #cccccc;">(</span><span
-						style="color: #ce9178;">'Please&nbsp;enter&nbsp;database&nbsp;host:'</span><span
-						style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #dcdcaa;">getpass</span><span style="color: #cccccc;">(</span><span
-						style="color: #ce9178;">'Please&nbsp;enter&nbsp;database&nbsp;name:'</span><span
-						style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_user</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #dcdcaa;">getpass</span><span style="color: #cccccc;">(</span><span
-						style="color: #ce9178;">'Please&nbsp;enter&nbsp;database&nbsp;user&nbsp;name:'</span><span
-						style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_auth</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #dcdcaa;">getpass</span><span style="color: #cccccc;">(</span><span
-						style="color: #ce9178;">'Please&nbsp;enter&nbsp;user&nbsp;password:'</span><span
-						style="color: #cccccc;">)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Config&nbsp;file.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">config_dir</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;[</span><span
-						style="color: #ce9178;">'HOME'</span><span style="color: #cccccc;">]&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'/'</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'conn'</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #ce9178;">'/'</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #d4d4d4;">+</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #9cdcfe;">db_host</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">config_dir</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'/'</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'.ini'</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Concat&nbsp;+&nbsp;delimit&nbsp;params,&nbsp;convert&nbsp;to&nbsp;bytes,&nbsp;then&nbsp;base64&nbsp;encode.</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">delim</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #dcdcaa;">chr</span><span style="color: #cccccc;">(</span><span
-						style="color: #b5cea8;">7</span><span style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">params</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_host</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">delim</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">delim</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_user</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">delim</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_auth</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">byte_params</span><span style="color: #d4d4d4;">=</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #9cdcfe;">params</span><span
-						style="color: #cccccc;">.</span><span style="color: #dcdcaa;">encode</span><span
-						style="color: #cccccc;">(</span><span style="color: #ce9178;">'utf-8'</span><span
-						style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">encode_params</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #4ec9b0;">base64</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">b64encode</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">byte_params</span><span style="color: #cccccc;">)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Encrypt&nbsp;the&nbsp;params.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">encryption_data</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">aws_kms</span><span style="color: #cccccc;">.encrypt(</span></div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">KeyId</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">the_key</span><span style="color: #cccccc;">,</span></div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">Plaintext</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">encode_params</span><span style="color: #cccccc;">,</span></div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">EncryptionAlgorithm</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'SYMMETRIC_DEFAULT'</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Write&nbsp;the&nbsp;encryption&nbsp;params&nbsp;as&nbsp;binary&nbsp;to&nbsp;the&nbsp;config&nbsp;file.</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #c586c0;">with</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #dcdcaa;">open</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
-						style="color: #ce9178;">'wb'</span><span style="color: #cccccc;">)&nbsp;</span><span
-						style="color: #c586c0;">as</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">file</span><span style="color: #cccccc;">:</span></div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">file</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">write</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">encryption_data</span><span style="color: #cccccc;">[</span><span
-						style="color: #ce9178;">'CiphertextBlob'</span><span style="color: #cccccc;">])</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Reset&nbsp;file&nbsp;perms.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #4ec9b0;">os</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">chmod</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
-						style="color: #b5cea8;">000</span><span style="color: #cccccc;">)</span></div>
-					<div><br></div>
-					</div>
+					<pre class="post-code"><code>
+# ------------------------------------------------------------------
+# aws_postgresql_config.py
+#
+# Creates a .ini file containing encrypted credentials used
+# to connect to an AWS EC2 hosted postgresql database.
+# ------------------------------------------------------------------
+
+import pwd
+import sys
+import os
+from getpass import getpass
+import json
+import traceback
+import base64
+import boto3
+
+def main():
+	# Instantiate an AWS KMS client instance.
+	aws_kms = boto3.client('kms', 'region')
+	...</code></pre>
+					
+					
+					
+
 
 					<h4 class="site-font-secondary-heading">Connecting to the postgresql database</h1>
 
