@@ -16,28 +16,41 @@
 
 	<style>
 
-		.post-code {
+		/* Wrapper for the snippet */
+		.post-snippet {
 			margin-block: var(--sz-400);
 			padding: var(--sz-300);
-			background-color: #111218; /* or var(--clr-code-bg) */
-			color: #e6e6e6;            /* or var(--clr-code-fg) */
+			background-color: #1f1f1f;
+			color: #cccccc;
 			border-radius: var(--sz-150);
 			box-shadow: var(--site-box-shadow-soft);
-		
-			/* important bits for mobile */
-			max-width: 100%;
-			max-height: 18rem;
-			overflow: auto;
-			-webkit-overflow-scrolling: touch;
-			scrollbar-gutter: stable;
+			font-family: "Droid Sans Mono", monospace;
+			font-weight: normal;
+			line-height: 1.2; /* 19px-ish if your base is 16px */
+			overflow: auto;   /* let it scroll if needed */
 		}
-  
-		.post-code code {
-			display: block;
-			white-space: pre;    /* preserve indentation & line breaks */
-			tab-size: 4;
-			/* font-family: var(--font-mono);  <-- you can add later */
+
+		/* Make inner text preserve spacing/line breaks */
+		.post-snippet p {
+
 		}
+
+		.post-snippet span {
+			margin: 0;
+			white-space: pre;
+		}
+
+		/* Token colors (matching your inline styles) */
+		.post-snippet .code-default  { color: #cccccc; } /* generic text */
+		.post-snippet .code-comment  { color: #6a9955; }
+		.post-snippet .code-keyword  { color: #c586c0; } /* import, def, with, for, in, etc. */
+		.post-snippet .code-type     { color: #4ec9b0; } /* modules, types, base64, boto3, etc */
+		.code-func     { color: #dcdcaa; } /* function names, builtins */
+		.code-var      { color: #9cdcfe; } /* variable names */
+		.code-op       { color: #d4d4d4; } /* =, +, etc */
+		.code-string   { color: #ce9178; }
+		.code-number   { color: #b5cea8; }
+		.code-special  { color: #569cd6; } /* def, f-strings bits, etc */
 
 	</style>
 
@@ -50,67 +63,57 @@
 	<main>
 		<div class="page-wrap">
 			<section>
-				<h1 class="site-primary-heading">Contact Us</h1>
+				<h1 class="site-primary-heading site-f">Contact Us</h1>
 
-				<pre class="post-code"><code>
-# ------------------------------------------------------------------
-# aws_postgresql_config.py
-#
-# Creates a .ini file containing encrypted credentials used
-# to connect to an AWS EC2 hosted postgresql database.
-# ------------------------------------------------------------------
+				<div class="post-snippet">
 
-import pwd
-import sys
-import os
-from getpass import getpass
-import json
-import traceback
-import base64
-import boto3
+					<p><span class="code-comment"># ------------------------------------------------------------------</span></p>
+					<p><span class="code-comment"># aws_postgresql_connect.py</span></p>
+					<p><span class="code-comment">#</span></p>
+					<p><span class="code-comment"># Creates a .ini file containing encrypted credentials used
+					# to connect to an AWS EC2 hosted postgresql database.</span></p>
+					<p><span class="code-comment"># ------------------------------------------------------------------</span></p>
 
-def main():
+					<!-- imports -->
+					<p class="site-mt">
+						<span class="code-keyword">import</span>
+						<span class="code-type">pwd</span>
+					</p>
+					<p>
+						<span class="code-keyword">import</span>
+						<span class="code-type">sys</span>
+					</p>
+					<p>
+						<span class="code-keyword">import</span>
+						<span class="code-type">os</span>
+					</p>					
+					<p>
+						<span class="code-keyword">from</span>
+						<span class="code-type">getpass</span>
+						<span class="code-keyword">import</span>
+						<span class="code-func">getpass</span>
+					</p>
+					<p>
+						<span class="code-keyword">import</span>
+						<span class="code-type">json</span>
+					</p>
+					<p>
+						<span class="code-keyword">import</span>
+						<span class="code-type">traceback</span>
+					</p>
+					<p>
+						<span class="code-keyword">import</span>
+						<span class="code-type">base64</span>
+					</p>
+					<p>
+						<span class="code-keyword">import</span>
+						<span class="code-type">boto3</span>
+					</p>
 
-# Instantiate an AWS KMS client instance.
-aws_kms = boto3.client('kms', 'region')
+				</div>
 
-# KMS key id.
-the_key = 'keyid'
 
-# Prompt for the connection params.
-print('Please provide connection parameters for database:\n')
-db_host = getpass('Please enter database host:')
-db_name = getpass('Please enter database name:')
-db_user = getpass('Please enter database user name:')
-db_auth = getpass('Please enter user password:')
 
-# Config file.
-config_dir = ['HOME'] + '/' + 'conn' + '/' + db_host
-config_file = config_dir + '/' + db_name + '.ini'
-
-# Concat + delimit params, convert to bytes, then base64 encode.
-delim = chr(7)
-params = db_host + delim + db_name + delim + db_user + delim + db_auth
-byte_params = params.encode('utf-8')
-encode_params = base64.b64encode(byte_params)
-
-# Encrypt the params.
-encryption_data = aws_kms.encrypt(
-	KeyId = the_key,
-	Plaintext = encode_params,
-	EncryptionAlgorithm = 'SYMMETRIC_DEFAULT'
-)
-
-# Write the encryption params as binary to the config file.
-with open(config_file, 'wb') as file:
-	file.write(encryption_data['CiphertextBlob'])
-
-# Reset file perms.
-os.chmod(config_file, 000)
-
-</code></pre>
-	
-	
 			</section>
 		</div>
 	</main>
