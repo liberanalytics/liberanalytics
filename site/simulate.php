@@ -16,15 +16,35 @@
 
 	<style>
 
-		.contact-container {
-			padding-block-end: var(--sz-300);
-			margin-block-start: var(--sz-600);
-			border-bottom: 1px solid transparent;
-			border-image: linear-gradient( to right, 
-				var(--clr-lt-light) 0%, 
-				var(--clr-med-light) 50%, 
-				var(--clr-lt-light) 100% ) 1;
-		}
+.code-block {
+	margin-block: var(--sz-400);
+	background-color: var(--clr-code-bg, #1f1f1f);
+	color: var(--clr-code-fg, #cccccc);
+	border-radius: var(--sz-150);
+	box-shadow: var(--site-box-shadow-soft);
+	overflow: hidden;
+}
+
+.post-code {
+    margin-block: var(--sz-400);
+    padding: var(--sz-300);
+    background-color: #111218; /* or var(--clr-code-bg) */
+    color: #e6e6e6;            /* or var(--clr-code-fg) */
+    border-radius: var(--sz-150);
+    box-shadow: var(--site-box-shadow-soft);
+  
+    /* important bits for mobile */
+    overflow-x: scroll;    /* allow horizontal scroll if line is wide */
+    overflow-y: scroll; /* grow as tall as needed */
+    max-width: 100%;
+  }
+  
+  .post-code code {
+    display: block;
+    white-space: pre;    /* preserve indentation & line breaks */
+    tab-size: 4;
+    /* font-family: var(--font-mono);  <-- you can add later */
+  }
 
 	</style>
 
@@ -39,85 +59,27 @@
 			<section>
 				<h1 class="site-primary-heading">Contact Us</h1>
 
-				<div class="site-block-std">
-					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
-				</div>
+				<pre class="post-code"><code>
+# ------------------------------------------------------------------
+# aws_postgresql_config.py
+#
+# Creates a .ini file containing encrypted credentials used
+# to connect to an AWS EC2 hosted postgresql database.
+# ------------------------------------------------------------------
 
-				<div class="contact-container">
-					<form
-						id="contact_form"
-						name="contact" 
-						method="post"
-						data-composite="0"
-						data-erroreleid="error_form"
-						action="contact_handler.php"
-						class="site-form-std"
-					>
+import pwd
+import sys
+import os
+from getpass import getpass
+import json
+import traceback
+import base64
+import boto3
 
-						<ul class="site-font-form-std">
-							<li><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
-							<li>
-								<input 
-									id="first_name" name="first_name" type="text" title="Enter First Name" class="" 
-									maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
-									data-vx="vxName" data-len="32" autocomplete="given-name"
-								>
-							</li>
-
-							<li><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
-							<li>
-								<input 
-									id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
-									maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
-									data-vx="vxName" data-len="32" autocomplete="family-name"
-								>      
-							</li>
-							<li><label for="email" class="site-fw-bold">Email<em class="site-fc-med-red">*</em></label></li>
-							<li>
-								<input
-									id="email" name="email" type="text" title="Enter Email" class="" 
-									maxlength="32" data-caption="Email" data-id="email" data-req="1"
-									data-vx="vxEmail" data-len="32" autocomplete="email"
-								>							
-							</li>
-							<li><label for="subject" class="site-fw-bold">Subject<em class="site-fc-med-red">*</em></label></li>
-							<li>
-								<input
-									id="subject" name="contact_subject" type="text" title="Enter Subject" class=""
-									maxlength="32" data-caption="Subject" data-id="subject" data-req="1"
-									data-vx="vxAlphaNum" data-len="32" autocomplete="off"
-							>							
-							</li>
-							<li><label for="message" class="site-fw-bold">Message<em class="site-fc-med-red">*</em></label></li>
-							<li>
-								<textarea 
-									id="subject" name="contact_message" rows="8" class=""
-									data-caption="Message" data-id="contact_message" data-req="1"
-									data-vx="vxText" data-len="512"
-								>
-								</textarea>							
-							</li>
-							<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-							<li><span class="error-msg"></span></li>														
-						</ul>					
-					</form> 					
-				</div>
-
-				<div class="site-ajax-overlay hidden">
-					<div class="site-ajax-spinner-centerer">
-						<div class="site-ajax-spinner-8spoke ">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</div>
-				</div>				
-					
+def main():
+	# Instantiate an AWS KMS client instance.
+	aws_kms = boto3.client('kms', 'region')
+	...</code></pre>						
 			</section>
 		</div>
 	</main>

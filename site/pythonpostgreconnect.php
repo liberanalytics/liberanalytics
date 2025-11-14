@@ -151,32 +151,6 @@
 					do the aforementioned in Python.
 					</p>
 
-					<pre class="post-code"><code>
-# ------------------------------------------------------------------
-# aws_postgresql_config.py
-#
-# Creates a .ini file containing encrypted credentials used
-# to connect to an AWS EC2 hosted postgresql database.
-# ------------------------------------------------------------------
-
-import pwd
-import sys
-import os
-from getpass import getpass
-import json
-import traceback
-import base64
-import boto3
-
-def main():
-	# Instantiate an AWS KMS client instance.
-	aws_kms = boto3.client('kms', 'region')
-	...</code></pre>
-					
-					
-					
-
-
 					<h4 class="site-font-secondary-heading">Connecting to the postgresql database</h1>
 
 					<p>
