@@ -47,13 +47,13 @@
 }
 
 /* Token colors (matching your inline styles) */
-.post-snippet .code-default  { color: #cccccc; } /* generic text */
-.post-snippet .code-comment  { color: #6a9955; }
-.post-snippet .code-keyword  { color: #c586c0; } /* import, def, with, for, in, etc. */
-.post-snippet .code-type     { color: #4ec9b0; } /* modules, types, base64, boto3, etc */
-.code-func     { color: #dcdcaa; } /* function names, builtins */
-.code-var      { color: #9cdcfe; } /* variable names */
-.code-op       { color: #d4d4d4; } /* =, +, etc */
-.code-string   { color: #ce9178; }
-.code-number   { color: #b5cea8; }
-.code-special  { color: #569cd6; } /* def, f-strings bits, etc */
+.code-python-default-fc  { color: #cccccc; } /* generic text */
+.code-python-comment-fc  { color: #6a9955; }
+.code-python-keyword-fc  { color: #c586c0; } /* import, def, with, for, in, etc. */
+.code-python-type-fc     { color: #4ec9b0; } /* modules, types, base64, boto3, etc */
+.code-python-func-fc     { color: #dcdcaa; } /* function names, builtins */
+.code-python-var-fc      { color: #9cdcfe; } /* variable names */
+.code-python-op-fc       { color: #d4d4d4; } /* =, +, etc */
+.code-python-string-fc   { color: #ce9178; }
+.code-python-number-fc   { color: #b5cea8; }
+.code-python-special-fc  { color: #569cd6; } /* def, f-strings bits, etc */
