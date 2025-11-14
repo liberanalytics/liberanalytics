@@ -151,6 +151,268 @@
 					do the aforementioned in Python.
 					</p>
 
+					<div class="post-snippet site-stack-mt">
+
+						<p><span class="code-comment"># ------------------------------------------------------------------</span></p>
+						<p><span class="code-comment"># aws_postgresql_connect.py</span></p>
+						<p><span class="code-comment">#</span></p>
+						<p><span class="code-comment"># Creates a .ini file containing encrypted credentials used
+						# to connect to an AWS EC2 hosted postgresql database.</span></p>
+						<p><span class="code-comment"># ------------------------------------------------------------------</span></p>
+	
+						<!-- imports -->
+						<div>
+							<p class="site-mt">
+								<span class="code-keyword">import</span>
+								<span class="code-type">pwd</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">sys</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">os</span>
+							</p>					
+							<p>
+								<span class="code-keyword">from</span>
+								<span class="code-type">getpass</span>
+								<span class="code-keyword">import</span>
+								<span class="code-func">getpass</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">json</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">traceback</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">base64</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">boto3</span>
+							</p>
+						</div>
+	
+						<!-- Function definition -->
+						<div>
+							<p>
+								<span class="code-special">def </span>
+								<span class="code-func">main</span><span class="code-default">():</span>
+							</p>
+						</div>
+	
+						<!-- Instantiate KMS client -->
+						<div>
+							<p>
+								<span class="code-comment"># Instantiate an AWS KMS client instance.</span>
+							</p>
+							<p>
+								<span class="code-var">aws_kms </span>
+								<span class="code-op">= </span>
+								<span class="code-type">boto3</span><span class="code-default">.</span>
+								<span class="code-func">client</span><span class="code-default">(</span>
+								<span class="code-string">'kms'</span><span class="code-default">, </span>
+								<span class="code-string">'region'</span><span class="code-default">)</span>
+							</p>
+						</div>
+	
+						<!-- KMS key id -->
+						<div>
+							<p>
+								<span class="code-comment"># KMS key id.</span>
+							</p>
+							<p>
+								<span class="code-var">the_key </span>
+								<span class="code-op">= </span>
+								<span class="code-string">'keyid'</span>
+							</p>
+						</div>
+	
+						<!-- Prompt for connection params -->
+						<div>
+							<p>
+								<span class="code-comment"># Prompt for the connection params.</span>
+							</p>
+							<p>
+								<span class="code-func">print</span><span class="code-default">(</span>
+								<span class="code-string">'Please provide connection parameters for database:'</span>
+								<span class="code-default"> </span><span class="code-op">+ </span>
+								<span class="code-string">'\n'</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">db_host </span>
+								<span class="code-op">= </span>
+								<span class="code-func">getpass</span><span class="code-default">(</span>
+								<span class="code-string">'Please enter database host:'</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">db_name </span>
+								<span class="code-op">= </span>
+								<span class="code-func">getpass</span><span class="code-default">(</span>
+								<span class="code-string">'Please enter database name:'</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">db_user </span>
+								<span class="code-op">= </span>
+								<span class="code-func">getpass</span><span class="code-default">(</span>
+								<span class="code-string">'Please enter database user name:'</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">db_auth </span>
+								<span class="code-op">= </span>
+								<span class="code-func">getpass</span><span class="code-default">(</span>
+								<span class="code-string">'Please enter user password:'</span><span class="code-default">)</span>
+							</p>
+						</div>
+	
+						<!-- Config file -->
+						<div>
+							<p>
+								<span class="code-comment"># Config file.</span>
+							</p>
+							<p>
+								<span class="code-var">config_dir </span>
+								<span class="code-op">= </span>
+								<span class="code-default">[</span>
+								<span class="code-string">'HOME'</span>
+								<span class="code-default">] </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'/'</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'conn'</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'/'</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-var">db_host</span>
+							</p>
+							<p>
+								<span class="code-var">config_file </span>
+								<span class="code-op">= </span>
+								<span class="code-var">config_dir</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'/'</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-var">db_name</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'.ini'</span>
+							</p>
+						</div>
+	
+						<!-- Concat + delimit and encode -->
+						<div>
+							<p>
+								<span class="code-comment"># Concat + delimit params, convert to bytes, then base64 encode.</span>
+							</p>
+							<p>
+								<span class="code-var">delim </span>
+								<span class="code-op">= </span>
+								<span class="code-func">chr</span><span class="code-default">(</span>
+								<span class="code-number">7</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">params </span>
+								<span class="code-op">= </span>
+								<span class="code-var">db_host</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">delim</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">db_name</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">delim</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">db_user</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">delim</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">db_auth</span>
+							</p>
+							<p>
+								<span class="code-var">byte_params </span>
+								<span class="code-op">= </span>
+								<span class="code-var">params</span><span class="code-default">.</span>
+								<span class="code-func">encode</span><span class="code-default">(</span>
+								<span class="code-string">'utf-8'</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">encode_params </span>
+								<span class="code-op">= </span>
+								<span class="code-type">base64</span><span class="code-default">.</span>
+								<span class="code-func">b64encode</span><span class="code-default">(</span>
+								<span class="code-var">byte_params</span><span class="code-default">)</span>
+							</p>
+						</div>
+	
+						<!-- Encrypt the params -->
+						<div>
+							<p>
+								<span class="code-comment"># Encrypt the params.</span>
+							</p>
+							<p>
+								<span class="code-var">encryption_data </span>
+								<span class="code-op">= </span>
+								<span class="code-var">aws_kms</span><span class="code-default">.</span>
+								<span class="code-func">encrypt</span><span class="code-default">(</span>
+							</p>
+							<p>
+								<span class="code-var">KeyId</span><span class="code-default"> = </span>
+								<span class="code-var">the_key</span><span class="code-default">,</span>
+							</p>
+							<p>
+								<span class="code-var">Plaintext</span><span class="code-default"> = </span>
+								<span class="code-var">encode_params</span><span class="code-default">,</span>
+							</p>
+							<p>
+								<span class="code-var">EncryptionAlgorithm</span><span class="code-default"> = </span>
+								<span class="code-string">'SYMMETRIC_DEFAULT'</span><span class="code-default">)</span>
+							</p>
+						</div>
+	
+						<!-- Write encrypted params to file -->
+						<div>
+							<p>
+								<span class="code-comment"># Write the encryption params as binary to the config file.</span>
+							</p>
+							<p>
+								<span class="code-keyword">with </span>
+								<span class="code-func">open</span><span class="code-default">(</span>
+								<span class="code-var">config_file</span><span class="code-default">, </span>
+								<span class="code-string">'wb'</span><span class="code-default">)</span>
+								<span class="code-keyword"> as </span>
+								<span class="code-var">file</span><span class="code-default">:</span>
+							</p>
+							<p>
+								<span class="code-var">file</span><span class="code-default">.</span>
+								<span class="code-func">write</span><span class="code-default">(</span>
+								<span class="code-var">encryption_data</span><span class="code-default">[</span>
+								<span class="code-string">'CiphertextBlob'</span><span class="code-default">])</span>
+							</p>
+						</div>
+	
+						<!-- Reset file perms -->
+						<div>
+							<p>
+								<span class="code-comment"># Reset file perms.</span>
+							</p>
+							<p>
+								<span class="code-type">os</span><span class="code-default">.</span>
+								<span class="code-func">chmod</span><span class="code-default">(</span>
+								<span class="code-var">config_file</span><span class="code-default">, </span>
+								<span class="code-number">000</span><span class="code-default">)</span>
+							</p>
+						</div>					
+					</div>					
+
 					<h4 class="site-font-secondary-heading">Connecting to the postgresql database</h1>
 
 					<p>
@@ -166,267 +428,361 @@
 					to our postgresql cluster in AWS EC2 and run a sample query.
 					</p>
 					
-					<div
-					class="post-snippet"
-					style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; line-height: 19px; margin: auto;">
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;------------------------------------------------------------------</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;aws_postgresql_connect.py</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">#&nbsp;</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Connects&nbsp;to&nbsp;an&nbsp;AWS&nbsp;EC2&nbsp;hosted&nbsp;postgresql&nbsp;database&nbsp;by&nbsp;reading</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;and&nbsp;decrypting&nbsp;credentials&nbsp;stored&nbsp;in&nbsp;a&nbsp;config&nbsp;file.&nbsp;Dependent</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;on&nbsp;the&nbsp;aws_postgresql_config.py&nbsp;having&nbsp;been&nbsp;run&nbsp;first.</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;------------------------------------------------------------------</span>
-					</div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">pwd</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">sys</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">os</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">base64</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">boto3</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">import</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #4ec9b0;">psycopg2</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #569cd6;">def</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #dcdcaa;">main</span><span
-						style="color: #cccccc;">():</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Instantiate&nbsp;an&nbsp;AWS&nbsp;KMS&nbsp;client&nbsp;instance.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">aws_kms</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #4ec9b0;">boto3</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">client</span><span style="color: #cccccc;">(</span><span
-						style="color: #ce9178;">'kms'</span><span style="color: #cccccc;">,&nbsp;</span><span
-						style="color: #ce9178;">'region'</span><span style="color: #cccccc;">)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;KMS&nbsp;key&nbsp;id.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">the_key</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'keyid'</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Config&nbsp;file.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">config_dir</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;[</span><span
-						style="color: #ce9178;">'HOME'</span><span style="color: #cccccc;">]&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'/'</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'conn'</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #ce9178;">'/'</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #d4d4d4;">+</span><span
-						style="color: #cccccc;">&nbsp;</span><span style="color: #9cdcfe;">db_host</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">config_dir</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'/'</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #ce9178;">'.ini'</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Make&nbsp;config&nbsp;file&nbsp;readable.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #4ec9b0;">os</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">chmod</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
-						style="color: #b5cea8;">440</span><span style="color: #cccccc;">)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Get&nbsp;the&nbsp;connection&nbsp;credentials&nbsp;from&nbsp;config&nbsp;file.</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #c586c0;">with</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #dcdcaa;">open</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
-						style="color: #ce9178;">'rb'</span><span style="color: #cccccc;">)&nbsp;</span><span
-						style="color: #c586c0;">as</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">file</span><span style="color: #cccccc;">:</span></div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">credentials_bytes</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">file</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">read</span><span style="color: #cccccc;">()</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Reset&nbsp;config&nbsp;file&nbsp;perms.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #4ec9b0;">os</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">chmod</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">config_file</span><span style="color: #cccccc;">,&nbsp;</span><span
-						style="color: #b5cea8;">000</span><span
-						style="color: #cccccc;">)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Decrypt&nbsp;the&nbsp;connection&nbsp;credentials.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">credentials_decrypt</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">aws_kms</span><span style="color: #cccccc;">.decrypt(</span></div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">CiphertextBlob</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">credentials_bytes</span><span style="color: #cccccc;">,</span></div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">KeyId</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #569cd6;">f</span><span style="color: #ce9178;">'</span><span
-						style="color: #569cd6;">{</span><span style="color: #9cdcfe;">the_key</span><span
-						style="color: #569cd6;">}</span><span style="color: #ce9178;">'</span><span style="color: #cccccc;">,</span>
-					</div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">EncryptionAlgorithm</span><span style="color: #d4d4d4;">=</span><span
-						style="color: #ce9178;">'SYMMETRIC_DEFAULT'</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Decode&nbsp;the&nbsp;credentials&nbsp;and&nbsp;split&nbsp;by&nbsp;delimiter.</span>
-					</div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">delimiter</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #dcdcaa;">chr</span><span style="color: #cccccc;">(</span><span
-						style="color: #b5cea8;">7</span><span style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">credentials_decode</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #4ec9b0;">base64</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">b64decode</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">credentials_decrypt</span><span style="color: #cccccc;">[</span><span
-						style="color: #ce9178;">'Plaintext'</span><span style="color: #cccccc;">])</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">credentials</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #4ec9b0;">bytes</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">decode</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">credentials_decode</span><span style="color: #cccccc;">,&nbsp;</span><span
-						style="color: #ce9178;">'utf-8'</span><span style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">credentials</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">split</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">delimiter</span><span style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_host</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">[</span><span
-						style="color: #b5cea8;">0</span><span style="color: #cccccc;">]</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">[</span><span
-						style="color: #b5cea8;">1</span><span style="color: #cccccc;">]</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_user</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">[</span><span
-						style="color: #b5cea8;">2</span><span style="color: #cccccc;">]</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">db_auth</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_data</span><span style="color: #cccccc;">[</span><span
-						style="color: #b5cea8;">3</span><span style="color: #cccccc;">]</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Form&nbsp;a&nbsp;connection&nbsp;string&nbsp;&amp;&nbsp;connect.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">connection_string</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;\</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #ce9178;">"&nbsp;host="</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_host</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;\</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #ce9178;">"&nbsp;dbname="</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_name</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;\</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #ce9178;">"&nbsp;user="</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_user</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;\</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #ce9178;">"&nbsp;password="</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">db_auth</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">+</span><span style="color: #cccccc;">&nbsp;\</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #ce9178;">"&nbsp;port=5432"</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">conn</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #4ec9b0;">psycopg2</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">connect</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">connection_string</span><span style="color: #cccccc;">)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Example&nbsp;query.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">cur</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">conn</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">cursor</span><span style="color: #cccccc;">()</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">cur</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">execute</span><span style="color: #cccccc;">(</span><span
-						style="color: #ce9178;">'SELECT&nbsp;CURRENT_DATE;'</span><span style="color: #cccccc;">)</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">rs</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #d4d4d4;">=</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">cur</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">fetchall</span><span style="color: #cccccc;">()</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Iterate&nbsp;through&nbsp;resultset.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #c586c0;">for</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">row</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #c586c0;">in</span><span style="color: #cccccc;">&nbsp;</span><span
-						style="color: #9cdcfe;">rs</span><span style="color: #cccccc;">:</span></div>
-					<div><span
-						style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #dcdcaa;">print</span><span style="color: #cccccc;">(</span><span
-						style="color: #9cdcfe;">row</span><span style="color: #cccccc;">)</span></div>
-					<div><br></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #6a9955;">#&nbsp;Close&nbsp;cursor&nbsp;and&nbsp;connection.</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">cur</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">close</span><span style="color: #cccccc;">()</span></div>
-					<div><span style="color: #cccccc;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-						style="color: #9cdcfe;">conn</span><span style="color: #cccccc;">.</span><span
-						style="color: #dcdcaa;">close</span><span style="color: #cccccc;">()</span></div>
-					<div><br></div>
+					<div class="post-snippet site-stack-mt">
+
+						<!-- Header -->
+						<div>
+							<p><span class="code-comment"># ------------------------------------------------------------------</span></p>
+							<p><span class="code-comment"># aws_postgresql_connect.py</span></p>
+							<p><span class="code-comment">#</span></p>
+							<p><span class="code-comment"># Connects to an AWS EC2 hosted postgresql database by reading</span></p>
+							<p><span class="code-comment"># and decrypting credentials stored in a config file. Dependent</span></p>
+							<p><span class="code-comment"># on the aws_postgresql_config.py having been run first.</span></p>
+							<p><span class="code-comment"># ------------------------------------------------------------------</span></p>
+						</div>
+
+						<!-- Imports -->
+						<div>
+							<p class="site-mt">
+								<span class="code-keyword">import</span>
+								<span class="code-type">pwd</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">sys</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">os</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">base64</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">boto3</span>
+							</p>
+							<p>
+								<span class="code-keyword">import</span>
+								<span class="code-type">psycopg2</span>
+							</p>
+						</div>
+
+						<!-- main() definition -->
+						<div>
+							<p>
+								<span class="code-special">def </span>
+								<span class="code-func">main</span><span class="code-default">():</span>
+							</p>
+						</div>
+
+						<!-- Instantiate KMS client -->
+						<div>
+							<p>
+								<span class="code-comment"># Instantiate an AWS KMS client instance.</span>
+							</p>
+							<p>
+								<span class="code-var">aws_kms</span>
+								<span class="code-op"> = </span>
+								<span class="code-type">boto3</span><span class="code-default">.</span>
+								<span class="code-func">client</span><span class="code-default">(</span>
+								<span class="code-string">'kms'</span><span class="code-default">, </span>
+								<span class="code-string">'region'</span><span class="code-default">)</span>
+							</p>
+						</div>
+
+						<!-- KMS key id -->
+						<div>
+							<p>
+								<span class="code-comment"># KMS key id.</span>
+							</p>
+							<p>
+								<span class="code-var">the_key</span>
+								<span class="code-op"> = </span>
+								<span class="code-string">'keyid'</span>
+							</p>
+						</div>
+
+						<!-- Config file path -->
+						<div>
+							<p>
+								<span class="code-comment"># Config file.</span>
+							</p>
+							<p>
+								<span class="code-var">config_dir</span>
+								<span class="code-op"> = </span>
+								<span class="code-default">[</span>
+								<span class="code-string">'HOME'</span>
+								<span class="code-default">] </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'/'</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'conn'</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'/'</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-var">db_host</span>
+							</p>
+							<p>
+								<span class="code-var">config_file</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">config_dir</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'/'</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-var">db_name</span>
+								<span class="code-default"> </span>
+								<span class="code-op">+ </span>
+								<span class="code-string">'.ini'</span>
+							</p>
+						</div>
+
+						<!-- Make config file readable -->
+						<div>
+							<p>
+								<span class="code-comment"># Make config file readable.</span>
+							</p>
+							<p>
+								<span class="code-type">os</span><span class="code-default">.</span>
+								<span class="code-func">chmod</span><span class="code-default">(</span>
+								<span class="code-var">config_file</span><span class="code-default">, </span>
+								<span class="code-number">440</span><span class="code-default">)</span>
+							</p>
+						</div>
+
+						<!-- Get connection credentials from config file -->
+						<div>
+							<p>
+								<span class="code-comment"># Get the connection credentials from config file.</span>
+							</p>
+							<p>
+								<span class="code-keyword">with</span>
+								<span class="code-func">open</span><span class="code-default">(</span>
+								<span class="code-var">config_file</span><span class="code-default">, </span>
+								<span class="code-string">'rb'</span><span class="code-default">) </span>
+								<span class="code-keyword">as</span>
+								<span class="code-var">file</span><span class="code-default">:</span>
+							</p>
+							<p>
+								<span class="code-var">credentials_bytes</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">file</span><span class="code-default">.</span>
+								<span class="code-func">read</span><span class="code-default">()</span>
+							</p>
+						</div>
+
+						<!-- Reset config file perms -->
+						<div>
+							<p>
+								<span class="code-comment"># Reset config file perms.</span>
+							</p>
+							<p>
+								<span class="code-type">os</span><span class="code-default">.</span>
+								<span class="code-func">chmod</span><span class="code-default">(</span>
+								<span class="code-var">config_file</span><span class="code-default">, </span>
+								<span class="code-number">000</span><span class="code-default">)</span>
+							</p>
+						</div>
+
+						<!-- Decrypt the connection credentials -->
+						<div>
+							<p>
+								<span class="code-comment"># Decrypt the connection credentials.</span>
+							</p>
+							<p>
+								<span class="code-var">credentials_decrypt</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">aws_kms</span><span class="code-default">.</span>
+								<span class="code-func">decrypt</span><span class="code-default">(</span>
+							</p>
+							<p>
+								<span class="code-var">CiphertextBlob</span>
+								<span class="code-default"> = </span>
+								<span class="code-var">credentials_bytes</span><span class="code-default">,</span>
+							</p>
+							<p>
+								<span class="code-var">KeyId</span>
+								<span class="code-default"> = </span>
+								<span class="code-special">f</span><span class="code-string">'{</span>
+								<span class="code-var">the_key</span><span class="code-string">}'</span>
+								<span class="code-default">,</span>
+							</p>
+							<p>
+								<span class="code-var">EncryptionAlgorithm</span>
+								<span class="code-op">=</span>
+								<span class="code-string">'SYMMETRIC_DEFAULT'</span><span class="code-default">)</span>
+							</p>
+						</div>
+
+						<!-- Decode and split credentials -->
+						<div>
+							<p>
+								<span class="code-comment"># Decode the credentials and split by delimiter.</span>
+							</p>
+							<p>
+								<span class="code-var">delimiter</span>
+								<span class="code-op"> = </span>
+								<span class="code-func">chr</span><span class="code-default">(</span>
+								<span class="code-number">7</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">credentials_decode</span>
+								<span class="code-op"> = </span>
+								<span class="code-type">base64</span><span class="code-default">.</span>
+								<span class="code-func">b64decode</span><span class="code-default">(</span>
+								<span class="code-var">credentials_decrypt</span><span class="code-default">[</span>
+								<span class="code-string">'Plaintext'</span><span class="code-default">])</span>
+							</p>
+							<p>
+								<span class="code-var">credentials</span>
+								<span class="code-op"> = </span>
+								<span class="code-type">bytes</span><span class="code-default">.</span>
+								<span class="code-func">decode</span><span class="code-default">(</span>
+								<span class="code-var">credentials_decode</span><span class="code-default">, </span>
+								<span class="code-string">'utf-8'</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">db_data</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">credentials</span><span class="code-default">.</span>
+								<span class="code-func">split</span><span class="code-default">(</span>
+								<span class="code-var">delimiter</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">db_host</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">db_data</span><span class="code-default">[</span>
+								<span class="code-number">0</span><span class="code-default">]</span>
+							</p>
+							<p>
+								<span class="code-var">db_name</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">db_data</span><span class="code-default">[</span>
+								<span class="code-number">1</span><span class="code-default">]</span>
+							</p>
+							<p>
+								<span class="code-var">db_user</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">db_data</span><span class="code-default">[</span>
+								<span class="code-number">2</span><span class="code-default">]</span>
+							</p>
+							<p>
+								<span class="code-var">db_auth</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">db_data</span><span class="code-default">[</span>
+								<span class="code-number">3</span><span class="code-default">]</span>
+							</p>
+						</div>
+
+						<!-- Form connection string & connect -->
+						<div>
+							<p>
+								<span class="code-comment"># Form a connection string &amp; connect.</span>
+							</p>
+							<p>
+								<span class="code-var">connection_string</span>
+								<span class="code-op"> = </span><span class="code-default">\</span>
+							</p>
+							<p>
+								<span class="code-string">" host="</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">db_host</span>
+								<span class="code-op"> + </span><span class="code-default">\</span>
+							</p>
+							<p>
+								<span class="code-string">" dbname="</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">db_name</span>
+								<span class="code-op"> + </span><span class="code-default">\</span>
+							</p>
+							<p>
+								<span class="code-string">" user="</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">db_user</span>
+								<span class="code-op"> + </span><span class="code-default">\</span>
+							</p>
+							<p>
+								<span class="code-string">" password="</span>
+								<span class="code-op"> + </span>
+								<span class="code-var">db_auth</span>
+								<span class="code-op"> + </span><span class="code-default">\</span>
+							</p>
+							<p>
+								<span class="code-string">" port=5432"</span>
+							</p>
+							<p>
+								<span class="code-var">conn</span>
+								<span class="code-op"> = </span>
+								<span class="code-type">psycopg2</span><span class="code-default">.</span>
+								<span class="code-func">connect</span><span class="code-default">(</span>
+								<span class="code-var">connection_string</span><span class="code-default">)</span>
+							</p>
+						</div>
+
+						<!-- Example query -->
+						<div>
+							<p>
+								<span class="code-comment"># Example query.</span>
+							</p>
+							<p>
+								<span class="code-var">cur</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">conn</span><span class="code-default">.</span>
+								<span class="code-func">cursor</span><span class="code-default">()</span>
+							</p>
+							<p>
+								<span class="code-var">cur</span><span class="code-default">.</span>
+								<span class="code-func">execute</span><span class="code-default">(</span>
+								<span class="code-string">'SELECT CURRENT_DATE;'</span><span class="code-default">)</span>
+							</p>
+							<p>
+								<span class="code-var">rs</span>
+								<span class="code-op"> = </span>
+								<span class="code-var">cur</span><span class="code-default">.</span>
+								<span class="code-func">fetchall</span><span class="code-default">()</span>
+							</p>
+						</div>
+
+						<!-- Iterate through resultset -->
+						<div>
+							<p>
+								<span class="code-comment"># Iterate through resultset.</span>
+							</p>
+							<p>
+								<span class="code-keyword">for</span>
+								<span class="code-var"> row</span>
+								<span class="code-keyword"> in</span>
+								<span class="code-var"> rs</span><span class="code-default">:</span>
+							</p>
+							<p>
+								<span class="code-func">print</span><span class="code-default">(</span>
+								<span class="code-var">row</span><span class="code-default">)</span>
+							</p>
+						</div>
+
+						<!-- Close cursor and connection -->
+						<div>
+							<p>
+								<span class="code-comment"># Close cursor and connection.</span>
+							</p>
+							<p>
+								<span class="code-var">cur</span><span class="code-default">.</span>
+								<span class="code-func">close</span><span class="code-default">()</span>
+							</p>
+							<p>
+								<span class="code-var">conn</span><span class="code-default">.</span>
+								<span class="code-func">close</span><span class="code-default">()</span>
+							</p>
+						</div>
+
+
+
 					</div>
 
 					<h4 class="site-font-secondary-heading">Key Takeaways</h1>
