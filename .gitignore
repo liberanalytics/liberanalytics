@@ -16,3 +16,4 @@ config/la_data_test.config
 config/la_data_prod.config
 site/phpinfo.php
 *git*
+*codetohtml*
