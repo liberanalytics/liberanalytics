@@ -148,7 +148,7 @@
 						<a href="pythonpostgreconnect" class="site-link-std site-link-flh-med">Connecting Python to a Postgresql database</a>.					
 					</p>
 
-					<h4 class="site-font-secondary-heading">Requirements</h1>
+					<h4 class="site-font-secondary-heading">Requirements</h4>
 
 					<ul>
 						<li>PHP 8 (preferably running on Ubuntu)</li>
@@ -161,7 +161,7 @@
 						<li>Database created on Postgresql cluster</li>
 					</ul>
 
-					<h4 class="site-font-secondary-heading">Set up Log Group and Log Streams in AWS</h1>
+					<h4 class="site-font-secondary-heading">Set up Log Group and Log Streams in AWS</h4>
 
 					<p>
 						First we need to create a log group and two log streams within the group which will store our database sql queries and errors.
@@ -174,7 +174,7 @@
 
 					<img src="assets/phpcloudwatchlogs_logstreams.png" alt="phpcloudwatchlogs_logstreams">
 
-					<h4 class="site-font-secondary-heading">Create CloudWatch Logs / KMS / CloudWatchLogger instances in PHP</h1>
+					<h4 class="site-font-secondary-heading">Create CloudWatch Logs / KMS / CloudWatchLogger instances in PHP</h4>
 
 					<p>
 						Use PHP composer to install the AWS PHP SDK and logging packages - note the cloudwatch-logger package 
@@ -407,17 +407,225 @@
 						</div>	
 					</div>
 
-					<h4 class="site-font-secondary-heading">Read database connection properties from encrypted configuration file</h1>
+					<h4 class="site-font-secondary-heading">Read database connection properties from encrypted configuration file</h4>
 
 					<p>
 						Now we will need to identify the database and user details used to connect to a PostgreSQL cluster and database.
-						From the previous post, <a href="pythonpostgreconnect">Connecting Python to a Postgresql database</a>, the
+						From the previous post, <a href="/pythonpostgreconnect" class="site-font-link-std">Connecting Python to a Postgresql database</a>, the
 						connection details will be read from a file storing the sensitive data in encrypted format. Then the AWS KMS key used to encrypt the data will be used to decrypt the connection details so a connection can be made to the PostgreSQL database.
 					</p>
 					
-					<div class="post-snippet" style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; font-size: 16px; line-height: 19px; margin: auto; white-space: nowrap;"><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Open&nbsp;and&nbsp;read&nbsp;the&nbsp;database&nbsp;config&nbsp;file:&nbsp;reset&nbsp;perms&nbsp;on&nbsp;database&nbsp;config</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;file&nbsp;when&nbsp;finished&nbsp;opening.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #ce9178;">'la_demo_db.ini'</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #dcdcaa;">chmod</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">,&nbsp;</span><span style="color: #b5cea8;">0440</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #dcdcaa;">fopen</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">,&nbsp;</span><span style="color: #ce9178;">'rb'</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #dcdcaa;">chmod</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">,&nbsp;</span><span style="color: #b5cea8;">0000</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$binary_data</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #dcdcaa;">fread</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">,&nbsp;</span><span style="color: #dcdcaa;">filesize</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_file</span><span style="color: #d4d4d4;">));</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Decrypt&nbsp;the&nbsp;binary&nbsp;data&nbsp;in&nbsp;the&nbsp;database&nbsp;config&nbsp;file.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">try</span><span style="color: #d4d4d4;">&nbsp;{</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_config_data</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$aws_kms_client</span><span style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">decrypt</span><span style="color: #d4d4d4;">([</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;AWS&nbsp;KMS&nbsp;decrypt&nbsp;P(x)'s&nbsp;-&nbsp;Include&nbsp;EncryptionAlgorithm&nbsp;as&nbsp;best&nbsp;practice.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'CiphertextBlob'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #9cdcfe;">$binary_data</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'EncryptionAlgorithm'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'SYMMETRIC_DEFAULT'</span><span style="color: #d4d4d4;">,</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #ce9178;">'KeyId'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #ce9178;">'keyid'</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Log&nbsp;any&nbsp;exceptions&nbsp;to&nbsp;the&nbsp;error&nbsp;log&nbsp;group&nbsp;/&nbsp;stream.&nbsp;Exit&nbsp;on&nbsp;failure</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;since&nbsp;remaining&nbsp;program&nbsp;depends&nbsp;on&nbsp;decrypted&nbsp;data.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">catch</span><span style="color: #d4d4d4;">&nbsp;(</span><span style="color: #4ec9b0;">Exception</span><span style="color: #d4d4d4;">&nbsp;</span><span style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;">)&nbsp;{</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$error_logger</span><span style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">log</span><span style="color: #d4d4d4;">([</span><span style="color: #ce9178;">'Problem&nbsp;decrypting&nbsp;:&nbsp;'</span><span style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">getAwsErrorMessage</span><span style="color: #d4d4d4;">()]);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">exit</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Unable&nbsp;to&nbsp;decrypt&nbsp;the&nbsp;data&nbsp;in&nbsp;</span><span style="color: #9cdcfe;">${db_config_file}</span><span style="color: #ce9178;">."</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div><br></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #6a9955;">//&nbsp;Decode&nbsp;using&nbsp;base64&nbsp;decoding,&nbsp;then&nbsp;split&nbsp;data&nbsp;into&nbsp;components&nbsp;per&nbsp;delimiter.</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_config_data</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #dcdcaa;">base64_decode</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$db_config_data</span><span style="color: #d4d4d4;">[</span><span style="color: #ce9178;">'Plaintext'</span><span style="color: #d4d4d4;">]);</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #dcdcaa;">explode</span><span style="color: #d4d4d4;">(&nbsp;</span><span style="color: #dcdcaa;">chr</span><span style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">7</span><span style="color: #d4d4d4;">),&nbsp;</span><span style="color: #9cdcfe;">$db_config_data</span><span style="color: #d4d4d4;">&nbsp;);&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_host</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">];</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_name</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">];</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_user</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">];</span></div><div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #9cdcfe;">$db_auth</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span style="color: #9cdcfe;">$db_params</span><span style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">];</span></div><div><br></div></div>            
 
-					<h4 class="site-font-secondary-heading">Capture decryption errors in AWS CloudWatch Logs</h1>
+					 <div class="post-snippet site-stack-mt">
+						<!-- Open/read config file + perms -->
+						<div class="site-mt">
+							<p>
+								<span class="code-php-comment-fc">// Open and read the database config file: reset perms on database config</span>
+							</p>
+							<p>
+								<span class="code-php-comment-fc">// file when finished opening.</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$db_config_file</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-string-fc">'la_demo_db.ini'</span>
+								<span class="code-php-default-fc">;</span>
+							</p>
+							<p>
+								<span class="code-php-func-fc">chmod</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-var-fc">$db_config_file</span>
+								<span class="code-php-default-fc">, </span>
+								<span class="code-php-number-fc">0440</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$handle</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-func-fc">fopen</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-var-fc">$db_config_file</span>
+								<span class="code-php-default-fc">, </span>
+								<span class="code-php-string-fc">'rb'</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+							<p>
+								<span class="code-php-func-fc">chmod</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-var-fc">$db_config_file</span>
+								<span class="code-php-default-fc">, </span>
+								<span class="code-php-number-fc">0000</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$binary_data</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-func-fc">fread</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-var-fc">$handle</span>
+								<span class="code-php-default-fc">, </span>
+								<span class="code-php-func-fc">filesize</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-var-fc">$db_config_file</span>
+								<span class="code-php-default-fc">));</span>
+							</p>
+						</div>
+
+						<!-- Decrypt binary data -->
+						<div>
+							<p>
+								<span class="code-php-comment-fc">// Decrypt the binary data in the database config file.</span>
+							</p>
+							<p>
+								<span class="code-php-keyword-fc">try</span>
+								<span class="code-php-default-fc"> {</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$db_config_data</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-var-fc">$aws_kms_client</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">decrypt</span>
+								<span class="code-php-default-fc">([</span>
+							</p>
+						</div>
+
+						<!-- KMS decrypt params -->
+						<div>
+							<p>
+								<span class="code-php-comment-fc">// AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.</span>
+							</p>
+							<p>
+								<span class="code-php-string-fc">'CiphertextBlob'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-var-fc">$binary_data</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+
+							<p>
+								<span class="code-php-string-fc">'EncryptionAlgorithm'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'SYMMETRIC_DEFAULT'</span>
+								<span class="code-php-default-fc">,</span>
+							</p>
+							<p>
+								<span class="code-php-string-fc">'KeyId'</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-string-fc">'keyid'</span>
+							</p>
+							<p>
+								<span class="code-php-default-fc">]);</span>
+							</p>
+							<p>
+								<span class="code-php-default-fc">}</span>
+							</p>
+						</div>
+
+						<!-- Logging decrypt failures -->
+						<div>
+							<p>
+								<span class="code-php-comment-fc">// Log any exceptions to the error log group / stream. Exit on failure</span>
+							</p>
+							<p>
+								<span class="code-php-comment-fc">// since remaining program depends on decrypted data.</span>
+							</p>
+							<p>
+								<span class="code-php-keyword-fc">catch</span>
+								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-type-fc">Exception</span>
+								<span class="code-php-default-fc"> </span>
+								<span class="code-php-var-fc">$e</span>
+								<span class="code-php-default-fc">) {</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$error_logger</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">log</span>
+								<span class="code-php-default-fc">([</span>
+								<span class="code-php-string-fc">'Problem decrypting : '</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-var-fc">$e</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">getAwsErrorMessage</span>
+								<span class="code-php-default-fc">()]);</span>
+							</p>
+							<p>
+								<span class="code-php-keyword-fc">exit</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-string-fc">"Unable to decrypt the data in ${db_config_file}."</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+						</div>
+
+						<div>
+							<p>
+								<span class="code-php-default-fc">}</span>
+							</p>
+						</div>
+
+						<!-- Decode + split -->
+						<div>
+							<p>
+								<span class="code-php-comment-fc">// Decode using base64 decoding, then split data into components per delimiter.</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$db_config_data</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-func-fc">base64_decode</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-var-fc">$db_config_data</span>
+								<span class="code-php-default-fc">[</span>
+								<span class="code-php-string-fc">'Plaintext'</span>
+								<span class="code-php-default-fc">]);</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$db_params</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-func-fc">explode</span>
+								<span class="code-php-default-fc">( </span>
+								<span class="code-php-func-fc">chr</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-number-fc">7</span>
+								<span class="code-php-default-fc">), </span>
+								<span class="code-php-var-fc">$db_config_data</span>
+								<span class="code-php-default-fc"> );</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$db_host</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-var-fc">$db_params</span>
+								<span class="code-php-default-fc">[</span>
+								<span class="code-php-number-fc">0</span>
+								<span class="code-php-default-fc">];</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$db_name</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-var-fc">$db_params</span>
+								<span class="code-php-default-fc">[</span>
+								<span class="code-php-number-fc">1</span>
+								<span class="code-php-default-fc">];</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$db_user</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-var-fc">$db_params</span>
+								<span class="code-php-default-fc">[</span>
+								<span class="code-php-number-fc">2</span>
+								<span class="code-php-default-fc">];</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$db_auth</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-var-fc">$db_params</span>
+								<span class="code-php-default-fc">[</span>
+								<span class="code-php-number-fc">3</span>
+								<span class="code-php-default-fc">];</span>
+							</p>
+						</div>
+					</div>
+
+					<h4 class="site-font-secondary-heading">Capture decryption errors in AWS CloudWatch Logs</h4>
 
 					<p>
 						If an error was encountered during the encryption attempt there will be a log in the AWS CloudWatch Logs log stream
@@ -427,7 +635,7 @@
 
 					<img src="assets/phpcloudwatchlogs_decrypt_error.png" alt="phpcloudwatchlogs_decrypt_error">
 
-					<h4 class="site-font-secondary-heading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h1>
+					<h4 class="site-font-secondary-heading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h4>
 
 					<p>
 						Finally it is time to connect to the database. PHP's PDO data access layer is great for abstracting calls to database
@@ -436,9 +644,11 @@
 					</p>
 
 					<div class="post-snippet">
-						<p>
-							<span class="code-php-comment-fc">// Try to connect to postgres database. Log any errors to CloudWatch Logs.</span>
-						</p>
+						<div class="site-mt">
+							<p>
+								<span class="code-php-comment-fc">// Try to connect to postgres database. Log any errors to CloudWatch Logs.</span>
+							</p>
+						</div>
 					
 						<p>
 							<span class="code-php-keyword-fc">try</span>
@@ -559,62 +769,87 @@
 
 					<img src="assets/phpcloudwatchlogs_connect_error.png" alt="phpcloudwatchlogs_connect_error">
 
-					<h4 class="site-font-secondary-heading">Log a succesfully run query</h1>
+					<h4 class="site-font-secondary-heading">Log a succesfully run query</h4>
 					
-					<div
-						class="post-snippet"
-						style="color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; line-height: 19px; margin: auto;">
-						<div></div>
-						<div><br></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #6a9955;">//&nbsp;Run&nbsp;an&nbsp;example&nbsp;query.&nbsp;Log&nbsp;successful&nbsp;queries&nbsp;to&nbsp;the&nbsp;sql&nbsp;log&nbsp;stream</span>
+					<div class="post-snippet site-stack-mt">
+						<!-- Run example query + log success -->
+						<div class="site-mt">
+							<p>
+								<span class="code-php-comment-fc">// Run an example query. Log successful queries to the sql log stream</span>
+							</p>
+							<p>
+								<span class="code-php-comment-fc">// and any errors to the error log stream in CloudWatch Logs.</span>
+							</p>
+							<p>
+								<span class="code-php-keyword-fc">try</span>
+								<span class="code-php-default-fc"> {</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$qry</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-string-fc">'SELECT datname, datcollate FROM pg_database;'</span>
+								<span class="code-php-default-fc">;</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$stmt</span>
+								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-var-fc">$pdo</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">query</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-var-fc">$qry</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$sql_logger</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">log</span>
+								<span class="code-php-default-fc">([</span>
+								<span class="code-php-string-fc">"User: ${db_user}: Query: "</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-var-fc">$qry</span>
+								<span class="code-php-default-fc">]);</span>
+							</p>
+							<p>
+								<span class="code-php-default-fc">}</span>
+							</p>
 						</div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #6a9955;">//&nbsp;and&nbsp;any&nbsp;errors&nbsp;to&nbsp;the&nbsp;error&nbsp;log&nbsp;stream&nbsp;in&nbsp;CloudWatch&nbsp;Logs.</span>
+
+						<!-- Log failed queries -->
+						<div>
+							<p>
+								<span class="code-php-comment-fc">// Log failed query prepare statements to CloudWatch Logs.</span>
+							</p>
+							<p>
+								<span class="code-php-keyword-fc">catch</span>
+								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-type-fc">PDOException</span>
+								<span class="code-php-default-fc"> </span>
+								<span class="code-php-var-fc">$e</span>
+								<span class="code-php-default-fc">) {</span>
+							</p>
+							<p>
+								<span class="code-php-var-fc">$error_logger</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">log</span>
+								<span class="code-php-default-fc">([</span>
+								<span class="code-php-string-fc">'Problem with query '</span>
+								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-var-fc">$e</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">getMessage</span>
+								<span class="code-php-default-fc">()]);</span>
+							</p>
+							<p>
+								<span class="code-php-keyword-fc">exit</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-string-fc">"Unable to prepare query : ${qry}."</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+							<p>
+								<span class="code-php-default-fc">}</span>
+							</p>
 						</div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #c586c0;">try</span><span
-										style="color: #d4d4d4;">&nbsp;{</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #9cdcfe;">$qry</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span
-										style="color: #ce9178;">'</span><span style="color: #569cd6;">SELECT</span><span
-										style="color: #ce9178;">&nbsp;datname,&nbsp;datcollate&nbsp;</span><span
-										style="color: #569cd6;">FROM</span><span style="color: #ce9178;">&nbsp;pg_database;</span><span
-										style="color: #ce9178;">'</span><span style="color: #d4d4d4;">;</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #9cdcfe;">$stmt</span><span style="color: #d4d4d4;">&nbsp;=&nbsp;</span><span
-										style="color: #9cdcfe;">$pdo</span><span style="color: #d4d4d4;">-&gt;</span><span
-										style="color: #dcdcaa;">query</span><span style="color: #d4d4d4;">(</span><span
-										style="color: #9cdcfe;">$qry</span><span style="color: #d4d4d4;">);</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #9cdcfe;">$sql_logger</span><span style="color: #d4d4d4;">-&gt;</span><span
-										style="color: #dcdcaa;">log</span><span style="color: #d4d4d4;">([</span><span
-										style="color: #ce9178;">"User:&nbsp;</span><span style="color: #9cdcfe;">${db_user}</span><span
-										style="color: #ce9178;">:&nbsp;Query:&nbsp;"</span><span
-										style="color: #d4d4d4;">&nbsp;&nbsp;=&gt;&nbsp;</span><span
-										style="color: #9cdcfe;">$qry</span><span style="color: #d4d4d4;">]);</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #6a9955;">//&nbsp;Log&nbsp;failed&nbsp;query&nbsp;prepare&nbsp;statements&nbsp;to&nbsp;CloudWatch&nbsp;Logs.</span>
-						</div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #c586c0;">catch</span><span style="color: #d4d4d4;">&nbsp;(</span><span
-										style="color: #4ec9b0;">PDOException</span><span style="color: #d4d4d4;">&nbsp;</span><span
-										style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;">)&nbsp;{</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #9cdcfe;">$error_logger</span><span style="color: #d4d4d4;">-&gt;</span><span
-										style="color: #dcdcaa;">log</span><span style="color: #d4d4d4;">([</span><span
-										style="color: #ce9178;">'Problem&nbsp;with&nbsp;query&nbsp;'</span><span
-										style="color: #d4d4d4;">&nbsp;=&gt;&nbsp;</span><span style="color: #9cdcfe;">$e</span><span
-										style="color: #d4d4d4;">-&gt;</span><span style="color: #dcdcaa;">getMessage</span><span
-										style="color: #d4d4d4;">()]);</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-										style="color: #c586c0;">exit</span><span style="color: #d4d4d4;">(</span><span
-										style="color: #ce9178;">"Unable&nbsp;to&nbsp;prepare&nbsp;query&nbsp;:&nbsp;</span><span
-										style="color: #9cdcfe;">${qry}</span><span style="color: #ce9178;">."</span><span
-										style="color: #d4d4d4;">);</span></div>
-						<div><span style="color: #d4d4d4;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
-						<div><br></div>
-						<div></div>
 					</div>
 
 					<p>
@@ -623,7 +858,7 @@
 						
 					<img src="assets/phpcloudwatchlogs_query.png" alt="phpcloudwatchlogs_query">
 
-					<h4 class="site-font-secondary-heading">What can be learned from this article</h1>
+					<h4 class="site-font-secondary-heading">What can be learned from this article</h4>
 
 					<p>
 						Making use of AWS CloudWatch logs can simplify database error and query logging, especially
