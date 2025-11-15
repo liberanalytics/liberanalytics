@@ -1,7 +1,7 @@
 # ----------------------------------------------------------------------------------------------------------------
 # aws_postgresql_config.py
 #
-# Creates a .ini file containing encrypted credentials used
+# Creates a binary .config file containing encrypted credentials used
 # to connect to an AWS EC2 hosted postgresql database.
 # ----------------------------------------------------------------------------------------------------------------
 
@@ -31,8 +31,6 @@ def main():
     # aws_kms = boto3.client('kms', config['aws']['account']['region']['default'])
     aws_kms_session = boto3.session.Session(profile_name=aws_profile_user)
     aws_kms = aws_kms_session.client('kms', region_name=aws_region)
-
-   
 
     '''
     Wrap section in try / except logging any errors to Cloudwatch logs.
@@ -78,7 +76,7 @@ def main():
             file.write(encryption_data['CiphertextBlob'])
 
         # Reset file perms.
-        # os.chmod(db_conn_file, 000)      
+        os.chmod(db_conn_file, 000)      
 
     except Exception as e:
         print(e)

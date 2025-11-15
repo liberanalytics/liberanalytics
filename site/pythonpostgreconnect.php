@@ -119,9 +119,9 @@
 				<section class="site-stack-mt">
 
 					<p class="site-mt">
-					<span class="site-font-brand">Connecting</span> Python to Postgresql is made seamless with the psycopg2 library.
-					This article demonstrates how to connect to a Postgresql database using Python without storing credentials
-					in plain text or in the .pgpass file. The architecture we will be using consists of a Postgresql database
+					<span class="site-font-brand">Connecting</span> Python to PostgreSQL is made seamless with the psycopg2 library.
+					This article demonstrates how to connect to a PostgreSQL database using Python without storing credentials
+					in plain text or in the .pgpass file. The architecture we will be using consists of a PostgreSQL database
 					hosted on an Ubuntu 24 (Noble) Amazon Web Services (AWS) EC2 instance and Python 3.10 running on Ubuntu 22 (Jammy).
 					We will use a symmetric AWS KMS key to encrypt and decrypt database credentials.
 					</p>
@@ -132,7 +132,7 @@
 					<li>Python 3 (preferably running on Ubuntu)</li>
 					<li>Python libraries: psycopg2, boto3</li>
 					<li>AWS: Key Management Service (KMS) Customer managed symmetric key</li>
-					<li>Postgresql database cluster (needs to accept TCP/IP connections)</li>
+					<li>PostgreSQL database cluster (needs to accept TCP/IP connections)</li>
 					</ul>
 
 					<h3 class="site-font-secondary-heading">Get database connection parameters</h3>
@@ -149,10 +149,10 @@
 					<div class="post-snippet site-stack-mt">
 
 						<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
-						<p><span class="code-python-comment-fc"># aws_postgresql_connect.py</span></p>
+						<p><span class="code-python-comment-fc"># aws_postgresql_config.py</span></p>
 						<p><span class="code-python-comment-fc">#</span></p>
 						<p><span class="code-python-comment-fc"># Creates a .ini file containing encrypted credentials used
-						# to connect to an AWS EC2 hosted postgresql database.</span></p>
+						# to connect to an AWS EC2 hosted PostgreSQL database.</span></p>
 						<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 	
 						<!-- imports -->
@@ -408,19 +408,19 @@
 						</div>					
 					</div>					
 
-					<h3 class="site-font-secondary-heading">Connecting to the postgresql database</h3>
+					<h3 class="site-font-secondary-heading">Connecting to the PostgreSQL database</h3>
 
 					<p>
-					Now that we have the connection config file created we are ready to connect to the postgresql
-					database cluster and begin sql'ing away. The below aws_postgresql_connect.py program reads the
-					encrypted data from the config file created by the aws_postgresql_connect_init.py program then
+					Now that we have the connection config file created we are ready to connect to the PostgreSQL
+					database cluster and begin sql'ing away. The below aws_PostgreSQL_connect.py program reads the
+					encrypted data from the config file created by the aws_PostgreSQL_connect_init.py program then
 					decrypts the byte data with the same AWS KMS key. It is important to include the encryption
 					algorithm (EncryptionAlgorithm='RSAES_OAEP_SHA_256') in the decrypt call if using an
 					asymmetric key in AWS KMS. In this case we are using a symmetric key so the EncryptionAlgorithm='SYMMETRIC_DEFAULT'
 					encryption algorithm property isn't needed but we still include it for posterity sake. 
 					The data read is then split by delimiter to derive user name/password
-					and the config file permissions are disabled. Finally we use the imported psycopg2 libarary to connect
-					to our postgresql cluster in AWS EC2 and run a sample query.
+					and the config file permissions are disabled. Finally we use the imported psycopg2 library to connect
+					to our PostgreSQL cluster in AWS EC2 and run a sample query.
 					</p>
 					
 					<div class="post-snippet site-stack-mt">
@@ -430,9 +430,9 @@
 							<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 							<p><span class="code-python-comment-fc"># aws_postgresql_connect.py</span></p>
 							<p><span class="code-python-comment-fc">#</span></p>
-							<p><span class="code-python-comment-fc"># Connects to an AWS EC2 hosted postgresql database by reading</span></p>
+							<p><span class="code-python-comment-fc"># Connects to an AWS EC2 hosted PostgreSQL database by reading</span></p>
 							<p><span class="code-python-comment-fc"># and decrypting credentials stored in a config file. Dependent</span></p>
-							<p><span class="code-python-comment-fc"># on the aws_postgresql_config.py having been run first.</span></p>
+							<p><span class="code-python-comment-fc"># on the aws_PostgreSQL_config.py having been run first.</span></p>
 							<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 						</div>
 
@@ -781,7 +781,7 @@
 					<h3 class="site-font-secondary-heading">Key Takeaways</h3>
 
 					<p>
-					In this article we have connected to a postgresql database cluster hosted in AWS EC2
+					In this article we have connected to a PostgreSQL database cluster hosted in AWS EC2
 					without storing database credentials or encryption keys anywhere on the filesystem. Although
 					the code presented could be refactored to eliminate redundancies or abstracted into a class, 
 					the key points listed below could help in securely connecting to databases.
