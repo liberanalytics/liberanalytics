@@ -186,7 +186,7 @@
 								
 					<div class="post-snippet site-stack-mt">
 						<!-- Docblock -->
-						<div class="site-mt">
+						<div>
 							<p><span class="code-php-comment-fc">/**</span></p>					
 							<p><span class="code-php-comment-fc"> * phppdocloudwatchlogs.php</span></p>
 							<p><span class="code-php-comment-fc"> *</span></p>
@@ -418,7 +418,7 @@
 
 					 <div class="post-snippet site-stack-mt">
 						<!-- Open/read config file + perms -->
-						<div class="site-mt">
+						<div>
 							<p>
 								<span class="code-php-comment-fc">// Open and read the database config file: reset perms on database config</span>
 							</p>
@@ -552,7 +552,7 @@
 							<p>
 								<span class="code-php-keyword-fc">exit</span>
 								<span class="code-php-default-fc">(</span>
-								<span class="code-php-string-fc">"Unable to decrypt the data in ${db_config_file}."</span>
+								<span class="code-php-string-fc">"Unable to decrypt the data in {$db_config_file}."</span>
 								<span class="code-php-default-fc">);</span>
 							</p>
 						</div>
@@ -648,8 +648,8 @@
 						is run here.
 					</p>
 
-					<div class="post-snippet">
-						<div class="site-mt">
+					<div class="post-snippet site-stack-mt">
+						<div>
 							<p>
 								<span class="code-php-comment-fc">// Try to connect to postgres database. Log any errors to CloudWatch Logs.</span>
 							</p>
@@ -670,7 +670,7 @@
 					
 						<p>
 							<span class="code-php-string-fc">"pgsql:host=</span>
-							<span class="code-php-var-fc">${db_host}</span>
+							<span class="code-php-var-fc">{$db_host}</span>
 							<span class="code-php-string-fc">;</span>
 						</p>
 					
@@ -680,19 +680,19 @@
 					
 						<p>
 							<span class="code-php-string-fc">    dbname=</span>
-							<span class="code-php-var-fc">${db_name}</span>
+							<span class="code-php-var-fc">{$db_name}</span>
 							<span class="code-php-string-fc">;</span>
 						</p>
 					
 						<p>
 							<span class="code-php-string-fc">    user=</span>
-							<span class="code-php-var-fc">${db_user}</span>
+							<span class="code-php-var-fc">{$db_user}</span>
 							<span class="code-php-string-fc">;</span>
 						</p>
 					
 						<p>
 							<span class="code-php-string-fc">    password=</span>
-							<span class="code-php-var-fc">${db_auth}</span>
+							<span class="code-php-var-fc">{$db_auth}</span>
 							<span class="code-php-string-fc">;</span>
 						</p>
 					
@@ -704,66 +704,69 @@
 							<span class="code-php-default-fc">);</span>
 						</p>
 					
-						<p>
-							<span class="code-php-comment-fc">// Set PDO error reporting to Exception.</span>
-						</p>
+						<div>
+							<p>
+								<span class="code-php-comment-fc">// Set PDO error reporting to Exception.</span>
+							</p>
+						
+							<p>
+								<span class="code-php-var-fc">$pdo</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">setAttribute</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-type-fc">PDO</span>
+								<span class="code-php-op-fc">::</span>
+								<span class="code-php-default-fc">ATTR_ERRMODE, </span>
+								<span class="code-php-type-fc">PDO</span>
+								<span class="code-php-op-fc">::</span>
+								<span class="code-php-default-fc">ERRMODE_EXCEPTION);</span>
+							</p>
+						
+							<p>
+								<span class="code-php-default-fc">}</span>
+							</p>
+						</div>
 					
-						<p>
-							<span class="code-php-var-fc">$pdo</span>
-							<span class="code-php-op-fc">-&gt;</span>
-							<span class="code-php-func-fc">setAttribute</span>
-							<span class="code-php-default-fc">(</span>
-							<span class="code-php-type-fc">PDO</span>
-							<span class="code-php-op-fc">::</span>
-							<span class="code-php-default-fc">ATTR_ERRMODE, </span>
-							<span class="code-php-type-fc">PDO</span>
-							<span class="code-php-op-fc">::</span>
-							<span class="code-php-default-fc">ERRMODE_EXCEPTION);</span>
-						</p>
-					
-						<p>
-							<span class="code-php-default-fc">}</span>
-						</p>
-					
-						<p>
-							<span class="code-php-comment-fc">// Connection attempt failed - log failure to CloudWatch Logs and exit.</span>
-						</p>
-					
-						<p>
-							<span class="code-php-keyword-fc">catch</span>
-							<span class="code-php-default-fc"> (</span>
-							<span class="code-php-type-fc">PDOException</span>
-							<span class="code-php-default-fc"> </span>
-							<span class="code-php-var-fc">$e</span>
-							<span class="code-php-default-fc">) {</span>
-						</p>
-					
-						<p>
-							<span class="code-php-var-fc">$error_logger</span>
-							<span class="code-php-op-fc">-&gt;</span>
-							<span class="code-php-func-fc">log</span>
-							<span class="code-php-default-fc">([</span>
-							<span class="code-php-string-fc">'Problem connecting : '</span>
-							<span class="code-php-default-fc"> =&gt; </span>
-							<span class="code-php-var-fc">$e</span>
-							<span class="code-php-op-fc">-&gt;</span>
-							<span class="code-php-func-fc">getMessage</span>
-							<span class="code-php-default-fc">()]);</span>
-						</p>
-					
-						<p>
-							<span class="code-php-keyword-fc">exit</span>
-							<span class="code-php-default-fc">(</span>
-							<span class="code-php-string-fc">"Unable to connect to host : </span>
-							<span class="code-php-var-fc">${db_host}</span>
-							<span class="code-php-string-fc">."</span>
-							<span class="code-php-default-fc">);</span>
-						</p>
-					
-						<p>
-							<span class="code-php-default-fc">}</span>
-						</p>						
-
+						<div>
+							<p>
+								<span class="code-php-comment-fc">// Connection attempt failed - log failure to CloudWatch Logs and exit.</span>
+							</p>
+						
+							<p>
+								<span class="code-php-keyword-fc">catch</span>
+								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-type-fc">PDOException</span>
+								<span class="code-php-default-fc"> </span>
+								<span class="code-php-var-fc">$e</span>
+								<span class="code-php-default-fc">) {</span>
+							</p>
+						
+							<p>
+								<span class="code-php-var-fc">$error_logger</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">log</span>
+								<span class="code-php-default-fc">([</span>
+								<span class="code-php-string-fc">'Problem connecting : '</span>
+								<span class="code-php-default-fc"> =&gt; </span>
+								<span class="code-php-var-fc">$e</span>
+								<span class="code-php-op-fc">-&gt;</span>
+								<span class="code-php-func-fc">getMessage</span>
+								<span class="code-php-default-fc">()]);</span>
+							</p>
+						
+							<p>
+								<span class="code-php-keyword-fc">exit</span>
+								<span class="code-php-default-fc">(</span>
+								<span class="code-php-string-fc">"Unable to connect to host : </span>
+								<span class="code-php-var-fc">{$db_host}</span>
+								<span class="code-php-string-fc">."</span>
+								<span class="code-php-default-fc">);</span>
+							</p>
+						
+							<p>
+								<span class="code-php-default-fc">}</span>
+							</p>						
+						</div>
 					</div>
 				
 					<p>
@@ -783,7 +786,7 @@
 					
 					<div class="post-snippet site-stack-mt">
 						<!-- Run example query + log success -->
-						<div class="site-mt">
+						<div>
 							<p>
 								<span class="code-php-comment-fc">// Run an example query. Log successful queries to the sql log stream</span>
 							</p>
@@ -815,7 +818,7 @@
 								<span class="code-php-op-fc">-&gt;</span>
 								<span class="code-php-func-fc">log</span>
 								<span class="code-php-default-fc">([</span>
-								<span class="code-php-string-fc">"User: ${db_user}: Query: "</span>
+								<span class="code-php-string-fc">"User: {$db_user}: Query: "</span>
 								<span class="code-php-op-fc"> =&gt; </span>
 								<span class="code-php-var-fc">$qry</span>
 								<span class="code-php-default-fc">]);</span>
@@ -853,7 +856,7 @@
 							<p>
 								<span class="code-php-keyword-fc">exit</span>
 								<span class="code-php-default-fc">(</span>
-								<span class="code-php-string-fc">"Unable to prepare query : ${qry}."</span>
+								<span class="code-php-string-fc">"Unable to prepare query : {$qry}."</span>
 								<span class="code-php-default-fc">);</span>
 							</p>
 							<p>
