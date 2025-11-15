@@ -83,11 +83,6 @@
 						)[0];
 
 						//
-						if (!$post || !isset($post)) {
-							// header to 404.php
-						}
-
-						//
 						$postShortDesc	= htmlspecialchars($post['short_desc'] ?? '', ENT_QUOTES, 'UTF-8');
 						$postLongDesc	= htmlspecialchars($post['long_desc'] ?? '', ENT_QUOTES, 'UTF-8');
 						$postImg    	= htmlspecialchars($post['post_img'] ?? '', ENT_QUOTES, 'UTF-8');
