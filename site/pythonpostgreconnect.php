@@ -149,47 +149,47 @@
 
 					<div class="post-snippet site-stack-mt">
 
-						<p><span class="code-python-comment-fc">#&nbsp;------------------------------------------------------------------</span></p>
-						<p><span class="code-python-comment-fc">#&nbsp;aws_postgresql_config.py</span></p>
+						<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
+						<p><span class="code-python-comment-fc"># aws_postgresql_config.py</span></p>
 						<p><span class="code-python-comment-fc">#</span></p>
-						<p><span class="code-python-comment-fc">#&nbsp;Creates&nbsp;a&nbsp;.ini&nbsp;file&nbsp;containing&nbsp;encrypted&nbsp;credentials&nbsp;used
-						#&nbsp;to&nbsp;connect&nbsp;to&nbsp;an&nbsp;AWS&nbsp;EC2&nbsp;hosted&nbsp;PostgreSQL&nbsp;database.</span></p>
-						<p><span class="code-python-comment-fc">#&nbsp;------------------------------------------------------------------</span></p>
+						<p><span class="code-python-comment-fc"># Creates a .ini file containing encrypted credentials used
+						# to connect to an AWS EC2 hosted PostgreSQL database.</span></p>
+						<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 	
 						<!-- imports -->
 						<div>
 							<p class="site-mt">
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">pwd</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">sys</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">os</span>
 							</p>					
 							<p>
-								<span class="code-python-keyword-fc">from</span>
-								<span class="code-python-type-fc">getpass</span>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">from&nbsp;</span>
+								<span class="code-python-type-fc">getpass&nbsp;</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-func-fc">getpass</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">json</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">traceback</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">base64</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">boto3</span>
 							</p>
 						</div>
@@ -205,7 +205,7 @@
 						<!-- Instantiate KMS client -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Instantiate&nbsp;an&nbsp;AWS&nbsp;KMS&nbsp;client&nbsp;instance.</span>
+								<span class="code-python-comment-fc"># Instantiate an AWS KMS client instance.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">aws_kms&nbsp;</span>
@@ -220,7 +220,7 @@
 						<!-- KMS key id -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;KMS&nbsp;key&nbsp;id.</span>
+								<span class="code-python-comment-fc"># KMS key id.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">the_key&nbsp;</span>
@@ -232,7 +232,7 @@
 						<!-- Prompt for connection params -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Prompt&nbsp;for&nbsp;the&nbsp;connection&nbsp;params.</span>
+								<span class="code-python-comment-fc"># Prompt for the connection params.</span>
 							</p>
 							<p>
 								<span class="code-python-func-fc">print</span><span class="code-python-default-fc">(</span>
@@ -269,7 +269,7 @@
 						<!-- Config file -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Config&nbsp;file.</span>
+								<span class="code-python-comment-fc"># Config file.</span>
 							</p>														
 							<p>
 								<span class="code-python-var-fc">config_dir&nbsp;</span>
@@ -308,7 +308,7 @@
 						<!-- Concat + delimit and encode -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Concat&nbsp;+&nbsp;delimit&nbsp;params,&nbsp;convert&nbsp;to&nbsp;bytes,&nbsp;then&nbsp;base64&nbsp;encode.</span>
+								<span class="code-python-comment-fc"># Concat + delimit params, convert to bytes, then base64 encode.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">delim&nbsp;</span>
@@ -352,7 +352,7 @@
 						<!-- Encrypt the params -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Encrypt&nbsp;the&nbsp;params.</span>
+								<span class="code-python-comment-fc"># Encrypt the params.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">encryption_data&nbsp;</span>
@@ -377,7 +377,7 @@
 						<!-- Write encrypted params to file -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Write&nbsp;the&nbsp;encryption&nbsp;params&nbsp;as&nbsp;binary&nbsp;to&nbsp;the&nbsp;config&nbsp;file.</span>
+								<span class="code-python-comment-fc"># Write the encryption params as binary to the config file.</span>
 							</p>
 							<p>
 								<span class="code-python-keyword-fc">with&nbsp;</span>
@@ -398,7 +398,7 @@
 						<!-- Reset file perms -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Reset&nbsp;file&nbsp;perms.</span>
+								<span class="code-python-comment-fc"># Reset file perms.</span>
 							</p>
 							<p>
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
@@ -430,39 +430,39 @@
 
 						<!-- Header -->
 						<div>
-							<p><span class="code-python-comment-fc">#&nbsp;------------------------------------------------------------------</span></p>
-							<p><span class="code-python-comment-fc">#&nbsp;aws_postgresql_connect.py</span></p>
+							<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
+							<p><span class="code-python-comment-fc"># aws_postgresql_connect.py</span></p>
 							<p><span class="code-python-comment-fc">#</span></p>
-							<p><span class="code-python-comment-fc">#&nbsp;Connects&nbsp;to&nbsp;an&nbsp;AWS&nbsp;EC2&nbsp;hosted&nbsp;PostgreSQL&nbsp;database&nbsp;by&nbsp;reading</span></p>
-							<p><span class="code-python-comment-fc">#&nbsp;and&nbsp;decrypting&nbsp;credentials&nbsp;stored&nbsp;in&nbsp;a&nbsp;config&nbsp;file.&nbsp;Dependent</span></p>
-							<p><span class="code-python-comment-fc">#&nbsp;on&nbsp;the&nbsp;aws_postgresql_config.py&nbsp;having&nbsp;been&nbsp;run&nbsp;first.</span></p>
-							<p><span class="code-python-comment-fc">#&nbsp;------------------------------------------------------------------</span></p>
+							<p><span class="code-python-comment-fc"># Connects to an AWS EC2 hosted PostgreSQL database by reading</span></p>
+							<p><span class="code-python-comment-fc"># and decrypting credentials stored in a config file. Dependent</span></p>
+							<p><span class="code-python-comment-fc"># on the aws_postgresql_config.py having been run first.</span></p>
+							<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 						</div>
 
 						<!-- Imports -->
 						<div>
 							<p class="site-mt">
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">pwd</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">sys</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">os</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">base64</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">boto3</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">import</span>
+								<span class="code-python-keyword-fc">import&nbsp;</span>
 								<span class="code-python-type-fc">psycopg2</span>
 							</p>
 						</div>
@@ -478,7 +478,7 @@
 						<!-- Instantiate KMS client -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Instantiate&nbsp;an&nbsp;AWS&nbsp;KMS&nbsp;client&nbsp;instance.</span>
+								<span class="code-python-comment-fc"># Instantiate an AWS KMS client instance.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">aws_kms</span>
@@ -493,7 +493,7 @@
 						<!-- KMS key id -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;KMS&nbsp;key&nbsp;id.</span>
+								<span class="code-python-comment-fc"># KMS key id.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">the_key</span>
@@ -505,13 +505,13 @@
 						<!-- Config file path -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Config&nbsp;file.</span>
+								<span class="code-python-comment-fc"># Config file.</span>
 							</p>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Replace&nbsp;'your-db-host'&nbsp;and&nbsp;'your-db-name'&nbsp;with&nbsp;the&nbsp;values</span>
+								<span class="code-python-comment-fc"># Replace 'your-db-host' and 'your-db-name' with the values</span>
 							</p>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;you&nbsp;used&nbsp;when&nbsp;running&nbsp;aws_postgresql_config.py.</span>
+								<span class="code-python-comment-fc"># you used when running aws_postgresql_config.py.</span>
 							</p>							
 							<p>
 								<span class="code-python-var-fc">config_dir</span>
@@ -550,7 +550,7 @@
 						<!-- Make config file readable -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Make&nbsp;config&nbsp;file&nbsp;readable.</span>
+								<span class="code-python-comment-fc"># Make config file readable.</span>
 							</p>
 							<p>
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
@@ -563,10 +563,10 @@
 						<!-- Get connection credentials from config file -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Get&nbsp;the&nbsp;connection&nbsp;credentials&nbsp;from&nbsp;config&nbsp;file.</span>
+								<span class="code-python-comment-fc"># Get the connection credentials from config file.</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">with</span>
+								<span class="code-python-keyword-fc">with&nbsp;</span>
 								<span class="code-python-func-fc">open</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">,&nbsp;</span>
 								<span class="code-python-string-fc">'rb'</span><span class="code-python-default-fc">)&nbsp;</span>
@@ -584,7 +584,7 @@
 						<!-- Reset config file perms -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Reset&nbsp;config&nbsp;file&nbsp;perms.</span>
+								<span class="code-python-comment-fc"># Reset config file perms.</span>
 							</p>
 							<p>
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
@@ -597,7 +597,7 @@
 						<!-- Decrypt the connection credentials -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Decrypt&nbsp;the&nbsp;connection&nbsp;credentials.</span>
+								<span class="code-python-comment-fc"># Decrypt the connection credentials.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">credentials_decrypt</span>
@@ -619,7 +619,7 @@
 							</p>
 							<p>
 								<span class="code-python-var-fc">EncryptionAlgorithm</span>
-								<span class="code-python-op-fc">=</span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-string-fc">'SYMMETRIC_DEFAULT'</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
@@ -627,7 +627,7 @@
 						<!-- Decode and split credentials -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Decode&nbsp;the&nbsp;credentials&nbsp;and&nbsp;split&nbsp;by&nbsp;delimiter.</span>
+								<span class="code-python-comment-fc"># Decode the credentials and split by delimiter.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">delimiter</span>
@@ -687,7 +687,7 @@
 						<!-- Form connection string & connect -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Form&nbsp;a&nbsp;connection&nbsp;string&nbsp;&amp;&nbsp;connect.</span>
+								<span class="code-python-comment-fc"># Form a connection string &amp; connect.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">connection_string</span>
@@ -732,7 +732,7 @@
 						<!-- Example query -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Example&nbsp;query.</span>
+								<span class="code-python-comment-fc"># Example query.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">cur</span>
@@ -756,7 +756,7 @@
 						<!-- Iterate through resultset -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Iterate&nbsp;through&nbsp;resultset.</span>
+								<span class="code-python-comment-fc"># Iterate through resultset.</span>
 							</p>
 							<p>
 								<span class="code-python-keyword-fc">for</span>
@@ -773,7 +773,7 @@
 						<!-- Close cursor and connection -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc">#&nbsp;Close&nbsp;cursor&nbsp;and&nbsp;connection.</span>
+								<span class="code-python-comment-fc"># Close cursor and connection.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">cur</span><span class="code-python-default-fc">.</span>
