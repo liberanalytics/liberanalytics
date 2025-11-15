@@ -271,6 +271,12 @@
 								<span class="code-python-comment-fc"># Config file.</span>
 							</p>
 							<p>
+								<span class="code-python-comment-fc"># Replace 'your-db-host' and 'your-db-name' with the values</span>
+							</p>
+							<p>
+								<span class="code-python-comment-fc"># you used when running aws_postgresql_config.py.</span>
+							</p>														
+							<p>
 								<span class="code-python-var-fc">config_dir </span>
 								<span class="code-python-op-fc">= </span>
 								<span class="code-python-type-fc">os</span>
@@ -403,7 +409,7 @@
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">chmod</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">, </span>
-								<span class="code-python-number-fc">000</span><span class="code-python-default-fc">)</span>
+								<span class="code-python-number-fc">0o000</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>					
 					</div>					
@@ -547,7 +553,7 @@
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">chmod</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">, </span>
-								<span class="code-python-number-fc">440</span><span class="code-python-default-fc">)</span>
+								<span class="code-python-number-fc">0o440</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
 
@@ -581,7 +587,7 @@
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">chmod</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">, </span>
-								<span class="code-python-number-fc">000</span><span class="code-python-default-fc">)</span>
+								<span class="code-python-number-fc">0o000</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
 
