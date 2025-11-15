@@ -412,8 +412,8 @@
 
 					<p>
 					Now that we have the connection config file created we are ready to connect to the PostgreSQL
-					database cluster and begin sql'ing away. The below aws_PostgreSQL_connect.py program reads the
-					encrypted data from the config file created by the aws_PostgreSQL_connect_init.py program then
+					database cluster and begin running SQL queries. The below aws_postgresql_connect.py program reads the
+					encrypted data from the config file created by the aws_postgresql_connect_config.py program then
 					decrypts the byte data with the same AWS KMS key. It is important to include the encryption
 					algorithm (EncryptionAlgorithm='RSAES_OAEP_SHA_256') in the decrypt call if using an
 					asymmetric key in AWS KMS. In this case we are using a symmetric key so the EncryptionAlgorithm='SYMMETRIC_DEFAULT'
@@ -432,7 +432,7 @@
 							<p><span class="code-python-comment-fc">#</span></p>
 							<p><span class="code-python-comment-fc"># Connects to an AWS EC2 hosted PostgreSQL database by reading</span></p>
 							<p><span class="code-python-comment-fc"># and decrypting credentials stored in a config file. Dependent</span></p>
-							<p><span class="code-python-comment-fc"># on the aws_PostgreSQL_config.py having been run first.</span></p>
+							<p><span class="code-python-comment-fc"># on the aws_postgresql_config.py having been run first.</span></p>
 							<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 						</div>
 
@@ -507,20 +507,20 @@
 							<p>
 								<span class="code-python-var-fc">config_dir</span>
 								<span class="code-python-op-fc"> = </span>
-								<span class="code-python-default-fc">[</span>
+								<span class="code-python-type-fc">os</span>
+								<span class="code-python-default-fc">.</span>
+								<span class="code-python-func-fc">getenv</span>
+								<span class="code-python-default-fc">(</span>
 								<span class="code-python-string-fc">'HOME'</span>
-								<span class="code-python-default-fc">] </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-default-fc">)</span>
+								<span class="code-python-op-fc"> + </span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-op-fc"> + </span>
 								<span class="code-python-string-fc">'conn'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-op-fc"> + </span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
-								<span class="code-python-var-fc">db_host</span>
+								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-string-fc">'your-db-host'</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">config_file</span>
@@ -531,7 +531,7 @@
 								<span class="code-python-string-fc">'/'</span>
 								<span class="code-python-default-fc"> </span>
 								<span class="code-python-op-fc">+ </span>
-								<span class="code-python-var-fc">db_name</span>
+								<span class="code-python-string-fc">'your-db-name'</span>
 								<span class="code-python-default-fc"> </span>
 								<span class="code-python-op-fc">+ </span>
 								<span class="code-python-string-fc">'.ini'</span>
