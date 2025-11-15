@@ -70,7 +70,7 @@
     <main>
 		<div class="page-wrap">
 			<article>
-			<header class="site-stack-mt">
+				<header class="site-stack-mt">
 					<?php
 						//
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
@@ -172,7 +172,12 @@
 						or group. The log stream structure looks like the below from the AWS console:
 					</p>
 
-					<img src="assets/phpcloudwatchlogs_logstreams.png" alt="phpcloudwatchlogs_logstreams">
+					<img
+						src="assets/phpcloudwatchlogs_logstreams.png"
+						alt="phpcloudwatchlogs_logstreams"
+						width="820"
+						height="200"
+					>
 
 					<h4 class="site-font-secondary-heading">Create CloudWatch Logs / KMS / CloudWatchLogger instances in PHP</h4>
 
@@ -633,7 +638,12 @@
 						which appears in the AWS CloudWatch logs console as shown below.
 					</p>
 
-					<img src="assets/phpcloudwatchlogs_decrypt_error.png" alt="phpcloudwatchlogs_decrypt_error">
+					<img 
+						src="assets/phpcloudwatchlogs_decrypt_error.png"
+						alt="phpcloudwatchlogs_decrypt_error"
+						width="820"
+						height="170"
+					>
 
 					<h4 class="site-font-secondary-heading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h4>
 
@@ -767,7 +777,12 @@
 						log from the AWS CloudWatch logs console is shown below.
 					</p>
 
-					<img src="assets/phpcloudwatchlogs_connect_error.png" alt="phpcloudwatchlogs_connect_error">
+					<img
+						src="assets/phpcloudwatchlogs_connect_error.png"
+						alt="phpcloudwatchlogs_connect_error"
+						width="820"
+						height="170"
+					>
 
 					<h4 class="site-font-secondary-heading">Log a succesfully run query</h4>
 					
@@ -856,7 +871,12 @@
 						And this time the log goes to the php/database/sql/ logstream.
 					</p>
 						
-					<img src="assets/phpcloudwatchlogs_query.png" alt="phpcloudwatchlogs_query">
+					<img
+						src="assets/phpcloudwatchlogs_query.png"
+						alt="phpcloudwatchlogs_query"
+						width="820"
+						height="175"
+					>
 
 					<h4 class="site-font-secondary-heading">What can be learned from this article</h4>
 
@@ -869,9 +889,7 @@
 					</p>            
 
 				</section>
-
-				</article>
-
+			</article>
 		</div>
 	</main>
 
