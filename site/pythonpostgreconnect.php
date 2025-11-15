@@ -131,7 +131,7 @@
 					We will use a symmetric AWS KMS key to encrypt and decrypt database credentials.
 					</p>
 
-					<h4 class="site-font-secondary-heading">Requirements</h1>
+					<h3 class="site-font-secondary-heading">Requirements</h3>
 
 					<ul class="site-list">
 					<li>Python 3 (preferably running on Ubuntu)</li>
@@ -140,7 +140,7 @@
 					<li>Postgresql database cluster (needs to accept TCP/IP connections)</li>
 					</ul>
 
-					<h4 class="site-font-secondary-heading">Get database connection parameters</h1>
+					<h3 class="site-font-secondary-heading">Get database connection parameters</h3>
 
 					<p>
 					First we will need to know the database host and database name which will be used to create a config file
@@ -413,7 +413,7 @@
 						</div>					
 					</div>					
 
-					<h4 class="site-font-secondary-heading">Connecting to the postgresql database</h1>
+					<h3 class="site-font-secondary-heading">Connecting to the postgresql database</h3>
 
 					<p>
 					Now that we have the connection config file created we are ready to connect to the postgresql
@@ -781,11 +781,9 @@
 							</p>
 						</div>
 
-
-
 					</div>
 
-					<h4 class="site-font-secondary-heading">Key Takeaways</h1>
+					<h3 class="site-font-secondary-heading">Key Takeaways</h3>
 
 					<p>
 					In this article we have connected to a postgresql database cluster hosted in AWS EC2
