@@ -273,19 +273,19 @@
 							<p>
 								<span class="code-python-var-fc">config_dir </span>
 								<span class="code-python-op-fc">= </span>
-								<span class="code-python-default-fc">[</span>
+								<span class="code-python-type-fc">os</span>
+								<span class="code-python-default-fc">.</span>
+								<span class="code-python-func-fc">getenv</span>
+								<span class="code-python-default-fc">(</span>
 								<span class="code-python-string-fc">'HOME'</span>
-								<span class="code-python-default-fc">] </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-default-fc">)</span>
+								<span class="code-python-op-fc"> + </span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-op-fc"> + </span>
 								<span class="code-python-string-fc">'conn'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-op-fc"> + </span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-op-fc"> + </span>
 								<span class="code-python-var-fc">db_host</span>
 							</p>
 							<p>
