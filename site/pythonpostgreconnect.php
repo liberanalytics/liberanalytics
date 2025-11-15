@@ -149,12 +149,12 @@
 
 					<div class="post-snippet site-stack-mt">
 
-						<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
-						<p><span class="code-python-comment-fc"># aws_postgresql_config.py</span></p>
+						<p><span class="code-python-comment-fc">#&nbsp;------------------------------------------------------------------</span></p>
+						<p><span class="code-python-comment-fc">#&nbsp;aws_postgresql_config.py</span></p>
 						<p><span class="code-python-comment-fc">#</span></p>
-						<p><span class="code-python-comment-fc"># Creates a .ini file containing encrypted credentials used
-						# to connect to an AWS EC2 hosted PostgreSQL database.</span></p>
-						<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
+						<p><span class="code-python-comment-fc">#&nbsp;Creates&nbsp;a&nbsp;.ini&nbsp;file&nbsp;containing&nbsp;encrypted&nbsp;credentials&nbsp;used
+						#&nbsp;to&nbsp;connect&nbsp;to&nbsp;an&nbsp;AWS&nbsp;EC2&nbsp;hosted&nbsp;PostgreSQL&nbsp;database.</span></p>
+						<p><span class="code-python-comment-fc">#&nbsp;------------------------------------------------------------------</span></p>
 	
 						<!-- imports -->
 						<div>
@@ -197,7 +197,7 @@
 						<!-- Function definition -->
 						<div>
 							<p>
-								<span class="code-python-special-fc">def </span>
+								<span class="code-python-special-fc">def&nbsp;</span>
 								<span class="code-python-func-fc">main</span><span class="code-python-default-fc">():</span>
 							</p>
 						</div>
@@ -205,14 +205,14 @@
 						<!-- Instantiate KMS client -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Instantiate an AWS KMS client instance.</span>
+								<span class="code-python-comment-fc">#&nbsp;Instantiate&nbsp;an&nbsp;AWS&nbsp;KMS&nbsp;client&nbsp;instance.</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">aws_kms </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">aws_kms&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-type-fc">boto3</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">client</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-string-fc">'kms'</span><span class="code-python-default-fc">, </span>
+								<span class="code-python-string-fc">'kms'</span><span class="code-python-default-fc">,&nbsp;</span>
 								<span class="code-python-string-fc">'region'</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
@@ -220,11 +220,11 @@
 						<!-- KMS key id -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># KMS key id.</span>
+								<span class="code-python-comment-fc">#&nbsp;KMS&nbsp;key&nbsp;id.</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">the_key </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">the_key&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-string-fc">'keyid'</span>
 							</p>
 						</div>
@@ -232,75 +232,75 @@
 						<!-- Prompt for connection params -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Prompt for the connection params.</span>
+								<span class="code-python-comment-fc">#&nbsp;Prompt&nbsp;for&nbsp;the&nbsp;connection&nbsp;params.</span>
 							</p>
 							<p>
 								<span class="code-python-func-fc">print</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-string-fc">'Please provide connection parameters for database:'</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-string-fc">'Please&nbsp;provide&nbsp;connection&nbsp;parameters&nbsp;for&nbsp;database:'</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-string-fc">'\n'</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">db_host </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">db_host&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-func-fc">getpass</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-string-fc">'Please enter database host:'</span><span class="code-python-default-fc">)</span>
+								<span class="code-python-string-fc">'Please&nbsp;enter&nbsp;database&nbsp;host:'</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">db_name </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">db_name&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-func-fc">getpass</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-string-fc">'Please enter database name:'</span><span class="code-python-default-fc">)</span>
+								<span class="code-python-string-fc">'Please&nbsp;enter&nbsp;database&nbsp;name:'</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">db_user </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">db_user&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-func-fc">getpass</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-string-fc">'Please enter database user name:'</span><span class="code-python-default-fc">)</span>
+								<span class="code-python-string-fc">'Please&nbsp;enter&nbsp;database&nbsp;user&nbsp;name:'</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">db_auth </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">db_auth&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-func-fc">getpass</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-string-fc">'Please enter user password:'</span><span class="code-python-default-fc">)</span>
+								<span class="code-python-string-fc">'Please&nbsp;enter&nbsp;user&nbsp;password:'</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
 	
 						<!-- Config file -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Config file.</span>
+								<span class="code-python-comment-fc">#&nbsp;Config&nbsp;file.</span>
 							</p>														
 							<p>
-								<span class="code-python-var-fc">config_dir </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">config_dir&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-type-fc">os</span>
 								<span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">getenv</span>
 								<span class="code-python-default-fc">(</span>
 								<span class="code-python-string-fc">'HOME'</span>
 								<span class="code-python-default-fc">)</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-string-fc">'conn'</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">db_host</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">config_file </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">config_file&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-var-fc">config_dir</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-default-fc">&nbsp;</span>
+								<span class="code-python-op-fc">+&nbsp;</span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-default-fc">&nbsp;</span>
+								<span class="code-python-op-fc">+&nbsp;</span>
 								<span class="code-python-var-fc">db_name</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-default-fc">&nbsp;</span>
+								<span class="code-python-op-fc">+&nbsp;</span>
 								<span class="code-python-string-fc">'.ini'</span>
 							</p>
 						</div>
@@ -308,41 +308,41 @@
 						<!-- Concat + delimit and encode -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Concat + delimit params, convert to bytes, then base64 encode.</span>
+								<span class="code-python-comment-fc">#&nbsp;Concat&nbsp;+&nbsp;delimit&nbsp;params,&nbsp;convert&nbsp;to&nbsp;bytes,&nbsp;then&nbsp;base64&nbsp;encode.</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">delim </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">delim&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-func-fc">chr</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-number-fc">7</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">params </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">params&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-var-fc">db_host</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">delim</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">db_name</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">delim</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">db_user</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">delim</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">db_auth</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">byte_params </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">byte_params&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-var-fc">params</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">encode</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-string-fc">'utf-8'</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">encode_params </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">encode_params&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-type-fc">base64</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">b64encode</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-var-fc">byte_params</span><span class="code-python-default-fc">)</span>
@@ -352,24 +352,24 @@
 						<!-- Encrypt the params -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Encrypt the params.</span>
+								<span class="code-python-comment-fc">#&nbsp;Encrypt&nbsp;the&nbsp;params.</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">encryption_data </span>
-								<span class="code-python-op-fc">= </span>
+								<span class="code-python-var-fc">encryption_data&nbsp;</span>
+								<span class="code-python-op-fc">=&nbsp;</span>
 								<span class="code-python-var-fc">aws_kms</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">encrypt</span><span class="code-python-default-fc">(</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">KeyId</span><span class="code-python-default-fc"> = </span>
+								<span class="code-python-var-fc">KeyId</span><span class="code-python-default-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">the_key</span><span class="code-python-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">Plaintext</span><span class="code-python-default-fc"> = </span>
+								<span class="code-python-var-fc">Plaintext</span><span class="code-python-default-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">encode_params</span><span class="code-python-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-python-var-fc">EncryptionAlgorithm</span><span class="code-python-default-fc"> = </span>
+								<span class="code-python-var-fc">EncryptionAlgorithm</span><span class="code-python-default-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-string-fc">'SYMMETRIC_DEFAULT'</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
@@ -377,14 +377,14 @@
 						<!-- Write encrypted params to file -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Write the encryption params as binary to the config file.</span>
+								<span class="code-python-comment-fc">#&nbsp;Write&nbsp;the&nbsp;encryption&nbsp;params&nbsp;as&nbsp;binary&nbsp;to&nbsp;the&nbsp;config&nbsp;file.</span>
 							</p>
 							<p>
-								<span class="code-python-keyword-fc">with </span>
+								<span class="code-python-keyword-fc">with&nbsp;</span>
 								<span class="code-python-func-fc">open</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">, </span>
+								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">,&nbsp;</span>
 								<span class="code-python-string-fc">'wb'</span><span class="code-python-default-fc">)</span>
-								<span class="code-python-keyword-fc"> as </span>
+								<span class="code-python-keyword-fc">&nbsp;as&nbsp;</span>
 								<span class="code-python-var-fc">file</span><span class="code-python-default-fc">:</span>
 							</p>
 							<p>
@@ -398,12 +398,12 @@
 						<!-- Reset file perms -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Reset file perms.</span>
+								<span class="code-python-comment-fc">#&nbsp;Reset&nbsp;file&nbsp;perms.</span>
 							</p>
 							<p>
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">chmod</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">, </span>
+								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">,&nbsp;</span>
 								<span class="code-python-number-fc">0o000</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>					
@@ -430,13 +430,13 @@
 
 						<!-- Header -->
 						<div>
-							<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
-							<p><span class="code-python-comment-fc"># aws_postgresql_connect.py</span></p>
+							<p><span class="code-python-comment-fc">#&nbsp;------------------------------------------------------------------</span></p>
+							<p><span class="code-python-comment-fc">#&nbsp;aws_postgresql_connect.py</span></p>
 							<p><span class="code-python-comment-fc">#</span></p>
-							<p><span class="code-python-comment-fc"># Connects to an AWS EC2 hosted PostgreSQL database by reading</span></p>
-							<p><span class="code-python-comment-fc"># and decrypting credentials stored in a config file. Dependent</span></p>
-							<p><span class="code-python-comment-fc"># on the aws_postgresql_config.py having been run first.</span></p>
-							<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
+							<p><span class="code-python-comment-fc">#&nbsp;Connects&nbsp;to&nbsp;an&nbsp;AWS&nbsp;EC2&nbsp;hosted&nbsp;PostgreSQL&nbsp;database&nbsp;by&nbsp;reading</span></p>
+							<p><span class="code-python-comment-fc">#&nbsp;and&nbsp;decrypting&nbsp;credentials&nbsp;stored&nbsp;in&nbsp;a&nbsp;config&nbsp;file.&nbsp;Dependent</span></p>
+							<p><span class="code-python-comment-fc">#&nbsp;on&nbsp;the&nbsp;aws_postgresql_config.py&nbsp;having&nbsp;been&nbsp;run&nbsp;first.</span></p>
+							<p><span class="code-python-comment-fc">#&nbsp;------------------------------------------------------------------</span></p>
 						</div>
 
 						<!-- Imports -->
@@ -470,7 +470,7 @@
 						<!-- main() definition -->
 						<div>
 							<p>
-								<span class="code-python-special-fc">def </span>
+								<span class="code-python-special-fc">def&nbsp;</span>
 								<span class="code-python-func-fc">main</span><span class="code-python-default-fc">():</span>
 							</p>
 						</div>
@@ -478,14 +478,14 @@
 						<!-- Instantiate KMS client -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Instantiate an AWS KMS client instance.</span>
+								<span class="code-python-comment-fc">#&nbsp;Instantiate&nbsp;an&nbsp;AWS&nbsp;KMS&nbsp;client&nbsp;instance.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">aws_kms</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-type-fc">boto3</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">client</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-string-fc">'kms'</span><span class="code-python-default-fc">, </span>
+								<span class="code-python-string-fc">'kms'</span><span class="code-python-default-fc">,&nbsp;</span>
 								<span class="code-python-string-fc">'region'</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
@@ -493,11 +493,11 @@
 						<!-- KMS key id -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># KMS key id.</span>
+								<span class="code-python-comment-fc">#&nbsp;KMS&nbsp;key&nbsp;id.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">the_key</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-string-fc">'keyid'</span>
 							</p>
 						</div>
@@ -505,44 +505,44 @@
 						<!-- Config file path -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Config file.</span>
+								<span class="code-python-comment-fc">#&nbsp;Config&nbsp;file.</span>
 							</p>
 							<p>
-								<span class="code-python-comment-fc"># Replace 'your-db-host' and 'your-db-name' with the values</span>
+								<span class="code-python-comment-fc">#&nbsp;Replace&nbsp;'your-db-host'&nbsp;and&nbsp;'your-db-name'&nbsp;with&nbsp;the&nbsp;values</span>
 							</p>
 							<p>
-								<span class="code-python-comment-fc"># you used when running aws_postgresql_config.py.</span>
+								<span class="code-python-comment-fc">#&nbsp;you&nbsp;used&nbsp;when&nbsp;running&nbsp;aws_postgresql_config.py.</span>
 							</p>							
 							<p>
 								<span class="code-python-var-fc">config_dir</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-type-fc">os</span>
 								<span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">getenv</span>
 								<span class="code-python-default-fc">(</span>
 								<span class="code-python-string-fc">'HOME'</span>
 								<span class="code-python-default-fc">)</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-string-fc">'conn'</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-string-fc">'your-db-host'</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">config_file</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">config_dir</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-default-fc">&nbsp;</span>
+								<span class="code-python-op-fc">+&nbsp;</span>
 								<span class="code-python-string-fc">'/'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-default-fc">&nbsp;</span>
+								<span class="code-python-op-fc">+&nbsp;</span>
 								<span class="code-python-string-fc">'your-db-name'</span>
-								<span class="code-python-default-fc"> </span>
-								<span class="code-python-op-fc">+ </span>
+								<span class="code-python-default-fc">&nbsp;</span>
+								<span class="code-python-op-fc">+&nbsp;</span>
 								<span class="code-python-string-fc">'.ini'</span>
 							</p>
 						</div>
@@ -550,12 +550,12 @@
 						<!-- Make config file readable -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Make config file readable.</span>
+								<span class="code-python-comment-fc">#&nbsp;Make&nbsp;config&nbsp;file&nbsp;readable.</span>
 							</p>
 							<p>
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">chmod</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">, </span>
+								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">,&nbsp;</span>
 								<span class="code-python-number-fc">0o440</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
@@ -563,19 +563,19 @@
 						<!-- Get connection credentials from config file -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Get the connection credentials from config file.</span>
+								<span class="code-python-comment-fc">#&nbsp;Get&nbsp;the&nbsp;connection&nbsp;credentials&nbsp;from&nbsp;config&nbsp;file.</span>
 							</p>
 							<p>
 								<span class="code-python-keyword-fc">with</span>
 								<span class="code-python-func-fc">open</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">, </span>
-								<span class="code-python-string-fc">'rb'</span><span class="code-python-default-fc">) </span>
+								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">,&nbsp;</span>
+								<span class="code-python-string-fc">'rb'</span><span class="code-python-default-fc">)&nbsp;</span>
 								<span class="code-python-keyword-fc">as</span>
 								<span class="code-python-var-fc">file</span><span class="code-python-default-fc">:</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">credentials_bytes</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">file</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">read</span><span class="code-python-default-fc">()</span>
 							</p>
@@ -584,12 +584,12 @@
 						<!-- Reset config file perms -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Reset config file perms.</span>
+								<span class="code-python-comment-fc">#&nbsp;Reset&nbsp;config&nbsp;file&nbsp;perms.</span>
 							</p>
 							<p>
 								<span class="code-python-type-fc">os</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">chmod</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">, </span>
+								<span class="code-python-var-fc">config_file</span><span class="code-python-default-fc">,&nbsp;</span>
 								<span class="code-python-number-fc">0o000</span><span class="code-python-default-fc">)</span>
 							</p>
 						</div>
@@ -597,22 +597,22 @@
 						<!-- Decrypt the connection credentials -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Decrypt the connection credentials.</span>
+								<span class="code-python-comment-fc">#&nbsp;Decrypt&nbsp;the&nbsp;connection&nbsp;credentials.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">credentials_decrypt</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">aws_kms</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">decrypt</span><span class="code-python-default-fc">(</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">CiphertextBlob</span>
-								<span class="code-python-default-fc"> = </span>
+								<span class="code-python-default-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">credentials_bytes</span><span class="code-python-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">KeyId</span>
-								<span class="code-python-default-fc"> = </span>
+								<span class="code-python-default-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-special-fc">f</span><span class="code-python-string-fc">'{</span>
 								<span class="code-python-var-fc">the_key</span><span class="code-python-string-fc">}'</span>
 								<span class="code-python-default-fc">,</span>
@@ -627,17 +627,17 @@
 						<!-- Decode and split credentials -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Decode the credentials and split by delimiter.</span>
+								<span class="code-python-comment-fc">#&nbsp;Decode&nbsp;the&nbsp;credentials&nbsp;and&nbsp;split&nbsp;by&nbsp;delimiter.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">delimiter</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-func-fc">chr</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-number-fc">7</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">credentials_decode</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-type-fc">base64</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">b64decode</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-var-fc">credentials_decrypt</span><span class="code-python-default-fc">[</span>
@@ -645,40 +645,40 @@
 							</p>
 							<p>
 								<span class="code-python-var-fc">credentials</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-type-fc">bytes</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">decode</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-var-fc">credentials_decode</span><span class="code-python-default-fc">, </span>
+								<span class="code-python-var-fc">credentials_decode</span><span class="code-python-default-fc">,&nbsp;</span>
 								<span class="code-python-string-fc">'utf-8'</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">db_data</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">credentials</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">split</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-var-fc">delimiter</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">db_host</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">db_data</span><span class="code-python-default-fc">[</span>
 								<span class="code-python-number-fc">0</span><span class="code-python-default-fc">]</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">db_name</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">db_data</span><span class="code-python-default-fc">[</span>
 								<span class="code-python-number-fc">1</span><span class="code-python-default-fc">]</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">db_user</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">db_data</span><span class="code-python-default-fc">[</span>
 								<span class="code-python-number-fc">2</span><span class="code-python-default-fc">]</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">db_auth</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">db_data</span><span class="code-python-default-fc">[</span>
 								<span class="code-python-number-fc">3</span><span class="code-python-default-fc">]</span>
 							</p>
@@ -687,42 +687,42 @@
 						<!-- Form connection string & connect -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Form a connection string &amp; connect.</span>
+								<span class="code-python-comment-fc">#&nbsp;Form&nbsp;a&nbsp;connection&nbsp;string&nbsp;&amp;&nbsp;connect.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">connection_string</span>
-								<span class="code-python-op-fc"> = </span><span class="code-python-default-fc">\</span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span><span class="code-python-default-fc">\</span>
 							</p>
 							<p>
-								<span class="code-python-string-fc">" host="</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-string-fc">"&nbsp;host="</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">db_host</span>
-								<span class="code-python-op-fc"> + </span><span class="code-python-default-fc">\</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span><span class="code-python-default-fc">\</span>
 							</p>
 							<p>
-								<span class="code-python-string-fc">" dbname="</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-string-fc">"&nbsp;dbname="</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">db_name</span>
-								<span class="code-python-op-fc"> + </span><span class="code-python-default-fc">\</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span><span class="code-python-default-fc">\</span>
 							</p>
 							<p>
-								<span class="code-python-string-fc">" user="</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-string-fc">"&nbsp;user="</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">db_user</span>
-								<span class="code-python-op-fc"> + </span><span class="code-python-default-fc">\</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span><span class="code-python-default-fc">\</span>
 							</p>
 							<p>
-								<span class="code-python-string-fc">" password="</span>
-								<span class="code-python-op-fc"> + </span>
+								<span class="code-python-string-fc">"&nbsp;password="</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span>
 								<span class="code-python-var-fc">db_auth</span>
-								<span class="code-python-op-fc"> + </span><span class="code-python-default-fc">\</span>
+								<span class="code-python-op-fc">&nbsp;+&nbsp;</span><span class="code-python-default-fc">\</span>
 							</p>
 							<p>
-								<span class="code-python-string-fc">" port=5432"</span>
+								<span class="code-python-string-fc">"&nbsp;port=5432"</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">conn</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-type-fc">psycopg2</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">connect</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-var-fc">connection_string</span><span class="code-python-default-fc">)</span>
@@ -732,22 +732,22 @@
 						<!-- Example query -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Example query.</span>
+								<span class="code-python-comment-fc">#&nbsp;Example&nbsp;query.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">cur</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">conn</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">cursor</span><span class="code-python-default-fc">()</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">cur</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">execute</span><span class="code-python-default-fc">(</span>
-								<span class="code-python-string-fc">'SELECT CURRENT_DATE;'</span><span class="code-python-default-fc">)</span>
+								<span class="code-python-string-fc">'SELECT&nbsp;CURRENT_DATE;'</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">rs</span>
-								<span class="code-python-op-fc"> = </span>
+								<span class="code-python-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-python-var-fc">cur</span><span class="code-python-default-fc">.</span>
 								<span class="code-python-func-fc">fetchall</span><span class="code-python-default-fc">()</span>
 							</p>
@@ -756,13 +756,13 @@
 						<!-- Iterate through resultset -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Iterate through resultset.</span>
+								<span class="code-python-comment-fc">#&nbsp;Iterate&nbsp;through&nbsp;resultset.</span>
 							</p>
 							<p>
 								<span class="code-python-keyword-fc">for</span>
-								<span class="code-python-var-fc"> row</span>
-								<span class="code-python-keyword-fc"> in</span>
-								<span class="code-python-var-fc"> rs</span><span class="code-python-default-fc">:</span>
+								<span class="code-python-var-fc">&nbsp;row</span>
+								<span class="code-python-keyword-fc">&nbsp;in</span>
+								<span class="code-python-var-fc">&nbsp;rs</span><span class="code-python-default-fc">:</span>
 							</p>
 							<p>
 								<span class="code-python-func-fc">print</span><span class="code-python-default-fc">(</span>
@@ -773,7 +773,7 @@
 						<!-- Close cursor and connection -->
 						<div>
 							<p>
-								<span class="code-python-comment-fc"># Close cursor and connection.</span>
+								<span class="code-python-comment-fc">#&nbsp;Close&nbsp;cursor&nbsp;and&nbsp;connection.</span>
 							</p>
 							<p>
 								<span class="code-python-var-fc">cur</span><span class="code-python-default-fc">.</span>
