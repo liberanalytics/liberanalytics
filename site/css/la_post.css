@@ -35,12 +35,12 @@
 /* Make inner text preserve spacing/line breaks */
 .post-snippet p {
     margin: 0;
+    font-size: 0;
     white-space: nowrap;
 }
 
-.post-snippet span {
-    margin: 0;
-    /* white-space: pre; */
+.post-snippet p span {
+    font-size: var(--fsz-200);
 }
 
 /* Python code block colors. */

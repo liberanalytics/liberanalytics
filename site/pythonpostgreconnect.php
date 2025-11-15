@@ -237,7 +237,7 @@
 							<p>
 								<span class="code-python-func-fc">print</span><span class="code-python-default-fc">(</span>
 								<span class="code-python-string-fc">'Please provide connection parameters for database:'</span>
-								<span class="code-python-default-fc"> </span><span class="code-python-op-fc">+ </span>
+								<span class="code-python-op-fc"> + </span>
 								<span class="code-python-string-fc">'\n'</span><span class="code-python-default-fc">)</span>
 							</p>
 							<p>
