@@ -142,8 +142,9 @@
 					with .ini extension in the user's home directory. Then we will prompt for the user name and password using
 					Python's getpass to avoid echoing back the data input by the user. We'll use our AWS KMS key to perform
 					encryption of the user name and password. Lastly the encrypted data will be written to the config file
-					w/ permissions set to non-readable, non-writable, and non-executable. The following code shows how we can
-					do the aforementioned in Python.
+					w/ permissions set to non-readable, non-writable, and non-executable. The following script is an example you can adapt.
+					Replace placeholders like 'region' and 'keyid' with values from your own AWS and PostgreSQL setup. You may also want
+					to add your own error handling and logging.
 					</p>
 
 					<div class="post-snippet site-stack-mt">
@@ -269,12 +270,6 @@
 						<div>
 							<p>
 								<span class="code-python-comment-fc"># Config file.</span>
-							</p>
-							<p>
-								<span class="code-python-comment-fc"># Replace 'your-db-host' and 'your-db-name' with the values</span>
-							</p>
-							<p>
-								<span class="code-python-comment-fc"># you used when running aws_postgresql_config.py.</span>
 							</p>														
 							<p>
 								<span class="code-python-var-fc">config_dir </span>
@@ -419,14 +414,16 @@
 					<p>
 					Now that we have the connection config file created we are ready to connect to the PostgreSQL
 					database cluster and begin running SQL queries. The below aws_postgresql_connect.py program reads the
-					encrypted data from the config file created by the aws_postgresql_connect_config.py program then
+					encrypted data from the config file created by the aws_postgresql_config.py program then
 					decrypts the byte data with the same AWS KMS key. It is important to include the encryption
 					algorithm (EncryptionAlgorithm='RSAES_OAEP_SHA_256') in the decrypt call if using an
 					asymmetric key in AWS KMS. In this case we are using a symmetric key so the EncryptionAlgorithm='SYMMETRIC_DEFAULT'
 					encryption algorithm property isn't needed but we still include it for posterity sake. 
 					The data read is then split by delimiter to derive user name/password
 					and the config file permissions are disabled. Finally we use the imported psycopg2 library to connect
-					to our PostgreSQL cluster in AWS EC2 and run a sample query.
+					to our PostgreSQL cluster in AWS EC2 and run a sample query. This connect script assumes you already
+					ran aws_postgresql_config.py with the same host and database name, and that your AWS credentials
+					allow calls to KMS.
 					</p>
 					
 					<div class="post-snippet site-stack-mt">
@@ -510,6 +507,12 @@
 							<p>
 								<span class="code-python-comment-fc"># Config file.</span>
 							</p>
+							<p>
+								<span class="code-python-comment-fc"># Replace 'your-db-host' and 'your-db-name' with the values</span>
+							</p>
+							<p>
+								<span class="code-python-comment-fc"># you used when running aws_postgresql_config.py.</span>
+							</p>							
 							<p>
 								<span class="code-python-var-fc">config_dir</span>
 								<span class="code-python-op-fc"> = </span>
