@@ -20,7 +20,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PHP CloudWatch Logs | LiberAnalytics</title>
-	<meta name="description" content="Learn how LiberAnalytics collects, uses, and protects your information. Transparency and data privacy are core to our commitment to visitors.">
+	<meta name="description" content="How to send PHP database query and error logs to AWS CloudWatch Logs using PDO, KMS, and the LegalThings CloudWatchLogger client.">
 	<link rel="canonical" href="https://liberanalytics.com/phpcloudwatchlogs">
 
 	<!-- Favicon. -->
@@ -31,8 +31,8 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
 	<!-- Social media Open Graph data points. -->
-	<meta property="og:title" content="Python PostGre Connect | LiberAnalytics">
-	<meta property="og:description" content="Learn how LiberAnalytics collects, uses, and protects your information. Transparency and data privacy are core to our commitment to visitors.">
+	<meta property="og:title" content="PHP CloudWatch Logs | LiberAnalytics">
+	<meta property="og:description" content="Learn how to log PostgreSQL queries and errors from PHP to AWS CloudWatch Logs using PDO, KMS, and CloudWatchLogger.">
 	<meta property="og:url" content="https://liberanalytics.com/phpcloudwatchlogs">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="LiberAnalytics">
