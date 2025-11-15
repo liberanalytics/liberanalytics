@@ -17,3 +17,4 @@ config/la_data_prod.config
 site/phpinfo.php
 *git*
 *codetohtml*
+*liber_enhance*

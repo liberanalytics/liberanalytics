@@ -140,10 +140,10 @@
 					
 					<p>
 						This post depends on setting up a database configuration file which is covered in a previous post:  
-						<a href="pythonpostgreconnect" class="site-link-std site-link-flh-med">Connecting Python to a Postgresql database</a>.					
+						<a href="pythonpostgreconnect" class="site-font-link-std">Connecting Python to a Postgresql database</a>.					
 					</p>
 
-					<h4 class="site-font-secondary-heading">Requirements</h4>
+					<h3 class="site-font-secondary-heading">Requirements</h3>
 
 					<ul>
 						<li>PHP 8 (preferably running on Ubuntu)</li>
@@ -156,7 +156,7 @@
 						<li>Database created on Postgresql cluster</li>
 					</ul>
 
-					<h4 class="site-font-secondary-heading">Set up Log Group and Log Streams in AWS</h4>
+					<h3 class="site-font-secondary-heading">Set up Log Group and Log Streams in AWS</h3>
 
 					<p>
 						First we need to create a log group and two log streams within the group which will store our database sql queries and errors.
@@ -169,12 +169,12 @@
 
 					<img
 						src="assets/phpcloudwatchlogs_logstreams.png"
-						alt="phpcloudwatchlogs_logstreams"
+						alt="Screenshot of AWS CloudWatch Logs log streams for php/database/sql and php/database/errors."
 						width="820"
 						height="200"
 					>
 
-					<h4 class="site-font-secondary-heading">Create CloudWatch Logs / KMS / CloudWatchLogger instances in PHP</h4>
+					<h3 class="site-font-secondary-heading">Create CloudWatch Logs / KMS / CloudWatchLogger instances in PHP</h3>
 
 					<p>
 						Use PHP composer to install the AWS PHP SDK and logging packages - note the cloudwatch-logger package 
@@ -384,7 +384,7 @@
 							<p>
 								<span class="code-php-keyword-fc">catch</span>
 								<span class="code-php-default-fc"> (</span>
-								<span class="code-php-type-fc">Exxception</span>
+								<span class="code-php-type-fc">Exception</span>
 								<span class="code-php-default-fc"> </span>
 								<span class="code-php-var-fc">$e</span>
 								<span class="code-php-default-fc">) {</span>
@@ -407,7 +407,7 @@
 						</div>	
 					</div>
 
-					<h4 class="site-font-secondary-heading">Read database connection properties from encrypted configuration file</h4>
+					<h3 class="site-font-secondary-heading">Read database connection properties from encrypted configuration file</h3>
 
 					<p>
 						Now we will need to identify the database and user details used to connect to a PostgreSQL cluster and database.
@@ -625,7 +625,7 @@
 						</div>
 					</div>
 
-					<h4 class="site-font-secondary-heading">Capture decryption errors in AWS CloudWatch Logs</h4>
+					<h3 class="site-font-secondary-heading">Capture decryption errors in AWS CloudWatch Logs</h3>
 
 					<p>
 						If an error was encountered during the encryption attempt there will be a log in the AWS CloudWatch Logs log stream
@@ -640,7 +640,7 @@
 						height="170"
 					>
 
-					<h4 class="site-font-secondary-heading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h4>
+					<h3 class="site-font-secondary-heading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h3>
 
 					<p>
 						Finally it is time to connect to the database. PHP's PDO data access layer is great for abstracting calls to database
@@ -774,12 +774,12 @@
 
 					<img
 						src="assets/phpcloudwatchlogs_connect_error.png"
-						alt="phpcloudwatchlogs_connect_error"
+						alt="Screenshot of decryption error in AWS CloudWatch Logs for php/database/errors stream."
 						width="820"
 						height="170"
 					>
 
-					<h4 class="site-font-secondary-heading">Log a succesfully run query</h4>
+					<h3 class="site-font-secondary-heading">Log a successfully run query</h3>
 					
 					<div class="post-snippet site-stack-mt">
 						<!-- Run example query + log success -->
@@ -868,12 +868,12 @@
 						
 					<img
 						src="assets/phpcloudwatchlogs_query.png"
-						alt="phpcloudwatchlogs_query"
+						alt="Screenshot of successful query log in php/database/sql stream."
 						width="820"
 						height="175"
 					>
 
-					<h4 class="site-font-secondary-heading">What can be learned from this article</h4>
+					<h3 class="site-font-secondary-heading">What can be learned from this article</h3>
 
 					<p>
 						Making use of AWS CloudWatch logs can simplify database error and query logging, especially
