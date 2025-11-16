@@ -203,7 +203,7 @@
 						<div>
 							<p>
 								<span class="code-php-keyword-fc">require</span>
-								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-default-fc">&nbsp;(</span>
 								<span class="code-php-string-fc">'../vendor/autoload.php'</span>
 								<span class="code-php-default-fc">);</span>
 							</p>
@@ -214,7 +214,7 @@
 							<p><span class="code-php-comment-fc">// Create CloudWatch Logs / KMS / CloudWatchLogger instances.</span></p>							
 							<p>
 								<span class="code-php-keyword-fc">try</span>
-								<span class="code-php-default-fc"> {</span>
+								<span class="code-php-default-fc">&nbsp;{</span>
 							</p>
 						</div>
 
@@ -222,27 +222,27 @@
 						<div>
 							<p>
 								<span class="code-php-var-fc">$aws_cwlogs_client</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-keyword-fc">new</span>
-								<span class="code-php-default-fc"> Aws\CloudWatchLogs\</span>
+								<span class="code-php-default-fc">&nbsp;Aws\CloudWatchLogs\</span>
 								<span class="code-php-type-fc">CloudWatchLogsClient</span>
 								<span class="code-php-default-fc">([</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'profile'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'default'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'region'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'us-east-2'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'version'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'latest'</span>
 							</p>
 							<p><span class="code-php-default-fc">]);</span></p>
@@ -252,27 +252,27 @@
 						<div>
 							<p>
 								<span class="code-php-var-fc">$aws_kms_client</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-keyword-fc">new</span>
-								<span class="code-php-default-fc"> Aws\Kms\</span>
+								<span class="code-php-default-fc">&nbsp;Aws\Kms\</span>
 								<span class="code-php-type-fc">KmsClient</span>
 								<span class="code-php-default-fc">([</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'profile'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'default'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'region'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'us-east-2'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'version'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'latest'</span>
 							</p>
 							<p><span class="code-php-default-fc">]);</span></p>
@@ -282,44 +282,44 @@
 						<div>
 							<p>
 								<span class="code-php-var-fc">$error_logger</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-keyword-fc">new</span>
-								<span class="code-php-default-fc"> LegalThings\</span>
+								<span class="code-php-default-fc">&nbsp;LegalThings\</span>
 								<span class="code-php-type-fc">CloudWatchLogger</span>
 								<span class="code-php-default-fc">([</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'aws'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-default-fc">[</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'profile'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'default'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'region'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'us-east-2'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'version'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'latest'</span>
 							</p>
 							<p><span class="code-php-default-fc">],</span></p>
 							<p>
 								<span class="code-php-string-fc">'group_name'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'sdk'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'stream_name'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'php/database/errors/'</span>
 							</p>
 							<p><span class="code-php-default-fc">]);</span></p>
@@ -334,44 +334,44 @@
 						<div>
 							<p>
 								<span class="code-php-var-fc">$sql_logger</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-keyword-fc">new</span>
-								<span class="code-php-default-fc"> LegalThings\</span>
+								<span class="code-php-default-fc">&nbsp;LegalThings\</span>
 								<span class="code-php-type-fc">CloudWatchLogger</span>
 								<span class="code-php-default-fc">([</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'aws'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-default-fc">[</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'profile'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'default'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'region'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'us-east-2'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'version'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'latest'</span>
 							</p>
 							<p><span class="code-php-default-fc">],</span></p>
 							<p>
 								<span class="code-php-string-fc">'group_name'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'sdk'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'stream_name'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'php/database/sql/'</span>
 							</p>
 							<p><span class="code-php-default-fc">]);</span></p>
@@ -383,15 +383,15 @@
 							<p><span class="code-php-comment-fc">// Report on any exceptions - exit program since all instances are needed.</span></p>
 							<p>
 								<span class="code-php-keyword-fc">catch</span>
-								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-default-fc">&nbsp;(</span>
 								<span class="code-php-type-fc">Exception</span>
-								<span class="code-php-default-fc"> </span>
+								<span class="code-php-default-fc">&nbsp;</span>
 								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-default-fc">) {</span>
+								<span class="code-php-default-fc">)&nbsp;{</span>
 							</p>
 							<p>
 								<span class="code-php-func-fc">echo</span>
-								<span class="code-php-default-fc"> </span>
+								<span class="code-php-default-fc">&nbsp;</span>
 								<span class="code-php-var-fc">$e</span>
 								<span class="code-php-op-fc">-&gt;</span>
 								<span class="code-php-func-fc">getTraceAsString</span>
@@ -427,7 +427,7 @@
 							</p>
 							<p>
 								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-string-fc">'la_demo_db.ini'</span>
 								<span class="code-php-default-fc">;</span>
 							</p>
@@ -435,17 +435,17 @@
 								<span class="code-php-func-fc">chmod</span>
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-default-fc">, </span>
+								<span class="code-php-default-fc">,&nbsp;</span>
 								<span class="code-php-number-fc">0440</span>
 								<span class="code-php-default-fc">);</span>
 							</p>
 							<p>
 								<span class="code-php-var-fc">$handle</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-func-fc">fopen</span>
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-default-fc">, </span>
+								<span class="code-php-default-fc">,&nbsp;</span>
 								<span class="code-php-string-fc">'rb'</span>
 								<span class="code-php-default-fc">);</span>
 							</p>
@@ -453,17 +453,17 @@
 								<span class="code-php-func-fc">chmod</span>
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-default-fc">, </span>
+								<span class="code-php-default-fc">,&nbsp;</span>
 								<span class="code-php-number-fc">0000</span>
 								<span class="code-php-default-fc">);</span>
 							</p>
 							<p>
 								<span class="code-php-var-fc">$binary_data</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-func-fc">fread</span>
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-var-fc">$handle</span>
-								<span class="code-php-default-fc">, </span>
+								<span class="code-php-default-fc">,&nbsp;</span>
 								<span class="code-php-func-fc">filesize</span>
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-var-fc">$db_config_file</span>
@@ -478,11 +478,11 @@
 							</p>
 							<p>
 								<span class="code-php-keyword-fc">try</span>
-								<span class="code-php-default-fc"> {</span>
+								<span class="code-php-default-fc">&nbsp;{</span>
 							</p>
 							<p>
 								<span class="code-php-var-fc">$db_config_data</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-var-fc">$aws_kms_client</span>
 								<span class="code-php-op-fc">-&gt;</span>
 								<span class="code-php-func-fc">decrypt</span>
@@ -497,20 +497,20 @@
 							</p>
 							<p>
 								<span class="code-php-string-fc">'CiphertextBlob'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-var-fc">$binary_data</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 
 							<p>
 								<span class="code-php-string-fc">'EncryptionAlgorithm'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'SYMMETRIC_DEFAULT'</span>
 								<span class="code-php-default-fc">,</span>
 							</p>
 							<p>
 								<span class="code-php-string-fc">'KeyId'</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-string-fc">'keyid'</span>
 							</p>
 							<p>
@@ -531,11 +531,11 @@
 							</p>
 							<p>
 								<span class="code-php-keyword-fc">catch</span>
-								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-default-fc">&nbsp;(</span>
 								<span class="code-php-type-fc">Exception</span>
-								<span class="code-php-default-fc"> </span>
+								<span class="code-php-default-fc">&nbsp;</span>
 								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-default-fc">) {</span>
+								<span class="code-php-default-fc">)&nbsp;{</span>
 							</p>
 							<p>
 								<span class="code-php-var-fc">$error_logger</span>
@@ -543,7 +543,7 @@
 								<span class="code-php-func-fc">log</span>
 								<span class="code-php-default-fc">([</span>
 								<span class="code-php-string-fc">'Problem decrypting : '</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-var-fc">$e</span>
 								<span class="code-php-op-fc">-&gt;</span>
 								<span class="code-php-func-fc">getAwsErrorMessage</span>
@@ -570,7 +570,7 @@
 							</p>
 							<p>
 								<span class="code-php-var-fc">$db_config_data</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-func-fc">base64_decode</span>
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-var-fc">$db_config_data</span>
@@ -580,19 +580,19 @@
 							</p>
 							<p>
 								<span class="code-php-var-fc">$db_params</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-func-fc">explode</span>
-								<span class="code-php-default-fc">( </span>
+								<span class="code-php-default-fc">(&nbsp;</span>
 								<span class="code-php-func-fc">chr</span>
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-number-fc">7</span>
-								<span class="code-php-default-fc">), </span>
+								<span class="code-php-default-fc">),&nbsp;</span>
 								<span class="code-php-var-fc">$db_config_data</span>
-								<span class="code-php-default-fc"> );</span>
+								<span class="code-php-default-fc">&nbsp;);</span>
 							</p>
 							<p>
 								<span class="code-php-var-fc">$db_host</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-var-fc">$db_params</span>
 								<span class="code-php-default-fc">[</span>
 								<span class="code-php-number-fc">0</span>
@@ -600,7 +600,7 @@
 							</p>
 							<p>
 								<span class="code-php-var-fc">$db_name</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-var-fc">$db_params</span>
 								<span class="code-php-default-fc">[</span>
 								<span class="code-php-number-fc">1</span>
@@ -608,7 +608,7 @@
 							</p>
 							<p>
 								<span class="code-php-var-fc">$db_user</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-var-fc">$db_params</span>
 								<span class="code-php-default-fc">[</span>
 								<span class="code-php-number-fc">2</span>
@@ -616,7 +616,7 @@
 							</p>
 							<p>
 								<span class="code-php-var-fc">$db_auth</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-var-fc">$db_params</span>
 								<span class="code-php-default-fc">[</span>
 								<span class="code-php-number-fc">3</span>
@@ -657,14 +657,14 @@
 					
 						<p>
 							<span class="code-php-keyword-fc">try</span>
-							<span class="code-php-default-fc"> {</span>
+							<span class="code-php-default-fc">&nbsp;{</span>
 						</p>
 					
 						<p>
 							<span class="code-php-var-fc">$pdo</span>
-							<span class="code-php-op-fc"> = </span>
+							<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 							<span class="code-php-keyword-fc">new</span>
-							<span class="code-php-type-fc"> PDO</span>
+							<span class="code-php-type-fc">&nbsp;PDO</span>
 							<span class="code-php-default-fc">(</span>
 						</p>
 					
@@ -716,7 +716,7 @@
 								<span class="code-php-default-fc">(</span>
 								<span class="code-php-type-fc">PDO</span>
 								<span class="code-php-op-fc">::</span>
-								<span class="code-php-default-fc">ATTR_ERRMODE, </span>
+								<span class="code-php-default-fc">ATTR_ERRMODE,&nbsp;</span>
 								<span class="code-php-type-fc">PDO</span>
 								<span class="code-php-op-fc">::</span>
 								<span class="code-php-default-fc">ERRMODE_EXCEPTION);</span>
@@ -734,11 +734,11 @@
 						
 							<p>
 								<span class="code-php-keyword-fc">catch</span>
-								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-default-fc">&nbsp;(</span>
 								<span class="code-php-type-fc">PDOException</span>
-								<span class="code-php-default-fc"> </span>
+								<span class="code-php-default-fc">&nbsp;</span>
 								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-default-fc">) {</span>
+								<span class="code-php-default-fc">)&nbsp;{</span>
 							</p>
 						
 							<p>
@@ -747,7 +747,7 @@
 								<span class="code-php-func-fc">log</span>
 								<span class="code-php-default-fc">([</span>
 								<span class="code-php-string-fc">'Problem connecting : '</span>
-								<span class="code-php-default-fc"> =&gt; </span>
+								<span class="code-php-default-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-var-fc">$e</span>
 								<span class="code-php-op-fc">-&gt;</span>
 								<span class="code-php-func-fc">getMessage</span>
@@ -795,17 +795,17 @@
 							</p>
 							<p>
 								<span class="code-php-keyword-fc">try</span>
-								<span class="code-php-default-fc"> {</span>
+								<span class="code-php-default-fc">&nbsp;{</span>
 							</p>
 							<p>
 								<span class="code-php-var-fc">$qry</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-string-fc">'SELECT datname, datcollate FROM pg_database;'</span>
 								<span class="code-php-default-fc">;</span>
 							</p>
 							<p>
 								<span class="code-php-var-fc">$stmt</span>
-								<span class="code-php-op-fc"> = </span>
+								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
 								<span class="code-php-var-fc">$pdo</span>
 								<span class="code-php-op-fc">-&gt;</span>
 								<span class="code-php-func-fc">query</span>
@@ -819,7 +819,7 @@
 								<span class="code-php-func-fc">log</span>
 								<span class="code-php-default-fc">([</span>
 								<span class="code-php-string-fc">"User: {$db_user}: Query: "</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-var-fc">$qry</span>
 								<span class="code-php-default-fc">]);</span>
 							</p>
@@ -835,11 +835,11 @@
 							</p>
 							<p>
 								<span class="code-php-keyword-fc">catch</span>
-								<span class="code-php-default-fc"> (</span>
+								<span class="code-php-default-fc">&nbsp;(</span>
 								<span class="code-php-type-fc">PDOException</span>
-								<span class="code-php-default-fc"> </span>
+								<span class="code-php-default-fc">&nbsp;</span>
 								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-default-fc">) {</span>
+								<span class="code-php-default-fc">)&nbsp;{</span>
 							</p>
 							<p>
 								<span class="code-php-var-fc">$error_logger</span>
@@ -847,7 +847,7 @@
 								<span class="code-php-func-fc">log</span>
 								<span class="code-php-default-fc">([</span>
 								<span class="code-php-string-fc">'Problem with query '</span>
-								<span class="code-php-op-fc"> =&gt; </span>
+								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
 								<span class="code-php-var-fc">$e</span>
 								<span class="code-php-op-fc">-&gt;</span>
 								<span class="code-php-func-fc">getMessage</span>
