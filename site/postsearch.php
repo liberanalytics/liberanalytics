@@ -18,8 +18,8 @@ $laData = new classes\LaData();
 	<!-- Standard page metas/links/title. -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Search for posts | LiberAnalytics</title>
-	<meta name="description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
+	<title>Search Blog Posts | LiberAnalytics</title>
+	<meta name="description" content="Search LiberAnalytics posts by topic, tool, or keyword and find practical guides on PostgreSQL, AWS, and real-world analytics workflows.">
 	<link rel="canonical" href="https://liberanalytics.com/postsearch">
 
 	<!-- Favicon. -->
@@ -30,8 +30,8 @@ $laData = new classes\LaData();
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
 	<!-- Social media Open Graph data points. -->
-	<meta property="og:title" content="Search for posts | LiberAnalytics">
-	<meta property="og:description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
+	<meta property="og:title" content="Search Blog Posts | LiberAnalytics" />
+	<meta property="og:description" content="Quickly search LiberAnalytics posts to find hands-on articles about PostgreSQL, AWS infrastructure, and practical data analytics patterns." />
 	<meta property="og:url" content="https://liberanalytics.com/postsearch">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="LiberAnalytics">
