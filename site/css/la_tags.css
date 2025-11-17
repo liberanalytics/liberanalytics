@@ -2,7 +2,7 @@
     la_tags.css
 --------------------------------------------------------- */
 
-.tag-suggestions-box {
+.site-tag-suggestions-container {
     max-height: calc(var(--sz-400) * 12.5);
     overflow-y: auto;
     position: absolute;
@@ -16,14 +16,14 @@
     border-bottom-right-radius: var(--sz-100);
 }
 
-.tag-suggestion-item {
+.site-tag-suggestion-item {
     padding: var(--sz-200);
     cursor: pointer;
     border-bottom: 1px solid transparent;    
 }
 
-.tag-suggestion-item.active,
-.tag-suggestion-item:hover {
+.site-tag-suggestion-item.active,
+.site-tag-suggestion-item:hover {
   color: var(--fc-link-hover);
   border-bottom: 1px solid var(--fc-tag-hover-border-accent);
   transition: color var(--transition-fast) ease-in-out,

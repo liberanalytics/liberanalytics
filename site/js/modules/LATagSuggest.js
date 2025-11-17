@@ -134,7 +134,7 @@ export function LATagSuggest(inputParentEle, inputEle, tagSuggestionsEle) {
         tagSuggestions.forEach(tagSuggestion => {
 
             const tagItem = document.createElement('div');
-            tagItem.classList.add('tag-suggestion-item');
+            tagItem.classList.add('site-tag-suggestion-item');
             tagItem.textContent = tagSuggestion.post_tag;
 
             tagItem.addEventListener('click', () => {
