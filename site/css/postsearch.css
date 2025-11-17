@@ -2,3 +2,7 @@
     postsearch.css
 --------------------------------------------------------- */
 
+.postsearch-filter-chips {
+    padding-block-start: var(--sz-200);
+    padding-block-end: var(--sz-400);
+}

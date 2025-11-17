@@ -217,7 +217,7 @@ postsearch.renderSearchFilters = (submitType) => {
 
     filters.innerHTML = `
         <h2 class="search-results-heading">Showing results for:</h2>
-        <div id="postsearch_filter_chips">
+        <div class="postsearch-filter-chips">
 
         <p class="search-results-px">
             <span class="search-results-label">Post Category -></span>
