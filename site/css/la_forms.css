@@ -50,6 +50,7 @@
     border-radius: .5rem;
     background-color: var(--clr-xlt-light);
     box-shadow: 2px 2px 2px var(--clr-med-light);
+    appearance: none;
 }
 
 .site-form-std :is(input[type="text"], textarea, select):focus {
@@ -83,12 +84,8 @@
     color: var(--fc-med-red);
     text-align: center;
 }
-/* 
-.select-parent {
-    position: relative;
-}
 
-form .select-arrow {
+.site-form-std .select-arrow {
     position: absolute;
     display: block;
     width: 2.8125rem;
@@ -100,9 +97,8 @@ form .select-arrow {
     pointer-events: none;
 }
 
-form .select-arrow::before,
-form .select-arrow::after {
-    --size: .5rem;
+.site-form-std .select-arrow::before,
+.site-form-std .select-arrow::after {
     content: '';
     position: absolute;
     width: 0;
@@ -112,16 +108,16 @@ form .select-arrow::after {
     transform: translate(-50%, -50%);
 }
 
-form .select-arrow::before {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-bottom: var(--size) solid var(--clr-xlt-light);
+.site-form-std .select-arrow::before {
+    border-left: var(--sz-200) solid transparent;
+    border-right: var(--sz-200) solid transparent;
+    border-bottom: var(--sz-200) solid var(--clr-xlt-light);
     top: 35%;
 }
 
-form .select-arrow::after {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-top: var(--size) solid var(--clr-xlt-light);
+.site-form-std .select-arrow::after {
+    border-left: var(--sz-200) solid transparent;
+    border-right: var(--sz-200) solid transparent;
+    border-top: var(--sz-200) solid var(--clr-xlt-light);
     top: 65%;
-} */
+}

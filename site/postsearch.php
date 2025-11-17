@@ -86,7 +86,7 @@ $laData = new classes\LaData();
 
 					<ul>
 						<li><label for="post_category" class="site-fw-bold">Post Category</label></li>
-						<li>
+						<li class="site-position-relative">
 							<select id="post_category" class="select-control"
 							data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
 							<option class="control">Select Category</option>
