@@ -73,7 +73,7 @@ $laData = new classes\LaData();
 			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
 			<div class="site-block-std">
-				<div class="contact-form-container site-gradient-border-bottom">							
+				<div class="site-form-container site-gradient-border-bottom">							
 					<form 
 						id="postsearch"
 						name="postsearch"
@@ -82,6 +82,40 @@ $laData = new classes\LaData();
 						action="/api/postsearch.php"
 						class="site-form-std"
 					>
+
+					<ul class="site-font-form-std site-form-stack">
+						<li><label for="post_category" class="site-fw-bold">Post Category</label></li>
+						<li>
+							<select id="post_category" class="select-control"
+							data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
+							<option class="control">Select Category</option>
+							  
+							  <?php
+								$postCategories = $laData->crudData(
+								  CrudOperation::GETPOSTCATEGORIES,
+								  CrudType::CRUDREAD,
+								  CrudResultsetType::RESULTSET_ROWS,
+								  CrudFetchStyle::FETCHSTYLE_ASSOC,
+								  []						
+								);
+								foreach($postCategories as $postCategoryIndex => $postCategoryArray)
+								{
+								  echo "<option>{$postCategoryArray['post_category']}</option>";
+								}
+							  ?>
+				  
+							</select>
+							<span class="select-arrow"></span>
+						</li>
+
+						<li><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
+						<li>
+							<input 
+								id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
+								maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
+								data-vx="vxName" data-len="32" autocomplete="family-name"
+							>      
+						</li>					
 					</form>					
 				</div>
 			</div>

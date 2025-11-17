@@ -76,7 +76,7 @@
 				
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
 
-					<div class="contact-form-container site-gradient-border-bottom">
+					<div class="site-form-container site-gradient-border-bottom">
 						<form
 							id="contact_form"
 							name="contact" 
@@ -87,7 +87,7 @@
 							class="site-form-std"
 						>
 
-							<ul class="site-font-form-std contact-form-stack">
+							<ul class="site-font-form-std site-form-stack">
 								<li><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 								<li>
 									<input 
