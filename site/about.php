@@ -58,7 +58,7 @@
 			<nav class="about-summaries" aria-label="Page summary">
 
 				<section>
-					<h1 class="site-primary-heading">About LiberAnalytics</h1>
+					<h1 class="site-primary-heading site-font-primary-heading">About LiberAnalytics</h1>
 					<div class="site-block-std">
 						<p class="about-summary">
 							What LiberAnalytics is, why it was built, the tech stack that runs it, 
@@ -77,7 +77,7 @@
 				</section>
 
 				<section>
-					<h2 class="site-primary-heading">LiberAnalytics Philosophy</h2>
+					<h2 class="site-primary-heading site-font-primary-heading">LiberAnalytics Philosophy</h2>
 					<div class="site-block-std">
 						<p class="about-summary">
 							The ideologies LiberAnalytics is grounded in during both

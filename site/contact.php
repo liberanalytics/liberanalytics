@@ -63,14 +63,14 @@
 	<script type="module" src="/js/contact.js"></script>
 </head>
 
-<body class="page site-font-std">
+<body class="page page-about site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 
 	<main>
 		<div class="page-wrap">
 			<section class="site-ajax-overlay-relative">
-				<h1 class="site-primary-heading">Contact Us</h1>
+				<h1 class="site-primary-heading site-font-primary-heading">Contact Us</h1>
 
 				<div class="site-block-std">					
 				
