@@ -69,15 +69,26 @@ $laData = new classes\LaData();
 
 	<main>
 	<div class="page-wrap">
-		<h1 class="site-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
-		<div id="postsearch_w" class="site-ajax-overlay-relative">
-			
+		<section class="site-ajax-overlay-relative">
+			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
-		
+			<div class="site-block-std">
+				<div class="contact-form-container site-gradient-border-bottom">							
+					<form 
+						id="postsearch"
+						name="postsearch"
+						method="post" data-composite="1"
+						data-erroreleid="error_form"
+						action="/api/postsearch.php"
+						class="site-form-std"
+					>
+					</form>					
+				</div>
+			</div>
+		</section>
+	</div>
 
-	</div><!-- End postsearch_w -->
 
-	</div><!-- End page_w -->
 	</main>
 
 	<?php include_once('lafooter.php'); ?>
