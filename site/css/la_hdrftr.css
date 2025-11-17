@@ -191,15 +191,10 @@
 }
 
 .site-hdrftr-masthead img {
-    block-size: clamp(28px, 4vw, 40px);
     inline-size: auto;
     object-fit: contain;
     width: var(--la-logo-width);
     height: auto;    
-}
-
-.site-hdrftr-masthead img {
-
 }
 
 /* Footer styles. */
