@@ -71,82 +71,9 @@ $laData = new classes\LaData();
 	<div class="page-wrap">
 		<h1 class="site-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 		<div id="postsearch_w" class="site-ajax-overlay-relative">
-			<div id="postsearch_controls">
-				<div id="postsearch_form">
-					<form id="postsearch" method="post" data-composite="1" data-erroreleid="error_form" action="posts_handler.php">
-						<ul>
-							<li>
-								<label class="label-first">Post Category</label>
-								<div class="select-parent">
-								<select id="postsearch_category" class="select-control"
-								data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
-									<option class="control">Select Category</option>
-									
-									<?php
-										$postCategories = $laData->crudData(
-											CrudOperation::GETPOSTCATEGORIES,
-											CrudType::CRUDREAD,
-											CrudResultsetType::RESULTSET_ROWS,
-											CrudFetchStyle::FETCHSTYLE_ASSOC,
-											[]						
-										);
-										foreach($postCategories as $postCategoryIndex => $postCategoryArray)
-										{
-											echo "<option>{$postCategoryArray['post_category']}</option>";
-										}
-									?>
+			
 
-								</select>
-								<span class="select-arrow"></span>
-								</div>
-							</li>
-							<li>
-								<label class="label-nonfirst">Tags</label>
-								<div id="postsearch_tags_w">
-
-									<input id="postsearch_tags" type="text" class="input-control" maxlength="48"
-									data-caption="Tags" data-datakey="post_tags" data-vx="vxText" data-len="48"
-									autocomplete="off">
-									<div id="postsearch_tag_suggestions" class="tag-suggestion-box"></div>
-								</div>
-							</li>
-							<li>
-								<input type="submit" value="SUBMIT">
-							</li>
-							<li>
-								<span class="error-msg"></span>
-							</li>
-						</ul>
-
-					</form>
-				</div><!-- End postsearch_form -->
-
-				<div id="postsearch_filters">
-				</div><!-- End postsearch_filters -->
-
-			</div>
-
-		<div id="postsearch_results_w" class="site-gradient-border-top">
-
-			<div id="postsearch_results">				
-			</div><!-- End postsearch_results -->
-
-		</div><!-- End postsearch_results_w -->
-
-		<div class="site-ajax-overlay hidden">
-			<div class="site-ajax-spinner-centerer">
-				<div class="site-ajax-spinner-8spoke ">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
-			</div>
-		</div>
+		
 
 	</div><!-- End postsearch_w -->
 

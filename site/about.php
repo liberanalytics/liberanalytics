@@ -99,7 +99,7 @@
 
 			<section id="liber_about" class="liber-about">
 			
-				<h1 class="site-primary-heading">About LiberAnalytics</h1>
+				<h1 class="site-primary-heading site-font-primary-heading">About LiberAnalytics</h1>
 
 				<div class="site-block-std site-stack-mtmb">
 			
@@ -131,10 +131,10 @@
 							href="https://www.kevinpowell.co"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="site-font-link-std site-fs-med"
+							class="site-font-link-std"
 						>
-						Kevin Powell
-						</a>’s
+						Kevin Powell’s
+						</a>
 						component/utility class model.
 					</p>
 				
@@ -150,7 +150,7 @@
 			
 			<section id="liber_philosophy" class="liber-philosophy">
 			
-				<h1 class="site-primary-heading">LiberAnalytics Philosophy</h1>
+				<h1 class="site-primary-heading site-font-primary-heading">LiberAnalytics Philosophy</h1>
 
 				<div class="site-block-std site-stack-mtmb">
 			
