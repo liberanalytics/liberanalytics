@@ -79,3 +79,45 @@
     color: var(--fc-med-red);
     text-align: center;
 }
+/* 
+.select-parent {
+    position: relative;
+}
+
+form .select-arrow {
+    position: absolute;
+    display: block;
+    width: 2.8125rem;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-radius: 0 .625rem .625rem 0;
+    background: var(--clr-dk-blue);
+    pointer-events: none;
+}
+
+form .select-arrow::before,
+form .select-arrow::after {
+    --size: .5rem;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form .select-arrow::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid var(--clr-xlt-light);
+    top: 35%;
+}
+
+form .select-arrow::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid var(--clr-xlt-light);
+    top: 65%;
+} */

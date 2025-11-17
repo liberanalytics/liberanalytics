@@ -56,6 +56,7 @@ $laData = new classes\LaData();
 	<link href="/css/la_fonts.css" rel="stylesheet">
 	<link href="/css/la.css" rel="stylesheet">
 	<link href="/css/la_hdrftr.css" rel="stylesheet">
+	<link href="/css/la_forms.css" rel="stylesheet">
 	<link href="/css/la_tags.css" rel="stylesheet">
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/postsearch.css" rel="stylesheet">
@@ -80,10 +81,10 @@ $laData = new classes\LaData();
 						method="post" data-composite="1"
 						data-erroreleid="error_form"
 						action="/api/postsearch.php"
-						class="site-form-std"
+						class="site-form-std site-font-form-std"
 					>
 
-					<ul class="site-font-form-std site-form-stack">
+					<ul class="site-form-stack">
 						<li><label for="post_category" class="site-fw-bold">Post Category</label></li>
 						<li>
 							<select id="post_category" class="select-control"
@@ -108,12 +109,12 @@ $laData = new classes\LaData();
 							<span class="select-arrow"></span>
 						</li>
 
-						<li><label for="last_name" class="site-fw-bold">Last Name</label></li>
+						<li><label for="post_tags" class="site-fw-bold">Tags</label></li>
 						<li>
 							<input 
-								id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
-								maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
-								data-vx="vxName" data-len="32" autocomplete="family-name"
+								id="post_tags" name="post_tags" type="text" title="Enter Last Name" class="" 
+								maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
+								data-vx="vxTect" data-len="48"
 							>      
 						</li>
 						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 

@@ -84,10 +84,10 @@
 							data-composite="0"
 							data-erroreleid="error_form"
 							action="/api/contact.php"
-							class="site-form-std"
+							class="site-form-std site-font-form-std"
 						>
 
-							<ul class="site-font-form-std site-form-stack">
+							<ul class="site-form-stack">
 								<li><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 								<li>
 									<input 
