@@ -120,8 +120,11 @@ $laData = new classes\LaData();
 						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
 						<li><span class="error-msg" aria-live="polite"></span></li>						
 					</form>					
+				</div><!-- End .site-form-container. -->
+				<div>
+					
 				</div>
-			</div>
+			</div><!-- End .site-block-std. -->
 		</section>
 	</div>
 
