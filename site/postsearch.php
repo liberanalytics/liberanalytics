@@ -108,14 +108,16 @@ $laData = new classes\LaData();
 							<span class="select-arrow"></span>
 						</li>
 
-						<li><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
+						<li><label for="last_name" class="site-fw-bold">Last Name</label></li>
 						<li>
 							<input 
 								id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
 								maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
 								data-vx="vxName" data-len="32" autocomplete="family-name"
 							>      
-						</li>					
+						</li>
+						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
+						<li><span class="error-msg" aria-live="polite"></span></li>						
 					</form>					
 				</div>
 			</div>
