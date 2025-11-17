@@ -11,17 +11,21 @@
     display: inline-block;
 }
 
-.site-form-stack label,
-.site-form-stack .error-msg {
+.site-form-std {
+
+}
+
+.site-form-std label {
+    margin-block-start: var(--sz-300);
+    margin-block-end: var(--sz-050);
+}
+
+.site-form-std .error-msg {
     margin-block-start: var(--sz-300);
 }
 
-.site-form-stack input[type="submit"] {
+.site-form-std input[type="submit"] {
     margin-block-start: var(--sz-400);
-}
-
-.site-form-std {
-
 }
 
 /* Make form controls inherit the wrapper’s font tokens.

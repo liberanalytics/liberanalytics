@@ -84,7 +84,7 @@ $laData = new classes\LaData();
 						class="site-form-std site-font-form-std"
 					>
 
-					<ul class="site-form-stack">
+					<ul>
 						<li><label for="post_category" class="site-fw-bold">Post Category</label></li>
 						<li>
 							<select id="post_category" class="select-control"
