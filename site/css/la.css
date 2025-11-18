@@ -161,6 +161,6 @@ main {
 /* Site elements directly targeted @ specific breakpoints. */
 @media (min-width: 25em) {
     .site-primary-heading {
-        --knob-primary-heading-fs: var(--fs-clamp-18x20);
+        --knob-primary-heading-fs: var(--fsz-clamp-18x20);
     }
 }

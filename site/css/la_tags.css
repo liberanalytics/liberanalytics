@@ -12,7 +12,7 @@
     background-color: var(--clr-med-dark);
     color: var(--clr-xlt-light);
     font-family: var(--ff-main);
-    font-size: var(--sz-400);
+    font-size: var(--fsz-100);
     border-bottom-left-radius: var(--sz-100);
     border-bottom-right-radius: var(--sz-100);
 }

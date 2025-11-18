@@ -10,7 +10,7 @@
 
 /* Header Container & Masthead */
 .page-header {
-    --knob-primary-heading-fs: var(--fs-clamp-18x20);
+    --knob-primary-heading-fs: var(--fsz-clamp-18x20);
 }
 
 .site-header-tagline {
@@ -36,7 +36,7 @@
     display: inline-block;
     padding: var(--sz-300);
     border-radius: var(--sz-300);
-    font-size: var(--fs-clamp-18x18-8);
+    font-size: var(--fsz-clamp-18x18-8);
 }
 
 /* Header Search */
@@ -234,7 +234,7 @@
     transition:
         border-bottom-width var(--transition-fast) ease,
         border-bottom-color var(--transition-fast) ease;
-    font-size: var(--fs-clamp-16x18-8);
+    font-size: var(--fsz-clamp-16x18-8);
 }
 
 .site-footer-menu .site-footer-menu-link:visited {
@@ -264,7 +264,7 @@
 
 .site-footer-legal {
     margin-block-start: var(--sz-300);
-    font-size: var(--fs-clamp-14x16);
+    font-size: var(--fsz-clamp-14x16);
     font-weight: var(--fw-xlight);
     font-family: var(--ff-fancy);
     color: var(--fc-xlight);

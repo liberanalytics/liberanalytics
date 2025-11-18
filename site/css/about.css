@@ -3,7 +3,7 @@
 --------------------------------------------------------- */
 
 .page-about {
-    --knob-std-fs: var(--fs-clamp-18x20);
+    --knob-std-fs: var(--fsz-clamp-18x20);
 }
 
 /* About component classes. */

@@ -11,7 +11,7 @@
 }
 
 .post-heading {
-    --knob-brand-fs: var(--fs-clamp-22x24);
+    --knob-brand-fs: var(--fsz-clamp-22x24);
 }
 
 .post-img {

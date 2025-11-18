@@ -112,9 +112,9 @@ $laData = new classes\LaData();
 						<li><label for="postsearch_tags" class="site-fw-bold">Tags</label></li>
 						<li id="postsearch_tags_container" class="site-position-relative">
 							<input 
-								id="postsearch_tags" name="postsearch_tags" type="text" title="Enter Last Name" class="" 
-								maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
-								data-vx="vxText" data-len="48" autocomplete="off"
+								id="postsearch_tags" name="postsearch_tags" class="postsearch-tags site-font-form-std" type="text"
+								title="Enter Last Name" maxlength="48" data-caption="Tags" data-id="last_name"
+								data-req="1" data-vx="vxText" data-len="48" autocomplete="off"
 							>
 							<div id="postsearch_tag_suggestions" class="site-tag-suggestions-container"></div>
 						</li>
