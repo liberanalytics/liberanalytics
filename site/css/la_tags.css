@@ -8,6 +8,7 @@
     position: absolute;
     z-index: 1000;
     width: 100%;
+    /* box-sizing: border-box; */
     background-color: var(--clr-med-dark);
     color: var(--clr-xlt-light);
     font-family: Studio-Feixen-Sans, Helvetica;
