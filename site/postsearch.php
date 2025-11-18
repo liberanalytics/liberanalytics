@@ -85,9 +85,9 @@ $laData = new classes\LaData();
 				>
 
 				<ul>
-					<li><label for="post_category" class="site-fw-bold">Post Category</label></li>
+					<li><label for="postsearch_category" class="site-fw-bold">Post Category</label></li>
 					<li class="site-position-relative">
-						<select id="post_category" class="select-control"
+						<select id="postsearch_category" class="select-control"
 						data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
 						<option class="control">Select Category</option>
 							
@@ -109,10 +109,10 @@ $laData = new classes\LaData();
 						<span class="select-arrow"></span>
 					</li>
 
-					<li><label for="post_tags" class="site-fw-bold">Tags</label></li>
-					<li>
+					<li><label for="postsearch_tags" class="site-fw-bold">Tags</label></li>
+					<li id="postsearch_tags_container">
 						<input 
-							id="post_tags" name="post_tags" type="text" title="Enter Last Name" class="" 
+							id="postsearch_tags" name="postsearch_tags" type="text" title="Enter Last Name" class="" 
 							maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
 							data-vx="vxTect" data-len="48"
 						>      
@@ -142,7 +142,7 @@ $laData = new classes\LaData();
 					<div></div>
 				</div>
 			</div>
-			
+
 		</section>
 	</div>
 
