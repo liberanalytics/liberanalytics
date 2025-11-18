@@ -64,7 +64,7 @@ $laData = new classes\LaData();
 	<script type="module" src="/js/postsearch.js"></script>	
 </head>
 
-<body class="page site-font-std">
+<body class="page page-postsearch site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 

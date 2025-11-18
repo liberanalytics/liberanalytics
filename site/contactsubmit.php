@@ -71,7 +71,7 @@
 		<div class="page-wrap">
 
 			<section>
-				<h1 class="site-primary-heading">Thank you</h1>
+				<h1 class="site-primary-heading site-font-primary-heading">Thank you</h1>
 				<div class="site-block-std">
 					<p class="site-font-emph" style="line-height: 1.5;">
 						Thank you for contacting LiberAnalytics, 

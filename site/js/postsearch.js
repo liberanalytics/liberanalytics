@@ -202,7 +202,7 @@ postsearch.renderSearchFilters = (submitType) => {
     filters.style.paddingTop = '1rem';
 
     filters.innerHTML = `
-        <h2 class="search-results-heading">Showing results for:</h2>
+        <h2 class="site-font-secondary-heading">Showing results for:</h2>
         <div class="postsearch-filter-chips">
 
         <p class="search-results-px">
