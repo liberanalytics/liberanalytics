@@ -115,7 +115,8 @@ $laData = new classes\LaData();
 								id="postsearch_tags" name="postsearch_tags" type="text" title="Enter Last Name" class="" 
 								maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
 								data-vx="vxTect" data-len="48"
-							>      
+							>
+							<div id="postsearch_tag_suggestions" class="tagsuggestions-box"></div>
 						</li>
 						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
 						<li><span class="error-msg" aria-live="polite"></span></li>
