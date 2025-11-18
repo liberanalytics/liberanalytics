@@ -31,11 +31,11 @@ export const renderError = ({
 }
 
 export const renderAjaxSpinner = () => {
-    getAjaxOverlayEle().classList.remove('hidden');
-    getAjaxSpinnerEle().classList.remove('hidden');
+    getAjaxOverlayEle().classList.remove('site-ajax-hidden');
+    getAjaxSpinnerEle().classList.remove('site-ajax-hidden');
 }
 
 export const unrenderAjaxSpinner = () => {
-    getAjaxOverlayEle().classList.add('hidden');
-    getAjaxSpinnerEle().classList.add('hidden');
+    getAjaxOverlayEle().classList.add('site-ajax-hidden');
+    getAjaxSpinnerEle().classList.add('site-ajax-hidden');
 }

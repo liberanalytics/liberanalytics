@@ -14,7 +14,7 @@ postsearch.setVars = () =>
 {
     postsearch.formEle = document.querySelector('#postsearch');
     postsearch.categoryEle = document.querySelector('#postsearch_category');
-    postsearch.tagsParentEle = document.querySelector('#postsearch_tags_container');
+    postsearch.tagsParentEle = document.querySelector('#postsearch_controls');
     postsearch.tagsEle = document.querySelector('#postsearch_tags');
     postsearch.tagSuggestionsEle = document.querySelector('#postsearch_tag_suggestions');
     postsearch.searchControlsContainerEle = document.querySelector('#postsearch_controls');

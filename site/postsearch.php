@@ -110,23 +110,24 @@ $laData = new classes\LaData();
 						</li>
 
 						<li><label for="postsearch_tags" class="site-fw-bold">Tags</label></li>
-						<li id="postsearch_tags_container">
+						<li id="postsearch_tags_container site-position-relative">
 							<input 
 								id="postsearch_tags" name="postsearch_tags" type="text" title="Enter Last Name" class="" 
 								maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
-								data-vx="vxTect" data-len="48"
+								data-vx="vxText" data-len="48" autocomplete="off"
 							>
-							<div id="postsearch_tag_suggestions" class="tagsuggestions-box"></div>
+							<div id="postsearch_tag_suggestions" class="site-tag-suggestions-container"></div>
 						</li>
 						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
 						<li><span class="error-msg" aria-live="polite"></span></li>
 					</ul>
 
-				</form>					
+				</form>
+
 				<div id="postsearch_filters">
 
 				</div>
-				<div class="site-ajax-spinner-8spoke hidden">
+				<div class="site-ajax-spinner-8spoke site-ajax-hidden">
 					<div></div>
 					<div></div>
 					<div></div>
@@ -141,7 +142,7 @@ $laData = new classes\LaData();
 			<div id="postsearch_results">
 			</div>
 
-			<div class="site-ajax-overlay-flex hidden">
+			<div class="site-ajax-overlay-flex site-ajax-hidden">
 			</div>
 
 		</section>

@@ -136,7 +136,7 @@
 					</div>
 				</div>
 
-				<div class="site-ajax-overlay-flex hidden">					
+				<div class="site-ajax-overlay-flex site-ajax-hidden">					
 					<div class="site-ajax-spinner-8spoke ">
 						<div></div>
 						<div></div>

@@ -76,6 +76,6 @@
     100% { opacity: 0.25; }
 }
 
-.hidden {
+.site-ajax-hidden {
     display: none;
 }
