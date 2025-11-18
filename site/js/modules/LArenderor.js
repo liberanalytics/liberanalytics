@@ -3,10 +3,15 @@ const getDefaultErrorEle = () => {
 }
 
 const getAjaxOverlayEle = () => {
-    const overLayEle = 
+    const getAjaxOverlayEle = 
         document.querySelector('.site-ajax-overlay') ||
         document.querySelector('.site-ajax-overlay-flex');
-    return overLayEle;
+    return getAjaxOverlayEle;
+}
+
+const getAjaxSpinnerEle = () => {
+    const getAjaxSpinnerEle = document.querySelector('.site-ajax-spinner-8spoke');
+    return getAjaxSpinnerEle;
 }
 
 export const clearError = ({
@@ -27,8 +32,10 @@ export const renderError = ({
 
 export const renderAjaxSpinner = () => {
     getAjaxOverlayEle().classList.remove('hidden');
+    getAjaxSpinnerEle().classList.remove('hidden');
 }
 
 export const unrenderAjaxSpinner = () => {
     getAjaxOverlayEle().classList.add('hidden');
+    getAjaxSpinnerEle().classList.add('hidden');
 }

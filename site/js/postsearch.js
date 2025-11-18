@@ -51,21 +51,9 @@ postsearch.initFromUrlPxs = () => {
 
 }
 
-postsearch.renderAjaxSpinner = () => {
-    const overlaySpinnerCentererEle = document.querySelector('.site-ajax-spinner-centerer');
-    const targetHeight = postsearch.searchControlsContainerEle.offsetHeight;
-    LArenderor.renderAjaxSpinner();
-}
-
-postsearch.unrenderAjaxSpinner = () => {
-    // postsearch.searchResultsContainerEle.classList.remove('site-ajax-overlay');
-    LArenderor.unrenderAjaxSpinner();
-}
-
 postsearch.submitSearch = (submitType) => {
 
-    postsearch.renderAjaxSpinner();
-
+    LArenderor.renderAjaxSpinner();
 
     // Get the post search pxs.
     const postPxs = postsearch.normalizeFilterData(submitType, 'filters');
@@ -103,10 +91,9 @@ postsearch.submitSearch = (submitType) => {
         console.error('Error: ', error);
     })
     .finally(() => {
-        postsearch.unrenderAjaxSpinner();
+        LArenderor.unrenderAjaxSpinner();
     });
 }
-
 
 postsearch.normalizeFilterData = (submitType, dataType) => {
 

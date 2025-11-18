@@ -125,7 +125,7 @@ $laData = new classes\LaData();
 				<div id="postsearch_filters">
 
 				</div>
-				<div class="site-ajax-spinner-8spoke">
+				<div class="site-ajax-spinner-8spoke hidden">
 					<div></div>
 					<div></div>
 					<div></div>
