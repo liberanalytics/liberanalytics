@@ -54,7 +54,6 @@ postsearch.initFromUrlPxs = () => {
 postsearch.renderAjaxSpinner = () => {
     const overlaySpinnerCentererEle = document.querySelector('.site-ajax-spinner-centerer');
     const targetHeight = postsearch.searchControlsContainerEle.offsetHeight;
-    overlaySpinnerCentererEle.style.setProperty('--postsearch-controls-height', `${targetHeight}px`);
     LArenderor.renderAjaxSpinner();
 }
 

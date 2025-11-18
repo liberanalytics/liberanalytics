@@ -74,7 +74,7 @@ $laData = new classes\LaData();
 			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
 
-			<div class="site-form-container site-block-std site-gradient-border-bottom">							
+			<div id="postsearch_controls" class="site-form-container site-block-std site-gradient-border-bottom">							
 				<form 
 					id="postsearch"
 					name="postsearch"
@@ -120,26 +120,29 @@ $laData = new classes\LaData();
 					<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
 					<li><span class="error-msg" aria-live="polite"></span></li>						
 				</form>					
+				<div id="postsearch_filters">
+
+				</div>
 			</div><!-- End .site-form-container. -->
 
-			<div id="postsearch_filters">
 
-			</div>
 
 			<div id="postsearch_results">
 
 			</div>
 
-			<div class="site-ajax-overlay-flex hidden">					
-				<div class="site-ajax-spinner-8spoke ">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
+			<div class="site-ajax-overlay-flex hidden">
+				<div class="site-ajax-spinner-centerer">
+					<div class="site-ajax-spinner-8spoke ">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
 				</div>
 			</div>
 
