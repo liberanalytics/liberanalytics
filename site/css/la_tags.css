@@ -3,15 +3,15 @@
 --------------------------------------------------------- */
 
 .site-tag-suggestions-container {
-    max-height: calc(var(--sz-400) * 12.5);
-    overflow-y: auto;
     position: absolute;
-    z-index: 1000;
+    max-height: calc(var(--sz-400) * 12.5);
     width: 100%;
-    /* box-sizing: border-box; */
+    overflow-y: auto;
+    z-index: 1000;
+    box-sizing: border-box;
     background-color: var(--clr-med-dark);
     color: var(--clr-xlt-light);
-    font-family: Studio-Feixen-Sans, Helvetica;
+    font-family: var(--ff-main);
     font-size: var(--sz-400);
     border-bottom-left-radius: var(--sz-100);
     border-bottom-right-radius: var(--sz-100);
