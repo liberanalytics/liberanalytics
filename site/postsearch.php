@@ -129,6 +129,20 @@ $laData = new classes\LaData();
 			<div id="postsearch_results">
 
 			</div>
+
+			<div class="site-ajax-overlay-flex hidden">					
+				<div class="site-ajax-spinner-8spoke ">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			
 		</section>
 	</div>
 
