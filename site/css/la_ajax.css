@@ -21,14 +21,14 @@
 
 .site-ajax-spinner-8spoke {
     position: relative;
+    top: 50%;
+    left: 50%;    
     width: calc(var(--sz-400) * 2.5);
     height: calc(var(--sz-400) * 2.5);
 }
 
 .site-ajax-spinner-8spoke div {
     position: absolute;
-    top: 50%;
-    left: 50%;
     width: var(--sz-350);
     height: calc(var(--sz-400) * 2.25);
     background-color: var(--clr-med-green);

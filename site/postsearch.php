@@ -74,7 +74,7 @@ $laData = new classes\LaData();
 			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
 
-			<div id="postsearch_controls" class="site-form-container site-block-std site-gradient-border-bottom">							
+			<div id="postsearch_controls" class="site-form-container site-block-std site-gradient-border-bottom site-position-relative">							
 				<form 
 					id="postsearch"
 					name="postsearch"
@@ -84,66 +84,63 @@ $laData = new classes\LaData();
 					class="site-form-std site-font-form-std"
 				>
 
-				<ul>
-					<li><label for="postsearch_category" class="site-fw-bold">Post Category</label></li>
-					<li class="site-position-relative">
-						<select id="postsearch_category" class="select-control"
-						data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
-						<option class="control">Select Category</option>
-							
-							<?php
-							$postCategories = $laData->crudData(
-								CrudOperation::GETPOSTCATEGORIES,
-								CrudType::CRUDREAD,
-								CrudResultsetType::RESULTSET_ROWS,
-								CrudFetchStyle::FETCHSTYLE_ASSOC,
-								[]						
-							);
-							foreach($postCategories as $postCategoryIndex => $postCategoryArray)
-							{
-								echo "<option>{$postCategoryArray['post_category']}</option>";
-							}
-							?>
-				
-						</select>
-						<span class="select-arrow"></span>
-					</li>
+					<ul>
+						<li><label for="postsearch_category" class="site-fw-bold">Post Category</label></li>
+						<li class="site-position-relative">
+							<select id="postsearch_category" class="select-control"
+							data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
+							<option class="control">Select Category</option>
+								
+								<?php
+								$postCategories = $laData->crudData(
+									CrudOperation::GETPOSTCATEGORIES,
+									CrudType::CRUDREAD,
+									CrudResultsetType::RESULTSET_ROWS,
+									CrudFetchStyle::FETCHSTYLE_ASSOC,
+									[]						
+								);
+								foreach($postCategories as $postCategoryIndex => $postCategoryArray)
+								{
+									echo "<option>{$postCategoryArray['post_category']}</option>";
+								}
+								?>
+					
+							</select>
+							<span class="select-arrow"></span>
+						</li>
 
-					<li><label for="postsearch_tags" class="site-fw-bold">Tags</label></li>
-					<li id="postsearch_tags_container">
-						<input 
-							id="postsearch_tags" name="postsearch_tags" type="text" title="Enter Last Name" class="" 
-							maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
-							data-vx="vxTect" data-len="48"
-						>      
-					</li>
-					<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-					<li><span class="error-msg" aria-live="polite"></span></li>						
+						<li><label for="postsearch_tags" class="site-fw-bold">Tags</label></li>
+						<li id="postsearch_tags_container">
+							<input 
+								id="postsearch_tags" name="postsearch_tags" type="text" title="Enter Last Name" class="" 
+								maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
+								data-vx="vxTect" data-len="48"
+							>      
+						</li>
+						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
+						<li><span class="error-msg" aria-live="polite"></span></li>
+					</ul>
+
 				</form>					
 				<div id="postsearch_filters">
 
 				</div>
-			</div><!-- End .site-form-container. -->
-
-
+				<div class="site-ajax-spinner-8spoke">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>				
+			</div><!-- End #postsearch_controls .site-form-container. -->
 
 			<div id="postsearch_results">
-
 			</div>
 
 			<div class="site-ajax-overlay-flex hidden">
-				<div class="site-ajax-spinner-centerer">
-					<div class="site-ajax-spinner-8spoke ">
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</div>
 			</div>
 
 		</section>
