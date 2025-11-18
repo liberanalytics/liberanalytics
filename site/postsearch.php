@@ -73,58 +73,62 @@ $laData = new classes\LaData();
 		<section class="site-ajax-overlay-relative">
 			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
-			<div class="site-block-std">
-				<div class="site-form-container site-gradient-border-bottom">							
-					<form 
-						id="postsearch"
-						name="postsearch"
-						method="post" data-composite="1"
-						data-erroreleid="error_form"
-						action="/api/postsearch.php"
-						class="site-form-std site-font-form-std"
-					>
 
-					<ul>
-						<li><label for="post_category" class="site-fw-bold">Post Category</label></li>
-						<li class="site-position-relative">
-							<select id="post_category" class="select-control"
-							data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
-							<option class="control">Select Category</option>
-							  
-							  <?php
-								$postCategories = $laData->crudData(
-								  CrudOperation::GETPOSTCATEGORIES,
-								  CrudType::CRUDREAD,
-								  CrudResultsetType::RESULTSET_ROWS,
-								  CrudFetchStyle::FETCHSTYLE_ASSOC,
-								  []						
-								);
-								foreach($postCategories as $postCategoryIndex => $postCategoryArray)
-								{
-								  echo "<option>{$postCategoryArray['post_category']}</option>";
-								}
-							  ?>
-				  
-							</select>
-							<span class="select-arrow"></span>
-						</li>
+			<div class="site-form-container site-block-std site-gradient-border-bottom">							
+				<form 
+					id="postsearch"
+					name="postsearch"
+					method="post" data-composite="1"
+					data-erroreleid="error_form"
+					action="/api/postsearch.php"
+					class="site-form-std site-font-form-std"
+				>
 
-						<li><label for="post_tags" class="site-fw-bold">Tags</label></li>
-						<li>
-							<input 
-								id="post_tags" name="post_tags" type="text" title="Enter Last Name" class="" 
-								maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
-								data-vx="vxTect" data-len="48"
-							>      
-						</li>
-						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-						<li><span class="error-msg" aria-live="polite"></span></li>						
-					</form>					
-				</div><!-- End .site-form-container. -->
-				<div>
-					
-				</div>
-			</div><!-- End .site-block-std. -->
+				<ul>
+					<li><label for="post_category" class="site-fw-bold">Post Category</label></li>
+					<li class="site-position-relative">
+						<select id="post_category" class="select-control"
+						data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
+						<option class="control">Select Category</option>
+							
+							<?php
+							$postCategories = $laData->crudData(
+								CrudOperation::GETPOSTCATEGORIES,
+								CrudType::CRUDREAD,
+								CrudResultsetType::RESULTSET_ROWS,
+								CrudFetchStyle::FETCHSTYLE_ASSOC,
+								[]						
+							);
+							foreach($postCategories as $postCategoryIndex => $postCategoryArray)
+							{
+								echo "<option>{$postCategoryArray['post_category']}</option>";
+							}
+							?>
+				
+						</select>
+						<span class="select-arrow"></span>
+					</li>
+
+					<li><label for="post_tags" class="site-fw-bold">Tags</label></li>
+					<li>
+						<input 
+							id="post_tags" name="post_tags" type="text" title="Enter Last Name" class="" 
+							maxlength="48" data-caption="Tags" data-id="last_name" data-req="1"
+							data-vx="vxTect" data-len="48"
+						>      
+					</li>
+					<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
+					<li><span class="error-msg" aria-live="polite"></span></li>						
+				</form>					
+			</div><!-- End .site-form-container. -->
+
+			<div id="postsearch_filters">
+
+			</div>
+
+			<div id="postsearch_results">
+
+			</div>
 		</section>
 	</div>
 
