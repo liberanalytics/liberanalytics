@@ -206,9 +206,9 @@ postsearch.renderSearchFilters = (submitType) => {
         <div class="postsearch-filter-chips">
 
         <p class="postsearch-filters-px">
-            <span class="postsearch-filters-label">Post Category -></span>
+            <span class="postsearch-filters-label site-font-std">Post Category -></span>
             <span class="postsearch-filters-chips">
-                <span class="postsearch-filters-chip" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
+                <span class="postsearch-filters-chip site-font-std" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
                     ${normalizedCaptionData.postCategory}
                     <button class="postsearch-filters-btn" aria-label="Remove">x</button>
                 </span>
@@ -216,8 +216,8 @@ postsearch.renderSearchFilters = (submitType) => {
         </p>
 
         <p class="postsearch-filters-px">
-            <span class="postsearch-filters-label">Post Tags -></span>
-            <span class="postsearch-filters-chips">
+            <span class="postsearch-filters-label site-font-std">Post Tags -></span>
+            <span class="postsearch-filters-chip site-font-std">
                 	${tagCaptionData}
             </span>				
         </p>        

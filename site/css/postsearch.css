@@ -17,27 +17,29 @@
   
 .postsearch-filters-px {
     display: grid;
-    grid-template-columns: 12rem 1fr;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 12rem 1fr; Desktop proxemics. */
     align-items: baseline;
-    padding: 0 0 .5rem .75rem;
+    margin-block-end: var(--sz-200);
+    /* padding: 0 0 .5rem .75rem; Desktop proxemics. */ 
 }
 
 .postsearch-filters-label {
-    font-size: 1.5rem;
+    --knob-std-fs: var(--fsz-clamp-16x18);
     color: var(--clr-med-dark);
 }
 
 .postsearch-filters-chips {
     display: flex;
     flex-wrap: wrap;
-    row-gap: .5rem;
+    row-gap: var(--sz-200);
 }
 
 .postsearch-filters-chip {
+    --knob-std-fs: var(--fsz-clamp-16x18);
     position: relative;
     top: -.125rem;
     margin: 0 0 0 .5rem;
-    font-size: 1.25rem;
     color: var(--clr-xlt-dark);
 }
 
