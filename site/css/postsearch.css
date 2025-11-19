@@ -2,6 +2,10 @@
     postsearch.css
 --------------------------------------------------------- */
 
+.postsearch-filters-header {
+    --knob-secondary-heading-fs: var(--fsz-clamp-20x22);
+}
+
 .postsearch-tags {
     --knob-form-fs: var(--fsz-clamp-16x18);
 }
@@ -11,25 +15,25 @@
     padding-block-end: var(--sz-400);
 }
   
-.search-results-px {
+.postsearch-filters-px {
     display: grid;
     grid-template-columns: 12rem 1fr;
     align-items: baseline;
     padding: 0 0 .5rem .75rem;
 }
 
-.search-results-label {
+.postsearch-filters-label {
     font-size: 1.5rem;
     color: var(--clr-med-dark);
 }
 
-.search-results-chips {
+.postsearch-filters-chips {
     display: flex;
     flex-wrap: wrap;
     row-gap: .5rem;
 }
 
-.search-results-chip {
+.postsearch-filters-chip {
     position: relative;
     top: -.125rem;
     margin: 0 0 0 .5rem;
@@ -37,7 +41,7 @@
     color: var(--clr-xlt-dark);
 }
 
-.search-results-btn {
+.postsearch-filters-btn {
     position: relative;
     margin-left: .25rem;
     padding: 0 .3125rem;
@@ -51,7 +55,7 @@
     color: var(--clr-xlt-light);
 }
 
-.search-results-btn:hover {
+.postsearch-filters-btn:hover {
     background-color: var(--clr-med-blue);
     transition-duration: .5s; 
 }

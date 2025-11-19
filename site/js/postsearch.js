@@ -190,9 +190,9 @@ postsearch.renderSearchFilters = (submitType) => {
         .map(tag => tag.trim())
         .filter(tag => tag !== '')
         .map(tag =>
-            `<span class="search-results-chip" data-type="post-tag" data-value="${tag}">
+            `<span class="postsearch-filters-chip" data-type="post-tag" data-value="${tag}">
             ${tag}
-            <button class="search-results-btn" aria-label="Remove">x</button>
+            <button class="postsearch-filters-btn" aria-label="Remove">x</button>
             </span>
         `)
         .join('\n');
@@ -202,22 +202,22 @@ postsearch.renderSearchFilters = (submitType) => {
     filters.style.paddingTop = '1rem';
 
     filters.innerHTML = `
-        <h2 class="site-font-secondary-heading">Showing results for:</h2>
+        <h2 class="postsearch-filters-header site-font-secondary-heading">Showing results for:</h2>
         <div class="postsearch-filter-chips">
 
-        <p class="search-results-px">
-            <span class="search-results-label">Post Category -></span>
-            <span class="search-results-chips">
-                <span class="search-results-chip" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
+        <p class="postsearch-filters-px">
+            <span class="postsearch-filters-label">Post Category -></span>
+            <span class="postsearch-filters-chips">
+                <span class="postsearch-filters-chip" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
                     ${normalizedCaptionData.postCategory}
-                    <button class="search-results-btn" aria-label="Remove">x</button>
+                    <button class="postsearch-filters-btn" aria-label="Remove">x</button>
                 </span>
             </span>
         </p>
 
-        <p class="search-results-px">
-            <span class="search-results-label">Post Tags -></span>
-            <span class="search-results-chips">
+        <p class="postsearch-filters-px">
+            <span class="postsearch-filters-label">Post Tags -></span>
+            <span class="postsearch-filters-chips">
                 	${tagCaptionData}
             </span>				
         </p>        
@@ -232,10 +232,10 @@ postsearch.renderSearchFilters = (submitType) => {
 
 postsearch.bindChipRemovalEvent = () => {
 
-    const chipEles = document.querySelectorAll('.search-results-btn');
+    const chipEles = document.querySelectorAll('.postsearch-btn');
     chipEles.forEach(btn =>
         btn.addEventListener('click', (event) => {
-            const chipEle = event.target.closest('.search-results-chip');
+            const chipEle = event.target.closest('.postsearch-chip');
                 postsearch.removeChipFilter(chipEle);
                 postsearch.submitSearch('dechip');
         })
