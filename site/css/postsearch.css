@@ -38,8 +38,9 @@
 .postsearch-filters-chip {
     --knob-std-fs: var(--fsz-clamp-16x18);
     position: relative;
+    display: block;
     top: -.125rem;
-    margin: 0 0 0 .5rem;
+    /* margin: 0 0 0 .5rem; Desktop proxemics. */
     color: var(--clr-xlt-dark);
 }
 
