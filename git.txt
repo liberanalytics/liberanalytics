@@ -1,0 +1,38 @@
+diff --git a/.gitignore b/.gitignore
+index 45448aa..59b3359 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -15,6 +15,5 @@ config/la_config_test.json
+ config/la_data_test.config
+ config/la_data_prod.config
+ site/phpinfo.php
+-*git*
+ *codetohtml*
+ *liber_enhance*
+diff --git a/site/css/la_hdrftr.css b/site/css/la_hdrftr.css
+index d058b46..8a9e7a3 100644
+--- a/site/css/la_hdrftr.css
++++ b/site/css/la_hdrftr.css
+@@ -52,9 +52,9 @@
+ 
+ .site-header-search {
+     /* width: min(calc(20 * var(--sz-400)), 90vw); -- Desktop layout -- */
+-    --fs-form: var(--fsz-100);
+-    --fw-form: var(--fw-bold);
+-    --fc-form: var(--fc-xlight);
++    --fs-form-100: var(--fsz-100);
++    --fw-form-bold: var(--fw-bold);
++    --fc-form-xlight: var(--fc-xlight);
+     display: block;
+     box-sizing: border-box;
+     width: var(--site-vw-inline);
+@@ -63,6 +63,9 @@
+     border-radius: var(--sz-200);
+     margin-inline: auto;
+     background: url('../assets/mg.svg') var(--clr-dk-blue) no-repeat var(--sz-025) center;
++    font-size: var(--fs-form-100);
++    font-weight: var(--fw-form-bold);
++    color: var(--fc-form-xlight);
+ }
+ 
+ .site-header-search-btn {
