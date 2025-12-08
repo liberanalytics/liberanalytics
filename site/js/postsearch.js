@@ -232,10 +232,10 @@ postsearch.renderSearchFilters = (submitType) => {
 
 postsearch.bindChipRemovalEvent = () => {
 
-    const chipEles = document.querySelectorAll('.postsearch-btn');
+    const chipEles = document.querySelectorAll('.postsearch-filters-btn');
     chipEles.forEach(btn =>
         btn.addEventListener('click', (event) => {
-            const chipEle = event.target.closest('.postsearch-chip');
+            const chipEle = event.target.closest('.postsearch-filters-chip');
                 postsearch.removeChipFilter(chipEle);
                 postsearch.submitSearch('dechip');
         })
