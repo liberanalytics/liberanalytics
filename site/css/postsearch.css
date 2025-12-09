@@ -49,8 +49,8 @@
     margin-left: .25rem;
     padding: 0 .3125rem;
     vertical-align: baseline;
-    font-size: 1.25rem;
-    top: -.125rem;
+    font-size: 1.0rem;
+    /* top: -.125rem; */
     border-radius: .25rem;
     border: 1px solid transparent;
     cursor: pointer;
