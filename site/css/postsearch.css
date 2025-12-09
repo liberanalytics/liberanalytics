@@ -64,6 +64,10 @@
     transition-duration: .5s; 
 }
 
+.postsearch-results-cards {
+    margin-block-start: var(--sz-400);
+}
+
 .postsearch-card {
     margin-block-start: var(--sz-300);
 }

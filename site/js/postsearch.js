@@ -171,6 +171,7 @@ postsearch.renderSearchResults = (searchResults) => {
 
     //
     postsearch.searchResultsContainerEle.innerHTML = '';
+    postsearch.searchResultsContainerEle.classList.add('postsearch-results-cards');
 
     //
     searchResults.forEach(searchResult => {
