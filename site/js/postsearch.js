@@ -191,7 +191,7 @@ postsearch.renderSearchFilters = (submitType) => {
         .map(tag => tag.trim())
         .filter(tag => tag !== '')
         .map(tag =>
-            `<span class="postsearch-filters-chip" data-type="post-tag" data-value="${tag}">
+            `<span class="postsearch-filters-chip site-font-std" data-type="post-tag" data-value="${tag}">
             ${tag}
             <button class="postsearch-filters-btn" aria-label="Remove">x</button>
             </span>
@@ -216,9 +216,7 @@ postsearch.renderSearchFilters = (submitType) => {
 
         <p class="postsearch-filters-px">
             <span class="postsearch-filters-label site-font-std">Post Tags -></span>
-            <span class="postsearch-filters-chip site-font-std">
-                	${tagCaptionData}
-            </span>				
+            ${tagCaptionData}			
         </p>        
         
         </div>
