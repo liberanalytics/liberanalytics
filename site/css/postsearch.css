@@ -47,11 +47,11 @@
 
 .postsearch-filters-btn {
     position: relative;
-    margin-left: .25rem;
-    padding: 0 .3125rem;
+    margin-left: var(--sz-075);
+    padding: 0 var(--sz-100);
     vertical-align: baseline;
     font-size: 1.0rem;
-    /* top: -.125rem; */
+    /* top: -.125rem; Desktop proxemics. */
     border-radius: .25rem;
     border: 1px solid transparent;
     cursor: pointer;
