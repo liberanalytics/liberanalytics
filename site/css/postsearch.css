@@ -63,3 +63,7 @@
     background-color: var(--clr-med-blue);
     transition-duration: .5s; 
 }
+
+.postsearch-card {
+    margin-block-start: var(--sz-300);
+}

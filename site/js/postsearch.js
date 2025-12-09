@@ -222,7 +222,7 @@ postsearch.renderSearchFilters = (submitType) => {
             </span>				
         </p>        
         
-        </div><!-- End postsearch_filters_chips -->
+        </div>
     `;
 
     postsearch.searchFiltersContainerEle.appendChild(filters);
