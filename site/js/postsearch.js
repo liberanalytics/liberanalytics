@@ -208,11 +208,9 @@ postsearch.renderSearchFilters = (submitType) => {
 
         <p class="postsearch-filters-px">
             <span class="postsearch-filters-label site-font-std">Post Category -></span>
-            <span class="postsearch-filters-chips">
-                <span class="postsearch-filters-chip site-font-std" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
-                    ${normalizedCaptionData.postCategory}
-                    <button class="postsearch-filters-btn" aria-label="Remove">x</button>
-                </span>
+            <span class="postsearch-filters-chip site-font-std" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
+                ${normalizedCaptionData.postCategory}
+                <button class="postsearch-filters-btn" aria-label="Remove">x</button>
             </span>
         </p>
 

@@ -10,7 +10,7 @@
     --knob-form-fs: var(--fsz-clamp-16x18);
 }
 
-.postsearch-filter-chips-container {
+.postsearch-filters-chips-container {
     padding-block-start: var(--sz-200);
 }
   
