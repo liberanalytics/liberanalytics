@@ -299,25 +299,25 @@ postsearch.renderCard = (cardData) => {
     //
     const normalizedCardData = postsearch.normalizeCardData(cardData);
     const card = document.createElement('div');
-    card.classList.add('site-box-shadow', 'search-card');
+    card.classList.add('postsearch-card', 'site-box-shadow');
 
     //
     card.innerHTML = `
-        <h2 class="search-card-desc">${normalizedCardData.short_desc}</h2>
-        <div class="search-card-components">
-            <a class="search-card-img" href="${encodeURIComponent(normalizedCardData.post_name)}">
+        <h2 class="postsearch-card-desc">${normalizedCardData.short_desc}</h2>
+        <div class="postsearch-card-components">
+            <a class="postsearch-card-img" href="${encodeURIComponent(normalizedCardData.post_name)}">
                 <img src="assets/${normalizedCardData.search_img}">
             </a>
-            <a class="search-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="postsearch-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.long_desc}
             </a>
-            <a class="search-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="postsearch-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.intro}
             </a>
         </div>
-        <div class="search-card-attrs">
-            <span class="search-card-date">${normalizedCardData.post_created}</span>
-            <a class="search-card-cat" href="postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
+        <div class="postsearch-card-attrs">
+            <span class="postsearch-card-date">${normalizedCardData.post_created}</span>
+            <a class="postsearch-card-cat" href="postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
                 ${normalizedCardData.post_category}
             </a>
         </div>
