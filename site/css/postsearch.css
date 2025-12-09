@@ -39,7 +39,8 @@
     --knob-std-fs: var(--fsz-clamp-16x18);
     position: relative;
     display: block;
-    /* top: -.125rem; */
+    margin-block-end: var(--sz-100);
+    /* top: -.125rem; Desktop proxemics. */
     /* margin: 0 0 0 .5rem; Desktop proxemics. */
     color: var(--clr-xlt-dark);
 }
