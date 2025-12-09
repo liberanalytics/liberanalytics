@@ -9,11 +9,6 @@
 .postsearch-tags {
     --knob-form-fs: var(--fsz-clamp-16x18);
 }
-
-.postsearch-filter-chips {
-    padding-block-start: var(--sz-200);
-    padding-block-end: var(--sz-400);
-}
   
 .postsearch-filters-px {
     display: grid;
