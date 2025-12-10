@@ -126,6 +126,12 @@
   display: flex;
 }
 
+.postsearch-card-date {
+    --knob-std-fs: var(--fsz-clamp-16x18);
+    --knob-std-fc: var(--fc-midlight);
+}
+
 .postsearch-card-cat {
-  margin-left: auto;
+    --knob-link-fs: var(--fsz-clamp-16x18);
+    margin-left: auto;
 }
