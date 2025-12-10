@@ -29,12 +29,6 @@
     color: var(--clr-med-dark);
 }
 
-/* .postsearch-filters-chips {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: var(--sz-200);
-} */
-
 .postsearch-filters-chip {
     --knob-std-fs: var(--fsz-clamp-16x18);
     --knob-std-fc: var(--clr-xlt-dark);
@@ -75,7 +69,7 @@
 
 .postsearch-card {
     padding: var(--sz-100);
-    margin-block-start: var(--sz-300);
+    margin-block-start: var(--sz-400);
 }
 
 .postsearch-card-desc {
