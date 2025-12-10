@@ -29,11 +29,11 @@
     color: var(--clr-med-dark);
 }
 
-.postsearch-filters-chips {
+/* .postsearch-filters-chips {
     display: flex;
     flex-wrap: wrap;
     row-gap: var(--sz-200);
-}
+} */
 
 .postsearch-filters-chip {
     --knob-std-fs: var(--fsz-clamp-16x18);
