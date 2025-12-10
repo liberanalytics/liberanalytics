@@ -123,7 +123,8 @@
 }
 
 .postsearch-card-attrs {
-  display: flex;
+    display: flex;
+    margin-block-start: var(--sz-100);
 }
 
 .postsearch-card-date {
