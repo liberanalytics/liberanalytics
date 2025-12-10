@@ -133,7 +133,7 @@
 .site-font-link-std:focus {
     color: var(--knob-link-hover-fc, var(--fc-link-hover));
     background-color: var(--knob-link-hover-bg, transparent);
-    text-decoration: var(--link-hover-decoration, underline);
+    text-decoration: var(--knob-link-hover-decoration, underline);
     transition-duration: var(--transition-fast);
     cursor: pointer;
 }
