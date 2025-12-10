@@ -118,7 +118,11 @@ main {
     margin-block-end: var(--knob-stack-mb, var(--sz-400));
 }
 
-.site-stack-mt > * + * {
+.site-stack-start-mt > * + * {
+    margin-block-start: var(--knob-stack-mt, var(--sz-400));
+}
+
+.site-stack-end-mt > *:not(:last-child) {
     margin-block-start: var(--knob-stack-mt, var(--sz-400));
 }
 
