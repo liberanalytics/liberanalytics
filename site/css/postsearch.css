@@ -45,7 +45,7 @@
     /* margin: 0 0 0 .5rem; Desktop proxemics. */
 }
 
-.postsearch-filters-chip:is(:last-child) {
+.postsearch-filters-chip:last-child {
     margin-block-end: 0;
 }
 
