@@ -70,8 +70,8 @@ $laData = new classes\LaData();
 
 	<main>
 		<div class="page-wrap">
-			<div class="site-flex site-flex-gap-800">
-				<section class="featured-posts-container site-flex-grow-shrink">	
+			<div class="">
+				<section class="">	
 					<h1 class="site-primary-heading">Featured</h1>
 					
 					<?php
@@ -130,7 +130,7 @@ $laData = new classes\LaData();
 
 				</section>
 
-				<section class="latest-posts-container site-flex-grow-shrink">
+				<section class="latest-posts-container">
 
 					<h1 class="site-primary-heading">Latest Posts</h1>
 					<div class="latest-posts">
@@ -160,7 +160,7 @@ $laData = new classes\LaData();
 									echo 
 										"<li>" .
 											 $htmlFormatting . 
-											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-font-link-std site-link-fc-xdark\">{$post['short_desc']}</a>" .
+											 "<a href=\"{$post['post_name']}\" class=\"\">{$post['short_desc']}</a>" .
 										"</li>";
 	
 									$iter += 1;
@@ -172,12 +172,12 @@ $laData = new classes\LaData();
 				</section>
 			</div>
 
-			<section class="site-mt-std">
+			<section class="">
 				<h1 class="site-primary-heading">Our Mission</h1>
 
-				<div class="site-block-std site-flex site-flex-gap-800">
+				<div class="site-block-std">
 
-					<p class="site-flex-grow-shrink site-fs-med">
+					<p class="">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
 						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
 						are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
@@ -185,7 +185,7 @@ $laData = new classes\LaData();
 						mind while working with data as well as inspire individuals to keep improving!
 					</p>
 
-					<div class="site-flex-grow-shrink">
+					<div class="">
 						<img src="assets/mission.png">
 					</div>                    
 
