@@ -111,13 +111,14 @@
     margin-block-start: var(--sz-100);
 }
 
-.postsearch-card-longdesc:hover, .postsearch-card-longdesc:focus {
+.postsearch-card:hover, .postsearch-card:focus {
     --knob-link-hover-fc: var(--fc-light); 
     --knob-link-hover-decoration: none;
 }
 
 .postsearch-card-attrs {
     display: flex;
+    align-items: baseline;
     margin-block-start: var(--sz-100);
 }
 
