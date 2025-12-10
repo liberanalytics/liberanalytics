@@ -210,7 +210,6 @@
 }
 
 .site-footer-menu {
-    --knob-link-hover-decoration: none;
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 0.4rem 1.2rem;
