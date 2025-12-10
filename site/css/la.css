@@ -106,6 +106,14 @@ main {
         var(--clr-lt-light) 100% ) 1;
 }
 
+.site-gradient-rtl-border-bottom {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-image: linear-gradient( to left, 
+        var(--clr-med-light) , 
+        var(--clr-lt-light) ) 1;
+}
+
 .site-primary-heading {
     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
     margin-block-end: var(--sz-400);
