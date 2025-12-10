@@ -70,9 +70,10 @@
 }
 
 .postsearch-results-cards {
-    margin-block-start: var(--sz-400);
+    margin-block-start: var(--sz-300);
 }
 
 .postsearch-card {
+    padding: var(--sz-100);
     margin-block-start: var(--sz-300);
 }
