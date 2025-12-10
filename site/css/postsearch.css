@@ -70,15 +70,6 @@
 .postsearch-card {
     padding: var(--sz-100);
     margin-block-start: var(--sz-400);
-    transition:
-        background-color var(--transition-fast) ease-in-out,
-        box-shadow var(--transition-fast) ease-in-out,
-        transform var(--transition-fast) ease-in-out;    
-}
-
-.postsearch-card:hover, .postsearch-card:focus {
-    background-color: var(--fc-link-hover);
-    cursor: pointer;
 }
 
 .postsearch-card-desc {
@@ -118,6 +109,11 @@
     --knob-link-fc: var(--fc-light);
     display: block;
     margin-block-start: var(--sz-100);
+}
+
+.postsearch-card-longdesc:hover, .postsearch-card-longdesc:focus {
+    --knob-link-hover-fc: var(--fc-light); 
+    --knob-link-hover-decoration: none;
 }
 
 .postsearch-card-attrs {
