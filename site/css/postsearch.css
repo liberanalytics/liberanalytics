@@ -87,7 +87,7 @@
 }
 
 .postsearch-card-components {
-    margin-block-start: var(--sz-300);
+    padding-block-start: var(--sz-300);
     padding-block-end: var(--sz-100);
 }
 
