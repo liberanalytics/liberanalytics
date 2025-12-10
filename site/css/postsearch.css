@@ -121,3 +121,11 @@
     --knob-link-hover-fc: var(--fc-light); 
     --knob-link-hover-decoration: none;
 }
+
+.postsearch-card-attrs {
+  display: flex;
+}
+
+.postsearch-card-cat {
+  margin-left: auto;
+}

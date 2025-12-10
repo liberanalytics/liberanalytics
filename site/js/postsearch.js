@@ -308,13 +308,13 @@ postsearch.renderCard = (cardData) => {
             <a class="postsearch-card-longdesc site-font-link-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.long_desc}
             </a>
-            <a class="postsearch-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="postsearch-card-intro" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.intro}
             </a>
         </div>
         <div class="postsearch-card-attrs">
             <span class="postsearch-card-date">${normalizedCardData.post_created}</span>
-            <a class="postsearch-card-cat" href="postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
+            <a class="postsearch-card-cat" href="/postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
                 ${normalizedCardData.post_category}
             </a>
         </div>
