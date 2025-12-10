@@ -30,7 +30,7 @@ $laData = new classes\LaData();
 
 </head>
 
-<body class="page site-font-std">
+<body class="page page-index site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 
