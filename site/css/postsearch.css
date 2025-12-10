@@ -78,7 +78,7 @@
     margin-block-start: var(--sz-300);
 }
 
-.search-card-desc {
+.postsearch-card-desc {
     --knob-std-fs: var(--fsz-clamp-18x20);
     --knob-std-fc: var(--fc-med-green);
     padding-block-end: var(--sz-100);
