@@ -36,6 +36,7 @@
 
 .postsearch-filters-chip {
     --knob-std-fs: var(--fsz-clamp-16x18);
+    grid-column: 2;
     position: relative;
     display: block;
     margin-block-end: var(--sz-100);
