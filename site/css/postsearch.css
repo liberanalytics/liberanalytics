@@ -108,8 +108,11 @@
 .postsearch-card-longdesc, .postsearch-card-longdesc:visited {
     --knob-link-fs: var(--fsz-clamp-16x18);
     --knob-link-fc: var(--fc-light);
-    --knob-link-hover-fc: var(--fc-light); 
-    --knob-link-hover-decoration: none;
     display: block;
     margin-block-start: var(--sz-100);
+}
+
+.postsearch-card-longdesc:hover, .postsearch-card-longdesc:focus {
+    --knob-link-hover-fc: var(--fc-light); 
+    --knob-link-hover-decoration: none;
 }
