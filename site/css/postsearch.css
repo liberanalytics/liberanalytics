@@ -36,13 +36,13 @@
 
 .postsearch-filters-chip {
     --knob-std-fs: var(--fsz-clamp-16x18);
+    --knob-std-fc: var(--clr-xlt-dark);
     grid-column: 2;
     position: relative;
     display: block;
     margin-block-end: var(--sz-100);
     /* top: -.125rem; Desktop proxemics. */
     /* margin: 0 0 0 .5rem; Desktop proxemics. */
-    color: var(--clr-xlt-dark);
 }
 
 .postsearch-filters-chip:is(:last-child) {
