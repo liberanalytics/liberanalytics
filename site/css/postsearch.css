@@ -77,7 +77,8 @@
 }
 
 .postsearch-card:hover, .postsearch-card:focus {
-    background-color: var(--fc-light);
+    background-color: var(--fc-link-hover);
+    cursor: pointer;
 }
 
 .postsearch-card-desc {
