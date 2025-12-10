@@ -1,0 +1,97 @@
+diff --git a/gitdiff.txt b/gitdiff.txt
+new file mode 100644
+index 0000000..9075a9f
+--- /dev/null
++++ b/gitdiff.txt
+@@ -0,0 +1,78 @@
++diff --git a/gitdiff.txt b/gitdiff.txt
++deleted file mode 100644
++index 7d6259e..0000000
++--- a/gitdiff.txt
+++++ /dev/null
++@@ -1,24 +0,0 @@
++-diff --git a/site/js/postsearch.js b/site/js/postsearch.js
++-index a38e6c1..9a3e221 100644
++---- a/site/js/postsearch.js
++-+++ b/site/js/postsearch.js
++-@@ -191,7 +191,7 @@ postsearch.renderSearchFilters = (submitType) => {
++-         .map(tag => tag.trim())
++-         .filter(tag => tag !== '')
++-         .map(tag =>
++--            `<span class="postsearch-filters-chip" data-type="post-tag" data-value="${tag}">
++-+            `<span class="postsearch-filters-chip site-font-std" data-type="post-tag" data-value="${tag}">
++-             ${tag}
++-             <button class="postsearch-filters-btn" aria-label="Remove">x</button>
++-             </span>
++-@@ -216,9 +216,7 @@ postsearch.renderSearchFilters = (submitType) => {
++- 
++-         <p class="postsearch-filters-px">
++-             <span class="postsearch-filters-label site-font-std">Post Tags -></span>
++--            <span class="postsearch-filters-chip site-font-std">
++--                	${tagCaptionData}
++--            </span>				
++-+            ${tagCaptionData}			
++-         </p>        
++-         
++-         </div>
++diff --git a/site/css/la.css b/site/css/la.css
++index 00f1eca..e50dc58 100644
++--- a/site/css/la.css
+++++ b/site/css/la.css
++@@ -106,6 +106,14 @@ main {
++         var(--clr-lt-light) 100% ) 1;
++ }
++ 
+++.site-gradient-rtl-border-bottom {
+++    border-bottom-width: 2px;
+++    border-bottom-style: solid;
+++    border-image: linear-gradient( to left, 
+++        var(--clr-med-light) , 
+++        var(--clr-lt-light) ) 1;
+++}
+++
++ .site-primary-heading {
++     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
++     margin-block-end: var(--sz-400);
++diff --git a/site/css/postsearch.css b/site/css/postsearch.css
++index 9faedd9..a4298b5 100644
++--- a/site/css/postsearch.css
+++++ b/site/css/postsearch.css
++@@ -77,3 +77,11 @@
++     padding: var(--sz-100);
++     margin-block-start: var(--sz-300);
++ }
+++
+++.search-card-desc {
+++    --knob-std-fs: var(--fsz-clamp-18x20);
+++    --knob-std-fc: var(--fc-med-green);
+++    padding-block-end: var(--sz-100);
+++    text-decoration: none;
+++    text-align: center;
+++}
++diff --git a/site/js/postsearch.js b/site/js/postsearch.js
++index 9a3e221..39838b0 100644
++--- a/site/js/postsearch.js
+++++ b/site/js/postsearch.js
++@@ -300,7 +300,7 @@ postsearch.renderCard = (cardData) => {
++ 
++     //
++     card.innerHTML = `
++-        <h2 class="postsearch-card-desc">${normalizedCardData.short_desc}</h2>
+++        <h2 class="postsearch-card-desc site-font-std site-gradient-rtl-border-bottom">${normalizedCardData.short_desc}</h2>
++         <div class="postsearch-card-components">
++             <a class="postsearch-card-img" href="${encodeURIComponent(normalizedCardData.post_name)}">
++                 <img src="assets/${normalizedCardData.search_img}">
+diff --git a/site/css/postsearch.css b/site/css/postsearch.css
+index f56bd55..4bd959f 100644
+--- a/site/css/postsearch.css
++++ b/site/css/postsearch.css
+@@ -85,3 +85,7 @@
+     text-decoration: none;
+     text-align: center;
+ }
++
++.postsearch-card-intro {
++    display: hidden;
++}
+\ No newline at end of file

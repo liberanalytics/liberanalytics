@@ -85,3 +85,7 @@
     text-decoration: none;
     text-align: center;
 }
+
+.postsearch-card-intro {
+    display: hidden;
+}
