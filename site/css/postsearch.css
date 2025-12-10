@@ -89,3 +89,13 @@
 .postsearch-card-intro {
     display: none;
 }
+
+.postsearch-card-img {
+    display: block;                 /* make the <a> behave like a block */
+}
+
+.postsearch-card-img > img {
+    display: block;
+    width: 100%;
+    height: auto;                   /* keep original aspect ratio */    
+}
