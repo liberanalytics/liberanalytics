@@ -45,7 +45,7 @@
     color: var(--clr-xlt-dark);
 }
 
-.postsearch-filters-chip:not(:last-child) {
+.postsearch-filters-chip:is(:last-child) {
     margin-block-end: 0;
 }
 
