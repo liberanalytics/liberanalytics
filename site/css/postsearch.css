@@ -88,6 +88,7 @@
 .postsearch-card-components:hover {
   background-color: var(--clr-xlt-blue);
   transition: background-color var(--transition-fast) ease-in-out;
+  cursor: pointer;
 }
 
 .postsearch-card-intro {
