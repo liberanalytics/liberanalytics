@@ -275,7 +275,7 @@ postsearch.normalizeCardData = (cardData) => {
         short_desc: cardData.short_desc,
         long_desc: cardData.long_desc,
         intro: cardData.intro,
-        search_img: cardData.search_img
+        search_img: cardData.post_img
     };
 }
 
