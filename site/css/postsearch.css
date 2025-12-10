@@ -86,6 +86,11 @@
     text-align: center;
 }
 
+.postsearch-card-components {
+    margin-block-start: var(--sz-300);
+    margin-block-end: var(--sz-100);
+}
+
 .postsearch-card-intro {
     display: none;
 }

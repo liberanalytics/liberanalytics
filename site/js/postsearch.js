@@ -305,7 +305,7 @@ postsearch.renderCard = (cardData) => {
             <a class="postsearch-card-img" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 <img src="assets/${normalizedCardData.search_img}">
             </a>
-            <a class="postsearch-card-longdesc" href="${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="postsearch-card-longdesc site-font-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.long_desc}
             </a>
             <a class="postsearch-card-intro" href="${encodeURIComponent(normalizedCardData.post_name)}">
