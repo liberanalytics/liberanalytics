@@ -4,6 +4,7 @@
 
 .postsearch-filters-header {
     --knob-secondary-heading-fs: var(--fsz-clamp-20x22);
+    margin-block-end: var(--sz-200);
 }
 
 .postsearch-tags {
