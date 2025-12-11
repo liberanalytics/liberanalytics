@@ -95,9 +95,9 @@ $laData = new classes\LaData();
 					{
 						echo 
 						'<article class="post-card site-box-shadow">'
-						. '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">'. "{$post['short_desc']}" . '</h2>'
+						. '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">' . "{$post['short_desc']}" . '</h2>'
 						. '<div class="post-card-components site-gradient-ltr-border-bottom">'
-						. '<a class="post-card-img" href="test">'
+						. '<a class="post-card-img" href="' . "{$post['search_img']}" . '">'
 						. '</a>'
 						. '</div>'
 						. '</article>';
