@@ -104,7 +104,7 @@ $laData = new classes\LaData();
 						. '</div>'
 						. '<div class="post-card-attrs">'
 						. '<span class="post-card-date site-font-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
-						. '<a class="post-card-cat site-font-link-std" href="/' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
+						. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
 						. '</div>'
 						. '</article>';
 
