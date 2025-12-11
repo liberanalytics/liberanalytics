@@ -233,7 +233,7 @@
 .site-footer-menu .site-footer-menu-link {
     display: inline-block;
     text-decoration: none;
-    border-bottom: 1px solid var(--clr-med-blue);
+    border-bottom: 2px solid var(--clr-med-blue);
     transition:
         border-bottom-width var(--transition-fast) ease,
         border-bottom-color var(--transition-fast) ease;
@@ -242,11 +242,11 @@
 
 .site-footer-menu .site-footer-menu-link:visited {
     text-decoration: none;
-    border-bottom: 1px solid var(--clr-med-blue);
+    border-bottom: 2px solid var(--clr-med-blue);
 }
 
 .site-footer-menu .site-footer-menu-link:hover {
-    border-bottom: 1px solid var(--fc-tag-hover-border-accent);
+    border-bottom: 2px solid var(--fc-tag-hover-border-accent);
     transition-duration: .3s;
 }
 
