@@ -9,7 +9,7 @@
 
 .post-card-desc {
     --knob-std-fs: var(--fsz-clamp-18x20);
-    --knob-std-fc: var(--fc-med-green);
+    --knob-std-fc: var(--fc-med);
     padding-block-end: var(--sz-100);
     text-decoration: none;
     text-align: center;
