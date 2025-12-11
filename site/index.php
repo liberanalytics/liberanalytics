@@ -71,112 +71,48 @@ $laData = new classes\LaData();
 
 	<main>
 		<div class="page-wrap">
-			<div class="">
-				<section class="">	
-					<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
-					
-					<?php
-
-					/**
-					 * 
-					 */
-					$featuredPosts = $laData->crudData(
-						CrudOperation::GETPOSTS,
-						CrudType::CRUDREAD,
-						CrudResultsetType::RESULTSET_ROWS,
-						CrudFetchStyle::FETCHSTYLE_ASSOC,
-						[
-							'order_by' => 'featured',
-							'order_by_ascdesc' => 'ASC'
-						]						
-					);
-					$iter = 1;
-					foreach ($featuredPosts as $postnum => $post)
-					{
-						echo 
-						'<article class="post-card site-box-shadow">'
-						. '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
-						. '<div class="post-card-components site-gradient-ltr-border-bottom">'
-						. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
-						. '<img src="/assets/' . $post['post_img'] . '">'
-						. '</a>'
-						. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
-						. '</div>'
-						. '<div class="post-card-attrs">'
-						. '<span class="post-card-date site-font-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
-						. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
-						. '</div>'
-						. '</article>';
-
-						$iter += 1;
-					}
+			<section class="">	
+				<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
 				
-				?>		
+				<?php
 
-				</section>
+				/**
+				 * 
+				 */
+				$featuredPosts = $laData->crudData(
+					CrudOperation::GETPOSTS,
+					CrudType::CRUDREAD,
+					CrudResultsetType::RESULTSET_ROWS,
+					CrudFetchStyle::FETCHSTYLE_ASSOC,
+					[
+						'order_by' => 'featured',
+						'order_by_ascdesc' => 'ASC'
+					]						
+				);
+				$iter = 1;
+				foreach ($featuredPosts as $postnum => $post)
+				{
+					echo 
+					'<article class="post-card site-box-shadow">'
+					. '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
+					. '<div class="post-card-components site-gradient-ltr-border-bottom">'
+					. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
+					. '<img src="/assets/' . $post['post_img'] . '">'
+					. '</a>'
+					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
+					. '</div>'
+					. '<div class="post-card-attrs">'
+					. '<span class="post-card-date site-font-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
+					. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
+					. '</div>'
+					. '</article>';
 
-				<section class="latest-posts-container">
+					$iter += 1;
+				}
+			
+			?>		
 
-					<h1 class="site-primary-heading site-font-primary-heading">Latest Posts</h1>
-					<div class="latest-posts">
-						<ul>
-							<?php
-	
-								$latestPosts = $laData->crudData(
-									CrudOperation::GETPOSTS,
-									CrudType::CRUDREAD,
-									CrudResultsetType::RESULTSET_ROWS,
-									CrudFetchStyle::FETCHSTYLE_ASSOC,
-									[
-										'order_by' => 'post_category',
-										'order_by_ascdesc' => 'DESC'
-									]						
-								);
-								$iter = 1;
-								foreach ($latestPosts as $postNum => $post)
-								{
-									if ($iter == 1) {
-										$htmlFormatting = "\t";
-									}
-									else {
-										$htmlFormatting = "\n\t\t\t\t\t"; 
-									}
-	
-									echo 
-										"<li>" .
-											 $htmlFormatting . 
-											 "<a href=\"{$post['post_name']}\" class=\"\">{$post['short_desc']}</a>" .
-										"</li>";
-	
-									$iter += 1;
-								}
-							?>
-						</ul>
-	
-					</div>  
-				</section>
-			</div>
-
-			<section class="">
-				<h1 class="site-primary-heading site-font-primary-heading">Our Mission</h1>
-
-				<div class="site-block-std">
-
-					<p class="">
-						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
-						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
-						are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
-						We hope that the content published will illuminate how to exercise a <em class="site-font-brand">liber</em> (free)
-						mind while working with data as well as inspire individuals to keep improving!
-					</p>
-
-					<div class="">
-						<img src="assets/mission.png">
-					</div>                    
-
-				</div>
-			</section>
-		
+			</section>	
 		</div>
 	</main>
 
