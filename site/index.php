@@ -100,7 +100,7 @@ $laData = new classes\LaData();
 						. '<a class="post-card-img" href="/' . $post['post_name'] . '">'
 						. '<img src="/assets/' . $post['post_img'] . '">'
 						. '</a>'
-						. '<a class="post-card-longdesc site-font-link-std" href="/' . $post['post_name'] . '">' . $post['long_desc'] . '/a>'						
+						. '<a class="post-card-longdesc site-font-link-std" href="/' . $post['post_name'] . '">' . $post['long_desc'] . '</a>'						
 						. '</div>'
 						. '</article>';
 
