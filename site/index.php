@@ -97,10 +97,14 @@ $laData = new classes\LaData();
 						'<article class="post-card site-box-shadow">'
 						. '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
 						. '<div class="post-card-components site-gradient-ltr-border-bottom">'
-						. '<a class="post-card-img" href="/' . $post['post_name'] . '">'
+						. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
 						. '<img src="/assets/' . $post['post_img'] . '">'
 						. '</a>'
-						. '<a class="post-card-longdesc site-font-link-std" href="/' . $post['post_name'] . '">' . $post['long_desc'] . '</a>'						
+						. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
+						. '</div>'
+						. '<div class="post-card-attrs">'
+						. '<span class="post-card-date site-font-std">' . $post['post_created'] . '</span>'
+						. '<a class="post-card-cat site-font-link-std" href="/' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
 						. '</div>'
 						. '</article>';
 
