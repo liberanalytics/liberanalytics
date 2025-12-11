@@ -246,7 +246,7 @@
 }
 
 .site-footer-menu .site-footer-menu-link:hover {
-    border-bottom: 2px solid var(--fc-tag-hover-border-accent);
+    border-bottom: 1px solid var(--fc-tag-hover-border-accent);
     transition-duration: .3s;
 }
 
