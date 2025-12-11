@@ -99,29 +99,9 @@ $laData = new classes\LaData();
 							$htmlFormatting = "\n\t\t\t\t";
 						}
 
-						echo $htmlFormatting .'<article class="featured-post site-box-shadow">'
-						. "\n\t\t\t\t\t" . '<div class="featured-post-content">'                       
-						. "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
-						. "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}\">"
-						. "<img src=\"assets/{$post['featured_img']}\"></a>"
-						. "\n\t\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc-container">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-font-link-std site-link-fc-dark\" href=\"{$post['post_name']}\">"
-						. "{$post['short_desc']}</a>"
-						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-std site-flh-med\">"
-						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
-						. "\n\t\t\t\t\t\t\t" . "</p>"
-						. "\n\t\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t" . '<div class="featured-post-attrs">'
-						. "\n\t\t\t\t\t\t" . "<span class=\"site-font-std site-fc-midlight\">"
-						. date("F j, Y", strtotime($post['post_created'])) . "</span>"
-						. "\n\t\t\t\t\t\t"
-						. "<a href=\"postsearch?post_category="
-						. rawurlencode($post['post_category']) 
-						. "\" class=\"featured-post-cat site-font-link-std\">"
-						. "{$post['post_category']}</a>"
-						. "\n\t\t\t\t\t" . '</div>'
+						echo $htmlFormatting .'<article class="post-card site-box-shadow">'
+						. "\n\t\t\t\t\t" . '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">'. "{$post['short_desc']}" . '</h2>'
+						
 						. "\n\t\t\t\t" . '</article>';
 
 						$iter += 1;
