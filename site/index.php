@@ -59,6 +59,7 @@ $laData = new classes\LaData();
 	<link href="/css/la_hdrftr.css" rel="stylesheet">
 	<link href="/css/la_tags.css" rel="stylesheet">
 	<link href="/css/la_ajax.css" rel="stylesheet">
+	<link href="/css/postcard.css" rel="stylesheet">
 	<link href="/css/index.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
 
@@ -72,7 +73,7 @@ $laData = new classes\LaData();
 		<div class="page-wrap">
 			<div class="">
 				<section class="">	
-					<h1 class="site-primary-heading">Featured</h1>
+					<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
 					
 					<?php
 
@@ -132,7 +133,7 @@ $laData = new classes\LaData();
 
 				<section class="latest-posts-container">
 
-					<h1 class="site-primary-heading">Latest Posts</h1>
+					<h1 class="site-primary-heading site-font-primary-heading">Latest Posts</h1>
 					<div class="latest-posts">
 						<ul>
 							<?php

@@ -295,7 +295,7 @@ postsearch.renderCard = (cardData) => {
 
     //
     const normalizedCardData = postsearch.normalizeCardData(cardData);
-    const card = document.createElement('div');
+    const card = document.createElement('article');
     card.classList.add('post-card', 'site-box-shadow');
 
     //
