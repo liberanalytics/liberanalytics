@@ -92,17 +92,16 @@ $laData = new classes\LaData();
 					);
 					$iter = 1;
 					foreach ($featuredPosts as $postnum => $post)
-					{                     
-						if ($iter == 1) {
-							$htmlFormatting = "";
-						} else {
-							$htmlFormatting = "\n\t\t\t\t";
-						}
-
-						echo $htmlFormatting .'<article class="post-card site-box-shadow">'
-						. "\n\t\t\t\t\t" . '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">'. "{$post['short_desc']}" . '</h2>'
-						
-						. "\n\t\t\t\t" . '</article>';
+					{
+						echo 
+						'<article class="post-card site-box-shadow">'
+						. '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">'. "{$post['short_desc']}" . '</h2>'
+						. '<div class="post-card-components site-gradient-ltr-border-bottom">'
+            			. '<a class="post-card-img" href="{$post['post_name']}">'
+                		. '<img src="/assets/{$post['search_img']}">'
+            			. '</a>'						
+        				. '</div>'
+						. '</article>';
 
 						$iter += 1;
 					}
