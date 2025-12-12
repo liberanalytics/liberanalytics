@@ -8,7 +8,7 @@
 }
 
 .post-card-desc {
-    --knob-std-fs: var(--fsz-clamp-18x20);
+    --knob-std-fs: var(--fsz-clamp-16x18);
     --knob-std-fc: var(--fc-med);
     padding-block-end: var(--sz-100);
     text-align: center;
