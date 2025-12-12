@@ -146,7 +146,7 @@ $laData = new classes\LaData();
 			<section class="mission-container">
 				<h1 class="site-primary-heading site-font-primary-heading">Our Mission</h1>
 				<div class="site-block-std">
-					<p class="site-font-std">
+					<p class="mission-stmt site-font-std">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
 						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
 						are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.

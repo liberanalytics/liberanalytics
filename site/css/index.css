@@ -18,3 +18,7 @@
     padding-block: var(--sz-300);
     padding-inline-start: var(--sz-200);
 }
+
+.mission-stmt {
+    --knob-std-fs: var(--fsz-clamp-16x18);
+}
