@@ -52,13 +52,13 @@
 	<meta name="referrer" content="no-referrer-when-downgrade">
 	
 	<!-- Stylesheets and javascript modules/files. -->
-	<link href="/css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
-	<link href="/css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/post.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="/css/la_tokens.css" rel="stylesheet">
+	<link href="/css/la_fonts.css" rel="stylesheet">	
+	<link href="/css/la.css" rel="stylesheet">
+	<link href="/css/la_hdrftr.css" rel="stylesheet">
+	<link href="/css/la_tags.css" rel="stylesheet">
+	<link href="/css/la_ajax.css" rel="stylesheet">
+	<link href="/css/post.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
 </head>
 
@@ -101,11 +101,11 @@
 
 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
 					<p>
-						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-std site-font-date">
+						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-date site-font-std">
 							<?php echo "{$postDate}"; ?>
 						</time>
 					</p>
-					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
+					<h2 class="post-desc site-font-std"><?php echo "{$postLongDesc}"; ?></h2>
 					<img 
 						<?php
 							//

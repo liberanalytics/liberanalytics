@@ -101,7 +101,7 @@
 							<?php echo "{$postDate}"; ?>
 						</time>
 					</p>
-					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
+					<h2 class="post-desc"><?php echo "{$postLongDesc}"; ?></h2>
 					<img 
 						<?php
 							//

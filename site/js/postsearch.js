@@ -313,7 +313,7 @@ postsearch.renderCard = (cardData) => {
             </a>
         </div>
         <div class="post-card-attrs">
-            <span class="post-card-date site-font-std">${normalizedCardData.post_created}</span>
+            <span class="site-font-date site-font-std">${normalizedCardData.post_created}</span>
             <a class="post-card-cat site-font-link-std" href="/postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
                 ${normalizedCardData.post_category}
             </a>

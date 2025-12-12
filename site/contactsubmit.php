@@ -73,7 +73,7 @@
 			<section>
 				<h1 class="site-primary-heading site-font-primary-heading">Thank you</h1>
 				<div class="site-block-std">
-					<p class="site-font-emph" style="line-height: 1.5;">
+					<p class="" style="line-height: 1.5;">
 						Thank you for contacting LiberAnalytics, 
 						<span id="contact_name" class="site-font-brand"></span>!
 						We are glad to hear from you. We'll get back to you shortly if a response is needed.

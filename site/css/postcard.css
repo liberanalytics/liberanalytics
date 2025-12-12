@@ -57,11 +57,6 @@
     margin-block-start: var(--sz-100);
 }
 
-.post-card-date {
-    --knob-std-fs: var(--fsz-clamp-16x18);
-    --knob-std-fc: var(--fc-midlight);
-}
-
 .post-card-cat {
     --knob-link-fs: var(--fsz-clamp-16x18);
     margin-left: auto;
