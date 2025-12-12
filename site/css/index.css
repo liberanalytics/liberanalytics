@@ -12,7 +12,6 @@
 }
 
 .latest-posts-link {
-    --knob-link-fs: var(--fsz-clamp-16x18);
     --knob-link-fc: var(--fc-med);    
     display: block;
     padding-block: var(--sz-300);
@@ -21,10 +20,6 @@
 
 .mission-container {
     --knob-primary-heading-mb: var(--sz-300);
-}
-
-.mission-stmt {
-    --knob-std-fs: var(--fsz-clamp-16x18);
 }
 
 .mission-img {

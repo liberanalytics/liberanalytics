@@ -145,7 +145,7 @@ $laData = new classes\LaData();
 				</ul> 
 			</section>
 
-			<section class="mission-container">
+			<section>
 				<h2 class="site-primary-heading site-font-primary-heading">Our Mission</h2>
 				<div class="site-block-std">
 					<p class="mission-stmt site-font-std">

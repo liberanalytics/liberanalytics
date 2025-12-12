@@ -9,8 +9,8 @@
 /* About component classes. */
 .about-summaries {
     display: grid;
-    gap: var(--sz-400);
-    margin-block-end: var(--sz-600);
+    gap: var(--sz-300);
+    margin-block-end: var(--sz-300);
 }
 
 /* Smooth out the scrolling behavior for anchor links. */
