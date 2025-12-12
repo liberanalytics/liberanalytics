@@ -130,7 +130,7 @@
 									></textarea>							
 								</li>
 								<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-								<li class="form-error-container"><span id="form_error_ele" class="error-msg" aria-live="polite"></span></li>														
+								<li class="form-error-container"><span id="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>														
 							</ul>					
 						</form> 					
 					</div>

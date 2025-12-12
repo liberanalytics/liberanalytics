@@ -72,6 +72,7 @@
 .site-form-std .form-error-container {
     min-height: var(--knob-form-error-container-ht, var(--sz-400));
     margin-block-start: var(--sz-300);
+    text-align: center;
 }
 
 .site-form-std .select-arrow {
