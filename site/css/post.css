@@ -7,7 +7,7 @@
 }
 
 .page-post {
-
+    --knob-std-fs: var(--fsz-clamp-16x18);
 }
 
 .post-heading {
@@ -19,7 +19,6 @@
 }
 
 .post-desc {
-    --knob-std-fs: var(--fsz-clamp-16x18);
     --knob-std-fc: var(--fc-light);
 }
 
