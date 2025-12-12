@@ -86,7 +86,8 @@ $laData = new classes\LaData();
 					CrudFetchStyle::FETCHSTYLE_ASSOC,
 					[
 						'order_by' => 'featured',
-						'order_by_ascdesc' => 'ASC'
+						'order_by_ascdesc' => 'ASC',
+						'limit' => 1
 					]						
 				);
 				$iter = 1;
