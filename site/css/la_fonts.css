@@ -90,29 +90,26 @@
     color: var(--fc-med-green);
 }
 
-.site-font-date {
-    --knob-std-fs: var(--fsz-clamp-16x18);
-    --knob-std-fc: var(--fc-midlight);
+.site-font-date-std {
+    font-family: var(--knob-date-ff, var(--ff-main));
+    font-size: var(--knob-date-fs, var(--fsz-clamp-16x18));
+    font-weight: var(--fw-xlight);
+    line-height: var(--knob-date-flh, var(--flh-tight));
+    color: var(--knob-date-fc, var(--fc-midlight));
 }
 
 .site-font-form-std {
-    --form-ff: var(--ff-sans-serif);
-    --form-fs: var(--fsz-200);
-    --form-fw: var(--fw-xlight);
-    --form-flh: var(--flh-tight);
-    --form-fc: var(--fc-light);
-  
-    font-family: var(--form-ff);
-    font-size: var(--knob-form-fs, var(--form-fs));
-    font-weight: var(--form-fw);
-    line-height: var(--form-flh);
-    color: var(--form-fc);    
+    font-family: var(--knob-form-ff, var(--ff-sans-serif));
+    font-size: var(--knob-form-fs, var(--fsz-clamp-16x18));
+    font-weight: var(--knob-form-fw, var(--fw-xlight));
+    line-height: var(--knob-form-flh, var(--flh-tight));
+    color: var(--knob-form-fc, --fc-light);    
 }
 
 /* Site Font (link) Component Classes */
 .site-font-link-std {
     font-family: var(--knob-link-ff, var(--ff-main));
-    font-size: var(--knob-link-fs, var(--fsz-200));
+    font-size: var(--knob-link-fs, var(--fsz-clamp-16x18));
     font-weight: var(--fw-xlight);
     line-height: var(--knob-link-flh, var(--flh-tight));    
     color: var(--knob-link-fc, var(--fc-link));

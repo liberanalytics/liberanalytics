@@ -1,252 +1,74 @@
-diff --git a/gitdiff.txt b/gitdiff.txt
-index ad8813a..42e5221 100644
---- a/gitdiff.txt
-+++ b/gitdiff.txt
-@@ -1,31 +1,110 @@
--diff --git a/gitdiff.txt b/gitdiff.txt
--new file mode 100644
--index 0000000..8b13789
----- /dev/null
--+++ b/gitdiff.txt
--@@ -0,0 +1 @@
--+
--diff --git a/site/css/index.css b/site/css/index.css
--index 37e66b2..4787221 100644
----- a/site/css/index.css
--+++ b/site/css/index.css
--@@ -7,6 +7,7 @@
-+diff --git a/site/contactsubmit.php b/site/contactsubmit.php
-+index 449bc6d..f25e0ed 100644
-+--- a/site/contactsubmit.php
-++++ b/site/contactsubmit.php
-+@@ -73,7 +73,7 @@
-+ 			<section>
-+ 				<h1 class="site-primary-heading site-font-primary-heading">Thank you</h1>
-+ 				<div class="site-block-std">
-+-					<p class="site-font-emph" style="line-height: 1.5;">
-++					<p class="" style="line-height: 1.5;">
-+ 						Thank you for contacting LiberAnalytics, 
-+ 						<span id="contact_name" class="site-font-brand"></span>!
-+ 						We are glad to hear from you. We'll get back to you shortly if a response is needed.
-+diff --git a/site/css/postcard.css b/site/css/postcard.css
-+index 08b7572..603c19f 100644
-+--- a/site/css/postcard.css
-++++ b/site/css/postcard.css
-+@@ -57,12 +57,7 @@
-+     margin-block-start: var(--sz-100);
-  }
-  
-- .latest-posts-container {
--+    --knob-primary-heading-mt: var(--sz-400);
--     --knob-primary-heading-mb: 0;
-- }
-+-.post-card-date {
-+-    --knob-std-fs: var(--fsz-clamp-16x18);
-+-    --knob-std-fc: var(--fc-midlight);
-+-}
-+-
-+ .post-card-cat {
-+     --knob-link-fs: var(--fsz-clamp-16x18);
-+     margin-left: auto;
-+-}
-+\ No newline at end of file
-++}
-+diff --git a/site/index.php b/site/index.php
-+index 6d20de1..8412c47 100644
-+--- a/site/index.php
-++++ b/site/index.php
-+@@ -103,7 +103,7 @@ $laData = new classes\LaData();
-+ 					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
-+ 					. '</div>'
-+ 					. '<div class="post-card-attrs">'
-+-					. '<span class="post-card-date site-font-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
-++					. '<span class="site-font-date site-font-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
-+ 					. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
-+ 					. '</div>'
-+ 					. '</article>';
-+diff --git a/site/js/postsearch.js b/site/js/postsearch.js
-+index 027f12b..f555137 100644
-+--- a/site/js/postsearch.js
-++++ b/site/js/postsearch.js
-+@@ -313,7 +313,7 @@ postsearch.renderCard = (cardData) => {
-+             </a>
-+         </div>
-+         <div class="post-card-attrs">
-+-            <span class="post-card-date site-font-std">${normalizedCardData.post_created}</span>
-++            <span class="site-font-date site-font-std">${normalizedCardData.post_created}</span>
-+             <a class="post-card-cat site-font-link-std" href="/postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
-+                 ${normalizedCardData.post_category}
-+             </a>
-+diff --git a/site/pythonpostgreconnect.php b/site/pythonpostgreconnect.php
-+index 8d40115..20ff0bf 100644
-+--- a/site/pythonpostgreconnect.php
-++++ b/site/pythonpostgreconnect.php
-+@@ -101,7 +101,7 @@
-+ 							<?php echo "{$postDate}"; ?>
-+ 						</time>
-+ 					</p>
-+-					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
-++					<h2 class="post-desc"><?php echo "{$postLongDesc}"; ?></h2>
-+ 					<img 
-+ 						<?php
-+ 							//
-+diff --git a/site/whydata.php b/site/whydata.php
-+index 408c852..4eb43bd 100644
-+--- a/site/whydata.php
-++++ b/site/whydata.php
-+@@ -52,13 +52,13 @@
-+ 	<meta name="referrer" content="no-referrer-when-downgrade">
-+ 	
-+ 	<!-- Stylesheets and javascript modules/files. -->
-+-	<link href="/css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
-+-	<link href="/css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
-+-	<link href="/css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
-+-	<link href="/css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
-+-	<link href="/css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
-+-	<link href="/css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
-+-	<link href="/css/post.css" rel="stylesheet" type="text/css" charset="utf-8">
-++	<link href="/css/la_tokens.css" rel="stylesheet">
-++	<link href="/css/la_fonts.css" rel="stylesheet">	
-++	<link href="/css/la.css" rel="stylesheet">
-++	<link href="/css/la_hdrftr.css" rel="stylesheet">
-++	<link href="/css/la_tags.css" rel="stylesheet">
-++	<link href="/css/la_ajax.css" rel="stylesheet">
-++	<link href="/css/post.css" rel="stylesheet">
-+ 	<script type="module" src="/js/la.js"></script>
-+ </head>
-  
--diff --git a/site/css/la.css b/site/css/la.css
--index 27f366c..fc8ea8c 100644
----- a/site/css/la.css
--+++ b/site/css/la.css
--@@ -125,6 +125,7 @@ main {
-+@@ -101,11 +101,11 @@
-  
-- .site-primary-heading {
--     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
--+    margin-block-start: var(--knob-primary-heading-mt, 0);
--     margin-block-end: var(--knob-primary-heading-mb, var(--sz-400));
--     background-color: var(--clr-med-dark);
-- }
-+ 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
-+ 					<p>
-+-						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-std site-font-date">
-++						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-date site-font-std ">
-+ 							<?php echo "{$postDate}"; ?>
-+ 						</time>
-+ 					</p>
-+-					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
-++					<h2 class="post-desc site-font-std"><?php echo "{$postLongDesc}"; ?></h2>
-+ 					<img 
-+ 						<?php
-+ 							//
-diff --git a/site/contactsubmit.php b/site/contactsubmit.php
-index 449bc6d..f25e0ed 100644
---- a/site/contactsubmit.php
-+++ b/site/contactsubmit.php
-@@ -73,7 +73,7 @@
- 			<section>
- 				<h1 class="site-primary-heading site-font-primary-heading">Thank you</h1>
- 				<div class="site-block-std">
--					<p class="site-font-emph" style="line-height: 1.5;">
-+					<p class="" style="line-height: 1.5;">
- 						Thank you for contacting LiberAnalytics, 
- 						<span id="contact_name" class="site-font-brand"></span>!
- 						We are glad to hear from you. We'll get back to you shortly if a response is needed.
-diff --git a/site/css/postcard.css b/site/css/postcard.css
-index 08b7572..603c19f 100644
---- a/site/css/postcard.css
-+++ b/site/css/postcard.css
-@@ -57,12 +57,7 @@
-     margin-block-start: var(--sz-100);
+diff --git a/site/css/about.css b/site/css/about.css
+index 08f43f5..f318875 100644
+--- a/site/css/about.css
++++ b/site/css/about.css
+@@ -3,7 +3,7 @@
+ --------------------------------------------------------- */
+ 
+ .page-about {
+-    --knob-std-fs: var(--fsz-clamp-18x20);
++
  }
  
--.post-card-date {
+ /* About component classes. */
+diff --git a/site/css/la_fonts.css b/site/css/la_fonts.css
+index 9cf9dd9..489f876 100644
+--- a/site/css/la_fonts.css
++++ b/site/css/la_fonts.css
+@@ -96,23 +96,17 @@
+ }
+ 
+ .site-font-form-std {
+-    --form-ff: var(--ff-sans-serif);
+-    --form-fs: var(--fsz-200);
+-    --form-fw: var(--fw-xlight);
+-    --form-flh: var(--flh-tight);
+-    --form-fc: var(--fc-light);
+-  
+-    font-family: var(--form-ff);
+-    font-size: var(--knob-form-fs, var(--form-fs));
+-    font-weight: var(--form-fw);
+-    line-height: var(--form-flh);
+-    color: var(--form-fc);    
++    font-family: var(--knob-form-ff, var(--ff-sans-serif));
++    font-size: var(--knob-form-fs, var(--fsz-clamp-16x18));
++    font-weight: var(--knob-form-fw, var(--fw-xlight));
++    line-height: var(--knob-form-flh, var(--flh-tight));
++    color: var(--knob-form-fc, --fc-light);    
+ }
+ 
+ /* Site Font (link) Component Classes */
+ .site-font-link-std {
+     font-family: var(--knob-link-ff, var(--ff-main));
+-    font-size: var(--knob-link-fs, var(--fsz-200));
++    font-size: var(--knob-link-fs, var(--fsz-clamp-16x18));
+     font-weight: var(--fw-xlight);
+     line-height: var(--knob-link-flh, var(--flh-tight));    
+     color: var(--knob-link-fc, var(--fc-link));
+diff --git a/site/css/postcard.css b/site/css/postcard.css
+index 603c19f..fb27744 100644
+--- a/site/css/postcard.css
++++ b/site/css/postcard.css
+@@ -8,7 +8,6 @@
+ }
+ 
+ .post-card-desc {
 -    --knob-std-fs: var(--fsz-clamp-16x18);
--    --knob-std-fc: var(--fc-midlight);
--}
--
+     --knob-std-fc: var(--fc-med);
+     padding-block-end: var(--sz-100);
+     text-align: center;
+@@ -40,7 +39,6 @@
+ }
+ 
+ .post-card-longdesc, .post-card-longdesc:visited {
+-    --knob-link-fs: var(--fsz-clamp-16x18);
+     --knob-link-fc: var(--fc-light);
+     display: block;
+     margin-block-start: var(--sz-100);
+@@ -58,6 +56,5 @@
+ }
+ 
  .post-card-cat {
-     --knob-link-fs: var(--fsz-clamp-16x18);
+-    --knob-link-fs: var(--fsz-clamp-16x18);
      margin-left: auto;
--}
-\ No newline at end of file
-+}
-diff --git a/site/index.php b/site/index.php
-index 6d20de1..8412c47 100644
---- a/site/index.php
-+++ b/site/index.php
-@@ -103,7 +103,7 @@ $laData = new classes\LaData();
- 					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
- 					. '</div>'
- 					. '<div class="post-card-attrs">'
--					. '<span class="post-card-date site-font-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
-+					. '<span class="site-font-date site-font-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
- 					. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
- 					. '</div>'
- 					. '</article>';
-diff --git a/site/js/postsearch.js b/site/js/postsearch.js
-index 027f12b..f555137 100644
---- a/site/js/postsearch.js
-+++ b/site/js/postsearch.js
-@@ -313,7 +313,7 @@ postsearch.renderCard = (cardData) => {
-             </a>
-         </div>
-         <div class="post-card-attrs">
--            <span class="post-card-date site-font-std">${normalizedCardData.post_created}</span>
-+            <span class="site-font-date site-font-std">${normalizedCardData.post_created}</span>
-             <a class="post-card-cat site-font-link-std" href="/postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
-                 ${normalizedCardData.post_category}
-             </a>
-diff --git a/site/pythonpostgreconnect.php b/site/pythonpostgreconnect.php
-index 8d40115..20ff0bf 100644
---- a/site/pythonpostgreconnect.php
-+++ b/site/pythonpostgreconnect.php
-@@ -101,7 +101,7 @@
- 							<?php echo "{$postDate}"; ?>
- 						</time>
- 					</p>
--					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
-+					<h2 class="post-desc"><?php echo "{$postLongDesc}"; ?></h2>
- 					<img 
- 						<?php
- 							//
-diff --git a/site/whydata.php b/site/whydata.php
-index 408c852..7013fb8 100644
---- a/site/whydata.php
-+++ b/site/whydata.php
-@@ -52,13 +52,13 @@
- 	<meta name="referrer" content="no-referrer-when-downgrade">
- 	
- 	<!-- Stylesheets and javascript modules/files. -->
--	<link href="/css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
--	<link href="/css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
--	<link href="/css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
--	<link href="/css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
--	<link href="/css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
--	<link href="/css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
--	<link href="/css/post.css" rel="stylesheet" type="text/css" charset="utf-8">
-+	<link href="/css/la_tokens.css" rel="stylesheet">
-+	<link href="/css/la_fonts.css" rel="stylesheet">	
-+	<link href="/css/la.css" rel="stylesheet">
-+	<link href="/css/la_hdrftr.css" rel="stylesheet">
-+	<link href="/css/la_tags.css" rel="stylesheet">
-+	<link href="/css/la_ajax.css" rel="stylesheet">
-+	<link href="/css/post.css" rel="stylesheet">
- 	<script type="module" src="/js/la.js"></script>
- </head>
- 
-@@ -101,11 +101,11 @@
- 
- 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
- 					<p>
--						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-std site-font-date">
-+						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-date site-font-std">
- 							<?php echo "{$postDate}"; ?>
- 						</time>
- 					</p>
--					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
-+					<h2 class="post-desc site-font-std"><?php echo "{$postLongDesc}"; ?></h2>
- 					<img 
- 						<?php
- 							//
+ }
