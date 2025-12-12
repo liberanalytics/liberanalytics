@@ -8,6 +8,7 @@
 
 .page-post {
     --knob-std-fs: var(--fsz-clamp-16x18);
+    --knob-stack-start-mt: var(--sz-300);
 }
 
 .post-heading {

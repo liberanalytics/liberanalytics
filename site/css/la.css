@@ -141,11 +141,11 @@ main {
 }
 
 .site-stack-start-mt > * + * {
-    margin-block-start: var(--knob-stack-mt, var(--sz-400));
+    margin-block-start: var(--knob-stack-start-mt, var(--sz-400));
 }
 
 .site-stack-end-mt > *:not(:last-child) {
-    margin-block-start: var(--knob-stack-mt, var(--sz-400));
+    margin-block-start: var(--knob-stack-end-mt, var(--sz-400));
 }
 
 .site-pl { padding-inline-start: var(--knob-site-pl, var(--sz-300)); }
