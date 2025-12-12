@@ -129,7 +129,7 @@ $laData = new classes\LaData();
 								'order_by' => 'post_created',
 								'order_by_ascdesc' => 'DESC',
 								'limit' => 10,
-								'featured' => NULL
+								'featured' => 'NULL'
 							]						
 						);
 						$iter = 1;
