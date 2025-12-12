@@ -71,7 +71,7 @@ $laData = new classes\LaData();
 
 	<main>
 		<div class="page-wrap">
-			<section class="">	
+			<section class="featured-posts-container">	
 				<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
 				
 				<?php
@@ -110,10 +110,39 @@ $laData = new classes\LaData();
 					$iter += 1;
 				}
 			
-			?>		
+			?>
 
-			</section>	
-		</div>
+			</section>
+
+			<section class="latest-posts-container">
+				<h1 class="site-primary-heading site-font-primary-heading">Latest Posts</h1>
+				<ul>
+					<?php
+
+						$latestPosts = $laData->crudData(
+							CrudOperation::GETPOSTS,
+							CrudType::CRUDREAD,
+							CrudResultsetType::RESULTSET_ROWS,
+							CrudFetchStyle::FETCHSTYLE_ASSOC,
+							[
+								'order_by' => 'post_category',
+								'order_by_ascdesc' => 'DESC'
+							]						
+						);
+						$iter = 1;
+						foreach ($latestPosts as $postNum => $post)
+						{
+							echo 
+							'<li>'
+							. '<a href="/' . $post['post_name'] . '" class="site-font-link-std">' . $post['short_desc'] . '</a>'
+							. '</li>';
+
+							$iter += 1;
+						}
+					?>
+				</ul> 
+			</section>			
+		</div><!-- End .page-wrap -->
 	</main>
 
 	<?php include_once('lafooter.php'); ?>
