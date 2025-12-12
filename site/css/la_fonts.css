@@ -92,8 +92,7 @@
 
 .site-font-date {
     --knob-std-fs: var(--fsz-clamp-16x18);
-    --knob-std-fc: var(--fc-midlight);    
-    font: inherit;
+    --knob-std-fc: var(--fc-midlight);
 }
 
 .site-font-form-std {
