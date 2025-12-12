@@ -29,6 +29,4 @@
 
 .mission-img {
     display: none;
-    margin-block-start: var(--sz-300);
-    margin-inline: auto;
 }
