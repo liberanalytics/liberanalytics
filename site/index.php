@@ -144,7 +144,7 @@ $laData = new classes\LaData();
 			</section>
 
 			<section class="mission-container">
-				<h1 class="site-primary-heading site-font-primary-heading">Our Mission</h1>
+				<h2 class="site-primary-heading site-font-primary-heading">Our Mission</h2>
 				<div class="site-block-std">
 					<p class="mission-stmt site-font-std">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
