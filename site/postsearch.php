@@ -86,7 +86,7 @@ $laData = new classes\LaData();
 				>
 
 					<ul>
-						<li><label for="postsearch_category" class="form-ele-container site-fw-bold">Post Category</label></li>
+						<li class="form-ele-container"><label for="postsearch_category" class="site-fw-bold">Post Category</label></li>
 						<li class="site-position-relative">
 							<select id="postsearch_category" class="select-control"
 							data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
@@ -110,7 +110,7 @@ $laData = new classes\LaData();
 							<span class="select-arrow"></span>
 						</li>
 
-						<li><label for="postsearch_tags" class="form-ele-container site-fw-bold">Tags</label></li>
+						<li class="form-ele-container"><label for="postsearch_tags" class="site-fw-bold">Tags</label></li>
 						<li id="postsearch_tags_container" class="site-position-relative">
 							<input 
 								id="postsearch_tags" name="postsearch_tags" class="postsearch-tags site-font-form-std" type="text"
