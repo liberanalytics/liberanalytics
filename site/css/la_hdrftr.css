@@ -198,7 +198,7 @@
     inline-size: auto;
     object-fit: contain;
     width: var(--la-logo-width);
-    height: auto;    
+    height: auto;
 }
 
 /* Footer styles. */

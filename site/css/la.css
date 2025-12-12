@@ -26,6 +26,11 @@ ul li, ol li {
     list-style-type: none;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Before & After pseudo elements - use border box box sizing. */
 *::before,
 *::after {

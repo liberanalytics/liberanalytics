@@ -11,7 +11,11 @@
 }
 
 .post-heading {
-    --knob-brand-fs: var(--fsz-clamp-22x24);
+    --knob-brand-fs: var(--fsz-clamp-18x20);
+}
+
+.post-date > time {
+    --knob-std-fs: var(--fsz-clamp-16x18);
 }
 
 .post-img {
