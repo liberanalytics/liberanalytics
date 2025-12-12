@@ -87,7 +87,7 @@ $laData = new classes\LaData();
 					[
 						'order_by' => 'featured',
 						'order_by_ascdesc' => 'ASC',
-						'limit' => 1
+						'limit' => 5
 					]						
 				);
 				$iter = 1;
@@ -126,8 +126,9 @@ $laData = new classes\LaData();
 							CrudResultsetType::RESULTSET_ROWS,
 							CrudFetchStyle::FETCHSTYLE_ASSOC,
 							[
-								'order_by' => 'post_category',
-								'order_by_ascdesc' => 'DESC'
+								'order_by' => 'post_created',
+								'order_by_ascdesc' => 'DESC',
+								'limit' => 10
 							]						
 						);
 						$iter = 1;
