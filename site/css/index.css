@@ -7,7 +7,7 @@
 }
 
 .latest-posts-container {
-
+    --knob-primary-heading-mb: 0;
 }
 
 .latest-posts-link {
