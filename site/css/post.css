@@ -14,10 +14,6 @@
     --knob-brand-fs: var(--fsz-clamp-18x20);
 }
 
-.post-date {
-
-}
-
 .post-desc {
     --knob-std-fc: var(--fc-light);
 }

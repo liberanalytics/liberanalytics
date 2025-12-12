@@ -68,8 +68,8 @@
 
 	<main>
 		<div class="page-wrap">
-			<article>
-				<header class="site-stack-mt">
+			<article class="site-stack-start-mt">
+				<header>
 					<?php
 						//
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
@@ -101,7 +101,7 @@
 
 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
 					<p>
-						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-date site-font-std">
+						<time datetime="<?php echo "{$postISODate}"; ?>" class="site-font-date site-font-std">
 							<?php echo "{$postDate}"; ?>
 						</time>
 					</p>

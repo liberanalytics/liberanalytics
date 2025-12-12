@@ -127,7 +127,6 @@ main {
         var(--clr-lt-light) ) 1;
 }
 
-
 .site-primary-heading {
     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
     margin-block-start: var(--knob-primary-heading-mt, 0);
