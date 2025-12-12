@@ -88,7 +88,7 @@
 						>
 
 							<ul>
-								<li><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
+								<li class="form-ele-container"><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 								<li>
 									<input 
 										id="first_name" name="first_name" type="text" title="Enter First Name" class="" 
@@ -97,7 +97,7 @@
 									>
 								</li>
 
-								<li><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
+								<li class="form-ele-container"><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
 								<li>
 									<input 
 										id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
@@ -105,7 +105,7 @@
 										data-vx="vxName" data-len="32" autocomplete="family-name"
 									>      
 								</li>
-								<li><label for="email" class="site-fw-bold">Email<em class="site-fc-med-red">*</em></label></li>
+								<li class="form-ele-container"><label for="email" class="site-fw-bold">Email<em class="site-fc-med-red">*</em></label></li>
 								<li>
 									<input
 										id="email" name="email" type="text" title="Enter Email" class="" 
@@ -113,7 +113,7 @@
 										data-vx="vxEmail" data-len="32" autocomplete="email"
 									>							
 								</li>
-								<li><label for="subject" class="site-fw-bold">Subject<em class="site-fc-med-red">*</em></label></li>
+								<li class="form-ele-container"><label for="subject" class="site-fw-bold">Subject<em class="site-fc-med-red">*</em></label></li>
 								<li>
 									<input
 										id="subject" name="contact_subject" type="text" title="Enter Subject" class=""
@@ -121,7 +121,7 @@
 										data-vx="vxAlphaNum" data-len="32" autocomplete="off"
 								>							
 								</li>
-								<li><label for="message" class="site-fw-bold">Message<em class="site-fc-med-red">*</em></label></li>
+								<li class="form-ele-container"><label for="message" class="site-fw-bold">Message<em class="site-fc-med-red">*</em></label></li>
 								<li>
 									<textarea 
 										id="subject" name="contact_message" rows="8" class=""
