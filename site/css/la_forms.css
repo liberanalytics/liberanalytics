@@ -7,18 +7,14 @@
     margin-block-start: var(--sz-300);
 }
 
-/* .site-form-container label {
-    display: inline-block;
-} */
-
 .site-form-std {
 
 }
 
-/* .site-form-std label {
+.site-form-std .form-ele-container {
     margin-block-start: var(--sz-300);
     margin-block-end: var(--sz-050);
-} */
+}
 
 .site-form-std .error-msg {
     margin-block-start: var(--sz-300);
