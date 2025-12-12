@@ -128,8 +128,7 @@ $laData = new classes\LaData();
 							[
 								'order_by' => 'post_created',
 								'order_by_ascdesc' => 'DESC',
-								'limit' => 10,
-								'featured' => 'NULL'
+								'limit' => 10
 							]						
 						);
 						$iter = 1;
