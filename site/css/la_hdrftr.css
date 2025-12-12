@@ -33,10 +33,11 @@
 }
 
 .site-header-menu .site-header-menu-link {
+    --knob-link-fs: var(--fsz-clamp-16x18);
     display: inline-block;
     padding: var(--sz-300);
     border-radius: var(--sz-300);
-    font-size: var(--fsz-clamp-18x18-8);
+    /* font-size: var(--fsz-clamp-18x18-8); */
 }
 
 /* Header Search */
