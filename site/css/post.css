@@ -7,7 +7,7 @@
 }
 
 .page-post {
-    
+
 }
 
 .post-heading {
@@ -16,6 +16,11 @@
 
 .post-date {
 
+}
+
+.post-desc {
+    --knob-std-fs: var(--fsz-clamp-16x18);
+    --knob-std-fc: var(--fc-med);
 }
 
 .post-img {
