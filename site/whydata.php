@@ -122,7 +122,7 @@
 
 				<section class="site-stack-mt">
 
-					<p class="site-mt"> 
+					<p class="site-mt site-font-std"> 
 						<span class="site-font-brand">Why</span> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
 						Startups and corporations employ teams of professionals who often specialize in niche functions within
 						data analytics such as data architect, data analyst, or data scientist in order to provide maximum value
@@ -134,7 +134,7 @@
 
 					<h4 class="site-font-secondary-heading">Data Integrity</h1>
 
-					<p>
+					<p class="site-font-std">
 						High integrity data is a purely objective form of facts not influenced by human subjectivity. 
 						What we mean by integrity in the context of data is that the predicate of a given piece of data can be relied on to be
 						true which entails accuracy, exclusivity or non-duplication, and consistency. Accuracy gives reliability to the literal
@@ -144,7 +144,7 @@
 
 					<h4 class="site-font-secondary-heading">Necessity of data in decision making</h1>
 
-					<p>
+					<p class="site-font-std">
 						Whether making journal entries to a general ledger, recording a hospital's daily admissions and discharges, or predicting the extent of
 						raw materials needed for a factory's anticipated production, data is central to facilitating correct decisions. Driving decisions
 						according to conclusions drawn from data instills confidence of correctness - data are facts and decisions based on facts
@@ -152,11 +152,11 @@
 						like the below.
 					</p>
 
-					<img src="assets/whydata_ps.png" alt="whydata_ps" class="post-img">
+					<img src="/assets/whydata_ps.png" alt="whydata_ps" class="post-img">
 
 					<h4 class="site-font-secondary-heading">Data versus information</h1>
 
-					<p>
+					<p class="site-font-std">
 						The words data and information are often used interchangeably. However, in the context of data analytics, data and information become terms
 						denoting different things and should be treated with care by the practitioner. Data means raw objective facts such as rows stored in tables
 						in a database or data warehouse and results in information usable by stakeholders to make insightful decisions. Information applies context
@@ -165,7 +165,7 @@
 
 					<h4 class="site-font-secondary-heading">Summary</h1>
 
-					<p>
+					<p class="site-font-std">
 						Using quality data to derive insights about organizations is imperative in an operational decision making process. Without data the
 						ability to confidently stand on impactul decisions would be compromised and  would inevitably lead to less than desirable outcomes.
 						With the advent of big data and AI data that is effectively analysed and translated to meaningful business information data has never

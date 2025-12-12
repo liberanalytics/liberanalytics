@@ -20,7 +20,7 @@
 
 .post-desc {
     --knob-std-fs: var(--fsz-clamp-16x18);
-    --knob-std-fc: var(--fc-med);
+    --knob-std-fc: var(--fc-light);
 }
 
 .post-img {
