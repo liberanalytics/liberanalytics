@@ -16,5 +16,5 @@
     --knob-link-fc: var(--fc-med);    
     display: block;
     padding-block: var(--sz-300);
-    padding-inline-start: var(--sz-300);
+    padding-inline-start: var(--sz-200);
 }
