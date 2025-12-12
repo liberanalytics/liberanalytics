@@ -20,9 +20,13 @@
 }
 
 .mission-container {
-    --knob-primary-heading-mt: var(--sz-300);
+    --knob-primary-heading-mb: var(--sz-300);
 }
 
 .mission-stmt {
     --knob-std-fs: var(--fsz-clamp-16x18);
+}
+
+.mission-img {
+    margin-block-start: var(--sz-300);
 }

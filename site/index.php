@@ -153,7 +153,7 @@ $laData = new classes\LaData();
 						We hope that the content published will illuminate how to exercise a <em class="site-font-brand">liber</em> (free)
 						mind while working with data as well as inspire individuals to keep improving!
 					</p>
-					<div class="">
+					<div class="mission-img">
 						<img src="/assets/mission.png">
 					</div>
 				</div>
