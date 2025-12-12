@@ -70,7 +70,7 @@
 }
 
 .site-form-std .form-error-container {
-    min-height: var(--knob-form-error-container-ht, var(--sz-400));
+    min-height: var(--knob-form-error-container-ht, var(--sz-600));
     margin-block-start: var(--sz-300);
     text-align: center;
 }
