@@ -1,0 +1,68 @@
+/*  ---------------------------------------------------------
+    postcard.css
+--------------------------------------------------------- */
+
+.post-card {
+    padding: var(--sz-100);
+    margin-block-start: var(--sz-400);
+}
+
+.post-card-desc {
+    --knob-std-fs: var(--fsz-clamp-16x18);
+    --knob-std-fc: var(--fc-med);
+    padding-block-end: var(--sz-100);
+    text-align: center;
+}
+
+.post-card-components {
+    padding-block-start: var(--sz-300);
+    padding-block-end: var(--sz-100);
+}
+
+.post-card-components:hover {
+  background-color: var(--clr-xlt-blue);
+  transition: background-color var(--transition-fast) ease-in-out;
+  cursor: pointer;
+}
+
+.post-card-intro {
+    display: none;
+}
+
+.post-card-img {
+    display: block;
+}
+
+.post-card-img > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.post-card-longdesc, .post-card-longdesc:visited {
+    --knob-link-fs: var(--fsz-clamp-16x18);
+    --knob-link-fc: var(--fc-light);
+    display: block;
+    margin-block-start: var(--sz-100);
+}
+
+.post-card-longdesc:hover, .post-card-longdesc:focus {
+    --knob-link-hover-fc: var(--fc-light); 
+    --knob-link-hover-decoration: none;
+}
+
+.post-card-attrs {
+    display: flex;
+    align-items: baseline;
+    margin-block-start: var(--sz-100);
+}
+
+.post-card-date {
+    --knob-std-fs: var(--fsz-clamp-16x18);
+    --knob-std-fc: var(--fc-midlight);
+}
+
+.post-card-cat {
+    --knob-link-fs: var(--fsz-clamp-16x18);
+    margin-left: auto;
+}

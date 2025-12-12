@@ -295,26 +295,26 @@ postsearch.renderCard = (cardData) => {
 
     //
     const normalizedCardData = postsearch.normalizeCardData(cardData);
-    const card = document.createElement('div');
-    card.classList.add('postsearch-card', 'site-box-shadow');
+    const card = document.createElement('article');
+    card.classList.add('post-card', 'site-box-shadow');
 
     //
     card.innerHTML = `
-        <h2 class="postsearch-card-desc site-font-std site-gradient-rtl-border-bottom">${normalizedCardData.short_desc}</h2>
-        <div class="postsearch-card-components site-gradient-ltr-border-bottom">
-            <a class="postsearch-card-img" href="/${encodeURIComponent(normalizedCardData.post_name)}">
+        <h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">${normalizedCardData.short_desc}</h2>
+        <div class="post-card-components site-gradient-ltr-border-bottom">
+            <a class="post-card-img" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 <img src="assets/${normalizedCardData.search_img}">
             </a>
-            <a class="postsearch-card-longdesc site-font-link-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="post-card-longdesc site-font-link-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.long_desc}
             </a>
-            <a class="postsearch-card-intro" href="/${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="post-card-intro" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.intro}
             </a>
         </div>
-        <div class="postsearch-card-attrs">
-            <span class="postsearch-card-date site-font-std">${normalizedCardData.post_created}</span>
-            <a class="postsearch-card-cat site-font-link-std" href="/postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
+        <div class="post-card-attrs">
+            <span class="post-card-date site-font-std">${normalizedCardData.post_created}</span>
+            <a class="post-card-cat site-font-link-std" href="/postsearch?post_category=${encodeURIComponent(normalizedCardData.post_category)}">
                 ${normalizedCardData.post_category}
             </a>
         </div>

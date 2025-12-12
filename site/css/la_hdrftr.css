@@ -27,16 +27,17 @@
 .site-header-menu {
     --knob-fc-link-hover: var(--fc-xlight);
     --knob-link-hover-bg: var(--clr-lt-blue);
-    --link-hover-decoration: none;
+    --knob-link-hover-decoration: none;
     max-width: var(--content-width);
     margin-inline: auto;
 }
 
 .site-header-menu .site-header-menu-link {
+    --knob-link-fs: var(--fsz-clamp-16x18);
     display: inline-block;
     padding: var(--sz-300);
     border-radius: var(--sz-300);
-    font-size: var(--fsz-clamp-18x18-8);
+    /* font-size: var(--fsz-clamp-18x18-8); */
 }
 
 /* Header Search */
@@ -233,7 +234,7 @@
 .site-footer-menu .site-footer-menu-link {
     display: inline-block;
     text-decoration: none;
-    border-bottom: 1px solid var(--clr-med-blue);
+    border-bottom: 2px solid transparent;
     transition:
         border-bottom-width var(--transition-fast) ease,
         border-bottom-color var(--transition-fast) ease;
@@ -242,7 +243,7 @@
 
 .site-footer-menu .site-footer-menu-link:visited {
     text-decoration: none;
-    border-bottom: 1px solid var(--clr-med-blue);
+    border-bottom: 2px solid transparent;
 }
 
 .site-footer-menu .site-footer-menu-link:hover {

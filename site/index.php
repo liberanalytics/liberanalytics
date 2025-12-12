@@ -16,149 +16,149 @@ $laData = new classes\LaData();
 <html lang="en">
 
 <head>
+	<!-- Standard page metas/links/title. -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LiberAnalytics | Home</title>
-	<link href="css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="css/index.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<script type="module" src="js/la.js"></script>
+	<title>Home | LiberAnalytics</title>
+	<meta name="description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
+	<link rel="canonical" href="https://liberanalytics.com/">
+
+	<!-- Favicon. -->
+	<link rel="icon" href="/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">	
+	<link rel="icon" type="image/svg+xml" href="/icon.svg">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+
+	<!-- Social media Open Graph data points. -->
+	<meta property="og:title" content="Home | LiberAnalytics">
+	<meta property="og:description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
+	<meta property="og:url" content="https://liberanalytics.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="LiberAnalytics">
+	<meta property="og:locale" content="en_US">
+
+	<!-- Social media image. -->
+	<meta property="og:image" content="https://liberanalytics.com/assets/social/og_core.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="LiberAnalytics wordmark on a clean, minimalist background">
+
+	<!-- Browser UI styling for address bar. -->
+	<meta name="theme-color" content="#333333">
+	<meta name="theme-color" content="#333333" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+	<!-- Referrer policy: omit referrer header when navigating from HTTPS to HTTP. -->
+	<meta name="referrer" content="no-referrer-when-downgrade">
+	
+	<!-- Stylesheets and javascript modules/files. -->
+	<link href="/css/la_tokens.css" rel="stylesheet">
+	<link href="/css/la_fonts.css" rel="stylesheet">
+	<link href="/css/la.css" rel="stylesheet">
+	<link href="/css/la_hdrftr.css" rel="stylesheet">
+	<link href="/css/la_tags.css" rel="stylesheet">
+	<link href="/css/la_ajax.css" rel="stylesheet">
+	<link href="/css/postcard.css" rel="stylesheet">
+	<link href="/css/index.css" rel="stylesheet">
+	<script type="module" src="/js/la.js"></script>
 
 </head>
 
-<body class="page site-font-std">
+<body class="page page-index site-font-std">
 
 	<?php include_once('laheader.php'); ?>
 
 	<main>
 		<div class="page-wrap">
-			<div class="site-flex site-flex-gap-800">
-				<section class="featured-posts-container site-flex-grow-shrink">	
-					<h1 class="site-primary-heading">Featured</h1>
-					
+			<section class="featured-posts-container">	
+				<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
+				
+				<?php
+
+				/**
+				 * 
+				 */
+				$featuredPosts = $laData->crudData(
+					CrudOperation::GETPOSTS,
+					CrudType::CRUDREAD,
+					CrudResultsetType::RESULTSET_ROWS,
+					CrudFetchStyle::FETCHSTYLE_ASSOC,
+					[
+						'order_by' => 'featured',
+						'order_by_ascdesc' => 'ASC',
+						'limit' => 5
+					]						
+				);
+				$iter = 1;
+				foreach ($featuredPosts as $postnum => $post)
+				{
+					echo 
+					'<article class="post-card site-box-shadow">'
+					. '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
+					. '<div class="post-card-components site-gradient-ltr-border-bottom">'
+					. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
+					. '<img src="/assets/' . $post['post_img'] . '">'
+					. '</a>'
+					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
+					. '</div>'
+					. '<div class="post-card-attrs">'
+					. '<span class="post-card-date site-font-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
+					. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
+					. '</div>'
+					. '</article>';
+
+					$iter += 1;
+				}
+			
+			?>
+
+			</section>
+
+			<section class="latest-posts-container">
+				<h1 class="site-primary-heading site-font-primary-heading">Latest Posts</h1>
+				<ul>
 					<?php
 
-					/**
-					 * 
-					 */
-					$featuredPosts = $laData->crudData(
-						CrudOperation::GETPOSTS,
-						CrudType::CRUDREAD,
-						CrudResultsetType::RESULTSET_ROWS,
-						CrudFetchStyle::FETCHSTYLE_ASSOC,
-						[
-							'order_by' => 'featured',
-							'order_by_ascdesc' => 'ASC'
-						]						
-					);
-					$iter = 1;
-					foreach ($featuredPosts as $postnum => $post)
-					{                     
-						if ($iter == 1) {
-							$htmlFormatting = "";
-						} else {
-							$htmlFormatting = "\n\t\t\t\t";
+						$latestPosts = $laData->crudData(
+							CrudOperation::GETPOSTS,
+							CrudType::CRUDREAD,
+							CrudResultsetType::RESULTSET_ROWS,
+							CrudFetchStyle::FETCHSTYLE_ASSOC,
+							[
+								'order_by' => 'post_created',
+								'order_by_ascdesc' => 'DESC',
+								'limit' => 10
+							]						
+						);
+						$iter = 1;
+						foreach ($latestPosts as $postNum => $post)
+						{
+							echo 
+							'<li class="site-gradient-border-bottom">'
+							. '<a href="/' . $post['post_name'] . '" class="latest-posts-link site-font-link-std">' . $post['short_desc'] . '</a>'
+							. '</li>';
+
+							$iter += 1;
 						}
+					?>
+				</ul> 
+			</section>
 
-						echo $htmlFormatting .'<article class="featured-post site-box-shadow">'
-						. "\n\t\t\t\t\t" . '<div class="featured-post-content">'                       
-						. "\n\t\t\t\t\t\t" . '<div class="featured-post-img">'
-						. "\n\t\t\t\t\t\t\t" . "<a href=\"{$post['post_name']}\">"
-						. "<img src=\"assets/{$post['featured_img']}\"></a>"
-						. "\n\t\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t\t" . '<div class="featured-post-desc-container">'
-						. "\n\t\t\t\t\t\t\t" . "<a class=\"featured-post-name site-font-link-std site-link-fc-dark\" href=\"{$post['post_name']}\">"
-						. "{$post['short_desc']}</a>"
-						. "\n\t\t\t\t\t\t\t" . "<p class=\"featured-post-desc site-font-std site-flh-med\">"
-						. "\n\t\t\t\t\t\t\t\t" . "{$post['long_desc']}"
-						. "\n\t\t\t\t\t\t\t" . "</p>"
-						. "\n\t\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t\t" . '<div class="featured-post-attrs">'
-						. "\n\t\t\t\t\t\t" . "<span class=\"site-font-std site-fc-midlight\">"
-						. date("F j, Y", strtotime($post['post_created'])) . "</span>"
-						. "\n\t\t\t\t\t\t"
-						. "<a href=\"postsearch?post_category="
-						. rawurlencode($post['post_category']) 
-						. "\" class=\"featured-post-cat site-font-link-std\">"
-						. "{$post['post_category']}</a>"
-						. "\n\t\t\t\t\t" . '</div>'
-						. "\n\t\t\t\t" . '</article>';
-
-						$iter += 1;
-					}
-				
-				?>		
-
-				</section>
-
-				<section class="latest-posts-container site-flex-grow-shrink">
-
-					<h1 class="site-primary-heading">Latest Posts</h1>
-					<div class="latest-posts">
-						<ul>
-							<?php
-	
-								$latestPosts = $laData->crudData(
-									CrudOperation::GETPOSTS,
-									CrudType::CRUDREAD,
-									CrudResultsetType::RESULTSET_ROWS,
-									CrudFetchStyle::FETCHSTYLE_ASSOC,
-									[
-										'order_by' => 'post_category',
-										'order_by_ascdesc' => 'DESC'
-									]						
-								);
-								$iter = 1;
-								foreach ($latestPosts as $postNum => $post)
-								{
-									if ($iter == 1) {
-										$htmlFormatting = "\t";
-									}
-									else {
-										$htmlFormatting = "\n\t\t\t\t\t"; 
-									}
-	
-									echo 
-										"<li>" .
-											 $htmlFormatting . 
-											 "<a href=\"{$post['post_name']}\" class=\"latest-post-link site-font-link-std site-link-fc-xdark\">{$post['short_desc']}</a>" .
-										"</li>";
-	
-									$iter += 1;
-								}
-							?>
-						</ul>
-	
-					</div>  
-				</section>
-			</div>
-
-			<section class="site-mt-std">
-				<h1 class="site-primary-heading">Our Mission</h1>
-
-				<div class="site-block-std site-flex site-flex-gap-800">
-
-					<p class="site-flex-grow-shrink site-fs-med">
+			<section class="mission-container">
+				<h2 class="site-primary-heading site-font-primary-heading">Our Mission</h2>
+				<div class="site-block-std">
+					<p class="mission-stmt site-font-std">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
 						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
 						are resolvable in many different ways. Hence, we aspire to consider multiple possible data-driven techniques when approaching problems in the domain of data analytics.
 						We hope that the content published will illuminate how to exercise a <em class="site-font-brand">liber</em> (free)
 						mind while working with data as well as inspire individuals to keep improving!
 					</p>
-
-					<div class="site-flex-grow-shrink">
-						<img src="assets/mission.png">
-					</div>                    
-
+					<img src="/assets/mission.png" class="mission-img">	
 				</div>
-			</section>
-		
-		</div>
+			</section>			
+		</div><!-- End .page-wrap -->
 	</main>
 
 	<?php include_once('lafooter.php'); ?>
