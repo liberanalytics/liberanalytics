@@ -2,3 +2,17 @@
     index.css
 --------------------------------------------------------- */
 
+.featured-posts-container {
+
+}
+
+.latest-posts-container {
+
+}
+
+.latest-posts-link {
+    --knob-link-fs: var(--fsz-clamp-16x18);
+    --knob-link-fc: var(--fc-med);    
+    display: block;
+    padding-block: var(--sz-300);
+}

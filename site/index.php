@@ -133,8 +133,8 @@ $laData = new classes\LaData();
 						foreach ($latestPosts as $postNum => $post)
 						{
 							echo 
-							'<li>'
-							. '<a href="/' . $post['post_name'] . '" class="site-font-link-std">' . $post['short_desc'] . '</a>'
+							'<li class="site-gradient-border-bottom">'
+							. '<a href="/' . $post['post_name'] . '" class="latest-posts-link site-font-link-std">' . $post['short_desc'] . '</a>'
 							. '</li>';
 
 							$iter += 1;
