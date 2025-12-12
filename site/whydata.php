@@ -68,8 +68,8 @@
 
 	<main>
 		<div class="page-wrap">
-			<article class="site-stack-start-mt">
-				<header>
+			<article>
+				<header class="site-stack-start-mt">
 					<?php
 						//
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
@@ -120,7 +120,7 @@
 					>
 				</header>        
 
-				<section class="site-stack-mt">
+				<section class="site-stack-start-mt">
 
 					<p class="site-mt site-font-std"> 
 						<span class="site-font-brand">Why</span> do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data?
