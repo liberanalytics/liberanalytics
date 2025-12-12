@@ -106,6 +106,15 @@
     color: var(--knob-form-fc, --fc-light);    
 }
 
+.site-font-form-error {
+    font-family: var(--ff-sans-serif);
+    font-size: var(--knob-form-error-fs, var(--fsz-clamp-16x18));
+    font-weight: var(--fw-xlight);
+    line-height: var(--flh-tight);    
+    color: var(--fc-med-red);
+    text-align: center;
+}
+
 /* Site Font (link) Component Classes */
 .site-font-link-std {
     font-family: var(--knob-link-ff, var(--ff-main));

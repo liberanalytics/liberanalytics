@@ -1,5 +1,5 @@
 const getDefaultErrorEle = () => { 
-    return document.querySelector('.error-msg');
+    return document.querySelector('#form_error_ele');
 }
 
 const getAjaxOverlayEle = () => {

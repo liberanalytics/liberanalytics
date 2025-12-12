@@ -120,7 +120,7 @@ $laData = new classes\LaData();
 							<div id="postsearch_tag_suggestions" class="site-tag-suggestions-container"></div>
 						</li>
 						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-						<li><span class="error-msg" aria-live="polite"></span></li>
+						<li class="form-error-container"><span id ="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>
 					</ul>
 
 				</form>

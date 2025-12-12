@@ -16,10 +16,6 @@
     margin-block-end: var(--sz-050);
 }
 
-.site-form-std .error-msg {
-    margin-block-start: var(--sz-300);
-}
-
 .site-form-std input[type="submit"] {
     margin-block-start: var(--sz-400);
 }
@@ -73,12 +69,9 @@
     cursor: pointer;    
 }
 
-.error-msg {
-    display: block;
-    min-height: var(--knob-error-height, var(--sz-400));
-    font-size: var(--knob-error-fs, var(--fsz-100));
-    color: var(--fc-med-red);
-    text-align: center;
+.site-form-std .form-error-container {
+    min-height: var(--knob-form-error-container-ht, var(--sz-400));
+    margin-block-start: var(--sz-300);
 }
 
 .site-form-std .select-arrow {
