@@ -124,7 +124,7 @@
 								<li class="form-ele-container"><label for="message" class="site-fw-bold">Message<em class="site-fc-med-red">*</em></label></li>
 								<li>
 									<textarea 
-										id="subject" name="contact_message" rows="8" class=""
+										id="message" name="contact_message" rows="8" class=""
 										data-caption="Message" data-id="contact_message" data-req="1"
 										data-vx="vxText" data-len="512"
 									></textarea>							
