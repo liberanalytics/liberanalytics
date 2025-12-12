@@ -110,7 +110,7 @@
     font-family: var(--ff-sans-serif);
     font-size: var(--knob-form-error-fs, var(--fsz-clamp-16x18));
     font-weight: var(--fw-xlight);
-    line-height: var(--flh-tight);    
+    line-height: var(--flh-xtight);    
     color: var(--fc-med-red);
     text-align: center;
 }
