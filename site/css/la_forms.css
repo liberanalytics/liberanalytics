@@ -4,7 +4,7 @@
 
 .site-form-container {
     padding-block-end: var(--sz-300);
-    margin-block-start: var(--sz-400);
+    margin-block-start: var(--sz-300);
 }
 
 .site-form-container label {
