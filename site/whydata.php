@@ -101,7 +101,7 @@
 
 					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
 					<p>
-						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-date">
+						<time datetime="<?php echo "{$postISODate}"; ?>" class="post-date site-font-std site-font-date">
 							<?php echo "{$postDate}"; ?>
 						</time>
 					</p>
