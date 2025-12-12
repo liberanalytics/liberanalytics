@@ -125,6 +125,7 @@ main {
 
 .site-primary-heading {
     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
+    margin-block-start: var(--knob-primary-heading-mt, 0);
     margin-block-end: var(--knob-primary-heading-mb, var(--sz-400));
     background-color: var(--clr-med-dark);
 }

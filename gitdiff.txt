@@ -1,0 +1,31 @@
+diff --git a/gitdiff.txt b/gitdiff.txt
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/gitdiff.txt
+@@ -0,0 +1 @@
++
+diff --git a/site/css/index.css b/site/css/index.css
+index 37e66b2..4787221 100644
+--- a/site/css/index.css
++++ b/site/css/index.css
+@@ -7,6 +7,7 @@
+ }
+ 
+ .latest-posts-container {
++    --knob-primary-heading-mt: var(--sz-400);
+     --knob-primary-heading-mb: 0;
+ }
+ 
+diff --git a/site/css/la.css b/site/css/la.css
+index 27f366c..fc8ea8c 100644
+--- a/site/css/la.css
++++ b/site/css/la.css
+@@ -125,6 +125,7 @@ main {
+ 
+ .site-primary-heading {
+     padding: var(--sz-300) 0 var(--sz-100) var(--sz-300);
++    margin-block-start: var(--knob-primary-heading-mt, 0);
+     margin-block-end: var(--knob-primary-heading-mb, var(--sz-400));
+     background-color: var(--clr-med-dark);
+ }
