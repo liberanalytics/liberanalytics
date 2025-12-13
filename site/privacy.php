@@ -94,8 +94,15 @@
 					<h2 class="site-font-secondary-heading">Your Rights</h2>
 					<ul class="site-list site-stack-start-mt site-fc-xdark">
 						<li>
+							<p>
 							You may request deletion of your submitted information
-							at any time by contacting us at liber@liberanalytics.com.
+							at any time by contacting us at:							
+								<a 
+									href="mailto:liber@liberanalytics.com?subject=Question%20about%20privacy%20policy"
+									class="site-font-link-std">
+									liber@liberanalytics.com
+								</a>
+							</p>
 						</li>
 					</ul>
 					<h2 class="site-font-secondary-heading">Contact</h2>
