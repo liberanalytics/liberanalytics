@@ -103,7 +103,8 @@ $laData = new classes\LaData();
 					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
 					. '</div>'
 					. '<div class="post-card-attrs">'
-					. '<span class="site-font-date-std">' . date("F j, Y", strtotime($post['post_created'])) . '</span>'
+					. '<time class="site-font-date-std" datetime="' . date("F j, Y", strtotime($post['post_created']))
+					.  '">' . date("F j, Y", strtotime($post['post_created'])) . '</time>'
 					. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
 					. '</div>'
 					. '</article>';
