@@ -58,7 +58,7 @@
 			<section>
 				<h1 class="site-primary-heading site-font-primary-heading">LiberAnalytics Terms of Use</h1>
 
-				<div class="site-block-std site-stack-mt">
+				<div class="site-block-std site-stack-start-mt">
 					<p class="eff-date">
 						<span 
 							class="site-fw-xbold site-fc-xdark"
@@ -67,7 +67,7 @@
 						</span>
 						<time class="site-fw-light" datetime="2026-01-01">January 1, 2026</time>
 					</p>
-					<ol class="legal-list-nocounter site-stack-mt site-fw-light site-fc-xdark">
+					<ol class="legal-list-nocounter site-stack-start-mt site-fw-light site-fc-xdark">
 						<li><h2 class="site-font-secondary-heading">Acceptance of Terms</h2></li>
 						<li>
 							<p >
@@ -85,7 +85,7 @@
 							</p>
 						</li>
 						<li><h2 class="site-font-secondary-heading">Use of the Site</h2></li>
-						<li class="site-stack-mt site-fs-small">
+						<li class="site-stack-start-mt site-fs-small">
 							<p>You agree to use the Site for lawful purposes only. You must not:</p>
 							<p class="site-fc-med site-flh-med">a) Attempt to gain unauthorized access to the Site or its systems.</p>
 							<p class="site-fc-med site-flh-med">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
