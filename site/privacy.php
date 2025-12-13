@@ -100,7 +100,15 @@
 					</ul>
 					<h2 class="site-font-secondary-heading">Contact</h2>
 					<ul class="site-list site-stack-start-mt site-fc-xdark">
-						<li>For questions about this policy, contact us at: liber@liberanalytics.com</li>
+						<li>
+							<p>For questions about this policy, contact us at:
+								<a 
+									href="mailto:liber@liberanalytics.com?subject=Question%20about%20privacy%20policy"
+									class="site-font-link-std">
+									liber@liberanalytics.com
+								</a>
+							</p>
+						</li>
 					</ul>								
 				</div>
 
