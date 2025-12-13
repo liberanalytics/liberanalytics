@@ -86,10 +86,10 @@
 						</li>
 						<li><h2 class="site-font-secondary-heading">Use of the Site</h2></li>
 						<li class="legal-agree site-stack-start-mt">
-							<p class="site-font-std">You agree to use the Site for lawful purposes only. You must not:</p>
-							<p class="site-font-std">a) Attempt to gain unauthorized access to the Site or its systems.</p>
-							<p class="site-font-std">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
-							<p class="site-font-std">c) Use the Site in a manner that violates applicable laws or regulations.</p>
+							<p class="site-font-std site-fc-xdark">You agree to use the Site for lawful purposes only. You must not:</p>
+							<p class="site-font-std site-fc-xdark">a) Attempt to gain unauthorized access to the Site or its systems.</p>
+							<p class="site-font-std site-fc-xdark">b) Engage in any activity that disrupts or interferes with the Site's functionality.</p>
+							<p class="site-font-std site-fc-xdark">c) Use the Site in a manner that violates applicable laws or regulations.</p>
 						</li>
 						<li><h2 class="site-font-secondary-heading">Intellectual Property</h2></li>
 						<li>
