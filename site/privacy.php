@@ -65,7 +65,7 @@
 						>
 						Effective Date:
 						</span>
-						<time class="site-fw-light" datetime="2026-01-01">January 1, 2026</time>
+						<time class="site-font-date-std" datetime="2026-01-01">January 1, 2026</time>
 					</p>
 					<p class="site-fc-xdark site-fw-light">
 						At <span class="site-font-brand">LiberAnalytics</span>, your privacy is important. 
