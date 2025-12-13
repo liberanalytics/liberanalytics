@@ -65,7 +65,7 @@
 						>
 						Effective Date:
 						</span>
-						<time class="site-fw-light" datetime="2026-01-01">January 1, 2026</time>
+						<time class="site-font-date-std" datetime="2026-01-01">January 1, 2026</time>
 					</p>
 					<ol class="legal-list-nocounter site-stack-start-mt site-fw-light site-fc-xdark">
 						<li><h2 class="site-font-secondary-heading">Acceptance of Terms</h2></li>
