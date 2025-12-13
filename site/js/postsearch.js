@@ -68,6 +68,7 @@ postsearch.submitSearch = (submitType) => {
                     errorValue: pxValue
                 });
                 return;
+                LArenderor.unrenderAjaxSpinner();
             }
         }
     }
