@@ -70,7 +70,7 @@
     <main>
 		<div class="page-wrap">
 			<article>
-				<header class="site-stack-mt">
+				<header class="site-stack-start-mt">
 					<?php
 						//
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
@@ -115,7 +115,6 @@
 						decoding="async"
 					>
 				</header>
-
 				<section class="site-stack-mt">
 
 					<p class="site-mt">
