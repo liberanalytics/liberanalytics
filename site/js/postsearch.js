@@ -67,8 +67,8 @@ postsearch.submitSearch = (submitType) => {
                     errorKey: px, 
                     errorValue: pxValue
                 });
-                return;
                 LArenderor.unrenderAjaxSpinner();
+                return;
             }
         }
     }
