@@ -58,7 +58,7 @@
 			<section>
 				<h1 class="site-primary-heading site-font-primary-heading">Privacy at LiberAnalytics</h1>
 
-				<div class="site-block-std site-stack-mt">
+				<div class="site-block-std site-stack-start-mt">
 					<p class="eff-date">
 						<span 
 							class="site-fw-xbold site-fc-xdark"
