@@ -115,7 +115,7 @@
 						decoding="async"
 					>
 				</header>
-				<section class="site-stack-mt">
+				<section class="site-stack-start-mt">
 
 					<p class="site-mt">
 					<span class="site-font-brand">Connecting</span> Python to PostgreSQL is made seamless with the psycopg2 library.
