@@ -418,7 +418,7 @@
 					database cluster and begin running SQL queries. The below aws_postgresql_connect.py program reads the
 					encrypted data from the config file created by the aws_postgresql_config.py program then
 					decrypts the byte data with the same AWS KMS key. It is important to include the encryption
-					algorithm (EncryptionAlgorithm=RSAES_OAEP_SHA_256) in the decrypt call if using an
+					algorithm (EncryptionAlgorithm='RSAES_OAEP_SHA_256') in the decrypt call if using an
 					asymmetric key in AWS KMS. In this case we are using a symmetric key so the EncryptionAlgorithm='SYMMETRIC_DEFAULT'
 					encryption algorithm property isn't needed but we still include it for posterity sake. 
 					The data read is then split by delimiter to derive user name/password
