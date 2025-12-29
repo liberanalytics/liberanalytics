@@ -201,7 +201,7 @@
 						</div>
 
 						<!-- require autoload -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-keyword-fc">require</span>
 								<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
@@ -211,7 +211,7 @@
 						</div>
 
 						<!-- Create AWS clients / loggers -->
-						<div>
+						<div class="site-mt">
 							<p><span class="post-snippet-font-std code-php-comment-fc">// Create CloudWatch Logs / KMS / CloudWatchLogger instances.</span></p>							
 							<p>
 								<span class="post-snippet-font-std code-php-keyword-fc">try</span>
@@ -220,7 +220,7 @@
 						</div>
 
 						<!-- CloudWatchLogsClient -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-var-fc">$aws_cwlogs_client</span>
 								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
@@ -250,7 +250,7 @@
 						</div>
 
 						<!-- KmsClient -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-var-fc">$aws_kms_client</span>
 								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
@@ -280,7 +280,7 @@
 						</div>
 
 						<!-- error_logger -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-var-fc">$error_logger</span>
 								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
@@ -326,13 +326,8 @@
 							<p><span class="post-snippet-font-std code-php-default-fc">]);</span></p>
 						</div>
 
-						<!-- spacer line -->
-						<div>
-							<p></p>
-						</div>
-
 						<!-- sql_logger -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-var-fc">$sql_logger</span>
 								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
@@ -380,7 +375,7 @@
 						</div>
 
 						<!-- catch / error handling -->
-						<div>
+						<div class="site-mt">
 							<p><span class="post-snippet-font-std code-php-comment-fc">// Report on any exceptions - exit program since all instances are needed.</span></p>
 							<p>
 								<span class="post-snippet-font-std code-php-keyword-fc">catch</span>
@@ -418,6 +413,7 @@
 					
 
 					 <div class="post-snippet">
+
 						<!-- Open/read config file + perms -->
 						<div>
 							<p>
@@ -473,7 +469,7 @@
 						</div>
 
 						<!-- Decrypt binary data -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">// Decrypt the binary data in the database config file.</span>
 							</p>
@@ -492,7 +488,7 @@
 						</div>
 
 						<!-- KMS decrypt params -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">// AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.</span>
 							</p>
@@ -523,7 +519,7 @@
 						</div>
 
 						<!-- Logging decrypt failures -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">// Log any exceptions to the error log group / stream. Exit on failure</span>
 							</p>
@@ -558,14 +554,14 @@
 							</p>
 						</div>
 
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-default-fc">}</span>
 							</p>
 						</div>
 
 						<!-- Decode + split -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">// Decode using base64 decoding, then split data into components per delimiter.</span>
 							</p>
@@ -705,7 +701,8 @@
 							<span class="post-snippet-font-std code-php-default-fc">);</span>
 						</p>
 					
-						<div>
+						<!-- PDO Error logging -->
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">// Set PDO error reporting to Exception.</span>
 							</p>
@@ -728,7 +725,8 @@
 							</p>
 						</div>
 					
-						<div>
+						<!-- Connection attempt -->
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">// Connection attempt failed - log failure to CloudWatch Logs and exit.</span>
 							</p>
@@ -786,6 +784,7 @@
 					<h3 class="site-font-secondary-heading">Log a successfully run query</h3>
 					
 					<div class="post-snippet">
+						
 						<!-- Run example query + log success -->
 						<div>
 							<p>
@@ -830,7 +829,7 @@
 						</div>
 
 						<!-- Log failed queries -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">// Log failed query prepare statements to CloudWatch Logs.</span>
 							</p>
