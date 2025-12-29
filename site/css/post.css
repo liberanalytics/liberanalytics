@@ -27,6 +27,11 @@
     max-width: 100%;
 }
 
+.post-img-container:focus-visible {
+    outline: 2px solid var(--clr-med-dark);
+    outline-offset: 4px;
+}
+
 .post-img {
     display: block;
     inline-size: 100%;

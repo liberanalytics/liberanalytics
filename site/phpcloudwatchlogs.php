@@ -174,6 +174,7 @@
 							class="post-img-screenshot"
 							width="820"
 							height="200"
+							tabindex="0"
 						>
 					</div>
 
@@ -640,6 +641,7 @@
 							class="post-img-screenshot"
 							width="820"
 							height="170"
+							tabindex="0"
 						>
 					</div>
 
@@ -787,6 +789,7 @@
 							class="post-img-screenshot"
 							width="820"
 							height="170"
+							tabindex="0"
 						>
 					</div>
 
