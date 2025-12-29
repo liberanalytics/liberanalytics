@@ -70,7 +70,7 @@
     <main>
 		<div class="page-wrap">
 			<article>
-				<header class="site-stack-mt">
+				<header class="site-stack-start-mt">
 					<?php
 						//
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
@@ -116,7 +116,7 @@
 					>
 				</header>     
 
-				<section class="site-stack-mt">
+				<section class="site-stack-start-mt">
 
 					<p class="site-mt">
 						<span class="site-font-brand">Ever</span> grow tired of storing logs on a server then having to manage
