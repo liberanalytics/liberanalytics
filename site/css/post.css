@@ -9,7 +9,6 @@
 .page-post {
     --knob-std-fs: var(--fsz-clamp-16x18);
     --knob-stack-start-mt: var(--sz-300);
-    --knob-site-mt: var(--sz-300);
 }
 
 .post-heading {
@@ -29,6 +28,7 @@
 
 /* Wrapper for the snippet. */
 .post-snippet {
+    --knob-site-mt: var(--sz-300);
     max-width: 100%;
     padding: var(--sz-300);
     background-color: #1f1f1f;

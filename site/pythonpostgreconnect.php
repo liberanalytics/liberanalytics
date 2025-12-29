@@ -148,13 +148,16 @@
 
 					<div class="post-snippet">
 
-						<p class="site-mt"><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
-						<p><span class="post-snippet-font-std code-python-comment-fc"># aws_postgresql_config.py</span></p>
-						<p><span class="post-snippet-font-std code-python-comment-fc">#</span></p>
-						<p><span class="post-snippet-font-std code-python-comment-fc"># Creates a .ini file containing encrypted credentials used
-						# to connect to an AWS EC2 hosted PostgreSQL database.</span></p>
-						<p><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
-	
+						<!-- Comments -->
+						<div>
+							<p><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
+							<p><span class="post-snippet-font-std code-python-comment-fc"># aws_postgresql_config.py</span></p>
+							<p><span class="post-snippet-font-std code-python-comment-fc">#</span></p>
+							<p><span class="post-snippet-font-std code-python-comment-fc"># Creates a .ini file containing encrypted credentials used
+							# to connect to an AWS EC2 hosted PostgreSQL database.</span></p>
+							<p><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
+						</div>
+
 						<!-- imports -->
 						<div class="site-mt">
 							<p>
@@ -425,9 +428,9 @@
 					allow calls to KMS.
 					</p>
 					
-					<div class="post-snippet site-stack-mt">
+					<div class="post-snippet">
 
-						<!-- Header -->
+						<!-- Comments -->
 						<div>
 							<p><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 							<p><span class="post-snippet-font-std code-python-comment-fc"># aws_postgresql_connect.py</span></p>
@@ -439,7 +442,7 @@
 						</div>
 
 						<!-- Imports -->
-						<div>
+						<div class="site-mt">
 							<p class="site-mt">
 								<span class="post-snippet-font-std code-python-keyword-fc">import&nbsp;</span>
 								<span class="post-snippet-font-std code-python-type-fc">pwd</span>
@@ -467,7 +470,7 @@
 						</div>
 
 						<!-- main() definition -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-special-fc">def&nbsp;</span>
 								<span class="post-snippet-font-std code-python-func-fc">main</span><span class="post-snippet-font-std code-python-default-fc">():</span>
@@ -475,7 +478,7 @@
 						</div>
 
 						<!-- Instantiate KMS client -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Instantiate an AWS KMS client instance.</span>
 							</p>
@@ -490,7 +493,7 @@
 						</div>
 
 						<!-- KMS key id -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># KMS key id.</span>
 							</p>
@@ -502,7 +505,7 @@
 						</div>
 
 						<!-- Config file path -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Config file.</span>
 							</p>
@@ -547,7 +550,7 @@
 						</div>
 
 						<!-- Make config file readable -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Make config file readable.</span>
 							</p>
@@ -560,7 +563,7 @@
 						</div>
 
 						<!-- Get connection credentials from config file -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Get the connection credentials from config file.</span>
 							</p>
@@ -581,7 +584,7 @@
 						</div>
 
 						<!-- Reset config file perms -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Reset config file perms.</span>
 							</p>
@@ -594,7 +597,7 @@
 						</div>
 
 						<!-- Decrypt the connection credentials -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Decrypt the connection credentials.</span>
 							</p>
@@ -624,7 +627,7 @@
 						</div>
 
 						<!-- Decode and split credentials -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Decode the credentials and split by delimiter.</span>
 							</p>
@@ -684,7 +687,7 @@
 						</div>
 
 						<!-- Form connection string & connect -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Form a connection string &amp; connect.</span>
 							</p>
@@ -729,7 +732,7 @@
 						</div>
 
 						<!-- Example query -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Example query.</span>
 							</p>
@@ -753,7 +756,7 @@
 						</div>
 
 						<!-- Iterate through resultset -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Iterate through resultset.</span>
 							</p>
@@ -770,7 +773,7 @@
 						</div>
 
 						<!-- Close cursor and connection -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Close cursor and connection.</span>
 							</p>
