@@ -47,7 +47,7 @@
 /* Make inner text preserve spacing/line breaks */
 .post-snippet p {
     margin: 0;
-    white-space: pre;
+    font-size: 0;
 }
 
 /* Python code block colors. */
