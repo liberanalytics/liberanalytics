@@ -20,6 +20,13 @@
     --knob-std-fc: var(--fc-light);
 }
 
+.post-img-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
 .post-img {
     display: block;
     inline-size: 100%;
@@ -29,11 +36,7 @@
 .post-img-screenshot {
     display: block;
     max-width: none;
-    inline-size: 100%;
-    block-size: auto;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;    
+    height: auto;   
 }
 
 /* Wrapper for the snippet. */

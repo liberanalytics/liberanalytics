@@ -167,13 +167,15 @@
 						or group. The log stream structure looks like the below from the AWS console:
 					</p>
 
-					<img
-						src="assets/phpcloudwatchlogs_logstreams.png"
-						alt="Screenshot of AWS CloudWatch Logs log streams for php/database/sql and php/database/errors."
-						class="post-img-screenshot"
-						width="820"
-						height="200"
-					>
+					<div class="post-img-container">
+						<img
+							src="assets/phpcloudwatchlogs_logstreams.png"
+							alt="Screenshot of AWS CloudWatch Logs log streams for php/database/sql and php/database/errors."
+							class="post-img-screenshot"
+							width="820"
+							height="200"
+						>
+					</div>
 
 					<h3 class="site-font-secondary-heading">Create CloudWatch Logs / KMS / CloudWatchLogger instances in PHP</h3>
 
@@ -631,13 +633,15 @@
 						which appears in the AWS CloudWatch logs console as shown below.
 					</p>
 
-					<img 
-						src="assets/phpcloudwatchlogs_decrypt_error.png"
-						alt="phpcloudwatchlogs_decrypt_error"
-						class="post-img-screenshot"
-						width="820"
-						height="170"
-					>
+					<div class="post-img-container">
+						<img 
+							src="assets/phpcloudwatchlogs_decrypt_error.png"
+							alt="phpcloudwatchlogs_decrypt_error"
+							class="post-img-screenshot"
+							width="820"
+							height="170"
+						>
+					</div>
 
 					<h3 class="site-font-secondary-heading">Connect to PostgreSQL database and capture connection errors in AWS CloudWatch Logs</h3>
 
@@ -776,13 +780,15 @@
 						log from the AWS CloudWatch logs console is shown below.
 					</p>
 
-					<img
-						src="assets/phpcloudwatchlogs_connect_error.png"
-						alt="Screenshot of decryption error in AWS CloudWatch Logs for php/database/errors stream."
-						class="post-img-screenshot"
-						width="820"
-						height="170"
-					>
+					<div class="post-img-container">
+						<img
+							src="assets/phpcloudwatchlogs_connect_error.png"
+							alt="Screenshot of decryption error in AWS CloudWatch Logs for php/database/errors stream."
+							class="post-img-screenshot"
+							width="820"
+							height="170"
+						>
+					</div>
 
 					<h3 class="site-font-secondary-heading">Log a successfully run query</h3>
 					
@@ -872,13 +878,15 @@
 						And this time the log goes to the php/database/sql/ logstream.
 					</p>
 						
-					<img
-						src="assets/phpcloudwatchlogs_query.png"
-						alt="Screenshot of successful query log in php/database/sql stream."
-						class="post-img-screenshot"
-						width="820"
-						height="175"
-					>
+					<div class="post-img-container">
+						<img
+							src="assets/phpcloudwatchlogs_query.png"
+							alt="Screenshot of successful query log in php/database/sql stream."
+							class="post-img-screenshot"
+							width="820"
+							height="175"
+						>
+					</div>
 
 					<h3 class="site-font-secondary-heading">What can be learned from this article</h3>
 
