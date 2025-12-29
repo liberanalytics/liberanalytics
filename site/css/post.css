@@ -26,6 +26,16 @@
     block-size: auto;
 }
 
+.post-img-screenshot {
+    display: block;
+    max-width: none;
+    inline-size: 100%;
+    block-size: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;    
+}
+
 /* Wrapper for the snippet. */
 .post-snippet {
     --knob-site-mt: var(--sz-300);

@@ -170,6 +170,7 @@
 					<img
 						src="assets/phpcloudwatchlogs_logstreams.png"
 						alt="Screenshot of AWS CloudWatch Logs log streams for php/database/sql and php/database/errors."
+						class="post-img-screenshot"
 						width="820"
 						height="200"
 					>
@@ -633,6 +634,7 @@
 					<img 
 						src="assets/phpcloudwatchlogs_decrypt_error.png"
 						alt="phpcloudwatchlogs_decrypt_error"
+						class="post-img-screenshot"
 						width="820"
 						height="170"
 					>
@@ -777,6 +779,7 @@
 					<img
 						src="assets/phpcloudwatchlogs_connect_error.png"
 						alt="Screenshot of decryption error in AWS CloudWatch Logs for php/database/errors stream."
+						class="post-img-screenshot"
 						width="820"
 						height="170"
 					>
@@ -872,6 +875,7 @@
 					<img
 						src="assets/phpcloudwatchlogs_query.png"
 						alt="Screenshot of successful query log in php/database/sql stream."
+						class="post-img-screenshot"
 						width="820"
 						height="175"
 					>
