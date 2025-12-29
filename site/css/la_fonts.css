@@ -8,7 +8,9 @@
     --ff-primary-heading: Helvetica, sans-serif;
     --ff-secondary-heading: var(--ff-main);
     --ff-fancy: 'Times New Roman', Times, serif;
+    --ff-post-snippet: "Droid Sans Mono", monospace;    
     --ff-sans-serif: Helvetica, Arial, sans-serif;
+
 
     /* Site font-sizes. */
     --fsz-100: var(--sz-400);

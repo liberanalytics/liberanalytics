@@ -26,16 +26,21 @@
     block-size: auto;
 }
 
-/* Wrapper for the snippet */
+/* Wrapper for the snippet. */
 .post-snippet {
     padding: var(--sz-300);
     background-color: #1f1f1f;
     border-radius: var(--sz-150);
     box-shadow: var(--site-box-shadow-soft);
-    font-family: "Droid Sans Mono", monospace;
-    font-weight: normal;
-    line-height: var(--flh-tight);
     overflow: auto;
+}
+
+/* Standard snippet font styling. */
+.post-snippet-font-std {
+    font-family: var(--ff-post-snippet);
+    font-size: var(--knob-post-snippet-fs, var(--fsz-clamp-16x18));
+    font-weight: var(--fw-light);
+    line-height: var(--flh-tight);
 }
 
 /* Make inner text preserve spacing/line breaks */
