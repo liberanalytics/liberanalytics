@@ -31,7 +31,7 @@
     --knob-site-mt: var(--sz-300);
     max-width: 100%;
     padding: var(--sz-300);
-    background---knob-post-snippet-fc: #1f1f1f;
+    background: #1f1f1f;
     border-radius: var(--sz-150);
     box-shadow: var(--site-box-shadow-soft);
     overflow-x: auto;
