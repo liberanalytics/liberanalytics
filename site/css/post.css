@@ -45,7 +45,7 @@
     font-size: var(--knob-post-snippet-fs, var(--fsz-clamp-16x18));
     font-weight: var(--fw-light);
     line-height: var(--flh-tight);
-    --knob-post-snippet-fc: var(--knob-post-snippet-fc);
+    color: var(--knob-post-snippet-fc);
 }
 
 /* Snippet lines: font-size: 0 removes whitespace nodes created by pretty-printed HTML
