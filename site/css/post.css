@@ -28,11 +28,14 @@
 
 /* Wrapper for the snippet. */
 .post-snippet {
+    max-width: 100%;
     padding: var(--sz-300);
     background-color: #1f1f1f;
     border-radius: var(--sz-150);
     box-shadow: var(--site-box-shadow-soft);
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Standard snippet font styling. */
