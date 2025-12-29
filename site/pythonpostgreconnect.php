@@ -146,9 +146,9 @@
 					to add your own error handling and logging.
 					</p>
 
-					<div class="post-snippet post-snippet-font-std">
+					<div class="post-snippet">
 
-						<p class=""><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
+						<p class=""><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 						<p><span class="code-python-comment-fc"># aws_postgresql_config.py</span></p>
 						<p><span class="code-python-comment-fc">#</span></p>
 						<p><span class="code-python-comment-fc"># Creates a .ini file containing encrypted credentials used
