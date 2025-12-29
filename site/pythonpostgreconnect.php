@@ -146,7 +146,7 @@
 					to add your own error handling and logging.
 					</p>
 
-					<div class="post-snippet site-stack-mt">
+					<div class="post-snippet">
 
 						<p><span class="code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 						<p><span class="code-python-comment-fc"># aws_postgresql_config.py</span></p>
