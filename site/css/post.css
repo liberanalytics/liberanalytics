@@ -51,7 +51,6 @@
 /* Snippet lines: font-size: 0 removes whitespace nodes created by pretty-printed HTML
    between token spans. All visible text MUST be in spans. */
 .post-snippet p {
-    margin: 0;
     font-size: 0;
     line-height: 0;
     white-space: nowrap;
