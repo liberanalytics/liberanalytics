@@ -152,7 +152,16 @@
 						like the below.
 					</p>
 
-					<img src="/assets/whydata_ps.png" alt="whydata_ps" class="post-img">
+					<div class="post-img-container">
+						<img 
+							src="/assets/whydata_ps.png" 
+							alt="Screenshot of basic information into data flow." 
+							class="post-img"
+							width="362"
+							height="187"
+							tabindex="0"
+						>
+					</div>
 
 					<h4 class="site-font-secondary-heading">Data versus information</h1>
 
