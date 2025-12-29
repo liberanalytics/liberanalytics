@@ -118,7 +118,7 @@
 				<section class="site-stack-start-mt">
 
 					<p class="site-mt">
-					<span class="post-snippet-font-std site-font-brand">Connecting</span> Python to PostgreSQL is made seamless with the psycopg2 library.
+					<span class="site-font-brand">Connecting</span> Python to PostgreSQL is made seamless with the psycopg2 library.
 					This article demonstrates how to connect to a PostgreSQL database using Python without storing credentials
 					in plain text or in the .pgpass file. The architecture we will be using consists of a PostgreSQL database
 					hosted on an Ubuntu 24 (Noble) Amazon Web Services (AWS) EC2 instance and Python 3.10 running on Ubuntu 22 (Jammy).

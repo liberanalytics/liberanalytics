@@ -119,7 +119,7 @@
 				<section class="site-stack-start-mt">
 
 					<p class="site-mt">
-						<span class="post-snippet-font-std site-font-brand">Ever</span> grow tired of storing logs on a server then having to manage
+						<span class="site-font-brand">Ever</span> grow tired of storing logs on a server then having to manage
 						access to the logs for individual users working in a collaborative development team? This post explores
 						an alternative method to manage database logging by making use of the Amazon Web Services (AWS) CloudWatch
 						Logs service. After reading this post you should have an idea of how to code PHP to send database logs
@@ -417,7 +417,7 @@
 					</p>
 					
 
-					 <div class="post-snippet site-stack-mt">
+					 <div class="post-snippet">
 						<!-- Open/read config file + perms -->
 						<div>
 							<p>
@@ -649,7 +649,7 @@
 						is run here.
 					</p>
 
-					<div class="post-snippet site-stack-mt">
+					<div class="post-snippet">
 						<div>
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">// Try to connect to postgres database. Log any errors to CloudWatch Logs.</span>
@@ -785,7 +785,7 @@
 
 					<h3 class="site-font-secondary-heading">Log a successfully run query</h3>
 					
-					<div class="post-snippet site-stack-mt">
+					<div class="post-snippet">
 						<!-- Run example query + log success -->
 						<div>
 							<p>
