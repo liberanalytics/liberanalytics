@@ -38,7 +38,7 @@
 /* Standard snippet font styling. */
 .post-snippet-font-std {
     font-family: var(--ff-post-snippet);
-    font-size: var(--knob-post-snippet-fs, var(--fsz-clamp-16x18));
+    font-size: var(--fsz-clamp-16x18);
     font-weight: var(--fw-light);
     line-height: var(--flh-tight);
 }
@@ -48,10 +48,6 @@
     margin: 0;
     font-size: 0;
     white-space: nowrap;
-}
-
-.post-snippet p span {
-
 }
 
 /* Python code block colors. */
