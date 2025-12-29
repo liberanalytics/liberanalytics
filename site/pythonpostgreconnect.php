@@ -148,7 +148,7 @@
 
 					<div class="post-snippet">
 
-						<p><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
+						<p class="site-mt"><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 						<p><span class="post-snippet-font-std code-python-comment-fc"># aws_postgresql_config.py</span></p>
 						<p><span class="post-snippet-font-std code-python-comment-fc">#</span></p>
 						<p><span class="post-snippet-font-std code-python-comment-fc"># Creates a .ini file containing encrypted credentials used
