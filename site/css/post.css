@@ -46,7 +46,7 @@
 /* Make inner text preserve spacing/line breaks */
 .post-snippet p {
     margin: 0;
-    font-size: 0;
+    /* font-size: 0; */
     white-space: nowrap;
 }
 
