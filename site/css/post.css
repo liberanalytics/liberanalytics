@@ -31,7 +31,7 @@
     --knob-site-mt: var(--sz-300);
     max-width: 100%;
     padding: var(--sz-300);
-    background-color: #1f1f1f;
+    background---knob-post-snippet-fc: #1f1f1f;
     border-radius: var(--sz-150);
     box-shadow: var(--site-box-shadow-soft);
     overflow-x: auto;
@@ -45,7 +45,7 @@
     font-size: var(--knob-post-snippet-fs, var(--fsz-clamp-16x18));
     font-weight: var(--fw-light);
     line-height: var(--flh-tight);
-    color: var(--knob-post-snippet-fc);
+    --knob-post-snippet-fc: var(--knob-post-snippet-fc);
 }
 
 /* Snippet lines: font-size: 0 removes whitespace nodes created by pretty-printed HTML
@@ -70,13 +70,13 @@
 .code-python-special-fc  { --knob-post-snippet-fc: #569cd6; } /* def, f-strings bits, etc */
 
 /* PHP code block colors. */
-.code-php-default-fc  { color: #cccccc; } /* generic text / punctuation */
-.code-php-comment-fc  { color: #6a9955; } /* // comments */
-.code-php-keyword-fc  { color: #c586c0; } /* try, catch, new, exit, etc. */
-.code-php-type-fc     { color: #4ec9b0; } /* PDO, PDOException, etc. */
-.code-php-func-fc     { color: #dcdcaa; } /* setAttribute, log, getMessage */
-.code-php-var-fc      { color: #9cdcfe; } /* $pdo, $e, $error_logger, ${db_*} */
-.code-php-op-fc       { color: #d4d4d4; } /* =, ::, ->, ), ;, etc. */
-.code-php-string-fc   { color: #ce9178; } /* string literals */
-.code-php-number-fc   { color: #b5cea8; } /* numeric literals like 65535 */
-.code-php-special-fc  { color: #569cd6; } /* reserved/special if you ever need */
+.code-php-default-fc  { --knob-post-snippet-fc: #cccccc; } /* generic text / punctuation */
+.code-php-comment-fc  { --knob-post-snippet-fc: #6a9955; } /* // comments */
+.code-php-keyword-fc  { --knob-post-snippet-fc: #c586c0; } /* try, catch, new, exit, etc. */
+.code-php-type-fc     { --knob-post-snippet-fc: #4ec9b0; } /* PDO, PDOException, etc. */
+.code-php-func-fc     { --knob-post-snippet-fc: #dcdcaa; } /* setAttribute, log, getMessage */
+.code-php-var-fc      { --knob-post-snippet-fc: #9cdcfe; } /* $pdo, $e, $error_logger, ${db_*} */
+.code-php-op-fc       { --knob-post-snippet-fc: #d4d4d4; } /* =, ::, ->, ), ;, etc. */
+.code-php-string-fc   { --knob-post-snippet-fc: #ce9178; } /* string literals */
+.code-php-number-fc   { --knob-post-snippet-fc: #b5cea8; } /* numeric literals like 65535 */
+.code-php-special-fc  { --knob-post-snippet-fc: #569cd6; } /* reserved/special if you ever need */

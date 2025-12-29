@@ -119,7 +119,7 @@
 				<section class="site-stack-start-mt">
 
 					<p class="site-mt">
-						<span class="site-font-brand">Ever</span> grow tired of storing logs on a server then having to manage
+						<span class="post-snippet-font-std site-font-brand">Ever</span> grow tired of storing logs on a server then having to manage
 						access to the logs for individual users working in a collaborative development team? This post explores
 						an alternative method to manage database logging by making use of the Amazon Web Services (AWS) CloudWatch
 						Logs service. After reading this post you should have an idea of how to code PHP to send database logs
@@ -184,145 +184,146 @@
 						for the programmatic user.
 					</p>
 								
-					<div class="post-snippet site-stack-mt">
+					<div class="post-snippet">
+
 						<!-- Docblock -->
 						<div>
-							<p><span class="code-php-comment-fc">/**</span></p>					
-							<p><span class="code-php-comment-fc"> * phppdocloudwatchlogs.php</span></p>
-							<p><span class="code-php-comment-fc"> *</span></p>
-							<p><span class="code-php-comment-fc"> * Creates a pdo connection to a postgresql database and runs a sample</span></p>
-							<p><span class="code-php-comment-fc"> * query. Demonstrates how to use AWS Key Management Service keys to </span></p>
-							<p><span class="code-php-comment-fc"> * decrypt database connection parameters from a configuration file on</span></p>						
-							<p><span class="code-php-comment-fc"> * filesystem. The configuration file must have been created first</span></p>						
-							<p><span class="code-php-comment-fc"> * with the aws_postgresql_config.py program. Shows how to loq errors</span></p>						
-							<p><span class="code-php-comment-fc"> * encountered as well as queries run to CloudWatch Logs.</span></p>						
-							<p><span class="code-php-comment-fc"> */</span></p>							
+							<p><span class="post-snippet-font-std code-php-comment-fc">/**</span></p>					
+							<p><span class="post-snippet-font-std code-php-comment-fc"> * phppdocloudwatchlogs.php</span></p>
+							<p><span class="post-snippet-font-std code-php-comment-fc"> *</span></p>
+							<p><span class="post-snippet-font-std code-php-comment-fc"> * Creates a pdo connection to a postgresql database and runs a sample</span></p>
+							<p><span class="post-snippet-font-std code-php-comment-fc"> * query. Demonstrates how to use AWS Key Management Service keys to </span></p>
+							<p><span class="post-snippet-font-std code-php-comment-fc"> * decrypt database connection parameters from a configuration file on</span></p>						
+							<p><span class="post-snippet-font-std code-php-comment-fc"> * filesystem. The configuration file must have been created first</span></p>						
+							<p><span class="post-snippet-font-std code-php-comment-fc"> * with the aws_postgresql_config.py program. Shows how to loq errors</span></p>						
+							<p><span class="post-snippet-font-std code-php-comment-fc"> * encountered as well as queries run to CloudWatch Logs.</span></p>						
+							<p><span class="post-snippet-font-std code-php-comment-fc"> */</span></p>							
 						</div>
 
 						<!-- require autoload -->
 						<div>
 							<p>
-								<span class="code-php-keyword-fc">require</span>
-								<span class="code-php-default-fc">&nbsp;(</span>
-								<span class="code-php-string-fc">'../vendor/autoload.php'</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">require</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+								<span class="post-snippet-font-std code-php-string-fc">'../vendor/autoload.php'</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
 						</div>
 
 						<!-- Create AWS clients / loggers -->
 						<div>
-							<p><span class="code-php-comment-fc">// Create CloudWatch Logs / KMS / CloudWatchLogger instances.</span></p>							
+							<p><span class="post-snippet-font-std code-php-comment-fc">// Create CloudWatch Logs / KMS / CloudWatchLogger instances.</span></p>							
 							<p>
-								<span class="code-php-keyword-fc">try</span>
-								<span class="code-php-default-fc">&nbsp;{</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">try</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;{</span>
 							</p>
 						</div>
 
 						<!-- CloudWatchLogsClient -->
 						<div>
 							<p>
-								<span class="code-php-var-fc">$aws_cwlogs_client</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-keyword-fc">new</span>
-								<span class="code-php-default-fc">&nbsp;Aws\CloudWatchLogs\</span>
-								<span class="code-php-type-fc">CloudWatchLogsClient</span>
-								<span class="code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-var-fc">$aws_cwlogs_client</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">new</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;Aws\CloudWatchLogs\</span>
+								<span class="post-snippet-font-std code-php-type-fc">CloudWatchLogsClient</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'profile'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'default'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'profile'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'default'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'region'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'us-east-2'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'region'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'us-east-2'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'version'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'latest'</span>
+								<span class="post-snippet-font-std code-php-string-fc">'version'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'latest'</span>
 							</p>
-							<p><span class="code-php-default-fc">]);</span></p>
+							<p><span class="post-snippet-font-std code-php-default-fc">]);</span></p>
 						</div>
 
 						<!-- KmsClient -->
 						<div>
 							<p>
-								<span class="code-php-var-fc">$aws_kms_client</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-keyword-fc">new</span>
-								<span class="code-php-default-fc">&nbsp;Aws\Kms\</span>
-								<span class="code-php-type-fc">KmsClient</span>
-								<span class="code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-var-fc">$aws_kms_client</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">new</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;Aws\Kms\</span>
+								<span class="post-snippet-font-std code-php-type-fc">KmsClient</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'profile'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'default'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'profile'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'default'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'region'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'us-east-2'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'region'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'us-east-2'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'version'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'latest'</span>
+								<span class="post-snippet-font-std code-php-string-fc">'version'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'latest'</span>
 							</p>
-							<p><span class="code-php-default-fc">]);</span></p>
+							<p><span class="post-snippet-font-std code-php-default-fc">]);</span></p>
 						</div>
 
 						<!-- error_logger -->
 						<div>
 							<p>
-								<span class="code-php-var-fc">$error_logger</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-keyword-fc">new</span>
-								<span class="code-php-default-fc">&nbsp;LegalThings\</span>
-								<span class="code-php-type-fc">CloudWatchLogger</span>
-								<span class="code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-var-fc">$error_logger</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">new</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;LegalThings\</span>
+								<span class="post-snippet-font-std code-php-type-fc">CloudWatchLogger</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'aws'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-default-fc">[</span>
+								<span class="post-snippet-font-std code-php-string-fc">'aws'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-default-fc">[</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'profile'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'default'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'profile'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'default'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'region'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'us-east-2'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'region'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'us-east-2'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'version'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'latest'</span>
+								<span class="post-snippet-font-std code-php-string-fc">'version'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'latest'</span>
 							</p>
-							<p><span class="code-php-default-fc">],</span></p>
+							<p><span class="post-snippet-font-std code-php-default-fc">],</span></p>
 							<p>
-								<span class="code-php-string-fc">'group_name'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'sdk'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'group_name'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'sdk'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'stream_name'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'php/database/errors/'</span>
+								<span class="post-snippet-font-std code-php-string-fc">'stream_name'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'php/database/errors/'</span>
 							</p>
-							<p><span class="code-php-default-fc">]);</span></p>
+							<p><span class="post-snippet-font-std code-php-default-fc">]);</span></p>
 						</div>
 
 						<!-- spacer line -->
@@ -333,77 +334,77 @@
 						<!-- sql_logger -->
 						<div>
 							<p>
-								<span class="code-php-var-fc">$sql_logger</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-keyword-fc">new</span>
-								<span class="code-php-default-fc">&nbsp;LegalThings\</span>
-								<span class="code-php-type-fc">CloudWatchLogger</span>
-								<span class="code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-var-fc">$sql_logger</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">new</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;LegalThings\</span>
+								<span class="post-snippet-font-std code-php-type-fc">CloudWatchLogger</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'aws'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-default-fc">[</span>
+								<span class="post-snippet-font-std code-php-string-fc">'aws'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-default-fc">[</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'profile'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'default'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'profile'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'default'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'region'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'us-east-2'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'region'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'us-east-2'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'version'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'latest'</span>
+								<span class="post-snippet-font-std code-php-string-fc">'version'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'latest'</span>
 							</p>
-							<p><span class="code-php-default-fc">],</span></p>
+							<p><span class="post-snippet-font-std code-php-default-fc">],</span></p>
 							<p>
-								<span class="code-php-string-fc">'group_name'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'sdk'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'group_name'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'sdk'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'stream_name'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'php/database/sql/'</span>
+								<span class="post-snippet-font-std code-php-string-fc">'stream_name'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'php/database/sql/'</span>
 							</p>
-							<p><span class="code-php-default-fc">]);</span></p>
-							<p><span class="code-php-default-fc">}</span></p>
+							<p><span class="post-snippet-font-std code-php-default-fc">]);</span></p>
+							<p><span class="post-snippet-font-std code-php-default-fc">}</span></p>
 						</div>
 
 						<!-- catch / error handling -->
 						<div>
-							<p><span class="code-php-comment-fc">// Report on any exceptions - exit program since all instances are needed.</span></p>
+							<p><span class="post-snippet-font-std code-php-comment-fc">// Report on any exceptions - exit program since all instances are needed.</span></p>
 							<p>
-								<span class="code-php-keyword-fc">catch</span>
-								<span class="code-php-default-fc">&nbsp;(</span>
-								<span class="code-php-type-fc">Exception</span>
-								<span class="code-php-default-fc">&nbsp;</span>
-								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-default-fc">)&nbsp;{</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">catch</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+								<span class="post-snippet-font-std code-php-type-fc">Exception</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$e</span>
+								<span class="post-snippet-font-std code-php-default-fc">)&nbsp;{</span>
 							</p>
 							<p>
-								<span class="code-php-func-fc">echo</span>
-								<span class="code-php-default-fc">&nbsp;</span>
-								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">getTraceAsString</span>
-								<span class="code-php-default-fc">();</span>
+								<span class="post-snippet-font-std code-php-func-fc">echo</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$e</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">getTraceAsString</span>
+								<span class="post-snippet-font-std code-php-default-fc">();</span>
 							</p>
 							<p>
-								<span class="code-php-keyword-fc">exit</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-string-fc">'Couldn\'t instantiate a needed AWS or Logger class. Exiting.'</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">exit</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-string-fc">'Couldn\'t instantiate a needed AWS or Logger class. Exiting.'</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
-							<p><span class="code-php-default-fc">}</span></p>
+							<p><span class="post-snippet-font-std code-php-default-fc">}</span></p>
 						</div>	
 					</div>
 
@@ -420,207 +421,207 @@
 						<!-- Open/read config file + perms -->
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Open and read the database config file: reset perms on database config</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Open and read the database config file: reset perms on database config</span>
 							</p>
 							<p>
-								<span class="code-php-comment-fc">// file when finished opening.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// file when finished opening.</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-string-fc">'la_demo_db.ini'</span>
-								<span class="code-php-default-fc">;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_file</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'la_demo_db.ini'</span>
+								<span class="post-snippet-font-std code-php-default-fc">;</span>
 							</p>
 							<p>
-								<span class="code-php-func-fc">chmod</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-default-fc">,&nbsp;</span>
-								<span class="code-php-number-fc">0440</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-func-fc">chmod</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_file</span>
+								<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-number-fc">0440</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$handle</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-func-fc">fopen</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-default-fc">,&nbsp;</span>
-								<span class="code-php-string-fc">'rb'</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$handle</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">fopen</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_file</span>
+								<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'rb'</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
 							<p>
-								<span class="code-php-func-fc">chmod</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-default-fc">,&nbsp;</span>
-								<span class="code-php-number-fc">0000</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-func-fc">chmod</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_file</span>
+								<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-number-fc">0000</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$binary_data</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-func-fc">fread</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-var-fc">$handle</span>
-								<span class="code-php-default-fc">,&nbsp;</span>
-								<span class="code-php-func-fc">filesize</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-var-fc">$db_config_file</span>
-								<span class="code-php-default-fc">));</span>
+								<span class="post-snippet-font-std code-php-var-fc">$binary_data</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">fread</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$handle</span>
+								<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">filesize</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_file</span>
+								<span class="post-snippet-font-std code-php-default-fc">));</span>
 							</p>
 						</div>
 
 						<!-- Decrypt binary data -->
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Decrypt the binary data in the database config file.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Decrypt the binary data in the database config file.</span>
 							</p>
 							<p>
-								<span class="code-php-keyword-fc">try</span>
-								<span class="code-php-default-fc">&nbsp;{</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">try</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;{</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$db_config_data</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-var-fc">$aws_kms_client</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">decrypt</span>
-								<span class="code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_data</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$aws_kms_client</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">decrypt</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
 							</p>
 						</div>
 
 						<!-- KMS decrypt params -->
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// AWS KMS decrypt P(x)'s - Include EncryptionAlgorithm as best practice.</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'CiphertextBlob'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-var-fc">$binary_data</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'CiphertextBlob'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$binary_data</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 
 							<p>
-								<span class="code-php-string-fc">'EncryptionAlgorithm'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'SYMMETRIC_DEFAULT'</span>
-								<span class="code-php-default-fc">,</span>
+								<span class="post-snippet-font-std code-php-string-fc">'EncryptionAlgorithm'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'SYMMETRIC_DEFAULT'</span>
+								<span class="post-snippet-font-std code-php-default-fc">,</span>
 							</p>
 							<p>
-								<span class="code-php-string-fc">'KeyId'</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-string-fc">'keyid'</span>
+								<span class="post-snippet-font-std code-php-string-fc">'KeyId'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'keyid'</span>
 							</p>
 							<p>
-								<span class="code-php-default-fc">]);</span>
+								<span class="post-snippet-font-std code-php-default-fc">]);</span>
 							</p>
 							<p>
-								<span class="code-php-default-fc">}</span>
+								<span class="post-snippet-font-std code-php-default-fc">}</span>
 							</p>
 						</div>
 
 						<!-- Logging decrypt failures -->
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Log any exceptions to the error log group / stream. Exit on failure</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Log any exceptions to the error log group / stream. Exit on failure</span>
 							</p>
 							<p>
-								<span class="code-php-comment-fc">// since remaining program depends on decrypted data.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// since remaining program depends on decrypted data.</span>
 							</p>
 							<p>
-								<span class="code-php-keyword-fc">catch</span>
-								<span class="code-php-default-fc">&nbsp;(</span>
-								<span class="code-php-type-fc">Exception</span>
-								<span class="code-php-default-fc">&nbsp;</span>
-								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-default-fc">)&nbsp;{</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">catch</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+								<span class="post-snippet-font-std code-php-type-fc">Exception</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$e</span>
+								<span class="post-snippet-font-std code-php-default-fc">)&nbsp;{</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$error_logger</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">log</span>
-								<span class="code-php-default-fc">([</span>
-								<span class="code-php-string-fc">'Problem decrypting : '</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">getAwsErrorMessage</span>
-								<span class="code-php-default-fc">()]);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$error_logger</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">log</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-string-fc">'Problem decrypting : '</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$e</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">getAwsErrorMessage</span>
+								<span class="post-snippet-font-std code-php-default-fc">()]);</span>
 							</p>
 							<p>
-								<span class="code-php-keyword-fc">exit</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-string-fc">"Unable to decrypt the data in {$db_config_file}."</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">exit</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-string-fc">"Unable to decrypt the data in {$db_config_file}."</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
 						</div>
 
 						<div>
 							<p>
-								<span class="code-php-default-fc">}</span>
+								<span class="post-snippet-font-std code-php-default-fc">}</span>
 							</p>
 						</div>
 
 						<!-- Decode + split -->
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Decode using base64 decoding, then split data into components per delimiter.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Decode using base64 decoding, then split data into components per delimiter.</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$db_config_data</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-func-fc">base64_decode</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-var-fc">$db_config_data</span>
-								<span class="code-php-default-fc">[</span>
-								<span class="code-php-string-fc">'Plaintext'</span>
-								<span class="code-php-default-fc">]);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_data</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">base64_decode</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_data</span>
+								<span class="post-snippet-font-std code-php-default-fc">[</span>
+								<span class="post-snippet-font-std code-php-string-fc">'Plaintext'</span>
+								<span class="post-snippet-font-std code-php-default-fc">]);</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$db_params</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-func-fc">explode</span>
-								<span class="code-php-default-fc">(&nbsp;</span>
-								<span class="code-php-func-fc">chr</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-number-fc">7</span>
-								<span class="code-php-default-fc">),&nbsp;</span>
-								<span class="code-php-var-fc">$db_config_data</span>
-								<span class="code-php-default-fc">&nbsp;);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_params</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">explode</span>
+								<span class="post-snippet-font-std code-php-default-fc">(&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">chr</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-number-fc">7</span>
+								<span class="post-snippet-font-std code-php-default-fc">),&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_config_data</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;);</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$db_host</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-var-fc">$db_params</span>
-								<span class="code-php-default-fc">[</span>
-								<span class="code-php-number-fc">0</span>
-								<span class="code-php-default-fc">];</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_host</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_params</span>
+								<span class="post-snippet-font-std code-php-default-fc">[</span>
+								<span class="post-snippet-font-std code-php-number-fc">0</span>
+								<span class="post-snippet-font-std code-php-default-fc">];</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$db_name</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-var-fc">$db_params</span>
-								<span class="code-php-default-fc">[</span>
-								<span class="code-php-number-fc">1</span>
-								<span class="code-php-default-fc">];</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_name</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_params</span>
+								<span class="post-snippet-font-std code-php-default-fc">[</span>
+								<span class="post-snippet-font-std code-php-number-fc">1</span>
+								<span class="post-snippet-font-std code-php-default-fc">];</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$db_user</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-var-fc">$db_params</span>
-								<span class="code-php-default-fc">[</span>
-								<span class="code-php-number-fc">2</span>
-								<span class="code-php-default-fc">];</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_user</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_params</span>
+								<span class="post-snippet-font-std code-php-default-fc">[</span>
+								<span class="post-snippet-font-std code-php-number-fc">2</span>
+								<span class="post-snippet-font-std code-php-default-fc">];</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$db_auth</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-var-fc">$db_params</span>
-								<span class="code-php-default-fc">[</span>
-								<span class="code-php-number-fc">3</span>
-								<span class="code-php-default-fc">];</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_auth</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$db_params</span>
+								<span class="post-snippet-font-std code-php-default-fc">[</span>
+								<span class="post-snippet-font-std code-php-number-fc">3</span>
+								<span class="post-snippet-font-std code-php-default-fc">];</span>
 							</p>
 						</div>
 					</div>
@@ -651,120 +652,120 @@
 					<div class="post-snippet site-stack-mt">
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Try to connect to postgres database. Log any errors to CloudWatch Logs.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Try to connect to postgres database. Log any errors to CloudWatch Logs.</span>
 							</p>
 						</div>
 					
 						<p>
-							<span class="code-php-keyword-fc">try</span>
-							<span class="code-php-default-fc">&nbsp;{</span>
+							<span class="post-snippet-font-std code-php-keyword-fc">try</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;{</span>
 						</p>
 					
 						<p>
-							<span class="code-php-var-fc">$pdo</span>
-							<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-							<span class="code-php-keyword-fc">new</span>
-							<span class="code-php-type-fc">&nbsp;PDO</span>
-							<span class="code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pdo</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-keyword-fc">new</span>
+							<span class="post-snippet-font-std code-php-type-fc">&nbsp;PDO</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
 						</p>
 					
 						<p>
-							<span class="code-php-string-fc">"pgsql:host=</span>
-							<span class="code-php-var-fc">{$db_host}</span>
-							<span class="code-php-string-fc">;</span>
+							<span class="post-snippet-font-std code-php-string-fc">"pgsql:host=</span>
+							<span class="post-snippet-font-std code-php-var-fc">{$db_host}</span>
+							<span class="post-snippet-font-std code-php-string-fc">;</span>
 						</p>
 					
 						<p>
-							<span class="code-php-string-fc">    port=65535;</span>
+							<span class="post-snippet-font-std code-php-string-fc">    port=65535;</span>
 						</p>
 					
 						<p>
-							<span class="code-php-string-fc">    dbname=</span>
-							<span class="code-php-var-fc">{$db_name}</span>
-							<span class="code-php-string-fc">;</span>
+							<span class="post-snippet-font-std code-php-string-fc">    dbname=</span>
+							<span class="post-snippet-font-std code-php-var-fc">{$db_name}</span>
+							<span class="post-snippet-font-std code-php-string-fc">;</span>
 						</p>
 					
 						<p>
-							<span class="code-php-string-fc">    user=</span>
-							<span class="code-php-var-fc">{$db_user}</span>
-							<span class="code-php-string-fc">;</span>
+							<span class="post-snippet-font-std code-php-string-fc">    user=</span>
+							<span class="post-snippet-font-std code-php-var-fc">{$db_user}</span>
+							<span class="post-snippet-font-std code-php-string-fc">;</span>
 						</p>
 					
 						<p>
-							<span class="code-php-string-fc">    password=</span>
-							<span class="code-php-var-fc">{$db_auth}</span>
-							<span class="code-php-string-fc">;</span>
+							<span class="post-snippet-font-std code-php-string-fc">    password=</span>
+							<span class="post-snippet-font-std code-php-var-fc">{$db_auth}</span>
+							<span class="post-snippet-font-std code-php-string-fc">;</span>
 						</p>
 					
 						<p>
-							<span class="code-php-string-fc">    sslmode=require"</span>
+							<span class="post-snippet-font-std code-php-string-fc">    sslmode=require"</span>
 						</p>
 					
 						<p>
-							<span class="code-php-default-fc">);</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
 						</p>
 					
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Set PDO error reporting to Exception.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Set PDO error reporting to Exception.</span>
 							</p>
 						
 							<p>
-								<span class="code-php-var-fc">$pdo</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">setAttribute</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-type-fc">PDO</span>
-								<span class="code-php-op-fc">::</span>
-								<span class="code-php-default-fc">ATTR_ERRMODE,&nbsp;</span>
-								<span class="code-php-type-fc">PDO</span>
-								<span class="code-php-op-fc">::</span>
-								<span class="code-php-default-fc">ERRMODE_EXCEPTION);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pdo</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">setAttribute</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-type-fc">PDO</span>
+								<span class="post-snippet-font-std code-php-op-fc">::</span>
+								<span class="post-snippet-font-std code-php-default-fc">ATTR_ERRMODE,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-type-fc">PDO</span>
+								<span class="post-snippet-font-std code-php-op-fc">::</span>
+								<span class="post-snippet-font-std code-php-default-fc">ERRMODE_EXCEPTION);</span>
 							</p>
 						
 							<p>
-								<span class="code-php-default-fc">}</span>
+								<span class="post-snippet-font-std code-php-default-fc">}</span>
 							</p>
 						</div>
 					
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Connection attempt failed - log failure to CloudWatch Logs and exit.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Connection attempt failed - log failure to CloudWatch Logs and exit.</span>
 							</p>
 						
 							<p>
-								<span class="code-php-keyword-fc">catch</span>
-								<span class="code-php-default-fc">&nbsp;(</span>
-								<span class="code-php-type-fc">PDOException</span>
-								<span class="code-php-default-fc">&nbsp;</span>
-								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-default-fc">)&nbsp;{</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">catch</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+								<span class="post-snippet-font-std code-php-type-fc">PDOException</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$e</span>
+								<span class="post-snippet-font-std code-php-default-fc">)&nbsp;{</span>
 							</p>
 						
 							<p>
-								<span class="code-php-var-fc">$error_logger</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">log</span>
-								<span class="code-php-default-fc">([</span>
-								<span class="code-php-string-fc">'Problem connecting : '</span>
-								<span class="code-php-default-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">getMessage</span>
-								<span class="code-php-default-fc">()]);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$error_logger</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">log</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-string-fc">'Problem connecting : '</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$e</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">getMessage</span>
+								<span class="post-snippet-font-std code-php-default-fc">()]);</span>
 							</p>
 						
 							<p>
-								<span class="code-php-keyword-fc">exit</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-string-fc">"Unable to connect to host : </span>
-								<span class="code-php-var-fc">{$db_host}</span>
-								<span class="code-php-string-fc">."</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">exit</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-string-fc">"Unable to connect to host : </span>
+								<span class="post-snippet-font-std code-php-var-fc">{$db_host}</span>
+								<span class="post-snippet-font-std code-php-string-fc">."</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
 						
 							<p>
-								<span class="code-php-default-fc">}</span>
+								<span class="post-snippet-font-std code-php-default-fc">}</span>
 							</p>						
 						</div>
 					</div>
@@ -788,79 +789,79 @@
 						<!-- Run example query + log success -->
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Run an example query. Log successful queries to the sql log stream</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Run an example query. Log successful queries to the sql log stream</span>
 							</p>
 							<p>
-								<span class="code-php-comment-fc">// and any errors to the error log stream in CloudWatch Logs.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// and any errors to the error log stream in CloudWatch Logs.</span>
 							</p>
 							<p>
-								<span class="code-php-keyword-fc">try</span>
-								<span class="code-php-default-fc">&nbsp;{</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">try</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;{</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$qry</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-string-fc">'SELECT datname, datcollate FROM pg_database;'</span>
-								<span class="code-php-default-fc">;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$qry</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'SELECT datname, datcollate FROM pg_database;'</span>
+								<span class="post-snippet-font-std code-php-default-fc">;</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$stmt</span>
-								<span class="code-php-op-fc">&nbsp;=&nbsp;</span>
-								<span class="code-php-var-fc">$pdo</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">query</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-var-fc">$qry</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$stmt</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pdo</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">query</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$qry</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$sql_logger</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">log</span>
-								<span class="code-php-default-fc">([</span>
-								<span class="code-php-string-fc">"User: {$db_user}: Query: "</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-var-fc">$qry</span>
-								<span class="code-php-default-fc">]);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$sql_logger</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">log</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-string-fc">"User: {$db_user}: Query: "</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$qry</span>
+								<span class="post-snippet-font-std code-php-default-fc">]);</span>
 							</p>
 							<p>
-								<span class="code-php-default-fc">}</span>
+								<span class="post-snippet-font-std code-php-default-fc">}</span>
 							</p>
 						</div>
 
 						<!-- Log failed queries -->
 						<div>
 							<p>
-								<span class="code-php-comment-fc">// Log failed query prepare statements to CloudWatch Logs.</span>
+								<span class="post-snippet-font-std code-php-comment-fc">// Log failed query prepare statements to CloudWatch Logs.</span>
 							</p>
 							<p>
-								<span class="code-php-keyword-fc">catch</span>
-								<span class="code-php-default-fc">&nbsp;(</span>
-								<span class="code-php-type-fc">PDOException</span>
-								<span class="code-php-default-fc">&nbsp;</span>
-								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-default-fc">)&nbsp;{</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">catch</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+								<span class="post-snippet-font-std code-php-type-fc">PDOException</span>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$e</span>
+								<span class="post-snippet-font-std code-php-default-fc">)&nbsp;{</span>
 							</p>
 							<p>
-								<span class="code-php-var-fc">$error_logger</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">log</span>
-								<span class="code-php-default-fc">([</span>
-								<span class="code-php-string-fc">'Problem with query '</span>
-								<span class="code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
-								<span class="code-php-var-fc">$e</span>
-								<span class="code-php-op-fc">-&gt;</span>
-								<span class="code-php-func-fc">getMessage</span>
-								<span class="code-php-default-fc">()]);</span>
+								<span class="post-snippet-font-std code-php-var-fc">$error_logger</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">log</span>
+								<span class="post-snippet-font-std code-php-default-fc">([</span>
+								<span class="post-snippet-font-std code-php-string-fc">'Problem with query '</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$e</span>
+								<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+								<span class="post-snippet-font-std code-php-func-fc">getMessage</span>
+								<span class="post-snippet-font-std code-php-default-fc">()]);</span>
 							</p>
 							<p>
-								<span class="code-php-keyword-fc">exit</span>
-								<span class="code-php-default-fc">(</span>
-								<span class="code-php-string-fc">"Unable to prepare query : {$qry}."</span>
-								<span class="code-php-default-fc">);</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">exit</span>
+								<span class="post-snippet-font-std code-php-default-fc">(</span>
+								<span class="post-snippet-font-std code-php-string-fc">"Unable to prepare query : {$qry}."</span>
+								<span class="post-snippet-font-std code-php-default-fc">);</span>
 							</p>
 							<p>
-								<span class="code-php-default-fc">}</span>
+								<span class="post-snippet-font-std code-php-default-fc">}</span>
 							</p>
 						</div>
 					</div>
