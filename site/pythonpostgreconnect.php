@@ -157,7 +157,7 @@
 	
 						<!-- imports -->
 						<div>
-							<p class="site-mt">
+							<p>
 								<span class="post-snippet-font-std code-python-keyword-fc">import&nbsp;</span>
 								<span class="post-snippet-font-std code-python-type-fc">pwd</span>
 							</p>
