@@ -156,7 +156,7 @@
 						<p><span class="post-snippet-font-std code-python-comment-fc"># ------------------------------------------------------------------</span></p>
 	
 						<!-- imports -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-keyword-fc">import&nbsp;</span>
 								<span class="post-snippet-font-std code-python-type-fc">pwd</span>
@@ -194,7 +194,7 @@
 						</div>
 	
 						<!-- Function definition -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-special-fc">def&nbsp;</span>
 								<span class="post-snippet-font-std code-python-func-fc">main</span><span class="post-snippet-font-std code-python-default-fc">():</span>
@@ -202,7 +202,7 @@
 						</div>
 	
 						<!-- Instantiate KMS client -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Instantiate an AWS KMS client instance.</span>
 							</p>
@@ -217,7 +217,7 @@
 						</div>
 	
 						<!-- KMS key id -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># KMS key id.</span>
 							</p>
@@ -229,7 +229,7 @@
 						</div>
 	
 						<!-- Prompt for connection params -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Prompt for the connection params.</span>
 							</p>
@@ -266,7 +266,7 @@
 						</div>
 	
 						<!-- Config file -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Config file.</span>
 							</p>														
@@ -305,7 +305,7 @@
 						</div>
 	
 						<!-- Concat + delimit and encode -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Concat + delimit params, convert to bytes, then base64 encode.</span>
 							</p>
@@ -349,7 +349,7 @@
 						</div>
 	
 						<!-- Encrypt the params -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Encrypt the params.</span>
 							</p>
@@ -374,7 +374,7 @@
 						</div>
 	
 						<!-- Write encrypted params to file -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Write the encryption params as binary to the config file.</span>
 							</p>
@@ -395,7 +395,7 @@
 						</div>
 	
 						<!-- Reset file perms -->
-						<div>
+						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-python-comment-fc"># Reset file perms.</span>
 							</p>
