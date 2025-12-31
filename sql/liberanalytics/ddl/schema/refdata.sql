@@ -1,1 +1,1 @@
-CREATE SCHEMA refdata AUTHORIZATION liberanalytics;
+CREATE SCHEMA IF NOT EXISTS refdata AUTHORIZATION liberanalytics;
