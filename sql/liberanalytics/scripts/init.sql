@@ -10,39 +10,44 @@ FROM pg_stat_activity
 WHERE datname = 'liberanalytics'
   AND pid <> pg_backend_pid();
 
-DROP DATABASE IF EXISTS liberanalytics;
-
-CREATE DATABASE liberanalytics
-    TEMPLATE template0
-    ENCODING 'UTF-8'
-    OWNER liberanalytics;
+\ir ../ddl/db/liberanalytics_db.sql
 
 \connect liberanalytics
 
 BEGIN;
 
-CREATE SCHEMA IF NOT EXISTS meta AUTHORIZATION liberanalytics;
-CREATE SCHEMA IF NOT EXISTS refdata AUTHORIZATION liberanalytics;
-CREATE SCHEMA IF NOT EXISTS liberanalytics AUTHORIZATION liberanalytics;
+    -- Create schemas.
+    \echo 'Creating schemas...'
+    \ir ../ddl/schema/meta.sql
+    \ir ../ddl/schema/refdata.sql
+    \ir ../ddl/schema/liberanalytics.sql
 
--- Confirm final table was created as quick pass/fail assertion.
-DO
-$$
+    -- Create tables.
+    \echo 'Creating tables...'
+    \ir ../ddl/refdata.post_categories.sql
+    \ir ../ddl/liberanalytics.posts.sql
+    \ir ../ddl/refdata.post_tags.sql
+    \ir ../ddl/liberanalytics.post_tags.sql
+    \ir ../ddl/liberanalytics.contact.sql
 
-BEGIN
+    -- Confirm final table was created as quick pass/fail assertion.
+    DO
+    $$
 
-IF NOT EXISTS (
-    SELECT 1 FROM pg_catalog.pg_tables 
-    WHERE 1=1
-    AND schemaname = 'liberanalytics'
-    AND tablename = 'post_tags'
-)
-THEN
-    RAISE EXCEPTION 'Schema creation failed: table liberanalytics.post_tags was not created.';
-END IF;
+    BEGIN
 
-END;
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_catalog.pg_tables 
+        WHERE 1=1
+        AND schemaname = 'liberanalytics'
+        AND tablename = 'post_tags'
+    )
+    THEN
+        RAISE EXCEPTION 'Schema creation failed: table liberanalytics.post_tags was not created.';
+    END IF;
 
-$$ LANGUAGE plpgsql;
+    END;
+
+    $$ LANGUAGE plpgsql;
 
 COMMIT;
