@@ -24,11 +24,21 @@ BEGIN;
 
     -- Create tables.
     \echo 'Creating tables...'
-    \ir ../ddl/refdata.post_categories.sql
-    \ir ../ddl/liberanalytics.posts.sql
-    \ir ../ddl/refdata.post_tags.sql
-    \ir ../ddl/liberanalytics.post_tags.sql
-    \ir ../ddl/liberanalytics.contact.sql
+    \ir ../ddl/tables/refdata.post_categories.sql
+    \ir ../ddl/tables/liberanalytics.posts.sql
+    \ir ../ddl/tables/refdata.post_tags.sql
+    \ir ../ddl/tables/liberanalytics.post_tags.sql
+    \ir ../ddl/tables/liberanalytics.contact.sql
+
+    -- Create fxs.
+    \echo 'Creating fxs...'
+    \ir ../ddl/fx/meta.fx_get_dynamic_sql_clause.sql
+    \ir ../ddl/fx/meta.fx_get_fx_pxs.sql
+    \ir ../ddl/fx/refdata.fx_get_post_categories.sql
+    \ir ../ddl/fx/refdata.fx_get_post_tags.sql
+    \ir ../ddl/fx/refdata.fx_get_post_tags_like.sql
+    \ir ../ddl/fx/liberanalytics.fx_get_posts.sql
+    \ir ../ddl/fx/liberanalytics.fx_create_contact.sql
 
     -- Confirm final table was created as quick pass/fail assertion.
     DO
