@@ -82,10 +82,10 @@ BEGIN;
 
     -- Seed data insertions.
     \echo Populating seed data...
-    \ir ../dml/refdata.post_categories.sql
-    \ir ../dml/refdata.post_tags.sql
-    \ir ../dml/liberanalytics.posts.sql
-    \ir ../dml/liberanalytics.post_tags.sql
+    \ir ../dml/seed/refdata.post_categories.sql
+    \ir ../dml/seed/refdata.post_tags.sql
+    \ir ../dml/seed/liberanalytics.posts.sql
+    \ir ../dml/seed/liberanalytics.post_tags.sql
 
     -- Confirm final table was seeded as quick pass/fail assertion.
     DO $$
