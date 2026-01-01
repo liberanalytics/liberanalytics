@@ -78,24 +78,24 @@ BEGIN;
             RAISE EXCEPTION 'Fx creation failed: liberanalytics.fx fx_create_contact was not created.';
         END IF;
 
-        END $$ LANGUAGE plpgsql;
+    END $$ LANGUAGE plpgsql;
 
-        -- Seed data insertions.
-        \echo Populating seed data...
-        \ir ../dml/refdata.post_categories.sql
-        \ir ../dml/refdata.post_tags.sql
-        \ir ../dml/liberanalytics.posts.sql
-        \ir ../dml/liberanalytics.post_tags.sql
+    -- Seed data insertions.
+    \echo Populating seed data...
+    \ir ../dml/refdata.post_categories.sql
+    \ir ../dml/refdata.post_tags.sql
+    \ir ../dml/liberanalytics.posts.sql
+    \ir ../dml/liberanalytics.post_tags.sql
 
-        -- Confirm final table was seeded as quick pass/fail assertion.
-        DO $$
-        BEGIN
-            IF NOT EXISTS (
-                SELECT 1 FROM liberanalytics.post_tags
-            ) THEN
-                RAISE EXCEPTION 'Seed failed: liberanalytics.post_tags has no rows.';
-            END IF;
+    -- Confirm final table was seeded as quick pass/fail assertion.
+    DO $$
+    BEGIN
+        IF NOT EXISTS (
+            SELECT 1 FROM liberanalytics.post_tags
+        ) THEN
+            RAISE EXCEPTION 'Seed failed: liberanalytics.post_tags has no rows.';
+        END IF;
 
-        END $$ LANGUAGE plpgsql;
+    END $$ LANGUAGE plpgsql;
 
 COMMIT;
