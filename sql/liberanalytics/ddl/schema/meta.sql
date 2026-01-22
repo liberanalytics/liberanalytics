@@ -1,1 +1,1 @@
-CREATE SCHEMA meta AUTHORIZATION liberanalytics;
+CREATE SCHEMA IF NOT EXISTS meta AUTHORIZATION liberanalytics;
