@@ -10,8 +10,8 @@ src/*.json
 shell/ssh*
 *log*
 tests/
-config/la_config_test.json
-config/la_data_test.config
 config/la_data_prod.config
 *codetohtml*
 *liber_enhance*
+*scratch*
+*gitdiff*
