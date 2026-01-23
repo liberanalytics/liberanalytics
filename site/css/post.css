@@ -11,6 +11,10 @@
     --knob-stack-start-mt: var(--sz-300);
 }
 
+.page-post p {
+  overflow-wrap: anywhere;
+}
+
 .post-heading {
     --knob-stack-start-mt: var(--sz-200);
     --knob-brand-fs: var(--fsz-clamp-18x20);
