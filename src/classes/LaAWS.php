@@ -56,7 +56,7 @@ class LaAWS {
     {
         // Capture region and profile specs.
         $region = $this->laConfig->getConfigAttr('aws', 'account', 'region', 'default');
-        $profile = $this->laConfig->getConfigAttr('aws', 'account', 'profile', 'default');
+        $profile = $this->laConfig->getConfigAttr('aws', 'account', 'profile', 'ec2');
         
         // Create a client config assoc array, capture the iam profile and add to client config.
         // If not ec2 use the instance role, i.e. omit the profile from client config data.
