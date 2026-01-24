@@ -22,7 +22,6 @@ class LaConfig {
         if (file_exists(getenv('LA_CONFIG_FILE'))) {
             $configJSON = file_get_contents($filename = getenv('LA_CONFIG_FILE'));
             $this->config = json_decode($configJSON, true);
-
         }                       
     }
 
