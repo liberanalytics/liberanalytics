@@ -8,6 +8,8 @@
 					srcset="/assets/logo_95x72.png 1x, /assets/logo_190x144.png 2x"
 					class="site-logo"
 					alt="Liber Analytics logo"
+					width="120"
+					height="91"
 				>
 
 			</a>
