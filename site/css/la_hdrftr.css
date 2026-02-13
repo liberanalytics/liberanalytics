@@ -134,7 +134,11 @@
 .site-hdrftr-masthead > .site-logo-link { grid-area: logo; }
 
 .site-hdrftr-masthead > .site-logo-link > .site-logo {
-    block-size: clamp(3.125rem, 14vw + 1.0rem, 4.5rem);
+    block-size: clamp(
+        61px,
+        calc(1px + 18.75vw),
+        91px
+    );
     inline-size: auto;
     object-fit: contain;
 }
