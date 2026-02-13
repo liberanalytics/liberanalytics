@@ -2,7 +2,16 @@
 	<div class="site-hdrftr-wrap">
 		<div class="site-hdrftr-masthead site-ff-fancy site-fc-xlight">
 			<a href="index" class="site-logo-link" aria-label="Home">
-				<img src="assets/logo_120.png" class="site-logo" alt="Liber Analytics logo">
+				
+				<img
+					src="/assets/logo_95x72.png"
+					srcset="/assets/logo_95x72.png 1x, /assets/logo_190x144.png 2x"
+					class="site-logo"
+					alt="Liber Analytics logo"
+					width="120"
+					height="91"
+				>
+
 			</a>
 			<h2 class="site-name">
 				<span class="site-hdrftr-name-liber">Liber</span><!--
