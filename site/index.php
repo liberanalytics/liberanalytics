@@ -163,6 +163,10 @@ $laData = new classes\LaData();
 								/assets/mission_540x540.png 3x",
 						alt="Liber Analytics Mission"
 						class="mission-img"
+						decoding="async"
+						loading="lazy"
+						width="180"
+						height="180"						
 					>
 				</div>
 			</section>			
