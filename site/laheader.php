@@ -10,7 +10,7 @@
 							/assets/logo_360x274.png 3x"
 					class="site-logo"
 					alt="Liber Analytics logo"
-					loading="lazy"
+					decoding="async"
 					width="120"
 					height="91"
 				>
