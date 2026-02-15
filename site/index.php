@@ -156,7 +156,14 @@ $laData = new classes\LaData();
 						We hope that the content published will illuminate how to exercise a <em class="site-font-brand">liber</em> (free)
 						mind while working with data as well as inspire individuals to keep improving!
 					</p>
-					<img src="/assets/mission.png" class="mission-img">	
+					<img
+						src="/assets/mission_180x180.png"
+						srcset="/assets/mission_180x180.png 1x,
+								/assets/mission_360x360.png 2x,
+								/assets/mission_540x540.png 3x",
+						alt="Liber Analytics Mission"
+						class="mission-img"
+					>
 				</div>
 			</section>			
 		</div><!-- End .page-wrap -->
