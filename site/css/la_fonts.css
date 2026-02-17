@@ -4,10 +4,10 @@
 :root {
 
     /* Site font-styles. */
-    --ff-main: 'Studio-Feixen-Sans', Helvetica, sans-serif;
+    --ff-main: 'Studio-Feixen-Sans';
     --ff-primary-heading: Helvetica, sans-serif;
     --ff-secondary-heading: var(--ff-main);
-    --ff-fancy: 'Times New Roman', Times, serif;
+    --ff-fancy: 'Liberation-Serif';
     --ff-post-snippet: "Droid Sans Mono", monospace;    
     --ff-sans-serif: Helvetica, Arial, sans-serif;
 
@@ -62,6 +62,12 @@
 @font-face {
     font-family: 'Studio-Feixen-Sans';
     src: url('../assets/sfs.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Liberation-Serif';
+    src: url('../assets/ls.woff2') format('woff2');
     font-display: swap;
 }
 
