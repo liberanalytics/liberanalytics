@@ -64,15 +64,26 @@ $laData = new classes\LaData();
 	<script type="module" src="/js/la.js"></script>
 
 	<script>
-	(() => {
-	console.log({
-		innerWidth: window.innerWidth,
-		clientWidth: document.documentElement.clientWidth,
-		visualViewportWidth: window.visualViewport?.width,
-		screenWidth: screen.width,
-		dpr: window.devicePixelRatio
-	});
-	})();
+		(() => {
+		const el =
+			document.querySelector(".masthead-tagline, .tagline, header p") ||
+			document.querySelector("header") ||
+			document.body;
+
+		const cs = getComputedStyle(el);
+
+		return {
+			tag: el.tagName,
+			fontFamily: cs.fontFamily,
+			fontSize: cs.fontSize,
+			fontWeight: cs.fontWeight,
+			lineHeight: cs.lineHeight,
+			letterSpacing: cs.letterSpacing,
+			textRendering: cs.textRendering,
+			webkitTextSizeAdjust: cs.webkitTextSizeAdjust,
+			textSizeAdjust: cs.textSizeAdjust
+		};
+		})()
 	</script>	
 
 </head>
