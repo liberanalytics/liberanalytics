@@ -63,28 +63,12 @@ $laData = new classes\LaData();
 	<link href="/css/index.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
 
-	<script>
-		(() => {
-		const el =
-			document.querySelector(".site-hdrftr-name-libere, .site-hdrftr-name-analytics, .site-hdrftr-tagline") ||
-			document.querySelector("header") ||
-			document.body;
-
-		const cs = getComputedStyle(el);
-
-		return {
-			tag: el.tagName,
-			fontFamily: cs.fontFamily,
-			fontSize: cs.fontSize,
-			fontWeight: cs.fontWeight,
-			lineHeight: cs.lineHeight,
-			letterSpacing: cs.letterSpacing,
-			textRendering: cs.textRendering,
-			webkitTextSizeAdjust: cs.webkitTextSizeAdjust,
-			textSizeAdjust: cs.textSizeAdjust
-		};
-		})()
-	</script>	
+	<style>
+		html { 
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	}
+	</style>	
 
 </head>
 
