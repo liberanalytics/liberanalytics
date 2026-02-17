@@ -63,6 +63,18 @@ $laData = new classes\LaData();
 	<link href="/css/index.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
 
+	<script>
+	(() => {
+	console.log({
+		innerWidth: window.innerWidth,
+		clientWidth: document.documentElement.clientWidth,
+		visualViewportWidth: window.visualViewport?.width,
+		screenWidth: screen.width,
+		dpr: window.devicePixelRatio
+	});
+	})();
+	</script>	
+
 </head>
 
 <body class="page page-index site-font-std">
