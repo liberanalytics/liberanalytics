@@ -41,12 +41,6 @@ img {
 }
 
 /* Site Styles */
-@font-face {
-    font-family: 'Studio-Feixen-Sans';
-    src: url('../assets/sfs.woff2') format('woff2');
-    font-display: swap;
-}
-
 html {
     font-size: 100%;
 }

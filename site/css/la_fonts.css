@@ -59,6 +59,12 @@
 
 }
 
+@font-face {
+    font-family: 'Studio-Feixen-Sans';
+    src: url('../assets/sfs.woff2') format('woff2');
+    font-display: swap;
+}
+
 /* Site Font (non-link) Component Classes. */
 .site-font-std {
     font-family: var(--knob-std-ff, var(--ff-main));
