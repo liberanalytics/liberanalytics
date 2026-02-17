@@ -66,7 +66,7 @@ $laData = new classes\LaData();
 	<script>
 		(() => {
 		const el =
-			document.querySelector(".masthead-tagline, .tagline, header p") ||
+			document.querySelector(".site-hdrftr-name-libere, .site-hdrftr-name-analytics, .site-hdrftr-tagline") ||
 			document.querySelector("header") ||
 			document.body;
 
