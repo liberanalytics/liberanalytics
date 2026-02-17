@@ -61,29 +61,32 @@
 
 /* Studio-Feixen-Sans: Regular */
 @font-face {
-  font-family: "Studio-Feixen-Sans";
-  src: url("/assets/sfs.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Studio-Feixen-Sans";
+    src: url("/assets/sfs.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    font-synthesis: none;  
 }
 
 /* Studio-Feixen-Sans: Bold */
 @font-face {
-  font-family: "Studio-Feixen-Sans";
-  src: url("/assets/sfsb.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Studio-Feixen-Sans";
+    src: url("/assets/sfsb.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    font-synthesis: none;    
 }
 
 /* Liberation Serif: Regular */
 @font-face {
-  font-family: "Liberation-Serif";
-  src: url("/assets/ls.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Liberation-Serif";
+    src: url("/assets/ls.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    font-synthesis: none;
 }
 
 /* Liberation Serif: Bold */
@@ -93,6 +96,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+  font-synthesis: none;  
 }
 
 /* Site Font (non-link) Component Classes. */
