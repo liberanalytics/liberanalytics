@@ -15,7 +15,7 @@
 				>
 
 			</a>
-			<h2 class="site-name">
+			<h2 class="site-hdrftr-name">
 				<span class="site-hdrftr-name-liber">Liber</span><!--
 				--><span class="site-hdrftr-name-analytics">Analytics</span>
 			</h2>

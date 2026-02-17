@@ -149,7 +149,7 @@
     }
 }
 
-.site-hdrftr-masthead > .site-name {
+.site-hdrftr-masthead > .site-hdrftr-name {
     grid-area: site-name;
     white-space: nowrap;
 }
