@@ -52,7 +52,8 @@ $laData = new classes\LaData();
 	<!-- Referrer policy: omit referrer header when navigating from HTTPS to HTTP. -->
 	<meta name="referrer" content="no-referrer-when-downgrade">
 
-	<link rel="preload" href="/assets/sfs.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+	<!-- Load the ls font as a preload for the header masthead font styles needed before the fold. -->
 	<link rel="preload" href="/assets/ls.woff2"  as="font" type="font/woff2" crossorigin="anonymous">
 	
 	<!-- Stylesheets and javascript modules/files. -->
