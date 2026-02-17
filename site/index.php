@@ -51,6 +51,9 @@ $laData = new classes\LaData();
 
 	<!-- Referrer policy: omit referrer header when navigating from HTTPS to HTTP. -->
 	<meta name="referrer" content="no-referrer-when-downgrade">
+
+	<link rel="preload" href="/assets/sfs.woff2" as="font" type="font/woff2">
+	<link rel="preload" href="/assets/ls.woff2"  as="font" type="font/woff2">
 	
 	<!-- Stylesheets and javascript modules/files. -->
 	<link href="/css/la_tokens.css" rel="stylesheet">
