@@ -144,7 +144,7 @@
     font-family: var(--ff-primary-heading);
     font-size: var(--knob-primary-heading-fs, var(--fsz-clamp-18x20));
     /* font-weight: var(--fw-xlight); */
-    font-weight: 300;
+    font-weight: 400;
     line-height: var(--knob-primary-heading-flh, var(--flh-xtight));
     color: var(--fc-xlight);
 }
