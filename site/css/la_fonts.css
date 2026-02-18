@@ -5,12 +5,11 @@
 
     /* Site font-styles. */
     --ff-main: 'Studio-Feixen-Sans';
-    --ff-primary-heading: Helvetica, sans-serif;
+    --ff-sans-serif: 'IBMPlexSans', Helvetica, Arial, sans-serif;    
+    --ff-primary-heading: var(--ff-sans-serif);
     --ff-secondary-heading: var(--ff-main);
     --ff-fancy: 'Liberation-Serif';
-    --ff-post-snippet: "Droid Sans Mono", monospace;    
-    --ff-sans-serif: Helvetica, Arial, sans-serif;
-
+    --ff-post-snippet: "Droid Sans Mono", monospace;
 
     /* Site font-sizes. */
     --fsz-100: var(--sz-400);
@@ -97,6 +96,33 @@
   font-style: normal;
   font-display: swap;
   font-synthesis: none;  
+}
+
+/* IBM Plex Sans: Regular */
+@font-face{
+  font-family: "IBMPlexSans";
+  src: url("/assets/ibmps.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IBM Plex Sans: SemiBold */
+@font-face{
+  font-family: "IBMPlexSans";
+  src: url("/assets/ibmpssb.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IBM Plex Sans: Bold */
+@font-face{
+  font-family: "IBMPlexSans";
+  src: url("/assets/ibmpsb.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Site Font (non-link) Component Classes. */
