@@ -101,8 +101,8 @@
 /* IBM Plex Sans: Regular */
 @font-face{
   font-family: "IBMPlexSans";
-  src: url("/assets/ibmpst.woff2") format("woff2");
-  font-weight: 600;
+  src: url("/assets/ibmpsl.woff2") format("woff2");
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -147,7 +147,7 @@
     font-family: var(--ff-primary-heading);
     font-size: var(--knob-primary-heading-fs, var(--fsz-clamp-18x20));
     /* font-weight: var(--fw-xlight); */
-    font-weight: 100;
+    font-weight: 300;
     line-height: var(--knob-primary-heading-flh, var(--flh-xtight));
     color: var(--fc-xlight);
 }
