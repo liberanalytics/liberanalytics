@@ -98,10 +98,6 @@
   font-synthesis: none;  
 }
 
-
-
-
-
 /* IBM Plex Sans: Regular */
 @font-face{
   font-family: "IBMPlexSans";
@@ -111,13 +107,11 @@
   font-display: swap;
 }
 
-
-
 /* IBM Plex Sans: Semi Bold */
 @font-face{
   font-family: "IBMPlexSans";
   src: url("/assets/ibmpssb.woff2") format("woff2");
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
