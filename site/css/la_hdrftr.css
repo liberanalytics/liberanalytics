@@ -120,16 +120,8 @@
         "tagline tagline";
     column-gap: var(--sz-300);
     row-gap: var(--sz-300);
-    justify-content: center;
+    justify-content: center ;
     align-items: center;
-}
-
-@media (min-width: 25em) {
-    .site-hdrftr-masthead {
-        grid-template-areas: 
-        "logo site-name"
-        "tagline tagline-expanded";        
-    }
 }
 
 .site-hdrftr-masthead > .site-logo-link { grid-area: logo; }
