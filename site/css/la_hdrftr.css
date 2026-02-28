@@ -182,13 +182,6 @@
     text-align: center;
 }
 
-@media (min-width: 25em) {
-    .site-hdrftr-font-tagline {
-        font-size: clamp(1.125rem, calc(5.063vw - 0.203rem), 1.375rem);
-        /* text-align: start; */
-    }
-}
-
 .site-hdrftr-masthead img {
     inline-size: auto;
     object-fit: contain;
