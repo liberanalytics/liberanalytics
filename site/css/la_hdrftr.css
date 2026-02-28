@@ -172,14 +172,18 @@
 
 .site-hdrftr-masthead > .site-hdrftr-tagline { grid-area: tagline; }
 
-
-
 .site-hdrftr-font-tagline {
     font-family: var(--ff-fancy);
     font-size: clamp(1.125rem, calc(8.108vw - 0.522rem), 1.375rem);
     line-height: 1;
     color: var(--fc-xlight);
     text-align: center;
+}
+
+@media (min-width: 25em) {
+    .site-hdrftr-font-tagline {
+        font-size: clamp(1.375rem, calc(2.5vw - 0.75rem), 1.5rem);
+    }
 }
 
 .site-hdrftr-masthead img {
