@@ -117,7 +117,7 @@
     /* grid-template-columns: auto auto; */
     grid-template-areas: 
         "logo site-name"
-        "tagline tagline";
+        "tagline";
     column-gap: var(--sz-300);
     row-gap: var(--sz-300);
     justify-content: center ;
