@@ -114,7 +114,7 @@
 /* Masthead -> 2 rows: [logo | brand] over [tagline]. */
 .site-hdrftr-masthead {
     display: grid;
-    grid-template-columns: auto auto;
+    /* grid-template-columns: auto auto; */
     grid-template-areas: 
         "logo site-name"
         "tagline tagline";
