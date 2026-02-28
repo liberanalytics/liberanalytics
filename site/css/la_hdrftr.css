@@ -172,9 +172,7 @@
 
 .site-hdrftr-masthead > .site-hdrftr-tagline { grid-area: tagline; }
 
-@media (min-width: 25em) {
-    .site-hdrftr-masthead > .site-hdrftr-tagline { grid-area: tagline-expanded; } 
-}
+
 
 .site-hdrftr-font-tagline {
     font-family: var(--ff-fancy);
