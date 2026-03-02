@@ -8,15 +8,6 @@
     --hdrftr-bg-color: var(--clr-med-dark);
 }
 
-/* Header Container & Masthead */
-.page-header {
-    --knob-primary-heading-fs: var(--fsz-clamp-18x20);
-}
-
-.site-header-tagline {
-    /* margin-left: auto; -- Desktop layout -- */
-}
-
 /* Header Menu */
 .site-header-menu-container {
     padding-block: var(--sz-400);
