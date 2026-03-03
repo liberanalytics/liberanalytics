@@ -26,7 +26,7 @@
 </header>
 <div class="site-header-menu-container">
 	<div class="site-header-menu">
-		<nav class="site-header-nav"
+		<nav class="
 				site-flex site-flex-wrap site-flex-items-center site-flex-justify-center site-flex-rowgap-300
 				site-link-ff-sans-serif site-link-hover-fc-xlight" 
 			aria-label="primary"
