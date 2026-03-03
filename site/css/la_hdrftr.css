@@ -31,22 +31,6 @@
     /* font-size: var(--fsz-clamp-18x18-8); */
 }
 
-/* Header Search */
-.site-header-menu-container {   
-    flex: 0 0 100%;
-    width: 100%;
-}
-
-@media (min-width: 40em) { 
-    .site-header-menu-container {
-        margin-left: auto;
-    }
-}
-
-.site-header-search-form {
-    position: relative;
-}
-
 .site-header-search {
     /* width: min(calc(20 * var(--sz-400)), 90vw); -- Desktop layout -- */
     --fs-form-100: var(--fsz-100);
