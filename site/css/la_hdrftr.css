@@ -19,8 +19,13 @@
     --knob-fc-link-hover: var(--fc-xlight);
     --knob-link-hover-bg: var(--clr-lt-blue);
     --knob-link-hover-decoration: none;
-    max-width: var(--content-width);
     margin-inline: auto;
+}
+
+@media (min-width: 40em) { 
+    .site-header-menu {
+        margin-inline: var(--sz-300);
+    }
 }
 
 .site-header-menu .site-header-menu-link {
