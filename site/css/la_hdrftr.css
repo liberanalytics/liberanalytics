@@ -32,10 +32,15 @@
 }
 
 /* Header Search */
-.site-header-search-container {   
-    /* margin-left: auto; -- Desktop layout -- */
+.site-header-menu-container {   
     flex: 0 0 100%;
     width: 100%;
+}
+
+@media (min-width: 40em) { 
+    .site-header-search-container {
+        margin-left: auto;
+    }
 }
 
 .site-header-search-form {
