@@ -214,8 +214,8 @@
 .site-font-link-std:hover,
 .site-font-link-std:focus {
     color: var(--knob-link-hover-fc, var(--fc-link-hover));
-    background-color: var(--knob-link-hover-bg, transparent);
-    text-decoration: var(--knob-link-hover-decoration, underline);
+    background-color: var(--knob-bg-link-hover, transparent);
+    text-decoration: var(--knob-decoration-link-hover, underline);
     transition-duration: var(--transition-fast);
     cursor: pointer;
 }

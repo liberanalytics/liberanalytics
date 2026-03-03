@@ -46,7 +46,7 @@
 
 .post-card-longdesc:hover, .post-card-longdesc:focus {
     --knob-link-hover-fc: var(--fc-light); 
-    --knob-link-hover-decoration: none;
+    --knob-decoration-link-hover: none;
 }
 
 .post-card-attrs {

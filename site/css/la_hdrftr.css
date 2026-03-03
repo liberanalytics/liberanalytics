@@ -17,8 +17,8 @@
 
 .site-header-menu {
     --knob-fc-link-hover: var(--fc-xlight);
-    --knob-link-hover-bg: var(--clr-lt-blue);
-    --knob-link-hover-decoration: none;
+    --knob-bg-link-hover: var(--clr-lt-blue);
+    --knob-decoration-link-hover: none;
     margin-inline: auto;
 }
 
