@@ -28,7 +28,7 @@
     }
 }
 
-.site-header-menu .site-header-menu-link {
+.site-header-menu .site-header-nav .site-header-nav-link {
     --knob-link-fs: var(--fsz-clamp-16x18);
     display: inline-block;
     padding: var(--sz-300);

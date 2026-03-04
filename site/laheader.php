@@ -26,16 +26,16 @@
 </header>
 <div class="site-header-menu-container">
 	<div class="site-header-menu">
-		<nav class="
+		<nav class="site-header-nav
 				site-flex site-flex-wrap site-flex-items-center site-flex-justify-center site-flex-rowgap-300
 				site-link-ff-sans-serif site-link-hover-fc-xlight" 
 			aria-label="primary"
 		>
 
-			<a href="/index" class="site-header-menu-link site-font-link-std">Home</a>
-			<a href="/postsearch" class="site-header-menu-link site-font-link-std">Posts</a>
-			<a href="/about" class="site-header-menu-link site-font-link-std">About</a>
-			<a href="/contact" class="site-header-menu-link site-font-link-std">Contact</a>		
+			<a href="/index" class="site-header-nav-link site-font-link-std">Home</a>
+			<a href="/postsearch" class="site-header-nav-link site-font-link-std">Posts</a>
+			<a href="/about" class="site-header-nav-link site-font-link-std">About</a>
+			<a href="/contact" class="site-header-nav-link site-font-link-std">Contact</a>		
 
 			<div id="site_search_container" class="site-header-search-container">
 				<form id="site_search_form" class="site-header-search-form" role="search">
