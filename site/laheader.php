@@ -30,28 +30,26 @@
 			class="site-header-nav site-link-ff-sans-serif site-link-hover-fc-xlight" 
 			aria-label="primary"
 		>
-
 			<a href="/index" class="site-header-menu-link site-font-link-std">Home</a>
 			<a href="/postsearch" class="site-header-menu-link site-font-link-std">Posts</a>
 			<a href="/about" class="site-header-menu-link site-font-link-std">About</a>
-			<a href="/contact" class="site-header-menu-link site-font-link-std">Contact</a>		
-
-			<div id="site_search_container" class="site-header-search-container">
-				<form id="site_search_form" class="site-header-search-form" role="search">
-					<label for="site_search" class="site-display-none">Search posts by tag</label>
-					<input
-						class="site-header-search site-font-form-std"
-						id="site_search"
-						type="search" 
-						title="Search for posts by tag" 
-						placeholder="Search for posts by tag"
-						autocomplete="off"
-					>
-					<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
-				</form>
-				<div id="site_search_tag_suggestions" class="site-tag-suggestions-container"></div>
-			</div>	
-								
-		</nav>	
+			<a href="/contact" class="site-header-menu-link site-font-link-std">Contact</a>					
+		</nav>
+		
+		<div id="site_search_container" class="site-header-search-container">
+			<form id="site_search_form" class="site-header-search-form" role="search">
+				<label for="site_search" class="site-display-none">Search posts by tag</label>
+				<input
+					class="site-header-search site-font-form-std"
+					id="site_search"
+					type="search" 
+					title="Search for posts by tag" 
+					placeholder="Search for posts by tag"
+					autocomplete="off"
+				>
+				<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+			</form>
+			<div id="site_search_tag_suggestions" class="site-tag-suggestions-container"></div>
+		</div>			
 	</div>
 </div>
