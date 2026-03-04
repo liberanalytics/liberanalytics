@@ -29,7 +29,9 @@
 }
 
 .site-header-nav {
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .site-header-menu .site-header-menu-link {
