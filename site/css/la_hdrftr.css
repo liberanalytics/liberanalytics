@@ -10,6 +10,10 @@
 
 /* Header Menu */
 .site-header-menu-container {
+    display: grid;
+    grid-template-areas:
+        "site-header-nav"
+        "site-header-search";
     padding-block: var(--sz-400);
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-beige);
@@ -29,7 +33,9 @@
 }
 
 .site-header-nav {
+    grid-area: site-header-nav;
     display: flex;
+    align-items: center;
 }
 
 .site-header-menu .site-header-nav .site-header-nav-link {
@@ -42,6 +48,7 @@
 
 .site-header-search {
     /* width: min(calc(20 * var(--sz-400)), 90vw); -- Desktop layout -- */
+    grid-area: site-header-menu;
     --fs-form-100: var(--fsz-100);
     --fw-form-bold: var(--fw-bold);
     --fc-form-xlight: var(--fc-xlight);
