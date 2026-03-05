@@ -10,7 +10,8 @@
 
 /* Header Menu */
 .site-header-menu-container {
-    padding-block: var(--sz-400);
+    padding-block-start: var(--sz-300);
+    padding-block-end: var(--sz-400);
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-beige);
 }
