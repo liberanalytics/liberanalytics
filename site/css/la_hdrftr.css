@@ -10,16 +10,16 @@
 
 /* Header Menu */
 .site-header-menu-container {
-    display: grid;
-    grid-template-areas:
-        "site-header-nav"
-        "site-header-search";
     padding-block: var(--sz-400);
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-beige);
 }
 
 .site-header-menu {
+    display: grid;
+    grid-template-areas:
+        "site-header-nav"
+        "site-header-search";    
     --knob-fc-link-hover: var(--fc-xlight);
     --knob-bg-link-hover: var(--clr-lt-blue);
     --knob-decoration-link-hover: none;
