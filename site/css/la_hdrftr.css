@@ -31,7 +31,8 @@
 
 @media (min-width: 40em) { 
     .site-header-menu {
-        grid-template-areas: "site-header-nav site-header-search";       
+        grid-template-areas: "site-header-nav site-header-search";
+        grid-template-columns: max-content 1fr;
         margin-inline: var(--sz-300);
     }
 }
