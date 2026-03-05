@@ -36,6 +36,7 @@
     grid-area: site-header-nav;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .site-header-menu .site-header-nav .site-header-nav-link {
