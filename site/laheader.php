@@ -26,7 +26,7 @@
 </header>
 <div class="site-header-menu-container">
 	<div class="site-header-menu">
-<<<<<<< HEAD
+
 		<nav
 			class="site-header-nav site-link-ff-sans-serif site-link-hover-fc-xlight" 
 			aria-label="primary"
@@ -36,23 +36,9 @@
 			<a href="/about" class="site-header-menu-link site-font-link-std">About</a>
 			<a href="/contact" class="site-header-menu-link site-font-link-std">Contact</a>					
 		</nav>
-		
-		<div id="site_search_container" class="site-header-search-container">
-			<form id="site_search_form" class="site-header-search-form" role="search">
-=======
-		<nav 
-			class="site-header-nav site-link-ff-sans-serif site-link-hover-fc-xlight"
-			aria-label="primary"
-		>
-			<a href="/index" class="site-header-nav-link site-font-link-std">Home</a>
-			<a href="/postsearch" class="site-header-nav-link site-font-link-std">Posts</a>
-			<a href="/about" class="site-header-nav-link site-font-link-std">About</a>
-			<a href="/contact" class="site-header-nav-link site-font-link-std">Contact</a>			
-		</nav>	
 
 		<div id="site_search_container">
 			<form id="site_search_form" role="search">
->>>>>>> origin/mobile
 				<label for="site_search" class="site-display-none">Search posts by tag</label>
 				<input
 					class="site-header-search site-font-form-std"
@@ -65,10 +51,6 @@
 				<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
 			</form>
 			<div id="site_search_tag_suggestions" class="site-tag-suggestions-container"></div>
-<<<<<<< HEAD
-		</div>			
-=======
-		</div>		
->>>>>>> origin/mobile
+		</div>
 	</div>
 </div>
