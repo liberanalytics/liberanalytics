@@ -22,7 +22,7 @@
         "site-header-search";
     gap: 0;
     column-gap: 0;
-    row-gap: 0;
+    row-gap: var(--sz-300);
     --knob-fc-link-hover: var(--fc-xlight);
     --knob-bg-link-hover: var(--clr-lt-blue);
     --knob-decoration-link-hover: none;
