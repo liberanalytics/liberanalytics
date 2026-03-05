@@ -28,6 +28,7 @@
 
 @media (min-width: 40em) { 
     .site-header-menu {
+        grid-template-areas: "site-header-nav site-header-search";       
         margin-inline: var(--sz-300);
     }
 }
