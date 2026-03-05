@@ -40,6 +40,11 @@
     justify-content: center;
 }
 
+@media (min-width: 40em) {
+    .site-header-nav {
+          justify-content: start;
+    }
+}
 .site-header-menu .site-header-nav .site-header-nav-link {
     --knob-link-fs: var(--fsz-clamp-16x18);
     display: inline-block;
