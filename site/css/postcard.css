@@ -38,14 +38,14 @@
 }
 
 .post-card-longdesc, .post-card-longdesc:visited {
-    --knob-link-fc: var(--fc-light);
+    --knob-fc-link: var(--fc-light);
     display: block;
     margin-block-start: var(--sz-100);
 }
 
 .post-card-longdesc:hover, .post-card-longdesc:focus {
-    --knob-link-hover-fc: var(--fc-light); 
-    --knob-decoration-link-hover: none;
+    --knob-fc-link-hover: var(--fc-light); 
+    --knob-link-hover-decoration: none;
 }
 
 .post-card-attrs {

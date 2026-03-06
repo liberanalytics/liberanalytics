@@ -7,7 +7,7 @@
 }
 
 .page-post {
-    --knob-std-fs: var(--fsz-clamp-320-399-16x18);
+    --knob-fs-std: var(--fsz-clamp-320-399-16x18);
     --knob-stack-start-mt: var(--sz-300);
 }
 

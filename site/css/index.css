@@ -12,7 +12,7 @@
 }
 
 .latest-posts-link {
-    --knob-link-fc: var(--fc-med);    
+    --knob-fc-link: var(--fc-med);    
     display: block;
     padding-block: var(--sz-300);
     padding-inline-start: var(--sz-200);

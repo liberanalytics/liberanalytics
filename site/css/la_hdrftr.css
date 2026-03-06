@@ -26,7 +26,7 @@
     row-gap: var(--sz-300);
     --knob-fc-link-hover: var(--fc-xlight);
     --knob-bg-link-hover: var(--clr-lt-blue);
-    --knob-decoration-link-hover: none;
+    --knob-link-hover-decoration: none;
     margin-inline: auto;
 }
 
@@ -51,7 +51,7 @@
     }
 }
 .site-header-menu .site-header-nav .site-header-nav-link {
-    --knob-link-fs: var(--fsz-clamp-320-399-16x18);
+    --knob-fs-link: var(--fsz-clamp-320-399-16x18);
     display: inline-block;
     padding: var(--sz-300);
     border-radius: var(--sz-300);

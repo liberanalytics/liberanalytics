@@ -7,7 +7,7 @@
 }
 
 .postsearch-tags {
-    --knob-form-fs: var(--fsz-clamp-320-399-16x18);
+    --knob-fs-form: var(--fsz-clamp-320-399-16x18);
 }
 
 .postsearch-filters-chips-container {
@@ -24,12 +24,12 @@
 }
 
 .postsearch-filters-label {
-    --knob-std-fs: var(--fsz-clamp-320-399-16x18);
+    --knob-fs-std: var(--fsz-clamp-320-399-16x18);
     color: var(--clr-med-dark);
 }
 
 .postsearch-filters-chip {
-    --knob-std-fs: var(--fsz-clamp-320-399-16x18);
+    --knob-fs-std: var(--fsz-clamp-320-399-16x18);
     --knob-fc-std: var(--clr-xlt-dark);
     grid-column: 2;
     position: relative;

@@ -140,10 +140,10 @@
 
 /* Site Font (non-link) Component Classes. */
 .site-font-std {
-    font-family: var(--knob-std-ff, var(--ff-main));
-    font-size: var(--knob-std-fs, var(--fsz-clamp-320-399-16x18));
+    font-family: var(--knob-ff-std, var(--ff-main));
+    font-size: var(--knob-fs-std, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-xlight);
-    line-height: var(--knob-std-flh, var(--flh-tight));
+    line-height: var(--knob-flh-std, var(--flh-tight));
     color: var(--knob-fc-std, var(--fc-light));
 }
 
@@ -172,24 +172,24 @@
 }
 
 .site-font-date-std {
-    font-family: var(--knob-date-ff, var(--ff-main));
-    font-size: var(--knob-date-fs, var(--fsz-clamp-320-399-16x18));
+    font-family: var(--knob-ff-date, var(--ff-main));
+    font-size: var(--knob-fs-date, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-xlight);
-    line-height: var(--knob-date-flh, var(--flh-tight));
-    color: var(--knob-date-fc, var(--fc-midlight));
+    line-height: var(--knob-flh-date, var(--flh-tight));
+    color: var(--knob-fc-date, var(--fc-midlight));
 }
 
 .site-font-form-std {
-    font-family: var(--knob-form-ff, var(--ff-sans-serif));
-    font-size: var(--knob-form-fs, var(--fsz-clamp-320-399-16x18));
-    font-weight: var(--knob-form-fw, var(--fw-xlight));
-    line-height: var(--knob-form-flh, var(--flh-tight));
-    color: var(--knob-form-fc, --fc-light);    
+    font-family: var(--knob-ff-form, var(--ff-sans-serif));
+    font-size: var(--knob-fs-form, var(--fsz-clamp-320-399-16x18));
+    font-weight: var(--knob-fw-form, var(--fw-xlight));
+    line-height: var(--knob-flh-form, var(--flh-tight));
+    color: var(--knob-fc-form, --fc-light);    
 }
 
 .site-font-form-error {
     font-family: var(--ff-sans-serif);
-    font-size: var(--knob-form-error-fs, var(--fsz-clamp-320-399-16x18));
+    font-size: var(--knob-fs-form-error, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-xlight);
     line-height: var(--flh-xtight);    
     color: var(--fc-med-red);
@@ -198,11 +198,11 @@
 
 /* Site Font (link) Component Classes */
 .site-font-link-std {
-    font-family: var(--knob-link-ff, var(--ff-main));
-    font-size: var(--knob-link-fs, var(--fsz-clamp-320-399-16x18));
+    font-family: var(--knob-ff-link, var(--ff-main));
+    font-size: var(--knob-fs-link, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-xlight);
-    line-height: var(--knob-link-flh, var(--flh-tight));    
-    color: var(--knob-link-fc, var(--fc-link));
+    line-height: var(--knob-flh-link, var(--flh-tight));    
+    color: var(--knob-fc-link, var(--fc-link));
     text-decoration: none;
     text-decoration-thickness: .08em;
     text-underline-offset: .15em;
@@ -214,13 +214,13 @@
 }
 
 /* :any-link pseudo class covers :link & :visited */
-.site-font-link-std:any-link { color: var(--knob-link-fc, var(--fc-link)); }
+.site-font-link-std:any-link { color: var(--knob-fc-link, var(--fc-link)); }
 
 .site-font-link-std:hover,
 .site-font-link-std:focus {
-    color: var(--knob-link-hover-fc, var(--fc-link-hover));
+    color: var(--knob-fc-link-hover, var(--fc-link-hover));
     background-color: var(--knob-bg-link-hover, transparent);
-    text-decoration: var(--knob-decoration-link-hover, underline);
+    text-decoration: var(--knob-link-hover-decoration, underline);
     transition-duration: var(--transition-fast);
     cursor: pointer;
 }
@@ -261,12 +261,12 @@
    Site font link utility classes.
    Uses knob custom variables to dial property values.
 --------------------------------------------------------- */
-.site-link-ff-sans-serif { --knob-link-ff: var(--ff-sans-serif); }
-.site-link-fs-xsmall { --knob-link-fs: var(--fsz-100); }
-.site-link-fc-med { --knob-link-fc: var(--fc-med); }
-.site-link-fc-muted { --knob-link-fc: var(--fc-light); }
-.site-link-fc-accent { --knob-link-fc: var(--fc-med-green); }
-.site-link-fc-dark { --knob-link-fc: var(--fc-dark); }
-.site-link-fc-xdark { --knob-link-fc: var(--fc-xdark); }
-.site-link-flh-med { --knob-link-flh: var(--flh-med); }
-.site-link-hover-fc-xlight { --knob-link-hover-fc: var(--fc-xlight); }
+.site-link-ff-sans-serif { --knob-ff-link: var(--ff-sans-serif); }
+.site-link-fs-xsmall { --knob-fs-link: var(--fsz-100); }
+.site-link-fc-med { --knob-fc-link: var(--fc-med); }
+.site-link-fc-muted { --knob-fc-link: var(--fc-light); }
+.site-link-fc-accent { --knob-fc-link: var(--fc-med-green); }
+.site-link-fc-dark { --knob-fc-link: var(--fc-dark); }
+.site-link-fc-xdark { --knob-fc-link: var(--fc-xdark); }
+.site-link-flh-med { --knob-flh-link: var(--flh-med); }
+.site-link-hover-fc-xlight { --knob-fc-link-hover: var(--fc-xlight); }
