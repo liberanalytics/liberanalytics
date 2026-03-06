@@ -21,7 +21,7 @@
 }
 
 .post-desc {
-    --knob-std-fc: var(--fc-light);
+    --knob-fc-std: var(--fc-light);
 }
 
 .post-img-container {

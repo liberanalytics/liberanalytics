@@ -30,7 +30,7 @@
 
 .postsearch-filters-chip {
     --knob-std-fs: var(--fsz-clamp-320-399-16x18);
-    --knob-std-fc: var(--clr-xlt-dark);
+    --knob-fc-std: var(--clr-xlt-dark);
     grid-column: 2;
     position: relative;
     display: block;

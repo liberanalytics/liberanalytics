@@ -8,7 +8,6 @@
 }
 
 .post-card-desc {
-    --knob-std-fc: var(--fc-med-green);
     padding-block-end: var(--sz-100);
     text-align: center;
 }
