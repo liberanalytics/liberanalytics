@@ -19,13 +19,15 @@
     --fsz-400: var(--sz-700);
 
     /* Site font size clamps from 320px - 399px. */
-    --fsz-clamp-399--14x16:     clamp(.875rem, calc(2.532vw + 0.369rem), 1rem);
-    --fsz-clamp-399--16x18:     clamp(1rem, calc(2.532vw + 0.494rem), 1.125rem);
-    --fsz-clamp-399--16x18-8:   clamp(1.0rem, calc(3.544vw + .291rem), 1.175rem);
-    --fsz-clamp-399--18x18-8:   clamp(1.125rem, calc(1.013vw + .922rem), 1.175rem);
-    --fsz-clamp-399--18x20:     clamp(1.125rem, calc(2.532vw + 0.619rem), 1.25rem);
-    --fsz-clamp-399--20x22:     clamp(1.25rem, calc(2.532 + 0.744rem), 1.375rem);
-    --fsz-clamp-399--22x24:     clamp(1.375rem, calc(2.5vw + 0.75rem), 1.5rem);    
+    --fsz-clamp-320-399-14x16:     clamp(.875rem, calc(2.532vw + 0.369rem), 1rem);
+    --fsz-clamp-320-399-16x18:     clamp(1rem, calc(2.532vw + 0.494rem), 1.125rem);
+    --fsz-clamp-320-399-16x18-8:   clamp(1.0rem, calc(3.544vw + .291rem), 1.175rem);
+    --fsz-clamp-320-399-18x18-8:   clamp(1.125rem, calc(1.013vw + .922rem), 1.175rem);
+    --fsz-clamp-320-399-20x22:     clamp(1.25rem, calc(2.532 + 0.744rem), 1.375rem);
+    --fsz-clamp-320-399-22x24:     clamp(1.375rem, calc(2.5vw + 0.75rem), 1.5rem);
+    
+    /* Site font size clamps from 400px - 640px. */
+    --fsz-clamp-320-640-18x24:     clamp(1.125rem, calc(1.875vw + 0.75rem), 1.5rem);
 
     /* Site font-weights. */
     --fw-xlight: 300;
@@ -136,7 +138,7 @@
 /* Site Font (non-link) Component Classes. */
 .site-font-std {
     font-family: var(--knob-std-ff, var(--ff-main));
-    font-size: var(--knob-std-fs, var(--fsz-clamp-399--16x18));
+    font-size: var(--knob-std-fs, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-xlight);
     line-height: var(--knob-std-flh, var(--flh-tight));
     color: var(--knob-std-fc, var(--fc-light));
@@ -144,7 +146,7 @@
 
 .site-font-primary-heading {
     font-family: var(--ff-primary-heading);
-    font-size: var(--knob-primary-heading-fs, var(--fsz-clamp-399--18x20));
+    font-size: var(--knob-primary-heading-fs, var(--fsz-clamp-320-640-18x24:));
     font-weight: var(--fw-light);
     line-height: var(--knob-primary-heading-flh, var(--flh-xtight));
     color: var(--fc-xlight);
@@ -152,7 +154,7 @@
 
 .site-font-secondary-heading {
     font-family: var(--ff-main);
-    font-size: var(--knob-secondary-heading-fs, var(--fsz-clamp-399--18x20));
+    font-size: var(--knob-secondary-heading-fs, var(--fsz-clamp-320-640-18x24:));
     font-weight: var(--fw-xlight);
     line-height: var(--knob-secondary-heading-flh, var(--flh-tight));
     color: var(--fc-med-green);   
@@ -160,7 +162,7 @@
 
 .site-font-brand {    
     font-family: var(--ff-fancy);
-    font-size: var(--knob-brand-fs, var(--fsz-clamp-399--18x20));
+    font-size: var(--knob-brand-fs, var(--fsz-clamp-320-640-18x24:));
     font-weight: var(--knob-brand-fw, var(--fw-bold));
     line-height: var(--knob-brand-flh, var(--flh-tight));
     color: var(--fc-med-green);
@@ -168,7 +170,7 @@
 
 .site-font-date-std {
     font-family: var(--knob-date-ff, var(--ff-main));
-    font-size: var(--knob-date-fs, var(--fsz-clamp-399--16x18));
+    font-size: var(--knob-date-fs, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-xlight);
     line-height: var(--knob-date-flh, var(--flh-tight));
     color: var(--knob-date-fc, var(--fc-midlight));
@@ -176,7 +178,7 @@
 
 .site-font-form-std {
     font-family: var(--knob-form-ff, var(--ff-sans-serif));
-    font-size: var(--knob-form-fs, var(--fsz-clamp-399--16x18));
+    font-size: var(--knob-form-fs, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--knob-form-fw, var(--fw-xlight));
     line-height: var(--knob-form-flh, var(--flh-tight));
     color: var(--knob-form-fc, --fc-light);    
@@ -184,7 +186,7 @@
 
 .site-font-form-error {
     font-family: var(--ff-sans-serif);
-    font-size: var(--knob-form-error-fs, var(--fsz-clamp-399--16x18));
+    font-size: var(--knob-form-error-fs, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-xlight);
     line-height: var(--flh-xtight);    
     color: var(--fc-med-red);
@@ -194,7 +196,7 @@
 /* Site Font (link) Component Classes */
 .site-font-link-std {
     font-family: var(--knob-link-ff, var(--ff-main));
-    font-size: var(--knob-link-fs, var(--fsz-clamp-399--16x18));
+    font-size: var(--knob-link-fs, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-xlight);
     line-height: var(--knob-link-flh, var(--flh-tight));    
     color: var(--knob-link-fc, var(--fc-link));

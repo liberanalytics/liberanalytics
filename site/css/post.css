@@ -7,7 +7,7 @@
 }
 
 .page-post {
-    --knob-std-fs: var(--fsz-clamp-399--16x18);
+    --knob-std-fs: var(--fsz-clamp-320-399-16x18);
     --knob-stack-start-mt: var(--sz-300);
 }
 
@@ -17,7 +17,7 @@
 
 .post-heading {
     --knob-stack-start-mt: var(--sz-200);
-    --knob-brand-fs: var(--fsz-clamp-399--18x20);
+    --knob-brand-fs: var(--fsz-clamp-320-640-18x24:);
 }
 
 .post-desc {
@@ -64,7 +64,7 @@
 /* Standard snippet font styling. */
 .post-snippet-font-std {
     font-family: var(--ff-post-snippet);
-    font-size: var(--knob-post-snippet-fs, var(--fsz-clamp-399--16x18));
+    font-size: var(--knob-post-snippet-fs, var(--fsz-clamp-320-399-16x18));
     font-weight: var(--fw-light);
     line-height: var(--flh-tight);
     color: var(--knob-post-snippet-fc);

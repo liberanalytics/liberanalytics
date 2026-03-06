@@ -3,12 +3,12 @@
 --------------------------------------------------------- */
 
 .postsearch-filters-header {
-    --knob-secondary-heading-fs: var(--fsz-clamp-399--20x22);
+    --knob-secondary-heading-fs: var(--fsz-clamp-320-399-20x22);
     margin-block-end: var(--sz-200);
 }
 
 .postsearch-tags {
-    --knob-form-fs: var(--fsz-clamp-399--16x18);
+    --knob-form-fs: var(--fsz-clamp-320-399-16x18);
 }
 
 .postsearch-filters-chips-container {
@@ -25,12 +25,12 @@
 }
 
 .postsearch-filters-label {
-    --knob-std-fs: var(--fsz-clamp-399--16x18);
+    --knob-std-fs: var(--fsz-clamp-320-399-16x18);
     color: var(--clr-med-dark);
 }
 
 .postsearch-filters-chip {
-    --knob-std-fs: var(--fsz-clamp-399--16x18);
+    --knob-std-fs: var(--fsz-clamp-320-399-16x18);
     --knob-std-fc: var(--clr-xlt-dark);
     grid-column: 2;
     position: relative;
