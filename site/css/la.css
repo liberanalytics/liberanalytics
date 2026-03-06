@@ -162,28 +162,3 @@ main {
 }
 
 .site-display-none { display: none; }
-
-/* Site Flex Styles */
-.site-flex { display: flex; }
-.site-flex-wrap { flex-wrap: wrap; }
-.site-flex-nowrap { flex-wrap: nowrap; }
-.site-flex-row { flex-direction: row; }
-.site-flex-col { flex-direction: column; }
-.site-flex-items-center { align-items: center; }
-.site-flex-justify-between { justify-content: space-between; }
-.site-flex-justify-center { justify-content: center; }
-
-.site-flex-rowgap-300 { row-gap: var(--sz-300); }
-.site-flex-gap-400 { gap: var(--sz-400); }
-.site-flex-gap-800 { gap: var(--sz-800); }
-.site-flex-grow-shrink { 
-    flex-grow: 1; 
-    flex-shrink: 1; 
-}
-
-/* Site elements directly targeted @ specific breakpoints. */
-@media (min-width: 25em) {
-    .site-primary-heading {
-        --knob-primary-heading-fs: var(--fsz-clamp-18x20);
-    }
-}
