@@ -146,7 +146,7 @@
 
 .site-font-primary-heading {
     font-family: var(--ff-primary-heading);
-    font-size: var(--knob-primary-heading-fs, var(--fsz-clamp-320-640-18x24:));
+    font-size: var(--knob-primary-heading-fs, var(--fsz-clamp-320-640-18x24));
     font-weight: var(--fw-light);
     line-height: var(--knob-primary-heading-flh, var(--flh-xtight));
     color: var(--fc-xlight);
@@ -154,7 +154,7 @@
 
 .site-font-secondary-heading {
     font-family: var(--ff-main);
-    font-size: var(--knob-secondary-heading-fs, var(--fsz-clamp-320-640-18x24:));
+    font-size: var(--knob-secondary-heading-fs, var(--fsz-clamp-320-640-18x24));
     font-weight: var(--fw-xlight);
     line-height: var(--knob-secondary-heading-flh, var(--flh-tight));
     color: var(--fc-med-green);   
@@ -162,7 +162,7 @@
 
 .site-font-brand {    
     font-family: var(--ff-fancy);
-    font-size: var(--knob-brand-fs, var(--fsz-clamp-320-640-18x24:));
+    font-size: var(--knob-brand-fs, var(--fsz-clamp-320-640-18x24));
     font-weight: var(--knob-brand-fw, var(--fw-bold));
     line-height: var(--knob-brand-flh, var(--flh-tight));
     color: var(--fc-med-green);
