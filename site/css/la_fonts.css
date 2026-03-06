@@ -18,8 +18,8 @@
     --fsz-300: var(--sz-600);
     --fsz-400: var(--sz-700);
 
-    /* Site font size clamps. */
-    --fsz-clamp-14x16: clamp(.875rem, calc(2.703vw + 0.326rem), 1rem);
+    /* Site font size clamps  up to 399px. */
+    --fsz-clamp-14x16: clamp(.875rem, calc(2.532vw + 0.369rem), 1rem);
     --fsz-clamp-16x18: clamp(1rem, calc(2.703vw + 0.451rem), 1.125rem);
     --fsz-clamp-16x18-8: clamp(1.0rem, calc(3.784vw + .231rem), 1.175rem);
     --fsz-clamp-18x18-8: clamp(1.125rem, calc(1.081vw + .905rem), 1.175rem);
