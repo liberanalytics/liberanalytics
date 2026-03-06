@@ -165,9 +165,9 @@
 
 .site-font-brand {    
     font-family: var(--ff-fancy);
-    font-size: var(--knob-brand-fs, var(--fsz-clamp-320-640-18x24));
-    font-weight: var(--knob-brand-fw, var(--fw-bold));
-    line-height: var(--knob-brand-flh, var(--flh-tight));
+    font-size: var(--knob-fs-brand, var(--fsz-clamp-320-640-18x24));
+    font-weight: var(--knob-fw-brand, var(--fw-bold));
+    line-height: var(--knob-flh-brand, var(--flh-tight));
     color: var(--fc-med-green);
 }
 

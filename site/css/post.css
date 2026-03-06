@@ -17,7 +17,7 @@
 
 .post-heading {
     --knob-stack-start-mt: var(--sz-200);
-    --knob-brand-fs: var(--fsz-clamp-320-640-18x24);
+    --knob-fs-brand: var(--fsz-clamp-320-640-18x24);
 }
 
 .post-desc {
