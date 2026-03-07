@@ -67,13 +67,6 @@ $laData = new classes\LaData();
 	<link href="/css/index.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
 
-	<style>
-		html { 
-	-webkit-text-size-adjust: 100%;
-	text-size-adjust: 100%;
-	}
-	</style>	
-
 </head>
 
 <body class="page page-index site-font-std">

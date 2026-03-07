@@ -219,6 +219,7 @@
 }
 
 .site-footer-menu {
+    --knob-fs-link: var(--fsz-clamp-320-399-16x18.8);
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 0.4rem 1.2rem;
@@ -246,7 +247,7 @@
     transition:
         border-bottom-width var(--transition-fast) ease,
         border-bottom-color var(--transition-fast) ease;
-    font-size: var(--fsz-clamp-320-399-16x18-8);
+    /* font-size: var(--fsz-clamp-320-399-16x18-8); */
 }
 
 .site-footer-menu .site-footer-menu-link:visited {
