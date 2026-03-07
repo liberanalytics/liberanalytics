@@ -25,3 +25,9 @@
 .mission-img {
     display: none;
 }
+
+@media (min-width: 48em) {
+    .mission-img {
+        display: block;
+    }
+}
