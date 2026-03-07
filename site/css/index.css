@@ -26,7 +26,7 @@
 
     .mission-container {
         display: grid;
-        grid-template-columns: 1fr 180px;
+        grid-template-columns: 1fr calc(var(--sz-400) * 11.25);
         gap: 0 var(--sz-400);
     }    
     .mission-img {
