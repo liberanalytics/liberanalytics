@@ -18,15 +18,17 @@
     padding-inline-start: var(--sz-200);
 }
 
-.mission-container {
-    --knob-primary-heading-mb: var(--sz-300);
-}
-
 .mission-img {
     display: none;
 }
 
 @media (min-width: 48em) {
+
+    .mission-container {
+        display: grid;
+        grid-template-columns: 1fr 180px;
+        gap: 0 var(--sz-400);
+    }    
     .mission-img {
         display: block;
     }
