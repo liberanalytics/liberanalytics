@@ -63,15 +63,13 @@ main {
 
 /* Site Component Classes */
 .page {
-    /* */
+    /* Page wrapper proxemic constraints. */
     --site-page-pad-inline: var(--sz-400);
-    --site-page-max-width: calc(var(--sz-400) * 25);
+    --site-page-max-width:  980px;
     --site-page-vmargin: var(--sz-400);
-
-    /* */
-    --site-block-pad-inline: var(--sz-300);
-    --site-block-margin-block: var(--sz-300);
 }
+
+
 
 .page-wrap {
     inline-size: min(100% - (var(--site-page-pad-inline) * 2), var(--site-page-max-width));
@@ -80,11 +78,11 @@ main {
 }
 
 .site-block-std {
-    padding-inline: var(--site-block-pad-inline);    
+    padding-inline: var(--sz-300);
 }
 
 .site-block-mt {
-    margin-block-start: var(--site-block-margin-block);
+    margin-block-start: var(--sz-300);
 }
 
 .site-box-shadow {
