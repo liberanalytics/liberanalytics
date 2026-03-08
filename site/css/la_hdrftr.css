@@ -52,7 +52,8 @@
 
 @media (min-width: 40em) {
     .site-header-nav {
-          justify-content: start;
+        margin-inline-start: var(--sz-300);
+        justify-content: start;
     }
 }
 .site-header-menu .site-header-nav .site-header-nav-link {
