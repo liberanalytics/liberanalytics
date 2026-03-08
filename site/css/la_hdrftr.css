@@ -13,9 +13,12 @@
     padding-block-start: var(--sz-300);
     padding-block-end: var(--sz-400);
     border-bottom: 2px solid var(--clr-med-grey);
+    background-color: var(--clr-med-beige);
+}
+
+.site-header-menu-components {
     max-width: var(--site-maxwidth);
     margin-inline: auto;
-    background-color: var(--clr-med-beige);
 }
 
 .site-header-menu {
