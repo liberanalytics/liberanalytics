@@ -150,6 +150,7 @@
     .site-hdrftr-masthead {
         grid-template-areas: 
             "logo site-name tagline";
+        grid-template-columns: auto auto 1fr;
         justify-content: start;
     }
     
@@ -201,10 +202,10 @@
     color: var(--fc-medlight);
 }
 
-.site-hdrftr-tagline { grid-area: tagline; }
+.site-hdrftr-masthead > .site-hdrftr-tagline { grid-area: tagline; }
 
 @media (min-width: 61.25em) {
-    .site-hdrftr-tagline {
+    .site-hdrftr-masthead > .site-hdrftr-tagline {
         margin-inline-start: auto;
     }
 }
