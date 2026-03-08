@@ -56,6 +56,14 @@
         justify-content: start;
     }
 }
+
+
+@media (min-width: 61.25em) {
+    .site-header-nav {
+        margin-inline-start: 0;
+    }
+}
+
 .site-header-menu .site-header-nav .site-header-nav-link {
     --knob-fs-link: var(--fsz-clamp-320-399-16x18);
     display: inline-block;
