@@ -89,7 +89,7 @@
 
 @media (min-width: 61.25em) {
     .site-header-search {
-
+        margin-inline-end: 0;
     }
 }
 
