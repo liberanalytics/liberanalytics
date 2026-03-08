@@ -1,4 +1,4 @@
-<header class="page-header site-hdrftr-container">
+<header class="site-header site-hdrftr-container">
 	<div class="site-hdrftr-wrap">
 		<div class="site-hdrftr-masthead site-ff-fancy site-fc-xlight">
 			<a href="index" class="site-logo-link" aria-label="Home">
