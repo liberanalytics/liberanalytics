@@ -68,7 +68,7 @@
     border: none;   
     border-radius: var(--sz-200);
     justify-content: center;    
-    /* margin-inline: auto; */
+    margin-inline: auto;
     background: url('../assets/mg.svg') var(--clr-dk-blue) no-repeat var(--sz-025) center;
     font-size: var(--fs-form-100);
     font-weight: var(--fw-form-bold);
