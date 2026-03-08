@@ -40,7 +40,6 @@
         grid-template-areas: "site-header-nav site-header-search";
         grid-template-columns: max-content 1fr;
         padding-inline: var(--sz-300);
-        margin-inline-start: auto;
     }
 }
 
@@ -90,7 +89,7 @@
 
 @media (min-width: 61.25em) {
     .site-header-search {
-         margin-inline: 0;
+
     }
 }
 
