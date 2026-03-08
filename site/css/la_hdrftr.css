@@ -17,6 +17,9 @@
 }
 
 .site-header-menu {
+    --knob-fc-link-hover: var(--fc-xlight);
+    --knob-bg-link-hover: var(--clr-lt-blue);
+    --knob-link-hover-decoration: none;    
     display: grid;
     grid-template-areas:
         "site-header-nav"
@@ -24,15 +27,13 @@
     gap: 0;
     column-gap: 0;
     row-gap: var(--sz-300);
-    --knob-fc-link-hover: var(--fc-xlight);
-    --knob-bg-link-hover: var(--clr-lt-blue);
-    --knob-link-hover-decoration: none;
     margin-inline: auto;
 }
 
 @media (min-width: 40em) { 
     .site-header-menu {
         grid-template-areas: "site-header-nav site-header-search";
+        width: fit-content;
         grid-template-columns: max-content 1fr;
         padding-inline: var(--sz-300);
         margin-inline: auto;
