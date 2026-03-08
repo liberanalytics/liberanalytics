@@ -201,10 +201,10 @@
     color: var(--fc-medlight);
 }
 
-.site-hdrftr-masthead > .site-hdrftr-tagline { grid-area: tagline; }
+.site-hdrftr-tagline { grid-area: tagline; }
 
 @media (min-width: 61.25em) {
-    .site-hdrftr-masthead > .site-hdrftr-tagline {
+    .site-hdrftr-tagline {
         margin-inline-start: auto;
     }
 }
