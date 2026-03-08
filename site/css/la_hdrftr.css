@@ -129,7 +129,6 @@
 }
 
 .site-hdrftr-wrap {
-    /* inline-size: min(100% - (var(--page-pad) * 2), var(--page-max)); */
     margin-inline: auto;
 }
 
@@ -144,6 +143,15 @@
     row-gap: var(--sz-300);
     justify-content: center ;
     align-items: center;
+}
+
+@media (min-width: 61.25em) {
+    .site-hdrftr-masthead {
+        grid-template-areas: 
+            "logo site-name tagline";
+        justify-content: start;
+    }
+    
 }
 
 .site-hdrftr-masthead > .site-logo-link { grid-area: logo; }
