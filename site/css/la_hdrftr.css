@@ -332,5 +332,6 @@
 @media (min-width: 61.25em) {
     .site-footer-legal {
         grid-area: legal;
+        grid-template-columns: none;
     }
 }
