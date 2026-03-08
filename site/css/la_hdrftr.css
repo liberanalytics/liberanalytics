@@ -125,14 +125,11 @@
 .site-hdrftr-container {
     padding-block-start: var(--sz-600);
     padding-block-end: var(--sz-300);
-    background-color:
-        var(--knob-hdrftr-bg-color,
-        var(--hdrftr-bg-color,
-        var(--clr-med-dark)));
+    background-color: var(--clr-med-dark);
 }
 
 .site-hdrftr-wrap {
-    inline-size: min(100% - (var(--page-pad) * 2), var(--page-max));
+    /* inline-size: min(100% - (var(--page-pad) * 2), var(--page-max)); */
     margin-inline: auto;
 }
 
