@@ -34,7 +34,8 @@
     .site-header-menu {
         grid-template-areas: "site-header-nav site-header-search";
         grid-template-columns: max-content 1fr;
-        margin-inline: var(--sz-300);
+        padding-inline: var(--sz-300);
+        margin-inline: auto;
     }
 }
 
