@@ -128,12 +128,17 @@
     background-color: var(--clr-med-dark);
 }
 
+@media (min-width: 40em) {
+    .site-hdrftr-container {
+        padding-block-end: var(--sz-600);
+    }
+}
+
 .site-hdrftr-wrap {
     max-width: var(--site-maxwidth);
     margin-inline: auto;
 }
 
-/* Masthead -> 2 rows: [logo | brand] over [tagline]. */
 .site-hdrftr-masthead {
     display: grid;
     grid-template-columns: auto auto;
