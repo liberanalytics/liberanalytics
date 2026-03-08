@@ -64,7 +64,7 @@
     --fc-form-xlight: var(--fc-xlight);
     display: block;
     box-sizing: border-box;
-    width: var(--site-vw-inline);
+    width: var(--knob-width-header-search, var(--site-vw-inline));
     padding: var(--sz-300) var(--sz-300) var(--sz-300) calc(2 * var(--sz-600));
     border: none;   
     border-radius: var(--sz-200);
@@ -77,7 +77,7 @@
 
 @media (min-width: 40em) { 
     .site-header-search {
-        width: calc(20 * (var(--sz-400)));
+        --knob-width-header-search: calc(20 * (var(--sz-400)));
         margin-inline: 0;
         margin-inline-start: auto;
     }
