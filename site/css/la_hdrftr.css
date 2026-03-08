@@ -216,6 +216,12 @@
     }
 }
 
+@media (min-width: 61.25em) {
+    .site-hdrftr-font-tagline {
+        margin-inline-start: auto;
+    }
+}
+
 .site-hdrftr-masthead img {
     inline-size: auto;
     object-fit: contain;
