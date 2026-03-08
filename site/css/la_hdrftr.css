@@ -40,6 +40,7 @@
         grid-template-areas: "site-header-nav site-header-search";
         grid-template-columns: max-content 1fr;
         padding-inline: var(--sz-300);
+        margin-inline-start: auto;
     }
 }
 
