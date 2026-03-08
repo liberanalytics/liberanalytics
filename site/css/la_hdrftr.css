@@ -64,7 +64,7 @@
     --fc-form-xlight: var(--fc-xlight);
     display: block;
     box-sizing: border-box;
-    width: var(--site-vw-inline);
+    width: 100%;
     padding: var(--sz-300) var(--sz-300) var(--sz-300) calc(2 * var(--sz-600));
     border: none;   
     border-radius: var(--sz-200);
