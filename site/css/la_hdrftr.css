@@ -159,7 +159,7 @@
 }
 
 @media (min-width: 61.25em) {
-    .site-hdrftr-masthead {
+    .site-header .site-hdrftr-masthead {
         grid-template-areas: 
             "logo site-name tagline";
         grid-template-columns: auto auto 1fr;
