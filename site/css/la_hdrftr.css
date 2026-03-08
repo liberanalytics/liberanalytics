@@ -82,8 +82,8 @@
 @media (min-width: 40em) { 
     .site-header-search {
         --knob-width-header-search: calc(20 * (var(--sz-400)));
-        margin-inline: 0;
         margin-inline-start: auto;
+        margin-inline-end: var(--sz-300);
     }
 }
 
