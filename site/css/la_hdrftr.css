@@ -55,23 +55,19 @@
     --knob-fs-link: var(--fsz-clamp-320-399-16x18);
     display: inline-block;
     padding: var(--sz-300);
-    border-radius: var(--sz-300);
-    /* font-size: var(--fsz-clamp-320-399-18x18-8); */
 }
 
 .site-header-search {
-    /* width: min(calc(20 * var(--sz-400)), 90vw); -- Desktop layout -- */
     grid-area: site-header-menu;
     --fs-form-100: var(--fsz-100);
     --fw-form-bold: var(--fw-bold);
     --fc-form-xlight: var(--fc-xlight);
     display: block;
-    box-sizing: border-box;
-    width: var(--site-vw-inline);
+    width: calc(16.875 * var(--sz-400));
     padding: var(--sz-300) var(--sz-300) var(--sz-300) calc(2 * var(--sz-600));
     border: none;   
     border-radius: var(--sz-200);
-    margin-inline: auto;
+    /* margin-inline: auto; */
     background: url('../assets/mg.svg') var(--clr-dk-blue) no-repeat var(--sz-025) center;
     font-size: var(--fs-form-100);
     font-weight: var(--fw-form-bold);
@@ -80,9 +76,15 @@
 
 @media (min-width: 40em) { 
     .site-header-search {
-        width: calc(20 * (var(--sz-400)));
-        margin-inline: 0;
-        margin-inline-start: auto;
+        /* width: calc(20 * (var(--sz-400))); */
+        /* margin-inline: 0;
+        margin-inline-start: auto; */
+    }
+}
+
+@media (min-width: 61.25em) {
+    .site-header-search {
+         margin-inline: 0;
     }
 }
 
