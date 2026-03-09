@@ -260,6 +260,18 @@
     .site-footer .site-hdrftr-wrap {
         display: grid;
         grid-template-columns: max-content max-content 1fr;
+        grid-template-areas:
+            "logo site-name footer-menu"
+            " tagline";
+    }
+    .site-footer .site-logo {
+        grid-area: logo;
+    }
+    .site-footer .site-hdrftr-name {
+        grid-area: site-name;
+    }
+    .site-footer .site-hdrftr-tagline {
+        grid-area: tagline;
     }
 }
 
