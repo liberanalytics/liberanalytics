@@ -257,12 +257,12 @@
 }
 
 @media(min-width: 61.25em) {
-    .site-footer .site-hdrftr-wrap {
+    .site-footer .site-hdrftr-masthead {
         display: grid;
-        grid-template-columns: max-content max-content 1fr;
+        grid-template-columns: max-content max-content;
         grid-template-areas:
-            "logo site-name footer-menu"
-            " tagline";
+            "logo site-name"
+            ". tagline";
     }
     .site-footer .site-logo {
         grid-area: logo;
