@@ -273,7 +273,7 @@
     .site-footer .site-hdrftr-tagline {
         grid-area: tagline;
         position: relative;
-        right: calc(-1 * (var(--la-logo-width) + var(--sz-300)));
+        /* right: calc(-1 * (var(--la-logo-width) + var(--sz-300))); */
     }
 }
 
