@@ -263,6 +263,12 @@
     }
 }
 
+@media(min-width: 61.25em) {
+    .site-footer .site-hdrftr-tagline {
+        margin-inline-start: calc(var(--la-logo-width) + var(--sz-300));
+    }
+}
+
 .site-footer-menu-container {
     margin-block-start: var(--sz-300);
 }
