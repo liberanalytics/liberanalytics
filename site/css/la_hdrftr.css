@@ -281,6 +281,12 @@
     }
 }
 
+@media (min-width: 61.25em) {
+    .site-footer-menu {
+       display: flex;
+    }
+}
+
 .site-footer-menu > span {
     padding-inline-end: var(--sz-050);
 }
