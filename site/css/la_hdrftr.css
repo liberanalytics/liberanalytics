@@ -218,12 +218,6 @@
 
 .site-hdrftr-masthead > .site-hdrftr-tagline { grid-area: tagline; }
 
-@media (min-width: 61.25em) {
-    .site-header .site-hdrftr-masthead .site-hdrftr-tagline {
-        margin-inline-start: auto;
-    }
-}
-
 .site-hdrftr-font-tagline {
     font-family: var(--ff-fancy);
     font-size: clamp(1.125rem, calc(8.108vw - 0.522rem), 1.375rem);
@@ -240,7 +234,7 @@
 
 @media (min-width: 61.25em) {
     .site-hdrftr-font-tagline {
-        text-align: justify;
+        text-align: right;
     }
 }
 

@@ -19,7 +19,7 @@
 				<span class="site-hdrftr-name-liber">Liber</span><!--
 				--><span class="site-hdrftr-name-analytics">Analytics</span>
 			</h2>
-			<h3 class="site-hdrftr-tagline site-hdrftr-font-tagline">analytics from the ordinary.</h3>
+			<h3 class="site-hdrftr-tagline site-hdrftr-font-tagline">Freeing analytics from the ordinary.</h3>
 		</div>
 
 		
