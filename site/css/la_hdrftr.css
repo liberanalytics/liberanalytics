@@ -259,11 +259,10 @@
 @media(min-width: 61.25em) {
     .site-footer .site-hdrftr-wrap {
         display: grid;
-        grid-template-columns: 120px max-content 1fr;
+        grid-template-columns: max-content max-content 1fr;
         grid-template-areas:
             "logo site-name footer-menu"
             " tagline";
-        column-gap: 10px;
     }
     .site-footer .site-logo {
         grid-area: logo;
