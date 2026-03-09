@@ -256,6 +256,13 @@
 
 }
 
+@media(min-width: 61.25em) {
+    .site-footer .site-hdrftr-wrap {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+    }
+}
+
 .site-footer-menu-container {
     margin-block-start: var(--sz-300);
 }
