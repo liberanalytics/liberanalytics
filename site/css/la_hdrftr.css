@@ -220,7 +220,7 @@
 
 @media (min-width: 61.25em) {
     .site-header .site-hdrftr-masthead .site-hdrftr-tagline {
-        margin-inline-start: auto;
+        /* margin-inline-start: auto; */
     }
 }
 
