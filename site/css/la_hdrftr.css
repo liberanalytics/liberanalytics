@@ -259,7 +259,7 @@
 @media(min-width: 61.25em) {
     .site-footer .site-hdrftr-wrap {
         display: grid;
-        grid-template-columns: max-content max-content 1fr;
+        grid-template-columns: min-content min-content 1fr;
         grid-template-areas:
             "logo site-name footer-menu"
             " tagline";
@@ -272,7 +272,7 @@
     }
     .site-footer .site-hdrftr-tagline {
         grid-area: tagline;
-        position: relative;
+        /* position: relative; */
         /* right: calc(-1 * (var(--la-logo-width) + var(--sz-300))); */
     }
 }
