@@ -257,13 +257,17 @@
 }
 
 @media(min-width: 61.25em) {
+    .site-footer .site-hdrftr-wrap {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        justify-content: start;
+    }
     .site-footer .site-hdrftr-masthead {
         display: grid;
-        grid-template-columns: max-content max-content 1fr;
         grid-template-areas:
-            "logo site-name footer-menu"
-            ". tagline legal";
-        justify-content: start;
+            "logo site-name"
+            ". tagline";
+        justify-content: start;        
     }
     .site-footer .site-logo {
         grid-area: logo;
@@ -273,8 +277,6 @@
     }
     .site-footer .site-hdrftr-tagline {
         grid-area: tagline;
-        /* position: relative; */
-        /* right: calc(-1 * (var(--la-logo-width) + var(--sz-300))); */
     }
 }
 
