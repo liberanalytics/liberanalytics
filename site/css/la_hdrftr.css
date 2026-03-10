@@ -348,3 +348,9 @@
     color: var(--fc-xlight);
     text-align: center;
 }
+
+@media (min-width: 61.25em) {
+    .site-footer-legal {
+        text-align: right;
+    }
+}
