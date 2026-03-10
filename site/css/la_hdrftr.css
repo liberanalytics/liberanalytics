@@ -275,6 +275,7 @@
     }
     .site-footer .site-footer-menu-container {
         grid-area: footer-menu;
+        align-items: center;
     }
     .site-footer .site-logo {
         grid-area: logo;
