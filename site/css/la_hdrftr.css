@@ -356,6 +356,7 @@
 }
 
 .site-footer-legal {
+    grid-area: legal;
     margin-block-start: var(--sz-300);
     font-size: var(--fsz-clamp-320-399-14x16);
     font-weight: var(--fw-xlight);
