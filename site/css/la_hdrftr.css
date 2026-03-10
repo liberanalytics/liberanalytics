@@ -273,6 +273,9 @@
             ". tagline";
         justify-content: start;        
     }
+    .site-footer .site-footer-menu-container {
+        grid-area: footer-menu;
+    }
     .site-footer .site-logo {
         grid-area: logo;
     }
