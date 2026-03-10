@@ -277,7 +277,7 @@
             "logo site-name footer-menu"
             ". tagline legal";
         grid-template-columns: max-content max-content 1fr;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
     }
 
