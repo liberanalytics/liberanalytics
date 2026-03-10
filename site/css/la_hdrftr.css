@@ -263,6 +263,7 @@
         grid-template-areas:
             "logo site-name"
             ". tagline";
+        justify-content: start;
     }
     .site-footer .site-logo {
         grid-area: logo;
