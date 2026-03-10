@@ -274,10 +274,6 @@
             ". tagline";
         justify-content: start;        
     }
-    .site-footer .site-footer-menu-container {
-        grid-area: footer-menu;
-
-    }
     .site-footer .site-logo {
         grid-area: logo;
     }
@@ -287,6 +283,12 @@
     .site-footer .site-hdrftr-tagline {
         grid-area: tagline;
     }
+    .site-footer .site-footer-menu-container {
+        grid-area: footer-menu;
+    }
+    .site-footer .site-footer-legal {
+        grid-area: legal;
+    }    
 }
 
 .site-footer-menu-container {
