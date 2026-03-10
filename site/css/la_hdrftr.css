@@ -259,10 +259,10 @@
 @media(min-width: 61.25em) {
     .site-footer .site-hdrftr-masthead {
         display: grid;
-        grid-template-columns: max-content max-content;
+        grid-template-columns: max-content max-content 1fr;
         grid-template-areas:
-            "logo site-name"
-            ". tagline";
+            "logo site-name footer-menu"
+            ". tagline legal";
         justify-content: start;
     }
     .site-footer .site-logo {
