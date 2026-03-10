@@ -21,7 +21,7 @@
 			</h2>
 			<h3 class="site-hdrftr-tagline site-hdrftr-font-tagline">Freeing analytics from the ordinary.</h3>
 		</div>
-		<div class="site-footer-menu-container">
+		<div class="site-footer-menu-legal-container">
 			<nav class="site-footer-menu" aria-label="Footer"> 			
 				<span><a href="/index" class="site-footer-menu-link site-font-link-std">Home</a></span>
 				<span><a href="/postsearch" class="site-footer-menu-link site-font-link-std">Posts</a></span>
