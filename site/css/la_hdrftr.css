@@ -260,8 +260,7 @@
     .site-footer .site-hdrftr-wrap {
         display: grid;
         grid-template-areas: 
-            "footer-masthead footer-menu"
-            ". legal";
+            "footer-masthead footer-menu-legal";
         grid-template-columns: max-content 1fr;
         justify-content: start;
         align-items: center;
@@ -282,13 +281,20 @@
     }
     .site-footer .site-hdrftr-tagline {
         grid-area: tagline;
+    }    
+    .site-footer .site-footer-menu-legal-container {
+        grid-area: footer-menu-legal;
+        display: grid;
+        grid-template-areas:
+            "footer-menu"
+            "legal";
     }
-    .site-footer .site-footer-menu-container {
+    .site-footer .site-footer-menu {
         grid-area: footer-menu;
     }
     .site-footer .site-footer-legal {
         grid-area: legal;
-    }    
+    }
 }
 
 .site-footer-menu-container {
