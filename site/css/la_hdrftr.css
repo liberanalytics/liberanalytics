@@ -267,11 +267,11 @@
     }
     .site-footer .site-hdrftr-masthead {
         grid-area: footer-masthead;
-        display: grid;
+        /* display: grid;
         grid-template-areas:
             "logo site-name"
             ". tagline";
-        justify-content: start;        
+        justify-content: start;         */
     }
     .site-footer .site-logo {
         grid-area: logo;
