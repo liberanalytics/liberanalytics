@@ -264,6 +264,7 @@
             ". legal";
         grid-template-columns: max-content 1fr;
         justify-content: start;
+        align-items: center;
     }
     .site-footer .site-hdrftr-masthead {
         grid-area: footer-masthead;
@@ -275,7 +276,7 @@
     }
     .site-footer .site-footer-menu-container {
         grid-area: footer-menu;
-        align-items: center;
+
     }
     .site-footer .site-logo {
         grid-area: logo;
