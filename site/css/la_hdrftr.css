@@ -355,11 +355,6 @@
     outline-offset: 2px;
 }
 
-.site-footer-name {
-    margin-inline: auto;    
-    margin-top: var(--sz-400);
-}
-
 .site-footer-legal {
     margin-block-start: var(--sz-300);
     font-size: var(--fsz-clamp-320-399-14x16);
