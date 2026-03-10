@@ -1,6 +1,6 @@
 <footer class="site-footer site-hdrftr-container" role="contentinfo">
 	<div class="site-hdrftr-wrap">
-		<div class="site-hdrftr-masthead site-ff-fancy site-fc-xlight">
+		<div class="site-hdrftr-components site-ff-fancy site-fc-xlight">
 			<a href="index" class="site-logo-link" aria-label="Home">
 				
 				<img
