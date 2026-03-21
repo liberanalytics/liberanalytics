@@ -305,7 +305,7 @@
 @media (min-width: 61.25em) {
     .site-footer-menu {
        display: flex;
-       gap: 0;
+       column-gap: var(--sz-300);
     }
 }
 
