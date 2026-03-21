@@ -306,6 +306,7 @@
     .site-footer-menu {
        display: flex;
        column-gap: var(--sz-300);
+       justify-content: right;
     }
 }
 
