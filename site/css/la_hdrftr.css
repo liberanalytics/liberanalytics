@@ -305,13 +305,19 @@
 @media (min-width: 61.25em) {
     .site-footer-menu {
        display: flex;
-       column-gap: var(--sz-300);
+       gap: 0;
        justify-content: right;
     }
 }
 
 .site-footer-menu > span {
     padding-inline-end: var(--sz-050);
+}
+
+@media (min-width: 61.25em) {
+    .site-footer-menu > span {
+        padding-inline: var(--sz-300);
+    }
 }
 
 .site-footer-menu > span:last-child {
@@ -325,6 +331,12 @@
     transition:
         border-bottom-width var(--transition-fast) ease,
         border-bottom-color var(--transition-fast) ease;
+}
+
+@media (min-width: 61.25em) {
+    .site-footer-menu .site-footer-menu-link {
+        
+    }
 }
 
 .site-footer-menu .site-footer-menu-link:visited {
