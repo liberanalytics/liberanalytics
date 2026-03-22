@@ -304,6 +304,7 @@
 
 @media (min-width: 61.25em) {
     .site-footer-menu {
+        --knob-fc-link-hover: var(--fc-link);
        display: flex;
        gap: 0;
        justify-content: right;
