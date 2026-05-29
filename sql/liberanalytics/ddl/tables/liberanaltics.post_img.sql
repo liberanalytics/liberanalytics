@@ -11,18 +11,19 @@ CREATE TABLE liberanalytics.post_img (
   CONSTRAINT post_img_pk
     PRIMARY KEY (post_name, post_img_slot, post_img_number),
 
-CONSTRAINT post_img_pos_ck CHECK (
-    post_img_slot > 0 AND 
-    post_img_number > 0 AND 
-    post_img_width > 0
-),
+    CONSTRAINT post_img_pos_ck CHECK (
+        post_img_slot > 0 AND 
+        post_img_number > 0 AND 
+        post_img_width > 0
+    ),
 
-CONSTRAINT post_img_post_name_fkey FOREIGN KEY (post_name)
-    REFERENCES liberanalytics.posts (post_name) MATCH SIMPLE
-    ON UPDATE CASCADE,
-    ON DELETE CASCADE
+    CONSTRAINT post_img_post_name_fkey FOREIGN KEY (post_name)
+        REFERENCES liberanalytics.posts (post_name) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 
 );
 
 CREATE INDEX post_img_ix
-  ON liberanalytics.post_img (post_name, img_slot, img_number);
+  ON liberanalytics.post_img (post_name, post_img_slot, post_img_number);
+  
