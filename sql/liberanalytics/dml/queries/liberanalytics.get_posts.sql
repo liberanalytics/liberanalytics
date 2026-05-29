@@ -7,8 +7,6 @@ SELECT
     long_desc,
     intro,
     post_img,
-    featured_img,
-    search_img
         
 FROM liberanalytics.fx_get_posts
 (
