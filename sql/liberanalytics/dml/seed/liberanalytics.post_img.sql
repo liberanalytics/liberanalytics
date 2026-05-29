@@ -1,6 +1,7 @@
 INSERT INTO liberanalytics.post_img 
 (
      post_name
+	,post_img
     ,post_img_slot
     ,post_img_number
     ,post_img_width
@@ -11,6 +12,7 @@ VALUES
 
 (
     'whydata',
+	'whydata',
     1,
     1,
     288,
@@ -19,6 +21,7 @@ VALUES
 
 (
     'whydata',
+	'whydata',
     1,
     2,
     820,
@@ -27,6 +30,7 @@ VALUES
 
 (
     'whydata',
+	'whydata',
     1,
     3,
     1080,
@@ -35,6 +39,7 @@ VALUES
 
 (
     'whydata',
+	'whydata',
     1,
     4,
     1640,
@@ -43,6 +48,7 @@ VALUES
 
 (
     'pythonpostgreconnect',
+	'pythonpostgreconnect',
     1,
     1,
     288,
@@ -51,6 +57,7 @@ VALUES
 
 (
     'pythonpostgreconnect',
+	'pythonpostgreconnect',
     1,
     2,
     820,
@@ -59,6 +66,7 @@ VALUES
 
 (
     'pythonpostgreconnect',
+	'pythonpostgreconnect',
     1,
     3,
     1080,
@@ -67,6 +75,7 @@ VALUES
 
 (
     'pythonpostgreconnect',
+	'pythonpostgreconnect',
     1,
     4,
     1640,
@@ -75,6 +84,7 @@ VALUES
 
 (
     'phpcloudwatchlogs',
+	'phpcloudwatchlogs',
     1,
     1,
     288,
@@ -83,6 +93,7 @@ VALUES
 
 (
     'phpcloudwatchlogs',
+	'phpcloudwatchlogs',
     1,
     2,
     820,
@@ -91,6 +102,7 @@ VALUES
 
 (
     'phpcloudwatchlogs',
+	'phpcloudwatchlogs',
     1,
     3,
     1080,
@@ -99,6 +111,7 @@ VALUES
 
 (
     'phpcloudwatchlogs',
+	'phpcloudwatchlogs',
     1,
     4,
     1640,

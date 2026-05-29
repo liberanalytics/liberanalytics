@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS liberanalytics.post_img;
 CREATE TABLE liberanalytics.post_img (
 
   post_name character varying(32) COLLATE pg_catalog."default" NOT NULL,
+  post_img character varying(32) COLLATE pg_catalog."default" NOT NULL,
   post_img_slot   smallint NOT NULL,   -- 1=hero, 2=thumb, 3=inline1, etc.
   post_img_number smallint NOT NULL,   -- 1..N (your size index)
   post_img_width  integer  NOT NULL,
