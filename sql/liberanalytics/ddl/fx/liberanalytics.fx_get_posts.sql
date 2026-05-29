@@ -21,6 +21,7 @@ RETURNS TABLE
     ,long_desc VARCHAR(256)
 	,intro VARCHAR(512)
     ,post_img VARCHAR(64)
+	,img_01_width
 )
 
 LANGUAGE plpgsql
@@ -33,6 +34,7 @@ txt_query_attr_list TEXT;
 txt_query_base TEXT;
 txt_query TEXT;
 txt_posts_alias TEXT := 'la';
+txt_post_img_01_alias TEXT := 'img_01'
 txt_post_tags_alias TEXT := 'post_tags';
 txt_pred_featured TEXT;
 txt_pred_post_name TEXT;
@@ -82,7 +84,8 @@ txt_query_attr_list :=
 	',' || txt_posts_alias || '.short_desc' || E'\n' ||
 	',' || txt_posts_alias || '.long_desc' || E'\n' ||
 	',' || txt_posts_alias || '.intro' || E'\n' ||
-	',' || txt_posts_alias || '.post_img' || E'\n';
+	',' || txt_posts_alias || '.post_img' || E'\n' ||
+	',' || ;
 
 
 /*
@@ -98,7 +101,8 @@ txt_query_base :=
 
 INNER JOIN liberanalytics.post_img AS img_01
 
-(ON liberanalytics.posts.post_name = img_01.post_name
+ON (
+' || txt_posts_alias || '.post_name = img_01.post_name
 AND img_01.post_img_slot = 1
 AND img_01.post_img_number = 1)
 
