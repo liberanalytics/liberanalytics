@@ -21,7 +21,7 @@ RETURNS TABLE
     ,long_desc VARCHAR(256)
 	,intro VARCHAR(512)
     ,post_img VARCHAR(64)
-	,img_01_width
+	,img_01_width VARCHAR(64)
 )
 
 LANGUAGE plpgsql
@@ -34,7 +34,7 @@ txt_query_attr_list TEXT;
 txt_query_base TEXT;
 txt_query TEXT;
 txt_posts_alias TEXT := 'la';
-txt_post_img_01_alias TEXT := 'img_01'
+txt_post_img_01_alias TEXT := 'img_01';
 txt_post_tags_alias TEXT := 'post_tags';
 txt_pred_featured TEXT;
 txt_pred_post_name TEXT;
@@ -84,8 +84,8 @@ txt_query_attr_list :=
 	',' || txt_posts_alias || '.short_desc' || E'\n' ||
 	',' || txt_posts_alias || '.long_desc' || E'\n' ||
 	',' || txt_posts_alias || '.intro' || E'\n' ||
-	',' || txt_posts_alias || '.post_img' || E'\n' ||
-	',' || ;
+	',' || txt_post_img_01_alias || '.post_img' || E'\n' ||
+	',' || txt_post_img_01_alias || '.post_img_width AS img_width_01 ';
 
 
 /*
@@ -99,12 +99,13 @@ txt_query_base :=
 
 'FROM liberanalytics.posts AS ' || txt_posts_alias || '
 
-INNER JOIN liberanalytics.post_img AS img_01
+INNER JOIN liberanalytics.post_img AS ' || txt_post_img_01_alias || '
 
 ON (
-' || txt_posts_alias || '.post_name = img_01.post_name
-AND img_01.post_img_slot = 1
-AND img_01.post_img_number = 1)
+' || txt_posts_alias || '.post_name = ' || txt_post_img_01_alias || '.post_name
+AND ' || txt_post_img_01_alias || '.post_img_slot = 1
+AND ' || txt_post_img_01_alias || '.post_img_number = 1
+)
 
 WHERE 1=1
 ';
