@@ -12,8 +12,6 @@ CREATE TABLE IF NOT EXISTS liberanalytics.posts
     intro character varying(512) COLLATE pg_catalog."default" NOT NULL,
     featured smallint NOT NULL,
     post_img character varying(64) COLLATE pg_catalog."default" NOT NULL,
-    featured_img character varying(64) COLLATE pg_catalog."default",
-    search_img character varying(64) COLLATE pg_catalog."default",
     CONSTRAINT posts_pk PRIMARY KEY (post_name),
     
     CONSTRAINT posts_post_category_fkey FOREIGN KEY (post_category)
