@@ -21,7 +21,10 @@ RETURNS TABLE
     ,long_desc VARCHAR(256)
 	,intro VARCHAR(512)
     ,post_img VARCHAR(64)
-	,img_01_width VARCHAR(64)
+	,img_01_width INTEGER
+	,img_02_width INTEGER
+	,img_03_width INTEGER
+	,img_04_width INTEGER
 )
 
 LANGUAGE plpgsql
@@ -35,6 +38,9 @@ txt_query_base TEXT;
 txt_query TEXT;
 txt_posts_alias TEXT := 'la';
 txt_post_img_01_alias TEXT := 'img_01';
+txt_post_img_02_alias TEXT := 'img_02';
+txt_post_img_03_alias TEXT := 'img_03';
+txt_post_img_04_alias TEXT := 'img_04';
 txt_post_tags_alias TEXT := 'post_tags';
 txt_pred_featured TEXT;
 txt_pred_post_name TEXT;
@@ -85,7 +91,13 @@ txt_query_attr_list :=
 	',' || txt_posts_alias || '.long_desc' || E'\n' ||
 	',' || txt_posts_alias || '.intro' || E'\n' ||
 	',' || txt_post_img_01_alias || '.post_img' || E'\n' ||
-	',' || txt_post_img_01_alias || '.post_img_width AS img_width_01 ';
+	',' || txt_post_img_01_alias || '.post_img_width AS img_width_01' || E'\n' ||
+	',' || txt_post_img_02_alias || '.post_img_width AS img_width_02' || E'\n' ||
+	',' || txt_post_img_03_alias || '.post_img_width AS img_width_03' || E'\n' ||
+	',' || txt_post_img_04_alias || '.post_img_width AS img_width_04 '
+	
+	
+	;
 
 
 /*
@@ -105,6 +117,30 @@ ON (
 ' || txt_posts_alias || '.post_name = ' || txt_post_img_01_alias || '.post_name
 AND ' || txt_post_img_01_alias || '.post_img_slot = 1
 AND ' || txt_post_img_01_alias || '.post_img_number = 1
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_img_02_alias || '
+
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_img_02_alias || '.post_name
+AND ' || txt_post_img_02_alias || '.post_img_slot = 1
+AND ' || txt_post_img_02_alias || '.post_img_number = 2
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_img_03_alias || '
+
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_img_03_alias || '.post_name
+AND ' || txt_post_img_03_alias || '.post_img_slot = 1
+AND ' || txt_post_img_03_alias || '.post_img_number = 3
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_img_04_alias || '
+
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_img_04_alias || '.post_name
+AND ' || txt_post_img_04_alias || '.post_img_slot = 1
+AND ' || txt_post_img_04_alias || '.post_img_number = 4
 )
 
 WHERE 1=1
