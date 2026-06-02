@@ -11,7 +11,7 @@ use enums\CrudResultsetType;
 use enums\CrudFetchStyle;	
 
 $laData = new classes\LaData();
-$laHtml = new classes\LaHTML();
+// $laHtml = new classes\LaHTML();
 
 ?>
 <!DOCTYPE html>
