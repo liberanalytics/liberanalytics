@@ -11,6 +11,8 @@ use enums\CrudResultsetType;
 use enums\CrudFetchStyle;	
 
 $laData = new classes\LaData();
+$laHtml = new classes\LaHTML();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +118,7 @@ $laData = new classes\LaData();
 									'postImgWidthDescriptor' => (string)$post['img_03_width'] . 'w'
 								],
 								4 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_04_width'] . '.png',
+									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_04_width'] . '.  png',
 									'postImgWidthDescriptor' => (string)$post['img_04_width'] . 'w'
 								]
 							]
