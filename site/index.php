@@ -127,13 +127,13 @@ $laData = new classes\LaData();
 						]
 					];
 
-					$minImgspecs = $postImgSpecs[$post['post_name']][1];
-					foreach ($minImgspecs as $imgNum => $imgSpecs) {
-						echo " img number => " . (string)$imgNum;
-
-						foreach ($imgSpecs as $imgSpecName => $imgSpecValue)
+					$imgSpecSlots = $postImgSpecs[$post['post_name']][1];
+					foreach ($imgSpecSlots as $imgSpecSlotNum => $imgSpecs) {
+						echo " img number => " . (string)$imgSpecSlotNum;
+						foreach ($imgSpecs as $imgSpecKey => $imgSpecValue)
 						{
-							echo $imgSpecName . " => " . $imgSpecValue;
+							echo " image spec key => " . $imgSpecKey . "\n";
+							echo " image spec value => " . $imgSpecValue . "\n";
 						}
 					}
 				
