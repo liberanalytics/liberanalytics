@@ -13,7 +13,7 @@ use enums\CrudResultsetType;
 use enums\CrudFetchStyle;	
 
 $laData = new classes\LaData();
-$laHtml = new classes\LaHTML();
+// $laHtml = new classes\LaHTML();
 
 ?>
 <!DOCTYPE html>
@@ -99,7 +99,7 @@ $laHtml = new classes\LaHTML();
 					]						
 				);
 				$iter = 1;
-				foreach ($featuredPosts as $postnum => $post)
+				foreach ($featuredPosts as $postNum => $post)
 				{
 					// Post image file name, slot #, image #, image width.
 					$postImgSpecs = [
@@ -108,24 +108,34 @@ $laHtml = new classes\LaHTML();
 							1 => [
 								//Post image number => image specs for given post by slot and image number.
 								1 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_01_width'] . '.png',
-									'postImgWidthDescriptor' => (string)$post['img_01_width'] . 'w'
+									'postImgFileName' => $post['post_img'],
+									'postImgWidth' => (string)$post['img_01_width']
 								],
 								2 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_02_width'] . '.png',
-									'postImgWidthDescriptor' => (string)$post['img_02_width'] . 'w'
+									'postImgFileName' => $post['post_img'],
+									'postImgWidth' => (string)$post['img_02_width']
 								],
 								3 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_03_width'] . '.png',
-									'postImgWidthDescriptor' => (string)$post['img_03_width'] . 'w'
+									'postImgFileName' => $post['post_img'],
+									'postImgWidth' => (string)$post['img_03_width']
 								],
 								4 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_04_width'] . '.  png',
-									'postImgWidthDescriptor' => (string)$post['img_04_width'] . 'w'
+									'postImgFileName' => $post['post_img'],
+									'postImgWidth' => (string)$post['img_04_width']
 								]
 							]
 						]
 					];
+
+					$minImgspecs = $postImgSpecs[$post['post_name']][1];
+					foreach ($minImgspecs as $imgNum => $imgSpecs) {
+						echo " img number => " . (string)$imgNum;
+
+						foreach ($imgSpecs as $imgSpecName => $imgSpecValue)
+						{
+							echo $imgSpecName . " => " . $imgSpecValue;
+						}
+					}
 				
 					echo 
 					'<article class="post-card site-box-shadow">'

@@ -10,20 +10,21 @@ class LaHTML {
 
     }
 
-    private function getImgFullyQualifiedPath(): string
+    private function getImqFQPath($imgBaseFileName, array $imgFileWidths): string
     {
-        
+    
+        foreach ($imgFileWidths as $imgWidth)
+        $getImqFQPath = '';
+        return $getImqFQPath;
     }
 
-    public function renderImg(string $imgFileName, string $imgAlt, array $imgWidthsSpecs, bool $imgAboveFold, int $imgSrcWidth = 820): string
+    public function renderImg(string $imgBaseFileName, string $imgAlt, array $imgWidthsSpecs, bool $imgAboveFold, int $imgSrcWidth = 820): string
     {
-        $imgSrc = self::IMG_FILE_PATH . $imgFileName . '_' . (string)$imgSrcWidth . '.' . self::IMG_FILE_TYPE;
+        $imgSrc = self::IMG_FILE_PATH . $imgBaseFileName . '_' . (string)$imgSrcWidth . '.' . self::IMG_FILE_TYPE;
         $renderImg = "<img src=\"{$imgSrc}\"";
 
+
         $renderImg .= ' ' . $imgAlt;
-
-        
-
         return $renderImg;
 
     }
