@@ -1,4 +1,6 @@
 <?php
+
+use classes\LaHTML;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -11,7 +13,7 @@ use enums\CrudResultsetType;
 use enums\CrudFetchStyle;	
 
 $laData = new classes\LaData();
-// $laHtml = new classes\LaHTML();
+$laHtml = new classes\LaHTML();
 
 ?>
 <!DOCTYPE html>
@@ -101,7 +103,7 @@ $laData = new classes\LaData();
 				{
 					// Post image file name, slot #, image #, image width.
 					$postImgSpecs = [
-						$post['post_name'] => [					
+						$post['post_name'] => [
 							// Post Image Slot #.
 							1 => [
 								//Post image number => image specs for given post by slot and image number.
@@ -131,7 +133,6 @@ $laData = new classes\LaData();
 					. '<div class="post-card-components site-gradient-ltr-border-bottom">'
 					. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
 					. '<img src="/assets/' . $post['post_img'] . '">'
-					. '</a>'
 					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
 					. '</div>'
 					. '<div class="post-card-attrs">'

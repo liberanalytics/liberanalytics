@@ -15,12 +15,15 @@ class LaHTML {
         
     }
 
-    public function renderImg(string $imgFileName, string $imgAlt, array $imgWidths, bool $imgAboveFold, int $imgSrcWidth = 820): string
+    public function renderImg(string $imgFileName, string $imgAlt, array $imgWidthsSpecs, bool $imgAboveFold, int $imgSrcWidth = 820): string
     {
         $imgSrc = self::IMG_FILE_PATH . $imgFileName . '_' . (string)$imgSrcWidth . '.' . self::IMG_FILE_TYPE;
         $renderImg = "<img src=\"{$imgSrc}\"";
 
         $renderImg .= ' ' . $imgAlt;
+
+        
+
         return $renderImg;
 
     }
