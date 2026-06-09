@@ -101,31 +101,7 @@ $laData = new classes\LaData();
 				$iter = 1;
 				foreach ($featuredPosts as $postnum => $post)
 				{
-					// Post image file name, slot #, image #, image width.
-					$postImgSpecs = [
-						$post['post_name'] => [
-							// Post Image Slot #.
-							1 => [
-								//Post image number => image specs for given post by slot and image number.
-								1 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_01_width'] . '.png',
-									'postImgWidthDescriptor' => (string)$post['img_01_width'] . 'w'
-								],
-								2 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_02_width'] . '.png',
-									'postImgWidthDescriptor' => (string)$post['img_02_width'] . 'w'
-								],
-								3 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_03_width'] . '.png',
-									'postImgWidthDescriptor' => (string)$post['img_03_width'] . 'w'
-								],
-								4 => [
-									'postImgFileName' => $post['post_img'] . '_' . (string)$post['img_04_width'] . '.  png',
-									'postImgWidthDescriptor' => (string)$post['img_04_width'] . 'w'
-								]
-							]
-						]
-					];
+					
 				
 					echo 
 					'<article class="post-card site-box-shadow">'
