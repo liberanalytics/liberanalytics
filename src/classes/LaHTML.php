@@ -13,7 +13,10 @@ class LaHTML {
     private function getImqFQPath($imgBaseFileName, array $imgFileWidths): string
     {
     
-        foreach ($imgFileWidths as $imgWidth)
+        $getImgFQPath = "srcset= ";
+        foreach ($imgFileWidths as $imgWidth) {
+            $getImqFQPath .= (string)
+        }
         $getImqFQPath = '';
         return $getImqFQPath;
     }
