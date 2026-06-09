@@ -129,11 +129,11 @@ $laData = new classes\LaData();
 
 					$imgSpecSlots = $postImgSpecs[$post['post_name']][1];
 					foreach ($imgSpecSlots as $imgSpecSlotNum => $imgSpecs) {
-						echo " img spec slot number => " . (string)$imgSpecSlotNum ."\n";
+						echo " img spec slot number => " . (string)$imgSpecSlotNum . "<br>";
 						foreach ($imgSpecs as $imgSpecKey => $imgSpecValue)
 						{
-							echo " image spec key => " . $imgSpecKey . "\n";
-							echo " image spec value => " . $imgSpecValue . "\n";
+							echo " image spec key => " . $imgSpecKey . "<br>";
+							echo " image spec value => " . $imgSpecValue . "<br>";
 						}
 					}
 				
