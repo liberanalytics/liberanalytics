@@ -41,7 +41,7 @@ class LaViewConverter {
 //   decoding="async"
 // />
 
-    private function getImgFQPath(string $imgName, string $imgSize = 820):string {
+    private function getImgFQPath(string $imgName, string $imgSize = '820'):string {
         
         $getImgFQPath = 
             self::IMG_FILE_PATH . 
