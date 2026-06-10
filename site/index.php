@@ -100,43 +100,8 @@ $laViewConverter = new classes\LaViewConverter();
 				);
 				$iter = 1;
 				foreach ($featuredPosts as $postNum => $post)
-				{
-					// Post image file name, slot #, image #, image width.
-					$postImgSpecs = [
-						$post['post_name'] => [
-							// Post Image Slot #.
-							1 => [
-								//Post image number => image specs for given post by slot and image number.
-								1 => [
-									'postImgFileName' => $post['post_img'],
-									'postImgWidth' => (string)$post['img_01_width']
-								],
-								2 => [
-									'postImgFileName' => $post['post_img'],
-									'postImgWidth' => (string)$post['img_02_width']
-								],
-								3 => [
-									'postImgFileName' => $post['post_img'],
-									'postImgWidth' => (string)$post['img_03_width']
-								],
-								4 => [
-									'postImgFileName' => $post['post_img'],
-									'postImgWidth' => (string)$post['img_04_width']
-								]
-							]
-						]
-					];
-
-					$imgSpecSlots = $postImgSpecs[$post['post_name']][1];
-					foreach ($imgSpecSlots as $imgSpecSlotNum => $imgSpecs) {
-						echo " img spec slot number => " . (string)$imgSpecSlotNum . "<br>";
-						foreach ($imgSpecs as $imgSpecKey => $imgSpecValue)
-						{
-							echo " image spec key => " . $imgSpecKey . "<br>";
-							echo " image spec value => " . $imgSpecValue . "<br>";
-						}
-					}
-				
+				{	
+					echo $laViewConverter->convertImage($post);
 					echo 
 					'<article class="post-card site-box-shadow">'
 					. '<h2 class="post-card-desc site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
