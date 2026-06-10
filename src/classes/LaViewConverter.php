@@ -56,7 +56,13 @@ class LaViewConverter {
     public function convertImage(array $post):string {
         
         $convertImage = "<img ";
-        $convertImage .= "src = \"" . $this->getImgFQPath($post['post_img']) . "\"";
+        $convertImage .= "src = \"" . $this->getImgFQPath($post['post_img']) . "\" ";
+
+        $convertImage .= 
+            "srcset = \"" . 
+            $this->getImgFQPath($post['post_img'], $post['img_01_width']) . " " .
+            $post['img_01_width'] . "w" .
+            "\" ";
         
         return $convertImage;
         
