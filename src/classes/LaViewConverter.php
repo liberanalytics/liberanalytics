@@ -53,7 +53,7 @@ class LaViewConverter {
 
     }
 
-    public function convertImage(array $post):string {
+    public function convertImage(int $imgIteration, array $post):string {
         
         /* <img src= */
         $convertImage = "<img ";
@@ -70,8 +70,14 @@ class LaViewConverter {
             $post['img_03_width'] . "w, " .
             $this->getImgFQPath($post['post_img'], $post['img_04_width']) . " " .
             $post['img_04_width'] . "w\" " .
-            "alt = \"" . $post['short_desc'] . "\" " .
-            "loading = \"lazy\" " .
+            "alt = \"" . $post['short_desc'] . "\" ";
+
+        /* fetchpriority=high for high priority images */
+        $imgPriority = 
+            ($imgIteration == 1) ? "fetchpriority=\"high\"" : "loading=\"lazy\"";
+
+        $convertImage .= 
+            $imgPriority . " " .
             "decoding = \"async\"" .
             ">";
         
