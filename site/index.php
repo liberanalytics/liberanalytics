@@ -13,7 +13,7 @@ use enums\CrudResultsetType;
 use enums\CrudFetchStyle;	
 
 $laData = new classes\LaData();
-// $laHtml = new classes\LaHTML();
+$laViewConverter = new classes\LaViewConverter();
 
 ?>
 <!DOCTYPE html>
