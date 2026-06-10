@@ -101,7 +101,7 @@ $laViewConverter = new classes\LaViewConverter();
 				$iter = 1;
 				foreach ($featuredPosts as $postNum => $post)
 				{	
-					echo $laViewConverter->convertImage($post);
+					echo $laViewConverter->convertImage($iter, $post);
 					echo 
 					'<article class="post-card site-box-shadow">'
 					. '<h2 class="post-card-desc site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
