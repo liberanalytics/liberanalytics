@@ -69,7 +69,11 @@ class LaViewConverter {
             $this->getImgFQPath($post['post_img'], $post['img_03_width']) . " " .
             $post['img_03_width'] . "w," .
             $this->getImgFQPath($post['post_img'], $post['img_04_width']) . " " .
-            $post['img_04_width'] . "w\"";
+            $post['img_04_width'] . "w\" " .
+            "alt = \"" . $post['short_desc'] . "\" " .
+            "loading = \"lazy\" " .
+            "decoding = \"async\"" .
+            ">";
         
         return $convertImage;
         
