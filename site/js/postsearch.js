@@ -176,8 +176,32 @@ postsearch.renderSearchResults = (searchResults) => {
 
     //
     searchResults.forEach(searchResult => {
-        postsearch.renderCard(searchResult);
-    });
+
+        // Get the image data for each card.
+        return fetch(
+            '/api/postsearch',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postPxs)
+            }
+        )
+        .then(response => response.json())
+        .then(searchResults => {
+            postsearch.renderSearch(submitType, searchResults);
+        })
+        .catch(error => {
+            console.error('Error: ', error);
+        })
+        .finally(() => {
+            LArenderor.unrenderAjaxSpinner();
+        });
+
+            //
+            postsearch.renderCard(searchResult);
+        });
 }
 
 
