@@ -10,12 +10,12 @@ class LaViewConverter {
 
     }
 
-    private function getImqFQPath($imgBaseFileName, array $imgFileWidths): string
+    private function getImgFQPath($imgBaseFileName, array $imgFileWidths): string
     {
     
         $getImgFQPath = "srcset= ";
         foreach ($imgFileWidths as $imgWidth) {
-            $getImqFQPath .= (string)
+            $getImgFQPath .= (string)'';
         }
         $getImqFQPath = '';
         return $getImqFQPath;
