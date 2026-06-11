@@ -67,7 +67,6 @@ class LaViewConverter {
 
         $postShortDesc = $postAlt = $this->escAttr($post['short_desc']);
         $postLongDesc = $this->escAttr($post['long_desc']);
-        $postImg = $this->convertImage($post);
         $postDate = $this->escAttr(date("F j, Y", strtotime($post['post_created'] ?? 'now')));
         $postISODate = $this->escAttr(date("Y-m-d", strtotime($post['post_created'] ?? 'now')));
 
