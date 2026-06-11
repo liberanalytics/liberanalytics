@@ -36,8 +36,9 @@ class LaDataPxs extends LaDataVx {
                 $pxVal = $this->vxHandler($pxCrudOperation, $pxKey, $value, $pxType);
             }
             elseif (array_key_exists($pxKey, self::PX_EXCLUSIONS))
-            {
+            { 
                 unset($pxClientPxData[$key]);
+                continue;
             }            
             else
             {
