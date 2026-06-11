@@ -2,13 +2,13 @@
 
 require_once(dirname(__DIR__, 2) . "/" . 'vendor/autoload.php');
 
-use classes\LaData;
 use enums\CrudOperation;
 use enums\CrudType;
 use enums\CrudResultsetType;
 use enums\CrudFetchStyle;
 
-$laData = new LaData();  
+$laData = new classes\LaData();
+$laViewConverter = new classes\LaViewConverter();
 
 $posts = $laData->crudData(
     CrudOperation::GETPOSTS,
