@@ -86,7 +86,7 @@ $laViewConverter = new classes\LaViewConverter();
 						)[0];
 						
 						//
-						$laViewConverter->getPostHeader($post);
+						echo $laViewConverter->getPostHeader($post);
 					?>
 						
 				</header>
