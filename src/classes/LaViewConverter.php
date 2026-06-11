@@ -9,6 +9,12 @@ class LaViewConverter {
     
     public function __construct() {}
 
+    private function escAttr(string $value): string
+    {
+        $escAttr = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+        return $escAttr;
+    }
+
     private function getImgFQPath(string $imgName, string $imgSize = '820'):string
     {
         
@@ -22,7 +28,7 @@ class LaViewConverter {
 
     }
 
-    public function convertImage(int $imgIteration, array $post):string
+    public function convertImage(array $post, int $imgIteration = 1):string
     {
         
         /* <img src= */
@@ -40,7 +46,7 @@ class LaViewConverter {
             $post['img_03_width'] . "w, " .
             $this->getImgFQPath($post['post_img'], $post['img_04_width']) . " " .
             $post['img_04_width'] . "w\" " .
-            "alt = \"" . $post['short_desc'] . "\" ";
+            "alt = \"" . $this->escAttr($post['short_desc']) . "\" ";
 
         /* fetchpriority=high for high priority images */
         $imgPriority = 
@@ -54,29 +60,23 @@ class LaViewConverter {
         
         return $convertImage;
         
-    }
+    }   
 
-    // $postShortDesc	= htmlspecialchars($post['short_desc'] ?? '', ENT_QUOTES, 'UTF-8');
-    // $postLongDesc	= htmlspecialchars($post['long_desc'] ?? '', ENT_QUOTES, 'UTF-8');
-    // $postImg    	= htmlspecialchars($post['post_img'] ?? '', ENT_QUOTES, 'UTF-8');
-    // $postAlt		= $postShortDesc;
-    // $postDate		= htmlspecialchars(date("F j, Y", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
-    // $postISODate	= htmlspecialchars(date("Y-m-d", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
-    // $postImgWidth	= (int)$postImgWidth;
-    // $postImgHeight	= (int)$postImgHeight;
-
-    // <h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; </h1>
-    // <p>
-    // <time datetime=" echo "{$postISODate}";" class="site-font-date-std">
-    //     echo "{$postDate}";
-    // </time>
-    // </p>
-    // <h2 class="post-desc site-font-std"> echo "{$postLongDesc}";</h2>
-
-    public function getPostHeader():string 
+    public function getPostHeader(array $post):string 
     {
 
-        $getPostHeader = '';
+        $postShortDesc = $postAlt = $this->escAttr($post['short_desc']);
+        $postLongDesc = $this->escAttr($post['long_desc']);
+        $postImg = $this->convertImage($post);
+        $postDate = $this->escAttr(date("F j, Y", strtotime($post['post_created'] ?? 'now')));
+        $postISODate = $this->escAttr(date("Y-m-d", strtotime($post['post_created'] ?? 'now')));
+
+        $getPostHeader = "<h1 class=\"post-heading site-font-brand\">" . $postShortDesc . "</h1>";
+        $getPostHeader .= "<p>";
+        $getPostHeader .= "<time datetime=\"$postISODate\" class=\"site-font-date-std\">" . $postDate . "</time>";
+        $getPostHeader .= "</p>";
+        $getPostHeader .= "<h2 class=\"post-desc\">" . $postLongDesc . "</h2>";
+        $getPostHeader .= $this->convertImage($post);
 
         return $getPostHeader;
     }
