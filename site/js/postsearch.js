@@ -148,12 +148,14 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
 
     const filters = {
         'postCategory': categoryFilter,
-        'postTags': tagsFilter
+        'postTags': tagsFilter,
+        'action' : 'cards'
     };
     
     const captions = {
         'postCategory': categoryCaption,
-        'postTags': tagsCaption
+        'postTags': tagsCaption,
+        'action': 'cards'
     };
 
     return dataType === 'filters' ? filters : captions;
