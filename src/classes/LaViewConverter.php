@@ -33,11 +33,11 @@ class LaViewConverter {
         
         /* <img src= */
         $convertImage = "<img ";
-        $convertImage .= "src = \"" . $this->getImgFQPath($post['post_img']) . "\" ";
+        $convertImage .= "src=\"" . $this->getImgFQPath($post['post_img']) . "\" ";
 
         /* <img srcset= */
         $convertImage .= 
-            "srcset = \"" . 
+            "srcset=\"" . 
             $this->getImgFQPath($post['post_img'], $post['img_01_width']) . " " .
             $post['img_01_width'] . "w, " .
             $this->getImgFQPath($post['post_img'], $post['img_02_width']) . " " .
@@ -46,7 +46,7 @@ class LaViewConverter {
             $post['img_03_width'] . "w, " .
             $this->getImgFQPath($post['post_img'], $post['img_04_width']) . " " .
             $post['img_04_width'] . "w\" " .
-            "alt = \"" . $this->escAttr($post['short_desc']) . "\" ";
+            "alt=\"" . $this->escAttr($post['short_desc']) . "\" ";
 
         /* fetchpriority=high for high priority images */
         $imgPriority = 
@@ -65,7 +65,7 @@ class LaViewConverter {
     public function getPostHeader(array $post):string 
     {
 
-        $postShortDesc = $postAlt = $this->escAttr($post['short_desc']);
+        $postShortDesc = $this->escAttr($post['short_desc']);
         $postLongDesc = $this->escAttr($post['long_desc']);
         $postDate = $this->escAttr(date("F j, Y", strtotime($post['post_created'] ?? 'now')));
         $postISODate = $this->escAttr(date("Y-m-d", strtotime($post['post_created'] ?? 'now')));
