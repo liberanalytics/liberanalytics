@@ -85,7 +85,9 @@ $laViewConverter = new classes\LaViewConverter();
 							CrudFetchStyle::FETCHSTYLE_ASSOC,
 							[ 'post_name' => $postName]						
 						)[0];
-
+						
+						//
+						echo $laViewConverter->getPostHeader($post);
 					?>
 
 				</header>
