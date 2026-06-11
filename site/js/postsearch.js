@@ -148,14 +148,12 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
 
     const filters = {
         'postCategory': categoryFilter,
-        'postTags': tagsFilter,
-        'postsearchAction' : 'cards'
+        'postTags': tagsFilter
     };
     
     const captions = {
         'postCategory': categoryCaption,
-        'postTags': tagsCaption,
-        'postsearchAction': 'cards'
+        'postTags': tagsCaption
     };
 
     return dataType === 'filters' ? filters : captions;
@@ -282,8 +280,7 @@ postsearch.normalizeCardData = (cardData) => {
         img_01_width: cardData.img_01_width,
         img_02_width: cardData.img_02_width,
         img_03_width: cardData.img_03_width,
-        img_04_width: cardData.img_04_width,
-        postsearch_action: 'convertImage'
+        img_04_width: cardData.img_04_width
     };
 }
 
@@ -303,9 +300,6 @@ postsearch.renderCard = (cardData) => {
 
     //
     const normalizedCardData = postsearch.normalizeCardData(cardData);
-
-    
-
 
     const card = document.createElement('article');
     card.classList.add('post-card', 'site-box-shadow');

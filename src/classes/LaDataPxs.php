@@ -6,9 +6,7 @@ use enums\CrudOperation;
 
 class LaDataPxs extends LaDataVx {
 
-    private const PX_EXCLUSIONS = [
-        'px_postsearch_action' => true
-    ];
+    private const PX_EXCLUSIONS = [];
 
     function __construct()
     {
