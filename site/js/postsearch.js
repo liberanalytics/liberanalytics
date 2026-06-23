@@ -267,7 +267,6 @@ postsearch.removeChipFilter = (chipEle) => {
     chipEle.remove();
 }
 
-
 postsearch.normalizeCardData = (cardData) => {
     return {
         post_name: cardData.post_name,
