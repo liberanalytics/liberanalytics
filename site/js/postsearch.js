@@ -277,10 +277,7 @@ postsearch.normalizeCardData = (cardData) => {
         long_desc: cardData.long_desc,
         intro: cardData.intro,
         post_img: cardData.post_img,
-        img_01_width: cardData.img_01_width,
-        img_02_width: cardData.img_02_width,
-        img_03_width: cardData.img_03_width,
-        img_04_width: cardData.img_04_width
+        img_html: cardData.img_html
     };
 }
 
@@ -309,7 +306,7 @@ postsearch.renderCard = (cardData) => {
         <h2 class="post-card-desc site-font-secondary-heading site-gradient-rtl-border-bottom">${normalizedCardData.short_desc}</h2>
         <div class="post-card-components site-gradient-ltr-border-bottom">
             <a class="post-card-img" href="/${encodeURIComponent(normalizedCardData.post_name)}">
-                <img src="assets/${normalizedCardData.search_img}">
+                ${normalizedCardData.img_html}
             </a>
             <a class="post-card-longdesc site-font-link-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.long_desc}

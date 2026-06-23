@@ -18,6 +18,10 @@ $posts = $laData->crudData(
     $requestPxs						
 );
 
+foreach ($posts as $postKey => $post) {
+    $posts[$postKey]['img_html'] = $laViewConverter->convertImage($post);
+}
+
 return $posts;
 
 ?>

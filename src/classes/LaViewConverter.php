@@ -51,7 +51,7 @@ class LaViewConverter {
         /* decode = async let browser decide to keep rendering with or without blocking */
         $convertImage .= 
             $imgPriority . " " .
-            "decoding = \"async\"" .
+            "decoding=\"async\"" .
             ">";        
         return $convertImage;        
     }
