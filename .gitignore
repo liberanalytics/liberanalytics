@@ -1,19 +1,35 @@
-site/assets/
-python/classes/__pycache__/
-*.ini
-.vscode/
-/vendor/
-src/*.json
-*__pycache__*
-*.pem
-.venv/
-shell/ssh*
-*log*
-tests/
+# VS Code project config
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+
+# Environment-specific configuration / secrets
+config/la_config_dev.json
+config/la_config_test.json
+config/la_config_prod.json
+config/la_data_dev.config
+config/la_data_test.config
 config/la_data_prod.config
+
+# Third-party dependency code downloaded by Composer
+/vendor/
+
+# Python
+.venv/
+__pycache__/
+*__pycache__*/
+*.py[cod]
+
+# Ad hoc/generated developer files
 *codetohtml*
 *liber_enhance*
 *gitdiff*
-*la_config_prod.json*
-config/la_config_dev.json
-config/la_data_dev.config
+
+# Logs
+*.log
+
+# Generated/exported site assets
+site/assets/
+
+# Site calibration checks
+site/envcheck.php0
