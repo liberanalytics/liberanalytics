@@ -32,4 +32,4 @@ __pycache__/
 site/assets/
 
 # Site calibration checks
-site/envcheck.php0
+site/envcheck.php
