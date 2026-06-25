@@ -4,14 +4,13 @@
 			<a href="index" class="site-logo-link" aria-label="Home">
 				
 				<img
-					src="/assets/logo_120x91.png"
-					srcset="/assets/logo_120x91.png 1x,
-							/assets/logo_240x183.png 2x,
-							/assets/logo_360x274.png 3x"
+					src="/assets/logo_120.png"
+					srcset="/assets/logo_120.png 1x,
+							/assets/logo_240.png 2x,
+							/assets/logo_360.png 3x"
 					class="site-logo"
 					alt="Liber Analytics logo"
-					width="120"
-					height="91"
+					decoding="async"
 				>
 
 			</a>
