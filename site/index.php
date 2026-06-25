@@ -105,7 +105,7 @@ $laViewConverter = new classes\LaViewConverter();
 					. '<h2 class="post-card-desc site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
 					. '<div class="post-card-components site-gradient-ltr-border-bottom">'
 					. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
-					. $laViewConverter->convertImage($post, $iter)
+					. $laViewConverter->getPostImage($post, $iter)
 					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
 					. '</div>'
 					. '<div class="post-card-attrs">'
@@ -163,10 +163,10 @@ $laViewConverter = new classes\LaViewConverter();
 						mind while working with data as well as inspire individuals to keep improving!
 					</p>
 					<img
-						src="/assets/mission_180x180.png"
-						srcset="/assets/mission_180x180.png 1x,
-								/assets/mission_360x360.png 2x,
-								/assets/mission_540x540.png 3x",
+						src="/assets/mission_180.png"
+						srcset="/assets/mission_180.png 1x,
+								/assets/mission_360.png 2x,
+								/assets/mission_540.png 3x",
 						alt="Liber Analytics Mission"
 						class="mission-img"
 						decoding="async"

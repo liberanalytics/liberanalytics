@@ -19,7 +19,7 @@ $posts = $laData->crudData(
 );
 
 foreach ($posts as $postKey => $post) {
-    $posts[$postKey]['img_html'] = $laViewConverter->convertImage($post);
+    $posts[$postKey]['img_html'] = $laViewConverter->getPostImage($post);
 }
 
 return $posts;

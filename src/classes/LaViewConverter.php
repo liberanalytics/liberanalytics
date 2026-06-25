@@ -25,14 +25,14 @@ class LaViewConverter {
         return $getImgFQPath;
     }
 
-    public function convertImage(array $post, int $imgIteration = 1):string
+    public function getPostImage(array $post, int $imgIteration = 1):string
     {
         /* <img src= */
-        $convertImage = "<img ";
-        $convertImage .= "src=\"" . $this->getImgFQPath($post['post_img']) . "\" ";
+        $getPostImage = "<img ";
+        $getPostImage .= "src=\"" . $this->getImgFQPath($post['post_img']) . "\" ";
 
         /* <img srcset= */
-        $convertImage .= 
+        $getPostImage .= 
             "srcset=\"" . 
             $this->getImgFQPath($post['post_img'], $post['img_01_width']) . " " .
             $post['img_01_width'] . "w, " .
@@ -49,11 +49,11 @@ class LaViewConverter {
             ($imgIteration == 1) ? "fetchpriority=\"high\"" : "loading=\"lazy\"";
 
         /* decode = async let browser decide to keep rendering with or without blocking */
-        $convertImage .= 
+        $getPostImage .= 
             $imgPriority . " " .
             "decoding=\"async\"" .
             ">";        
-        return $convertImage;        
+        return $getPostImage;        
     }
 
     public function getPostHeader(array $post):string 
@@ -70,7 +70,7 @@ class LaViewConverter {
         $getPostHeader .= "<time datetime=\"$postISODate\" class=\"site-font-date-std\">" . $postDate . "</time>";
         $getPostHeader .= "</p>";
         $getPostHeader .= "<h2 class=\"post-desc\">" . $postLongDesc . "</h2>";
-        $getPostHeader .= $this->convertImage($post);
+        $getPostHeader .= $this->getPostImage($post);
         return $getPostHeader;
     }
 }
