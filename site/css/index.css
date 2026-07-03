@@ -18,6 +18,10 @@
     padding-inline-start: var(--sz-200);
 }
 
+.mission-stmt {
+    --knob-fs-std: var(--fsz-clamp-320-980-16x20);
+}
+
 .mission-img {
     display: none;
 }

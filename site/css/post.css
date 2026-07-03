@@ -7,17 +7,21 @@
 }
 
 .page-post {
+    --knob-stack-start-mt: var(--sz-400);
     --knob-fs-std: var(--fsz-clamp-320-399-16x18);
-    --knob-stack-start-mt: var(--sz-300);
+    --knob-flh-std: var(--flh-med);
+    --knob-fw-secondary-heading: var(--fw-bold);
 }
 
 .page-post p {
-  overflow-wrap: anywhere;
+    overflow-wrap: anywhere;
 }
 
 .post-heading {
     --knob-stack-start-mt: var(--sz-200);
-    --knob-fs-brand: var(--fsz-clamp-320-640-18x24);
+    --knob-ff-brand: var(--ff-serif);
+    --knob-fs-brand: var(--fsz-clamp-320-980-24x42);
+    --knob-fw-brand: var(--fw-xlight);
 }
 
 .post-desc {
@@ -39,6 +43,7 @@
 .post-img {
     display: block;
     max-width: 100%;
+    margin: auto;
     height: auto;
 }
 

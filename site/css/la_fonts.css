@@ -5,6 +5,7 @@
 
     /* Site font-styles. */
     --ff-main: 'Studio-Feixen-Sans';
+    --ff-serif: 'Times New Roman', Times, serif;
     --ff-sans-serif: 'IBMPlexSans', Helvetica, Arial, sans-serif;    
     --ff-primary-heading: var(--ff-sans-serif);
     --ff-secondary-heading: var(--ff-main);
@@ -31,6 +32,10 @@
     --fsz-clamp-320-640-16x24:     clamp(1.0rem, calc(2.5vw + 0.5rem), 1.5rem);
     --fsz-clamp-320-640-18x24:     clamp(1.125rem, calc(1.875vw + 0.75rem), 1.5rem);
     --fsz-clamp-320-640-20x22:     clamp(1.25rem, calc(.625vw + 0.1.125rem), 1.375rem);
+
+    /* Site font size clamps from 320px - 980px. */
+    --fsz-clamp-320-980-24x42:     clamp(1.0rem, calc(2.727vw + 0.955rem), 2.625rem);
+    --fsz-clamp-320-980-16x20:     clamp(1.0rem, calc(.606vw + 0.879rem), 1.25rem);
 
     /* Site font-weights. */
     --fw-xlight: 300;
@@ -158,13 +163,13 @@
 .site-font-secondary-heading {
     font-family: var(--ff-main);
     font-size: var(--knob-fs-secondary-heading, var(--fsz-clamp-320-640-16x20));
-    font-weight: var(--fw-xlight);
+    font-weight: var(--knob-fw-secondary-heading, var(--fw-xlight));
     line-height: var(--knob-flh-secondary-heading, var(--flh-tight));
     color: var(--fc-med-green);   
 }
 
 .site-font-brand {    
-    font-family: var(--ff-fancy);
+    font-family: var(--knob-ff-brand, var(--ff-fancy));
     font-size: var(--knob-fs-brand, var(--fsz-clamp-320-640-18x24));
     font-weight: var(--knob-fw-brand, var(--fw-bold));
     line-height: var(--knob-flh-brand, var(--flh-tight));
