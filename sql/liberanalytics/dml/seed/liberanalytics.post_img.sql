@@ -42,7 +42,7 @@ VALUES
 	'whydata',
     1,
     4,
-    1640,
+    1960,
     NOW()
 ),
 
@@ -78,7 +78,7 @@ VALUES
 	'pythonpostgreconnect',
     1,
     4,
-    1640,
+    1960,
     NOW()
 ),
 
@@ -114,6 +114,6 @@ VALUES
 	'phpcloudwatchlogs',
     1,
     4,
-    1640,
+    1960,
     NOW()
 );

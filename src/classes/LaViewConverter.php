@@ -42,6 +42,7 @@ class LaViewConverter {
             $post['img_03_width'] . "w, " .
             $this->getImgFQPath($post['post_img'], $post['img_04_width']) . " " .
             $post['img_04_width'] . "w\" " .
+            "sizes=\"(max-width: 980px) 100vw, 980px\"" . " " .
             "alt=\"" . $this->escAttr($post['short_desc']) . "\" ";
 
         /* fetchpriority = high for high priority images */
