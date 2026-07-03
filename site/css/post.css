@@ -10,6 +10,7 @@
     --knob-stack-start-mt: var(--sz-400);
     --knob-fs-std: var(--fsz-clamp-320-399-16x18);
     --knob-flh-std: var(--flh-med);
+    --knob-fs-secondary-heading: var(--fsz-clamp-320-980-16x24);
     --knob-fw-secondary-heading: var(--fw-bold);
 }
 

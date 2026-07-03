@@ -11,6 +11,8 @@
 					class="site-logo"
 					alt="Liber Analytics logo"
 					decoding="async"
+					width="120"
+  					height="91"					
 				>
 
 			</a>
