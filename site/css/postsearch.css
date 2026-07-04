@@ -13,22 +13,28 @@
             'catlabel catctrl'
             'tagslabel tagsctrl'
             'submitctrl submitctrl';
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: max-content 1fr;
+        column-gap: calc(var(--sz-400) * 3);
+        row-gap: var(--sz-700);   
+        align-items: center;     
     }
-    .postsearch-cat-label {
+    .postsearch-cat-label-container {
         grid-area: catlabel;
-        margin-left: auto;
+        justify-self: end;
+        text-align: right;
     }
-    .postsearch-cat-control {
+    .postsearch-cat-control-container {
         grid-area: catctrl;
     }  
-    .postsearch-tags-label {
+    .postsearch-tags-label-container {
         grid-area: tagslabel;
+        justify-self: end;
+        text-align: right;
     }
-    .postsearch-tags-control {
-        grid-area: tagslabel;
+    .postsearch-tags-control-container {
+        grid-area: tagsctrl;
     }
-    .postsearch-submit-control {
+    .postsearch-submit-control-container {
         grid-area: submitctrl;
     }    
 }
