@@ -2,6 +2,11 @@
     postsearch.css
 --------------------------------------------------------- */
 
+.postsearch-controls-container {
+    position: relative;
+
+}
+
 .postsearch-filters-header {
     margin-block-end: var(--sz-200);
 }

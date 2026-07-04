@@ -75,7 +75,9 @@ $laData = new classes\LaData();
 			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
 
-			<div id="postsearch_controls" class="site-form-container site-block-std site-gradient-border-bottom site-position-relative">							
+			<div 
+				id="postsearch_controls"
+				class="postsearch-controls-container site-form-container site-block-std site-gradient-border-bottom">							
 				<form 
 					id="postsearch"
 					name="postsearch"
@@ -85,7 +87,7 @@ $laData = new classes\LaData();
 					class="site-form-std site-font-form-std"
 				>
 
-					<ul>
+					<ul class="postsearch-controls">
 						<li class="form-ele-container"><label for="postsearch_category" class="site-fw-bold">Post Category</label></li>
 						<li class="site-position-relative">
 							<select id="postsearch_category" class="select-control"
