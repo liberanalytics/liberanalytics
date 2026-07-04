@@ -13,10 +13,11 @@
             'catlabel catctrl'
             'tagslabel tagsctrl'
             'submitctrl submitctrl';
-        grid-template-columns: max-content 1fr;
-        column-gap: calc(var(--sz-400) * 3);
+        grid-template-columns: max-content minmax(0, calc(var(--sz-400) * 20));
+        column-gap: calc(var(--sz-400) * 4);
         row-gap: var(--sz-700);   
-        align-items: center;     
+        align-items: center;
+        justify-content: center;
     }
     .postsearch-cat-label-container {
         grid-area: catlabel;
@@ -25,6 +26,7 @@
     }
     .postsearch-cat-control-container {
         grid-area: catctrl;
+        max-width: calc(var(--sz-400) * 20);
     }  
     .postsearch-tags-label-container {
         grid-area: tagslabel;
@@ -33,6 +35,7 @@
     }
     .postsearch-tags-control-container {
         grid-area: tagsctrl;
+        max-width: calc(var(--sz-400) * 20);
     }
     .postsearch-submit-control-container {
         grid-area: submitctrl;
