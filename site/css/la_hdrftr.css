@@ -51,15 +51,8 @@
 
 .site-hdrftr-name-liber,
 .site-hdrftr-name-analytics {    
-    font-size: clamp(2.0rem, calc(10.8vw - 0.196rem), 2.5rem);
-    line-height: 1;
-}
-
-@media (min-width: 25em) {
-    .site-hdrftr-name-liber,
-    .site-hdrftr-name-analytics {    
-        font-size: clamp(2.5rem, 10vw, 3rem);
-    }
+    font-size: var(--fsz-clamp-320-980-32x48);
+    line-height: var(--flh-xtight);
 }
 
 .site-hdrftr-name-liber {
@@ -82,16 +75,10 @@
 
 .site-hdrftr-font-tagline {
     font-family: var(--ff-fancy);
-    font-size: clamp(1.125rem, calc(8.108vw - 0.522rem), 1.375rem);
+    font-size: var(--fsz-clamp-320-980-18x24);
     line-height: 1;
     color: var(--fc-xlight);
     text-align: center;
-}
-
-@media (min-width: 25em) {
-    .site-hdrftr-font-tagline {
-        font-size: clamp(1.375rem, calc(2.5vw + 0.75rem), 1.5rem);
-    }
 }
 
 @media (min-width: 61.25em) {
