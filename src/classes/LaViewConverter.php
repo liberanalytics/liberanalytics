@@ -70,7 +70,7 @@ class LaViewConverter {
         $getPostHeader .= "<p>";
         $getPostHeader .= "<time datetime=\"$postISODate\" class=\"site-font-date-std\">" . $postDate . "</time>";
         $getPostHeader .= "</p>";
-        $getPostHeader .= "<h2 class=\"post-desc\">" . $postLongDesc . "</h2>";
+        $getPostHeader .= "<h2 class=\"post-desc site-font-std\">" . $postLongDesc . "</h2>";
         $getPostHeader .= $this->getPostImage($post);
         return $getPostHeader;
     }

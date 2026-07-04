@@ -26,7 +26,7 @@
 }
 
 .post-desc {
-    --knob-fc-std: var(--fc-light);
+    --knob-fs-std: var(--fsz-clamp-320-980-16x20);
 }
 
 .post-img-container {
