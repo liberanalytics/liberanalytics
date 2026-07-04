@@ -88,9 +88,9 @@ $laData = new classes\LaData();
 				>
 
 					<ul class="postsearch-controls">
-						<li class="form-ele-container"><label for="postsearch_category" class="site-fw-bold">Post Category</label></li>
+						<li class="form-ele-container"><label for="postsearch_category" class="postsearch-cat-label site-fw-bold">Post Category</label></li>
 						<li class="site-position-relative">
-							<select id="postsearch_category" class="select-control"
+							<select id="postsearch_category" class="class="postsearch-cat-control select-control"
 							data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
 							<option class="control">Select Category</option>
 								
@@ -112,16 +112,16 @@ $laData = new classes\LaData();
 							<span class="select-arrow"></span>
 						</li>
 
-						<li class="form-ele-container"><label for="postsearch_tags" class="site-fw-bold">Tags</label></li>
+						<li class="form-ele-container"><label for="postsearch_tags" class="postsearch-tags-label site-fw-bold">Tags</label></li>
 						<li id="postsearch_tags_container" class="site-position-relative">
 							<input 
-								id="postsearch_tags" name="postsearch_tags" class="postsearch-tags site-font-form-std" type="text"
+								id="postsearch_tags" name="postsearch_tags" class="postsearch-tags-control site-font-form-std" type="text"
 								title="Enter Last Name" maxlength="48" data-caption="Tags" data-id="last_name"
 								data-req="1" data-vx="vxText" data-len="48" autocomplete="off"
 							>
 							<div id="postsearch_tag_suggestions" class="site-tag-suggestions-container"></div>
 						</li>
-						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
+						<li><input type="submit" value="SUBMIT" class="postsearch-submit-control site-fc-xlight site-fw-bold"></li> 
 						<li class="form-error-container"><span id ="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>
 					</ul>
 

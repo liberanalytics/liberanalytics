@@ -96,7 +96,7 @@
 @media (min-width: 61.25em) {
     .site-header .site-hdrftr-components {
         grid-template-areas: 
-            "logo site-name tagline";
+            'logo site-name tagline';
         grid-template-columns: auto auto 1fr;
         justify-content: start;
     }    

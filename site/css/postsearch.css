@@ -4,15 +4,37 @@
 
 .postsearch-controls-container {
     position: relative;
+}
 
+@media (min-width: 40em) {
+    .postsearch-controls {
+        display: grid;
+        grid-template-areas: 
+            'catlabel catctrl'
+            'tagslabel tagsctrl'
+            'submitctrl submitctrl';
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .postsearch-cat-label {
+        grid-area: catlabel;
+        margin-left: auto;
+    }
+    .postsearch-cat-control {
+        grid-area: catctrl;
+    }  
+    .postsearch-tags-label {
+        grid-area: tagslabel;
+    }
+    .postsearch-tags-control {
+        grid-area: tagslabel;
+    }
+    .postsearch-submit-control {
+        grid-area: submitctrl;
+    }    
 }
 
 .postsearch-filters-header {
     margin-block-end: var(--sz-200);
-}
-
-.postsearch-tags {
-    --knob-fs-form: var(--fsz-clamp-320-980-16x18);
 }
 
 .postsearch-filters-chips-container {
