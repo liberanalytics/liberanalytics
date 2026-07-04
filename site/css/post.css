@@ -8,7 +8,7 @@
 
 .page-post {
     --knob-stack-start-mt: var(--sz-400);
-    --knob-fs-std: var(--fsz-clamp-320-399-16x18);
+    --knob-fs-std: var(--fsz-clamp-320-980-16x18);
     --knob-flh-std: var(--flh-med);
     --knob-fs-secondary-heading: var(--fsz-clamp-320-980-16x24);
     --knob-fw-secondary-heading: var(--fw-bold);
@@ -70,7 +70,7 @@
 /* Standard snippet font styling. */
 .post-snippet-font-std {
     font-family: var(--ff-post-snippet);
-    font-size: var(--knob-post-snippet-fs, var(--fsz-clamp-320-399-16x18));
+    font-size: var(--knob-post-snippet-fs, var(--fsz-clamp-320-980-16x18));
     font-weight: var(--fw-light);
     line-height: var(--flh-tight);
     color: var(--knob-post-snippet-fc);

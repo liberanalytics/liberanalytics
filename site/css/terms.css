@@ -7,7 +7,7 @@
 }
 
 .eff-date {
-    --knob-fs-std: var(--fsz-clamp-320-399-16x18); 
+    --knob-fs-std: var(--fsz-clamp-320-980-16x18); 
 }
 
 .eff-date > span {
