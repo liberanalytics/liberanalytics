@@ -187,7 +187,7 @@
 }
 
 .site-header-menu .site-header-nav .site-header-nav-link {
-    --knob-fs-link: var(--fsz-clamp-320-980-16x18);
+    --knob-fs-link: var(--fsz-clamp-320-980-16x18-8);
     display: inline-block;
     padding: var(--sz-300);
 }

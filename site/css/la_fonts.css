@@ -19,22 +19,13 @@
     --fsz-300: var(--sz-600);
     --fsz-400: var(--sz-700);
 
-    /* Site font size clamps from 320px - 399px. */
-    --fsz-clamp-320-399-20x22:     clamp(1.25rem, calc(2.532 + 0.744rem), 1.375rem);
-    --fsz-clamp-320-399-22x24:     clamp(1.375rem, calc(2.5vw + 0.75rem), 1.5rem);
-    
-    /* Site font size clamps from 320px - 640px. */
-    --fsz-clamp-320-640-16x20:     clamp(1.0rem, calc(1.25vw + 0.75rem), 1.25rem);
-    --fsz-clamp-320-640-16x24:     clamp(1.0rem, calc(2.5vw + 0.5rem), 1.5rem);
-    --fsz-clamp-320-640-18x24:     clamp(1.125rem, calc(1.875vw + 0.75rem), 1.5rem);
-    --fsz-clamp-320-640-20x22:     clamp(1.25rem, calc(.625vw + 0.1.125rem), 1.375rem);
-
     /* Site font size clamps from 320px - 980px. */
     --fsz-clamp-320-980-14x16:     clamp(.875rem, calc(.303vw + 0.814rem), 1.0rem);
     --fsz-clamp-320-980-16x18:     clamp(1.0rem, calc(.303vw + 0.939rem), 1.125rem);
     --fsz-clamp-320-980-16x18-8:   clamp(1.0rem, calc(.424vw + 0.915rem), 1.175rem);
     --fsz-clamp-320-980-16x20:     clamp(1.0rem, calc(.606vw + 0.879rem), 1.25rem);
     --fsz-clamp-320-980-16x24:     clamp(1.0rem, calc(1.212vw + 0.758rem), 1.5rem);
+    --fsz-clamp-320-980-18x24:     clamp(1.125rem, calc(.909vw + 0.943rem), 1.5rem);
     --fsz-clamp-320-980-24x42:     clamp(1.5rem, calc(2.727vw + 0.955rem), 2.625rem);
 
     /* Site font-weights. */
@@ -154,7 +145,7 @@
 
 .site-font-primary-heading {
     font-family: var(--ff-primary-heading);
-    font-size: var(--knob-fs-primary-heading, var(--fsz-clamp-320-640-16x24));
+    font-size: var(--knob-fs-primary-heading, var(--fsz-clamp-320-980-16x24));
     font-weight: var(--fw-light);
     line-height: var(--knob-flh-primary-heading, var(--flh-xtight));
     color: var(--fc-xlight);
@@ -170,7 +161,7 @@
 
 .site-font-brand {    
     font-family: var(--knob-ff-brand, var(--ff-fancy));
-    font-size: var(--knob-fs-brand, var(--fsz-clamp-320-640-18x24));
+    font-size: var(--knob-fs-brand, var(--fsz-clamp-320-980-18x24));
     font-weight: var(--knob-fw-brand, var(--fw-bold));
     line-height: var(--knob-flh-brand, var(--flh-tight));
     color: var(--fc-med-green);
