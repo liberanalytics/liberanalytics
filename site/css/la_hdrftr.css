@@ -29,21 +29,10 @@
 .site-hdrftr-components > .site-logo-link { grid-area: logo; }
 
 .site-hdrftr-components > .site-logo-link > .site-logo {
-    block-size: clamp(
-        61px,
-        calc(1px + 18.75vw),
-        91px
-    );
-    inline-size: auto;
+    block-size: clamp(3.8125rem, calc(4.544vw + 2.094rem), 5.687rem);
+    width: auto;
     object-fit: contain;
 }
-
-@media (min-width: 25em) {
-    .site-hdrftr-components > .site-logo-link > .site-logo {
-        block-size: clamp(4.5rem, calc(24.05vw - 1.512rem), 5.687rem);
-    }
-}
-
 .site-hdrftr-components > .site-hdrftr-name {
     grid-area: site-name;
     white-space: nowrap;
@@ -85,13 +74,6 @@
     .site-hdrftr-font-tagline {
         text-align: right;
     }
-}
-
-.site-hdrftr-components img {
-    inline-size: auto;
-    object-fit: contain;
-    width: var(--la-logo-width);
-    height: auto;
 }
 
 /* Site header classes. */
