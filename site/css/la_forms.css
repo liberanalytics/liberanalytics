@@ -65,10 +65,18 @@
     cursor: pointer;    
 }
 
-.site-form-std .form-error-container {
-    min-height: var(--knob-form-error-container-ht, var(--sz-600));
-    /* margin-block-start: var(--sz-300); */
-    text-align: center;
+.site-form-std-submiterror {
+    display: grid;
+    grid-template-rows: auto minmax(var(--knob-form-error-container-ht, var(--sz-700)), auto);
+    row-gap: 0;
+    justify-items: center;
+    align-items: start;
+}
+
+.site-form-std .site-form-std-error {
+    display: block;
+    min-block-size: var(--knob-form-error-container-ht, var(--sz-600));
+    padding-block: var(--sz-100);
 }
 
 /* Select form element button styling. */

@@ -123,10 +123,10 @@ $laData = new classes\LaData();
 							>
 							<div id="postsearch_tag_suggestions" class="site-tag-suggestions-container"></div>
 						</li>
-						<li class="postsearch-submit-control-container">
+						<li class="postsearch-submit-control-container site-form-std-submiterror">
 							<input type="submit" value="SUBMIT" class="postsearch-submit-control site-fc-xlight site-fw-bold">
-						</li> 
-						<li class="form-error-container"><span id="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>
+							<span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite">tags are invalid</span>
+						</li>
 					</ul>
 
 				</form>
