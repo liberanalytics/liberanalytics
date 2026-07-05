@@ -65,17 +65,9 @@
     cursor: pointer;    
 }
 
-.site-form-std-submiterror {
-    display: grid;
-    grid-template-rows: auto minmax(var(--knob-form-error-container-ht, var(--sz-700)), auto);
-    row-gap: 0;
-    justify-items: center;
-    align-items: start;
-}
-
 .site-form-std .site-form-std-error {
     display: block;
-    min-block-size: var(--knob-form-error-container-ht, var(--sz-600));
+    min-block-size: var(--knob-form-error-container-ht, var(--fsz-clamp-320-980-16x18));
     padding-block: var(--sz-100);
 }
 
