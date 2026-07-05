@@ -12,7 +12,8 @@
         grid-template-areas: 
             'catlabel catctrl'
             'tagslabel tagsctrl'
-            'submitctrl submitctrl';
+            'submitctrl submitctrl'
+            'formError formError';
         grid-template-columns: max-content minmax(0, calc(var(--sz-400) * 20));
         column-gap: calc(var(--sz-400) * 4);
         row-gap: var(--sz-700);   

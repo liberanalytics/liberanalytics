@@ -6,14 +6,15 @@
     margin-block-start: var(--sz-300);
 }
 
-.site-form-std .form-ele-container {
-    margin-block-start: var(--sz-300);
-    margin-block-end: var(--sz-050);
+@media (max-width: 39.999em) {
+    .site-form-std .form-label-container {
+        margin-block-start: var(--sz-300);
+        margin-block-end: var(--sz-050);
+    }
+    .site-form-std input[type="submit"] {
+        margin-block-start: var(--sz-400);
+    } 
 }
-
-/* .site-form-std input[type="submit"] {
-    margin-block-start: var(--sz-400);
-} */
 
 /* Make form controls inherit the wrapper’s font tokens.
    Because the class is inside :where(), this has *zero* class specificity.
