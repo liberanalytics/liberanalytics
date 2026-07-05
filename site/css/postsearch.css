@@ -48,16 +48,21 @@
 }
 
 .postsearch-filters-chips-container {
-    padding-block-start: var(--sz-200);
+    /* display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: var(--sz-300);
+    align-items: center;
+    justify-content: center;   */
+    padding-block-start: var(--sz-200);      
 }
   
 .postsearch-filters-px {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* grid-template-columns: 12rem 1fr; Desktop proxemics. */
-    align-items: baseline;
+    grid-template-columns: max-content 1fr;
+    column-gap: var(--sz-600);
     margin-block-end: var(--sz-200);
-    /* padding: 0 0 .5rem .75rem; Desktop proxemics. */ 
+    align-items: center;
+    justify-content: center;
 }
 
 .postsearch-filters-label {
