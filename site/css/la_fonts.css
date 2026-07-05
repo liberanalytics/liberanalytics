@@ -26,6 +26,7 @@
     --fsz-clamp-320-980-16x20:     clamp(1.0rem, calc(.606vw + 0.879rem), 1.25rem);
     --fsz-clamp-320-980-16x24:     clamp(1.0rem, calc(1.212vw + 0.758rem), 1.5rem);
     --fsz-clamp-320-980-18x24:     clamp(1.125rem, calc(.909vw + 0.943rem), 1.5rem);
+    --fsz-clamp-320-980-20x32:     clamp(1.25rem, calc(1.818vw + 0.886rem), 2.0rem);
     --fsz-clamp-320-980-24x42:     clamp(1.5rem, calc(2.727vw + 0.955rem), 2.625rem);
     --fsz-clamp-320-980-32x48:     clamp(2.0rem, calc(2.424vw + 1.515rem), 3.0rem);
 

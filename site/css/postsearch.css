@@ -43,6 +43,7 @@
 }
 
 .postsearch-filters-header {
+    --knob-fs-secondary-heading: var(--fsz-clamp-320-980-20x32);
     margin-block-end: var(--sz-200);
 }
 
