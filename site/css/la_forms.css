@@ -2,13 +2,8 @@
     la_forms.css
 --------------------------------------------------------- */
 
-.site-form-container {
-    padding-block-end: var(--sz-300);
-    margin-block-start: var(--sz-300);
-}
-
 .site-form-std {
-
+    margin-block-start: var(--sz-300);
 }
 
 .site-form-std .form-ele-container {

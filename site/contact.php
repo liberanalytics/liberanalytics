@@ -72,7 +72,7 @@
 			<section class="site-ajax-overlay-relative">
 				<h1 class="site-primary-heading site-font-primary-heading">Contact Us</h1>
 
-				<div class="site-block-std">					
+				<div class="site-inline-std">					
 				
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
 

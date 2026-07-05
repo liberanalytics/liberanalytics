@@ -78,7 +78,7 @@ main {
     margin-block: var(--site-page-vmargin);
 }
 
-.site-block-std {
+.site-inline-std {
     padding-inline: var(--sz-300);
 }
 

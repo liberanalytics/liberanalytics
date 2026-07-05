@@ -154,7 +154,7 @@ $laViewConverter = new classes\LaViewConverter();
 
 			<section>
 				<h2 class="site-primary-heading site-font-primary-heading">Our Mission</h2>
-				<div class="mission-container site-block-std">
+				<div class="mission-container site-inline-std">
 					<p class="mission-stmt site-font-std">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
 						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and

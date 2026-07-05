@@ -77,7 +77,7 @@ $laData = new classes\LaData();
 
 			<div 
 				id="postsearch_controls"
-				class="postsearch-controls-container site-form-container site-block-std site-gradient-border-bottom">							
+				class="postsearch-controls-container site-inline-std site-gradient-border-bottom">							
 				<form 
 					id="postsearch"
 					name="postsearch"

@@ -72,7 +72,7 @@
 
 			<section>
 				<h1 class="site-primary-heading site-font-primary-heading">Thank you</h1>
-				<div class="site-block-std">
+				<div class="site-inline-std">
 					<p class="" style="line-height: 1.5;">
 						Thank you for contacting LiberAnalytics, 
 						<span id="contact_name" class="site-font-brand"></span>!
