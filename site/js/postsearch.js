@@ -205,18 +205,22 @@ postsearch.renderSearchFilters = (submitType) => {
 
     filters.innerHTML = `
         <h2 class="postsearch-filters-header site-font-secondary-heading">Showing results for:</h2>
-        <div class="postsearch-filter-chips-container">
+        <div class="postsearch-filters-list">
 
-        <p class="postsearch-filters-px">
+        <p class="postsearch-filters-cat-label">
             <span class="postsearch-filters-label site-font-std">Post Category -></span>
+        </p>
+        <p class="postsearch-filters-cat-filter">
             <span class="postsearch-filters-chip site-font-std" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
                 ${normalizedCaptionData.postCategory}
                 <button class="postsearch-filters-btn" aria-label="Remove">x</button>
             </span>
         </p>
 
-        <p class="postsearch-filters-px">
+        <p class="postsearch-filters-tags-label">
             <span class="postsearch-filters-label site-font-std">Post Tags -></span>
+        </p>
+        <p class="postsearch-filters-tags-filter">
             ${tagCaptionData}			
         </p>        
         

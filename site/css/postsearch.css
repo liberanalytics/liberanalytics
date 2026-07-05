@@ -4,6 +4,7 @@
 
 .postsearch-controls-container {
     position: relative;
+    padding-block-end: var(--sz-400);
 }
 
 @media (min-width: 40em) {
@@ -47,47 +48,65 @@
     margin-block-end: var(--sz-200);
 }
 
-.postsearch-filters-chips-container {
-    /* display: grid;
-    grid-template-columns: max-content 1fr;
-    column-gap: var(--sz-300);
-    align-items: center;
-    justify-content: center;   */
-    padding-block-start: var(--sz-200);      
-}
-  
-.postsearch-filters-px {
+.postsearch-filters-list {
     display: grid;
+    grid-template-areas: 
+        'catlabel catfilter'
+        'tagslabel tagsfilter';    
     grid-template-columns: max-content 1fr;
     column-gap: var(--sz-600);
-    margin-block-end: var(--sz-200);
-    align-items: center;
-    justify-content: center;
+    row-gap: var(--sz-300);
+    padding-block-start: var(--sz-200);      
+    padding-inline-start: var(--sz-350);
+}
+
+.postsearch-filters-list > p {
+    margin: 0;
+}
+  
+.postsearch-filters-cat-label {
+    grid-area: catlabel;    
+}
+
+.postsearch-filters-cat-filter {
+    grid-area: catfilter;
+}
+
+.postsearch-filters-tags-label {
+    grid-area: tagslabel;
+}
+
+.postsearch-filters-tags-filter {
+    grid-area: tagsfilter;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--sz-300);
+    row-gap: var(--sz-100);
+    align-items: center;    
 }
 
 .postsearch-filters-label {
-    --knob-fs-std: var(--fsz-clamp-320-980-16x18);
-    color: var(--clr-med-dark);
+    --knob-fs-std: var(--fsz-clamp-320-980-18x24);
+    --knob-fc-std: var(--fc-med);
 }
 
 .postsearch-filters-chip {
     --knob-fs-std: var(--fsz-clamp-320-980-16x18);
     --knob-fc-std: var(--clr-xlt-dark);
-    grid-column: 2;
     position: relative;
-    display: block;
-    margin-block-end: var(--sz-100);
+    display: inline-block;
+    
     /* top: -.125rem; Desktop proxemics. */
     /* margin: 0 0 0 .5rem; Desktop proxemics. */
 }
 
 .postsearch-filters-chip:last-child {
-    margin-block-end: 0;
+    
 }
 
 .postsearch-filters-btn {
     position: relative;
-    margin-left: var(--sz-075);
+    margin-left: var(--sz-025);
     padding: 0 var(--sz-100);
     vertical-align: baseline;
     font-size: 1.0rem;
