@@ -67,7 +67,7 @@
 
 .site-form-std .site-form-std-error {
     display: block;
-    min-block-size: var(--knob-form-error-container-ht, var(--fsz-clamp-320-980-16x18));
+    min-block-size: var(--knob-form-error-ht, var(--fsz-clamp-320-980-16x18));
     padding-block: var(--sz-100);
 }
 
