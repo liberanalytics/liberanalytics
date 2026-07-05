@@ -39,6 +39,7 @@
     }
     .postsearch-submit-control-container {
         grid-area: submitctrl;
+        margin-block-start: 0;
     }    
 }
 

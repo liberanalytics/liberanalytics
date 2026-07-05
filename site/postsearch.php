@@ -116,13 +116,13 @@ $laData = new classes\LaData();
 						<li id="postsearch_tags_container" class="postsearch-tags-control-container site-position-relative">
 							<input 
 								id="postsearch_tags" name="postsearch_tags" class="postsearch-tags-control site-font-form-std" type="text"
-								title="Enter Last Name" maxlength="48" data-caption="Tags" data-id="last_name"
+								title="Enter Post Tags" maxlength="48" data-caption="Tags" data-id="post_tags"
 								data-req="1" data-vx="vxText" data-len="48" autocomplete="off"
 							>
 							<div id="postsearch_tag_suggestions" class="site-tag-suggestions-container"></div>
 						</li>
 						<li class="postsearch-submit-control-container"><input type="submit" value="SUBMIT" class="postsearch-submit-control site-fc-xlight site-fw-bold"></li> 
-						<li class="form-error-container"><span id ="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>
+						<li class="form-error-container"><span id="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>
 					</ul>
 
 				</form>

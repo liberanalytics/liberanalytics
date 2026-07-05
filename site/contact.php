@@ -84,7 +84,7 @@
 							data-composite="0"
 							data-erroreleid="error_form"
 							action="/api/contact.php"
-							class="site-form-std site-font-form-std"
+							class="contact-form site-form-std site-font-form-std"
 						>
 
 							<ul>
