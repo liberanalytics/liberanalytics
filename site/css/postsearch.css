@@ -134,3 +134,7 @@
 .postsearch-results-cards {
     margin-block-start: var(--sz-300);
 }
+
+.post-card {
+    padding: var(--sz-300);
+}
