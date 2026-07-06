@@ -74,7 +74,7 @@ $laData = new classes\LaData();
 		<section class="site-ajax-overlay-relative">
 			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
-
+			<div class="postsearch-container">
 			<div 
 				id="postsearch_controls"
 				class="postsearch-controls-container site-inline-std site-gradient-border-bottom">							
@@ -150,6 +150,8 @@ $laData = new classes\LaData();
 			</div>
 
 			<div class="site-ajax-overlay-flex site-ajax-hidden">
+			</div>
+
 			</div>
 
 		</section>

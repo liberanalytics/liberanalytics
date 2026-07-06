@@ -166,6 +166,7 @@ postsearch.renderSearch = (submitType, searchResults) => {
     //
     postsearch.renderSearchFilters(submitType);
     postsearch.renderSearchResults(searchResults);
+    postsearch.renderSearchFormatting();
 }
 
 postsearch.renderSearchResults = (searchResults) => {
@@ -304,7 +305,7 @@ postsearch.renderCard = (cardData) => {
     const card = document.createElement('article');
     card.classList.add('post-card', 'site-box-shadow');
 
-    //
+    // Generate the
     card.innerHTML = `
         <h2 class="post-card-desc site-font-secondary-heading site-gradient-rtl-border-bottom">${normalizedCardData.short_desc}</h2>
         <div class="post-card-components site-gradient-ltr-border-bottom">
@@ -326,4 +327,12 @@ postsearch.renderCard = (cardData) => {
         </div>
         `.trim();
     postsearch.searchResultsContainerEle.appendChild(card);
+}
+
+postsearch.renderSearchFormatting = () => {
+
+    // Add padding beneath post search controls container ele.
+    postsearch.searchControlsContainerEle.classList.add(
+        'postsearch-controls-container-searched'
+    );
 }

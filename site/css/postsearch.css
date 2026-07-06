@@ -2,8 +2,16 @@
     postsearch.css
 --------------------------------------------------------- */
 
+.postsearch-container {
+    max-width: calc(var(--sz-400) * 50);
+    margin-inline: auto;
+}
+
 .postsearch-controls-container {
     position: relative;
+}
+
+.postsearch-controls-container-searched {
     padding-block-end: var(--sz-400);
 }
 
