@@ -140,9 +140,10 @@
 .site-font-std {
     font-family: var(--knob-ff-std, var(--ff-main));
     font-size: var(--knob-fs-std, var(--fsz-clamp-320-980-16x18));
-    font-weight: var(--fw-xlight);
+    font-weight: var(--knob-fw-std, var(--fw-xlight));
     line-height: var(--knob-flh-std, var(--flh-tight));
     color: var(--knob-fc-std, var(--fc-light));
+    text-decoration: none;
 }
 
 .site-font-primary-heading {

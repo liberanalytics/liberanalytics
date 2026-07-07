@@ -42,7 +42,6 @@
 .post-card-longdesc, .post-card-longdesc:visited {
     --knob-fc-link: var(--fc-light);
     display: block;
-    margin-block-start: var(--sz-100);
 }
 
 .post-card-longdesc:hover, .post-card-longdesc:focus {

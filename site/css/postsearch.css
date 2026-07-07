@@ -144,8 +144,10 @@
         'postimg postlongdesc'
         'postimg postintro';
         grid-template-columns: max-content 1fr;
-        /* gap: 0 1rem; */
-        padding: 1rem 0 .3125rem 0;
+        column-gap: var(--sz-400);
+        row-gap: var(--sz-100);
+        padding-block-start: var(--sz-400);
+        padding-block-end: var(--sz-100);
     }
     .postsearch-results-cards .post-card-img-anchor {
         grid-area: postimg;
@@ -156,10 +158,18 @@
         object-fit: contain;
     }
     .postsearch-results-cards .post-card-longdesc {
+        /* --knob-fw-std: var(--fw-bold); */
+        --knob-fc-std: var(--clr-xdk-dark);
         grid-area: postlongdesc;
     }
     .postsearch-results-cards .post-card-intro {
+        --knob-flh-std: var(--flh-med);
         grid-area: postintro;
-        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: calc(var(--sz-400) * 4.5);        
     }
 }

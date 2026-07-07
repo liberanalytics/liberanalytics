@@ -330,10 +330,10 @@ postsearch.renderCard = (cardData) => {
             <a class="post-card-img-anchor" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.img_html}
             </a>
-            <a class="post-card-longdesc site-font-link-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="post-card-longdesc site-font-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.long_desc}
             </a>
-            <a class="post-card-intro" href="/${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="post-card-intro site-font-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.intro}
             </a>
         </div>
