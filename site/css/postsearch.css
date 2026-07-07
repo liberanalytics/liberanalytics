@@ -103,9 +103,6 @@
     --knob-fc-std: var(--clr-xlt-dark);
     position: relative;
     display: inline-block;
-    
-    /* top: -.125rem; Desktop proxemics. */
-    /* margin: 0 0 0 .5rem; Desktop proxemics. */
 }
 
 .postsearch-filters-chip:last-child {
@@ -118,12 +115,17 @@
     padding: 0 var(--sz-100);
     vertical-align: baseline;
     font-size: 1.0rem;
-    /* top: -.125rem; Desktop proxemics. */
     border-radius: .25rem;
     border: 1px solid transparent;
     cursor: pointer;
     background-color: var(--clr-dk-blue);
     color: var(--clr-xlt-light);
+}
+
+@media (min-width: 40em) {
+    .postsearch-filters-btn {
+        top: clamp(-.0625rem, calc(.294vw - .055rem), -.125rem);
+    }
 }
 
 .postsearch-filters-btn:hover {
@@ -135,6 +137,29 @@
     margin-block-start: var(--sz-300);
 }
 
-.post-card {
-    padding: var(--sz-300);
+@media (min-width: 40em) {
+    .postsearch-results-cards .post-card-components {
+        display: grid;
+        grid-template-areas: 
+        'postimg postlongdesc'
+        'postimg postintro';
+        grid-template-columns: max-content 1fr;
+        /* gap: 0 1rem; */
+        padding: 1rem 0 .3125rem 0;
+    }
+    .postsearch-results-cards .post-card-img-anchor {
+        grid-area: postimg;
+    }
+    .postsearch-results-cards .post-card-img-anchor img {
+        inline-size: 195px;
+        block-size: 135px;
+        object-fit: contain;
+    }
+    .postsearch-results-cards .post-card-longdesc {
+        grid-area: postlongdesc;
+    }
+    .postsearch-results-cards .post-card-intro {
+        grid-area: postintro;
+        display: block;
+    }
 }

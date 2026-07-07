@@ -3,11 +3,11 @@
 --------------------------------------------------------- */
 
 .post-card {
-    padding: var(--sz-100);
+    padding: var(--sz-300);
     margin-block-start: var(--sz-400);
 }
 
-.post-card-desc {
+.post-card-title {
     padding-block-end: var(--sz-100);
     text-align: center;
 }
@@ -16,6 +16,8 @@
     padding-block-start: var(--sz-300);
     padding-block-end: var(--sz-100);
 }
+
+
 
 .post-card-components:hover {
   background-color: var(--clr-xlt-blue);

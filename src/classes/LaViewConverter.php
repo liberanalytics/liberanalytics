@@ -6,6 +6,9 @@ class LaViewConverter {
     public const IMG_FILE_TYPE = 'png';
     public const IMG_FILE_PATH = '/assets/';
     public const IMG_FILE_BASE_SIZE = '820';
+    public const IMG_SIZES_POST = 'post';
+    public const IMG_SIZES_INDEX = 'index';
+    public const IMG_SIZES_POSTSEARCH = 'postsearch';
     
     public function __construct() {}
 
@@ -25,7 +28,17 @@ class LaViewConverter {
         return $getImgFQPath;
     }
 
-    public function getPostImage(array $post, int $imgIteration = 1):string
+    private function getImgSizes(string $imgSizesType = self::IMG_SIZES_POST): string
+    {
+        $getImgSizes = match ($imgSizesType) {
+            self::IMG_SIZES_INDEX => '(min-width: 61.25em) 195px, 100vw',
+            self::IMG_SIZES_POSTSEARCH => '(min-width: 40em) 195px, 100vw',
+            default => '(max-width: 980px) 100vw, 980px',
+        };
+        return $getImgSizes;
+    }    
+
+    public function getPostImage(array $post, int $imgIteration = 1, string $imgContext = self::IMG_SIZES_POST):string
     {
         /* <img src= */
         $getPostImage = "<img ";
@@ -42,7 +55,7 @@ class LaViewConverter {
             $post['img_03_width'] . "w, " .
             $this->getImgFQPath($post['post_img'], $post['img_04_width']) . " " .
             $post['img_04_width'] . "w\" " .
-            "sizes=\"(max-width: 980px) 100vw, 980px\"" . " " .
+            "sizes=\"" . $this->getImgSizes($imgContext) . "\"" . " " .
             "alt=\"" . $this->escAttr($post['short_desc']) . "\" ";
 
         /* fetchpriority = high for high priority images */
