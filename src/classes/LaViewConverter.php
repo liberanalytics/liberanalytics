@@ -17,7 +17,7 @@ class LaViewConverter {
         return $escAttr;
     }
 
-    private function getImgFQPath(string $imgName, string $imgSize):string
+    private function getImgFQPath(string $imgName, string $imgSize = '820'):string
     {        
         $getImgFQPath = 
             self::IMG_FILE_PATH . 
@@ -25,6 +25,12 @@ class LaViewConverter {
             $imgSize . "." .
             self::IMG_FILE_TYPE;            
         return $getImgFQPath;
+    }
+
+    public function getImg(string $imgName):string
+    {
+        $getImg = "<img" . "\n\t" . 'src="' . $this->getImgFQPath($imgName);
+        return $getImg;
     }
 
     private function getPictureMedia(string $imgContext):string
@@ -64,9 +70,11 @@ class LaViewConverter {
             $post['img_03_width'],
             $post['img_04_width']
         );
-        $getPostPicture = "<picture>" . "\n" . "<source" . "\n";
+        $getPostPicture = "<picture>" . "\n\t" . "<source" . "\n\t";
         $getPostPicture .= $this->getPictureMedia($imgContext);        
         $getPostPicture .= $this->getSrcSet($post['post_name'], $thumbs);
+        $getPostPicture .= 'sizes="' . $post['thumb_01_width'] . 'px"' . ">";
+        $getPostPicture .= "<img" . "\n\t" . $this->getSrcSet($imgs);
         return $getPostPicture;        
     }
 
