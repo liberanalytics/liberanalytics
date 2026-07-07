@@ -105,7 +105,7 @@ $laViewConverter = new classes\LaViewConverter();
 					. '<h2 class="post-card-title site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
 					. '<div class="post-card-components site-gradient-ltr-border-bottom">'
 					. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
-					. $laViewConverter->getPostImage($post, $iter, \classes\LaViewConverter::IMG_SIZES_INDEX)
+					. $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_INDEX, $iter)
 					. '</a>'
 					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
 					. '</div>'

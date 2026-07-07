@@ -20,7 +20,7 @@ $posts = $laData->crudData(
 
 foreach ($posts as $postKey => $post) {
     $posts[$postKey]['img_html'] = 
-        $laViewConverter->getPostImage($post, 1, \classes\LaViewConverter::IMG_SIZES_POSTSEARCH);
+        $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_POSTSEARCH, 1);
 }
 
 return $posts;
