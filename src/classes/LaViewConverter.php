@@ -3,12 +3,11 @@
 namespace classes;
 
 class LaViewConverter {
+
     public const IMG_FILE_TYPE = 'png';
     public const IMG_FILE_PATH = '/assets/';
-    public const IMG_FILE_BASE_SIZE = '820';
-    public const IMG_SIZES_POST = 'post';
-    public const IMG_SIZES_INDEX = 'index';
-    public const IMG_SIZES_POSTSEARCH = 'postsearch';
+    public const IMG_CONTEXT_INDEX = 'index';
+    public const IMG_CONTEXT_POSTSEARCH = 'postsearch';
     
     public function __construct() {}
 
@@ -18,7 +17,7 @@ class LaViewConverter {
         return $escAttr;
     }
 
-    private function getImgFQPath(string $imgName, string $imgSize = '820'):string
+    private function getImgFQPath(string $imgName, string $imgSize):string
     {        
         $getImgFQPath = 
             self::IMG_FILE_PATH . 
@@ -28,46 +27,47 @@ class LaViewConverter {
         return $getImgFQPath;
     }
 
-    private function getImgSizes(string $imgSizesType = self::IMG_SIZES_POST): string
+    private function getPictureMedia(string $imgContext):string
     {
-        $getImgSizes = match ($imgSizesType) {
-            self::IMG_SIZES_INDEX => '(min-width: 61.25em) 195px, 100vw',
-            self::IMG_SIZES_POSTSEARCH => '(min-width: 40em) 195px, 100vw',
-            default => '(max-width: 980px) 100vw, 980px',
+        $getPictureMedia = match ($imgContext) {
+            self::IMG_CONTEXT_INDEX => 'media="(min-width: 61.25em)"' . "\n",
+            self::IMG_CONTEXT_POSTSEARCH => 'media="(min-width: 40em)"' . "\n"
         };
-        return $getImgSizes;
-    }    
-
-    public function getPostImage(array $post, int $imgIteration = 1, string $imgContext = self::IMG_SIZES_POST):string
+        return $getPictureMedia;
+    }
+    
+    public function getSrcSet(string $postName, array $srcSetSizes):string 
     {
-        /* <img src= */
-        $getPostImage = "<img ";
-        $getPostImage .= "src=\"" . $this->getImgFQPath($post['post_img']) . "\" ";
+        $getSrcSet = "srcset=\"";
+        $srcSetCount = count($srcSetSizes);
+        for($iter = 0; $iter < $srcSetCount; $iter++)
+        {
+            $getSrcSet .= $this->getImgFQPath($postName, $srcSetSizes[$iter]) . " ";
+            $getSrcSet .= $srcSetSizes[$iter] . "w" . (($iter + 1) === $srcSetCount ? '"' : ',') . "\n";
+        }
+        return $getSrcSet;
+    }
 
-        /* <img srcset= */
-        $getPostImage .= 
-            "srcset=\"" . 
-            $this->getImgFQPath($post['post_img'], $post['img_01_width']) . " " .
-            $post['img_01_width'] . "w, " .
-            $this->getImgFQPath($post['post_img'], $post['img_02_width']) . " " .
-            $post['img_02_width'] . "w, " .
-            $this->getImgFQPath($post['post_img'], $post['img_03_width']) . " " .
-            $post['img_03_width'] . "w, " .
-            $this->getImgFQPath($post['post_img'], $post['img_04_width']) . " " .
-            $post['img_04_width'] . "w\" " .
-            "sizes=\"" . $this->getImgSizes($imgContext) . "\"" . " " .
-            "alt=\"" . $this->escAttr($post['short_desc']) . "\" ";
-
-        /* fetchpriority = high for high priority images */
-        $imgPriority = 
-            ($imgIteration == 1) ? "fetchpriority=\"high\"" : "loading=\"lazy\"";
-
-        /* decode = async let browser decide to keep rendering with or without blocking */
-        $getPostImage .= 
-            $imgPriority . " " .
-            "decoding=\"async\"" .
-            ">";        
-        return $getPostImage;        
+    public function getPostPicture(array $post, int $imgIteration = 1, string $imgContext):string
+    {
+        /* */
+        $thumbs = array
+        (
+            $post['thumb_01_width'],
+            $post['thumb_02_width'],
+            $post['thumb_03_width']
+        );
+        $imgs = array
+        (
+            $post['img_01_width'],
+            $post['img_02_width'],
+            $post['img_03_width'],
+            $post['img_04_width']
+        );
+        $getPostPicture = "<picture>" . "\n" . "<source" . "\n";
+        $getPostPicture .= $this->getPictureMedia($imgContext);        
+        $getPostPicture .= $this->getSrcSet($post['post_name'], $thumbs);
+        return $getPostPicture;        
     }
 
     public function getPostHeader(array $post):string 
