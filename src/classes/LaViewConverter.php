@@ -27,9 +27,10 @@ class LaViewConverter {
         return $getImgFQPath;
     }
 
-    public function getImg(string $imgName):string
+    public function getImg(string $imgName, array $srcSetSizes):string
     {
-        $getImg = "<img" . "\n\t" . 'src="' . $this->getImgFQPath($imgName);
+        $getImg = "<img" . "\n" . 'src="' . $this->getImgFQPath($imgName) . "\"\n";
+        $getImg .= $this->getSrcSet($imgName, $srcSetSizes);
         return $getImg;
     }
 
@@ -42,13 +43,13 @@ class LaViewConverter {
         return $getPictureMedia;
     }
     
-    public function getSrcSet(string $postName, array $srcSetSizes):string 
+    public function getSrcSet(string $imgName, array $srcSetSizes):string 
     {
         $getSrcSet = "srcset=\"";
         $srcSetCount = count($srcSetSizes);
         for($iter = 0; $iter < $srcSetCount; $iter++)
         {
-            $getSrcSet .= $this->getImgFQPath($postName, $srcSetSizes[$iter]) . " ";
+            $getSrcSet .= $this->getImgFQPath($imgName, $srcSetSizes[$iter]) . " ";
             $getSrcSet .= $srcSetSizes[$iter] . "w" . (($iter + 1) === $srcSetCount ? '"' : ',') . "\n";
         }
         return $getSrcSet;
