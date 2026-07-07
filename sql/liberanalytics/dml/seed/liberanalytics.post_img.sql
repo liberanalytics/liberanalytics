@@ -47,6 +47,33 @@ VALUES
 ),
 
 (
+    'whydata',
+	'whydata',
+    2,
+    1,
+    195,
+    NOW()
+),
+
+(
+    'whydata',
+	'whydata',
+    2,
+    2,
+    390,
+    NOW()
+),
+
+(
+    'whydata',
+	'whydata',
+    2,
+    3,
+    585,
+    NOW()
+),
+
+(
     'pythonpostgreconnect',
 	'pythonpostgreconnect',
     1,
@@ -83,6 +110,33 @@ VALUES
 ),
 
 (
+    'pythonpostgreconnect',
+	'pythonpostgreconnect',
+    2,
+    1,
+    195,
+    NOW()
+),
+
+(
+    'pythonpostgreconnect',
+	'pythonpostgreconnect',
+    2,
+    2,
+    390,
+    NOW()
+),
+
+(
+    'pythonpostgreconnect',
+	'pythonpostgreconnect',
+    2,
+    3,
+    585,
+    NOW()
+),
+
+(
     'phpcloudwatchlogs',
 	'phpcloudwatchlogs',
     1,
@@ -115,5 +169,33 @@ VALUES
     1,
     4,
     1960,
+    NOW()
+),
+
+
+(
+    'phpcloudwatchlogs',
+	'phpcloudwatchlogs',
+    2,
+    1,
+    195,
+    NOW()
+),
+
+(
+    'phpcloudwatchlogs',
+	'phpcloudwatchlogs',
+    2,
+    2,
+    390,
+    NOW()
+),
+
+(
+    'phpcloudwatchlogs',
+	'phpcloudwatchlogs',
+    2,
+    3,
+    585,
     NOW()
 );
