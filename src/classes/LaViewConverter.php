@@ -27,13 +27,6 @@ class LaViewConverter {
         return $getImgFQPath;
     }
 
-    public function getImg(string $imgName, array $srcSetSizes):string
-    {
-        $getImg = "<img" . "\n" . 'src="' . $this->getImgFQPath($imgName) . "\"\n";
-        $getImg .= $this->getSrcSet($imgName, $srcSetSizes);
-        return $getImg;
-    }
-
     private function getPictureMedia(string $imgContext):string
     {
         $getPictureMedia = match ($imgContext) {
@@ -42,8 +35,8 @@ class LaViewConverter {
         };
         return $getPictureMedia;
     }
-    
-    public function getSrcSet(string $imgName, array $srcSetSizes):string 
+
+    private function getSrcSet(string $imgName, array $srcSetSizes):string 
     {
         $getSrcSet = "srcset=\"";
         $srcSetCount = count($srcSetSizes);
@@ -53,9 +46,22 @@ class LaViewConverter {
             $getSrcSet .= $srcSetSizes[$iter] . "w" . (($iter + 1) === $srcSetCount ? '"' : ',') . "\n";
         }
         return $getSrcSet;
+    }    
+
+    private function getImg(string $imgName, string $imgAlt, int $imgIteration, array $srcSetSizes):string
+    {
+        $getImg = "<img" . "\n";
+        $getImg .= 'src="' . $this->getImgFQPath($imgName) . "\"\n";
+        $getImg .= $this->getSrcSet($imgName, $srcSetSizes);
+        $getImg .= 'sizes="100vw"' . "\n";
+        $getImg .= 'alt="' . $this->escAttr($imgAlt) . '"' . "\n";
+        $getImg .= (($imgIteration == 1) ? 'fetchpriority="high"' : 'loading="lazy"') . "\n";
+        $getImg .= 'decoding="async"' . "\n";
+        $getImg .= ">";
+        return $getImg;
     }
 
-    public function getPostPicture(array $post, int $imgIteration = 1, string $imgContext):string
+    public function getPostPicture(array $post, string $imgContext, int $imgIteration = 1):string
     {
         /* */
         $thumbs = array
@@ -71,13 +77,36 @@ class LaViewConverter {
             $post['img_03_width'],
             $post['img_04_width']
         );
-        $getPostPicture = "<picture>" . "\n\t" . "<source" . "\n\t";
+        $getPostPicture = "<picture>" . "\n" . "<source" . "\n";
         $getPostPicture .= $this->getPictureMedia($imgContext);        
-        $getPostPicture .= $this->getSrcSet($post['post_name'], $thumbs);
-        $getPostPicture .= 'sizes="' . $post['thumb_01_width'] . 'px"' . ">";
-        $getPostPicture .= "<img" . "\n\t" . $this->getSrcSet($imgs);
+        $getPostPicture .= $this->getSrcSet($post['post_img'], $thumbs);
+        $getPostPicture .= 'sizes="' . $post['thumb_01_width'] . 'px"' . ">" . "\n";
+        $getPostPicture .= $this->getImg($post['post_img'], $post['short_desc'], $imgIteration, $imgs) . "\n";
+        $getPostPicture .= "</picture>";
         return $getPostPicture;        
     }
+
+    public function getPostImage(array $post, int $imgIteration = 1): string
+    {
+        $imgs = array
+        (
+            $post['img_01_width'],
+            $post['img_02_width'],
+            $post['img_03_width'],
+            $post['img_04_width']
+        );
+
+        $getPostImage = "<img" . "\n";
+        $getPostImage .= 'src="' . $this->getImgFQPath($post['post_img']) . "\"\n";
+        $getPostImage .= $this->getSrcSet($post['post_img'], $imgs);
+        $getPostImage .= 'sizes="(max-width: 980px) 100vw, 980px"' . "\n";
+        $getPostImage .= 'alt="' . $this->escAttr($post['short_desc']) . '"' . "\n";
+        $getPostImage .= (($imgIteration == 1) ? 'fetchpriority="high"' : 'loading="lazy"') . "\n";
+        $getPostImage .= 'decoding="async"' . "\n";
+        $getPostImage .= ">";
+
+        return $getPostImage;
+    }    
 
     public function getPostHeader(array $post):string 
     {
