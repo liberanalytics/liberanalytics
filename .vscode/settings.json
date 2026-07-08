@@ -3,5 +3,6 @@
     "editor.codeLens": false
   },
   "intelephense.referencesCodeLens.enabled": false,
-  "intelephense.implementationCodeLens.enabled": false
+  "intelephense.implementationCodeLens.enabled": false,
+  "python-envs.defaultEnvManager": "ms-python.python:system"
 }

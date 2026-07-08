@@ -3,10 +3,12 @@
 !.vscode/launch.json
 !.vscode/settings.json
 
-# Environment-specific configuration / secrets
+# Environment config files
 config/la_config_dev.json
 config/la_config_test.json
 config/la_config_prod.json
+
+# DB connection/config files
 config/la_data_dev.config
 config/la_data_test.config
 config/la_data_prod.config
