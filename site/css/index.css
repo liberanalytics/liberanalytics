@@ -2,6 +2,15 @@
     index.css
 --------------------------------------------------------- */
 
+@media (min-width: 61.25em) {
+    .posts-container {
+        display: grid;
+        grid-template-columns: calc(var(--sz-400) * 37.5) calc(var(--sz-400) * 21.875);
+        column-gap: var(--sz-800);
+        row-gap: 0;
+    }
+}
+
 .featured-posts-container {
 
 }
@@ -9,6 +18,12 @@
 .latest-posts-container {
     --knob-primary-heading-mt: var(--sz-400);
     --knob-primary-heading-mb: 0;
+}
+
+@media (min-width: 61.25em) {
+    .latest-posts-container {
+        --knob-primary-heading-mt: 0;
+    }
 }
 
 .latest-posts-link {

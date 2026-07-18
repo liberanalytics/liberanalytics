@@ -78,80 +78,82 @@ $laViewConverter = new classes\LaViewConverter();
 
 	<main>
 		<div class="page-wrap">
-			<section class="featured-posts-container">	
-				<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
-				
-				<?php
-
-				/**
-				 * 
-				 */
-				$featuredPosts = $laData->crudData(
-					CrudOperation::GETPOSTS,
-					CrudType::CRUDREAD,
-					CrudResultsetType::RESULTSET_ROWS,
-					CrudFetchStyle::FETCHSTYLE_ASSOC,
-					[
-						'order_by' => 'featured',
-						'order_by_ascdesc' => 'ASC',
-						'limit' => 5
-					]						
-				);
-				$iter = 1;
-				foreach ($featuredPosts as $postNum => $post)
-				{	
-					echo 
-					'<article class="post-card site-box-shadow">'
-					. '<h2 class="post-card-title site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
-					. '<div class="post-card-components site-gradient-ltr-border-bottom">'
-					. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
-					. $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_INDEX, $iter)
-					. '</a>'
-					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
-					. '</div>'
-					. '<div class="post-card-attrs">'
-					. '<time class="site-font-date-std" datetime="' . date("F j, Y", strtotime($post['post_created']))
-					.  '">' . date("F j, Y", strtotime($post['post_created'])) . '</time>'
-					. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
-					. '</div>'
-					. '</article>';
-
-					$iter += 1;
-				}
-			
-			?>
-
-			</section>
-
-			<section class="latest-posts-container">
-				<h1 class="site-primary-heading site-font-primary-heading">Latest Posts</h1>
-				<ul>
+			<div class="posts-container">
+				<section class="featured-posts-container">	
+					<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
+					
 					<?php
 
-						$latestPosts = $laData->crudData(
-							CrudOperation::GETPOSTS,
-							CrudType::CRUDREAD,
-							CrudResultsetType::RESULTSET_ROWS,
-							CrudFetchStyle::FETCHSTYLE_ASSOC,
-							[
-								'order_by' => 'post_created',
-								'order_by_ascdesc' => 'DESC',
-								'limit' => 10
-							]						
-						);
-						$iter = 1;
-						foreach ($latestPosts as $postNum => $post)
-						{
-							echo 
-							'<li class="site-gradient-border-bottom">'
-							. '<a href="/' . $post['post_name'] . '" class="latest-posts-link site-font-link-std">' . $post['short_desc'] . '</a>'
-							. '</li>';
+					/**
+					* 
+					*/
+					$featuredPosts = $laData->crudData(
+						CrudOperation::GETPOSTS,
+						CrudType::CRUDREAD,
+						CrudResultsetType::RESULTSET_ROWS,
+						CrudFetchStyle::FETCHSTYLE_ASSOC,
+						[
+							'order_by' => 'featured',
+							'order_by_ascdesc' => 'ASC',
+							'limit' => 5
+						]						
+					);
+					$iter = 1;
+					foreach ($featuredPosts as $postNum => $post)
+					{	
+						echo 
+						'<article class="post-card site-box-shadow">'
+						. '<h2 class="post-card-title site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
+						. '<div class="post-card-components site-gradient-ltr-border-bottom">'
+						. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
+						. $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_INDEX, $iter)
+						. '</a>'
+						. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
+						. '</div>'
+						. '<div class="post-card-attrs">'
+						. '<time class="site-font-date-std" datetime="' . date("F j, Y", strtotime($post['post_created']))
+						.  '">' . date("F j, Y", strtotime($post['post_created'])) . '</time>'
+						. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
+						. '</div>'
+						. '</article>';
 
-							$iter += 1;
-						}
-					?>
-				</ul> 
-			</section>
+						$iter += 1;
+					}
+				
+				?>
+
+				</section>
+
+				<section class="latest-posts-container">
+					<h1 class="site-primary-heading site-font-primary-heading">Latest Posts</h1>
+					<ul>
+						<?php
+
+							$latestPosts = $laData->crudData(
+								CrudOperation::GETPOSTS,
+								CrudType::CRUDREAD,
+								CrudResultsetType::RESULTSET_ROWS,
+								CrudFetchStyle::FETCHSTYLE_ASSOC,
+								[
+									'order_by' => 'post_created',
+									'order_by_ascdesc' => 'DESC',
+									'limit' => 10
+								]						
+							);
+							$iter = 1;
+							foreach ($latestPosts as $postNum => $post)
+							{
+								echo 
+								'<li class="site-gradient-border-bottom">'
+								. '<a href="/' . $post['post_name'] . '" class="latest-posts-link site-font-link-std">' . $post['short_desc'] . '</a>'
+								. '</li>';
+
+								$iter += 1;
+							}
+						?>
+					</ul> 
+				</section>
+			</div>
 
 			<section>
 				<h2 class="site-primary-heading site-font-primary-heading">Our Mission</h2>
