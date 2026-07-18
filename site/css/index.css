@@ -8,11 +8,19 @@
         grid-template-columns: calc(var(--sz-400) * 37.5) calc(var(--sz-400) * 21.875);
         column-gap: var(--sz-800);
         row-gap: 0;
+        margin-block-end: var(--sz-400);
     }
 }
 
 .featured-posts-container {
 
+}
+
+@media (min-width: 61.25em) {
+    .featured-post {
+        display: flex;
+        column-gap: var(--sz-400);
+    }
 }
 
 .latest-posts-container {

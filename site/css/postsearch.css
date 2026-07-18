@@ -157,9 +157,7 @@
         block-size: 135px;
         object-fit: contain;
     }
-    .postsearch-results-cards .post-card-longdesc {
-        /* --knob-fw-std: var(--fw-bold); */
-        --knob-fc-std: var(--clr-xdk-dark);
+    .postsearch-results-cards .post-card-longdesc {        
         grid-area: postlongdesc;
     }
     .postsearch-results-cards .post-card-intro {
@@ -170,6 +168,6 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-height: calc(var(--sz-400) * 4.5);        
+        max-height: calc(var(--sz-400) * 4.6875);        
     }
 }

@@ -17,8 +17,6 @@
     padding-block-end: var(--sz-100);
 }
 
-
-
 .post-card-components:hover {
   background-color: var(--clr-xlt-blue);
   transition: background-color var(--transition-fast) ease-in-out;
@@ -40,7 +38,7 @@
 }
 
 .post-card-longdesc, .post-card-longdesc:visited {
-    --knob-fc-link: var(--fc-light);
+    --knob-fc-std: var(--clr-xdk-dark);
     display: block;
 }
 

@@ -81,7 +81,7 @@ $laViewConverter = new classes\LaViewConverter();
 			<div class="posts-container">
 				<section class="featured-posts-container">	
 					<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
-					
+					<div>
 					<?php
 
 					/**
@@ -104,11 +104,11 @@ $laViewConverter = new classes\LaViewConverter();
 						echo 
 						'<article class="post-card site-box-shadow">'
 						. '<h2 class="post-card-title site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
-						. '<div class="post-card-components site-gradient-ltr-border-bottom">'
+						. '<div class="featured-post post-card-components site-gradient-ltr-border-bottom">'
 						. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
 						. $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_INDEX, $iter)
 						. '</a>'
-						. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
+						. '<a class="post-card-longdesc site-font-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
 						. '</div>'
 						. '<div class="post-card-attrs">'
 						. '<time class="site-font-date-std" datetime="' . date("F j, Y", strtotime($post['post_created']))
