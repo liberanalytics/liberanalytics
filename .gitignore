@@ -34,5 +34,12 @@ __pycache__/
 # Generated/exported site assets
 site/assets/
 
+# Favicons
+site/apple-touch-icon.png
+site/favicon-16x16.png
+site/favicon-32x32.png
+site/favicon.ico
+site/favicon.svg
+
 # Site calibration checks
 site/envcheck.php
