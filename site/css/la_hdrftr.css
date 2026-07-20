@@ -122,7 +122,6 @@
     grid-template-areas:
         "site-header-nav"
         "site-header-search";
-    gap: 0;
     column-gap: 0;
     row-gap: var(--sz-300);
     margin-inline: auto;
@@ -161,8 +160,12 @@
     padding: var(--sz-300);
 }
 
+.site-header-search-form {
+    grid-area: site-header-search;
+}
+
 .site-header-search {
-    grid-area: site-header-menu;
+
     --fs-form-100: var(--fsz-100);
     --fw-form-bold: var(--fw-bold);
     --fc-form-xlight: var(--fc-xlight);

@@ -39,7 +39,7 @@
 			</nav>
 
 			<div id="site_search_container">
-				<form id="site_search_form" role="search">
+				<form id="site_search_form" class="site-header-search-form" role="search">
 					<label for="site_search" class="site-display-none">Search posts by tag</label>
 					<input
 						class="site-header-search site-font-form-std"
