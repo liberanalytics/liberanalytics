@@ -40,16 +40,18 @@
 
 			<div id="site_search_container">
 				<form id="site_search_form" class="site-header-search-form" role="search">
-					<label for="site_search" class="site-display-none">Search posts by tag</label>
-					<input
-						class="site-header-search site-font-form-std"
-						id="site_search"
-						type="search" 
-						title="Search for posts by tag" 
-						placeholder="Search for posts by tag"
-						autocomplete="off"
-					>
-					<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+					<div class="site-search-form-components">
+						<label for="site_search" class="site-display-none">Search posts by tag</label>
+						<input
+							class="site-header-search site-font-form-std"
+							id="site_search"
+							type="search" 
+							title="Search for posts by tag" 
+							placeholder="Search for posts by tag"
+							autocomplete="off"
+						>
+						<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+					</div>
 				</form>
 				<div id="site_search_tag_suggestions" class="site-tag-suggestions-container"></div>
 			</div>
