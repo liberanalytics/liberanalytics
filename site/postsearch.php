@@ -125,6 +125,9 @@ $laData = new classes\LaData();
 						</li>
 						<li class="postsearch-submit-control-container">
 							<input type="submit" value="SUBMIT" class="postsearch-submit-control site-fc-xlight site-fw-bold">
+							
+						</li>
+						<li class="postsearch-error-container">
 							<span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
 						</li>
 					</ul>

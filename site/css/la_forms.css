@@ -69,6 +69,8 @@
     display: block;
     min-block-size: var(--knob-form-error-ht, var(--fsz-clamp-320-980-16x18));
     padding-block: var(--sz-100);
+    inline-size: 100%;
+    min-inline-size: 0;
 }
 
 /* Select form element button styling. */
