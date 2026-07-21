@@ -1,3 +1,5 @@
+-- Seed data: refdata.post_categories
+
 INSERT INTO refdata.post_categories (
 
      post_category

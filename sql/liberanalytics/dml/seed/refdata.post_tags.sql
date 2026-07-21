@@ -1,3 +1,5 @@
+-- Seed data: refdata.post_tags
+
 INSERT INTO refdata.post_tags
 (
 	post_tag,

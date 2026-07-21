@@ -1,3 +1,5 @@
+-- Seed data: liberanalytics.posts
+
 INSERT INTO liberanalytics.posts 
 (
 
