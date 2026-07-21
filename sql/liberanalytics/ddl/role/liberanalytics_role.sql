@@ -1,5 +1,4 @@
-\set VERBOSITY verbose
-\set ON_ERROR_STOP on
+-- Role: liberanalytics
 
 DO
 $$

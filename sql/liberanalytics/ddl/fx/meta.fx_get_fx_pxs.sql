@@ -1,3 +1,5 @@
+-- Fx: meta.fx_get_fx_pxs
+
 DROP FUNCTION IF EXISTS meta.fx_get_fx_pxs;
 
 CREATE OR REPLACE FUNCTION meta.fx_get_fx_pxs

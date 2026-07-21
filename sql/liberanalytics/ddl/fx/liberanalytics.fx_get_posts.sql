@@ -1,3 +1,5 @@
+-- Fx: liberanalytics.fx_get_posts
+
 DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts

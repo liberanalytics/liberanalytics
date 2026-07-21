@@ -1,3 +1,5 @@
+-- Table: liberanalytics.post_img
+
 DROP TABLE IF EXISTS liberanalytics.post_img;
 
 CREATE TABLE liberanalytics.post_img (
