@@ -6,6 +6,8 @@ use enums\CrudOperation;
 
 class LaDataPxs extends LaDataVx {
 
+    private const PX_EXCLUSIONS = [];
+
     function __construct()
     {
         parent::__construct();
@@ -31,6 +33,11 @@ class LaDataPxs extends LaDataVx {
                 $pxType = $dbPx[self::COL_PX_TYPE];
                 $pxVal = $this->vxHandler($pxCrudOperation, $pxKey, $value, $pxType);
             }
+            elseif (array_key_exists($pxKey, self::PX_EXCLUSIONS))
+            { 
+                unset($pxClientPxData[$key]);
+                continue;
+            }            
             else
             {
                 throw new \Exception("Invalid key: {$key}");

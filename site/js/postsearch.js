@@ -36,10 +36,12 @@ postsearch.bindEvents = () =>
 
 postsearch.initFromUrlPxs = () => {
 
+    // Store the query string params.
     const urlPxs = new URLSearchParams(window.location.search);
     const pxPostCategory = urlPxs.get('post_category');
     const pxPostTags = urlPxs.get('post_tags');
 
+    // Set module vars to query string params sent.
     if (pxPostCategory) {
         postsearch.categoryEle.value = pxPostCategory;
         postsearch.submitSearch('form');
@@ -89,6 +91,7 @@ postsearch.submitSearch = (submitType) => {
         postsearch.renderSearch(submitType, searchResults);
     })
     .catch(error => {
+        // TODO: Add a renderErrorPage to LArenderor class.
         console.error('Error: ', error);
     })
     .finally(() => {
@@ -98,6 +101,7 @@ postsearch.submitSearch = (submitType) => {
 
 postsearch.normalizeFilterData = (submitType, dataType) => {
 
+    // Filter defaults when no input params provided.
     const DEFAULT_CATEGORY_VALUE = 'Select Category';
     const DEFAULT_CATEGORY_CAPTION = 'All Categories';
     const DEFAULT_TAGS_CAPTION = 'All Tags';
@@ -109,26 +113,31 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
     let categoryCaption = null;
     let tagsCaption = null;
 
-    //
+    // Determine if triggering action is form vs. filter chip removal.
     switch (submitType) {
 
         case 'form':  
+            // Get the category value and caption.
             categoryFilterTrimmed = postsearch.categoryEle.value.trim();
             categoryFilter = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? null : categoryFilterTrimmed;
             categoryCaption = categoryFilterTrimmed === DEFAULT_CATEGORY_VALUE ? DEFAULT_CATEGORY_CAPTION : categoryFilter;
 
+            // Get the tags value and caption.
             tagsFilterTrimmed = postsearch.tagsEle.value.trim().replace(/,*$/, '');
             tagsFilter = (tagsFilterTrimmed.length < 1) ? null : tagsFilterTrimmed;
             tagsCaption = tagsFilter === null ? DEFAULT_TAGS_CAPTION : tagsFilter;
         break;
         
         case 'dechip':
+            // Set cat value and filter - don't crash if (the '?' optional chain in cat filter)
+            // cat value is null or undefined.
             const categoryFilterEle = document.querySelector('[data-type="post-category"]');
             const categoryFilterValue = categoryFilterEle?.getAttribute('data-value');
             categoryFilter = (categoryFilterValue && categoryFilterValue !== DEFAULT_CATEGORY_CAPTION) ? categoryFilterValue : null;
             categoryCaption = (categoryFilter !== null) ? categoryFilter : DEFAULT_CATEGORY_CAPTION;
 
-            //
+            // Set tag value and filter - remove leading/trailing spaces and trailing ', '
+            // from value.
             const tagsFilterEle = document.querySelectorAll('[data-type="post-tag"]');
             if (tagsFilterEle.length > 0) {
                 tagsFilter = '';
@@ -146,6 +155,7 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
         break;
     }
 
+    // Return either the filters or captions.
     const filters = {
         'postCategory': categoryFilter,
         'postTags': tagsFilter
@@ -155,7 +165,6 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
         'postCategory': categoryCaption,
         'postTags': tagsCaption
     };
-
     return dataType === 'filters' ? filters : captions;
 
 }
@@ -163,9 +172,10 @@ postsearch.normalizeFilterData = (submitType, dataType) => {
 
 postsearch.renderSearch = (submitType, searchResults) => {
 
-    //
+    // Render filters and cards then apply searched state formatting.
     postsearch.renderSearchFilters(submitType);
     postsearch.renderSearchResults(searchResults);
+    postsearch.renderSearchFormatting();
 }
 
 postsearch.renderSearchResults = (searchResults) => {
@@ -183,10 +193,13 @@ postsearch.renderSearchResults = (searchResults) => {
 
 postsearch.renderSearchFilters = (submitType) => {
 
+    //
     const normalizedCaptionData = postsearch.normalizeFilterData(submitType, 'captions');
+
+    //
     postsearch.searchFiltersContainerEle.innerHTML = '';
 
-
+    //
     const tagCaptionData = normalizedCaptionData.postTags
         .split(',')
         .map(tag => tag.trim())
@@ -199,30 +212,37 @@ postsearch.renderSearchFilters = (submitType) => {
         `)
         .join('\n');
 
+    //
     const filters = document.createElement('div');
     filters.classList.add('site-gradient-border-top');
     filters.style.paddingTop = '1rem';
 
+    //
     filters.innerHTML = `
         <h2 class="postsearch-filters-header site-font-secondary-heading">Showing results for:</h2>
-        <div class="postsearch-filter-chips-container">
+        <div class="postsearch-filters-list">
 
-        <p class="postsearch-filters-px">
+        <p class="postsearch-filters-cat-label">
             <span class="postsearch-filters-label site-font-std">Post Category -></span>
+        </p>
+        <p class="postsearch-filters-cat-filter">
             <span class="postsearch-filters-chip site-font-std" data-type="post-category" data-value="${normalizedCaptionData.postCategory}">
                 ${normalizedCaptionData.postCategory}
                 <button class="postsearch-filters-btn" aria-label="Remove">x</button>
             </span>
         </p>
 
-        <p class="postsearch-filters-px">
+        <p class="postsearch-filters-tags-label">
             <span class="postsearch-filters-label site-font-std">Post Tags -></span>
+        </p>
+        <p class="postsearch-filters-tags-filter">
             ${tagCaptionData}			
         </p>        
         
         </div>
     `;
 
+    //
     postsearch.searchFiltersContainerEle.appendChild(filters);
     postsearch.bindChipRemovalEvent();
 
@@ -267,8 +287,9 @@ postsearch.removeChipFilter = (chipEle) => {
     chipEle.remove();
 }
 
-
 postsearch.normalizeCardData = (cardData) => {
+
+    // Convert raw API card data into the attr format required by card rendering.
     return {
         post_name: cardData.post_name,
         post_category: cardData.post_category,
@@ -276,13 +297,14 @@ postsearch.normalizeCardData = (cardData) => {
         short_desc: cardData.short_desc,
         long_desc: cardData.long_desc,
         intro: cardData.intro,
-        search_img: cardData.post_img
+        post_img: cardData.post_img,
+        img_html: cardData.img_html
     };
 }
 
 postsearch.normalizeCardDate = (cardDate) => {
 
-    //
+    // Get a date of structure: January 1, 2006.
     const jsDate = new Date(cardDate);
     const normalizedCardDate = jsDate.toLocaleDateString('en-US',{
         year: 'numeric',
@@ -294,22 +316,24 @@ postsearch.normalizeCardDate = (cardDate) => {
 
 postsearch.renderCard = (cardData) => {
 
-    //
+    // 
     const normalizedCardData = postsearch.normalizeCardData(cardData);
+
+    //
     const card = document.createElement('article');
     card.classList.add('post-card', 'site-box-shadow');
 
-    //
+    // Generate the html and css for each card.
     card.innerHTML = `
-        <h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">${normalizedCardData.short_desc}</h2>
+        <h2 class="post-card-title site-font-secondary-heading site-gradient-rtl-border-bottom">${normalizedCardData.short_desc}</h2>
         <div class="post-card-components site-gradient-ltr-border-bottom">
-            <a class="post-card-img" href="/${encodeURIComponent(normalizedCardData.post_name)}">
-                <img src="assets/${normalizedCardData.search_img}">
+            <a class="post-card-img-anchor" href="/${encodeURIComponent(normalizedCardData.post_name)}">
+                ${normalizedCardData.img_html}
             </a>
-            <a class="post-card-longdesc site-font-link-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="post-card-longdesc site-font-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.long_desc}
             </a>
-            <a class="post-card-intro" href="/${encodeURIComponent(normalizedCardData.post_name)}">
+            <a class="post-card-intro site-font-std" href="/${encodeURIComponent(normalizedCardData.post_name)}">
                 ${normalizedCardData.intro}
             </a>
         </div>
@@ -321,4 +345,12 @@ postsearch.renderCard = (cardData) => {
         </div>
         `.trim();
     postsearch.searchResultsContainerEle.appendChild(card);
+}
+
+postsearch.renderSearchFormatting = () => {
+
+    // Add padding beneath post search controls container ele.
+    postsearch.searchControlsContainerEle.classList.add(
+        'postsearch-controls-container-searched'
+    );
 }

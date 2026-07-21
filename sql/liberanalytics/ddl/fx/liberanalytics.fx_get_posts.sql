@@ -1,3 +1,5 @@
+-- Fx: liberanalytics.fx_get_posts
+
 DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
@@ -21,8 +23,13 @@ RETURNS TABLE
     ,long_desc VARCHAR(256)
 	,intro VARCHAR(512)
     ,post_img VARCHAR(64)
-    ,featured_img VARCHAR(64)
-    ,search_img VARCHAR(64)
+	,img_01_width INTEGER
+	,img_02_width INTEGER
+	,img_03_width INTEGER
+	,img_04_width INTEGER
+	,thumb_01_width INTEGER
+	,thumb_02_width INTEGER
+	,thumb_03_width INTEGER
 )
 
 LANGUAGE plpgsql
@@ -35,12 +42,18 @@ txt_query_attr_list TEXT;
 txt_query_base TEXT;
 txt_query TEXT;
 txt_posts_alias TEXT := 'la';
+txt_post_img_01_alias TEXT := 'img_01';
+txt_post_img_02_alias TEXT := 'img_02';
+txt_post_img_03_alias TEXT := 'img_03';
+txt_post_img_04_alias TEXT := 'img_04';
+txt_post_thumb_01_alias TEXT := 'thumb_01';
+txt_post_thumb_02_alias TEXT := 'thumb_02';
+txt_post_thumb_03_alias TEXT := 'thumb_03';
 txt_post_tags_alias TEXT := 'post_tags';
 txt_pred_featured TEXT;
 txt_pred_post_name TEXT;
 txt_pred_post_category TEXT;
 txt_pred_post_tags TEXT;
-txt_pred_post_keywords TEXT;
 int_ordinal_post_name INTEGER := 1;
 int_ordinal_post_category INTEGER := 2;
 int_ordinal_post_tags INTEGER := 3;
@@ -79,26 +92,79 @@ END IF;
 txt_query_attr_list := 
 
 	txt_posts_alias || '.post_name' || E'\n' ||
-	',' || txt_posts_alias || '.post_category' || E'\n'
+	',' || txt_posts_alias || '.post_category' || E'\n' ||
 	',' || txt_posts_alias || '.post_created' || E'\n' ||
 	',' || txt_posts_alias || '.short_desc' || E'\n' ||
 	',' || txt_posts_alias || '.long_desc' || E'\n' ||
 	',' || txt_posts_alias || '.intro' || E'\n' ||
-	',' || txt_posts_alias || '.post_img' || E'\n' ||
-	',' || txt_posts_alias || '.featured_img' || E'\n' ||
-	',' || txt_posts_alias || '.search_img' || E'\n\n';
-
+	',' || txt_post_img_01_alias || '.post_img' || E'\n' ||
+	',' || txt_post_img_01_alias || '.post_img_width AS img_01_width' || E'\n' ||
+	',' || txt_post_img_02_alias || '.post_img_width AS img_02_width' || E'\n' ||
+	',' || txt_post_img_03_alias || '.post_img_width AS img_03_width' || E'\n' ||
+	',' || txt_post_img_04_alias || '.post_img_width AS img_04_width ' || E'\n' ||
+	',' || txt_post_thumb_01_alias || '.post_img_width AS thumb_01_width ' || E'\n' ||
+	',' || txt_post_thumb_02_alias || '.post_img_width AS thumb_02_width ' || E'\n' ||
+	',' || txt_post_thumb_03_alias || '.post_img_width AS thumb_03_width ';
 
 /*
-
+ * Set the query to retrieve post data & post image specs by slot #
+ * where slot 1 = main images, slot 2 = thumbnails.
 */
 txt_query_base :=
-
 'SELECT 
 
 ' || txt_query_attr_list ||
 
 'FROM liberanalytics.posts AS ' || txt_posts_alias || '
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_img_01_alias || '
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_img_01_alias || '.post_name
+AND ' || txt_post_img_01_alias || '.post_img_slot = 1
+AND ' || txt_post_img_01_alias || '.post_img_number = 1
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_img_02_alias || '
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_img_02_alias || '.post_name
+AND ' || txt_post_img_02_alias || '.post_img_slot = 1
+AND ' || txt_post_img_02_alias || '.post_img_number = 2
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_img_03_alias || '
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_img_03_alias || '.post_name
+AND ' || txt_post_img_03_alias || '.post_img_slot = 1
+AND ' || txt_post_img_03_alias || '.post_img_number = 3
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_img_04_alias || '
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_img_04_alias || '.post_name
+AND ' || txt_post_img_04_alias || '.post_img_slot = 1
+AND ' || txt_post_img_04_alias || '.post_img_number = 4
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_thumb_01_alias || '
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_thumb_01_alias || '.post_name
+AND ' || txt_post_thumb_01_alias || '.post_img_slot = 2
+AND ' || txt_post_thumb_01_alias || '.post_img_number = 1
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_thumb_02_alias || '
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_thumb_02_alias || '.post_name
+AND ' || txt_post_thumb_02_alias || '.post_img_slot = 2
+AND ' || txt_post_thumb_02_alias || '.post_img_number = 2
+)
+
+INNER JOIN liberanalytics.post_img AS ' || txt_post_thumb_03_alias || '
+ON (
+' || txt_posts_alias || '.post_name = ' || txt_post_thumb_03_alias || '.post_name
+AND ' || txt_post_thumb_03_alias || '.post_img_slot = 2
+AND ' || txt_post_thumb_03_alias || '.post_img_number = 3
+)
 
 WHERE 1=1
 ';

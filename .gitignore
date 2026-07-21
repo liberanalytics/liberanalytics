@@ -1,18 +1,45 @@
-site/assets/
-python/classes/__pycache__/
-*.ini
-.vscode/
-/vendor/
-src/*.json
-*__pycache__*
-*.pem
-.venv/
-shell/ssh*
-*log*
-tests/
+# VS Code project config
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+
+# Environment config files
+config/la_config_dev.json
 config/la_config_test.json
+config/la_config_prod.json
+
+# DB connection/config files
+config/la_data_dev.config
 config/la_data_test.config
 config/la_data_prod.config
-site/phpinfo.php
+
+# Third-party dependency code downloaded by Composer
+/vendor/
+
+# Python
+.venv/
+__pycache__/
+*__pycache__*/
+*.py[cod]
+
+# Ad hoc/generated developer files
 *codetohtml*
 *liber_enhance*
+*gitdiff*
+*test*
+
+# Logs
+*.log
+
+# Generated/exported site assets
+site/assets/
+
+# Favicons
+site/apple-touch-icon.png
+site/favicon-16x16.png
+site/favicon-32x32.png
+site/favicon.ico
+site/favicon.svg
+
+# Site calibration checks
+site/envcheck.php

@@ -2,22 +2,18 @@
     la_forms.css
 --------------------------------------------------------- */
 
-.site-form-container {
-    padding-block-end: var(--sz-300);
-    margin-block-start: var(--sz-300);
-}
-
 .site-form-std {
-
-}
-
-.site-form-std .form-ele-container {
     margin-block-start: var(--sz-300);
-    margin-block-end: var(--sz-050);
 }
 
-.site-form-std input[type="submit"] {
-    margin-block-start: var(--sz-400);
+@media (max-width: 39.999em) {
+    .site-form-std .form-label-container {
+        margin-block-start: var(--sz-300);
+        margin-block-end: var(--sz-050);
+    }
+    .site-form-std input[type="submit"] {
+        margin-block-start: var(--sz-400);
+    } 
 }
 
 /* Make form controls inherit the wrapper’s font tokens.
@@ -69,12 +65,13 @@
     cursor: pointer;    
 }
 
-.site-form-std .form-error-container {
-    min-height: var(--knob-form-error-container-ht, var(--sz-600));
-    margin-block-start: var(--sz-300);
-    text-align: center;
+.site-form-std .site-form-std-error {
+    display: block;
+    min-block-size: var(--knob-form-error-ht, var(--fsz-clamp-320-980-16x18));
+    padding-block: var(--sz-100);
 }
 
+/* Select form element button styling. */
 .site-form-std .select-arrow {
     position: absolute;
     display: block;

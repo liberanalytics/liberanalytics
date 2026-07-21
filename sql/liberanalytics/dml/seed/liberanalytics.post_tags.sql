@@ -1,3 +1,5 @@
+-- Seed data: liberanalytics.post_tags
+
 INSERT INTO liberanalytics.post_tags
 (
 	post_name, 

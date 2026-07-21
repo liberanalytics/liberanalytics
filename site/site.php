@@ -24,7 +24,7 @@
 		<section id="about_us_w">
 			<h1 class="site-primary-heading">About LiberAnalytics</h1>
 
-			<div id="about" class="site-block-std">
+			<div id="about" class="site-inline-std">
 
 				<p class="site-font-emph">
 					<em class="site-font-brand">LiberAnalytics</em>

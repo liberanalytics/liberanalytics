@@ -1,3 +1,5 @@
+-- Fx: refdata.fx_get_post_tags_like
+
 DROP FUNCTION IF EXISTS refdata.fx_get_post_tags_like(TEXT);
 
 CREATE OR REPLACE FUNCTION refdata.fx_get_post_tags_like

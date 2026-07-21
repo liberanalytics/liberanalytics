@@ -1,4 +1,4 @@
--- Table: liberanalytics.posts
+-- Table: liberanalytics.contact
 
 DROP TABLE IF EXISTS liberanalytics.contact;
 

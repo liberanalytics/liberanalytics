@@ -1,3 +1,5 @@
+-- Fx: meta.fx_get_dynamic_sql_clause
+
 DROP FUNCTION IF EXISTS meta.fx_get_dynamic_sql_clause;
 
 CREATE OR REPLACE FUNCTION meta.fx_get_dynamic_sql_clause

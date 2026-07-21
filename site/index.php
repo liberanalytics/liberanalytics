@@ -1,4 +1,5 @@
 <?php
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -11,6 +12,8 @@ use enums\CrudResultsetType;
 use enums\CrudFetchStyle;	
 
 $laData = new classes\LaData();
+$laViewConverter = new classes\LaViewConverter();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +30,7 @@ $laData = new classes\LaData();
 	<link rel="icon" href="/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">	
-	<link rel="icon" type="image/svg+xml" href="/icon.svg">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
 	<!-- Social media Open Graph data points. -->
@@ -51,6 +54,10 @@ $laData = new classes\LaData();
 
 	<!-- Referrer policy: omit referrer header when navigating from HTTPS to HTTP. -->
 	<meta name="referrer" content="no-referrer-when-downgrade">
+
+	<!-- Font styles needed before the fold. -->
+	<link rel="preload" href="/assets/ls.woff2"  as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" href="/assets/sfs.woff2"  as="font" type="font/woff2" crossorigin="anonymous">
 	
 	<!-- Stylesheets and javascript modules/files. -->
 	<link href="/css/la_tokens.css" rel="stylesheet">
@@ -71,84 +78,86 @@ $laData = new classes\LaData();
 
 	<main>
 		<div class="page-wrap">
-			<section class="featured-posts-container">	
-				<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
-				
-				<?php
-
-				/**
-				 * 
-				 */
-				$featuredPosts = $laData->crudData(
-					CrudOperation::GETPOSTS,
-					CrudType::CRUDREAD,
-					CrudResultsetType::RESULTSET_ROWS,
-					CrudFetchStyle::FETCHSTYLE_ASSOC,
-					[
-						'order_by' => 'featured',
-						'order_by_ascdesc' => 'ASC',
-						'limit' => 5
-					]						
-				);
-				$iter = 1;
-				foreach ($featuredPosts as $postnum => $post)
-				{
-					echo 
-					'<article class="post-card site-box-shadow">'
-					. '<h2 class="post-card-desc site-font-std site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
-					. '<div class="post-card-components site-gradient-ltr-border-bottom">'
-					. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
-					. '<img src="/assets/' . $post['post_img'] . '">'
-					. '</a>'
-					. '<a class="post-card-longdesc site-font-link-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
-					. '</div>'
-					. '<div class="post-card-attrs">'
-					. '<time class="site-font-date-std" datetime="' . date("F j, Y", strtotime($post['post_created']))
-					.  '">' . date("F j, Y", strtotime($post['post_created'])) . '</time>'
-					. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
-					. '</div>'
-					. '</article>';
-
-					$iter += 1;
-				}
-			
-			?>
-
-			</section>
-
-			<section class="latest-posts-container">
-				<h1 class="site-primary-heading site-font-primary-heading">Latest Posts</h1>
-				<ul>
+			<div class="posts-container">
+				<section class="featured-posts-container">	
+					<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
+					<div>
 					<?php
 
-						$latestPosts = $laData->crudData(
-							CrudOperation::GETPOSTS,
-							CrudType::CRUDREAD,
-							CrudResultsetType::RESULTSET_ROWS,
-							CrudFetchStyle::FETCHSTYLE_ASSOC,
-							[
-								'order_by' => 'post_created',
-								'order_by_ascdesc' => 'DESC',
-								'limit' => 10
-							]						
-						);
-						$iter = 1;
-						foreach ($latestPosts as $postNum => $post)
-						{
-							echo 
-							'<li class="site-gradient-border-bottom">'
-							. '<a href="/' . $post['post_name'] . '" class="latest-posts-link site-font-link-std">' . $post['short_desc'] . '</a>'
-							. '</li>';
+					/**
+					* 
+					*/
+					$featuredPosts = $laData->crudData(
+						CrudOperation::GETPOSTS,
+						CrudType::CRUDREAD,
+						CrudResultsetType::RESULTSET_ROWS,
+						CrudFetchStyle::FETCHSTYLE_ASSOC,
+						[
+							'order_by' => 'featured',
+							'order_by_ascdesc' => 'ASC',
+							'limit' => 5
+						]						
+					);
+					$iter = 1;
+					foreach ($featuredPosts as $postNum => $post)
+					{	
+						echo 
+						'<article class="post-card site-box-shadow">'
+						. '<h2 class="post-card-title site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
+						. '<div class="featured-post post-card-components site-gradient-ltr-border-bottom">'
+						. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
+						. $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_INDEX, $iter)
+						. '</a>'
+						. '<a class="post-card-longdesc site-font-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
+						. '</div>'
+						. '<div class="post-card-attrs">'
+						. '<time class="site-font-date-std" datetime="' . date("F j, Y", strtotime($post['post_created']))
+						.  '">' . date("F j, Y", strtotime($post['post_created'])) . '</time>'
+						. '<a class="post-card-cat site-font-link-std" href="/postsearch?post_category=' . rawurlencode($post['post_category']) . '">' . $post['post_category'] . '</a>'
+						. '</div>'
+						. '</article>';
 
-							$iter += 1;
-						}
-					?>
-				</ul> 
-			</section>
+						$iter += 1;
+					}
+				
+				?>
+
+				</section>
+
+				<section class="latest-posts-container">
+					<h1 class="site-primary-heading site-font-primary-heading">Latest Posts</h1>
+					<ul>
+						<?php
+
+							$latestPosts = $laData->crudData(
+								CrudOperation::GETPOSTS,
+								CrudType::CRUDREAD,
+								CrudResultsetType::RESULTSET_ROWS,
+								CrudFetchStyle::FETCHSTYLE_ASSOC,
+								[
+									'order_by' => 'post_created',
+									'order_by_ascdesc' => 'DESC',
+									'limit' => 10
+								]						
+							);
+							$iter = 1;
+							foreach ($latestPosts as $postNum => $post)
+							{
+								echo 
+								'<li class="site-gradient-border-bottom">'
+								. '<a href="/' . $post['post_name'] . '" class="latest-posts-link site-font-link-std">' . $post['short_desc'] . '</a>'
+								. '</li>';
+
+								$iter += 1;
+							}
+						?>
+					</ul> 
+				</section>
+			</div>
 
 			<section>
 				<h2 class="site-primary-heading site-font-primary-heading">Our Mission</h2>
-				<div class="site-block-std">
+				<div class="mission-container site-inline-std">
 					<p class="mission-stmt site-font-std">
 						<span class="site-font-brand">LiberAnalytics</span>' goal is to show that having a creative mindset while working with data can be fascinating and enhance an
 						individual's ability to solve problems. Most solutions to challenges in data are by their nature non-deterministic and
@@ -156,7 +165,18 @@ $laData = new classes\LaData();
 						We hope that the content published will illuminate how to exercise a <em class="site-font-brand">liber</em> (free)
 						mind while working with data as well as inspire individuals to keep improving!
 					</p>
-					<img src="/assets/mission.png" class="mission-img">	
+					<img
+						src="/assets/mission_180.png"
+						srcset="/assets/mission_180.png 1x,
+								/assets/mission_360.png 2x,
+								/assets/mission_540.png 3x",
+						alt="Liber Analytics Mission"
+						class="mission-img"
+						decoding="async"
+						loading="lazy"
+						width="180"
+						height="180"						
+					>
 				</div>
 			</section>			
 		</div><!-- End .page-wrap -->

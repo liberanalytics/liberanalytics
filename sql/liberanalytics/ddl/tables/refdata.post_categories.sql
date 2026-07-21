@@ -1,3 +1,5 @@
+-- Table: refdata.post_categories
+
 DROP TABLE IF EXISTS refdata.post_categories;
 
 CREATE TABLE IF NOT EXISTS refdata.post_categories

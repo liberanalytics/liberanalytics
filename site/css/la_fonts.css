@@ -4,13 +4,13 @@
 :root {
 
     /* Site font-styles. */
-    --ff-main: 'Studio-Feixen-Sans', Helvetica, sans-serif;
-    --ff-primary-heading: Helvetica, sans-serif;
+    --ff-main: 'Studio-Feixen-Sans';
+    --ff-serif: 'Times New Roman', Times, serif;
+    --ff-sans-serif: 'IBMPlexSans', Helvetica, Arial, sans-serif;    
+    --ff-primary-heading: var(--ff-sans-serif);
     --ff-secondary-heading: var(--ff-main);
-    --ff-fancy: 'Times New Roman', Times, serif;
-    --ff-post-snippet: "Droid Sans Mono", monospace;    
-    --ff-sans-serif: Helvetica, Arial, sans-serif;
-
+    --ff-fancy: 'Liberation-Serif';
+    --ff-post-snippet: "IBMPlexSansMono", monospace;
 
     /* Site font-sizes. */
     --fsz-100: var(--sz-400);
@@ -19,14 +19,16 @@
     --fsz-300: var(--sz-600);
     --fsz-400: var(--sz-700);
 
-    /* Site font size clamps. */
-    --fsz-clamp-14x16: clamp(.875rem, calc(2.703vw + 0.326rem), 1rem);
-    --fsz-clamp-16x18: clamp(1rem, calc(2.703vw + 0.451rem), 1.125rem);
-    --fsz-clamp-16x18-8: clamp(1.0rem, calc(3.784vw + .231rem), 1.175rem);
-    --fsz-clamp-18x18-8: clamp(1.125rem, calc(1.081vw + .905rem), 1.175rem);
-    --fsz-clamp-18x20: clamp(1.125rem, calc(2.703vw + 0.576rem), 1.25rem);
-    --fsz-clamp-20x22: clamp(1.25rem, calc(2.703vw + 0.701rem), 1.375rem);
-    --fsz-clamp-22x24: clamp(1.375rem, calc(2.703vw + 0.826rem), 1.5rem);    
+    /* Site font size clamps from 320px - 980px. */
+    --fsz-clamp-320-980-14x16:     clamp(.875rem, calc(.303vw + 0.814rem), 1.0rem);
+    --fsz-clamp-320-980-16x18:     clamp(1.0rem, calc(.303vw + 0.939rem), 1.125rem);
+    --fsz-clamp-320-980-16x18-8:   clamp(1.0rem, calc(.424vw + 0.915rem), 1.175rem);
+    --fsz-clamp-320-980-16x20:     clamp(1.0rem, calc(.606vw + 0.879rem), 1.25rem);
+    --fsz-clamp-320-980-16x24:     clamp(1.0rem, calc(1.212vw + 0.758rem), 1.5rem);
+    --fsz-clamp-320-980-18x24:     clamp(1.125rem, calc(.909vw + 0.943rem), 1.5rem);
+    --fsz-clamp-320-980-20x32:     clamp(1.25rem, calc(1.818vw + 0.886rem), 2.0rem);
+    --fsz-clamp-320-980-24x42:     clamp(1.5rem, calc(2.727vw + 0.955rem), 2.625rem);
+    --fsz-clamp-320-980-32x48:     clamp(2.0rem, calc(2.424vw + 1.515rem), 3.0rem);
 
     /* Site font-weights. */
     --fw-xlight: 300;
@@ -59,58 +61,134 @@
 
 }
 
+/* Studio-Feixen-Sans: Regular */
+@font-face {
+    font-family: "Studio-Feixen-Sans";
+    src: url("/assets/sfs.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    font-synthesis: none;  
+}
+
+/* Studio-Feixen-Sans: Bold */
+@font-face {
+    font-family: "Studio-Feixen-Sans";
+    src: url("/assets/sfsb.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    font-synthesis: none;    
+}
+
+/* Liberation Serif: Regular */
+@font-face {
+    font-family: "Liberation-Serif";
+    src: url("/assets/ls.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    font-synthesis: none;
+}
+
+/* Liberation Serif: Bold */
+@font-face {
+  font-family: "Liberation-Serif";
+  src: url("/assets/lsb.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-synthesis: none;  
+}
+
+/* IBM Plex Sans: Regular */
+@font-face{
+  font-family: "IBMPlexSans";
+  src: url("/assets/ibmps.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IBM Plex Sans: Semi Bold */
+@font-face{
+  font-family: "IBMPlexSans";
+  src: url("/assets/ibmpssb.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IBM Plex Sans: Bold */
+@font-face{
+  font-family: "IBMPlexSans";
+  src: url("/assets/ibmpsb.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: "IBMPlexSansMono";
+    src: url("/assets/ibmpm.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Site Font (non-link) Component Classes. */
 .site-font-std {
-    font-family: var(--knob-std-ff, var(--ff-main));
-    font-size: var(--knob-std-fs, var(--fsz-clamp-16x18));
-    font-weight: var(--fw-xlight);
-    line-height: var(--knob-std-flh, var(--flh-tight));
-    color: var(--knob-std-fc, var(--fc-light));
+    font-family: var(--knob-ff-std, var(--ff-main));
+    font-size: var(--knob-fs-std, var(--fsz-clamp-320-980-16x18));
+    font-weight: var(--knob-fw-std, var(--fw-xlight));
+    line-height: var(--knob-flh-std, var(--flh-tight));
+    color: var(--knob-fc-std, var(--fc-light));
+    text-decoration: none;
 }
 
 .site-font-primary-heading {
     font-family: var(--ff-primary-heading);
-    font-size: var(--knob-primary-heading-fs, var(--fsz-clamp-18x20));
-    font-weight: var(--fw-xlight);
-    line-height: var(--knob-primary-heading-flh, var(--flh-xtight));
+    font-size: var(--knob-fs-primary-heading, var(--fsz-clamp-320-980-16x24));
+    font-weight: var(--fw-light);
+    line-height: var(--knob-flh-primary-heading, var(--flh-xtight));
     color: var(--fc-xlight);
 }
 
 .site-font-secondary-heading {
     font-family: var(--ff-main);
-    font-size: var(--knob-secondary-heading-fs, var(--fsz-clamp-18x20));
-    font-weight: var(--fw-xlight);
-    line-height: var(--knob-secondary-heading-flh, var(--flh-tight));
+    font-size: var(--knob-fs-secondary-heading, var(--fsz-clamp-320-980-16x20));
+    font-weight: var(--knob-fw-secondary-heading, var(--fw-xlight));
+    line-height: var(--knob-flh-secondary-heading, var(--flh-tight));
     color: var(--fc-med-green);   
 }
 
 .site-font-brand {    
-    font-family: var(--ff-fancy);
-    font-size: var(--knob-brand-fs, var(--fsz-clamp-18x20));
-    font-weight: var(--knob-brand-fw, var(--fw-bold));
-    line-height: var(--knob-brand-flh, var(--flh-tight));
+    font-family: var(--knob-ff-brand, var(--ff-fancy));
+    font-size: var(--knob-fs-brand, var(--fsz-clamp-320-980-18x24));
+    font-weight: var(--knob-fw-brand, var(--fw-bold));
+    line-height: var(--knob-flh-brand, var(--flh-tight));
     color: var(--fc-med-green);
 }
 
 .site-font-date-std {
-    font-family: var(--knob-date-ff, var(--ff-main));
-    font-size: var(--knob-date-fs, var(--fsz-clamp-16x18));
+    font-family: var(--knob-ff-date, var(--ff-main));
+    font-size: var(--knob-fs-date, var(--fsz-clamp-320-980-16x18));
     font-weight: var(--fw-xlight);
-    line-height: var(--knob-date-flh, var(--flh-tight));
-    color: var(--knob-date-fc, var(--fc-midlight));
+    line-height: var(--knob-flh-date, var(--flh-tight));
+    color: var(--knob-fc-date, var(--fc-midlight));
 }
 
 .site-font-form-std {
-    font-family: var(--knob-form-ff, var(--ff-sans-serif));
-    font-size: var(--knob-form-fs, var(--fsz-clamp-16x18));
-    font-weight: var(--knob-form-fw, var(--fw-xlight));
-    line-height: var(--knob-form-flh, var(--flh-tight));
-    color: var(--knob-form-fc, --fc-light);    
+    font-family: var(--knob-ff-form, var(--ff-sans-serif));
+    font-size: var(--knob-fs-form, var(--fsz-clamp-320-980-16x18));
+    font-weight: var(--knob-fw-form, var(--fw-xlight));
+    line-height: var(--knob-flh-form, var(--flh-tight));
+    color: var(--knob-fc-form, --fc-light);    
 }
 
 .site-font-form-error {
     font-family: var(--ff-sans-serif);
-    font-size: var(--knob-form-error-fs, var(--fsz-clamp-16x18));
+    font-size: var(--knob-fs-form-error, var(--fsz-clamp-320-980-16x18));
     font-weight: var(--fw-xlight);
     line-height: var(--flh-xtight);    
     color: var(--fc-med-red);
@@ -119,11 +197,11 @@
 
 /* Site Font (link) Component Classes */
 .site-font-link-std {
-    font-family: var(--knob-link-ff, var(--ff-main));
-    font-size: var(--knob-link-fs, var(--fsz-clamp-16x18));
+    font-family: var(--knob-ff-link, var(--ff-main));
+    font-size: var(--knob-fs-link, var(--fsz-clamp-320-980-16x18));
     font-weight: var(--fw-xlight);
-    line-height: var(--knob-link-flh, var(--flh-tight));    
-    color: var(--knob-link-fc, var(--fc-link));
+    line-height: var(--knob-flh-link, var(--flh-tight));    
+    color: var(--knob-fc-link, var(--fc-link));
     text-decoration: none;
     text-decoration-thickness: .08em;
     text-underline-offset: .15em;
@@ -135,12 +213,12 @@
 }
 
 /* :any-link pseudo class covers :link & :visited */
-.site-font-link-std:any-link { color: var(--knob-link-fc, var(--fc-link)); }
+.site-font-link-std:any-link { color: var(--knob-fc-link, var(--fc-link)); }
 
 .site-font-link-std:hover,
 .site-font-link-std:focus {
-    color: var(--knob-link-hover-fc, var(--fc-link-hover));
-    background-color: var(--knob-link-hover-bg, transparent);
+    color: var(--knob-fc-link-hover, var(--fc-link-hover));
+    background-color: var(--knob-bg-link-hover, transparent);
     text-decoration: var(--knob-link-hover-decoration, underline);
     transition-duration: var(--transition-fast);
     cursor: pointer;
@@ -182,12 +260,12 @@
    Site font link utility classes.
    Uses knob custom variables to dial property values.
 --------------------------------------------------------- */
-.site-link-ff-sans-serif { --knob-link-ff: var(--ff-sans-serif); }
-.site-link-fs-xsmall { --knob-link-fs: var(--fsz-100); }
-.site-link-fc-med { --knob-link-fc: var(--fc-med); }
-.site-link-fc-muted { --knob-link-fc: var(--fc-light); }
-.site-link-fc-accent { --knob-link-fc: var(--fc-med-green); }
-.site-link-fc-dark { --knob-link-fc: var(--fc-dark); }
-.site-link-fc-xdark { --knob-link-fc: var(--fc-xdark); }
-.site-link-flh-med { --knob-link-flh: var(--flh-med); }
-.site-link-hover-fc-xlight { --knob-link-hover-fc: var(--fc-xlight); }
+.site-link-ff-sans-serif { --knob-ff-link: var(--ff-sans-serif); }
+.site-link-fs-xsmall { --knob-fs-link: var(--fsz-100); }
+.site-link-fc-med { --knob-fc-link: var(--fc-med); }
+.site-link-fc-muted { --knob-fc-link: var(--fc-light); }
+.site-link-fc-accent { --knob-fc-link: var(--fc-med-green); }
+.site-link-fc-dark { --knob-fc-link: var(--fc-dark); }
+.site-link-fc-xdark { --knob-fc-link: var(--fc-xdark); }
+.site-link-flh-med { --knob-flh-link: var(--flh-med); }
+.site-link-hover-fc-xlight { --knob-fc-link-hover: var(--fc-xlight); }

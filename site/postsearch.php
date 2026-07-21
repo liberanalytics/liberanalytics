@@ -26,7 +26,7 @@ $laData = new classes\LaData();
 	<link rel="icon" href="/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">	
-	<link rel="icon" type="image/svg+xml" href="/icon.svg">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
 	<!-- Social media Open Graph data points. -->
@@ -74,8 +74,10 @@ $laData = new classes\LaData();
 		<section class="site-ajax-overlay-relative">
 			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
-
-			<div id="postsearch_controls" class="site-form-container site-block-std site-gradient-border-bottom site-position-relative">							
+			<div class="postsearch-container">
+			<div 
+				id="postsearch_controls"
+				class="postsearch-controls-container site-inline-std site-gradient-border-bottom">							
 				<form 
 					id="postsearch"
 					name="postsearch"
@@ -85,10 +87,12 @@ $laData = new classes\LaData();
 					class="site-form-std site-font-form-std"
 				>
 
-					<ul>
-						<li class="form-ele-container"><label for="postsearch_category" class="site-fw-bold">Post Category</label></li>
-						<li class="site-position-relative">
-							<select id="postsearch_category" class="select-control"
+					<ul class="postsearch-controls">
+						<li class="form-label-container postsearch-cat-label-container">
+							<label for="postsearch_category" class="postsearch-cat-label site-fw-bold">Post Category</label>
+						</li>
+						<li class="postsearch-cat-control-container site-position-relative">
+							<select id="postsearch_category" class="postsearch-cat-control select-control"
 							data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
 							<option class="control">Select Category</option>
 								
@@ -110,17 +114,19 @@ $laData = new classes\LaData();
 							<span class="select-arrow"></span>
 						</li>
 
-						<li class="form-ele-container"><label for="postsearch_tags" class="site-fw-bold">Tags</label></li>
-						<li id="postsearch_tags_container" class="site-position-relative">
+						<li class="form-label-container postsearch-tags-label-container"><label for="postsearch_tags" class="postsearch-tags-label site-fw-bold">Tags</label></li>
+						<li id="postsearch_tags_container" class="postsearch-tags-control-container site-position-relative">
 							<input 
-								id="postsearch_tags" name="postsearch_tags" class="postsearch-tags site-font-form-std" type="text"
-								title="Enter Last Name" maxlength="48" data-caption="Tags" data-id="last_name"
+								id="postsearch_tags" name="postsearch_tags" class="postsearch-tags-control site-font-form-std" type="text"
+								title="Enter Post Tags" maxlength="48" data-caption="Tags" data-id="post_tags"
 								data-req="1" data-vx="vxText" data-len="48" autocomplete="off"
 							>
 							<div id="postsearch_tag_suggestions" class="site-tag-suggestions-container"></div>
 						</li>
-						<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-						<li class="form-error-container"><span id ="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>
+						<li class="postsearch-submit-control-container">
+							<input type="submit" value="SUBMIT" class="postsearch-submit-control site-fc-xlight site-fw-bold">
+							<span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
+						</li>
 					</ul>
 
 				</form>
@@ -144,6 +150,8 @@ $laData = new classes\LaData();
 			</div>
 
 			<div class="site-ajax-overlay-flex site-ajax-hidden">
+			</div>
+
 			</div>
 
 		</section>

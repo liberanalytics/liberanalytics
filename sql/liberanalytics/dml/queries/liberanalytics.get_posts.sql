@@ -6,9 +6,14 @@ SELECT
     short_desc,
     long_desc,
     intro,
-    post_img,
-    featured_img,
-    search_img
+	post_img,
+	img_01_width,
+	img_02_width,
+	img_03_width,
+	img_04_width,
+	thumb_01_width,
+	thumb_02_width,
+	thumb_03_width	
         
 FROM liberanalytics.fx_get_posts
 (

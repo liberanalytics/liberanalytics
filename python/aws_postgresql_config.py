@@ -13,7 +13,6 @@ import json
 import traceback
 import base64
 import boto3
-from classes import AwsCWLogs
 
 def main():
 

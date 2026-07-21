@@ -1,16 +1,19 @@
 <?php
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
 
-	require_once(dirname(__DIR__, 1) . "/" . 'vendor/autoload.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
-	use enums\CrudOperation;
-	use enums\CrudType;
-	use enums\CrudResultsetType;
-	use enums\CrudFetchStyle;	
+require_once(dirname(__DIR__, 1) . "/" . 'vendor/autoload.php');
 
-	$laData = new classes\LaData();
+use enums\CrudOperation;
+use enums\CrudType;
+use enums\CrudResultsetType;
+use enums\CrudFetchStyle;	
+
+$laData = new classes\LaData();
+$laViewConverter = new classes\LaViewConverter();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +30,7 @@
 	<link rel="icon" href="/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">	
-	<link rel="icon" type="image/svg+xml" href="/icon.svg">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
 	<!-- Social media Open Graph data points. -->
@@ -53,13 +56,13 @@
 	<meta name="referrer" content="no-referrer-when-downgrade">
 	
 	<!-- Stylesheets and javascript modules/files. -->
-	<link href="/css/la_tokens.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/la_fonts.css" rel="stylesheet" type="text/css" charset="utf-8">	
-	<link href="/css/la.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/la_hdrftr.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/la_tags.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/la_ajax.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/css/post.css" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="/css/la_tokens.css" rel="stylesheet">
+	<link href="/css/la_fonts.css" rel="stylesheet">	
+	<link href="/css/la.css" rel="stylesheet">
+	<link href="/css/la_hdrftr.css" rel="stylesheet">
+	<link href="/css/la_tags.css" rel="stylesheet">
+	<link href="/css/la_ajax.css" rel="stylesheet">
+	<link href="/css/post.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
 </head>
 
@@ -71,6 +74,7 @@
 		<div class="page-wrap">
 			<article>
 				<header class="site-stack-start-mt">
+
 					<?php
 						//
 						$postName = basename($_SERVER['PHP_SELF'], ".php");
@@ -81,39 +85,11 @@
 							CrudFetchStyle::FETCHSTYLE_ASSOC,
 							[ 'post_name' => $postName]						
 						)[0];
-
+						
 						//
-						$postShortDesc	= htmlspecialchars($post['short_desc'] ?? '', ENT_QUOTES, 'UTF-8');
-						$postLongDesc	= htmlspecialchars($post['long_desc'] ?? '', ENT_QUOTES, 'UTF-8');
-						$postImg    	= htmlspecialchars($post['post_img'] ?? '', ENT_QUOTES, 'UTF-8');
-						$postAlt		= $postShortDesc;
-						$postDate		= htmlspecialchars(date("F j, Y", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
-						$postISODate	= htmlspecialchars(date("Y-m-d", strtotime($post['post_created'] ?? 'now')), ENT_QUOTES, 'UTF-8');
-						[$postImgWidth, $postImgHeight]
-										= @getimagesize($_SERVER['DOCUMENT_ROOT']."/assets/"."{$postImg}");
-						$postImgWidth	= (int)$postImgWidth;
-						$postImgHeight	= (int)$postImgHeight;
+						echo $laViewConverter->getPostHeader($post);
 					?>
 
-					<h1 class="post-heading site-font-brand"><?php echo "{$postShortDesc}"; ?></h1>
-					<p class="post-date site-font-date">
-						<time datetime="<?php echo "{$postISODate}"; ?>">
-							<?php echo "{$postDate}"; ?>
-						</time>
-					</p>
-					<h2 class="post-desc site-font-emph"><?php echo "{$postLongDesc}"; ?></h2>
-					<img 
-						<?php
-							//
-							echo " src=\"/assets/{$postImg}\"";
-							echo " alt=\"{$postAlt}\"";
-							echo " width=\"{$postImgWidth}\"";
-							echo " height=\"{$postImgHeight}\"";
-						?>
-						class="post-img"
-						loading="lazy"
-						decoding="async"
-					>
 				</header>     
 
 				<section class="site-stack-start-mt">

@@ -2,13 +2,13 @@
 
 require_once(dirname(__DIR__, 2) . "/" . 'vendor/autoload.php');
 
-use classes\LaData;
 use enums\CrudOperation;
 use enums\CrudType;
 use enums\CrudResultsetType;
 use enums\CrudFetchStyle;
 
-$laData = new LaData();  
+$laData = new classes\LaData();
+$laViewConverter = new classes\LaViewConverter();
 
 $posts = $laData->crudData(
     CrudOperation::GETPOSTS,
@@ -17,6 +17,11 @@ $posts = $laData->crudData(
     CrudFetchStyle::FETCHSTYLE_ASSOC,
     $requestPxs						
 );
+
+foreach ($posts as $postKey => $post) {
+    $posts[$postKey]['img_html'] = 
+        $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_POSTSEARCH, 1);
+}
 
 return $posts;
 

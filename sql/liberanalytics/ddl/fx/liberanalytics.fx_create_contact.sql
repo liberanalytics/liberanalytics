@@ -1,3 +1,5 @@
+-- Fx: liberanalytics.fx_create_contact
+
 DROP FUNCTION IF EXISTS liberanalytics.fx_create_contact;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_create_contact

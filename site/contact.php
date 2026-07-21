@@ -26,7 +26,7 @@
 	<link rel="icon" href="/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">	
-	<link rel="icon" type="image/svg+xml" href="/icon.svg">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 	
 	<!-- Social media Open Graph data points. -->
@@ -72,7 +72,7 @@
 			<section class="site-ajax-overlay-relative">
 				<h1 class="site-primary-heading site-font-primary-heading">Contact Us</h1>
 
-				<div class="site-block-std">					
+				<div class="site-inline-std">					
 				
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
 
@@ -84,7 +84,7 @@
 							data-composite="0"
 							data-erroreleid="error_form"
 							action="/api/contact.php"
-							class="site-form-std site-font-form-std"
+							class="contact-form site-form-std site-font-form-std"
 						>
 
 							<ul>
