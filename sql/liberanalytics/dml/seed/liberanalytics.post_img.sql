@@ -1,3 +1,5 @@
+-- Seed data: liberanalytics.post_img
+
 INSERT INTO liberanalytics.post_img 
 (
      post_name
