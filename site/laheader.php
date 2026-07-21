@@ -51,9 +51,10 @@
 							autocomplete="off"
 						>
 						<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+						<div id="site_search_tag_suggestions" class="site-tag-suggestions-container"></div>
 					</div>
 				</form>
-				<div id="site_search_tag_suggestions" class="site-tag-suggestions-container"></div>
+				
 			</div>
 		</div>
 	</div>	
