@@ -5,3 +5,9 @@
 .contact-form input[type="submit"] {
     margin-block-start: var(--sz-400);
 }
+
+@media (min-width: 40em) {
+    .site-form-container  {
+        display: grid;
+    }
+}

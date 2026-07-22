@@ -73,10 +73,8 @@
 				<h1 class="site-primary-heading site-font-primary-heading">Contact Us</h1>
 
 				<div class="site-inline-std">					
-				
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
-
-					<div class="site-form-container site-gradient-border-bottom">
+					<div class="form-controls-container site-gradient-border-bottom">	
 						<form
 							id="contact_form"
 							name="contact" 
@@ -84,9 +82,8 @@
 							data-composite="0"
 							data-erroreleid="error_form"
 							action="/api/contact.php"
-							class="contact-form site-form-std site-font-form-std"
+							class="contact-form site-form-std site-font-form-std site-gradient-border-bottom"
 						>
-
 							<ul>
 								<li class="form-ele-container"><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
 								<li>
@@ -132,8 +129,8 @@
 								<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
 								<li class="form-error-container"><span id="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>														
 							</ul>					
-						</form> 					
-					</div>
+						</form>
+				</div>					
 				</div>
 
 				<div class="site-ajax-overlay-flex site-ajax-hidden">					
