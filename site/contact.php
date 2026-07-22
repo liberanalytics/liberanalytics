@@ -72,65 +72,63 @@
 			<section class="site-ajax-overlay-relative">
 				<h1 class="site-primary-heading site-font-primary-heading">Contact Us</h1>
 
-				<div class="site-inline-std">					
+				<div class="site-inline-std site-gradient-border-bottom">					
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
-					<div class="form-controls-container site-gradient-border-bottom">	
-						<form
-							id="contact_form"
-							name="contact" 
-							method="post"
-							data-composite="0"
-							data-erroreleid="error_form"
-							action="/api/contact.php"
-							class="contact-form site-form-std site-font-form-std site-gradient-border-bottom"
-						>
-							<ul>
-								<li class="form-ele-container"><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
-								<li>
-									<input 
-										id="first_name" name="first_name" type="text" title="Enter First Name" class="" 
-										maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
-										data-vx="vxName" data-len="32" autocomplete="given-name"
-									>
-								</li>
+					<form
+						id="contact_form"
+						name="contact" 
+						method="post"
+						data-composite="0"
+						data-erroreleid="error_form"
+						action="/api/contact.php"
+						class="contact-form site-form-std site-font-form-std site-gradient-border-bottom"
+					>
+						<ul class="contact-form-controls site-form-std-controls">
+							<li class="form-ele-container"><label for="first_name" class="site-fw-bold">First Name<em class="site-fc-med-red">*</em></label></li>
+							<li>
+								<input 
+									id="first_name" name="first_name" type="text" title="Enter First Name" class="" 
+									maxlength="32" data-caption="First Name" data-id="first_name" data-req="1"
+									data-vx="vxName" data-len="32" autocomplete="given-name"
+								>
+							</li>
 
-								<li class="form-ele-container"><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
-								<li>
-									<input 
-										id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
-										maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
-										data-vx="vxName" data-len="32" autocomplete="family-name"
-									>      
-								</li>
-								<li class="form-ele-container"><label for="email" class="site-fw-bold">Email<em class="site-fc-med-red">*</em></label></li>
-								<li>
-									<input
-										id="email" name="email" type="text" title="Enter Email" class="" 
-										maxlength="32" data-caption="Email" data-id="email" data-req="1"
-										data-vx="vxEmail" data-len="32" autocomplete="email"
-									>							
-								</li>
-								<li class="form-ele-container"><label for="subject" class="site-fw-bold">Subject<em class="site-fc-med-red">*</em></label></li>
-								<li>
-									<input
-										id="subject" name="contact_subject" type="text" title="Enter Subject" class=""
-										maxlength="32" data-caption="Subject" data-id="subject" data-req="1"
-										data-vx="vxAlphaNum" data-len="32" autocomplete="off"
+							<li class="form-ele-container"><label for="last_name" class="site-fw-bold">Last Name<em class="site-fc-med-red">*</em></label></li>
+							<li>
+								<input 
+									id="last_name" name="last_name" type="text" title="Enter Last Name" class="" 
+									maxlength="32" data-caption="Last Name" data-id="last_name" data-req="1"
+									data-vx="vxName" data-len="32" autocomplete="family-name"
+								>      
+							</li>
+							<li class="form-ele-container"><label for="email" class="site-fw-bold">Email<em class="site-fc-med-red">*</em></label></li>
+							<li>
+								<input
+									id="email" name="email" type="text" title="Enter Email" class="" 
+									maxlength="32" data-caption="Email" data-id="email" data-req="1"
+									data-vx="vxEmail" data-len="32" autocomplete="email"
 								>							
-								</li>
-								<li class="form-ele-container"><label for="message" class="site-fw-bold">Message<em class="site-fc-med-red">*</em></label></li>
-								<li>
-									<textarea 
-										id="message" name="contact_message" rows="8" class=""
-										data-caption="Message" data-id="contact_message" data-req="1"
-										data-vx="vxText" data-len="512"
-									></textarea>							
-								</li>
-								<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-								<li class="form-error-container"><span id="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>														
-							</ul>					
-						</form>
-				</div>					
+							</li>
+							<li class="form-ele-container"><label for="subject" class="site-fw-bold">Subject<em class="site-fc-med-red">*</em></label></li>
+							<li>
+								<input
+									id="subject" name="contact_subject" type="text" title="Enter Subject" class=""
+									maxlength="32" data-caption="Subject" data-id="subject" data-req="1"
+									data-vx="vxAlphaNum" data-len="32" autocomplete="off"
+							>							
+							</li>
+							<li class="text-area-label-container"><label for="message" class="site-fw-bold">Message<em class="site-fc-med-red">*</em></label></li>
+							<li class="">
+								<textarea 
+									id="message" name="contact_message" rows="8"
+									data-caption="Message" data-id="contact_message" data-req="1"
+									data-vx="vxText" data-len="512"
+								></textarea>							
+							</li>
+							<li><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
+							<li class="form-error-container"><span id="form_error_ele" class="site-font-form-error" aria-live="polite"></span></li>														
+						</ul>					
+					</form>					
 				</div>
 
 				<div class="site-ajax-overlay-flex site-ajax-hidden">					

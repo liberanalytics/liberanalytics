@@ -7,7 +7,7 @@
 }
 
 @media (min-width: 40em) {
-    .site-form-container  {
-        display: grid;
+    .contact-form-controls {
+        --knob-cg-form: calc(var(--sz-400) * 8);
     }
 }

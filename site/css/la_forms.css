@@ -6,6 +6,19 @@
     margin-block-start: var(--sz-300);
 }
 
+@media (min-width: 40em) {
+    .site-form-std-controls  {
+        display: grid;
+        grid-template-columns: max-content minmax(0, calc(var(--sz-400) * 20));
+        column-gap: var(--knob-cg-form, calc(var(--sz-400) * 4));   
+        align-items: center;
+        justify-content: center;        
+    }
+    .text-area-label-container {
+        align-self: start;
+    }
+}
+
 @media (max-width: 39.999em) {
     .site-form-std .form-label-container {
         margin-block-start: var(--sz-300);
