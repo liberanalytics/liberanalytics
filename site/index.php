@@ -81,7 +81,7 @@ $laViewConverter = new classes\LaViewConverter();
 			<div class="posts-container">
 				<section class="featured-posts-container">	
 					<h1 class="site-primary-heading site-font-primary-heading">Featured</h1>
-					<div>
+					<div class="post-card-grid-at-980">
 					<?php
 
 					/**
@@ -105,7 +105,7 @@ $laViewConverter = new classes\LaViewConverter();
 						'<article class="post-card site-box-shadow">'
 						. '<h2 class="post-card-title site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
 						. '<div class="featured-post post-card-components site-gradient-ltr-border-bottom">'
-						. '<a class="post-card-img" href="/' . rawurlencode($post['post_name']) . '">'
+						. '<a class="post-card-img-anchor" href="/' . rawurlencode($post['post_name']) . '">'
 						. $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_INDEX, $iter)
 						. '</a>'
 						. '<a class="post-card-longdesc site-font-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
