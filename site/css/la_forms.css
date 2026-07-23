@@ -2,6 +2,10 @@
     la_forms.css
 --------------------------------------------------------- */
 
+.site-form-std-container {
+    /* Future placeholder for form proxemics/knob dials. */
+}
+
 .site-form-std {
     margin-block-start: var(--sz-300);
 }
@@ -51,10 +55,21 @@
     } 
 }
 
-/* Make form controls inherit the wrapper’s font tokens.
-   Because the class is inside :where(), this has *zero* class specificity.
-   Result: any utility class placed directly on a control will override it,
-   even if utilities are defined earlier in la_fonts.css. */
+
+/*
+ * Center descriptive text contained by a standard form section
+ * without adding selector specificity.
+ */
+:where(.site-form-std-container) :where(p) {
+    text-align: center;
+}
+
+/*
+ * Make form controls inherit the wrapper’s font tokens.
+ * Because the class is inside :where(), this has *zero* class specificity.
+ * Result: any utility class placed directly on a control will override it,
+ * even if utilities are defined earlier in la_fonts.css.
+ */
 :where(.site-font-form-std) :where(input[type="text"], input[type="submit"], textarea, select) {
     font: inherit;
     font-family: inherit;

@@ -72,7 +72,7 @@
 			<section class="site-ajax-overlay-relative">
 				<h1 class="site-primary-heading site-font-primary-heading">Contact Us</h1>
 
-				<div class="site-inline-std site-gradient-border-bottom">					
+				<div class="site-form-std-container site-inline-std site-gradient-border-bottom">					
 					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
 					<form
 						id="contact_form"
@@ -126,7 +126,8 @@
 								></textarea>							
 							</li>
 							<li class="site-form-std-submit-container"><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
-							<li class="site-form-std-error-container"><span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span></li>														
+							<li class="site-form-std-error-container">
+								<span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span></li>														
 						</ul>					
 					</form>					
 				</div>

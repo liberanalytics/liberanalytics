@@ -74,26 +74,26 @@ $laData = new classes\LaData();
 		<section class="site-ajax-overlay-relative">
 			<h1 class="site-primary-heading site-font-primary-heading">Search for posts on Liber<em>Analytics</em></h1>
 
-			<div class="postsearch-container">
-			<div 
+			<div class="postsearch-container site-form-std-container">
+			<div
 				id="postsearch_controls"
-				class="postsearch-controls-container site-inline-std site-gradient-border-bottom"
-			>							
+				class="site-inline-std site-gradient-border-bottom">
+				<p>Use the filters below to search posts by category, tags, or both.</p>
 				<form 
 					id="postsearch"
 					name="postsearch"
 					method="post" data-composite="1"
 					data-erroreleid="error_form"
 					action="/api/postsearch.php"
-					class="site-form-std site-font-form-std"
+					class="postsearch-form site-form-std site-font-form-std"
 				>
 
-					<ul class="postsearch-controls">
-						<li class="form-label-container postsearch-cat-label-container">
+					<ul class="site-form-std-controls">
+						<li class="site-form-std-label-container">
 							<label for="postsearch_category" class="postsearch-cat-label site-fw-bold">Post Category</label>
 						</li>
-						<li class="postsearch-cat-control-container site-position-relative">
-							<select id="postsearch_category" class="postsearch-cat-control select-control"
+						<li class="site-form-std-ctrl-container site-position-relative">
+							<select id="postsearch_category" class=""
 							data-caption="Post Category" data-datakey="post_category" data-vx="vxText" data-len="512">
 							<option class="control">Select Category</option>
 								
@@ -115,8 +115,8 @@ $laData = new classes\LaData();
 							<span class="select-arrow"></span>
 						</li>
 
-						<li class="form-label-container postsearch-tags-label-container"><label for="postsearch_tags" class="postsearch-tags-label site-fw-bold">Tags</label></li>
-						<li id="postsearch_tags_container" class="postsearch-tags-control-container site-position-relative">
+						<li class="site-form-std-label-container"><label for="postsearch_tags" class="postsearch-tags-label site-fw-bold">Tags</label></li>
+						<li id="postsearch_tags_container" class="site-form-std-ctrl-container">
 							<input 
 								id="postsearch_tags" name="postsearch_tags" class="postsearch-tags-control site-font-form-std" type="text"
 								title="Enter Post Tags" maxlength="48" data-caption="Tags" data-id="post_tags"
@@ -124,11 +124,11 @@ $laData = new classes\LaData();
 							>
 							<div id="postsearch_tag_suggestions" class="site-tag-suggestions-container"></div>
 						</li>
-						<li class="postsearch-submit-control-container">
+						<li class="site-form-std-submit-container">
 							<input type="submit" value="SUBMIT" class="postsearch-submit-control site-fc-xlight site-fw-bold">
 							
 						</li>
-						<li class="postsearch-error-container">
+						<li class="site-form-std-error-container">
 							<span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
 						</li>
 					</ul>
