@@ -14,6 +14,18 @@ use enums\CrudFetchStyle;
 $laData = new classes\LaData();
 $laViewConverter = new classes\LaViewConverter();
 
+//
+$postName = basename($_SERVER['PHP_SELF'], ".php");
+$post = $laData->crudData(
+	CrudOperation::GETPOSTS,
+	CrudType::CRUDREAD,
+	CrudResultsetType::RESULTSET_ROWS,
+	CrudFetchStyle::FETCHSTYLE_ASSOC,
+	[ 'post_name' => $postName]						
+)[0];
+
+$postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +35,7 @@ $laViewConverter = new classes\LaViewConverter();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Whydata | LiberAnalytics</title>
-	<meta name="description" content="Learn how LiberAnalytics collects, uses, and protects your information. Transparency and data privacy are core to our commitment to visitors.">
+	<meta name="description" content="<?php echo $postMetaDesc; ?>">
 	<link rel="canonical" href="https://liberanalytics.com/whydata">
 
 	<!-- Favicon. -->
@@ -35,7 +47,7 @@ $laViewConverter = new classes\LaViewConverter();
 
 	<!-- Social media Open Graph data points. -->
 	<meta property="og:title" content="Whydata | LiberAnalytics">
-	<meta property="og:description" content="Learn how LiberAnalytics collects, uses, and protects your information. Transparency and data privacy are core to our commitment to visitors.">
+	<meta property="og:description" content="<?php echo $postMetaDesc; ?>">
 	<meta property="og:url" content="https://liberanalytics.com/whydata">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="LiberAnalytics">
@@ -75,17 +87,7 @@ $laViewConverter = new classes\LaViewConverter();
 			<article>
 				<header class="site-stack-start-mt">
 							
-					<?php
-						//
-						$postName = basename($_SERVER['PHP_SELF'], ".php");
-						$post = $laData->crudData(
-							CrudOperation::GETPOSTS,
-							CrudType::CRUDREAD,
-							CrudResultsetType::RESULTSET_ROWS,
-							CrudFetchStyle::FETCHSTYLE_ASSOC,
-							[ 'post_name' => $postName]						
-						)[0];
-						
+					<?php						
 						//
 						echo $laViewConverter->getPostHeader($post);
 					?>
@@ -104,7 +106,7 @@ $laViewConverter = new classes\LaViewConverter();
 						of organizations.
 					</p>
 
-					<h4 class="site-font-secondary-heading">Data Integrity</h1>
+					<h4 class="site-font-secondary-heading">Data Integrity</h4>
 
 					<p class="site-font-std">
 						High integrity data is a purely objective form of facts not influenced by human subjectivity. 
@@ -114,7 +116,7 @@ $laViewConverter = new classes\LaViewConverter();
 						And consistency means that the values of each individual datum in the working dataset exist within the realm of possible phenomena.            
 					</p>
 
-					<h4 class="site-font-secondary-heading">Necessity of data in decision making</h1>
+					<h4 class="site-font-secondary-heading">Necessity of data in decision making</h4>
 
 					<p class="site-font-std">
 						Whether making journal entries to a general ledger, recording a hospital's daily admissions and discharges, or predicting the extent of
@@ -130,7 +132,7 @@ $laViewConverter = new classes\LaViewConverter();
 						class="post-img"
 					>
 
-					<h4 class="site-font-secondary-heading">Data versus information</h1>
+					<h4 class="site-font-secondary-heading">Data versus information</h4>
 
 					<p class="site-font-std">
 						The words data and information are often used interchangeably. However, in the context of data analytics, data and information become terms
@@ -139,7 +141,7 @@ $laViewConverter = new classes\LaViewConverter();
 						and meaning to data ultimately leading to the fruits of data's labor. Summary statistics, graphs, charts, financial statements, and reports
 						in general are examples of information that humans use to make decisions.
 
-					<h4 class="site-font-secondary-heading">Summary</h1>
+					<h4 class="site-font-secondary-heading">Summary</h4>
 
 					<p class="site-font-std">
 						Using quality data to derive insights about organizations is imperative in an operational decision making process. Without data the

@@ -14,6 +14,18 @@ use enums\CrudFetchStyle;
 $laData = new classes\LaData();
 $laViewConverter = new classes\LaViewConverter();
 
+//
+$postName = basename($_SERVER['PHP_SELF'], ".php");
+$post = $laData->crudData(
+	CrudOperation::GETPOSTS,
+	CrudType::CRUDREAD,
+	CrudResultsetType::RESULTSET_ROWS,
+	CrudFetchStyle::FETCHSTYLE_ASSOC,
+	[ 'post_name' => $postName]						
+)[0];
+
+$postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +35,7 @@ $laViewConverter = new classes\LaViewConverter();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PHP CloudWatch Logs | LiberAnalytics</title>
-	<meta name="description" content="How to send PHP database query and error logs to AWS CloudWatch Logs using PDO, KMS, and the LegalThings CloudWatchLogger client.">
+	<meta name="description" content="<?php echo $postMetaDesc; ?>">
 	<link rel="canonical" href="https://liberanalytics.com/phpcloudwatchlogs">
 
 	<!-- Favicon. -->
@@ -35,7 +47,7 @@ $laViewConverter = new classes\LaViewConverter();
 
 	<!-- Social media Open Graph data points. -->
 	<meta property="og:title" content="PHP CloudWatch Logs | LiberAnalytics">
-	<meta property="og:description" content="Learn how to log PostgreSQL queries and errors from PHP to AWS CloudWatch Logs using PDO, KMS, and CloudWatchLogger.">
+	<meta property="og:description" content="<?php echo $postMetaDesc; ?>">
 	<meta property="og:url" content="https://liberanalytics.com/phpcloudwatchlogs">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="LiberAnalytics">
@@ -75,17 +87,7 @@ $laViewConverter = new classes\LaViewConverter();
 			<article>
 				<header class="site-stack-start-mt">
 
-					<?php
-						//
-						$postName = basename($_SERVER['PHP_SELF'], ".php");
-						$post = $laData->crudData(
-							CrudOperation::GETPOSTS,
-							CrudType::CRUDREAD,
-							CrudResultsetType::RESULTSET_ROWS,
-							CrudFetchStyle::FETCHSTYLE_ASSOC,
-							[ 'post_name' => $postName]						
-						)[0];
-						
+					<?php						
 						//
 						echo $laViewConverter->getPostHeader($post);
 					?>

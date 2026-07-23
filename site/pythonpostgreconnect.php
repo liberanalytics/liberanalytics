@@ -14,6 +14,18 @@ use enums\CrudFetchStyle;
 $laData = new classes\LaData();
 $laViewConverter = new classes\LaViewConverter();
 
+//
+$postName = basename($_SERVER['PHP_SELF'], ".php");
+$post = $laData->crudData(
+	CrudOperation::GETPOSTS,
+	CrudType::CRUDREAD,
+	CrudResultsetType::RESULTSET_ROWS,
+	CrudFetchStyle::FETCHSTYLE_ASSOC,
+	[ 'post_name' => $postName]						
+)[0];
+
+$postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +34,8 @@ $laViewConverter = new classes\LaViewConverter();
     <!-- Standard page metas/links/title. -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connecting Python to PostgreSQL with AWS KMS | LiberAnalytics</title>
-    <meta name="description" content="Connect Python to a PostgreSQL database on AWS EC2 using psycopg2 and an encrypted config file, with credentials protected by an AWS KMS symmetric key.">
+    <title>Connecting Python to a Postgresql database | LiberAnalytics</title>
+    <meta name="description" content="<?php echo $postMetaDesc; ?>">
     <link rel="canonical" href="https://liberanalytics.com/pythonpostgreconnect">
 
     <!-- Favicon. -->
@@ -34,8 +46,8 @@ $laViewConverter = new classes\LaViewConverter();
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
     <!-- Social media Open Graph data points. -->
-    <meta property="og:title" content="Connecting Python to PostgreSQL with AWS KMS | LiberAnalytics">
-    <meta property="og:description" content="Step-by-step guide to storing PostgreSQL connection details in an encrypted .ini file and decrypting them with AWS KMS before connecting from Python using psycopg2.">
+    <meta property="og:title" content="Connecting Python to a Postgresql database | LiberAnalytics">
+    <meta property="og:description" content="<?php echo $postMetaDesc; ?>">
     <meta property="og:url" content="https://liberanalytics.com/pythonpostgreconnect">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="LiberAnalytics">
@@ -75,16 +87,6 @@ $laViewConverter = new classes\LaViewConverter();
 			<article>
 				<header class="site-stack-start-mt">
 					<?php
-						//
-						$postName = basename($_SERVER['PHP_SELF'], ".php");
-						$post = $laData->crudData(
-							CrudOperation::GETPOSTS,
-							CrudType::CRUDREAD,
-							CrudResultsetType::RESULTSET_ROWS,
-							CrudFetchStyle::FETCHSTYLE_ASSOC,
-							[ 'post_name' => $postName]						
-						)[0];
-						
 						//
 						echo $laViewConverter->getPostHeader($post);
 					?>

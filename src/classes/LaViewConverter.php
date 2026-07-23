@@ -11,7 +11,7 @@ class LaViewConverter {
     
     public function __construct() {}
 
-    private function escAttr(string $value): string
+    public function escAttr(string $value): string
     {
         $escAttr = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
         return $escAttr;

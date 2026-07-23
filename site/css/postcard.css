@@ -87,8 +87,7 @@
     }
     .post-card-grid-at-980 .post-card-img-anchor img {
         inline-size: 195px;
-        block-size: 135px;
-        object-fit: contain;
+        block-size: auto;
     }
     .post-card-grid-at-980 .post-card-longdesc {
         grid-area: postlongdesc;
