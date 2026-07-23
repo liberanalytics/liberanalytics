@@ -38,7 +38,7 @@ INSERT INTO liberanalytics.posts
         ,'Instrumentation'
         , NOW()
         ,'Logging database errors and queries to Amazon Web Services CloudWatch Logs'
-        ,'Exemplifies a PHP way to use Amazon Web Services CloudWatch to log database errors and queries run. (Yes, PHP in 2025!).'
+        ,'Exemplifies a PHP way to use Amazon Web Services CloudWatch to log database errors and queries run. (Yes, PHP in 2026!).'
         ,'Ever grow tired of storing logs on a server then having to manage access to the logs for individual users working in a collaborative development team? This post explores an alternative method to manage database logging by making use of the Amazon Web Services (AWS) CloudWatch Logs service.'
         ,3
     );         
