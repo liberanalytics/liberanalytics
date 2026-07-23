@@ -60,7 +60,7 @@
  * Center descriptive text contained by a standard form section
  * without adding selector specificity.
  */
-:where(.site-form-std-container) :where(p) {
+:where(.site-form-std-container) :where(p.site-form-std-desc) {
     text-align: center;
 }
 

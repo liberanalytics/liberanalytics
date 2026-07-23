@@ -73,7 +73,7 @@
 				<h1 class="site-primary-heading site-font-primary-heading">Contact Us</h1>
 
 				<div class="site-form-std-container site-inline-std site-gradient-border-bottom">					
-					<p>Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
+					<p class="site-form-std-desc">Please contact us with any questions, statements, or suggestions. We would love to hear from you!</p>
 					<form
 						id="contact_form"
 						name="contact" 

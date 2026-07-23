@@ -78,7 +78,7 @@ $laData = new classes\LaData();
 			<div
 				id="postsearch_controls"
 				class="site-inline-std site-gradient-border-bottom">
-				<p>Use the filters below to search posts by category, tags, or both.</p>
+				<p class="site-form-std-desc">Use the filters below to search posts by category, tags, or both.</p>
 				<form 
 					id="postsearch"
 					name="postsearch"
