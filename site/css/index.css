@@ -16,12 +16,12 @@
 
 }
 
-@media (min-width: 61.25em) {
+/* @media (min-width: 61.25em) {
     .featured-post {
         display: flex;
         column-gap: var(--sz-400);
     }
-}
+} */
 
 .latest-posts-container {
     --knob-primary-heading-mt: var(--sz-400);

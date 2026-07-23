@@ -27,11 +27,79 @@
     display: none;
 }
 
+/*
+ * Apply grid layout for postcards that inflect @ 40em,
+ * i.e. the parent class post-card-grid-at-640.
+ */
+@media (min-width: 40em) {
+    .post-card-grid-at-640 .post-card-components {
+        display: grid;
+        grid-template-areas: 
+            'postimg postlongdesc'
+            'postimg postintro';
+        grid-template-columns: max-content 1fr;
+        column-gap: var(--sz-400);
+        row-gap: var(--sz-100);
+        padding-block-start: var(--sz-400);
+        padding-block-end: var(--sz-100);
+    }
+    .post-card-grid-at-640 .post-card-img-anchor {
+        grid-area: postimg;
+    }
+    .post-card-grid-at-640 .post-card-img-anchor img {
+        inline-size: 195px;
+        block-size: 135px;
+        object-fit: contain;
+    }
+    .post-card-grid-at-640 .post-card-longdesc {
+        grid-area: postlongdesc;
+    }
+    .post-card-grid-at-640 .post-card-intro {
+        --knob-flh-std: var(--flh-med);
+        grid-area: postintro;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: calc(var(--sz-400) * 4.6875);        
+    }
+}
+
+/*
+ * Apply grid layout for postcards that inflect @ 61.25em,
+ * i.e. the parent class post-card-grid-at-980.
+ */
+@media (min-width: 61.25em) {
+    .post-card-grid-at-980 .post-card-components {
+        display: grid;
+        grid-template-areas: 
+            'postimg postlongdesc'
+            'postimg .';
+        grid-template-columns: max-content 1fr;
+        column-gap: var(--sz-400);
+        row-gap: var(--sz-100);
+        padding-block-start: var(--sz-400);
+        padding-block-end: var(--sz-100);
+    }
+    .post-card-grid-at-980 .post-card-img-anchor {
+        grid-area: postimg;
+    }
+    .post-card-grid-at-980 .post-card-img-anchor img {
+        inline-size: 195px;
+        block-size: 135px;
+        object-fit: contain;
+    }
+    .post-card-grid-at-980 .post-card-longdesc {
+        grid-area: postlongdesc;
+    }
+}
+
 .post-card-img {
     display: block;
 }
 
-.post-card-img > img {
+.post-card-img img {
     display: block;
     width: 100%;
     height: auto;
