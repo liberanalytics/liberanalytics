@@ -41,4 +41,14 @@ INSERT INTO liberanalytics.posts
         ,'Exemplifies a PHP way to use Amazon Web Services CloudWatch to log database errors and queries run. (Yes, PHP in 2026!).'
         ,'Ever grow tired of storing logs on a server then having to manage access to the logs for individual users working in a collaborative development team? This post explores an alternative method to manage database logging by making use of the Amazon Web Services (AWS) CloudWatch Logs service.'
         ,3
+    ),
+    
+    (
+         'postgresdeploy'
+        ,'PostgreSQL'
+        , NOW()
+        ,'Lessons learned from deploying a PostgreSQL database to production'
+        ,'A case study on the do''s and don''ts learned during deployment of a PostgreSQL database to a production environment.'
+        ,''
+        ,4
     );         

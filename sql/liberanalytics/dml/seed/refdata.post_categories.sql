@@ -15,4 +15,5 @@ VALUES
      ('AWS', 'AWS', DEFAULT),
      ('Python', 'Python', DEFAULT),
      ('PHP', 'PHP', DEFAULT),
-     ('Instrumentation', 'Instrumentation', DEFAULT);
+     ('Instrumentation', 'Instrumentation', DEFAULT),
+     ('PostgreSQL', 'PostgreSQL', DEFAULT);
