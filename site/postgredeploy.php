@@ -99,8 +99,8 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					<p class="site-mt site-font-std"> 
 						<span class="site-font-brand">Deploying</span>
 						a database can seem like a daunting task that turns into a trial-and-error ritual:
-						run SQL script(s) to create database schema objects—tables, foreign keys, indexes,
-						functions, and stored procedures—and then hope that script_01.sql, script_02.sql,
+						run SQL script(s) to create database schema objects — tables, foreign keys, indexes,
+						functions, and stored procedures. Then hope that script_01.sql, script_02.sql,
 						and so on are in the appropriate sequence to create prerequisite objects before
 						the objects that depend on them.
 					</p>

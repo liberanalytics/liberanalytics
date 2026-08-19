@@ -49,6 +49,6 @@ INSERT INTO liberanalytics.posts
         , NOW()
         ,'Lessons learned from deploying a PostgreSQL database to production'
         ,'A case study on the do''s and don''ts learned during deployment of a PostgreSQL database to a production environment.'
-        ,''
+        ,'Deploying a database can seem like a daunting task that turns into a trial-and-error ritual: run SQL script(s) to create database schema objects — tables, foreign keys, indexes, functions, and stored procedures.'
         ,4
     );         
