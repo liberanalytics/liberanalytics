@@ -24,6 +24,7 @@ $post = $laData->crudData(
 	[ 'post_name' => $postName]						
 )[0];
 
+$postTitle = $laViewConverter->escAttr($post['short_desc']);
 $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 ?>

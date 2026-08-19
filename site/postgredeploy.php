@@ -24,8 +24,8 @@ $post = $laData->crudData(
 	[ 'post_name' => $postName]						
 )[0];
 
+$postTitle = $laViewConverter->escAttr($post['short_desc']);
 $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,10 +97,15 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 				<section class="site-stack-start-mt">
 
 					<p class="site-mt site-font-std"> 
-						<span class="site-font-brand">Why</span>
+						<span class="site-font-brand">Deploying</span>
+						a database can seem like a daunting task that turns into a trial-and-error ritual:
+						run SQL script(s) to create database schema objects—tables, foreign keys, indexes,
+						functions, and stored procedures—and then hope that script_01.sql, script_02.sql,
+						and so on are in the appropriate sequence to create prerequisite objects before
+						the objects that depend on them.
 					</p>
 
-					<h4 class="site-font-secondary-heading">Data Integrity</h4>
+
 
 					<p class="site-font-std">
 						
