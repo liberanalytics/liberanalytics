@@ -96,7 +96,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 				<section class="site-stack-start-mt">
 
-					<p class="site-mt site-font-std"> 
+					<p class="site-mt"> 
 						<span class="site-font-brand">Deploying</span>
 						a database can seem like a daunting task that turns into a trial-and-error ritual:
 						run SQL script(s) to create database schema objects — tables, foreign keys, indexes,
@@ -105,10 +105,14 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						the objects that depend on them.
 					</p>
 
-
-
-					<p class="site-font-std">
-						
+					<p>
+						Before the deployment scripts can run, the deployment client must be able to reach
+						PostgreSQL and authenticate against the databases used during the rollout.
+						Because the process initially connects to the postgres maintenance database
+						in order to drop and recreate liberanalytics, pg_hba.conf must permit the deployment
+						role to connect to both postgres and liberanalytics. Network access, PostgreSQL
+						host-based authentication, and role privileges therefore form the bootstrap requirements
+						for the deployment process.
 					</p>
 
 				</section>

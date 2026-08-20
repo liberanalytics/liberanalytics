@@ -203,8 +203,8 @@ VALUES
 ),
 
 (
-    'postgredeploy',
-	'postgredeploy',
+    'postgresdeploy',
+	'postgresdeploy',
     1,
     1,
     288,
@@ -212,8 +212,8 @@ VALUES
 ),
 
 (
-    'postgredeploy',
-	'postgredeploy',
+    'postgresdeploy',
+	'postgresdeploy',
     1,
     2,
     820,
@@ -221,8 +221,8 @@ VALUES
 ),
 
 (
-    'postgredeploy',
-	'postgredeploy',
+    'postgresdeploy',
+	'postgresdeploy',
     1,
     3,
     1080,
@@ -230,8 +230,8 @@ VALUES
 ),
 
 (
-    'postgredeploy',
-	'postgredeploy',
+    'postgresdeploy',
+	'postgresdeploy',
     1,
     4,
     1960,
@@ -239,8 +239,8 @@ VALUES
 ),
 
 (
-    'postgredeploy',
-	'postgredeploy',
+    'postgresdeploy',
+	'postgresdeploy',
     2,
     1,
     195,
@@ -248,8 +248,8 @@ VALUES
 ),
 
 (
-    'postgredeploy',
-	'postgredeploy',
+    'postgresdeploy',
+	'postgresdeploy',
     2,
     2,
     390,
@@ -257,8 +257,8 @@ VALUES
 ),
 
 (
-    'postgredeploy',
-	'postgredeploy',
+    'postgresdeploy',
+	'postgresdeploy',
     2,
     3,
     585,
