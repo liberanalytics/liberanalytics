@@ -126,6 +126,131 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 
 					<p>Please note the deployment client must already be configured to authenticate to PostgreSQL</p>
 
+					<div class="post-snippet">
+
+						<!-- Shebang -->
+						<p>
+							<span class="post-snippet-font-std code-bash-comment-fc">#!/bin/bash</span>
+						</p>
+
+						<div class="site-mt">
+
+							<!-- Shell options -->
+							<p>
+								<span class="post-snippet-font-std code-bash-command-fc">set&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-option-fc">-uo&nbsp;pipefail</span>
+							</p>
+
+						</div>
+
+						<div class="site-mt">
+
+							<!-- Database variables -->
+							<p>
+								<span class="post-snippet-font-std code-bash-var-fc">DB_HOST</span>
+								<span class="post-snippet-font-std code-bash-default-fc">=</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"hostname"</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-var-fc">DB_USER</span>
+								<span class="post-snippet-font-std code-bash-default-fc">=</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"liberanalytics"</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-var-fc">DB_NAME</span>
+								<span class="post-snippet-font-std code-bash-default-fc">=</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"postgres"</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-var-fc">DB_FILE</span>
+								<span class="post-snippet-font-std code-bash-default-fc">=</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"init.sql"</span>
+							</p>
+
+						</div>
+
+						<div class="site-mt">
+
+							<!-- psql execution -->
+							<p>
+								<span class="post-snippet-font-std code-bash-keyword-fc">if&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-command-fc">psql&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-default-fc">\</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-option-fc">--host=</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"$DB_HOST"&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-default-fc">\</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-option-fc">--username=</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"$DB_USER"&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-default-fc">\</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-option-fc">--dbname=</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"$DB_NAME"&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-default-fc">\</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-option-fc">--file=</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"$DB_FILE"</span>
+							</p>
+
+							<!-- Success -->
+							<p>
+								<span class="post-snippet-font-std code-bash-keyword-fc">then</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-command-fc">echo&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"Deployment completed successfully."</span>
+							</p>
+
+							<!-- Failure -->
+							<p>
+								<span class="post-snippet-font-std code-bash-keyword-fc">else</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-var-fc">PSQL_EXIT_CODE</span>
+								<span class="post-snippet-font-std code-bash-default-fc">=</span>
+								<span class="post-snippet-font-std code-bash-special-fc">$?</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-command-fc">echo&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"Deployment failed. psql exit code: $PSQL_EXIT_CODE"</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-command-fc">exit&nbsp;</span>
+								<span class="post-snippet-font-std code-bash-string-fc">"$PSQL_EXIT_CODE"</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-bash-keyword-fc">fi</span>
+							</p>
+
+						</div>
+
+					</div>
+
 				</section>
 		
 			</article>

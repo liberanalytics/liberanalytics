@@ -112,3 +112,13 @@
 .code-config-default-fc {
     --knob-post-snippet-fc: #cccccc;
 }
+
+/* Bash / shell script block colors. */
+.code-bash-default-fc  { --knob-post-snippet-fc: #cccccc; } /* generic text */
+.code-bash-comment-fc  { --knob-post-snippet-fc: #6a9955; } /* comments */
+.code-bash-keyword-fc  { --knob-post-snippet-fc: #c586c0; } /* if, then, else, fi */
+.code-bash-command-fc  { --knob-post-snippet-fc: #dcdcaa; } /* psql, echo, exit, set */
+.code-bash-var-fc      { --knob-post-snippet-fc: #9cdcfe; } /* DB_HOST, DB_USER, etc. */
+.code-bash-option-fc   { --knob-post-snippet-fc: #569cd6; } /* --host, --username, etc. */
+.code-bash-string-fc   { --knob-post-snippet-fc: #ce9178; } /* quoted strings */
+.code-bash-special-fc  { --knob-post-snippet-fc: #4ec9b0; } /* $?, variable expansion if desired */
