@@ -21,7 +21,7 @@ $post = $laData->crudData(
 	CrudType::CRUDREAD,
 	CrudResultsetType::RESULTSET_ROWS,
 	CrudFetchStyle::FETCHSTYLE_ASSOC,
-	[ 'post_name' => $postName]						
+	['post_name' => $postName]						
 )[0];
 
 $postTitle = $laViewConverter->escAttr($post['short_desc']);

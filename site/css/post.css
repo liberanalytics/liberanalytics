@@ -60,7 +60,6 @@
     max-width: 100%;
     padding: var(--sz-300);
     background: #1f1f1f;
-    border-radius: var(--sz-150);
     box-shadow: var(--site-box-shadow-soft);
     overflow-x: auto;
     overflow-y: hidden;
@@ -108,3 +107,8 @@
 .code-php-string-fc   { --knob-post-snippet-fc: #ce9178; } /* string literals */
 .code-php-number-fc   { --knob-post-snippet-fc: #b5cea8; } /* numeric literals like 65535 */
 .code-php-special-fc  { --knob-post-snippet-fc: #569cd6; } /* reserved/special if you ever need */
+
+/* Linux / configuration block colors. */
+.code-config-default-fc {
+    --knob-post-snippet-fc: #cccccc;
+}

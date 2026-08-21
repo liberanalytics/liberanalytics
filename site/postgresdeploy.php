@@ -21,7 +21,7 @@ $post = $laData->crudData(
 	CrudType::CRUDREAD,
 	CrudResultsetType::RESULTSET_ROWS,
 	CrudFetchStyle::FETCHSTYLE_ASSOC,
-	[ 'post_name' => $postName]						
+	['post_name' => $postName]						
 )[0];
 
 $postTitle = $laViewConverter->escAttr($post['short_desc']);
@@ -105,6 +105,8 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						the objects that depend on them.
 					</p>
 
+					<h3 class="site-font-secondary-heading">Requirements</h3>
+
 					<p>
 						Before the deployment scripts can run, the deployment client must be able to reach
 						PostgreSQL and authenticate against the databases used during the rollout.
@@ -114,6 +116,15 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						host-based authentication, and role privileges therefore form the bootstrap requirements
 						for the deployment process.
 					</p>
+
+<!-- pg_hba.conf -->
+<div class="post-snippet">
+	<pre class="post-snippet-font-std code-config-default-fc">TYPE        DATABASE        USER            ADDRESS                 METHOD
+hostssl     postgres        liberanalytics  &lt;client-ip&gt;/32          scram-sha-256
+hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-sha-256</pre>
+</div>
+
+					<p>Please note the deployment client must already be configured to authenticate to PostgreSQL</p>
 
 				</section>
 		
