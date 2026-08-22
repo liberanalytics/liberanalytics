@@ -10,6 +10,9 @@ FROM pg_stat_activity
 WHERE datname = 'liberanalytics'
   AND pid <> pg_backend_pid();
 
+-- Drop the existing liberanalytics database.
+DROP DATABASE IF EXISTS liberanalytics;
+
 -- Create the liberanalytics database.
 \ir ../ddl/db/liberanalytics_db.sql
 
