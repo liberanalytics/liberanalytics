@@ -126,6 +126,23 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 
 					<p>Please note the deployment client must already be configured to authenticate to PostgreSQL</p>
 
+					<h3 class="site-font-secondary-heading">Bash Orchestration Script</h3>
+
+					<p>
+						We will use a Bash script to help orchestrate the database rollout. The script
+						shown below manages several important parts of the deployment process:
+						it defines the psql connection parameters as variables, executes the SQL driver
+						script within an if/then control structure, and reports the result of that execution.
+						On success, the script returns a clear completion message. On failure, it captures
+						and displays the exact psql exit code before terminating with that same code.
+					</p>
+
+					<p class="site-mt">
+						The failure-handling component is particularly useful because it provides additional
+						context when diagnosing a deployment failure and allows the shell-level orchestration
+						to clearly distinguish between a successful and unsuccessful database rollout.
+					</p>
+
 					<div class="post-snippet">
 
 						<!-- Shebang -->
