@@ -21,12 +21,8 @@ CREATE TABLE liberanalytics.post_img (
     ),
 
     CONSTRAINT post_img_post_name_fkey FOREIGN KEY (post_name)
-        REFERENCES liberanalytics.posts (post_name) MATCH SIMPLE
+        REFERENCES liberanalytics.posts (post_name)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 
 );
-
-CREATE INDEX post_img_ix
-  ON liberanalytics.post_img (post_name, post_img_slot, post_img_number);
-  

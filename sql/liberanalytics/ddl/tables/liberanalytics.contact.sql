@@ -2,7 +2,7 @@
 
 DROP TABLE IF EXISTS liberanalytics.contact;
 
-CREATE TABLE IF NOT EXISTS liberanalytics.contact
+CREATE TABLE liberanalytics.contact
 (
     contact_id INTEGER GENERATED ALWAYS AS IDENTITY,
     first_name character varying(32) COLLATE pg_catalog."default" NOT NULL,
@@ -16,5 +16,5 @@ CREATE TABLE IF NOT EXISTS liberanalytics.contact
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS liberanalytics.contact
+ALTER TABLE liberanalytics.contact
     OWNER to liberanalytics;

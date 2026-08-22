@@ -12,7 +12,7 @@ CREATE TABLE refdata.post_tags (
     CONSTRAINT refdata_post_tags_pk PRIMARY KEY(post_tag),
 
     CONSTRAINT post_tags_category_fkey FOREIGN KEY (post_category)
-    REFERENCES refdata.post_categories (post_category) MATCH SIMPLE
+    REFERENCES refdata.post_categories (post_category)
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
 
@@ -20,5 +20,5 @@ CREATE TABLE refdata.post_tags (
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS refdata.post_tags
+ALTER TABLE refdata.post_tags
 OWNER to liberanalytics;

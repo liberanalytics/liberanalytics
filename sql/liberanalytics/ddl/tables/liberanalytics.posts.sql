@@ -2,7 +2,7 @@
 
 DROP TABLE IF EXISTS liberanalytics.posts;
 
-CREATE TABLE IF NOT EXISTS liberanalytics.posts
+CREATE TABLE liberanalytics.posts
 (
     post_name character varying(32) COLLATE pg_catalog."default" NOT NULL,
     post_category character varying(32) COLLATE pg_catalog."default" NOT NULL,
@@ -14,12 +14,12 @@ CREATE TABLE IF NOT EXISTS liberanalytics.posts
     CONSTRAINT posts_pk PRIMARY KEY (post_name),
     
     CONSTRAINT posts_post_category_fkey FOREIGN KEY (post_category)
-        REFERENCES refdata.post_categories (post_category) MATCH SIMPLE
+        REFERENCES refdata.post_categories (post_category)
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS liberanalytics.posts
+ALTER TABLE  liberanalytics.posts
     OWNER to liberanalytics;
