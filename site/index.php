@@ -93,10 +93,9 @@ $laViewConverter = new classes\LaViewConverter();
 						CrudResultsetType::RESULTSET_ROWS,
 						CrudFetchStyle::FETCHSTYLE_ASSOC,
 						[
-							'featured' => TRUE,
-							'order_by' => 'post_date',
-							'order_by_ascdesc' => 'DESC',
-							'limit' => 3
+							'order_by' => 'featured',
+							'order_by_ascdesc' => 'ASC',
+							'limit' => 5
 						]						
 					);
 					$iter = 1;
@@ -105,12 +104,10 @@ $laViewConverter = new classes\LaViewConverter();
 						echo 
 						'<article class="post-card site-box-shadow">'
 						. '<h2 class="post-card-title site-font-secondary-heading site-gradient-rtl-border-bottom">' . $post['short_desc'] . '</h2>'
-						. '<div class="featured-post post-card-components site-gradient-ltr-border-bottom">'
-						. '<a class="post-card-img-anchor" href="/' . rawurlencode($post['post_name']) . '">'
+						. '<a class="featured-post post-card-components site-gradient-ltr-border-bottom" href="/' . rawurlencode($post['post_name']) . '">'
 						. $laViewConverter->getPostPicture($post, \classes\LaViewConverter::IMG_CONTEXT_INDEX, $iter)
+						. '<span class="post-card-longdesc site-font-std">' . $post['long_desc'] . '</span>'						
 						. '</a>'
-						. '<a class="post-card-longdesc site-font-std" href="/' . rawurlencode($post['post_name']) . '">' . $post['long_desc'] . '</a>'						
-						. '</div>'
 						. '<div class="post-card-attrs">'
 						. '<time class="site-font-date-std" datetime="' . date("F j, Y", strtotime($post['post_created']))
 						.  '">' . date("F j, Y", strtotime($post['post_created'])) . '</time>'
