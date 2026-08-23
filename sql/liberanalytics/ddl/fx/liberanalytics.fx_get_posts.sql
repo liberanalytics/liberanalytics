@@ -4,7 +4,7 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 (
-	 px_featured INTEGER DEFAULT 1000
+	 px_featured BOOLEAN DEFAULT NULL,
 	,px_post_name TEXT[] DEFAULT NULL
 	,px_post_category TEXT[] DEFAULT NULL
 	,px_post_tags TEXT[] DEFAULT NULL

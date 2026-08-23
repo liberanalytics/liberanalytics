@@ -10,7 +10,7 @@ CREATE TABLE liberanalytics.posts
     short_desc character varying(256) COLLATE pg_catalog."default" NOT NULL,
     long_desc character varying(256) COLLATE pg_catalog."default" NOT NULL,
     intro character varying(512) COLLATE pg_catalog."default" NOT NULL,
-    featured smallint NOT NULL,
+    featured boolean NOT NULL DEFAULT FALSE,
     CONSTRAINT posts_pk PRIMARY KEY (post_name),
     
     CONSTRAINT posts_post_category_fkey FOREIGN KEY (post_category)

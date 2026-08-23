@@ -93,9 +93,10 @@ $laViewConverter = new classes\LaViewConverter();
 						CrudResultsetType::RESULTSET_ROWS,
 						CrudFetchStyle::FETCHSTYLE_ASSOC,
 						[
-							'order_by' => 'featured',
-							'order_by_ascdesc' => 'ASC',
-							'limit' => 5
+							'featured' => TRUE,
+							'order_by' => 'post_date',
+							'order_by_ascdesc' => 'DESC',
+							'limit' => 3
 						]						
 					);
 					$iter = 1;
