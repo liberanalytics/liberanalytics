@@ -16,6 +16,10 @@
 
 }
 
+.featured-post {
+    display: block;
+}
+
 .featured-post,
 .featured-post:visited,
 .featured-post:hover,
