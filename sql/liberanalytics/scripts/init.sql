@@ -36,6 +36,7 @@ BEGIN;
     \ir ../ddl/tables/liberanalytics.posts.sql
     \ir ../ddl/tables/refdata.post_tags.sql
     \ir ../ddl/tables/liberanalytics.post_tags.sql
+    \ir ../ddl/tables/liberanalytics.post_img.sql
     \ir ../ddl/tables/liberanalytics.contact.sql
 
     -- Create fxs.
@@ -89,6 +90,7 @@ BEGIN;
     \ir ../dml/seed/refdata.post_tags.sql
     \ir ../dml/seed/liberanalytics.posts.sql
     \ir ../dml/seed/liberanalytics.post_tags.sql
+    \ir ../dml/seed/liberanalytics.post_img.sql
 
     -- Confirm final table was seeded as quick pass/fail assertion.
     DO $$
