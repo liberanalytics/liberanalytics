@@ -20,7 +20,7 @@ INSERT INTO liberanalytics.posts
         ,'Why do we need Data?'
         ,'Explores the importance of data and information in decision making.'
         ,'Why do we go through extensive efforts to collect, transform, load, store, and aalyze volumes of data? Startups and corporations employ teams of professionals who often specialize in niche functions within data analytics such as data architect, data analyst, or data scientist in order to provide maximum value of their respective function to the enterprise.'
-        ,TRUE
+        ,FALSE
     ),
 
     (
