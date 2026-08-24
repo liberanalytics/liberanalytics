@@ -20,4 +20,7 @@ VALUES
     ('phpcloudwatchlogs', 'AWS', DEFAULT),
     ('phpcloudwatchlogs', 'PostgreSQL', DEFAULT),
     ('phpcloudwatchlogs', 'PHP', DEFAULT),
-    ('phpcloudwatchlogs', 'Logging', DEFAULT);
+    ('phpcloudwatchlogs', 'Logging', DEFAULT)
+    
+    -- Postgres deploy post.
+    ('postgresdeploy', 'PostgreSQL', DEFAULT);
