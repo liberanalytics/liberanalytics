@@ -28,8 +28,8 @@ DECLARE
 
 BEGIN
 
-txt_pred_post_tags := meta.fx_get_dynamic_sql_clause('AND', txt_post_tags_alias, 'post_tag', '=', NULL, NULL, int_ordinal_post_tags);
-txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_post_tags_alias, 'post_category', '=', NULL, NULL, int_ordinal_post_category);
+txt_pred_post_tags := meta.fx_get_dynamic_sql_clause('AND', txt_post_tags_alias, 'post_tag', '=', NULL, NULL, NULL, int_ordinal_post_tags);
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_post_tags_alias, 'post_category', '=', NULL, NULL, NULL, int_ordinal_post_category);
 
 txt_query_attr_list := '
 
