@@ -19,9 +19,10 @@ DROP DATABASE IF EXISTS liberanalytics;
 -- Connect to database liberanalytics.
 \connect liberanalytics
 
--- Make sure we're connected to the right database.
+-- Verify connection context in deployment output.
 SELECT current_database() AS current_db, current_user AS current_user;
 
+-- Wrap the rollout in a transaction to provide all-or-nothing atomicity.
 BEGIN;
 
     -- Create schemas.
@@ -75,6 +76,7 @@ BEGIN;
             WHERE 1=1
             AND ns.nspname = 'liberanalytics'
             AND pg.proname = 'fx_create_contact'
+
             -- Verify args are same as last fx created in case of overloading.
             AND pg_get_function_identity_arguments(pg.oid) LIKE '%text, %text, %text, %text, %text'
         )
@@ -92,7 +94,7 @@ BEGIN;
     \ir ../dml/seed/liberanalytics.post_tags.sql
     \ir ../dml/seed/liberanalytics.post_img.sql
 
-    -- Confirm final table was seeded as quick pass/fail assertion.
+    -- Smoke test: confirm the final seed table contains at least one row.
     DO $$
     BEGIN
         IF NOT EXISTS (
