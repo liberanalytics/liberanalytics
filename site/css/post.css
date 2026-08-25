@@ -122,3 +122,13 @@
 .code-bash-option-fc   { --knob-post-snippet-fc: #569cd6; } /* --host, --username, etc. */
 .code-bash-string-fc   { --knob-post-snippet-fc: #ce9178; } /* quoted strings */
 .code-bash-special-fc  { --knob-post-snippet-fc: #4ec9b0; } /* $?, variable expansion if desired */
+
+/* PostgreSQL / psql code block colors. */
+.code-sql-default-fc  { --knob-post-snippet-fc: #bbbebf; } /* generic text */
+.code-sql-comment-fc  { --knob-post-snippet-fc: #8b949e; }
+.code-sql-keyword-fc  { --knob-post-snippet-fc: #ff7b74; } /* SELECT, FROM, WHERE, BEGIN, etc. */
+.code-sql-meta-fc     { --knob-post-snippet-fc: #ff7b74; } /* \set, \connect, \ir, \echo */
+.code-sql-string-fc   { --knob-post-snippet-fc: #a3d5fd; } /* quoted literals */
+.code-sql-func-fc     { --knob-post-snippet-fc: #bbbebf; } /* pg_terminate_backend(), etc. */
+.code-sql-path-fc     { --knob-post-snippet-fc: #75bffc; } /* .sql filename */
+

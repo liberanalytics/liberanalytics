@@ -124,7 +124,9 @@ hostssl     postgres        liberanalytics  &lt;client-ip&gt;/32          scram-
 hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-sha-256</pre>
 </div>
 
-					<p>Please note the deployment client must already be configured to authenticate to PostgreSQL</p>
+					<p>Please note the deployment client must already be configured to authenticate to PostgreSQL.
+					   We will be using the psql client, the terminal-based command-line interface (CLI) for PostgreSQL.
+					</p>
 
 					<h3 class="site-font-secondary-heading">Bash Orchestration Script</h3>
 
@@ -267,6 +269,492 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 						</div>
 
 					</div>
+
+					<div class="post-snippet">
+
+						<!-- psql settings -->
+						<div>
+							<p>
+								<span class="post-snippet-font-std code-sql-meta-fc">\set&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">VERBOSITY&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">verbose</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-meta-fc">\set&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">ON_ERROR_STOP&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">on</span>
+							</p>
+						</div>
+
+
+						<!-- Connect to postgres -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Make sure we're not in the target database.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-meta-fc">\connect&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">postgres</span>
+							</p>
+						</div>
+
+
+						<!-- Terminate active sessions -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Kill any sessions still active on the database.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-keyword-fc">SELECT&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-func-fc">pg_terminate_backend</span>
+								<span class="post-snippet-font-std code-sql-default-fc">(pid)</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-keyword-fc">FROM&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">pg_stat_activity</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-keyword-fc">WHERE&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">datname = </span>
+								<span class="post-snippet-font-std code-sql-string-fc">'liberanalytics'</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">pid &lt;&gt; </span>
+								<span class="post-snippet-font-std code-sql-func-fc">pg_backend_pid</span>
+								<span class="post-snippet-font-std code-sql-default-fc">();</span>
+							</p>
+						</div>
+
+
+						<!-- Drop database -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Drop the existing liberanalytics database.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-keyword-fc">DROP DATABASE IF EXISTS&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">liberanalytics;</span>
+							</p>
+						</div>
+
+
+						<!-- Create database -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Create the liberanalytics database.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-path-fc">../ddl/db/liberanalytics_db.sql</span>
+							</p>
+						</div>
+
+
+						<!-- Connect to liberanalytics -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Connect to database liberanalytics.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-meta-fc">\connect&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">liberanalytics</span>
+							</p>
+						</div>
+
+
+						<!-- Verify connection -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Verify connection context in deployment output.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-keyword-fc">SELECT&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-func-fc">current_database</span>
+								<span class="post-snippet-font-std code-sql-default-fc">()&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">current_db, current_user&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">current_user;</span>
+							</p>
+						</div>
+
+
+						<!-- Transaction -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Wrap the rollout in a transaction to provide all-or-nothing atomicity.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-keyword-fc">BEGIN;</span>
+							</p>
+						</div>
+
+
+						<!-- Schemas -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Create schemas.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-meta-fc">\echo&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">Creating schemas...</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-path-fc">../ddl/schema/meta.sql</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-path-fc">../ddl/schema/refdata.sql</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-path-fc">../ddl/schema/liberanalytics.sql</span>
+							</p>
+						</div>
+
+
+						<!-- Tables -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Create tables.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-meta-fc">\echo&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">Creating tables...</span>
+							</p>
+
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/tables/refdata.post_categories.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/tables/liberanalytics.posts.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/tables/refdata.post_tags.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/tables/liberanalytics.post_tags.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/tables/liberanalytics.post_img.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/tables/liberanalytics.contact.sql</span></p>
+						</div>
+
+
+						<!-- Functions -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Create fxs.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-meta-fc">\echo&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">Creating fxs...</span>
+							</p>
+
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/fx/meta.fx_get_dynamic_sql_clause.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/fx/meta.fx_get_fx_pxs.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/fx/refdata.fx_get_post_categories.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/fx/refdata.fx_get_post_tags.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/fx/refdata.fx_get_post_tags_like.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/fx/liberanalytics.fx_get_posts.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../ddl/fx/liberanalytics.fx_create_contact.sql</span></p>
+						</div>
+
+
+						<!-- Artifact verification -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Confirm final table &amp; fx artifacts were created as quick pass/fail assertion.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">DO&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">$$</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">BEGIN</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Check last table was created.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">IF NOT EXISTS&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">(</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">SELECT&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">1&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">FROM&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">pg_catalog.pg_tables</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">WHERE&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">1=1</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">schemaname = </span>
+								<span class="post-snippet-font-std code-sql-string-fc">'liberanalytics'</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">tablename = </span>
+								<span class="post-snippet-font-std code-sql-string-fc">'contact'</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">)</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">THEN</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">RAISE EXCEPTION&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-string-fc">'Schema creation failed: table liberanalytics.contact was not created.'</span>
+								<span class="post-snippet-font-std code-sql-default-fc">;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">END IF;</span>
+							</p>
+
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Check last fx was created.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">IF NOT EXISTS&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">(</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">SELECT&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">1</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">FROM&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">pg_catalog.pg_proc&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">pg</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">INNER JOIN&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">pg_catalog.pg_namespace&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">ns</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">ON&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">pg.pronamespace = ns.oid</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">WHERE&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">1=1</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">ns.nspname = </span>
+								<span class="post-snippet-font-std code-sql-string-fc">'liberanalytics'</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">pg.proname = </span>
+								<span class="post-snippet-font-std code-sql-string-fc">'fx_create_contact'</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Verify args are same as last fx created in case of overloading.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-func-fc">pg_get_function_identity_arguments</span>
+								<span class="post-snippet-font-std code-sql-default-fc">(pg.oid)&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">LIKE&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-string-fc">'%text, %text, %text, %text, %text'</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">)</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">THEN</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">RAISE EXCEPTION&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-string-fc">'Fx creation failed: liberanalytics.fx fx_create_contact was not created.'</span>
+								<span class="post-snippet-font-std code-sql-default-fc">;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">END IF;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">END&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">$$&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">LANGUAGE&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">plpgsql;</span>
+							</p>
+						</div>
+
+
+						<!-- Seed data -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Seed data insertions.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-meta-fc">\echo&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">Populating seed data...</span>
+							</p>
+
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../dml/seed/refdata.post_categories.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../dml/seed/refdata.post_tags.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../dml/seed/liberanalytics.posts.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../dml/seed/liberanalytics.post_tags.sql</span></p>
+							<p><span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="post-snippet-font-std code-sql-meta-fc">\ir&nbsp;</span><span class="post-snippet-font-std code-sql-path-fc">../dml/seed/liberanalytics.post_img.sql</span></p>
+						</div>
+
+
+						<!-- Smoke test -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-comment-fc">-- Smoke test: confirm the final seed table contains at least one row.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">DO&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">$$</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">BEGIN</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">IF NOT EXISTS&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">(</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">SELECT&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">1&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">FROM&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">liberanalytics.post_tags</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">)&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">THEN</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">RAISE EXCEPTION&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-string-fc">'Seed failed: liberanalytics.post_tags has no rows.'</span>
+								<span class="post-snippet-font-std code-sql-default-fc">;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">END IF;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">END&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">$$&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-keyword-fc">LANGUAGE&nbsp;</span>
+								<span class="post-snippet-font-std code-sql-default-fc">plpgsql;</span>
+							</p>
+						</div>
+
+
+						<!-- Commit -->
+						<div class="site-mt">
+							<p>
+								<span class="post-snippet-font-std code-sql-keyword-fc">COMMIT;</span>
+							</p>
+						</div>
+
+					</div>					
 
 				</section>
 		
