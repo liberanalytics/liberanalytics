@@ -34,7 +34,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 	<!-- Standard page metas/links/title. -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Postgredeploy | LiberAnalytics</title>
+	<title>Postgresdeploy | LiberAnalytics</title>
 	<meta name="description" content="<?php echo $postMetaDesc; ?>">
 	<link rel="canonical" href="https://liberanalytics.com/postgredeploy">
 
@@ -46,9 +46,9 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 
 	<!-- Social media Open Graph data points. -->
-	<meta property="og:title" content="Postgredeploy | LiberAnalytics">
+	<meta property="og:title" content="Postgresdeploy | LiberAnalytics">
 	<meta property="og:description" content="<?php echo $postMetaDesc; ?>">
-	<meta property="og:url" content="https://liberanalytics.com/postgredeploy">
+	<meta property="og:url" content="https://liberanalytics.com/postgresdeploy">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="LiberAnalytics">
 	<meta property="og:locale" content="en_US">
@@ -105,6 +105,18 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						the objects that depend on them.
 					</p>
 
+					<p>
+						What inevitably happens is that a prerequisite object has not yet been created,
+						an environment configuration has not been set up, or database authentication fails, 
+						causing the whole pipeline to get stuck and leaving the practitioner to diagnose the 
+						failure point and decide how to handle it. Should we raise an exception? Write to a log?
+						Roll the entire operation back, or allow the script(s) to run to a checkpoint?
+					</p>
+
+					<p>
+						In this article, we present a case study of lessons learned from a real production rollout.
+					</p>
+
 					<h3 class="site-font-secondary-heading">Requirements</h3>
 
 					<p>
@@ -125,7 +137,7 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 </div>
 
 					<p>Please note the deployment client must already be configured to authenticate to PostgreSQL.
-					   We will be using the psql client, the terminal-based command-line interface (CLI) for PostgreSQL.
+					   We will be using the psql client which is the terminal-based command-line interface (CLI) for PostgreSQL.
 					</p>
 
 					<h3 class="site-font-secondary-heading">Bash Orchestration Script</h3>
@@ -269,6 +281,20 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 						</div>
 
 					</div>
+
+					<h3 class="site-font-secondary-heading">SQL Driver Script</h3>
+
+					<p>
+						The sql driver script is where the real database work is defined and
+						manages several critical deployment components:
+					</p>
+
+					
+					
+					<ul class="site-list">
+						<li>Sets verbosity to on</li>
+
+					</ul>
 
 					<div class="post-snippet">
 
@@ -751,6 +777,66 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 						<div class="site-mt">
 							<p>
 								<span class="post-snippet-font-std code-sql-keyword-fc">COMMIT;</span>
+							</p>
+						</div>
+
+					</div>
+
+					<p>
+						This assertion is intentionally lightweight. It verifies that the final seeded
+						table contains data and provides a simple rollout smoke test; it does not establish
+						that every expected row or value was loaded correctly. More rigorous deployments
+						could add row-count assertions, key-record checks, referential-integrity checks, or source-to-target reconciliation.
+					</p>
+
+					<h3 class="site-font-secondary-heading">Failed Versus Successful Deployment Example</h3>
+
+					<p>
+						During a test rollout, a missing comma in a seed-data script caused PostgreSQL
+						to raise a syntax error. Because ON_ERROR_STOP was enabled, psql terminated
+						execution and returned a non-zero exit code. The Bash orchestration layer
+						captured that result and surfaced a concise deployment-level failure message
+						while preserving the underlying PostgreSQL diagnostic.
+					</p>
+
+					<div class="post-snippet">
+
+						<!-- Deployment failure output -->
+						<div>
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">Populating seed data...</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">INSERT 0 7</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">INSERT 0 7</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">INSERT 0 4</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">psql:../dml/seed/liberanalytics.post_tags.sql:26: ERROR:&nbsp;&nbsp;42601: syntax error at or near "("</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">LINE 22:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('postgresdeploy', 'PostgreSQL', DEFAULT);</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">LOCATION:&nbsp;&nbsp;scanner_yyerror, scan.l:1244</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">Deployment failed. psql exit code: 3</span>
 							</p>
 						</div>
 

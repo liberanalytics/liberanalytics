@@ -47,8 +47,8 @@ INSERT INTO liberanalytics.posts
          'postgresdeploy'
         ,'PostgreSQL'
         , NOW()
-        ,'Lessons learned from deploying a PostgreSQL database to production'
-        ,'A case study on the do''s and don''ts learned during deployment of a PostgreSQL database to a production environment.'
+        ,'Building an atomic PostgreSQL database rollout with Bash and psql'
+        ,'This post demonstrates a lightweight approach to orchestrating an atomic PostgreSQL database rollout with Bash and psql, including dependency ordering, failure handling, transactional execution, and basic deployment verification.'
         ,'Deploying a database can seem like a daunting task that turns into a trial-and-error ritual: run SQL script(s) to create database schema objects — tables, foreign keys, indexes, functions, and stored procedures.'
         ,TRUE
     );         

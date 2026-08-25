@@ -106,10 +106,10 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					<h3 class="site-font-secondary-heading">Requirements</h3>
 
 					<ul class="site-list">
-					<li>Python 3 (preferably running on Ubuntu)</li>
-					<li>Python libraries: psycopg2, boto3</li>
-					<li>AWS: Key Management Service (KMS) Customer managed symmetric key</li>
-					<li>PostgreSQL database cluster (needs to accept TCP/IP connections)</li>
+						<li>Python 3 (preferably running on Ubuntu)</li>
+						<li>Python libraries: psycopg2, boto3</li>
+						<li>AWS: Key Management Service (KMS) Customer managed symmetric key</li>
+						<li>PostgreSQL database cluster (needs to accept TCP/IP connections)</li>
 					</ul>
 
 					<h3 class="site-font-secondary-heading">Get database connection parameters</h3>
