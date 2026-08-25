@@ -796,7 +796,7 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 						to raise a syntax error. Because ON_ERROR_STOP was enabled, psql terminated
 						execution and returned a non-zero exit code. The Bash orchestration layer
 						captured that result and surfaced a concise deployment-level failure message
-						while preserving the underlying PostgreSQL diagnostic.
+						shown below as "Deployment failed. psql exit code: 3" while preserving the underlying PostgreSQL diagnostic.
 					</p>
 
 					<div class="post-snippet">
@@ -837,6 +837,50 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 
 							<p>
 								<span class="post-snippet-font-std code-config-default-fc">Deployment failed. psql exit code: 3</span>
+							</p>
+						</div>
+
+					</div>
+
+					
+					<div class="post-snippet">
+
+						<!-- Deployment success output -->
+						<div>
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">Populating seed data...</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">INSERT 0 7</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">INSERT 0 7</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">INSERT 0 4</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">INSERT 0 10</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">INSERT 0 28</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">DO</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">COMMIT</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-config-default-fc">Deployment completed successfully.</span>
 							</p>
 						</div>
 
