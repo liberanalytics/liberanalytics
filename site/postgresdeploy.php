@@ -114,7 +114,9 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					</p>
 
 					<p>
-						In this article, we present a case study of lessons learned from a real production rollout.
+						In this article we present a case study from a real production rollout and
+						the deployment process developed to make future PostgreSQL deployments more
+						reliable, repeatable, and controlled.
 					</p>
 
 					<h3 class="site-font-secondary-heading">Requirements</h3>
@@ -308,6 +310,14 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 						<li>
 							Starts a transaction so the remaining database rollout can succeed or fail as
 							a single unit, providing atomicity.
+						</li>						
+						<li>
+							Creates the schemas, tables, and functions using the psql \ir command to include
+							each .sql script by relative path.
+						</li>
+						<li>
+							Performs a smoke test in an anonymous PL/pgSQL block to verify that the final table
+							and function DDL included by the \ir commands completed successfully.
 						</li>
 
 					</ul>
