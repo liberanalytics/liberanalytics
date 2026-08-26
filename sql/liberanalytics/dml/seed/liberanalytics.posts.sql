@@ -48,7 +48,7 @@ INSERT INTO liberanalytics.posts
         ,'PostgreSQL'
         , NOW()
         ,'Building an atomic PostgreSQL database rollout with Bash and psql'
-        ,'This post demonstrates a lightweight approach to orchestrating an atomic PostgreSQL database rollout with Bash and psql, including dependency ordering, failure handling, transactional execution, and basic deployment verification.'
+        ,'A lightweight approach to orchestrating an atomic PostgreSQL database rollout with Bash and psql.'
         ,'Deploying a database can seem like a daunting task that turns into a trial-and-error ritual: run SQL script(s) to create database schema objects — tables, foreign keys, indexes, functions, and stored procedures.'
         ,TRUE
     );         
