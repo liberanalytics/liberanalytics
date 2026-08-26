@@ -138,7 +138,7 @@ hostssl     postgres        liberanalytics  &lt;client-ip&gt;/32          scram-
 hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-sha-256</pre>
 </div>
 
-					<p>Please note the deployment client must already be configured to authenticate to PostgreSQL.
+					<p>The deployment client must already be configured to authenticate to PostgreSQL.
 					   We will be using the psql client which is the terminal-based command-line interface (CLI) for PostgreSQL.
 					</p>
 
@@ -326,8 +326,8 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 							Performs a final smoke test to verify that the last seed data was inserted successfully.
 						</li>
 						<li>
-							Permanently apply all changes in the transaction; if any earlier statements in the
-							transaction failed they are rolled back.
+							Commits the transaction, permanently applying all changes; if an earlier statement
+							caused the transaction to fail, the changes are rolled back instead.
 						</li>
 
 					</ul>
@@ -790,7 +790,7 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 							<p>
 								<span class="post-snippet-font-std code-sql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 								<span class="post-snippet-font-std code-sql-keyword-fc">RAISE EXCEPTION&nbsp;</span>
-								<span class="post-snippet-font-std code-sql-string-fc">'Seed failed: liberanalytics.post_tags has no rows.'</span>
+								<span class="post-snippet-font-std code-sql-string-fc">'Seed failed: liberanalytics.post_img has no rows.'</span>
 								<span class="post-snippet-font-std code-sql-default-fc">;</span>
 							</p>
 
@@ -847,7 +847,7 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 						to raise a syntax error. Because ON_ERROR_STOP was enabled, psql terminated
 						execution and returned a non-zero exit code. The Bash orchestration layer
 						captured that result and surfaced a concise deployment-level failure message
-						shown below as "Deployment failed. psql exit code: 3" while preserving the underlying PostgreSQL diagnostic.
+						shown below as "Deployment failed. psql exit code: 3", while preserving the underlying PostgreSQL diagnostic.
 					</p>
 
 					<div class="post-snippet">
@@ -948,6 +948,14 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 					</div>
 
 					<h3 class="site-font-secondary-heading">Deployment Lessons and Final Considerations</h3>
+
+					<p>
+						A stable production database deployment should be managed as an all-or-nothing atomic
+						operation where possible. Deployments should also be idempotent where practical so
+						repeated executions are easier to manage, particularly after a failure. Using a Bash
+						shell script can simplify connection handling, deployment flow, and SQL script sequencing
+						while also providing diagnostics beyond the database engine and client messages.
+					</p>
 
 				</section>
 		
