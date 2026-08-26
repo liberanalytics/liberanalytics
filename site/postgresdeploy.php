@@ -285,14 +285,30 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 					<h3 class="site-font-secondary-heading">SQL Driver Script</h3>
 
 					<p>
-						The sql driver script is where the real database work is defined and
-						manages several critical deployment components:
+						The SQL driver script is where the real database work is defined. It is designed
+						with idempotent behavior where practical and manages several critical deployment components:
 					</p>
 
 					
 					
 					<ul class="site-list">
-						<li>Sets verbosity to on</li>
+						<li>
+							Sets psql error-message verbosity to verbose, providing additional diagnostic
+							details for errors and notices.
+						</li>
+						<li>
+							Connects to the postgres database so the existing liberanalytics database can be dropped
+							and terminates any active sessions on the liberanalytics database.
+						</li>
+						<li>
+							Drops database liberanalytics if it exists, runs the database creation .sql script
+							with the psql \ir command, connects to database liberanalytics, then prints
+							the current connection context.
+						</li>
+						<li>
+							Starts a transaction so the remaining database rollout can succeed or fail as
+							a single unit, providing atomicity.
+						</li>
 
 					</ul>
 

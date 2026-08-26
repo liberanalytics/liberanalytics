@@ -4,5 +4,9 @@
   },
   "intelephense.referencesCodeLens.enabled": false,
   "intelephense.implementationCodeLens.enabled": false,
-  "python-envs.defaultEnvManager": "ms-python.python:system"
+  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "github.copilot.enable": {
+    "*": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": false
 }
