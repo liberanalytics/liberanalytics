@@ -98,9 +98,9 @@ BEGIN;
     DO $$
     BEGIN
         IF NOT EXISTS (
-            SELECT 1 FROM liberanalytics.post_tags
+            SELECT 1 FROM liberanalytics.post_img
         ) THEN
-            RAISE EXCEPTION 'Seed failed: liberanalytics.post_tags has no rows.';
+            RAISE EXCEPTION 'Seed failed: liberanalytics.post_img has no rows.';
         END IF;
 
     END $$ LANGUAGE plpgsql;

@@ -319,6 +319,16 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 							Performs a smoke test in an anonymous PL/pgSQL block to verify that the final table
 							and function DDL included by the \ir commands completed successfully.
 						</li>
+						<li>
+							Populates the database with initial reference and operational data.
+						</li>
+						<li>
+							Performs a final smoke test to verify that the last seed data was inserted successfully.
+						</li>
+						<li>
+							Permanently apply all changes in the transaction; if any earlier statements in the
+							transaction failed they are rolled back.
+						</li>
 
 					</ul>
 
