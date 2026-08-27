@@ -2,7 +2,7 @@
 
 set -uo pipefail
 
-DB_HOST="3.135.113.112"
+DB_HOST="3.130.224.24"
 DB_USER="liberanalytics"
 DB_NAME="postgres"
 DB_FILE="init.sql"
