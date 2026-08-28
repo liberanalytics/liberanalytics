@@ -10,10 +10,7 @@ INSERT INTO refdata.post_categories (
 
 VALUES
 
-     ('Why Data', 'Why Data', DEFAULT),
+     ('Data Concepts', 'Data Concepts', DEFAULT),
      ('DB Security', 'DB Security', DEFAULT),
-     ('AWS', 'AWS', DEFAULT),
-     ('Python', 'Python', DEFAULT),
-     ('PHP', 'PHP', DEFAULT),
-     ('Instrumentation', 'Instrumentation', DEFAULT),
-     ('PostgreSQL', 'PostgreSQL', DEFAULT);
+     ('Telemetry', 'Telemetry', DEFAULT),
+     ('AI', 'AI', DEFAULT);
