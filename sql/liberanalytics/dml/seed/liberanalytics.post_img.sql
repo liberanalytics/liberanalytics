@@ -257,8 +257,71 @@ VALUES
 ),
 
 (
-    'postgresdeploy',
-	'postgresdeploy',
+    'metadatavalidation',
+	'',
+    2,
+    3,
+    585,
+    NOW()
+),
+
+(
+    'metadatavalidation',
+	'',
+    1,
+    1,
+    288,
+    NOW()
+),
+
+(
+    'metadatavalidation',
+	'',
+    1,
+    2,
+    820,
+    NOW()
+),
+
+(
+    'metadatavalidation',
+	'',
+    1,
+    3,
+    1080,
+    NOW()
+),
+
+(
+    'metadatavalidation',
+	'',
+    1,
+    4,
+    1960,
+    NOW()
+),
+
+(
+    'metadatavalidation',
+	'',
+    2,
+    1,
+    195,
+    NOW()
+),
+
+(
+    'metadatavalidation',
+	'',
+    2,
+    2,
+    390,
+    NOW()
+),
+
+(
+    'metadatavalidation',
+	'',
     2,
     3,
     585,
