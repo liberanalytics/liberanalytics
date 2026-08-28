@@ -257,8 +257,8 @@ VALUES
 ),
 
 (
-    'metadatavalidation',
-	'',
+    'postgresdeploy',
+	'postgresdeploy',
     2,
     3,
     585,
@@ -267,7 +267,7 @@ VALUES
 
 (
     'metadatavalidation',
-	'',
+	'metadatavalidation',
     1,
     1,
     288,
@@ -276,7 +276,7 @@ VALUES
 
 (
     'metadatavalidation',
-	'',
+	'metadatavalidation',
     1,
     2,
     820,
@@ -285,7 +285,7 @@ VALUES
 
 (
     'metadatavalidation',
-	'',
+	'metadatavalidation',
     1,
     3,
     1080,
@@ -294,7 +294,7 @@ VALUES
 
 (
     'metadatavalidation',
-	'',
+	'metadatavalidation',
     1,
     4,
     1960,
@@ -303,7 +303,7 @@ VALUES
 
 (
     'metadatavalidation',
-	'',
+	'metadatavalidation',
     2,
     1,
     195,
@@ -312,7 +312,7 @@ VALUES
 
 (
     'metadatavalidation',
-	'',
+	'metadatavalidation',
     2,
     2,
     390,
@@ -321,7 +321,7 @@ VALUES
 
 (
     'metadatavalidation',
-	'',
+	'metadatavalidation',
     2,
     3,
     585,
