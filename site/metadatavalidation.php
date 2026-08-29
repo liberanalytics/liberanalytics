@@ -98,7 +98,11 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 				<section class="site-stack-start-mt">
 
 					<p class="site-mt site-font-std"> 
-						<span class="site-font-brand">0</span>
+						<span class="site-font-brand">Validating</span> user-supplied inputs in the backend of an application strengthens
+						data integrity even if the frontend also performs validation. The challenge in performing server-side validation
+						often lies in selecting validation methods appropriate to the business domain, constraints, and systems. A variety
+						of techniques can be used: whitelisting/blacklisting, range and boundary checking, data type checking,
+						regular expressions, reference/master data queries, or data dictionary lookups.
 					</p>
 
 				</section>

@@ -59,6 +59,6 @@ INSERT INTO liberanalytics.posts
         , NOW()
         ,'Using database metadata for server-side validation of user-supplied inputs'
         ,''
-        ,''
+        ,'Validating user-supplied inputs in the backend of an application strengthens data integrity even if the frontend also performs validation. The challenge in performing server-side validation often lies in selecting validation'
         ,TRUE
     );         
