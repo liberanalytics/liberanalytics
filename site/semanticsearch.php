@@ -109,7 +109,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
                     <p class="site-font-std">
                     	LiberAnalytics currently requires users to express post searches through predefined categories,
-                        tags, and other 	database parameters. Humans, however, do not naturally communicate in database
+                        tags, and other database parameters. Humans, however, do not naturally communicate in database
                         parameters. This article explores whether an LLM can serve as a constrained semantic layer,
                         translating natural-language search intent into validated parameters that can be safely consumed
                         by LiberAnalytics' existing deterministic database orchestration.

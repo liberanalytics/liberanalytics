@@ -15,7 +15,7 @@ INSERT INTO liberanalytics.posts
 
     (
          'whydata'
-        ,'Why Data'
+        ,'Data Concepts'
         , NOW() - INTERVAL '4 WEEK'
         ,'Why do we need Data?'
         ,'Explores the importance of data and information in decision making.'
@@ -35,7 +35,7 @@ INSERT INTO liberanalytics.posts
 
     (
          'phpcloudwatchlogs'
-        ,'Instrumentation'
+        ,'Cloud'
         , NOW() - INTERVAL '2 WEEK'
         ,'Logging database errors and queries to Amazon Web Services CloudWatch Logs'
         ,'Exemplifies a PHP way to use Amazon Web Services CloudWatch to log database errors and queries run. (Yes, PHP in 2026!).'
@@ -45,7 +45,7 @@ INSERT INTO liberanalytics.posts
     
     (
          'postgresdeploy'
-        ,'PostgreSQL'
+        ,'Database Engineering'
         , NOW() - INTERVAL '1 week'
         ,'Building an atomic PostgreSQL database rollout with Bash and psql'
         ,'A lightweight approach to orchestrating an atomic PostgreSQL database rollout with Bash and psql.'
@@ -55,7 +55,7 @@ INSERT INTO liberanalytics.posts
     
     (
          'metadatavalidation'
-        ,'DB Security'
+        ,'Database Engineering'
         , NOW()
         ,'Using database metadata for server-side validation of user-supplied inputs'
         ,''
