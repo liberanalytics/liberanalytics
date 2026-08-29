@@ -11,7 +11,6 @@ INSERT INTO refdata.post_categories (
 VALUES
 
      ('Data Concepts', 'Data Concepts', DEFAULT),
-     ('DB Security', 'DB Security', DEFAULT),
      ('Cloud', 'Cloud', DEFAULT),
      ('Database Engineering', 'Database Engineering', DEFAULT),
      ('AI', 'AI', DEFAULT);

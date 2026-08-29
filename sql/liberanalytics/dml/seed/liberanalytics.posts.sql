@@ -25,7 +25,7 @@ INSERT INTO liberanalytics.posts
 
     (
          'pythonpostgreconnect'
-        ,'DB Security'
+        ,'Database Engineering'
         , NOW() - INTERVAL '3 WEEK'
         ,'Connecting Python to a Postgresql database'
         ,'Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.'

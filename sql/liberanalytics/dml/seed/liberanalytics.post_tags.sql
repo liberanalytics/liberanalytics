@@ -12,6 +12,8 @@ VALUES
     ('whydata', 'Data Quality', DEFAULT),
 
     -- Python/PostgreSQL connection post.
+    ('pythonpostgreconnect', 'Database Security', DEFAULT),
+    ('pythonpostgreconnect', 'Data Architecture', DEFAULT),
     ('pythonpostgreconnect', 'AWS', DEFAULT),
     ('pythonpostgreconnect', 'PostgreSQL', DEFAULT),
     ('pythonpostgreconnect', 'Python', DEFAULT),
@@ -20,7 +22,18 @@ VALUES
     ('phpcloudwatchlogs', 'AWS', DEFAULT),
     ('phpcloudwatchlogs', 'PostgreSQL', DEFAULT),
     ('phpcloudwatchlogs', 'PHP', DEFAULT),
-    ('phpcloudwatchlogs', 'Logging', DEFAULT),
+    ('phpcloudwatchlogs', 'Instrumentation', DEFAULT),
+    ('phpcloudwatchlogs', 'Telemetry', DEFAULT),
     
     -- Postgres deploy post.
-    ('postgresdeploy', 'PostgreSQL', DEFAULT);
+    ('postgresdeploy', 'PostgreSQL', DEFAULT),
+    ('postgresdeploy', 'Deployment', DEFAULT),
+    ('postgresdeploy', 'Data Architecture', DEFAULT),
+    ('postgresdeploy', 'psql', DEFAULT),
+
+    -- Metadatavalidation post.
+    ('metadatavalidation', 'Data Architecture', DEFAULT),
+    ('metadatavalidation', 'Metadata', DEFAULT),
+    ('metadatavalidation', 'Validation', DEFAULT),
+    ('metadatavalidation', 'Database Security', DEFAULT),
+    ('metadatavalidation', 'SQL Server', DEFAULT);
