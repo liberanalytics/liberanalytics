@@ -1,76 +1,68 @@
-CREATE PROCEDURE [dbo].[usp_get_orders]
+USE LiberAnalytics;
+GO
 
-@pxCustomerName,
-@pxBusinessUnitCode,
-@pxOrderStatusCode,
-@pxSalesChannelCode,
-@pxOrderDate,
-@pxRequestedShipDate,
-@pxMinSubtotalAmount,
-@pxMaxSubtotalAmount,
-@pxExpedited
+SET QUOTED_IDENTIFIER ON;
+SET ANSI_NULLS ON;
+GO
 
-AS
+CREATE PROCEDURE [dbo].[usp_get_orders] 
+    @pxCustomerName NVARCHAR(100) = NULL, 
+    @pxBusinessUnitCode CHAR(3) = NULL, 
+    @pxOrderStatusCode VARCHAR(12) = NULL, 
+    @pxSalesChannelCode CHAR(3) = NULL, 
+    @pxOrderDate DATE = NULL, 
+    @pxRequestedShipDate DATE, 
+    @pxMinSubtotalAmount DECIMAL(12, 2) = NULL, 
+    @pxMaxSubtotalAmount DECIMAL(12, 2) = NULL, 
+    @pxExpedited BIT = NULL 
+AS 
+BEGIN 
+    -- Runtime performance and safety settings are fine here
+    SET NOCOUNT ON; 
+    SET ANSI_PADDING ON; 
+    SET ANSI_WARNINGS ON; 
+    SET ARITHABORT ON; 
+    SET NUMERIC_ROUNDABORT OFF; 
+    SET XACT_ABORT ON; 
+    SET CONCAT_NULL_YIELDS_NULL ON; 
 
-BEGIN
+    BEGIN TRY 
 
-	SET NOCOUNT ON;						-- Don't count the # of records affected.
-	SET QUOTED_IDENTIFIER ON;			-- Treated double quotes as field delimiters.
-	SET ANSI_NULLS ON;					-- Treat NULLS as unknown in compares.
-	SET ANSI_PADDING ON;				-- Pad chars, don't trim trailing spaces.
-	SET ANSI_WARNINGS ON;				-- Warn on null aggregates, arith. overflows.
-	SET ARITHABORT ON;					-- Abort transaction for overflows & div/0.
-	SET NUMERIC_ROUNDABORT OFF;			-- Allow numeric truncations.
-	SET XACT_ABORT ON;					-- Abort whole transactions at a time.
-	SET CONCAT_NULL_YIELDS_NULL ON;		-- NULL causes expressions to be unknown.
+        -- Begin a transaction if no others are being processed. 
+        IF @@TRANCOUNT = 0 
+        BEGIN
+            BEGIN TRANSACTION;
+        END
 
-	BEGIN TRY
+        -- stored procedure logic/queries --
 
-	-- Begin a transaction if no others are being processed.
-	IF @@TRANCOUNT = 0 BEGIN TRANSACTION
+        -- Cleanly close and commit the transaction if we opened it.
+        IF @@TRANCOUNT = 1 AND XACT_STATE() = 1 
+        BEGIN
+            COMMIT TRANSACTION; 
+        END 
+    END TRY 
 
-		IF @@TRANCOUNT = 1
-		BEGIN	
+    BEGIN CATCH 
+        -- Catch the exception and store the error data. 
+        IF XACT_STATE() = -1 
+        BEGIN
+            ROLLBACK TRANSACTION; 
+        END
 
-		IF @@TRANCOUNT = 1 AND XACT_STATE() = 1		
-				COMMIT TRANSACTION
-		END
+        DECLARE @intErrorSeverity AS INT, 
+                @intErrorState AS INT, 
+                @strErrorProcedure AS VARCHAR(128), 
+                @intErrorLine AS INT, 
+                @strErrorMsg AS VARCHAR(512); 
 
-	END TRY
+        SET @intErrorSeverity = ERROR_SEVERITY(); 
+        SET @intErrorState = ERROR_STATE(); 
+        SET @strErrorProcedure = ERROR_PROCEDURE(); 
+        SET @intErrorLine = ERROR_LINE(); 
+        SET @strErrorMsg = ERROR_MESSAGE(); 
 
-	-- Exception handler if any errors raised.
-	BEGIN CATCH
-
-	-- Catch the exception and store the error data.
-	IF XACT_STATE() = -1
-	BEGIN;
-
-	ROLLBACK TRANSACTION;
-
-	DECLARE 
-		@intErrorSeverity AS INT,
-		@intErrorState AS INT,
-		@strErrorProcedure AS VARCHAR(128),
-		@intErrorLine AS INT,
-		@strErrorMsg AS VARCHAR(512);
-
-	SET @intErrorSeverity = ERROR_SEVERITY();
-	SET	@intErrorState = ERROR_STATE();
-	SET @strErrorProcedure = ERROR_PROCEDURE();
-	SET @intErrorLine = ERROR_LINE();
-	SET @strErrorMsg = ERROR_MESSAGE();
-
-
-	EXEC [error].[usp_write_db_error]
-
-		@intErrorSeverity,
-		@intErrorState,
-		@strErrorProcedure,
-		@intErrorLine,
-		@strErrorMsg;
-
-	END;
-
-	END CATCH
-
+        THROW 50000, @strErrorMsg, @intErrorState;
+    END CATCH 
 END;
+GO

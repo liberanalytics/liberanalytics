@@ -30,7 +30,52 @@
     ):array
     {
         $getOrders = [];
+        validatePxCount();
         return $getOrders;
     }
+
+    /**
+     * validateCount
+     *
+     *
+     * @return void
+     */   
+    function validatePxCount(): void
+    {
+
+    }
+    
+    /**
+     * validatePxValues
+     *
+     *
+     * @return void
+     */   
+    function validatePxValues()
+    {
+
+    }
+
+    /**
+     * validatePxMembership
+     *
+     *
+     * @return void
+     */   
+    function validatePxMembership(): bool
+    {
+
+    }
+    
+    /**
+     * validatePxType
+     *
+     *
+     * @return void
+     */   
+    function validatePxType(): bool
+    {
+
+    } 
 
 ?>
