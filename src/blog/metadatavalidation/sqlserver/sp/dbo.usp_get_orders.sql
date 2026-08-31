@@ -1,11 +1,14 @@
 CREATE PROCEDURE [dbo].[usp_get_orders]
 
-	@strUserID VARCHAR(32),
-	@strAgency VARCHAR(64),
-	@strPatientCode VARCHAR(32),
-	@intClaimCode INT,
-	@strClaimType VARCHAR(32),
-	@intEntryRanking INT
+@pxCustomerName,
+@pxBusinessUnitCode,
+@pxOrderStatusCode,
+@pxSalesChannelCode,
+@pxOrderDate,
+@pxRequestedShipDate,
+@pxMinSubtotalAmount,
+@pxMaxSubtotalAmount,
+@pxExpedited
 
 AS
 
