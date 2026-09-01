@@ -10,6 +10,10 @@ GO
 
 CREATE PROCEDURE [dbo].[usp_get_metadata]
 
+    @pxCustomerName NVARCHAR(100) = NULL, 
+    @pxBusinessUnitCode CHAR(3) = NULL, 
+    @pxOrderStatusCode VARCHAR(12) = NULL
+
 AS 
 BEGIN 
     -- Runtime performance and safety settings are fine here
