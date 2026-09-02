@@ -31,93 +31,89 @@ BEGIN
     SET XACT_ABORT ON; 
     SET CONCAT_NULL_YIELDS_NULL ON; 
 
-    BEGIN TRY 
+    -- stored procedure logic/queries --
 
-        -- Begin a transaction if no others are being processed. 
-        DECLARE @bitStartedTransaction BIT = 0;
+    SELECT
 
-        IF @@TRANCOUNT = 0
-        BEGIN
-            BEGIN TRANSACTION;
-            SET @bitStartedTransaction = 1;
-        END
+            orders.order_id
+        ,cust.customer_name
+        ,os.order_status_desc AS order_status
+        ,bu.company_name
+        ,bu.business_unit_name
+        ,CAST(orders.order_date AS DATE) AS order_date
+        ,REPLACE(
+            REPLACE(
+                FORMAT(orders.order_date, 'h:mm tt'),
+                'AM', 'a.m.'
+            ),
+            'PM', 'p.m.'
+        ) AS order_time
+        ,COALESCE(CAST(orders.requested_ship_date AS VARCHAR(10)), 'None') AS requested_ship_date
+        ,REPLACE(
+            REPLACE(
+                CAST(orders.expedited AS VARCHAR(1)),
+                '0', 'No'
+            ),
+                '1', 'Yes'
+        ) AS expedited
+        ,(orders.subtotal_amount + orders.tax_amount + orders.shipping_amount) AS order_total
+        ,sc.sales_channel_desc AS sales_channel
+        ,COALESCE(orders.customer_note, 'None') AS customer_note
 
-        -- stored procedure logic/queries --
+    FROM
 
-        SELECT
+    dbo.orders AS orders
 
-             orders.order_id
-            ,cust.customer_name
-            ,os.order_status_desc AS order_status
-            ,bu.company_name
-            ,bu.business_unit_name
-            ,CAST(orders.order_date AS DATE) AS order_date
-            ,REPLACE(
-                REPLACE(
-                    FORMAT(orders.order_date, 'h:mm tt'),
-                    'AM', 'a.m.'
-                ),
-                'PM', 'p.m.'
-            ) AS order_time
-            ,COALESCE(CAST(orders.requested_ship_date AS VARCHAR(10)), 'None') AS requested_ship_date
-            ,REPLACE(
-                REPLACE(
-                    CAST(orders.expedited AS VARCHAR(1)),
-                    '0', 'No'
-                ),
-                    '1', 'Yes'
-            ) AS expedited
-            ,(orders.subtotal_amount + orders.tax_amount + orders.shipping_amount) AS order_total
-            ,sc.sales_channel_desc AS sales_channel
-            ,COALESCE(orders.customer_note, 'None') AS customer_note
+    INNER JOIN dbo.business_units AS bu
+    ON (orders.business_unit_id = bu.business_unit_id)
 
-        FROM
+    INNER JOIN dbo.customers AS cust
+    ON (orders.customer_id = cust.customer_id)
 
-        dbo.orders AS orders
+    INNER JOIN dbo.order_statuses AS os
+    ON (orders.order_status_code = os.order_status_code)
 
-        INNER JOIN dbo.business_units AS bu
-        ON (orders.business_unit_id = bu.business_unit_id)
+    INNER JOIN dbo.sales_channels AS sc
+    ON (orders.sales_channel_code = sc.sales_channel_code)
+        
+    WHERE 1=1
 
-        INNER JOIN dbo.customers AS cust
-        ON (orders.customer_id = cust.customer_id)
+    AND (
+        @pxCustomerName IS NULL
+        OR cust.customer_name LIKE '%' + @pxCustomerName + '%'
+    )
 
-        INNER JOIN dbo.order_statuses AS os
-        ON (orders.order_status_code = os.order_status_code)
+    AND (@pxBusinessUnitCode IS NULL
+    OR bu.business_unit_code = @pxBusinessUnitCode)
 
-        INNER JOIN dbo.sales_channels AS sc
-        ON (orders.sales_channel_code = sc.sales_channel_code)
+    AND (@pxOrderStatusCode IS NULL
+    OR orders.order_status_code = @pxOrderStatusCode)
 
-        ORDER BY orders.order_date DESC;
+    AND (@pxSalesChannelCode IS NULL
+    OR orders.sales_channel_code = @pxSalesChannelCode)
 
-        -- Cleanly close and commit the transaction if we opened it.
-        IF @bitStartedTransaction = 1
-           AND XACT_STATE() = 1
-        BEGIN
-            COMMIT TRANSACTION;
-        END
-    END TRY 
+    AND (
+        @pxOrderDate IS NULL
+        OR (
+            orders.order_date >= @pxOrderDate
+            AND orders.order_date < DATEADD(DAY, 1, @pxOrderDate)
+        )
+    )
 
-    BEGIN CATCH 
-        -- Catch the exception and store the error data. 
-        IF XACT_STATE() = -1 
-        BEGIN
-            ROLLBACK TRANSACTION; 
-        END
+    AND (@pxRequestedShipDate IS NULL
+    OR orders.requested_ship_date = @pxRequestedShipDate)
 
-        DECLARE @intErrorSeverity AS INT, 
-                @intErrorState AS INT, 
-                @strErrorProcedure AS VARCHAR(128), 
-                @intErrorLine AS INT, 
-                @strErrorMsg AS VARCHAR(512); 
+    AND (@pxMinSubtotalAmount IS NULL
+    OR orders.subtotal_amount >= @pxMinSubtotalAmount)
 
-        SET @intErrorSeverity = ERROR_SEVERITY(); 
-        SET @intErrorState = ERROR_STATE(); 
-        SET @strErrorProcedure = ERROR_PROCEDURE(); 
-        SET @intErrorLine = ERROR_LINE(); 
-        SET @strErrorMsg = ERROR_MESSAGE(); 
+    AND (@pxMaxSubtotalAmount IS NULL
+    OR orders.subtotal_amount <= @pxMaxSubtotalAmount)
 
-        THROW 50000, @strErrorMsg, @intErrorState;
-    END CATCH 
+    AND (@pxExpedited IS NULL
+    OR orders.expedited = @pxExpedited)
+
+    ORDER BY orders.order_date DESC;
+
 END;
 GO
 
