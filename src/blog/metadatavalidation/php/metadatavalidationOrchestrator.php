@@ -7,15 +7,15 @@ namespace metadatavalidation;
     /**
      * getOrders
      *
-     * @param string $pxCustomerName
-     * @param string $pxBusinessUnitCode
-     * @param string $pxOrderStatusCode
-     * @param string $pxSalesChannelCode
-     * @param string $pxOrderDate
-     * @param string $pxRequestedShipDate
-     * @param string $pxMinTotalAmount
-     * @param string $pxMaxTotalAmount
-     * @param string $pxExpedited
+     * @param string|null $pxCustomerName
+     * @param string|null $pxBusinessUnitCode
+     * @param string|null $pxOrderStatusCode
+     * @param string|null $pxSalesChannelCode
+     * @param string|null $pxOrderDate
+     * @param string|null $pxRequestedShipDate
+     * @param string|null $pxMinTotalAmount
+     * @param string|null $pxMaxTotalAmount
+     * @param string|null $pxExpedited
      *
      * @return array
      */
