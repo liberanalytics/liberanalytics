@@ -31,14 +31,32 @@ namespace metadatavalidation;
         ?string $pxMaxTotalAmount,
         ?string $pxExpedited
         
-    ):array
+    )  :array
     {
         // $getOrders = [];
         // validatePxCount();
         // return $getOrders;
+        $pxs = [
+            $pxCustomerName,
+            $pxBusinessUnitCode,
+            $pxOrderStatusCode,
+            $pxSalesChannelCode,
+            $pxOrderDate,
+            $pxRequestedShipDate,
+            $pxMinTotalAmount,
+            $pxMaxTotalAmount,
+            $pxExpedited
+        ];
 
-        echo "1";
-        return [1];
+        try
+        {
+            executeQuery(__FUNCTION__, $pxs);
+        }
+        catch ()
+        {
+
+        }
+
     }
 
     /**
