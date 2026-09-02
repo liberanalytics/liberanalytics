@@ -16,8 +16,8 @@ CREATE PROCEDURE [dbo].[usp_get_orders]
     @pxSalesChannelCode CHAR(3) = NULL, 
     @pxOrderDate DATE = NULL, 
     @pxRequestedShipDate DATE = NULL, 
-    @pxMinSubtotalAmount DECIMAL(12, 2) = NULL, 
-    @pxMaxSubtotalAmount DECIMAL(12, 2) = NULL, 
+    @pxMinTotalAmount DECIMAL(12, 2) = NULL, 
+    @pxMaxTotalAmount DECIMAL(12, 2) = NULL, 
     @pxExpedited BIT = NULL
 
 AS 
@@ -103,11 +103,11 @@ BEGIN
     AND (@pxRequestedShipDate IS NULL
     OR orders.requested_ship_date = @pxRequestedShipDate)
 
-    AND (@pxMinSubtotalAmount IS NULL
-    OR orders.subtotal_amount >= @pxMinSubtotalAmount)
+    AND (@pxMinTotalAmount IS NULL
+    OR (orders.subtotal_amount + orders.tax_amount + orders.shipping_amount) >= @pxMinTotalAmount)
 
-    AND (@pxMaxSubtotalAmount IS NULL
-    OR orders.subtotal_amount <= @pxMaxSubtotalAmount)
+    AND (@pxMaxTotalAmount IS NULL
+    OR (orders.subtotal_amount + orders.tax_amount + orders.shipping_amount) <= @pxMaxTotalAmount)
 
     AND (@pxExpedited IS NULL
     OR orders.expedited = @pxExpedited)
