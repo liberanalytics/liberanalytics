@@ -1,6 +1,6 @@
 <?php
 
-namespace metadatavalidation;
+    namespace metadatavalidation;
 
     require_once __DIR__ . '/metadatavalidationDb.php';
 
@@ -31,7 +31,7 @@ namespace metadatavalidation;
         ?string $pxMaxTotalAmount,
         ?string $pxExpedited
         
-    )  :array
+    )  //:array
     {
         // $getOrders = [];
         // validatePxCount();
@@ -50,9 +50,14 @@ namespace metadatavalidation;
 
         try
         {
-            executeQuery(__FUNCTION__, $pxs);
+            $dbOperation = substr(
+                __FUNCTION__,
+                strrpos(__FUNCTION__, '\\') + 1
+            );
+
+            executeQuery($dbOperation, $pxs);
         }
-        catch ()
+        catch (\PDOException | \RuntimeException | \JsonException $e)
         {
 
         }
