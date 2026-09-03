@@ -23,8 +23,8 @@
 
         $connection = getDbConnection(); 
         $dbOperation = DB_OPERATIONS[$pxDbOperation]; 
-        prepareStmt($connection, $dbOperation);
-
+        $stmt = prepareStmt($connection, $dbOperation);
+        $executeQuery
         $connection = null;
         return [1];
 
@@ -80,5 +80,14 @@
             $prepareStmt = $connection->prepare($dbOperation);
             return $prepareStmt;
         }
+    }
+
+    function executeStmt(\PDOStatement $stmt, array $dbPxs): array
+    {
+        try {
+            $stmt->execute($dbPxs);
+            $executeStmt = $stmt->fetchAll(\PDO::FETCH_NUM);
+            return $executeStmt;
+        }        
     }
 ?>
