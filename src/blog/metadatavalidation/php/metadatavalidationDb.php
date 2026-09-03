@@ -2,6 +2,12 @@
 
     namespace metadatavalidation;
 
+    /**
+     * Maps approved application database operations to parameterized
+     * SQL Server stored procedure execution statements.
+     *
+     * @var array<string, string>
+     */    
     const DB_OPERATIONS = [
         'getOrders' => "
             EXEC [dbo].[usp_get_orders]
@@ -16,22 +22,41 @@
                 @pxExpedited         = :pxExpedited
         "
     ];
+
+    /**
+     * The user or system environment variable representing a
+     * JSON file of database DSN and credential properties.
+     *
+     * @var string
+     */
     const DSN_FILE_ENV = 'LA_METADATAVALIDATION_AUTH';
 
+    /**
+     * executeQuery
+     *
+     * @param string $pxDbOperation
+     * @param array $dbPxs
+     *
+     * @return array
+     */    
     function executeQuery(string $pxDbOperation, array $dbPxs): array
     {
-
         $connection = getDbConnection(); 
         $dbOperation = DB_OPERATIONS[$pxDbOperation]; 
         $stmt = prepareStmt($connection, $dbOperation);
-        $executeQuery
         $connection = null;
-        return [1];
-
+        $executeQuery = $executeStmt($stmt, $dbPxs);
+        return $executeQuery;        
     }
 
+    /**
+     * getDbConnection
+     *
+     *
+     * @return \PDO
+     */
     function getDbConnection(): \PDO
-        {
+    {
 
         $authFileName = getenv(DSN_FILE_ENV);
         if ($authFileName === false) {
@@ -58,36 +83,45 @@
                 "Database={$authConfig['database']};" .
                 "TrustServerCertificate=yes";
 
-        try {
-            $getDbConnection = new \PDO(
-                $dsn,
-                $authConfig['username'],
-                $authConfig['auth'],
-                [
-                    \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
-                ]
-            );
-        }
-        catch (\PDOException $e) { throw $e; }
-
+        $getDbConnection = new \PDO(
+            $dsn,
+            $authConfig['username'],
+            $authConfig['auth'],
+            [
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+            ]
+        );
+        
         return $getDbConnection;
     }
 
+    /**
+     * executeQuery
+     *
+     * @param \PDO $connection
+     * @param string $dbOperation
+     *
+     * @return \PDOStatement
+     */  
     function prepareStmt(\PDO $connection, string $dbOperation): \PDOStatement
     {
-        //
-        try { 
-            $prepareStmt = $connection->prepare($dbOperation);
-            return $prepareStmt;
-        }
+        $prepareStmt = $connection->prepare($dbOperation);
+        return $prepareStmt;
     }
 
+    /**
+     * executeQuery
+     *
+     * @param \PDOStatement $stmt
+     * @param array $dbPxs
+     *
+     * @return array
+     */  
     function executeStmt(\PDOStatement $stmt, array $dbPxs): array
     {
-        try {
-            $stmt->execute($dbPxs);
-            $executeStmt = $stmt->fetchAll(\PDO::FETCH_NUM);
-            return $executeStmt;
-        }        
+        $stmt->execute($dbPxs);
+        $executeStmt = $stmt->fetchAll(\PDO::FETCH_NUM);
+        return $executeStmt;  
     }
+
 ?>

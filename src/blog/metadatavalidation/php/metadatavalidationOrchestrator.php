@@ -31,21 +31,21 @@
         ?string $pxMaxTotalAmount,
         ?string $pxExpedited
         
-    )  //:array
+    ): array
     {
         // $getOrders = [];
         // validatePxCount();
         // return $getOrders;
         $pxs = [
-            'pxCustomerName'      => $pxCustomerName,
-            'pxBusinessUnitCode'  => $pxBusinessUnitCode,
-            'pxOrderStatusCode'   => $pxOrderStatusCode,
-            'pxSalesChannelCode'  => $pxSalesChannelCode,
-            'pxOrderDate'         => $pxOrderDate,
-            'pxRequestedShipDate' => $pxRequestedShipDate,
-            'pxMinTotalAmount'    => $pxMinTotalAmount,
-            'pxMaxTotalAmount'    => $pxMaxTotalAmount,
-            'pxExpedited'         => $pxExpedited
+            'pxCustomerName'      => normalizePx($pxCustomerName),
+            'pxBusinessUnitCode'  => normalizePx($pxBusinessUnitCode),
+            'pxOrderStatusCode'   => normalizePx($pxOrderStatusCode),
+            'pxSalesChannelCode'  => normalizePx($pxSalesChannelCode),
+            'pxOrderDate'         => normalizePx($pxOrderDate),
+            'pxRequestedShipDate' => normalizePx($pxRequestedShipDate),
+            'pxMinTotalAmount'    => normalizePx($pxMinTotalAmount),
+            'pxMaxTotalAmount'    => normalizePx($pxMaxTotalAmount),
+            'pxExpedited'         => normalizePx($pxExpedited)
         ];
 
         try
@@ -55,13 +55,41 @@
                 strrpos(__FUNCTION__, '\\') + 1
             );
 
-            executeQuery($dbOperation, $pxs);
+            $getOrders = executeQuery($dbOperation, $pxs);
+            return $getOrders;
         }
         catch (\PDOException | \RuntimeException | \JsonException $e)
         {
-
+            echo $e->getMessage();
+            return [];
         }
 
+    }
+
+    /**
+     * normalizePx
+     *
+     * @param string|null $pxValue
+     *
+     * @return mixed
+     */
+    function normalizePx(string|null $pxValue): mixed
+    {
+        $normalizePx = normalizeNull($pxValue);
+        return $normalizePx;
+    }
+
+    /**
+     * normalizeNull
+     *
+     * @param string|null $pxValue
+     *
+     * @return mixed
+     */    
+    function normalizeNull(string|null $pxValue): string|null
+    {
+        $normalizeNull = (strcasecmp($pxValue, 'NULL') === 0) ? null : $pxValue;
+        return $normalizeNull;
     }
 
     /**
