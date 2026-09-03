@@ -37,15 +37,15 @@
         // validatePxCount();
         // return $getOrders;
         $pxs = [
-            $pxCustomerName,
-            $pxBusinessUnitCode,
-            $pxOrderStatusCode,
-            $pxSalesChannelCode,
-            $pxOrderDate,
-            $pxRequestedShipDate,
-            $pxMinTotalAmount,
-            $pxMaxTotalAmount,
-            $pxExpedited
+            'pxCustomerName'      => $pxCustomerName,
+            'pxBusinessUnitCode'  => $pxBusinessUnitCode,
+            'pxOrderStatusCode'   => $pxOrderStatusCode,
+            'pxSalesChannelCode'  => $pxSalesChannelCode,
+            'pxOrderDate'         => $pxOrderDate,
+            'pxRequestedShipDate' => $pxRequestedShipDate,
+            'pxMinTotalAmount'    => $pxMinTotalAmount,
+            'pxMaxTotalAmount'    => $pxMaxTotalAmount,
+            'pxExpedited'         => $pxExpedited
         ];
 
         try

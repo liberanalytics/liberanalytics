@@ -3,15 +3,31 @@
     namespace metadatavalidation;
 
     const DB_OPERATIONS = [
-        'getOrders' => '[dbo].[usp_get_orders]'
+        'getOrders' => "
+            EXEC [dbo].[usp_get_orders]
+                @pxCustomerName      = :pxCustomerName,
+                @pxBusinessUnitCode  = :pxBusinessUnitCode,
+                @pxOrderStatusCode   = :pxOrderStatusCode,
+                @pxSalesChannelCode  = :pxSalesChannelCode,
+                @pxOrderDate         = :pxOrderDate,
+                @pxRequestedShipDate = :pxRequestedShipDate,
+                @pxMinTotalAmount    = :pxMinTotalAmount,
+                @pxMaxTotalAmount    = :pxMaxTotalAmount,
+                @pxExpedited         = :pxExpedited
+        "
     ];
     const DSN_FILE_ENV = 'LA_METADATAVALIDATION_AUTH';
 
-    function executeQuery(string $pxDbOperation, array $dbPxs)
+    function executeQuery(string $pxDbOperation, array $dbPxs): array
     {
-        $conn = getDbConnection();
 
-        $dbOperation = DB_OPERATIONS[$pxDbOperation];
+        $connection = getDbConnection(); 
+        $dbOperation = DB_OPERATIONS[$pxDbOperation]; 
+        prepareStmt($connection, $dbOperation);
+
+        $connection = null;
+        return [1];
+
     }
 
     function getDbConnection(): \PDO
@@ -42,15 +58,27 @@
                 "Database={$authConfig['database']};" .
                 "TrustServerCertificate=yes";
 
-        $getDbConnection = new \PDO(
-            $dsn,
-            $authConfig['username'],
-            $authConfig['auth'],
-            [
-                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
-            ]
-        );
+        try {
+            $getDbConnection = new \PDO(
+                $dsn,
+                $authConfig['username'],
+                $authConfig['auth'],
+                [
+                    \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+                ]
+            );
+        }
+        catch (\PDOException $e) { throw $e; }
 
         return $getDbConnection;
+    }
+
+    function prepareStmt(\PDO $connection, string $dbOperation): \PDOStatement
+    {
+        //
+        try { 
+            $prepareStmt = $connection->prepare($dbOperation);
+            return $prepareStmt;
+        }
     }
 ?>
