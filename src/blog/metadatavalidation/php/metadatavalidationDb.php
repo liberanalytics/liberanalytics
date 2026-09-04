@@ -45,7 +45,7 @@
         $dbOperation = DB_OPERATIONS[$pxDbOperation]; 
         $stmt = prepareStmt($connection, $dbOperation);
         $connection = null;
-        $executeQuery = $executeStmt($stmt, $dbPxs);
+        $executeQuery = executeStmt($stmt, $dbPxs);
         return $executeQuery;        
     }
 
@@ -120,7 +120,7 @@
     function executeStmt(\PDOStatement $stmt, array $dbPxs): array
     {
         $stmt->execute($dbPxs);
-        $executeStmt = $stmt->fetchAll(\PDO::FETCH_NUM);
+        $executeStmt = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $executeStmt;  
     }
 

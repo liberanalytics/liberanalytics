@@ -88,6 +88,10 @@
      */    
     function normalizeNull(string|null $pxValue): string|null
     {
+        if ($pxValue === null)
+        {
+            return null;
+        }        
         $normalizeNull = (strcasecmp($pxValue, 'NULL') === 0) ? null : $pxValue;
         return $normalizeNull;
     }
