@@ -35,7 +35,7 @@ BEGIN
 
     SELECT
 
-            orders.order_id
+         orders.order_id
         ,cust.customer_name
         ,os.order_status_desc AS order_status
         ,bu.company_name

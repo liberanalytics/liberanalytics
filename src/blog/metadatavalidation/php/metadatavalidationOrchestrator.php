@@ -95,17 +95,6 @@
         $normalizeNull = (strcasecmp($pxValue, 'NULL') === 0) ? null : $pxValue;
         return $normalizeNull;
     }
-
-    /**
-     * validateCount
-     *
-     *
-     * @return void
-     */   
-    function validatePxCount(): void
-    {
-
-    }
     
     /**
      * validatePxValues
