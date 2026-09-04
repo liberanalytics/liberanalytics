@@ -30,6 +30,7 @@
                 );
             if ( $resultset ) 
             {
+                // Get the resultset headers and column widths of ea. header.
                 $rsHeaders = array_keys($resultset[0]);
                 $rsColumnWidths = [];
                 foreach ($rsHeaders as $rsHeader)
@@ -37,28 +38,28 @@
                     $rsColumnWidths[$rsHeader] = strlen($rsHeader);
                 }
 
+                // Inspect the resultset datums to determine the longest datum per column in the resultset.
                 foreach ($resultset as $rsRecord)
-                {
                     foreach ($rsRecord as $rsColumn => $rsDatum)
                     {
-                        $rsDatumLen = strlen((string) $rsDatum);
+                        $rsDatumLen = strlen($rsDatum);
                         if ($rsDatumLen > $rsColumnWidths[$rsColumn])
                         {
                             $rsColumnWidths[$rsColumn] = $rsDatumLen;
                         }
                     }
 
-                }
-                
+                // Echo the resultset headers padding ea. header.
                 foreach ($rsHeaders as $rsHeader)
                 {
                     echo str_pad(
                         $rsHeader,
-                        $rsColumnWidths[$rsHeader] + 2
+                        $rsColumnWidths[$rsHeader] +2
                     );
                 }
                 echo PHP_EOL;
 
+                // Iterate through resultset, echo datums per row.
                 foreach ($resultset as $rsRecord)
                 {
                     foreach ($rsRecord as $rsColumn => $rsDatum)
@@ -68,9 +69,9 @@
                             $rsColumnWidths[$rsColumn] + 2
                         );
                     }
-
                     echo PHP_EOL;
                 }
+                
             }
             else {
                 echo 'No records to return.' . PHP_EOL;
