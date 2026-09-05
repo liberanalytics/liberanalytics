@@ -105,6 +105,14 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						regular expressions, reference/master data queries, or data dictionary lookups.
 					</p>
 
+					<p>
+						Database validation functions serve as the lookup junction for determining the validity of domain-membership values
+						and retrieving specifications used for data-type validation. To determine which validation function to invoke, the
+						application layer maintains a mapping of parameter keys to their related database validation functions. In this post,
+						PHP is used to store domain-membership validation functions in an associative array structured as
+						'&LT;parameter key&GT;' => '&LT;database validation function&GT;'. When a parameter is classified for domain-membership validation, validity is established by confirming that its value exists in the authoritative membership set. Otherwise, type validation is performed against the metadata describing the corresponding SQL Server database routine parameter.
+					</p>
+
 				</section>
 		
 			</article>
