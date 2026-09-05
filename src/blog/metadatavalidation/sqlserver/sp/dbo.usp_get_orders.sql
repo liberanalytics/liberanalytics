@@ -120,6 +120,7 @@ BEGIN
     )
 
 
+    AND (@pxMinTotalAmount IS NULL
     OR (orders.subtotal_amount + orders.tax_amount + orders.shipping_amount) >= @pxMinTotalAmount)
 
     AND (@pxMaxTotalAmount IS NULL

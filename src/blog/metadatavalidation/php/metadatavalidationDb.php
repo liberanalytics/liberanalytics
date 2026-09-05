@@ -11,15 +11,16 @@
     const DB_OPERATIONS = [
         'getOrders' => "
             EXEC [dbo].[usp_get_orders]
-                @pxCustomerName      = :pxCustomerName,
-                @pxBusinessUnitCode  = :pxBusinessUnitCode,
-                @pxOrderStatusCode   = :pxOrderStatusCode,
-                @pxSalesChannelCode  = :pxSalesChannelCode,
-                @pxOrderDate         = :pxOrderDate,
-                @pxRequestedShipDate = :pxRequestedShipDate,
-                @pxMinTotalAmount    = :pxMinTotalAmount,
-                @pxMaxTotalAmount    = :pxMaxTotalAmount,
-                @pxExpedited         = :pxExpedited
+                @pxCustomerName                 = :pxCustomerName,
+                @pxBusinessUnitCode             = :pxBusinessUnitCode,
+                @pxOrderStatusCode              = :pxOrderStatusCode,
+                @pxSalesChannelCode             = :pxSalesChannelCode,
+                @pxOrderDate                    = :pxOrderDate,
+                @pxRequestedShipDate            = :pxRequestedShipDate,
+                @pxRequestedShipDateOperator    = :pxRequestedShipDateOperator,
+                @pxMinTotalAmount               = :pxMinTotalAmount,
+                @pxMaxTotalAmount               = :pxMaxTotalAmount,
+                @pxExpedited                    = :pxExpedited
         "
     ];
 

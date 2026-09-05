@@ -44,9 +44,6 @@
         string $pxExpedited        
     ): array
     {
-        // $getOrders = [];
-        // validatePxCount();
-        // return $getOrders;
         $pxs = [
             'pxCustomerName'                => validatePx('pxCustomerName', $pxCustomerName),
             'pxBusinessUnitCode'            => validatePx('pxBusinessUnitCode', $pxBusinessUnitCode),
@@ -97,7 +94,7 @@
         string|null $pxParameterOperator = null
     ): string|null
     {
-        $normalizedPxValue = normalizeNull($pxValue);
+        $validatePx = normalizeNull($pxValue);
 
         // Make sure nullable column isn't filtering on value and IS NULL.
         if (in_array($pxParameter, NULLABLE_PXS, true))
@@ -108,7 +105,7 @@
             {
                 validateNullableColumn(
                     $pxParameter,
-                    $normalizedPxValue,
+                    $validatePx,
                     $normalizedOperator
                 );
             }
@@ -164,17 +161,6 @@
     {      
         $normalizeNull = (strcasecmp($pxValue, 'NULL') === 0) ? null : $pxValue;
         return $normalizeNull;
-    }
-    
-    /**
-     * validatePxValues
-     *
-     *
-     * @return void
-     */   
-    function validatePxValue()
-    {
-
     }
 
     /**
