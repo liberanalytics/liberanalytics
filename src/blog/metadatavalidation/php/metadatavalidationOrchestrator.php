@@ -5,12 +5,14 @@
     require_once __DIR__ . '/metadatavalidationDb.php';
 
     /**
-     * The user or system environment variable representing a
-     * JSON file of database DSN and credential properties.
+     * Params compared against nullable columns in the
+     * database tables.
      *
-     * @var string
+     * @var array<int, string>
      */
-    const NULLABLE_PXS = 'LA_METADATAVALIDATION_AUTH';    
+    const NULLABLE_PXS = [
+        'pxRequestedShipDate'
+    ];    
 
     /**
      * getOrders
@@ -46,16 +48,20 @@
         // validatePxCount();
         // return $getOrders;
         $pxs = [
-            'pxCustomerName'                => validatePx($pxCustomerName),
-            'pxBusinessUnitCode'            => validatePx($pxBusinessUnitCode),
-            'pxOrderStatusCode'             => validatePx($pxOrderStatusCode),
-            'pxSalesChannelCode'            => validatePx($pxSalesChannelCode),
-            'pxOrderDate'                   => validatePx($pxOrderDate),
-            'pxRequestedShipDate'           => validatePx($pxRequestedShipDate),
-            'pxRequestedShipDateOperator'   => validatePx($pxRequestedShipDateOperator),
-            'pxMinTotalAmount'              => validatePx($pxMinTotalAmount),
-            'pxMaxTotalAmount'              => validatePx($pxMaxTotalAmount),
-            'pxExpedited'                   => validatePx($pxExpedited)
+            'pxCustomerName'                => validatePx('pxCustomerName', $pxCustomerName),
+            'pxBusinessUnitCode'            => validatePx('pxBusinessUnitCode', $pxBusinessUnitCode),
+            'pxOrderStatusCode'             => validatePx('pxOrderStatusCode', $pxOrderStatusCode),
+            'pxSalesChannelCode'            => validatePx('pxSalesChannelCode', $pxSalesChannelCode),
+            'pxOrderDate'                   => validatePx('pxOrderDate', $pxOrderDate),
+            'pxRequestedShipDate'           => validatePx(
+                                                'pxRequestedShipDate',
+                                                $pxRequestedShipDate,
+                                                $pxRequestedShipDateOperator
+                                                ),
+            'pxRequestedShipDateOperator'   => validatePx('pxRequestedShipDateOperator', $pxRequestedShipDateOperator),
+            'pxMinTotalAmount'              => validatePx('pxMinTotalAmount', $pxMinTotalAmount),
+            'pxMaxTotalAmount'              => validatePx('pxMaxTotalAmount', $pxMaxTotalAmount),
+            'pxExpedited'                   => validatePx('pxExpedited', $pxExpedited)
         ];
 
         try
@@ -76,17 +82,63 @@
 
     }
 
-    /* validatePx
+    /* 
+     * validatePx
      *
-     * @param string|null $pxValue
+     * @param string $pxParameter string
+     * @param string $pxValue string
+     * @param string $pxParameterOperator string|null
      *
-     * @return mixed
+     * @return string|null
      */
-    function validatePx(string|null $pxValue): mixed
+    function validatePx(    
+        string $pxParameter,
+        string $pxValue,
+        string|null $pxParameterOperator = null
+    ): string|null
     {
-        $validatePx = normalizeNull($pxValue);
+        $normalizedPxValue = normalizeNull($pxValue);
+
+        // Make sure nullable column isn't filtering on value and IS NULL.
+        if (in_array($pxParameter, NULLABLE_PXS, true))
+        {
+            $normalizedOperator = normalizeNull($pxParameterOperator);
+
+            if ($normalizedOperator !== null)
+            {
+                validateNullableColumn(
+                    $pxParameter,
+                    $normalizedPxValue,
+                    $normalizedOperator
+                );
+            }
+        }
+
         return $validatePx;
-    }    
+    }
+
+    /**
+     * validateNullableColumn
+     *
+     * @param string $pxParameter
+     * @param string|null $pxValue
+     * @param string|null $pxParameterOperator
+     *
+     * @return void
+     */    
+    function validateNullableColumn(
+        string $pxParameter, 
+        string|null $pxValue, 
+        string|null $pxParameterOperator
+    ): void
+    {
+        if ($pxValue !== null && $pxParameterOperator !== null)
+        {
+            throw new \RuntimeException(
+                "{$pxParameter} filters for {$pxValue}; cannot also filter for NULLS."
+            );  
+        }
+    }
 
     /**
      * normalizePx
@@ -120,7 +172,7 @@
      *
      * @return void
      */   
-    function validatePxValues()
+    function validatePxValue()
     {
 
     }
