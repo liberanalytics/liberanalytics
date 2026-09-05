@@ -5,6 +5,14 @@
     require_once __DIR__ . '/metadatavalidationDb.php';
 
     /**
+     * The user or system environment variable representing a
+     * JSON file of database DSN and credential properties.
+     *
+     * @var string
+     */
+    const NULLABLE_PXS = 'LA_METADATAVALIDATION_AUTH';    
+
+    /**
      * getOrders
      *
      * @param string|null $pxCustomerName
@@ -13,6 +21,7 @@
      * @param string|null $pxSalesChannelCode
      * @param string|null $pxOrderDate
      * @param string|null $pxRequestedShipDate
+     * @param string|null $pxRequestedShipDateOperator
      * @param string|null $pxMinTotalAmount
      * @param string|null $pxMaxTotalAmount
      * @param string|null $pxExpedited
@@ -21,31 +30,32 @@
      */
     function getOrders
     (
-        ?string $pxCustomerName,
-        ?string $pxBusinessUnitCode,
-        ?string $pxOrderStatusCode,
-        ?string $pxSalesChannelCode,
-        ?string $pxOrderDate,
-        ?string $pxRequestedShipDate,
-        ?string $pxMinTotalAmount,
-        ?string $pxMaxTotalAmount,
-        ?string $pxExpedited
-        
+        string $pxCustomerName,
+        string $pxBusinessUnitCode,
+        string $pxOrderStatusCode,
+        string $pxSalesChannelCode,
+        string $pxOrderDate,
+        string $pxRequestedShipDate,
+        string $pxRequestedShipDateOperator,
+        string $pxMinTotalAmount,
+        string $pxMaxTotalAmount,
+        string $pxExpedited        
     ): array
     {
         // $getOrders = [];
         // validatePxCount();
         // return $getOrders;
         $pxs = [
-            'pxCustomerName'      => normalizePx($pxCustomerName),
-            'pxBusinessUnitCode'  => normalizePx($pxBusinessUnitCode),
-            'pxOrderStatusCode'   => normalizePx($pxOrderStatusCode),
-            'pxSalesChannelCode'  => normalizePx($pxSalesChannelCode),
-            'pxOrderDate'         => normalizePx($pxOrderDate),
-            'pxRequestedShipDate' => normalizePx($pxRequestedShipDate),
-            'pxMinTotalAmount'    => normalizePx($pxMinTotalAmount),
-            'pxMaxTotalAmount'    => normalizePx($pxMaxTotalAmount),
-            'pxExpedited'         => normalizePx($pxExpedited)
+            'pxCustomerName'                => validatePx($pxCustomerName),
+            'pxBusinessUnitCode'            => validatePx($pxBusinessUnitCode),
+            'pxOrderStatusCode'             => validatePx($pxOrderStatusCode),
+            'pxSalesChannelCode'            => validatePx($pxSalesChannelCode),
+            'pxOrderDate'                   => validatePx($pxOrderDate),
+            'pxRequestedShipDate'           => validatePx($pxRequestedShipDate),
+            'pxRequestedShipDateOperator'   => validatePx($pxRequestedShipDateOperator),
+            'pxMinTotalAmount'              => validatePx($pxMinTotalAmount),
+            'pxMaxTotalAmount'              => validatePx($pxMaxTotalAmount),
+            'pxExpedited'                   => validatePx($pxExpedited)
         ];
 
         try
@@ -66,14 +76,26 @@
 
     }
 
-    /**
-     * normalizePx
+    /* validatePx
      *
      * @param string|null $pxValue
      *
      * @return mixed
      */
-    function normalizePx(string|null $pxValue): mixed
+    function validatePx(string|null $pxValue): mixed
+    {
+        $validatePx = normalizeNull($pxValue);
+        return $validatePx;
+    }    
+
+    /**
+     * normalizePx
+     *
+     * @param string $pxValue
+     *
+     * @return string|null
+     */
+    function normalizePx(string $pxValue): string|null
     {
         $normalizePx = normalizeNull($pxValue);
         return $normalizePx;
@@ -82,16 +104,12 @@
     /**
      * normalizeNull
      *
-     * @param string|null $pxValue
+     * @param string $pxValue
      *
-     * @return mixed
+     * @return string|null
      */    
-    function normalizeNull(string|null $pxValue): string|null
-    {
-        if ($pxValue === null)
-        {
-            return null;
-        }        
+    function normalizeNull(string $pxValue): string|null
+    {      
         $normalizeNull = (strcasecmp($pxValue, 'NULL') === 0) ? null : $pxValue;
         return $normalizeNull;
     }

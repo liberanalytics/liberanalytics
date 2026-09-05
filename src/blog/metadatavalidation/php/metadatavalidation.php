@@ -20,15 +20,16 @@
             else {
                 $resultset =                 
                     getOrders(
-                        $argv[2] ?? null,	// @pxCustomerName		-> :pxCustomerName
-                        $argv[3] ?? null,	// @pxBusinessUnitCode  -> :pxBusinessUnitCode
-                        $argv[4] ?? null,	// @pxOrderStatusCode   -> :pxOrderStatusCode
-                        $argv[5] ?? null,	// @pxSalesChannelCode  -> :pxSalesChannelCode
-                        $argv[6] ?? null,	// @pxOrderDate         -> :pxOrderDate
-                        $argv[7] ?? null,	// @pxRequestedShipDate -> :pxRequestedShipDate
-                        $argv[8] ?? null,	// @pxMinTotalAmount    -> :pxMinTotalAmount
-                        $argv[9] ?? null,	// @pxMaxTotalAmount    -> :pxMaxTotalAmount
-                        $argv[10] ?? null	// @pxExpedited         -> :pxExpedited
+                        $argv[2] ?? null,	// @pxCustomerName		        -> :pxCustomerName
+                        $argv[3] ?? null,	// @pxBusinessUnitCode          -> :pxBusinessUnitCode
+                        $argv[4] ?? null,	// @pxOrderStatusCode           -> :pxOrderStatusCode
+                        $argv[5] ?? null,	// @pxSalesChannelCode          -> :pxSalesChannelCode
+                        $argv[6] ?? null,	// @pxOrderDate                 -> :pxOrderDate
+                        $argv[7] ?? null,	// @pxRequestedShipDate         -> :pxRequestedShipDate
+                        $argv[8] ?? null,	// @pxRequestedShipDateOperator -> :pxRequestedShipDateOperator
+                        $argv[9] ?? null,	// @pxMinTotalAmount            -> :pxMinTotalAmount
+                        $argv[10] ?? null,	// @pxMaxTotalAmount            -> :pxMaxTotalAmount
+                        $argv[11] ?? null	// @pxExpedited                 -> :pxExpedited
                     );
                 if ( $resultset ) 
                 {

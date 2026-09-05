@@ -1,7 +1,14 @@
-CREATE FUNCTION [dbo].[fx_get_procedure_parameters]
+USE LiberAnalytics;
+GO
+
+DROP FUNCTION IF EXISTS [dbo].[fx_get_metadata];
+GO
+
+CREATE FUNCTION [dbo].[fx_get_metadata]
 (
-    @pxProcedureSchema SYSNAME,
-    @pxProcedureName   SYSNAME
+    @pxSchema SYSNAME,
+    @pxObjectName SYSNAME,
+    @pxName VARCHAR(32)
 )
 RETURNS TABLE
 AS
@@ -16,7 +23,11 @@ RETURN
         CHARACTER_MAXIMUM_LENGTH,
         NUMERIC_PRECISION,
         NUMERIC_SCALE
-    FROM INFORMATION_SCHEMA.PARAMETERS
-    WHERE SPECIFIC_SCHEMA = @pxProcedureSchema
-      AND SPECIFIC_NAME   = @pxProcedureName
+    FROM INFORMATION_SCHEMA.PARAMETERS AS metadata_px
+    
+    WHERE 1=1
+    AND metadata_px.SPECIFIC_SCHEMA = @pxSchema
+    AND metadata_px.SPECIFIC_NAME   = @pxObjectName
+    AND metadata_px.PARAMETER_NAME = @pxName
 );
+GO
