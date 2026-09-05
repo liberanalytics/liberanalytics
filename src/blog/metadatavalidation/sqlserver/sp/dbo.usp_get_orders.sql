@@ -97,11 +97,18 @@ BEGIN
         OR (
             orders.order_date >= @pxOrderDate
             AND orders.order_date < DATEADD(DAY, 1, @pxOrderDate)
-        )
+        )   
     )
 
-    AND (@pxRequestedShipDate IS NULL
-    OR orders.requested_ship_date = @pxRequestedShipDate)
+    AND (
+        @pxRequestedShipDate IS NOT NULL
+        AND orders.requested_ship_date = @pxRequestedShipDate
+
+        OR
+
+        @pxRequestedShipDate IS NULL
+        AND orders.requested_ship_date IS NULL
+    )
 
     AND (@pxMinTotalAmount IS NULL
     OR (orders.subtotal_amount + orders.tax_amount + orders.shipping_amount) >= @pxMinTotalAmount)

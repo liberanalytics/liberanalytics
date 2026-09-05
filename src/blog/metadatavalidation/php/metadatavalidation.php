@@ -16,7 +16,7 @@
 
         case 'getOrders':
 
-            if ($argc !== 9) { echo 'Invalid number of arguments: must be 9.'; }
+            if ($argc !== 11) { echo 'Invalid number of arguments: must be 9.'; }
             else {
                 $resultset =                 
                     getOrders(
