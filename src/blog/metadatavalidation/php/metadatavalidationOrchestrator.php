@@ -5,7 +5,7 @@
     require_once __DIR__ . '/metadatavalidationDb.php';
 
     /**
-     * Params compared against nullable columns in the
+     * Parameters compared against nullable columns in the
      * database tables.
      *
      * @var array<int, string>
@@ -15,10 +15,9 @@
     ];
 
     /**
-     * 
-     * 
+     * Domain membership validation parameters.
      *
-     * @var array<string>
+     * @var array<int, string>
      */
     const REFDATA_PXS = [
         'pxCustomerName',
@@ -31,7 +30,7 @@
      * Parameters validated against domain membership using
      * case-insensitive contains matching.
      *
-     * @var array<string>
+     * @var array<int, string>
      */    
     const WILDCARD_PXS = [
         'pxCustomerName'
