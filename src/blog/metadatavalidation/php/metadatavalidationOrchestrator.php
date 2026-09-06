@@ -15,17 +15,27 @@
     ];
 
     /**
-     * Params compared against nullable columns in the
-     * database tables.
+     * 
+     * 
      *
-     * @var array<int, string>
+     * @var array<string>
      */
     const REFDATA_PXS = [
         'pxCustomerName',
         'pxBusinessUnitCode',
         'pxOrderStatusCode',
         'pxSalesChannelCode'
-    ];        
+    ];
+    
+    /**
+     * Parameters validated against domain membership using
+     * case-insensitive contains matching.
+     *
+     * @var array<string>
+     */    
+    const WILDCARD_PXS = [
+        'pxCustomerName'
+    ];    
 
     /**
      * getOrders
@@ -170,11 +180,26 @@
             $domainMembers,
             'membership_value'
         );
-        $validateDomainMembership = in_array(
-            $pxValue,
-            $domainMembers,
-            true
-        );
+
+        if (in_array($pxParameter, WILDCARD_PXS, true))
+        {
+            foreach ($domainMembers as $domainMember)
+            {
+                if (stripos($domainMember, $pxValue) !== false)
+                {
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            $validateDomainMembership = in_array(
+                $pxValue,
+                $domainMembers,
+                true
+            );
+        }
+
         return $validateDomainMembership;
     }
 
