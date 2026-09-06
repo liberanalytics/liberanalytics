@@ -25,7 +25,20 @@
         'validateDomainMembership' => "
             SELECT 
                 membership_value
-            FROM [dbo].[fx_get_membership_values] (:membershipKey);"
+            FROM [dbo].[fx_get_membership_values] (:membershipKey);
+        ",
+        'validateType' => "
+            SELECT
+                specific_schema,
+                specific_name,
+                parameter_name,
+                ordinal_position,
+                data_type,
+                character_maximum_length,
+                numeric_precision,
+                numeric_scale
+            FROM dbo.fx_get_metadata(:pxSchema, :pxObjectName, :pxName);
+        "        
     ];
 
     /**
