@@ -21,7 +21,11 @@
                 @pxMinTotalAmount               = :pxMinTotalAmount,
                 @pxMaxTotalAmount               = :pxMaxTotalAmount,
                 @pxExpedited                    = :pxExpedited
-        "
+        ",
+        'validateDomainMembership' => "
+            SELECT 
+                membership_value
+            FROM [dbo].[fx_get_membership_values] (:membershipKey);"
     ];
 
     /**

@@ -12,7 +12,20 @@
      */
     const NULLABLE_PXS = [
         'pxRequestedShipDate'
-    ];    
+    ];
+
+    /**
+     * Params compared against nullable columns in the
+     * database tables.
+     *
+     * @var array<int, string>
+     */
+    const REFDATA_PXS = [
+        'pxCustomerName',
+        'pxBusinessUnitCode',
+        'pxOrderStatusCode',
+        'pxSalesChannelCode'
+    ];        
 
     /**
      * getOrders
@@ -63,11 +76,7 @@
 
         try
         {
-            $dbOperation = substr(
-                __FUNCTION__,
-                strrpos(__FUNCTION__, '\\') + 1
-            );
-
+            $dbOperation = getDBOperation(__FUNCTION__);
             $getOrders = executeQuery($dbOperation, $pxs);
             return $getOrders;
         }
@@ -100,7 +109,6 @@
         if (in_array($pxParameter, NULLABLE_PXS, true))
         {
             $normalizedOperator = normalizeNull($pxParameterOperator);
-
             if ($normalizedOperator !== null)
             {
                 validateNullableColumn(
@@ -111,7 +119,51 @@
             }
         }
 
+        // Validate domain membership p(x)'s.
+        if (array_key_exists($pxs[$pxParameter]) && $pxs[$pxParameter] !== null)
+        {
+            if (validateDomainMembership($pxParameter, $pxValue) !== true)
+            {
+                throw new \RuntimeException(
+                    "{$pxParameter} {$pxValue} is invalid."
+            ); 
+            }
+        } 
+
         return $validatePx;
+    }
+
+    /* 
+     * getDBOperation
+     *
+     * @param string $pxDBFx string
+     *
+     * @return string
+     */
+    function getDBOperation(string $pxAppFx): string
+    {
+        $dbOperation = substr(
+            $pxAppFx,
+            strrpos($pxAppFx, '\\') + 1
+        );
+    }
+
+    /**
+     * validateDomainMembership
+     *
+     * @param string $pxParameter
+     * @param string $pxValue
+     *
+     * @return bool
+     */    
+    function validateDomainMembership(string $pxParameter, string $pxValue): bool
+    {
+        $validateDomainMembership = false;
+        $dbOperation = getDBOperation(__FUNCTION__);
+        $domainMembers = executeQuery($pxParameter, [$pxValue]);
+
+        // $domainMembers = exec
+        return $validateDomainMembership;
     }
 
     /**
