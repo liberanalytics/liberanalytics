@@ -94,7 +94,6 @@
             echo $e->getMessage();
             return [];
         }
-
     }
 
     /* 
@@ -170,7 +169,16 @@
      */    
     function validateType(string $pxParameter, string $pxValue): bool
     {
-
+        $dbOperation = getDBOperation(__FUNCTION__);
+        $typeMetaData = executeQuery(
+            $dbOperation,
+            [
+                'pxSchema'     => 'dbo',
+                'pxObjectName' => 'usp_get_orders',
+                'pxName'       => '@' . $pxParameter
+            ]
+        );
+        $a = 1;
     }
 
     /* 
