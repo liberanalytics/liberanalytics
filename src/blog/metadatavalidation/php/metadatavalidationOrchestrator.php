@@ -128,18 +128,49 @@
             }
         }
 
-        // Validate domain membership p(x)'s.
-        if ( in_array($pxParameter, REFDATA_PXS, true) && $validatePx !== null )
+        $validPx = false;
+
+        if ($validatePx !== null)
         {
-            if (!validateDomainMembership($pxParameter, $validatePx))
+            // Validate domain membership p(x)'s.
+            if (in_array($pxParameter, REFDATA_PXS, true))
+            {
+                $validPx = validateDomainMembership(
+                    $pxParameter,
+                    $validatePx
+                );
+            }
+            // Validate type p(x)'s.
+            else
+            {
+                $validPx = validateType(
+                    $pxParameter,
+                    $validatePx
+                );
+            }
+            // Throw new runtime exception if validation fails.
+            if ($validPx === false)
             {
                 throw new \RuntimeException(
                     "{$pxParameter} {$pxValue} is invalid."
-            ); 
+                );
             }
-        } 
+        }
 
         return $validatePx;
+    }
+
+    /**
+     * validateType
+     *
+     * @param string $pxParameter
+     * @param string $pxValue
+     *
+     * @return bool
+     */    
+    function validateType(string $pxParameter, string $pxValue): bool
+    {
+
     }
 
     /* 
