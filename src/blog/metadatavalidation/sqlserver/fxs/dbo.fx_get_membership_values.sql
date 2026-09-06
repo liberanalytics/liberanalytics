@@ -36,7 +36,7 @@ BEGIN
         FROM dbo.order_statuses;
     END
 
-    ELSE IF @membershipKey = '@pxSalesChannelCode'
+    ELSE IF @membershipKey = 'pxSalesChannelCode'
     BEGIN
         INSERT INTO @membershipValues
         SELECT CAST(sales_channel_code AS varchar(256))

@@ -120,9 +120,9 @@
         }
 
         // Validate domain membership p(x)'s.
-        if (array_key_exists($pxs[$pxParameter]) && $pxs[$pxParameter] !== null)
+        if ( in_array($pxParameter, REFDATA_PXS, true) && $validatePx !== null )
         {
-            if (validateDomainMembership($pxParameter, $pxValue) !== true)
+            if (!validateDomainMembership($pxParameter, $validatePx))
             {
                 throw new \RuntimeException(
                     "{$pxParameter} {$pxValue} is invalid."
@@ -146,6 +146,7 @@
             $pxAppFx,
             strrpos($pxAppFx, '\\') + 1
         );
+        return $dbOperation;
     }
 
     /**
@@ -158,11 +159,22 @@
      */    
     function validateDomainMembership(string $pxParameter, string $pxValue): bool
     {
-        $validateDomainMembership = false;
         $dbOperation = getDBOperation(__FUNCTION__);
-        $domainMembers = executeQuery($pxParameter, [$pxValue]);
-
-        // $domainMembers = exec
+        $domainMembers = executeQuery(
+            $dbOperation,
+            [
+                'membershipKey' => $pxParameter
+            ]
+        );
+        $domainMembers = array_column(
+            $domainMembers,
+            'membership_value'
+        );
+        $validateDomainMembership = in_array(
+            $pxValue,
+            $domainMembers,
+            true
+        );
         return $validateDomainMembership;
     }
 
@@ -213,17 +225,6 @@
     {      
         $normalizeNull = (strcasecmp($pxValue, 'NULL') === 0) ? null : $pxValue;
         return $normalizeNull;
-    }
-
-    /**
-     * validatePxMembership
-     *
-     *
-     * @return void
-     */   
-    function validatePxMembership(): bool
-    {
-
     }
     
     /**
