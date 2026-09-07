@@ -267,6 +267,254 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						the application-to-database contract explicit while avoiding ordinal-only parameter mapping.
 					</p>
 
+					<div class="post-snippet">
+
+						<!-- getOrders signature -->
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">function&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">getOrders</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxCustomerName</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxBusinessUnitCode</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxOrderStatusCode</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxSalesChannelCode</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxOrderDate</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxRequestedShipDate</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxRequestedShipDateOperator</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxMinTotalAmount</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxMaxTotalAmount</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxExpedited</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">):&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">array</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">{</span>
+						</p>
+
+						<!-- Validated parameter mapping -->
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxs&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">=&nbsp;[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxCustomerName'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxCustomerName'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxCustomerName</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxBusinessUnitCode'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxBusinessUnitCode'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxBusinessUnitCode</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxOrderStatusCode'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxOrderStatusCode'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxOrderStatusCode</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxSalesChannelCode'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxSalesChannelCode'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxSalesChannelCode</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxOrderDate'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxOrderDate'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxOrderDate</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxRequestedShipDate'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxRequestedShipDate'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxRequestedShipDate</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxRequestedShipDateOperator</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxRequestedShipDateOperator'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxRequestedShipDateOperator'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxRequestedShipDateOperator</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxMinTotalAmount'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxMinTotalAmount'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxMinTotalAmount</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxMaxTotalAmount'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxMaxTotalAmount'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxMaxTotalAmount</span>
+							<span class="post-snippet-font-std code-php-op-fc">),</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxExpedited'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">validatePx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxExpedited'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxExpedited</span>
+							<span class="post-snippet-font-std code-php-op-fc">)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">];</span>
+						</p>
+
+					</div>		
+
+					<p>
+						Parameters requiring domain-membership validation are identified separately in the application layer.
+						Their parameter keys are maintained in an allowlist and routed to the domain-membership validation
+						path before database execution.
+					</p>
+
 				</section>
 		
 			</article>
