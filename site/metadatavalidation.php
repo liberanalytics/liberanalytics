@@ -106,12 +106,28 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					</p>
 
 					<p>
-						Database validation functions serve as the lookup junction for determining the validity of domain-membership values
-						and retrieving specifications used for data-type validation. To determine which validation function to invoke, the
-						application layer maintains a mapping of parameter keys to their related database validation functions. In this post,
-						PHP is used to store domain-membership validation functions in an associative array structured as
-						'&LT;parameter key&GT;' => '&LT;database validation function&GT;'. When a parameter is classified for domain-membership validation, validity is established by confirming that its value exists in the authoritative membership set. Otherwise, type validation is performed against the metadata describing the corresponding SQL Server database routine parameter.
+						Another validation technique is metadata-driven validation based on the database's existing
+						information schema or system catalog metadata. Since database metadata expresses structural
+						constraints around table columns and routine parameters, it provides a logical source for
+						retrieving validation specifications. Metadata-driven validation helps maintain parity between
+						application validation rules and database constraints while reducing duplicate definitions of
+						what a column or routine parameter will accept. It also provides a natural decision point for
+						routing parameters toward either authoritative domain-membership validation or data-type validation.
 					</p>
+
+					<p>
+						Before implementing metadata-driven and domain membership validation, the SQL Server instance, client connectivity,
+						and PHP SQL Server runtime dependencies must be configured.
+					</p>					
+
+					<h3 class="site-font-secondary-heading">Domain-Membership Validation</h3>
+
+					<p>
+						Domain-membership validation determines whether a user-supplied value exists within an authoritative set of reference
+						or master data. Parameters are mapped in the application layer to a database routine that returns the corresponding
+						membership values. The user-submitted value is then compared against the authoritative membership values by applying
+						the matching semantics required by the parameter, such as exact equality or wildcard matching.
+					</p>					
 
 				</section>
 		
