@@ -128,6 +128,8 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						membership values. The user-submitted value is then compared against the authoritative membership values by applying
 						the matching semantics required by the parameter, such as exact equality or wildcard matching.
 					</p>
+
+					<h3 class="site-font-secondary-heading">Domain-Membership Validation - Database</h3>
 					
 					<p>
 						A simple sales schema is used in this post to demonstrate database metadata and domain-membership validation.
@@ -254,7 +256,16 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 						</div>
 
-					</div>					
+					</div>
+
+					<h3 class="site-font-secondary-heading">Domain-Membership Validation - Application</h3>
+					
+					<p>
+						In the application layer, the orchestrator preserves parameter identities consistent with the corresponding
+						SQL Server routine. When the database operation is invoked, those application parameters are mapped to PDO
+						named placeholders, which in turn map directly to the stored procedure parameters. This naming parity keeps
+						the application-to-database contract explicit while avoiding ordinal-only parameter mapping.
+					</p>
 
 				</section>
 		
