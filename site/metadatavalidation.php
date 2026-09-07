@@ -127,7 +127,134 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						or master data. Parameters are mapped in the application layer to a database routine that returns the corresponding
 						membership values. The user-submitted value is then compared against the authoritative membership values by applying
 						the matching semantics required by the parameter, such as exact equality or wildcard matching.
-					</p>					
+					</p>
+					
+					<p>
+						A simple sales schema is used in this post to demonstrate database metadata and domain-membership validation.
+						The stored procedure used to retrieve sales orders exposes the parameter contract shown below. 
+						Parameter identity determines whether domain-membership validation or type validation is applied.
+					</p>
+
+					<div class="post-snippet code-mssql-snippet">
+
+						<!-- Stored procedure declaration -->
+						<p>
+							<span class="post-snippet-font-std code-mssql-keyword-fc">CREATE&nbsp;PROCEDURE&nbsp;</span>
+							<span class="post-snippet-font-std code-mssql-default-fc">[dbo].[usp_get_orders]</span>
+						</p>
+
+						<div class="site-mt">
+
+							<!-- @pxCustomerName -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxCustomerName&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">NVARCHAR</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">100</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">)&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxBusinessUnitCode -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxBusinessUnitCode&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">CHAR</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">3</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">)&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxOrderStatusCode -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxOrderStatusCode&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">VARCHAR</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">12</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">)&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxSalesChannelCode -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxSalesChannelCode&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">CHAR</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">3</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">)&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxOrderDate -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxOrderDate&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">DATE</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxRequestedShipDate -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxRequestedShipDate&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">DATE</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxRequestedShipDateOperator -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxRequestedShipDateOperator&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">VARCHAR</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">16</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">)&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxMinTotalAmount -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxMinTotalAmount&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">DECIMAL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">12</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">2</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">)&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxMaxTotalAmount -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxMaxTotalAmount&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">DECIMAL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">12</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-number-fc">2</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">)&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+							</p>
+
+							<!-- @pxExpedited -->
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxExpedited&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-datatype-fc">BIT</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;=&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-null-fc">NULL</span>
+							</p>
+
+						</div>
+
+					</div>					
 
 				</section>
 		

@@ -59,11 +59,15 @@
     --knob-site-mt: var(--sz-300);
     max-width: 100%;
     padding: var(--sz-300);
-    background: #1f1f1f;
+    background: var(--knob-bg-snippet, #1f1f1f);
     box-shadow: var(--site-box-shadow-soft);
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+}
+
+.code-mssql-snippet {
+    --knob-bg-snippet: #fff;
 }
 
 /* Standard snippet font styling. */
@@ -124,11 +128,17 @@
 .code-bash-special-fc  { --knob-post-snippet-fc: #4ec9b0; } /* $?, variable expansion if desired */
 
 /* PostgreSQL / psql code block colors. */
-.code-sql-default-fc  { --knob-post-snippet-fc: #bbbebf; } /* generic text */
-.code-sql-comment-fc  { --knob-post-snippet-fc: #8b949e; }
-.code-sql-keyword-fc  { --knob-post-snippet-fc: #ff7b74; } /* SELECT, FROM, WHERE, BEGIN, etc. */
-.code-sql-meta-fc     { --knob-post-snippet-fc: #ff7b74; } /* \set, \connect, \ir, \echo */
-.code-sql-string-fc   { --knob-post-snippet-fc: #a3d5fd; } /* quoted literals */
-.code-sql-func-fc     { --knob-post-snippet-fc: #bbbebf; } /* pg_terminate_backend(), etc. */
-.code-sql-path-fc     { --knob-post-snippet-fc: #75bffc; } /* .sql filename */
+.code-postgres-default-fc  { --knob-post-snippet-fc: #bbbebf; } /* generic text */
+.code-postgres-comment-fc  { --knob-post-snippet-fc: #8b949e; }
+.code-postgres-keyword-fc  { --knob-post-snippet-fc: #ff7b74; } /* SELECT, FROM, WHERE, BEGIN, etc. */
+.code-postgres-meta-fc     { --knob-post-snippet-fc: #ff7b74; } /* \set, \connect, \ir, \echo */
+.code-postgres-string-fc   { --knob-post-snippet-fc: #a3d5fd; } /* quoted literals */
+.code-postgres-func-fc     { --knob-post-snippet-fc: #bbbebf; } /* pg_terminate_backend(), etc. */
+.code-postgres-path-fc     { --knob-post-snippet-fc: #75bffc; } /* .sql filename */
 
+/* Microsoft SQL Server / SSMS syntax colors */
+.code-mssql-default-fc  { --knob-post-snippet-fc: #000000; } /* identifiers, punctuation */
+.code-mssql-keyword-fc  { --knob-post-snippet-fc: #0000ff; } /* CREATE, PROCEDURE */
+.code-mssql-datatype-fc { --knob-post-snippet-fc: #0000ff; } /* NVARCHAR, CHAR, DATE, etc. */
+.code-mssql-null-fc     { --knob-post-snippet-fc: #808080; } /* NULL */
+.code-mssql-number-fc   { --knob-post-snippet-fc: #000000; } /* lengths, precision, scale */
