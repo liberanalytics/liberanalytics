@@ -80,20 +80,20 @@
     ): array
     {
         $pxs = [
-            'pxCustomerName'                => validatePx('pxCustomerName', $pxCustomerName),
-            'pxBusinessUnitCode'            => validatePx('pxBusinessUnitCode', $pxBusinessUnitCode),
-            'pxOrderStatusCode'             => validatePx('pxOrderStatusCode', $pxOrderStatusCode),
-            'pxSalesChannelCode'            => validatePx('pxSalesChannelCode', $pxSalesChannelCode),
-            'pxOrderDate'                   => validatePx('pxOrderDate', $pxOrderDate),
-            'pxRequestedShipDate'           => validatePx(
+            'pxCustomerName'                => filterPx('pxCustomerName', $pxCustomerName),
+            'pxBusinessUnitCode'            => filterPx('pxBusinessUnitCode', $pxBusinessUnitCode),
+            'pxOrderStatusCode'             => filterPx('pxOrderStatusCode', $pxOrderStatusCode),
+            'pxSalesChannelCode'            => filterPx('pxSalesChannelCode', $pxSalesChannelCode),
+            'pxOrderDate'                   => filterPx('pxOrderDate', $pxOrderDate),
+            'pxRequestedShipDate'           => filterPx(
                                                 'pxRequestedShipDate',
                                                 $pxRequestedShipDate,
                                                 $pxRequestedShipDateOperator
                                                 ),
-            'pxRequestedShipDateOperator'   => validatePx('pxRequestedShipDateOperator', $pxRequestedShipDateOperator),
-            'pxMinTotalAmount'              => validatePx('pxMinTotalAmount', $pxMinTotalAmount),
-            'pxMaxTotalAmount'              => validatePx('pxMaxTotalAmount', $pxMaxTotalAmount),
-            'pxExpedited'                   => validatePx('pxExpedited', $pxExpedited)
+            'pxRequestedShipDateOperator'   => filterPx('pxRequestedShipDateOperator', $pxRequestedShipDateOperator),
+            'pxMinTotalAmount'              => filterPx('pxMinTotalAmount', $pxMinTotalAmount),
+            'pxMaxTotalAmount'              => filterPx('pxMaxTotalAmount', $pxMaxTotalAmount),
+            'pxExpedited'                   => filterPx('pxExpedited', $pxExpedited)
         ];
 
         try
@@ -109,8 +109,8 @@
         }
     }
 
-    /* 
-     * validatePx
+/* 
+     * filterPx
      *
      * @param string $pxParameter string
      * @param string $pxValue string
@@ -118,13 +118,13 @@
      *
      * @return string|null
      */
-    function validatePx(    
+    function filterPx(    
         string $pxParameter,
         string $pxValue,
         string|null $pxParameterOperator = null
     ): string|null
     {
-        $validatePx = normalizeNull($pxValue);
+        $filterPx = normalizeNull($pxValue);
 
         // Make sure nullable column isn't filtering on value and IS NULL.
         if (in_array($pxParameter, NULLABLE_PXS, true))
@@ -132,35 +132,35 @@
             $normalizedOperator = normalizeNull($pxParameterOperator);
             if ($normalizedOperator !== null)
             {
-                validateNullableColumn(
+                filterNullableColumn(
                     $pxParameter,
-                    $validatePx,
+                    $filterPx,
                     $normalizedOperator
                 );
             }
         }
 
-        // If the parameter is not null, normalize and validate the parameter value.
-        if ($validatePx !== null)
+        // If the parameter is not null, normalize and filter the parameter value.
+        if ($filterPx !== null)
         {
-            // Validate domain membership p(x)'s.
+            // filter domain membership p(x)'s.
             if (in_array($pxParameter, REFDATA_PXS, true))
             {
-                $validatePx = filterDomainMembership(
+                $filterPx = filterDomainMembership(
                     $pxParameter,
-                    $validatePx
+                    $filterPx
                 );
             }
-            // Validate type p(x)'s.
+            // filter type p(x)'s.
             else
             {
-                $validatePx = validateType(
+                $filterPx = filterType(
                     $pxParameter,
-                    $validatePx
+                    $filterPx
                 );
             }
             // Throw new runtime exception if validation fails.
-            if ($validatePx === false)
+            if ($filterPx === false)
             {
                 throw new \RuntimeException(
                     "{$pxParameter} {$pxValue} is invalid."
@@ -168,11 +168,11 @@
             }
         }
 
-        return $validatePx;
+        return $filterPx;
     }   
 
     /**
-     * validateType
+     * filterType
      *
      * @param string $pxParameter
      * @param string $pxValue
@@ -276,7 +276,7 @@
     }
 
     /**
-     * validateNullableColumn
+     * filterNullableColumn
      *
      * @param string $pxParameter
      * @param string|null $pxValue
@@ -284,7 +284,7 @@
      *
      * @return void
      */    
-    function validateNullableColumn(
+    function filterNullableColumn(
         string $pxParameter, 
         string|null $pxValue, 
         string|null $pxParameterOperator
@@ -322,17 +322,6 @@
     {      
         $normalizeNull = (strcasecmp($pxValue, 'NULL') === 0) ? null : $pxValue;
         return $normalizeNull;
-    }
-    
-    /**
-     * validatePxType
-     *
-     *
-     * @return void
-     */   
-    function validatePxType(): bool
-    {
-
     }
 
     
