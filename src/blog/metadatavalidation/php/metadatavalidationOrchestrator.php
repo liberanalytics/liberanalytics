@@ -140,14 +140,13 @@
             }
         }
 
-        $validPx = false;
-
+        // If the parameter is not null, normalize and validate the parameter value.
         if ($validatePx !== null)
         {
             // Validate domain membership p(x)'s.
             if (in_array($pxParameter, REFDATA_PXS, true))
             {
-                $validPx = validateDomainMembership(
+                $validatePx = filterDomainMembership(
                     $pxParameter,
                     $validatePx
                 );
@@ -155,13 +154,13 @@
             // Validate type p(x)'s.
             else
             {
-                $validPx = validateType(
+                $validatePx = validateType(
                     $pxParameter,
                     $validatePx
                 );
             }
             // Throw new runtime exception if validation fails.
-            if ($validPx === false)
+            if ($validatePx === false)
             {
                 throw new \RuntimeException(
                     "{$pxParameter} {$pxValue} is invalid."
@@ -178,9 +177,9 @@
      * @param string $pxParameter
      * @param string $pxValue
      *
-     * @return bool
+     * @return bool|false
      */    
-    function validateType(string $pxParameter, string $pxValue): string
+    function filterType(string $pxParameter, string $pxValue): string|false
     {
         $dbOperation = getDBOperation(__FUNCTION__);
         $typeMetaData = executeQuery(
@@ -192,22 +191,20 @@
             ]
         )[0];
 
-        $a = 1;
-
         $validateDataType = $typeMetaData['data_type'];
         $validateFx = TYPE_FXS[$validateDataType];
-        $validateType = $validateFx($pxValue, $typeMetaData);
+        $filterType = $validateFx($pxValue, $typeMetaData);
 
-        return $validateType;
+        return $filterType;
         
     }
 
-    function validateDate(string $pxValue, array $pxTypeMetaData): string
+    function filterDate(string $pxValue, array $pxTypeMetaData): string|false
     {
-        $validateDate = false;
+        $filterDate = false;
         $date = new \DateTimeImmutable($pxValue);
-        $validateDate = \date_format($date, 'Y-m-d');
-        return $validateDate;
+        $filterDate = \date_format($date, 'Y-m-d');
+        return $filterDate;
     }     
 
     /* 
@@ -227,47 +224,55 @@
     }
 
     /**
-     * validateDomainMembership
+     * filterDomainMembership
      *
      * @param string $pxParameter
      * @param string $pxValue
      *
-     * @return bool
-     */    
-    function validateDomainMembership(string $pxParameter, string $pxValue): bool
+     * @return string|false
+     */
+    function filterDomainMembership(
+        string $pxParameter,
+        string $pxValue
+    ): string|false
     {
         $dbOperation = getDBOperation(__FUNCTION__);
+
         $domainMembers = executeQuery(
             $dbOperation,
             [
                 'membershipKey' => $pxParameter
             ]
         );
+
         $domainMembers = array_column(
             $domainMembers,
             'membership_value'
         );
 
+        // Wildcard parameter matching.
         if (in_array($pxParameter, WILDCARD_PXS, true))
         {
             foreach ($domainMembers as $domainMember)
             {
                 if (stripos($domainMember, $pxValue) !== false)
                 {
-                    return true;
+                    return $pxValue;
                 }
             }
-        }
-        else
-        {
-            $validateDomainMembership = in_array(
-                $pxValue,
-                $domainMembers,
-                true
-            );
+
+            return false;
         }
 
-        return $validateDomainMembership;
+        $filterDomainMembership = in_array(
+            $pxValue,
+            $domainMembers,
+            true
+        );
+
+        return ($filterDomainMembership === true)
+            ? $pxValue
+            : false;
     }
 
     /**
