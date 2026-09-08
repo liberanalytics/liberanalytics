@@ -15,14 +15,14 @@ AS
 RETURN
 (
     SELECT
-        SPECIFIC_SCHEMA,
-        SPECIFIC_NAME,
-        PARAMETER_NAME,
-        ORDINAL_POSITION,
-        DATA_TYPE,
-        CHARACTER_MAXIMUM_LENGTH,
-        NUMERIC_PRECISION,
-        NUMERIC_SCALE
+        SPECIFIC_SCHEMA AS specific_schema,
+        SPECIFIC_NAME AS specific_name,
+        PARAMETER_NAME AS parameter_name,
+        ORDINAL_POSITION AS ordinal_position,
+        DATA_TYPE AS data_type,
+        CHARACTER_MAXIMUM_LENGTH AS character_maximum_length,
+        NUMERIC_PRECISION AS numeric_precision,
+        NUMERIC_SCALE AS numeric_scale
     FROM INFORMATION_SCHEMA.PARAMETERS AS metadata_px
     
     WHERE 1=1

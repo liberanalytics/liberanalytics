@@ -676,6 +676,156 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 					<h3 class="site-font-secondary-heading post-heading-subsection">Type Validation - Database</h3>
 
+					<p></p>
+
+					<div class="post-snippet code-mssql-snippet">
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-keyword-fc">CREATE&nbsp;FUNCTION&nbsp;</span>
+							<span class="post-snippet-font-std code-mssql-default-fc">[dbo].[fx_get_metadata]</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxSchema&nbsp;</span>
+							<span class="post-snippet-font-std code-mssql-datatype-fc">SYSNAME</span>
+							<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxObjectName&nbsp;</span>
+							<span class="post-snippet-font-std code-mssql-datatype-fc">SYSNAME</span>
+							<span class="post-snippet-font-std code-mssql-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;@pxName&nbsp;</span>
+							<span class="post-snippet-font-std code-mssql-datatype-fc">VARCHAR</span>
+							<span class="post-snippet-font-std code-mssql-default-fc">(32)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-default-fc">)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-keyword-fc">RETURNS&nbsp;TABLE</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-keyword-fc">AS</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-keyword-fc">RETURN</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-default-fc">(</span>
+						</p>
+
+						<div class="site-mt">
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">SELECT</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPECIFIC_SCHEMA&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">specific_schema,</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPECIFIC_NAME&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">specific_name,</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PARAMETER_NAME&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">parameter_name,</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORDINAL_POSITION&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">ordinal_position,</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATA_TYPE&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">data_type,</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHARACTER_MAXIMUM_LENGTH&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">character_maximum_length,</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NUMERIC_PRECISION&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">numeric_precision,</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NUMERIC_SCALE&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">numeric_scale</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">FROM&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-schema-fc">INFORMATION_SCHEMA.PARAMETERS</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">&nbsp;AS&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">metadata_px</span>
+							</p>
+
+						</div>
+
+						<div class="site-mt">
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">WHERE&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">1=1</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">metadata_px.SPECIFIC_SCHEMA&nbsp;=&nbsp;@pxSchema</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">metadata_px.SPECIFIC_NAME&nbsp;=&nbsp;@pxObjectName</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-mssql-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-keyword-fc">AND&nbsp;</span>
+								<span class="post-snippet-font-std code-mssql-default-fc">metadata_px.PARAMETER_NAME&nbsp;=&nbsp;@pxName</span>
+							</p>
+
+						</div>
+
+						<p>
+							<span class="post-snippet-font-std code-mssql-default-fc">);</span>
+						</p>
+
+					</div>					
+
 					<h3 class="site-font-secondary-heading post-heading-subsection">Type Validation - Application Layer</h3>
 
 				</section>		

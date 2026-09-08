@@ -146,3 +146,4 @@
 .code-mssql-datatype-fc { --knob-post-snippet-fc: #0000ff; } /* NVARCHAR, CHAR, DATE, etc. */
 .code-mssql-null-fc     { --knob-post-snippet-fc: #808080; } /* NULL */
 .code-mssql-number-fc   { --knob-post-snippet-fc: #000000; } /* lengths, precision, scale */
+.code-mssql-schema-fc   { --knob-post-snippet-fc: #008000; } /* INFORMATION_SCHEMA.PARAMETERS */
