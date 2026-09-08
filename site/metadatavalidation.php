@@ -509,127 +509,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						<span class="post-snippet-font-std code-php-op-fc">];</span>
 					</p>
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-					</div>
-
-<div class="post-snippet">
-
-    <!-- Domain membership parameter allowlist -->
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">/**</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;Domain&nbsp;membership&nbsp;validation&nbsp;parameters.</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@var&nbsp;array&lt;string&gt;</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*/</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-keyword-fc">const&nbsp;</span>
-        <span class="post-snippet-font-std code-php-special-fc">REFDATA_PXS</span>
-        <span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;[</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="post-snippet-font-std code-php-string-fc">'pxCustomerName'</span>
-        <span class="post-snippet-font-std code-php-op-fc">,</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="post-snippet-font-std code-php-string-fc">'pxBusinessUnitCode'</span>
-        <span class="post-snippet-font-std code-php-op-fc">,</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="post-snippet-font-std code-php-string-fc">'pxOrderStatusCode'</span>
-        <span class="post-snippet-font-std code-php-op-fc">,</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="post-snippet-font-std code-php-string-fc">'pxSalesChannelCode'</span>
-    </p>
-
-    <p>
-        <span class="post-snippet-font-std code-php-op-fc">];</span>
-    </p>
-
-    <div class="site-mt">
-
-        <!-- Domain membership validation route -->
-        <p>
-            <span class="post-snippet-font-std code-php-comment-fc">//&nbsp;Validate&nbsp;domain&nbsp;membership&nbsp;p(x)'s.</span>
-        </p>
-
-        <p>
-            <span class="post-snippet-font-std code-php-keyword-fc">if&nbsp;</span>
-            <span class="post-snippet-font-std code-php-op-fc">(</span>
-            <span class="post-snippet-font-std code-php-func-fc">in_array</span>
-            <span class="post-snippet-font-std code-php-op-fc">(</span>
-            <span class="post-snippet-font-std code-php-var-fc">$pxParameter</span>
-            <span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
-            <span class="post-snippet-font-std code-php-special-fc">REFDATA_PXS</span>
-            <span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
-            <span class="post-snippet-font-std code-php-keyword-fc">true</span>
-            <span class="post-snippet-font-std code-php-op-fc">))</span>
-        </p>
-
-        <p>
-            <span class="post-snippet-font-std code-php-op-fc">{</span>
-        </p>
-
-        <p>
-            <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="post-snippet-font-std code-php-var-fc">$validPx&nbsp;</span>
-            <span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
-            <span class="post-snippet-font-std code-php-func-fc">validateDomainMembership</span>
-            <span class="post-snippet-font-std code-php-op-fc">(</span>
-        </p>
-
-        <p>
-            <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="post-snippet-font-std code-php-var-fc">$pxParameter</span>
-            <span class="post-snippet-font-std code-php-op-fc">,</span>
-        </p>
-
-        <p>
-            <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="post-snippet-font-std code-php-var-fc">$validatePx</span>
-        </p>
-
-        <p>
-            <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="post-snippet-font-std code-php-op-fc">);</span>
-        </p>
-
-        <p>
-            <span class="post-snippet-font-std code-php-op-fc">}</span>
-        </p>
-
-    </div>
-
-</div>					
-=======
 				</div>
->>>>>>> Stashed changes
-=======
-				</div>
->>>>>>> Stashed changes
 
 					<p>
 						Parameters requiring domain-membership validation are identified separately in the application layer.
@@ -637,120 +517,119 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						path before database execution.						
 					</p>
 
-<div class="post-snippet">
+					<div class="post-snippet">
 
-    <!-- Domain membership parameter allowlist -->
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">/**</span>
-    </p>
+						<!-- Domain membership parameter allowlist -->
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">/**</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;Domain&nbsp;membership&nbsp;validation&nbsp;parameters.</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;Domain&nbsp;membership&nbsp;validation&nbsp;parameters.</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@var&nbsp;array&lt;string&gt;</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@var&nbsp;array&lt;string&gt;</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*/</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*/</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-keyword-fc">const&nbsp;</span>
-        <span class="post-snippet-font-std code-php-special-fc">REFDATA_PXS</span>
-        <span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;[</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">const&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">REFDATA_PXS</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;[</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="post-snippet-font-std code-php-string-fc">'pxCustomerName'</span>
-        <span class="post-snippet-font-std code-php-op-fc">,</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxCustomerName'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="post-snippet-font-std code-php-string-fc">'pxBusinessUnitCode'</span>
-        <span class="post-snippet-font-std code-php-op-fc">,</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxBusinessUnitCode'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="post-snippet-font-std code-php-string-fc">'pxOrderStatusCode'</span>
-        <span class="post-snippet-font-std code-php-op-fc">,</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxOrderStatusCode'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span class="post-snippet-font-std code-php-string-fc">'pxSalesChannelCode'</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxSalesChannelCode'</span>
+						</p>
 
-    <p>
-        <span class="post-snippet-font-std code-php-op-fc">];</span>
-    </p>
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">];</span>
+						</p>
 
-    <div class="site-mt">
+						<div class="site-mt">
 
-        <!-- Domain membership validation route -->
-        <p>
-            <span class="post-snippet-font-std code-php-comment-fc">//&nbsp;Validate&nbsp;domain&nbsp;membership&nbsp;p(x)'s.</span>
-        </p>
+							<!-- Domain membership validation route -->
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">//&nbsp;Validate&nbsp;domain&nbsp;membership&nbsp;p(x)'s.</span>
+							</p>
 
-        <p>
-            <span class="post-snippet-font-std code-php-keyword-fc">if&nbsp;</span>
-            <span class="post-snippet-font-std code-php-op-fc">(</span>
-            <span class="post-snippet-font-std code-php-func-fc">in_array</span>
-            <span class="post-snippet-font-std code-php-op-fc">(</span>
-            <span class="post-snippet-font-std code-php-var-fc">$pxParameter</span>
-            <span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
-            <span class="post-snippet-font-std code-php-special-fc">REFDATA_PXS</span>
-            <span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
-            <span class="post-snippet-font-std code-php-keyword-fc">true</span>
-            <span class="post-snippet-font-std code-php-op-fc">))</span>
-        </p>
+							<p>
+								<span class="post-snippet-font-std code-php-keyword-fc">if&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+								<span class="post-snippet-font-std code-php-func-fc">in_array</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxParameter</span>
+								<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-special-fc">REFDATA_PXS</span>
+								<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">true</span>
+								<span class="post-snippet-font-std code-php-op-fc">))</span>
+							</p>
 
-        <p>
-            <span class="post-snippet-font-std code-php-op-fc">{</span>
-        </p>
+							<p>
+								<span class="post-snippet-font-std code-php-op-fc">{</span>
+							</p>
 
-        <p>
-            <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="post-snippet-font-std code-php-var-fc">$validPx&nbsp;</span>
-            <span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
-            <span class="post-snippet-font-std code-php-func-fc">validateDomainMembership</span>
-            <span class="post-snippet-font-std code-php-op-fc">(</span>
-        </p>
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$validPx&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">validateDomainMembership</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+							</p>
 
-        <p>
-            <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="post-snippet-font-std code-php-var-fc">$pxParameter</span>
-            <span class="post-snippet-font-std code-php-op-fc">,</span>
-        </p>
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxParameter</span>
+								<span class="post-snippet-font-std code-php-op-fc">,</span>
+							</p>
 
-        <p>
-            <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="post-snippet-font-std code-php-var-fc">$validatePx</span>
-        </p>
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$validatePx</span>
+							</p>
 
-        <p>
-            <span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="post-snippet-font-std code-php-op-fc">);</span>
-        </p>
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">);</span>
+							</p>
 
-        <p>
-            <span class="post-snippet-font-std code-php-op-fc">}</span>
-        </p>
+							<p>
+								<span class="post-snippet-font-std code-php-op-fc">}</span>
+							</p>
 
-    </div>
+						</div>
+						
+					</div>
 
-</div>					
-
-				</section>
-		
+				</section>		
 			</article>
 		</div>
 	</main>
