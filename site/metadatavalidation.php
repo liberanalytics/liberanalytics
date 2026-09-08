@@ -510,6 +510,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					</p>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 					</div>
 
 <div class="post-snippet">
@@ -623,6 +624,9 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
     </div>
 
 </div>					
+=======
+				</div>
+>>>>>>> Stashed changes
 =======
 				</div>
 >>>>>>> Stashed changes
