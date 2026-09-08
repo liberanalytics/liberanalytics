@@ -34,10 +34,12 @@
      */    
     const WILDCARD_PXS = [
         'pxCustomerName'
-    ];    
+    ];
 
     /**
      * getOrders
+     * 
+     *  
      *
      * @param string|null $pxCustomerName
      * @param string|null $pxBusinessUnitCode
