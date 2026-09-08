@@ -39,7 +39,9 @@
     /**
      * getOrders
      * 
-     *  
+     * Receives user-supplied CLI parameters, validates each parameter
+     * according to its domain-membership or type-validation contract,
+     * then returns the resulting orders data to the CLI.
      *
      * @param string|null $pxCustomerName
      * @param string|null $pxBusinessUnitCode

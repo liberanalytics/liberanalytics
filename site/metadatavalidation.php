@@ -271,6 +271,43 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 				<div class="post-snippet">
 
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">/**</span>
+    </p>
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;getOrders</span>
+    </p>
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+    </p>
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;Receives&nbsp;user-supplied&nbsp;CLI&nbsp;parameters,&nbsp;validates&nbsp;each&nbsp;parameter</span>
+    </p>
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;according&nbsp;to&nbsp;its&nbsp;domain-membership&nbsp;or&nbsp;type-validation&nbsp;contract,</span>
+    </p>
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;then&nbsp;returns&nbsp;the&nbsp;resulting&nbsp;orders&nbsp;data&nbsp;to&nbsp;the&nbsp;CLI.</span>
+    </p>
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+    </p>
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@return&nbsp;array</span>
+    </p>
+
+    <p>
+        <span class="post-snippet-font-std code-php-comment-fc">&nbsp;*/</span>
+    </p>			
+
 					<!-- getOrders signature -->
 					<p>
 						<span class="post-snippet-font-std code-php-keyword-fc">function&nbsp;</span>
@@ -572,10 +609,9 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						<p>
 							<span class="post-snippet-font-std code-php-op-fc">];</span>
 						</p>
-
+						
 						<div class="site-mt">
 
-							<!-- Domain membership validation route -->
 							<p>
 								<span class="post-snippet-font-std code-php-comment-fc">//&nbsp;Validate&nbsp;domain&nbsp;membership&nbsp;p(x)'s.</span>
 							</p>
