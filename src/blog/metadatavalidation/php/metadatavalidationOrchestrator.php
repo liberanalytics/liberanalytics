@@ -25,6 +25,15 @@
         'pxOrderStatusCode',
         'pxSalesChannelCode'
     ];
+
+    /**
+     * Type validation parameters.
+     *
+     * @var array<string>
+     */    
+    const TYPE_FXS = [
+        'date'      => __NAMESPACE__ . '\validateDate'
+    ];
     
     /**
      * Parameters validated against domain membership using
@@ -161,7 +170,7 @@
         }
 
         return $validatePx;
-    }
+    }   
 
     /**
      * validateType
@@ -181,9 +190,23 @@
                 'pxObjectName' => 'usp_get_orders',
                 'pxName'       => '@' . $pxParameter
             ]
-        );
+        )[0];
+
         $a = 1;
+
+        $validateDataType = $typeMetaData['data_type'];
+        $validateFx = TYPE_FXS[$validateDataType];
+        $validateType = $validateFx($pxValue, $typeMetaData);
+
+        return $validateType;
+        
     }
+
+    function validateDate(string $pxValue, array $pxTypeMetaData): bool
+    {
+        $validateDate = false;      
+        return $validateDate;
+    }     
 
     /* 
      * getDBOperation
