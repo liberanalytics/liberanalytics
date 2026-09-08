@@ -25,6 +25,10 @@
     --knob-fw-brand: var(--fw-xlight);
 }
 
+.post-heading-subsection {
+    --knob-fs-secondary-heading: var(--fsz-clamp-320-980-14x20);
+}
+
 .post-desc {
     --knob-fs-std: var(--fsz-clamp-320-980-16x20);
 }

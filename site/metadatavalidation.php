@@ -129,7 +129,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						the matching semantics required by the parameter, such as exact equality or wildcard matching.
 					</p>
 
-					<h3 class="site-font-secondary-heading">Domain-Membership Validation - Database</h3>
+					<h3 class="site-font-secondary-heading post-heading-subsection">Domain-Membership Validation - Database</h3>
 					
 					<p>
 						A simple sales schema is used in this post to demonstrate database metadata and domain-membership validation.
@@ -258,7 +258,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 					</div>
 
-					<h3 class="site-font-secondary-heading">Domain-Membership Validation - Application</h3>
+					<h3 class="site-font-secondary-heading post-heading-subsection">Domain-Membership Validation - Application Layer</h3>
 
 					<p>
 						In the application layer, the orchestrator preserves parameter identities consistent with the corresponding
@@ -664,6 +664,19 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						</div>
 						
 					</div>
+
+					<h3 class="site-font-secondary-heading">Type Validation</h3>
+
+					<p>
+						With domain-membership validation established, the remaining parameters can be validated
+						against structural metadata exposed by SQL Server. This form of metadata-driven validation
+						uses schema introspection to inspect the database routine’s parameter definitions and
+						derive validation rules from the authoritative database contract.
+					</p>
+
+					<h3 class="site-font-secondary-heading post-heading-subsection">Type Validation - Database</h3>
+
+					<h3 class="site-font-secondary-heading post-heading-subsection">Type Validation - Application Layer</h3>
 
 				</section>		
 			</article>
