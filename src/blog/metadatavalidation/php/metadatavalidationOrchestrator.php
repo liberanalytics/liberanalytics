@@ -17,7 +17,7 @@
     /**
      * Domain membership validation parameters.
      *
-     * @var array<int, string>
+     * @var array<string>
      */
     const REFDATA_PXS = [
         'pxCustomerName',
