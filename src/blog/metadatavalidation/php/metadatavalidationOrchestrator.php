@@ -180,7 +180,7 @@
      *
      * @return bool
      */    
-    function validateType(string $pxParameter, string $pxValue): bool
+    function validateType(string $pxParameter, string $pxValue): string
     {
         $dbOperation = getDBOperation(__FUNCTION__);
         $typeMetaData = executeQuery(
@@ -202,9 +202,11 @@
         
     }
 
-    function validateDate(string $pxValue, array $pxTypeMetaData): bool
+    function validateDate(string $pxValue, array $pxTypeMetaData): string
     {
-        $validateDate = false;      
+        $validateDate = false;
+        $date = new \DateTimeImmutable($pxValue);
+        $validateDate = \date_format($date, 'Y-m-d');
         return $validateDate;
     }     
 
