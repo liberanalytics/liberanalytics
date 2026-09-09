@@ -22,12 +22,12 @@
                 @pxMaxTotalAmount               = :pxMaxTotalAmount,
                 @pxExpedited                    = :pxExpedited
         ",
-        'validateDomainMembership' => "
+        'filterDomainMembership' => "
             SELECT 
                 membership_value
             FROM [dbo].[fx_get_membership_values] (:membershipKey);
         ",
-        'validateType' => "
+        'filterType' => "
             SELECT
                 specific_schema,
                 specific_name,

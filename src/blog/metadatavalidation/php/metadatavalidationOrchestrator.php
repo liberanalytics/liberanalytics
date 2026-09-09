@@ -32,7 +32,7 @@
      * @var array<string>
      */    
     const TYPE_FXS = [
-        'date'      => __NAMESPACE__ . '\validateDate'
+        'date'      => __NAMESPACE__ . '\filterDate'
     ];
     
     /**
@@ -201,10 +201,41 @@
 
     function filterDate(string $pxValue, array $pxTypeMetaData): string|false
     {
-        $filterDate = false;
-        $date = new \DateTimeImmutable($pxValue);
-        $filterDate = \date_format($date, 'Y-m-d');
-        return $filterDate;
+        $formats = [
+            'Y-m-d',
+            'm-d-Y',
+            'm/d/Y'
+        ];
+
+        foreach ($formats as $format)
+        {
+            $date = \DateTimeImmutable::createFromFormat(
+                '!' . $format,
+                $pxValue
+            );
+
+            $errors = \DateTimeImmutable::getLastErrors();
+
+            if (
+                $date !== false
+                &&
+                (
+                    $errors === false
+                    ||
+                    (
+                        $errors['warning_count'] === 0
+                        &&
+                        $errors['error_count'] === 0
+                    )
+                )
+            )
+            {
+                return $date->format('Y-m-d');
+            }
+        }
+
+        return false;
+
     }     
 
     /* 
