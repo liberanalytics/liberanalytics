@@ -34,7 +34,7 @@
     const TYPE_FXS = [
         'date'      => __NAMESPACE__ . '\filterDate',
         'varchar'   => __NAMESPACE__ . '\filterCharacter',
-        'bit'       => __NAMESPACE__ . '\filterBit'
+        'decimal'       => __NAMESPACE__ . '\filterDecimal'
     ];
     
     /**
@@ -205,7 +205,7 @@
      * filterCharacter
      *
      * @param string $pxValue
-     * @param string $pxTypeMetaData
+     * @param array $pxTypeMetaData
      *
      * @return string|false
      */
@@ -222,16 +222,29 @@
     }
 
     /**
-     * filterBit
+     * filterDecimal
      *
      * @param string $pxValue
-     * @param string $pxTypeMetaData
+     * @param array $pxTypeMetaData
      *
      * @return string|false
      */
-    function filterBit(string $pxValue, array $pxTypeMetaData): string|false
+    function filterDecimal(string $pxValue, array $pxTypeMetaData): string|false
     {
 
+        // Calculate integer precision, establish regex pattern to
+        // check length of numeric/scale, and use a non-capturing
+        // group '(?:)' in scale validation.
+        $numericPrecision = $pxTypeMetaData['numeric_precision'];
+        $numericScale = $pxTypeMetaData['numeric_scale'];
+        $integerPrecision = $numericPrecision - $numericScale;
+        $pattern =
+            '/^-?\d{1,' . $integerPrecision . '}' .
+            '(?:\.\d{1,' . $numericScale . '})?$/';
+
+        return (\preg_match($pattern, $pxValue) === 1)
+            ? $pxValue
+            : false;
     }   
 
     /**
