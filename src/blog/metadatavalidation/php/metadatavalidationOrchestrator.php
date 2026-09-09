@@ -191,9 +191,9 @@
             ]
         )[0];
 
-        $validateDataType = $typeMetaData['data_type'];
-        $validateFx = TYPE_FXS[$validateDataType];
-        $filterType = $validateFx($pxValue, $typeMetaData);
+        $filterDataType = $typeMetaData['data_type'];
+        $filterFx = TYPE_FXS[$filterDataType];
+        $filterType = $filterFx($pxValue, $typeMetaData);
 
         return $filterType;
         
