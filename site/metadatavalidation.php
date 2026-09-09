@@ -256,7 +256,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 						</div>
 
-					</div>
+					</div>					
 
 					<h3 class="site-font-secondary-heading post-heading-subsection">Domain-Membership Validation - Application Layer</h3>
 
@@ -676,8 +676,6 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 					<h3 class="site-font-secondary-heading post-heading-subsection">Type Validation - Database</h3>
 
-					<p></p>
-
 					<div class="post-snippet code-mssql-snippet">
 
 						<p>
@@ -824,6 +822,26 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 							<span class="post-snippet-font-std code-mssql-default-fc">);</span>
 						</p>
 
+					</div>
+
+					<p>
+						The above function, dbo.fx_get_metadata, returns a metadata row for each
+						parameter in a SQL Server routine. The PHP application layer consumes this
+						resultset, using the data_type column to select the appropriate validation
+						function. Character maximum length and numeric precision/scale provide the
+						additional constraints needed to validate character and DECIMAL values.
+						An example resultset is shown below.
+					</p>
+
+					<div class="post-img-container">
+						<img 
+							src="assets/metadatavalidation_ssms_fxgetmetadata_rs.png"
+							alt="metadatavalidation ssms fx_get_metadata resultset"
+							class="post-img-screenshot"
+							width="820"
+							height="74"
+							tabindex="0"
+						>
 					</div>					
 
 					<h3 class="site-font-secondary-heading post-heading-subsection">Type Validation - Application Layer</h3>
