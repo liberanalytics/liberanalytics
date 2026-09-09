@@ -33,7 +33,8 @@
      */    
     const TYPE_FXS = [
         'date'      => __NAMESPACE__ . '\filterDate',
-        'varchar'   => __NAMESPACE__ . '\filterCharacter'
+        'varchar'   => __NAMESPACE__ . '\filterCharacter',
+        'bit'       => __NAMESPACE__ . '\filterBit'
     ];
     
     /**
@@ -210,8 +211,28 @@
      */
     function filterCharacter(string $pxValue, array $pxTypeMetaData): string|false
     {
-       
+        // Validate the input length against the metadata's maximum character length.
+        // Without the 'u' modifier, the regex operates on bytes.
+        $validationStringPrecision = $pxTypeMetaData['character_maximum_length'];
+        $pattern = '/^.{1,' . $validationStringPrecision . '}$/';
+
+        return (\preg_match($pattern, $pxValue) === 1)
+            ? $pxValue
+            : false;
     }
+
+    /**
+     * filterBit
+     *
+     * @param string $pxValue
+     * @param string $pxTypeMetaData
+     *
+     * @return string|false
+     */
+    function filterBit(string $pxValue, array $pxTypeMetaData): string|false
+    {
+
+    }   
 
     /**
      * filterDate
