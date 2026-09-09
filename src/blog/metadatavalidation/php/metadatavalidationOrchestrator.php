@@ -209,6 +209,8 @@
 
         foreach ($formats as $format)
         {
+            // Reset all unspecified date/time fields to a known baseline
+            //  before applying the supplied fields, i.e. the '!'.
             $date = \DateTimeImmutable::createFromFormat(
                 '!' . $format,
                 $pxValue
