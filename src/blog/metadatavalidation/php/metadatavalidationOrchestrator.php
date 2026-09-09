@@ -32,7 +32,8 @@
      * @var array<string>
      */    
     const TYPE_FXS = [
-        'date'      => __NAMESPACE__ . '\filterDate'
+        'date'      => __NAMESPACE__ . '\filterDate',
+        'varchar'   => __NAMESPACE__ . '\filterCharacter'
     ];
     
     /**
@@ -199,6 +200,27 @@
         
     }
 
+    /**
+     * filterCharacter
+     *
+     * @param string $pxValue
+     * @param string $pxTypeMetaData
+     *
+     * @return string|false
+     */
+    function filterCharacter(string $pxValue, array $pxTypeMetaData): string|false
+    {
+       
+    }
+
+    /**
+     * filterDate
+     *
+     * @param string $pxValue
+     * @param string $pxTypeMetaData
+     *
+     * @return string|false
+     */        
     function filterDate(string $pxValue, array $pxTypeMetaData): string|false
     {
         $formats = [
@@ -210,7 +232,7 @@
         foreach ($formats as $format)
         {
             // Reset all unspecified date/time fields to a known baseline
-            //  before applying the supplied fields, i.e. the '!'.
+            // before applying the supplied fields, i.e. the '!'.
             $date = \DateTimeImmutable::createFromFormat(
                 '!' . $format,
                 $pxValue
