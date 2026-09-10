@@ -82,9 +82,26 @@ class LaDataDB
     /**
      * 
      */
-    private function execPDOStatement($pxParams)
+    private function execPDOStatement(array $pxParams): void
     {
-        $this->pdoStmt->execute($pxParams);
+        foreach ($pxParams as $pxName => $pxValue)
+        {
+            $pdoType = match (true)
+            {
+                \is_bool($pxValue) => PDO::PARAM_BOOL,
+                \is_int($pxValue)  => PDO::PARAM_INT,
+                \is_null($pxValue) => PDO::PARAM_NULL,
+                default            => PDO::PARAM_STR
+            };
+
+            $this->pdoStmt->bindValue(
+                ':' . $pxName,
+                $pxValue,
+                $pdoType
+            );
+        }
+
+        $this->pdoStmt->execute();
     }
 
     /**
