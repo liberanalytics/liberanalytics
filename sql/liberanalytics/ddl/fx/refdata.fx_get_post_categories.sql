@@ -25,7 +25,7 @@ DECLARE
 
 BEGIN
 
-txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_post_categories_alias, 'post_category', '=', NULL, NULL, int_ordinal_post_category);
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_post_categories_alias, 'post_category', '=', NULL, NULL, NULL, int_ordinal_post_category);
 
 txt_query_attr_list := '
 

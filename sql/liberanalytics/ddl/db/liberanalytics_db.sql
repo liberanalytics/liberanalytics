@@ -1,6 +1,5 @@
-DROP DATABASE IF EXISTS liberanalytics;
-
 CREATE DATABASE liberanalytics
+    WITH
     TEMPLATE template0
-    ENCODING 'UTF-8'
+    ENCODING 'UTF8'
     OWNER liberanalytics;

@@ -16,12 +16,16 @@
 
 }
 
-/* @media (min-width: 61.25em) {
-    .featured-post {
-        display: flex;
-        column-gap: var(--sz-400);
-    }
-} */
+.featured-post {
+    display: block;
+}
+
+.featured-post,
+.featured-post:visited,
+.featured-post:hover,
+.featured-post:active {
+    text-decoration: none;
+}
 
 .latest-posts-container {
     --knob-primary-heading-mt: var(--sz-400);

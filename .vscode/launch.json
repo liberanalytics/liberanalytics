@@ -16,7 +16,7 @@
       "port": 9003,
       "runtimeArgs": [
         "-dxdebug.mode=debug",
-        "-dxdebug.start_with_request=yes"
+        "-xdebug.start_with_request=trigger"
       ],
       "env": {
         "LA_CONFIG": "/var/www/html/liberanalytics/config/",

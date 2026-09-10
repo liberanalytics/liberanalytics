@@ -33,6 +33,7 @@ class LaDataVx extends LaDataCrud
         {
             'text' => 'sanitizeText',
             'int4' => 'sanitizeInt',
+            'bool' => 'sanitizeBool',
             '_text' => 'sanitizeList'
         };
     }
@@ -51,7 +52,8 @@ class LaDataVx extends LaDataCrud
             return match($pxType) {
                 'text' => 'validateText',
                 'int4' => 'validateInt',
-                '_text' => 'validateList'                
+                'bool' => 'validateBool',                
+                '_text' => 'validateList'
             };
         }
     }
@@ -108,6 +110,14 @@ class LaDataVx extends LaDataCrud
 
     /**
      * 
+     */    
+    private function sanitizeBool($pxKey, $pxValue): bool
+    {
+        return (bool) $pxValue;
+    }    
+
+    /**
+     * 
      */
     private function validateText($pxKey, $pxValue): bool
     {
@@ -126,6 +136,15 @@ class LaDataVx extends LaDataCrud
         $validType = (gettype($pxValue) === 'integer');
         $validateInt = ($validChars && $validType);
         return $validateInt;
+    }
+
+    /**
+     * 
+     */
+    private function validateBool($pxKey, $pxValue): bool
+    {
+        $validateBool = (is_bool($pxValue));
+        return $validateBool;
     }
 
     /**

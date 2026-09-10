@@ -2,15 +2,16 @@
 
 DROP FUNCTION IF EXISTS meta.fx_get_dynamic_sql_clause;
 
-CREATE OR REPLACE FUNCTION meta.fx_get_dynamic_sql_clause
+CREATE FUNCTION meta.fx_get_dynamic_sql_clause
 (
      pxClauseType TEXT
-	,pxAlias TEXT
-	,pxColumn TEXT
-	,pxOperator TEXT
-	,pxValueString TEXT
-	,pxValueInt INTEGER
-	,pxAnyOrdinalPosition INTEGER
+    ,pxAlias TEXT
+    ,pxColumn TEXT
+    ,pxOperator TEXT
+    ,pxValueString TEXT
+    ,pxValueInt INTEGER
+    ,pxValueBool BOOLEAN
+    ,pxAnyOrdinalPosition INTEGER
 )
 
 RETURNS TEXT
@@ -24,7 +25,11 @@ DECLARE
 BEGIN
 
 IF pxClauseType = 'AND' THEN
-	IF (pxValueString IS NOT NULL OR pxValueInt IS NOT NULL) THEN
+	IF (
+		pxValueString IS NOT NULL OR
+		pxValueInt IS NOT NULL OR
+		pxValueBool IS NOT NULL
+	) THEN
 		txtDynamicSQLClause :=
 
 			E'\n' ||
@@ -37,7 +42,11 @@ IF pxClauseType = 'AND' THEN
 				WHEN pxAnyOrdinalPosition IS NOT NULL THEN
 					'ANY($' || CAST(pxAnyOrdinalPosition AS TEXT) || ')'
 				ELSE
-					COALESCE( CAST(pxValueInt AS TEXT), CAST('''' || pxValueString || '''' AS TEXT) )
+					COALESCE(
+						CAST(pxValueInt AS TEXT),
+						CAST(pxValueBool AS TEXT),
+						CAST('''' || pxValueString || '''' AS TEXT)
+					)
 			END;
 
 		ELSE

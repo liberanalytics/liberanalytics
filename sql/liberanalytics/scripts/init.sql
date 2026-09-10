@@ -10,15 +10,19 @@ FROM pg_stat_activity
 WHERE datname = 'liberanalytics'
   AND pid <> pg_backend_pid();
 
+-- Drop the existing liberanalytics database.
+DROP DATABASE IF EXISTS liberanalytics;
+
 -- Create the liberanalytics database.
 \ir ../ddl/db/liberanalytics_db.sql
 
 -- Connect to database liberanalytics.
 \connect liberanalytics
 
--- Make sure we're connected to the right database.
+-- Verify connection context in deployment output.
 SELECT current_database() AS current_db, current_user AS current_user;
 
+-- Wrap the rollout in a transaction to provide all-or-nothing atomicity.
 BEGIN;
 
     -- Create schemas.
@@ -33,6 +37,7 @@ BEGIN;
     \ir ../ddl/tables/liberanalytics.posts.sql
     \ir ../ddl/tables/refdata.post_tags.sql
     \ir ../ddl/tables/liberanalytics.post_tags.sql
+    \ir ../ddl/tables/liberanalytics.post_img.sql
     \ir ../ddl/tables/liberanalytics.contact.sql
 
     -- Create fxs.
@@ -71,6 +76,7 @@ BEGIN;
             WHERE 1=1
             AND ns.nspname = 'liberanalytics'
             AND pg.proname = 'fx_create_contact'
+
             -- Verify args are same as last fx created in case of overloading.
             AND pg_get_function_identity_arguments(pg.oid) LIKE '%text, %text, %text, %text, %text'
         )
@@ -86,14 +92,15 @@ BEGIN;
     \ir ../dml/seed/refdata.post_tags.sql
     \ir ../dml/seed/liberanalytics.posts.sql
     \ir ../dml/seed/liberanalytics.post_tags.sql
+    \ir ../dml/seed/liberanalytics.post_img.sql
 
-    -- Confirm final table was seeded as quick pass/fail assertion.
+    -- Smoke test: confirm the final seed table contains at least one row.
     DO $$
     BEGIN
         IF NOT EXISTS (
-            SELECT 1 FROM liberanalytics.post_tags
+            SELECT 1 FROM liberanalytics.post_img
         ) THEN
-            RAISE EXCEPTION 'Seed failed: liberanalytics.post_tags has no rows.';
+            RAISE EXCEPTION 'Seed failed: liberanalytics.post_img has no rows.';
         END IF;
 
     END $$ LANGUAGE plpgsql;

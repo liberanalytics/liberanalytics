@@ -25,7 +25,6 @@ __pycache__/
 *codetohtml*
 *liber_enhance*
 *gitdiff*
-*test*
 
 # Logs
 *.log
@@ -40,5 +39,5 @@ site/favicon-32x32.png
 site/favicon.ico
 site/favicon.svg
 
-# Site calibration checks
-site/envcheck.php
+# PHP info.
+site/phpinfo.php

@@ -4,7 +4,7 @@ DROP FUNCTION IF EXISTS liberanalytics.fx_get_posts;
 
 CREATE OR REPLACE FUNCTION liberanalytics.fx_get_posts
 (
-	 px_featured INTEGER DEFAULT 1000
+	 px_featured BOOLEAN DEFAULT NULL
 	,px_post_name TEXT[] DEFAULT NULL
 	,px_post_category TEXT[] DEFAULT NULL
 	,px_post_tags TEXT[] DEFAULT NULL
@@ -63,11 +63,11 @@ txt_limit TEXT;
 
 BEGIN
 
-txt_pred_featured := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'featured', '<=', NULL, px_featured, NULL);
-txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', QUOTE_LITERAL(px_post_name[1])::TEXT, NULL, int_ordinal_post_name);
-txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', QUOTE_LITERAL(px_post_category[1])::TEXT, NULL, int_ordinal_post_category);
-txt_order_by := meta.fx_get_dynamic_sql_clause('ORDER BY', txt_posts_alias, px_order_by, px_order_by_ascdesc, NULL, NULL, NULL); 
-txt_limit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, px_limit, NULL);
+txt_pred_featured := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'featured', '=', NULL, NULL, px_featured, NULL);
+txt_pred_post_name := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_name', '=', QUOTE_LITERAL(px_post_name[1])::TEXT, NULL, NULL, int_ordinal_post_name);
+txt_pred_post_category := meta.fx_get_dynamic_sql_clause('AND', txt_posts_alias, 'post_category', '=', QUOTE_LITERAL(px_post_category[1])::TEXT, NULL, NULL, int_ordinal_post_category);
+txt_order_by := meta.fx_get_dynamic_sql_clause('ORDER BY', txt_posts_alias, px_order_by, px_order_by_ascdesc, NULL, NULL, NULL, NULL); 
+txt_limit := meta.fx_get_dynamic_sql_clause('LIMIT', NULL, NULL, NULL, NULL, px_limit, NULL, NULL);
 
 IF px_post_tags IS NOT NULL THEN
 	txt_pred_post_tags := 
@@ -185,6 +185,8 @@ USING
 	 px_post_name 
 	,px_post_category
 	,px_post_tags;
+
+RAISE NOTICE '%', txt_query;
 
 END;
 $$;
