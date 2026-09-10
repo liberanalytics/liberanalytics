@@ -179,7 +179,7 @@
      * @param string $pxParameter
      * @param string $pxValue
      *
-     * @return bool|false
+     * @return string|false
      */    
     function filterType(string $pxParameter, string $pxValue): string|false
     {
@@ -234,7 +234,7 @@
 
         // Derive integer precision from the metadata's total precision and scale.
         // Build a regex that constrains the integer and fractional digit counts;
-        // the optional fractional portion is grouped without capturing, i.e the '?:'.
+        // The optional fractional portion uses a non-capturing group, '(?:...)'.
         $numericPrecision = $pxTypeMetaData['numeric_precision'];
         $numericScale = $pxTypeMetaData['numeric_scale'];
         $integerPrecision = $numericPrecision - $numericScale;

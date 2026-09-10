@@ -637,7 +637,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 								<span class="post-snippet-font-std code-php-var-fc">$validPx&nbsp;</span>
 								<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
-								<span class="post-snippet-font-std code-php-func-fc">validateDomainMembership</span>
+								<span class="post-snippet-font-std code-php-func-fc">filterDomainMembership</span>
 								<span class="post-snippet-font-std code-php-op-fc">(</span>
 							</p>
 
@@ -845,6 +845,451 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					</div>					
 
 					<h3 class="site-font-secondary-heading post-heading-subsection">Type Validation - Application Layer</h3>
+
+					<p>
+						The routine parameter metadata expresses the database's authoritative structural contract for acceptable values.
+						The application layer consumes this metadata and routes each parameter to the appropriate type-validation
+						function using a lookup structure analogous to the domain-membership routing list. The character and decimal
+						filters shown below derive regular-expression constraints from the corresponding metadata and compare each
+						user-supplied value against those constraints. When validation succeeds, the parameter value is returned;
+						otherwise, false is returned. In this pattern, the filter functions both determine validity and return the
+						accepted representation for continued processing. Character validation can be extended to account for database
+						collation and encoding rules where the application domain requires it.
+					</p>
+
+					<div class="post-snippet">
+
+						<!-- filterType -->
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">/**</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;filterType</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@param&nbsp;string&nbsp;$pxParameter</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@param&nbsp;string&nbsp;$pxValue</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@return&nbsp;string|false</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*/</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">function&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">filterType</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxParameter</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxValue</span>
+							<span class="post-snippet-font-std code-php-op-fc">):&nbsp;</span>
+							<span class="post-snippet-font-std code-php-type-fc">string|false</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">{</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$dbOperation&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">getDBOperation</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-special-fc">__FUNCTION__</span>
+							<span class="post-snippet-font-std code-php-op-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$typeMetaData&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">executeQuery</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$dbOperation</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxSchema'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'dbo'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxObjectName'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'usp_get_orders'</span>
+							<span class="post-snippet-font-std code-php-op-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'pxName'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'@'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;.&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxParameter</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">)[0];</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$filterDataType&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$typeMetaData</span>
+							<span class="post-snippet-font-std code-php-op-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'data_type'</span>
+							<span class="post-snippet-font-std code-php-op-fc">];</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$filterFx&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">TYPE_FXS</span>
+							<span class="post-snippet-font-std code-php-op-fc">[</span>
+							<span class="post-snippet-font-std code-php-var-fc">$filterDataType</span>
+							<span class="post-snippet-font-std code-php-op-fc">];</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$filterType&nbsp;</span>
+							<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$filterFx</span>
+							<span class="post-snippet-font-std code-php-op-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$pxValue</span>
+							<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$typeMetaData</span>
+							<span class="post-snippet-font-std code-php-op-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-keyword-fc">return&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$filterType</span>
+							<span class="post-snippet-font-std code-php-op-fc">;</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">}</span>
+						</p>
+
+
+						<!-- filterCharacter -->
+						<div class="site-mt">
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">/**</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;filterCharacter</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@param&nbsp;string&nbsp;$pxValue</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@param&nbsp;array&nbsp;$pxTypeMetaData</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@return&nbsp;string|false</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*/</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-keyword-fc">function&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">filterCharacter</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+								<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxValue</span>
+								<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-type-fc">array&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxTypeMetaData</span>
+								<span class="post-snippet-font-std code-php-op-fc">):&nbsp;</span>
+								<span class="post-snippet-font-std code-php-type-fc">string|false</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-op-fc">{</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-comment-fc">//&nbsp;Validate&nbsp;the&nbsp;input&nbsp;length&nbsp;against&nbsp;the&nbsp;metadata's&nbsp;maximum&nbsp;character&nbsp;length.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-comment-fc">//&nbsp;Without&nbsp;the&nbsp;'u'&nbsp;modifier,&nbsp;the&nbsp;regex&nbsp;operates&nbsp;on&nbsp;bytes.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$validationStringPrecision&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxTypeMetaData</span>
+								<span class="post-snippet-font-std code-php-op-fc">[</span>
+								<span class="post-snippet-font-std code-php-string-fc">'character_maximum_length'</span>
+								<span class="post-snippet-font-std code-php-op-fc">];</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pattern&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'/^.{1,'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;.&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$validationStringPrecision</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;.&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'}$/'</span>
+								<span class="post-snippet-font-std code-php-op-fc">;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">return&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+								<span class="post-snippet-font-std code-php-func-fc">\preg_match</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pattern</span>
+								<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxValue</span>
+								<span class="post-snippet-font-std code-php-op-fc">)&nbsp;===&nbsp;</span>
+								<span class="post-snippet-font-std code-php-number-fc">1</span>
+								<span class="post-snippet-font-std code-php-op-fc">)</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">?&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxValue</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">:&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">false</span>
+								<span class="post-snippet-font-std code-php-op-fc">;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-op-fc">}</span>
+							</p>
+
+						</div>
+
+
+						<!-- filterDecimal -->
+						<div class="site-mt">
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">/**</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;filterDecimal</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@param&nbsp;string&nbsp;$pxValue</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@param&nbsp;array&nbsp;$pxTypeMetaData</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*&nbsp;@return&nbsp;string|false</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-comment-fc">&nbsp;*/</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-keyword-fc">function&nbsp;</span>
+								<span class="post-snippet-font-std code-php-func-fc">filterDecimal</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+								<span class="post-snippet-font-std code-php-type-fc">string&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxValue</span>
+								<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-type-fc">array&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxTypeMetaData</span>
+								<span class="post-snippet-font-std code-php-op-fc">):&nbsp;</span>
+								<span class="post-snippet-font-std code-php-type-fc">string|false</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-op-fc">{</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-comment-fc">//&nbsp;Derive&nbsp;integer&nbsp;precision&nbsp;from&nbsp;the&nbsp;metadata's&nbsp;total&nbsp;precision&nbsp;and&nbsp;scale.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-comment-fc">//&nbsp;Build&nbsp;a&nbsp;regex&nbsp;that&nbsp;constrains&nbsp;the&nbsp;integer&nbsp;and&nbsp;fractional&nbsp;digit&nbsp;counts;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-comment-fc">//&nbsp;The&nbsp;optional&nbsp;fractional&nbsp;portion&nbsp;uses&nbsp;a&nbsp;non-capturing&nbsp;group,&nbsp;'(?:...)'.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$numericPrecision&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxTypeMetaData</span>
+								<span class="post-snippet-font-std code-php-op-fc">[</span>
+								<span class="post-snippet-font-std code-php-string-fc">'numeric_precision'</span>
+								<span class="post-snippet-font-std code-php-op-fc">];</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$numericScale&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxTypeMetaData</span>
+								<span class="post-snippet-font-std code-php-op-fc">[</span>
+								<span class="post-snippet-font-std code-php-string-fc">'numeric_scale'</span>
+								<span class="post-snippet-font-std code-php-op-fc">];</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$integerPrecision&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">=&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$numericPrecision</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;-&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$numericScale</span>
+								<span class="post-snippet-font-std code-php-op-fc">;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pattern&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">=</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'/^-?\d{1,'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;.&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$integerPrecision</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;.&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'}'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;.</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'(?:\.\d{1,'</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;.&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$numericScale</span>
+								<span class="post-snippet-font-std code-php-op-fc">&nbsp;.&nbsp;</span>
+								<span class="post-snippet-font-std code-php-string-fc">'})?$/'</span>
+								<span class="post-snippet-font-std code-php-op-fc">;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">return&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+								<span class="post-snippet-font-std code-php-func-fc">\preg_match</span>
+								<span class="post-snippet-font-std code-php-op-fc">(</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pattern</span>
+								<span class="post-snippet-font-std code-php-op-fc">,&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxValue</span>
+								<span class="post-snippet-font-std code-php-op-fc">)&nbsp;===&nbsp;</span>
+								<span class="post-snippet-font-std code-php-number-fc">1</span>
+								<span class="post-snippet-font-std code-php-op-fc">)</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">?&nbsp;</span>
+								<span class="post-snippet-font-std code-php-var-fc">$pxValue</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span class="post-snippet-font-std code-php-op-fc">:&nbsp;</span>
+								<span class="post-snippet-font-std code-php-keyword-fc">false</span>
+								<span class="post-snippet-font-std code-php-op-fc">;</span>
+							</p>
+
+							<p>
+								<span class="post-snippet-font-std code-php-op-fc">}</span>
+							</p>
+
+						</div>
+
+					</div>					
 
 				</section>		
 			</article>
