@@ -232,9 +232,9 @@
     function filterDecimal(string $pxValue, array $pxTypeMetaData): string|false
     {
 
-        // Calculate integer precision, establish regex pattern to
-        // check length of numeric/scale, and use a non-capturing
-        // group '(?:)' in scale validation.
+        // Derive integer precision from the metadata's total precision and scale.
+        // Build a regex that constrains the integer and fractional digit counts;
+        // the optional fractional portion is grouped without capturing, i.e the '?:'.
         $numericPrecision = $pxTypeMetaData['numeric_precision'];
         $numericScale = $pxTypeMetaData['numeric_scale'];
         $integerPrecision = $numericPrecision - $numericScale;
