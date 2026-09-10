@@ -1289,7 +1289,13 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 						</div>
 
-					</div>					
+					</div>
+
+					<h3 class="site-font-secondary-heading">Keeping Validation Aligned with Authoritative Sources</h3>
+
+					<p>
+						
+					</p>
 
 				</section>		
 			</article>
