@@ -30,7 +30,7 @@ INSERT INTO liberanalytics.posts
         ,'Connecting Python to a Postgresql database'
         ,'Discover how to connect Python to a Postgresql database without storing credentials or keys on filesystem.'
         ,'Connecting Python to Postgresql is made seamless with the psycopg2 library. This article demonstrates how to connect to a Postgresql database using Python without storing credentials in plain text or in the .pgpass file.'
-        ,TRUE
+        ,FALSE
     ),
 
     (
@@ -60,5 +60,15 @@ INSERT INTO liberanalytics.posts
         ,'Using database metadata and domain membership for server-side validation of user-supplied inputs'
         ,'Demonstrates a validation method that leverages database metadata for type checking, regular expression matching, and nullability checks, as well as authoritative domain-membership validation in an application''s backend.'
         ,'Validating user-supplied inputs in the backend of an application strengthens data integrity even if the frontend also performs validation. The challenge in performing server-side validation often lies in selecting validation'
+        ,TRUE
+    ),
+    
+    (
+         'semanticsearch'
+        ,'AI'
+        , NOW()
+        ,''
+        ,''
+        ,''
         ,TRUE
     );         

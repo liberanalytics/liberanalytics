@@ -36,4 +36,10 @@ VALUES
     ('metadatavalidation', 'Metadata', DEFAULT),
     ('metadatavalidation', 'Validation', DEFAULT),
     ('metadatavalidation', 'Database Security', DEFAULT),
-    ('metadatavalidation', 'SQL Server', DEFAULT);
+    ('metadatavalidation', 'SQL Server', DEFAULT),
+    
+    -- Semanticsearch post.
+    ('semanticsearch', 'AI', DEFAULT),
+    ('semanticsearch', 'Semantic Search', DEFAULT),
+    ('semanticsearch', 'Data Architecture', DEFAULT),
+    ('semanticsearch', 'AI', DEFAULT);0

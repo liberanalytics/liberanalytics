@@ -24,4 +24,5 @@ VALUES
     ('Data Architecture', FALSE, DEFAULT),
     ('Instrumentation', FALSE, DEFAULT),
     ('Telemetry', FALSE, DEFAULT),
-    ('psql', FALSE, DEFAULT);
+    ('psql', FALSE, DEFAULT),
+    ('AI', TRUE, DEFAULT);
