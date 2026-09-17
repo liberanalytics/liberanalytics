@@ -8,9 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 la.setVars = () => {
-    la.siteSearchParentEle = document.querySelector('#site_search_container');
-    la.siteSearchFormEle = document.querySelector('#site_search_form');
-    la.siteSearchEle = document.querySelector('#site_search');
+    la.siteSearchParentEle = document.querySelector('#site_search_container_tags');
+    la.siteSearchFormEle = document.querySelector('#site_search_form_tags');
+    la.siteSearchEle = document.querySelector('#site_search_tags');
     la.tagSuggestionsEle = document.querySelector('#site_search_tag_suggestions');
 }
 

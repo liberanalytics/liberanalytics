@@ -172,29 +172,36 @@
 }
 
 @media (min-width: 40em) { 
-    .site-header-search-form {
+    .site-header-search-form-tags {
         margin-inline-start: auto;
     }
 }
 
-.site-header-search-components {
+.site-header-search-components-tags {
     position: relative;
-    width: var(--knob-width-header-search, var(--site-vw-inline));
+    width: var(--knob-width-header-search-tags, var(--site-vw-inline));
     margin-inline: auto;
 }
 
 @media (min-width: 40em) {
-    .site-header-search-components {
-        --knob-width-header-search: calc(20 * var(--sz-400));
+    .site-header-search-components-tags {
+        --knob-width-header-search-tags: calc(20 * var(--sz-400));
         margin-inline-start: auto;
         margin-inline-end: var(--sz-400);
     }
 }
 
 @media (min-width: 61.25em) {
-    .site-header-search-components {
+    .site-header-search-components-tags {
         margin-inline-end: 0;
     }
+}
+
+.site-header-search-components-nlp {
+    position: relative;
+    width: var(--knob-width-header-search-nlp, var(--site-vw-inline));
+    max-width: calc(40 * var(--sz-400));
+    margin-inline: auto;
 }
 
 .site-header-search-input {
