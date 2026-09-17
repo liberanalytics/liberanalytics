@@ -56,6 +56,23 @@
 				</form>
 			</div>
 
+			<div id="site_search_container_nlp" class="site-header-search-form-nlp">
+				<form id="site_search_form_nlp" class="site-header-search-form-nlp" role="search">
+					<div class="site-header-search-components-nlp">
+						<label for="site_search" class="site-display-none">Ask LiberAnalytics about a topic...</label>
+						<input
+							class="site-header-search-nlp site-header-search-input site-font-form-std"
+							id="site_search"
+							type="search" 
+							title="Ask LiberAnalytics about a topic..." 
+							placeholder="Ask LiberAnalytics about a topic..."
+							autocomplete="off"
+						>
+						<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+					</div>					
+				</form>
+			</div>			
+
 		</div>
 	</div>	
 </div>
