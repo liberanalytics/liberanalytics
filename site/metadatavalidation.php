@@ -1294,7 +1294,13 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					<h3 class="site-font-secondary-heading">Keeping Validation Aligned with Authoritative Sources</h3>
 
 					<p>
-						
+						An application's data integrity is strengthened by applying server-side validation techniques appropriate
+						to the data and business domain. Because the database contains authoritative domain values and metadata
+						describing the structure of data it will accept, it provides a logical source for deriving validation
+						rules. This post demonstrated techniques for validating and filtering user-supplied inputs by establishing
+						an explicit contract between the application layer and the database through domain-membership lookups and
+						metadata-driven type validation. These patterns can be extended in real-world applications with additional
+						sanitization, validation, and filtering rules as the domain requires.
 					</p>
 
 				</section>		
