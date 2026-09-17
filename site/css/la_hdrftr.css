@@ -121,7 +121,8 @@
     display: grid;
     grid-template-areas:
         "site-header-nav"
-        "site-header-search";
+        "site-header-search-tags"
+        "site-header-search-nlp";
     column-gap: 0;
     row-gap: var(--sz-300);
     margin-inline: auto;
@@ -129,7 +130,9 @@
 
 @media (min-width: 40em) { 
     .site-header-menu {
-        grid-template-areas: "site-header-nav site-header-search";
+        grid-template-areas:
+            "site-header-nav site-header-search-tags"
+            "site-header-search-nlp site-header-search-nlp";
         grid-template-columns: max-content 1fr;
     }
 }
@@ -160,8 +163,12 @@
     padding: var(--sz-300);
 }
 
-.site-header-search-form {
-    grid-area: site-header-search;
+.site-header-search-form-tags {
+    grid-area: site-header-search-tags;
+}
+
+.site-header-search-form-nlp {
+    grid-area: site-header-search-nlp;
 }
 
 @media (min-width: 40em) { 
@@ -170,14 +177,14 @@
     }
 }
 
-.site-search-form-components {
+.site-header-search-components {
     position: relative;
     width: var(--knob-width-header-search, var(--site-vw-inline));
     margin-inline: auto;
 }
 
 @media (min-width: 40em) {
-    .site-search-form-components {
+    .site-header-search-components {
         --knob-width-header-search: calc(20 * var(--sz-400));
         margin-inline-start: auto;
         margin-inline-end: var(--sz-400);
@@ -185,12 +192,12 @@
 }
 
 @media (min-width: 61.25em) {
-    .site-search-form-components {
+    .site-header-search-components {
         margin-inline-end: 0;
     }
 }
 
-.site-header-search {
+.site-header-search-input {
     --knob-fw-form: var(--fw-bold);
     --knob-fc-form: var(--fc-xlight);
     display: block;
@@ -213,20 +220,20 @@
     cursor: pointer;
 }
 
-.site-header-search::placeholder {
+.site-header-search-input::placeholder {
     color: var(--fc-xlight);
 }
 
-.site-header-search:focus {
+.site-header-search-input:focus {
     outline: none;
     background-color: var(--clr-med-blue);
 }
 
-.site-header-search:focus::placeholder {
-    color: transparent;
+.site-header-search-input::placeholder {
+    /* color: transparent; */
 }
 
-.site-header-search::-webkit-search-cancel-button {
+.site-header-search-input::-webkit-search-cancel-button {
     display: none;
 }
 

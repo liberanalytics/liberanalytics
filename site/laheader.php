@@ -38,24 +38,37 @@
 				<a href="/contact" class="site-header-nav-link site-font-link-std">Contact</a>					
 			</nav>
 
-			<div id="site_search_container">
-				<form id="site_search_form" class="site-header-search-form" role="search">
-					<div class="site-search-form-components">
-						<label for="site_search" class="site-display-none">Search posts by tag</label>
-						<input
-							class="site-header-search site-font-form-std"
-							id="site_search"
-							type="search" 
-							title="Search for posts by tag" 
-							placeholder="Search for posts by tag"
-							autocomplete="off"
-						>
-						<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
-						<div id="site_search_tag_suggestions" class="site-tag-suggestions-container"></div>
-					</div>
-				</form>
-				
-			</div>
+			<form id="site_search_form_tags" class="site-header-search-form-tags" role="search">
+				<div class="site-header-search-components">
+					<label for="site_search" class="site-display-none">Search posts by tag</label>
+					<input
+						class="site-header-search-tags site-header-search-input site-font-form-std"
+						id="site_search_tags"
+						type="search" 
+						title="Search for posts by tag" 
+						placeholder="Search for posts by tag"
+						autocomplete="off"
+					>
+					<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+					<div id="site_search_tag_suggestions" class="site-tag-suggestions-container"></div>
+				</div>
+			</form>
+
+			<form id="site_search_form_nlp" class="site-header-search-form-nlp" role="search">
+				<div class="site-header-search-components">
+					<label for="site_search" class="site-display-none">Ask LiberAnalytics about a topic...</label>
+					<input
+						class="site-header-search-nlp site-header-search-input site-font-form-std"
+						id="site_search"
+						type="search" 
+						title="Ask LiberAnalytics about a topic..." 
+						placeholder="Ask LiberAnalytics about a topic..."
+						autocomplete="off"
+					>
+					<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+				</div>					
+			</form>				
+
 		</div>
 	</div>	
 </div>
