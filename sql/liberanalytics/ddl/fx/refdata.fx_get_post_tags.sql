@@ -41,6 +41,7 @@ txt_query_base :=
 
 '
 WHERE 1=1
+AND ' || txt_post_tags_alias || '.post_tag = ANY($1)
 ';
 
 txt_query :=
