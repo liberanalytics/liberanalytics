@@ -38,7 +38,7 @@
 				<a href="/contact" class="site-header-nav-link site-font-link-std">Contact</a>					
 			</nav>
 
-			<div id="site_search_container_tags" clss="site-header-search-form-tags">
+			<div id="site_search_container_tags" class="site-header-search-form-tags">
 				<form id="site_search_form_tags" class="site-header-search-form-tags" role="search">
 					<div class="site-header-search-components-tags">
 						<label for="site_search_tags" class="site-display-none">Search posts by tag</label>

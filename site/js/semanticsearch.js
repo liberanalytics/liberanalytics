@@ -1,4 +1,4 @@
-	var semanticsearch = {};
+var semanticsearch = {};
 
 window.addEventListener('DOMContentLoaded', () => 
 {
@@ -14,31 +14,38 @@ semanticsearch.setVars = () =>
 
 semanticsearch.bindEvents = () =>
 {
+    if (!semanticsearch.formEle) {
+        console.warn('Search form element not found in DOM.');
+        return;
+    }
+
     semanticsearch.formEle.addEventListener('submit', (event) => {
-        console.log('submit caught');
-
         event.preventDefault();
-
         semanticsearch.submitNlpRequest();
     });
 }
 
 semanticsearch.submitNlpRequest = () =>
 {
+
+    if (!semanticsearch.nlpEle) return;
     const nlpRequest = semanticsearch.nlpEle.value;
 
-    console.log(nlpRequest);
+    return fetch(
+        '/api/semanticsearch',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nlpRequest: nlpRequest
+            })
+        }
+    )
+    .then(response => response.json())
+    .then(semanticSearchResponse => {
+        console.log(semanticSearchResponse);
+    });
 
-    // return fetch(
-    //     '/api/semanticsearch',
-    //     {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             nlpRequest: nlpRequest
-    //         })
-    //     }
-    // );    
 }
