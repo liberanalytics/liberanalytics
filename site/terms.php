@@ -47,6 +47,7 @@
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/terms.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
+	<script type="module" src="/js/semanticsearch.js"></script>
 </head>
 
 <body class="page page-terms site-font-std">

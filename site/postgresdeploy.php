@@ -76,6 +76,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/post.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
+	<script type="module" src="/js/semanticsearch.js"></script>
 </head>
 
 <body class="page page-post site-font-std">

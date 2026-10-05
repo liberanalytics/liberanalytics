@@ -69,6 +69,7 @@ $laViewConverter = new classes\LaViewConverter();
 	<link href="/css/postcard.css" rel="stylesheet">
 	<link href="/css/index.css" rel="stylesheet">
 	<script type="module" src="/js/la.js"></script>
+	<script type="module" src="/js/semanticsearch.js"></script>
 
 </head>
 
