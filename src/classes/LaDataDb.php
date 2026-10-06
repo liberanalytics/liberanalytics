@@ -124,7 +124,7 @@ class LaDataDB
         {
             CrudFetchStyle::FETCHSTYLE_ASSOC => PDO::FETCH_ASSOC,
             CrudFetchStyle::FETCHSTYLE_NUM  => PDO::FETCH_NUM,
-            CrudFetchStyle::FETCHSTYLE_ROWCOUNT => ''
+            CrudFetchStyle::FETCHSTYLE_COL  => PDO::FETCH_COLUMN
         }; 
 
         //
