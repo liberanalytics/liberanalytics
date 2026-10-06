@@ -2,7 +2,7 @@
 
     return [
         'postCategory' => 'Database Engineering',
-        'postTags' => ['PostgreSQL']
+        'postTags' => 'PostgreSQL'
     ];
 
 ?>
