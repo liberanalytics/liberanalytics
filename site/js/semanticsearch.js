@@ -46,6 +46,25 @@ semanticsearch.submitNlpRequest = () =>
     .then(response => response.json())
     .then(semanticSearchResponse => {
         console.log(semanticSearchResponse);
-    });
+
+    // const postCategory = semanticSearchResponse.postCategory;
+    // const postTags = semanticSearchResponse.postTags;
+
+    // const urlPxs = new URLSearchParams();
+
+    // if (postCategory) {
+    //     urlPxs.set('post_category', postCategory);
+    // }
+
+    // if (postTags) {
+    //     const tags = Array.isArray(postTags)
+    //         ? postTags.join(', ')
+    //         : postTags;
+
+    //     urlPxs.set('post_tags', tags);
+    // }
+
+    // window.location = `postsearch?${urlPxs.toString()}`;
+    // });
 
 }

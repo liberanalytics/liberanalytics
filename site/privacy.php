@@ -46,7 +46,7 @@
 	<link href="/css/la_tags.css" rel="stylesheet">
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/privacy.css" rel="stylesheet">
-	<script type="module" src="/js/la.js"></script>
+	<script type="module" src="/js/tagsearch.js"></script>
 	<script type="module" src="/js/semanticsearch.js"></script>
 </head>
 

@@ -7,6 +7,12 @@ var postsearch = {};
 window.addEventListener('DOMContentLoaded', () => 
 {
     postsearch.setVars();
+
+    // If there is no form ele, return.
+    if (!postsearch.formEle) {
+        return;
+    }
+
     postsearch.bindEvents();
 });
 
@@ -34,22 +40,36 @@ postsearch.bindEvents = () =>
     LATagSuggest(postsearch.tagsParentEle, postsearch.tagsEle, postsearch.tagSuggestionsEle);
 }
 
-postsearch.initFromUrlPxs = () => {
+postsearch.initPxs = (rawPostPxs = null) => {
 
-    // Store the query string params.
-    const urlPxs = new URLSearchParams(window.location.search);
-    const pxPostCategory = urlPxs.get('post_category');
-    const pxPostTags = urlPxs.get('post_tags');
+    // If no pxs passed, derive from the URL.
+    if (!rawPostPxs) {
 
-    // Set module vars to query string params sent.
-    if (pxPostCategory) {
-        postsearch.categoryEle.value = pxPostCategory;
-        postsearch.submitSearch('form');
+        // Get the pxs from the query string.
+        const urlPxs = new URLSearchParams(window.location.search);
+        rawPostPxs = {
+            postCategory: urlPxs.get('post_category'),
+            postTags: urlPxs.get('post_tags')
+        };
+
+        // No pxs sent - page directly navigated to.
+        if (!pxPostCategory && !pxPostTags) {
+            return;
+        }
     }
-    else if (pxPostTags) {
-        postsearch.tagsEle.value = pxPostTags;
-        postsearch.submitSearch('form');
+
+    // Normalize pxs through shared px module.
+    const postPxs =
+        LAPostSearchPxs.normalizePostSearchPxs(rawPostPxs);
+
+    // Populate postsearch controls.
+    if (postPxs.postCategory) {
+        postsearch.categoryEle.value = postPxs.postCategory;
     }
+
+    if (postPxs.postTags) {
+        postsearch.tagsEle.value = postPxs.postTags;
+    }        
 
 }
 

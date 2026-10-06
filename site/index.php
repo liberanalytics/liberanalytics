@@ -68,7 +68,7 @@ $laViewConverter = new classes\LaViewConverter();
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/postcard.css" rel="stylesheet">
 	<link href="/css/index.css" rel="stylesheet">
-	<script type="module" src="/js/la.js"></script>
+	<script type="module" src="/js/tagsearch.js"></script>
 	<script type="module" src="/js/semanticsearch.js"></script>
 
 </head>
