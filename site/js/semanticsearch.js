@@ -46,8 +46,9 @@ semanticsearch.submitNlpRequest = () =>
     .then(response => response.json())
     .then(semanticSearchResponse => {
         console.log(semanticSearchResponse);
+    })
 
-    // const postCategory = semanticSearchResponse.postCategory;
+     // const postCategory = semanticSearchResponse.postCategory;
     // const postTags = semanticSearchResponse.postTags;
 
     // const urlPxs = new URLSearchParams();

@@ -35,42 +35,32 @@ postsearch.bindEvents = () =>
         postsearch.submitSearch('form');
     });
 
-    postsearch.initFromUrlPxs();
+    postsearch.initSearch();
 
     LATagSuggest(postsearch.tagsParentEle, postsearch.tagsEle, postsearch.tagSuggestionsEle);
 }
 
-postsearch.initPxs = (rawPostPxs = null) => {
+postsearch.initSearch = () => {
 
-    // If no pxs passed, derive from the URL.
-    if (!rawPostPxs) {
+    const urlPxs = new URLSearchParams(window.location.search);
+    const pxPostCategory = urlPxs.get('post_category');
+    const pxPostTags = urlPxs.get('post_tags');
 
-        // Get the pxs from the query string.
-        const urlPxs = new URLSearchParams(window.location.search);
-        rawPostPxs = {
-            postCategory: urlPxs.get('post_category'),
-            postTags: urlPxs.get('post_tags')
-        };
-
-        // No pxs sent - page directly navigated to.
-        if (!pxPostCategory && !pxPostTags) {
-            return;
-        }
+    // No pxs sent - page directly navigated to.
+    if (!pxPostCategory && !pxPostTags) {
+        return;
     }
-
-    // Normalize pxs through shared px module.
-    const postPxs =
-        LAPostSearchPxs.normalizePostSearchPxs(rawPostPxs);
 
     // Populate postsearch controls.
-    if (postPxs.postCategory) {
-        postsearch.categoryEle.value = postPxs.postCategory;
+    if (pxPostCategory) {
+        postsearch.categoryEle.value = pxPostCategory;
     }
 
-    if (postPxs.postTags) {
-        postsearch.tagsEle.value = postPxs.postTags;
-    }        
+    if (pxPostTags) {
+        postsearch.tagsEle.value = pxPostTags;
+    }
 
+    postsearch.submitSearch('form');
 }
 
 postsearch.submitSearch = (submitType) => {
