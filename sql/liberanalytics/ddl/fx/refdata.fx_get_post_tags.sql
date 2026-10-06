@@ -25,7 +25,11 @@ DECLARE
 
 BEGIN
 
-txt_pred_post_tags := meta.fx_get_dynamic_sql_clause('AND', txt_post_tags_alias, 'post_tag', '=', NULL, NULL, NULL, int_ordinal_post_tags);
+txt_pred_post_tags :=
+    CASE
+        WHEN px_post_tags IS NULL THEN ''
+        ELSE 'AND ' || txt_post_tags_alias || '.post_tag = ANY($1)'
+    END;
 
 txt_query_attr_list := '
 
@@ -41,7 +45,6 @@ txt_query_base :=
 
 '
 WHERE 1=1
-AND ' || txt_post_tags_alias || '.post_tag = ANY($1)
 ';
 
 txt_query :=
