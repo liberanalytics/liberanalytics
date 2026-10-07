@@ -64,6 +64,7 @@ $laViewConverter = new classes\LaViewConverter();
 	<link href="/css/la_fonts.css" rel="stylesheet">
 	<link href="/css/la.css" rel="stylesheet">
 	<link href="/css/la_hdrftr.css" rel="stylesheet">
+	<link href="/css/la_forms.css" rel="stylesheet">
 	<link href="/css/la_tags.css" rel="stylesheet">
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/postcard.css" rel="stylesheet">

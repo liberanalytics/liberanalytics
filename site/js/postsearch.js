@@ -65,13 +65,13 @@ postsearch.initSearch = () => {
 
 postsearch.submitSearch = (submitType) => {
 
+    LArenderor.clearError();
     LArenderor.renderAjaxSpinner();
 
     // Get the post search pxs.
     const postPxs = postsearch.normalizeFilterData(submitType, 'filters');
 
     // Validate the search pxs are of a valid value - allow all nulls.
-    LArenderor.clearError();
     if (submitType === 'form') {
         for (const[px, pxValue] of Object.entries(postPxs)) {
             if (pxValue !== null && !LAvx.vxText(pxValue, 64)) {
