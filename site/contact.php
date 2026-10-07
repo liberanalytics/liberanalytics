@@ -128,7 +128,7 @@
 							</li>
 							<li class="site-form-std-submit-container"><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
 							<li class="site-form-std-error-container">
-								<span id="error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span></li>														
+								<span id="contact_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span></li>														
 						</ul>					
 					</form>					
 				</div>
