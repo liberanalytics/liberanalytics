@@ -73,6 +73,7 @@ main {
 
 
 .page-wrap {
+    position: relative;
     inline-size: min(100% - (var(--site-page-pad-inline) * 2), var(--site-page-max-width));
     margin-inline: auto;
     margin-block: var(--site-page-vmargin);
