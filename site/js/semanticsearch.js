@@ -12,6 +12,7 @@ semanticsearch.setVars = () =>
 {
     semanticsearch.formEle = document.querySelector('#site_search_form_nlp');
     semanticsearch.nlpEle = document.querySelector('#site_search_nlp');
+    semanticsearch.messageEle = document.querySelector('#');
 }
 
 semanticsearch.bindEvents = () =>
@@ -47,11 +48,23 @@ semanticsearch.submitNlpRequest = () =>
             })
         }
     )
-    .then(response => response.json())
+    .then(response => 
+    {
+        if (!response.ok) {
+            throw new Error('Semantic search request failed.');
+        }
+
+        return response.json()
+    })
     .then(semanticSearchResponse => {
         
         const postCategory = semanticSearchResponse.postCategory;
         const postTags = semanticSearchResponse.postTags;
+
+        if (!postCategory && postTags.length === 0) {
+            semanticsearch.rendorNoResults();
+            return;
+        }
 
         const urlPxs = new URLSearchParams();
 
@@ -68,6 +81,11 @@ semanticsearch.submitNlpRequest = () =>
         }
 
         window.location = `postsearch?${urlPxs.toString()}`;
+    })
+    .catch(error => {
+        semanticsearch.renderSearchError();
+        semanticsearch.messageEle.textContent = 'Unable to complete semantic search. Please try again.';
+        semanticsearch.messageEle.classList.remove('site-display-none');        
     })
     .finally(() => { LArenderor.unrenderAjaxSpinner(); })
 

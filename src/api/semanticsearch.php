@@ -50,8 +50,6 @@
         ],
         'additionalProperties' => false
     ];
-    
-    
 
     $nlpRequest = $requestPxs['nlpRequest'];
 
@@ -78,11 +76,8 @@
     ];
 
     $requestBody = json_encode($openAiRequest);
-
     $curl = curl_init('https://api.openai.com/v1/responses');
-
     $openAiKeyFile = $laConfig->getConfigAttr('liberanalytics', 'config', 'env', 'openapikey');
-
     $openAiApiKey = trim(file_get_contents($openAiKeyFile));
 
     curl_setopt_array($curl, [
@@ -96,20 +91,31 @@
     ]);
 
     $openAiResponse = curl_exec($curl);
-
     if ($openAiResponse === false) {
-        throw new Exception(curl_error($curl));
+        http_response_code(500);
+        return [
+            'error' => 'Semantic search request failed.'
+        ];
     }
 
     $openAiResponseArray = json_decode($openAiResponse, true);
-    $semanticSearchResponseJson = $openAiResponseArray['output'][1]['content'][0]['text'];
-    $semanticSearchResponse = json_decode($semanticSearchResponseJson, true);
+    $semanticSearchResponseJson = $openAiResponseArray['output'][1]['content'][0]['text'] ?? null;
+    $semanticSearchResponse =
+        $semanticSearchResponseJson
+            ? json_decode($semanticSearchResponseJson, true)
+            : null;
 
-    curl_close($curl);
+    if (!array($semanticSearchResponseJson))
+    {
+        http_response_code(502);
+        return [
+            'error' => 'Invalid semantic search response.'
+        ];
+    }
 
     return [
-        'postCategory' => $semanticSearchResponse['postCategory'],
-        'postTags' => $semanticSearchResponse['postTags']
+        'postCategory' => $semanticSearchResponse['postCategory'] ?? null,
+        'postTags' => $semanticSearchResponse['postTags'] ?? []
     ];
 
 ?>

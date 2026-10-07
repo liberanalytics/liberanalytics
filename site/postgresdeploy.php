@@ -961,6 +961,20 @@ hostssl     liberanalytics  liberanalytics  &lt;client-ip&gt;/32          scram-
 				</section>
 		
 			</article>
+
+			<div class="site-ajax-spinner-8spoke site-ajax-hidden">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="site-ajax-overlay-flex site-ajax-hidden">
+			</div>
+						
 		</div>
 	</main>
 

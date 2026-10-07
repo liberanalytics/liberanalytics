@@ -1,4 +1,5 @@
 import { LATagSuggest } from "./modules/LATagSuggest.js";
+import * as LArenderor from "./modules/LArenderor.js";
 
 var tagsearch = {};
 
@@ -26,6 +27,7 @@ tagsearch.bindEvents = () => {
 
 tagsearch.submitSiteSearch = () => {
 
+    LArenderor.renderAjaxSpinner();
     const tags = tagsearch.siteSearchEle.value.trim().replace(/(,\s*)+$/, '');
 
     if (tags.length > 0) {

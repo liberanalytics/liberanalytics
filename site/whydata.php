@@ -155,6 +155,20 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 				</section>
 		
 			</article>
+
+			<div class="site-ajax-spinner-8spoke site-ajax-hidden">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="site-ajax-overlay-flex site-ajax-hidden">
+			</div>
+						
 		</div>
 	</main>
 
