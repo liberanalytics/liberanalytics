@@ -1,3 +1,5 @@
+import * as LArenderor from "./modules/LArenderor.js";
+
 var semanticsearch = {};
 
 window.addEventListener('DOMContentLoaded', () => 
@@ -30,6 +32,8 @@ semanticsearch.submitNlpRequest = () =>
 
     if (!semanticsearch.nlpEle) return;
     const nlpRequest = semanticsearch.nlpEle.value;
+
+    LArenderor.renderAjaxSpinner();
 
     return fetch(
         '/api/semanticsearch',
@@ -65,5 +69,6 @@ semanticsearch.submitNlpRequest = () =>
 
         window.location = `postsearch?${urlPxs.toString()}`;
     })
+    .finally(() => { LArenderor.unrenderAjaxSpinner(); })
 
 }

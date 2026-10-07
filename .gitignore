@@ -6,9 +6,6 @@
 # Environment config files
 /config/*
 
-# DB connection/config files
-/config/*.config
-
 # Keep the .gitkeep.
 !/config/.gitkeep
 

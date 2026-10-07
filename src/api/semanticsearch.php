@@ -102,8 +102,15 @@
     }
 
     $openAiResponseArray = json_decode($openAiResponse, true);
+    $semanticSearchResponseJson = $openAiResponseArray['output'][1]['content'][0]['text'];
+    $semanticSearchResponse = json_decode($semanticSearchResponseJson, true);
 
     curl_close($curl);
+
+    return [
+        'postCategory' => $semanticSearchResponse['postCategory'],
+        'postTags' => $semanticSearchResponse['postTags']
+    ];
 
 ?>
 
