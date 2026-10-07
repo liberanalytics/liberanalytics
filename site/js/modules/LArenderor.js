@@ -1,5 +1,5 @@
 const getDefaultErrorEle = () => { 
-    return document.querySelector('#form_error_ele');
+    return document.querySelector('#error_ele');
 }
 
 const getAjaxOverlayEle = () => {

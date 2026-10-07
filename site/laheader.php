@@ -69,10 +69,12 @@
 							autocomplete="off"
 						>
 						<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+						<div class="site-form-std-error-container">
+							<span id="error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
+						</div>						
 					</div>					
 				</form>
-			</div>			
-
+			</div>
 		</div>
 	</div>	
 </div>

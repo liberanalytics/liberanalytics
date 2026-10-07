@@ -130,7 +130,7 @@ $laData = new classes\LaData();
 							
 						</li>
 						<li class="site-form-std-error-container">
-							<span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
+							<span id="error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
 						</li>
 					</ul>
 
