@@ -45,33 +45,36 @@ semanticsearch.submitNlpRequest = () =>
     }
 
     return fetch(
-        '/api/semanticsearch',
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                nlpRequest: nlpRequest
-            })
-        }
-    )
-    .then(response => 
+    '/api/semanticsearch',
     {
-        if (!response.ok) {
-            throw new Error('Semantic search request failed.');
-        }
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nlpRequest: nlpRequest
+        })
+    }
+    )
+    .then(response => {
+        return response.json().then(responseData => {
 
-        return response.json()
+            if (!response.ok) {
+                throw new Error(
+                    responseData.error ?? 'Semantic search request failed.'
+                );
+            }
+
+            return responseData;
+        });
     })
     .then(semanticSearchResponse => {
-        
+
         const postCategory = semanticSearchResponse.postCategory;
         const postTags = semanticSearchResponse.postTags;
 
         if (!postCategory && postTags.length === 0) {
-            semanticsearch.rendorNoResults();
-            return;
+            throw new Error('No matching posts to show.');
         }
 
         const urlPxs = new URLSearchParams();
@@ -93,9 +96,11 @@ semanticsearch.submitNlpRequest = () =>
     .catch(error => {
         LArenderor.renderError({
             errorEle: semanticsearch.errorEle,
-            errorMsg: 'Unable to complete semantic search. Please try again.'
+            errorMsg: error.message
         });
     })
-    .finally(() => { LArenderor.unrenderAjaxSpinner(); })
+    .finally(() => {
+        LArenderor.unrenderAjaxSpinner();
+    });
 
 }

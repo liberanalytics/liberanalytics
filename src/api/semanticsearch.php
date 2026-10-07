@@ -100,12 +100,27 @@
 
     $openAiResponseArray = json_decode($openAiResponse, true);
     $semanticSearchResponseJson = $openAiResponseArray['output'][1]['content'][0]['text'] ?? null;
+    $semanticSearchResponseJson = null;
+
+    foreach ($openAiResponseArray['output'] ?? [] as $outputItem) {
+
+        if (
+            ($outputItem['type'] ?? null) === 'message'
+            && isset($outputItem['content'][0]['text'])
+        ) {
+            $semanticSearchResponseJson =
+                $outputItem['content'][0]['text'];
+
+            break;
+        }
+    }
+
     $semanticSearchResponse =
         $semanticSearchResponseJson
             ? json_decode($semanticSearchResponseJson, true)
             : null;
 
-    if (!array($semanticSearchResponseJson))
+    if (!is_array($semanticSearchResponse))
     {
         http_response_code(502);
         return [
