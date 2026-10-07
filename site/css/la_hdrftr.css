@@ -104,7 +104,7 @@
 
 .site-header-menu-container {
     padding-block-start: var(--sz-300);
-    padding-block-end: var(--sz-400);
+    padding-block-end: var(--sz-100);
     border-bottom: 2px solid var(--clr-med-grey);
     background-color: var(--clr-med-beige);
 }
@@ -115,6 +115,7 @@
 }
 
 .site-header-menu {
+    --knob-mbs-form: 0;
     --knob-fc-link-hover: var(--fc-xlight);
     --knob-bg-link-hover: var(--clr-lt-blue);
     --knob-link-hover-decoration: none;    

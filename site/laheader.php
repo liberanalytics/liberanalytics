@@ -57,7 +57,7 @@
 			</div>
 
 			<div id="site_search_container_nlp" class="site-header-search-form-nlp">
-				<form id="site_search_form_nlp" class="site-header-search-form-nlp" role="search">
+				<form id="site_search_form_nlp" class="site-header-search-form-nlp site-form-std" role="search">
 					<div class="site-header-search-components-nlp">
 						<label for="site_search_nlp" class="site-display-none">Ask LiberAnalytics about a topic...</label>
 						<input

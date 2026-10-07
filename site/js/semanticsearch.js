@@ -1,3 +1,4 @@
+import * as LAvx from "./modules/LAvx.js";
 import * as LArenderor from "./modules/LArenderor.js";
 
 var semanticsearch = {};
@@ -32,10 +33,16 @@ semanticsearch.submitNlpRequest = () =>
 {
 
     LArenderor.clearError();
-    if (!semanticsearch.nlpEle) return;
+    LArenderor.renderAjaxSpinner();
     const nlpRequest = semanticsearch.nlpEle.value;
 
-    LArenderor.renderAjaxSpinner();
+    if (!LAvx.vxText(nlpRequest, 64)) {
+        LArenderor.renderError({
+            errorMsg: nlpRequest + 'is invalid'
+        });
+        LArenderor.unrenderAjaxSpinner();
+        return;
+    }
 
     return fetch(
         '/api/semanticsearch',
