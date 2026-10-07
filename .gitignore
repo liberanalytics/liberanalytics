@@ -4,7 +4,7 @@
 !.vscode/settings.json
 
 # Environment config files
-/config/*.json
+/config/*
 
 # DB connection/config files
 /config/*.config
