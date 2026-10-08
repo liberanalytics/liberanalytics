@@ -144,11 +144,34 @@
         ];
     }
 
-    // Return the response data as name => value pairs.
-    return [
+    // Validate the response data is of authoritative membership.
+    $response = [
         'postCategory' => $semanticSearchResponse['postCategory'] ?? null,
         'postTags' => $semanticSearchResponse['postTags'] ?? []
     ];
+
+    // Make sure the post category is in the authoritative membership domain.
+    if (
+        $response['postCategory']
+        && !in_array($response['postCategory'], $postCategories, true)
+    ) {
+        http_response_code(502);
+        return [
+            'error' => 'Invalid post category.'
+        ];
+    }
+
+    // Make sure the post tags are in the authoritative membership domain.
+    $invalidPostTags = array_diff($response['postTags'], $postTags);
+    if ($invalidPostTags) {
+        http_response_code(502);
+            return [
+                'error' => 'Invalid post tag(s).'
+            ];
+    }
+
+    // Return the response data as name => value pairs.
+    return $response;
 
 ?>
 
