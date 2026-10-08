@@ -17,6 +17,7 @@
     border-bottom-right-radius: var(--sz-100);
 }
 
+
 .site-tag-suggestion-item {
     padding: var(--sz-200);
     cursor: pointer;
