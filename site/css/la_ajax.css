@@ -7,7 +7,7 @@
 }
 
 .site-ajax-overlay-flex {
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +20,7 @@
 }
 
 .site-ajax-spinner-8spoke {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(0, -50%); /* Center the element within itself on the y axis. */

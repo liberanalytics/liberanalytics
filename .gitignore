@@ -4,10 +4,7 @@
 !.vscode/settings.json
 
 # Environment config files
-/config/*.json
-
-# DB connection/config files
-/config/*.config
+/config/*
 
 # Keep the .gitkeep.
 !/config/.gitkeep

@@ -59,7 +59,8 @@
 	<link href="/css/la_tags.css" rel="stylesheet">
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/contact.css" rel="stylesheet">
-	<script type="module" src="/js/la.js"></script> 	  
+	<script type="module" src="/js/tagsearch.js"></script>
+	<script type="module" src="/js/semanticsearch.js"></script>	  
 	<script type="module" src="/js/contact.js"></script>
 </head>
 
@@ -127,7 +128,7 @@
 							</li>
 							<li class="site-form-std-submit-container"><input type="submit" value="SUBMIT" class="site-fc-xlight site-fw-bold"></li> 
 							<li class="site-form-std-error-container">
-								<span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span></li>														
+								<span id="contact_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span></li>														
 						</ul>					
 					</form>					
 				</div>
@@ -145,6 +146,20 @@
 					</div>					
 				</div>					
 			</section>
+
+			<div class="site-ajax-spinner-8spoke site-ajax-hidden">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="site-ajax-overlay-flex site-ajax-hidden">
+			</div>
+						
 		</div>
 	</main>
 

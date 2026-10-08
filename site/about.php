@@ -43,10 +43,12 @@
 	<link href="/css/la_fonts.css" rel="stylesheet">
 	<link href="/css/la.css" rel="stylesheet">
 	<link href="/css/la_hdrftr.css" rel="stylesheet">
+	<link href="/css/la_forms.css" rel="stylesheet">
 	<link href="/css/la_tags.css" rel="stylesheet">
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/about.css" rel="stylesheet">
-	<script type="module" src="/js/la.js"></script>
+	<script type="module" src="/js/tagsearch.js"></script>
+	<script type="module" src="/js/semanticsearch.js"></script>
 </head>
 
 <body class="page page-about site-font-std">
@@ -193,7 +195,21 @@
 
 			</div>
 			
-			</section>			
+			</section>
+
+			<div class="site-ajax-spinner-8spoke site-ajax-hidden">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+
+			<div class="site-ajax-overlay-flex site-ajax-hidden">
+			</div>			
 
 		</div>
 	</main>

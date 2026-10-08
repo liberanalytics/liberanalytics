@@ -1,5 +1,5 @@
 const getDefaultErrorEle = () => { 
-    return document.querySelector('#form_error_ele');
+    return document.querySelector('#error_ele');
 }
 
 const getAjaxOverlayEle = () => {
@@ -22,13 +22,18 @@ export const clearError = ({
 
 export const renderError = ({
     errorEle = getDefaultErrorEle(),
+    errorMsg = null,
     errorKey,
     errorValue
 } = {}) => {
     if (errorEle) {
-        errorEle.textContent = `${errorKey} value ${errorValue} is invalid.`;
+        const renderMsg =
+            errorMsg ?? `${errorKey} value ${errorValue} is invalid.`;
+
+        errorEle.textContent = renderMsg;
     }
 }
+
 
 export const renderAjaxSpinner = () => {
     getAjaxOverlayEle().classList.remove('site-ajax-hidden');

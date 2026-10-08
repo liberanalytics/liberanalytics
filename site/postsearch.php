@@ -61,7 +61,8 @@ $laData = new classes\LaData();
 	<link href="/css/la_ajax.css" rel="stylesheet">
 	<link href="/css/postcard.css" rel="stylesheet">
 	<link href="/css/postsearch.css" rel="stylesheet">
-	<script type="module" src="/js/la.js"></script>
+	<script type="module" src="/js/tagsearch.js"></script>
+	<script type="module" src="/js/semanticsearch.js"></script>
 	<script type="module" src="/js/postsearch.js"></script>	
 </head>
 
@@ -129,7 +130,7 @@ $laData = new classes\LaData();
 							
 						</li>
 						<li class="site-form-std-error-container">
-							<span id="form_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
+							<span id="postsearch_error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
 						</li>
 					</ul>
 
@@ -138,16 +139,7 @@ $laData = new classes\LaData();
 				<div id="postsearch_filters">
 
 				</div>
-				<div class="site-ajax-spinner-8spoke site-ajax-hidden">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>				
+			
 			</div><!-- End #postsearch_controls -->
 
 			<div id="postsearch_results">
@@ -159,9 +151,21 @@ $laData = new classes\LaData();
 			</div>
 
 		</section>
+
+		<div class="site-ajax-spinner-8spoke site-ajax-hidden">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="site-ajax-overlay-flex site-ajax-hidden">
+		</div>
+
 	</div>
-
-
 	</main>
 
 	<?php include_once('lafooter.php'); ?>

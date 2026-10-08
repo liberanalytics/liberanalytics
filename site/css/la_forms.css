@@ -15,7 +15,7 @@
         display: grid;
         grid-template-columns: max-content minmax(0, calc(var(--sz-400) * 20));
         column-gap: var(--knob-cg-form, calc(var(--sz-400) * 4));
-        margin-block-start: var(--sz-400);
+        margin-block-start: var(--knob-mbs-form, var(--sz-400));
         align-items: center;
         justify-content: center;        
     }

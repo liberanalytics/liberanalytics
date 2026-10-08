@@ -7,6 +7,12 @@ var postsearch = {};
 window.addEventListener('DOMContentLoaded', () => 
 {
     postsearch.setVars();
+
+    // If there is no form ele, return.
+    if (!postsearch.formEle) {
+        return;
+    }
+
     postsearch.bindEvents();
 });
 
@@ -29,43 +35,49 @@ postsearch.bindEvents = () =>
         postsearch.submitSearch('form');
     });
 
-    postsearch.initFromUrlPxs();
+    postsearch.initSearch();
 
     LATagSuggest(postsearch.tagsParentEle, postsearch.tagsEle, postsearch.tagSuggestionsEle);
 }
 
-postsearch.initFromUrlPxs = () => {
+postsearch.initSearch = () => {
 
-    // Store the query string params.
     const urlPxs = new URLSearchParams(window.location.search);
     const pxPostCategory = urlPxs.get('post_category');
     const pxPostTags = urlPxs.get('post_tags');
 
-    // Set module vars to query string params sent.
-    if (pxPostCategory) {
-        postsearch.categoryEle.value = pxPostCategory;
-        postsearch.submitSearch('form');
-    }
-    else if (pxPostTags) {
-        postsearch.tagsEle.value = pxPostTags;
-        postsearch.submitSearch('form');
+    // No pxs sent - page directly navigated to.
+    if (!pxPostCategory && !pxPostTags) {
+        return;
     }
 
+    // Populate postsearch controls.
+    if (pxPostCategory) {
+        postsearch.categoryEle.value = pxPostCategory;
+    }
+
+    if (pxPostTags) {
+        postsearch.tagsEle.value = pxPostTags;
+    }
+
+    postsearch.submitSearch('form');
 }
 
 postsearch.submitSearch = (submitType) => {
 
+    LArenderor.clearError();
     LArenderor.renderAjaxSpinner();
 
     // Get the post search pxs.
     const postPxs = postsearch.normalizeFilterData(submitType, 'filters');
 
     // Validate the search pxs are of a valid value - allow all nulls.
-    LArenderor.clearError();
     if (submitType === 'form') {
         for (const[px, pxValue] of Object.entries(postPxs)) {
             if (pxValue !== null && !LAvx.vxText(pxValue, 64)) {
+                const postsearchErrorEle = document.querySelector('#postsearch_error_ele');
                 LArenderor.renderError({
+                    errorEle: postsearchErrorEle,
                     errorKey: px, 
                     errorValue: pxValue
                 });

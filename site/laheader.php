@@ -38,10 +38,10 @@
 				<a href="/contact" class="site-header-nav-link site-font-link-std">Contact</a>					
 			</nav>
 
-			<div id="site_search_container_tags" clss="site-header-search-form-tags">
+			<div id="site_search_container_tags" class="site-header-search-form-tags">
 				<form id="site_search_form_tags" class="site-header-search-form-tags" role="search">
 					<div class="site-header-search-components-tags">
-						<label for="site_search" class="site-display-none">Search posts by tag</label>
+						<label for="site_search_tags" class="site-display-none">Search posts by tag</label>
 						<input
 							class="site-header-search-tags site-header-search-input site-font-form-std"
 							id="site_search_tags"
@@ -56,6 +56,27 @@
 				</form>
 			</div>
 
+			<div id="site_search_container_nlp" class="site-header-search-form-nlp">
+				<form id="site_search_form_nlp" class="site-header-search-form-nlp site-form-std" role="search">
+					<div class="site-header-search-components-nlp">
+						<label for="site_search_nlp" class="site-display-none">Ask LiberAnalytics about a topic...</label>
+						<input
+							class="site-header-search-nlp site-header-search-input site-font-form-std"
+							id="site_search_nlp"
+							type="search" 
+							title="Ask LiberAnalytics about a topic..." 
+							placeholder="Ask LiberAnalytics about a topic..."
+							autocomplete="off"
+						>
+						<button class="site-header-search-btn" type="submit" aria-label="Search"></button>
+						<ul class="site-form-std-controls">
+							<li class="site-form-std-error-container">
+								<span id="error_ele" class="site-form-std-error site-font-form-error" aria-live="polite"></span>
+							</li>
+						</ul>					
+					</div>					
+				</form>
+			</div>
 		</div>
 	</div>	
 </div>
