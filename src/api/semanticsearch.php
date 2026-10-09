@@ -103,7 +103,8 @@
         ];
     }
 
-    // Get the open ai response as an array.
+    // Iterate through ai response array; store content from the 
+    // message->content->output_text->text.
     $openAiResponseArray = json_decode($openAiResponse, true);
     $semanticSearchResponseJson = null;
 

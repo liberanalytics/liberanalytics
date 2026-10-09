@@ -2,6 +2,10 @@
     la_tags.css
 --------------------------------------------------------- */
 
+#postsearch_tags_container {
+    position: relative;
+}
+
 .site-tag-suggestions-container {
     position: absolute;
     max-height: calc(var(--sz-400) * 12.5);
