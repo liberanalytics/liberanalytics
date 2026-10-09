@@ -9,6 +9,7 @@
 	<meta name="description" content="Solo-built data platform focused on clarity, precision, and creative problem-solving with data in real-world contexts.">
 	<link rel="canonical" href="https://liberanalytics.com/about">
 
+	
 	<!-- Favicon. -->
 	<link rel="icon" href="/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

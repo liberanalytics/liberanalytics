@@ -35,6 +35,7 @@
 				<a href="/index" class="site-header-nav-link site-font-link-std">Home</a>
 				<a href="/postsearch" class="site-header-nav-link site-font-link-std">Posts</a>
 				<a href="/about" class="site-header-nav-link site-font-link-std">About</a>
+				<a href="/company" class="site-header-nav-link site-font-link-std">Company</a>
 				<a href="/contact" class="site-header-nav-link site-font-link-std">Contact</a>					
 			</nav>
 

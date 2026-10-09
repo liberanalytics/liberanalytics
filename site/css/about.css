@@ -30,23 +30,3 @@ html {
         scroll-snap-align: none; 
     }
 }
-
-
-
-
-
-
-
-/* 
-Add 20 vh at bottom of page for larger viewports.
-@media (min-width: 61.25em) {
-    .page-wrap { padding-block-end: 20vh; }
-}
-
-Enhance at ~980px.
-@media (min-width: 61.25em) {    
-    .about-summaries {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-    }
-} */

@@ -26,6 +26,7 @@
 					<span><a href="/index" class="site-footer-menu-link site-font-link-std">Home</a></span>
 					<span><a href="/postsearch" class="site-footer-menu-link site-font-link-std">Posts</a></span>
 					<span><a href="/about" class="site-footer-menu-link site-font-link-std">About</a></span>
+					<span class="site-footer-company"><a href="/company" class="site-footer-menu-link site-font-link-std">Company</a></span>
 					<span><a href="/contact" class="site-footer-menu-link site-font-link-std">Contact</a></span>
 					<span><a href="/privacy" class="site-footer-menu-link site-font-link-std">Privacy</a></span>
 					<span><a href="/terms" class="site-footer-menu-link site-font-link-std">Terms</a></span>

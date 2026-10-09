@@ -1,0 +1,32 @@
+/*  ---------------------------------------------------------
+    about.css
+--------------------------------------------------------- */
+
+.page-about {
+
+}
+
+/* About component classes. */
+.about-summaries {
+    display: grid;
+    gap: var(--sz-300);
+    margin-block-end: var(--sz-300);
+}
+
+/* Smooth out the scrolling behavior for anchor links. */
+html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+}
+
+.liber-about, .liber-philosophy { scroll-snap-align: start; }
+
+/* For users who prefer a reduced motion on scroll experience (OS level setting). */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    html { scroll-snap-type: none; }
+    .liber-about,
+    .liber-philosophy{ 
+        scroll-snap-align: none; 
+    }
+}
