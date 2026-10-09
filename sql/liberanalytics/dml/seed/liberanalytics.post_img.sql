@@ -326,4 +326,67 @@ VALUES
     3,
     585,
     NOW()
+),
+
+(
+    'semanticsearch',
+	'semanticsearch',
+    1,
+    1,
+    288,
+    NOW()
+),
+
+(
+    'semanticsearch',
+	'semanticsearch',
+    1,
+    2,
+    820,
+    NOW()
+),
+
+(
+    'semanticsearch',
+	'semanticsearch',
+    1,
+    3,
+    1080,
+    NOW()
+),
+
+(
+    'semanticsearch',
+	'semanticsearch',
+    1,
+    4,
+    1960,
+    NOW()
+),
+
+(
+    'semanticsearch',
+	'semanticsearch',
+    2,
+    1,
+    195,
+    NOW()
+),
+
+(
+    'semanticsearch',
+	'semanticsearch',
+    2,
+    2,
+    390,
+    NOW()
+),
+
+(
+    'semanticsearch',
+	'semanticsearch',
+    2,
+    3,
+    585,
+    NOW()
 );
