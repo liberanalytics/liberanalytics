@@ -77,7 +77,7 @@
         ]
     ];
 
-    // Make the call to respones api.
+    // Define the Open AI Responses API call body, url, and key file.
     $requestBody = json_encode($openAiRequest);
     $curl = curl_init('https://api.openai.com/v1/responses');
     $openAiKeyFile = $laConfig->getConfigAttr('liberanalytics', 'config', 'env', 'openapikey');
