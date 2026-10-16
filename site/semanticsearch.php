@@ -117,6 +117,8 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
                         by LiberAnalytics' existing deterministic database orchestration.
                     </p>
 
+					<h3 class="site-font-secondary-heading">Constraining LLM Output with a Database-Derived Schema</h3>
+
 				</section>
 		
 			</article>
