@@ -119,6 +119,199 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 					<h3 class="site-font-secondary-heading">Constraining LLM Output with a Database-Derived Schema</h3>
 
+					<p>
+						In implementing an LLM-based semantic search the question that must first be posed is:
+						what is the LLM permitted to return as valid results from the user's request? If
+						an LLM has the ability to interpret and generate human language from a given prompt,
+						then the responsibility of the application calling the LLM is to define the set of
+						responses permitted and the permissible output contract. Using an application's
+						authoritative domain data to constrain an LLM's response to a prompt is one way to
+						constrain responses to the application's authoritative domain
+						and prevent the model from returning out-of-domain values.
+					</p>
+
+					<p>
+						LiberAnalytics LLM semantic search limits what the LLM can return from a user request by making the existing authoritative
+						post categories and post tags the only valid domain values for those respective response properties. In the below snippet,
+						the 'required' is telling the LLM that the postCategory and postTags must be returned, even if the values are null or an
+						empty array respectively. The 'additionalProperties' => false instructs the LLM that the returned object may not contain
+						properties other than the ones defined under properties.
+					</p>				
+
+					<div class="post-snippet">
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Define the domain of acceptable response values</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// and the structured output schema.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$semanticSearchSchema</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'type'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'object'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'properties'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Define the type and value for post category that</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// can be returned, including null.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'postCategory'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'type'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'string'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'null'</span>
+							<span class="post-snippet-font-std code-php-default-fc">],</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'enum'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">array_merge</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$postCategories</span>
+							<span class="post-snippet-font-std code-php-default-fc">,&nbsp;[</span>
+							<span class="post-snippet-font-std code-php-special-fc">null</span>
+							<span class="post-snippet-font-std code-php-default-fc">])</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Define the type and set of post tag values that</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// can be returned.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'postTags'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'type'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'array'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'items'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'type'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'string'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'enum'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$postTags</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// Returned objects must contain the postCategory</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// and postTags properties.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'required'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'postCategory'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'postTags'</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// Don't return any other properties.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'additionalProperties'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">false</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">];</span>
+						</p>
+
+					</div>
+
+					<p>
+						We can think of the above schema as four distinct sections:
+					</p>
+
+					<ul class="site-list">
+						<li>type - defines the permitted JSON type for an object, property, or array item</li>
+						<li>enum - defines the specific values permitted</li>
+						<li>required - defines which properties must exist</li>
+						<li>additionalProperties - defines whether undeclared properties are allowed</li>
+					</ul>						
+
 				</section>
 		
 			</article>

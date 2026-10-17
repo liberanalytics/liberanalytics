@@ -28,14 +28,19 @@
         CrudFetchStyle::FETCHSTYLE_COL
     );
 
-    // Define the structured output schema.
+    // Define the domain of acceptable response values
+    // and the structured output schema.
     $semanticSearchSchema = [
         'type' => 'object',
         'properties' => [
+            // Define the type and value for post category that
+            // can be returned, including null.
             'postCategory' => [
                 'type' => ['string', 'null'],
                 'enum' => array_merge($postCategories, [null])
             ],
+            // Define the type and set of post tag values that
+            // can be returned.           
             'postTags' => [
                 'type' => 'array',
                 'items' => [
@@ -44,10 +49,13 @@
                 ]
             ]
         ],
+        // Returned objects must contain the postCategory
+        // and postTags properties.
         'required' => [
             'postCategory',
             'postTags'
         ],
+        // Don't return any other properties.
         'additionalProperties' => false
     ];
 
