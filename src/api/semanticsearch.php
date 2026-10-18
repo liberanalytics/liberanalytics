@@ -60,7 +60,7 @@
     ];
 
     // Get the nlp request.
-    $nlpRequest = $requestPxs['nlpRequest'];
+    $userSearchPromptRequest = $requestPxs['userSearchPromptRequest'];
 
     // Define open ai responses api parameters.
     $openAiRequest = [
@@ -73,7 +73,7 @@
             'Treat postTags as narrower concepts, technologies, methods, or attributes mentioned or clearly implied by the request. ' .
             'Be conservative. If there is no clear semantic match, return null for postCategory and an empty array for postTags.',
 
-        'input' => $nlpRequest,
+        'input' => $userSearchPromptRequest,
 
         'text' => [
             'format' => [

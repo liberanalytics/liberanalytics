@@ -11,8 +11,8 @@ window.addEventListener('DOMContentLoaded', () =>
 
 semanticsearch.setVars = () =>
 {
-    semanticsearch.formEle = document.querySelector('#site_search_form_nlp');
-    semanticsearch.nlpEle = document.querySelector('#site_search_nlp');
+    semanticsearch.formEle = document.querySelector('#site_search_form_prompt');
+    semanticsearch.userSearchPromptEle = document.querySelector('#site_search_prompt');
     semanticsearch.errorEle = document.querySelector('#error_ele');
 }
 
@@ -25,20 +25,20 @@ semanticsearch.bindEvents = () =>
 
     semanticsearch.formEle.addEventListener('submit', (event) => {
         event.preventDefault();
-        semanticsearch.submitNlpRequest();
+        semanticsearch.submituserSearchPromptRequest();
     });
 }
 
-semanticsearch.submitNlpRequest = () =>
+semanticsearch.submituserSearchPromptRequest = () =>
 {
 
     LArenderor.clearError();
     LArenderor.renderAjaxSpinner();
-    const nlpRequest = semanticsearch.nlpEle.value;
+    const userSearchPromptRequest = semanticsearch.userSearchPromptEle.value;
 
-    if (!LAvx.vxText(nlpRequest, 64)) {
+    if (!LAvx.vxText(userSearchPromptRequest, 64)) {
         LArenderor.renderError({
-            errorMsg: nlpRequest + 'is invalid'
+            errorMsg: userSearchPromptRequest + 'is invalid'
         });
         LArenderor.unrenderAjaxSpinner();
         return;
@@ -52,7 +52,7 @@ semanticsearch.submitNlpRequest = () =>
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            nlpRequest: nlpRequest
+            userSearchPromptRequest: userSearchPromptRequest
         })
     }
     )
