@@ -313,6 +313,24 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					</ul>
 					
 					<h3 class="site-font-secondary-heading">Defining the LLM’s Role and Output Contract</h3>
+					
+					<p>
+						The LLM’s role is defined in the instructions: identify the user’s primary
+						subject as a post category and narrower concepts, technologies, or methods
+						as post tags. The instructions also define the no-match behavior, allowing
+						the model to return null for postCategory and an empty array for postTags
+						when the user’s request does not map clearly to the LiberAnalytics domain.
+						The input is simply the user’s submitted search prompt.
+					</p>
+
+					<p>
+						The more consequential part of the request is the text.format definition.
+						Rather than allowing free-form text or arbitrary JSON, the response is
+						required to conform to a JSON Schema named semantic_search. With strict
+						enabled, the model’s output must adhere to the structure and permitted
+						values defined by $semanticSearchSchema.
+					</p>					
+					
 					<div class="post-snippet">
 
 						<p>
