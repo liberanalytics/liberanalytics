@@ -714,7 +714,31 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 							<span class="post-snippet-font-std code-php-default-fc">}</span>
 						</p>
 
-					</div>					
+					</div>
+
+					<h3 class="site-font-secondary-heading">Validating LLM Responses Against Authoritative Domain Data</h3>
+
+					<p>
+						
+					</p>					
+
+					<h3 class="site-font-secondary-heading">Preparing LiberAnalytics’ Data and UI for Governed LLM Responses</h3>
+
+					<p>
+
+					</p>	
+						
+					<h3 class="site-font-secondary-heading">Preparing LiberAnalytics’ Data and UI for Governed LLM Responses</h3>
+
+					<p>
+
+					</p>				
+
+					<h3 class="site-font-secondary-heading">Making LLM Responses Usable Within a Deterministic System</h3>
+
+					<p>
+
+					</p>
 
 				</section>
 		
