@@ -310,7 +310,164 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						<li>enum - defines the specific values permitted</li>
 						<li>required - defines which properties must exist</li>
 						<li>additionalProperties - defines whether undeclared properties are allowed</li>
-					</ul>						
+					</ul>
+					
+					<h3 class="site-font-secondary-heading">Defining the LLM’s Role and Output Contract</h3>
+					<div class="post-snippet">
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Define open ai responses api parameters.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiRequest</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// Define the OpenAI model used for semantic interpretation.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'model'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'gpt-5.6-luna'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// Guide how the LLM should interpret the user's search prompt</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// within LiberAnalytics' allowed semantic domain, including</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// the expected response behavior when no clear match exists.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'instructions'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Interpret the user search request using only the supplied LiberAnalytics domain. '</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Treat postCategory as the primary subject or broad topic of the request. '</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Choose a postCategory only when the request clearly centers on one of the allowed categories. '</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Treat postTags as narrower concepts, technologies, methods, or attributes mentioned or clearly implied by the request. '</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Be conservative. If there is no clear semantic match, return null for postCategory and an empty array for postTags.'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// Supply the user's submitted search prompt.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'input'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$userSearchPromptRequest</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// Define the model's text output as structured JSON using a</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// JSON Schema named semantic_search, with strict adherence to</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// the $semanticSearchSchema contract.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'text'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'format'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'type'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'json_schema'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'semantic_search'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'strict'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">true</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'schema'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$semanticSearchSchema</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;]</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">];</span>
+						</p>
+
+					</div>
+
+					<p>
+						The Responses API parameters can be summarized as:
+					</p>
+
+					<ul class="site-list">
+						<li>model - defines the OpenAI model used for interpretation</li>
+						<li>instructions - guides how the model should interpret the user's search prompt</li>
+						<li>input - supplies the user's natural-language search prompt</li>
+						<li>text.format - defines the structured output contract</li>
+						<li>text.format.type - output as structured json according to the supplied schema</li>
+						<li>text.format.name - identifies the structured-output format for this schema definition</li>
+						<li>text.format.strict - requires the response to conform to the supplied schema</li>
+						<li>text.format.schema - supplies LiberAnalytics' database-derived response constraints</li>
+					</ul>					
 
 				</section>
 		

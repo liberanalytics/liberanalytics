@@ -59,13 +59,18 @@
         'additionalProperties' => false
     ];
 
-    // Get the nlp request.
+    // Get the user's search prompt request.
     $userSearchPromptRequest = $requestPxs['userSearchPromptRequest'];
 
     // Define open ai responses api parameters.
     $openAiRequest = [
+
+        // Define the OpenAI model used for semantic interpretation.
         'model' => 'gpt-5.6-luna',
 
+        // Guide how the LLM should interpret the user's search prompt
+        // within LiberAnalytics' allowed semantic domain, including
+        // the expected response behavior when no clear match exists.
         'instructions' =>
             'Interpret the user search request using only the supplied LiberAnalytics domain. ' .
             'Treat postCategory as the primary subject or broad topic of the request. ' .
@@ -73,8 +78,12 @@
             'Treat postTags as narrower concepts, technologies, methods, or attributes mentioned or clearly implied by the request. ' .
             'Be conservative. If there is no clear semantic match, return null for postCategory and an empty array for postTags.',
 
+        // Supply the user's submitted search prompt.
         'input' => $userSearchPromptRequest,
 
+        // Define the model's text output as structured JSON using a
+        // JSON Schema named semantic_search, with strict adherence to
+        // the $semanticSearchSchema contract.
         'text' => [
             'format' => [
                 'type' => 'json_schema',
