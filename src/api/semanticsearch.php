@@ -111,7 +111,7 @@
         CURLOPT_POSTFIELDS => $requestBody
     ]);
 
-    // Exe the curl request; return a 502 bad gateway if we dont get a response.
+    // Execute the cURL request; return 502 if the upstream request fails.
     $openAiResponse = curl_exec($curl);
     if ($openAiResponse === false) {
         http_response_code(502);
@@ -125,7 +125,8 @@
     $openAiResponseArray = json_decode($openAiResponse, true);
     $semanticSearchResponseJson = null;
 
-    // Iterate through ai response array; store content in the
+    // Iterate through ai response array; store relevant content from
+    // contentItem[]
     foreach ($openAiResponseArray['output'] ?? [] as $outputItem) {
 
         // Inspect content only for outputItems which are actual messages.
@@ -152,11 +153,10 @@
             ? json_decode($semanticSearchResponseJson, true)
             : null;
 
-    // If semantic search response is not an array, send a bad gateway http code back.
+    // Return 502 if the extracted semantic search response is unusable.
     if (!is_array($semanticSearchResponse))
     {
         http_response_code(502);
-
         return [
             'error' => 'Invalid semantic search response.'
         ];

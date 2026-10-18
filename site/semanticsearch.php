@@ -609,8 +609,112 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					<h3 class="site-font-secondary-heading">Handling the Open AI Responses API Response</h3>
 
 					<p>
-						
+						If LiberAnalytics does not receive a usable response from the Responses API,
+						or the returned semantic-search payload cannot be parsed into the expected
+						application structure, the request is handled as an upstream failure. 
+						Liber returns a 502 Bad Gateway response and a generalized error message
+						to the client indicating the nature of the failure.
 					</p>
+
+					<div class="post-snippet">
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Execute the cURL request; return 502 if the upstream request fails.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiResponse</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">curl_exec</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$curl</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">if</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiResponse</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;===&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">false</span>
+							<span class="post-snippet-font-std code-php-default-fc">)&nbsp;{</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-func-fc">&nbsp;&nbsp;&nbsp;&nbsp;http_response_code</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-number-fc">502</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;return</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'error'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'Semantic search request failed.'</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;];</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">}</span>
+						</p>
+
+					</div>
+
+					<div class="post-snippet">
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Return 502 if the extracted semantic search response is unusable.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">if</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+							<span class="post-snippet-font-std code-php-op-fc">!</span>
+							<span class="post-snippet-font-std code-php-func-fc">is_array</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$semanticSearchResponse</span>
+							<span class="post-snippet-font-std code-php-default-fc">))</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">{</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-func-fc">&nbsp;&nbsp;&nbsp;&nbsp;http_response_code</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-number-fc">502</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;return</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'error'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'Invalid semantic search response.'</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;];</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">}</span>
+						</p>
+
+					</div>					
 
 				</section>
 		
