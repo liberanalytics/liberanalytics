@@ -485,7 +485,132 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						<li>text.format.name - identifies the structured-output format for this schema definition</li>
 						<li>text.format.strict - requires the response to conform to the supplied schema</li>
 						<li>text.format.schema - supplies LiberAnalytics' database-derived response constraints</li>
-					</ul>					
+					</ul>
+
+					<h3 class="site-font-secondary-heading">Orchestrating the Open AI Responses API Request</h3>
+
+					<p>
+						Calling the Responses API is a matter of sending an HTTP POST request
+						to the OpenAI Responses API endpoint, supplying the previously defined
+						request parameters as a JSON payload and the API key as a Bearer token
+						in the request headers.
+					</p>
+
+					<div class="post-snippet">
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Define the Open AI Responses API call body, url, and key file.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$requestBody</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">json_encode</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiRequest</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$curl</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">curl_init</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'https://api.openai.com/v1/responses'</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiKeyFile</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$laConfig</span>
+							<span class="post-snippet-font-std code-php-op-fc">-&gt;</span>
+							<span class="post-snippet-font-std code-php-func-fc">getConfigAttr</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-string-fc">'liberanalytics'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'config'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'env'</span>
+							<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'openapikey'</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiApiKey</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">trim</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-func-fc">file_get_contents</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiKeyFile</span>
+							<span class="post-snippet-font-std code-php-default-fc">));</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Set curl session options, supply the request body.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-func-fc">curl_setopt_array</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$curl</span>
+							<span class="post-snippet-font-std code-php-default-fc">,&nbsp;[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-special-fc">&nbsp;&nbsp;&nbsp;&nbsp;CURLOPT_POST</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">true</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-special-fc">&nbsp;&nbsp;&nbsp;&nbsp;CURLOPT_RETURNTRANSFER</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">true</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-special-fc">&nbsp;&nbsp;&nbsp;&nbsp;CURLOPT_HTTPHEADER</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Authorization: Bearer '</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;.&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiApiKey</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Content-Type: application/json'</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-special-fc">&nbsp;&nbsp;&nbsp;&nbsp;CURLOPT_POSTFIELDS</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$requestBody</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">]);</span>
+						</p>
+
+					</div>					
+
+					<h3 class="site-font-secondary-heading">Handling the Open AI Responses API Response</h3>
+
+					<p>
+						
+					</p>
 
 				</section>
 		

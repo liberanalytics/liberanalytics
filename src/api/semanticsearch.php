@@ -114,7 +114,7 @@
     // Exe the curl request; return a 502 bad gateway if we dont get a response.
     $openAiResponse = curl_exec($curl);
     if ($openAiResponse === false) {
-        http_response_code(500);
+        http_response_code(502);
         return [
             'error' => 'Semantic search request failed.'
         ];
