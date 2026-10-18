@@ -67,8 +67,8 @@ INSERT INTO liberanalytics.posts
          'semanticsearch'
         ,'AI'
         , NOW()
-        ,''
-        ,''
-        ,''
+        ,'Constraining LLM Responses to Governed Structure and Content'
+        ,'How an LLM can interpret ambiguous human intent and return meaningful, usable data within a deterministic system.'
+        ,'EnterpriseAI adoption is increasingly constrained less by access to models than by an organization''s ability to make its business semantics, data, workflows, and system interfaces trustworthy enough for models to operate against.'
         ,TRUE
     );         
