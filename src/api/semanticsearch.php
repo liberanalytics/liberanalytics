@@ -120,13 +120,12 @@
         ];
     }
 
-    // Iterate through ai response array; store content from the 
-    // message->content->output_text->text.
+    // Decode the OpenAI Responses API response.
     $openAiResponseArray = json_decode($openAiResponse, true);
     $semanticSearchResponseJson = null;
 
-    // Iterate through ai response array; store relevant content from
-    // contentItem[]
+    // Iterate through AI response array; store relevant content from
+    // contentItem[].
     foreach ($openAiResponseArray['output'] ?? [] as $outputItem) {
 
         // Inspect content only for outputItems which are actual messages.
@@ -147,7 +146,7 @@
         }
     }
 
-    // Treat the response as an associative array.
+    // Decode the schema-constrained semantic search JSON.
     $semanticSearchResponse =
         $semanticSearchResponseJson
             ? json_decode($semanticSearchResponseJson, true)
@@ -162,7 +161,7 @@
         ];
     }
 
-    // Validate the response data is of authoritative membership.
+    // Normalize the expected response properties for application use.
     $response = [
         'postCategory' => $semanticSearchResponse['postCategory'] ?? null,
         'postTags' => $semanticSearchResponse['postTags'] ?? []

@@ -487,7 +487,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						<li>text.format.schema - supplies LiberAnalytics' database-derived response constraints</li>
 					</ul>
 
-					<h3 class="site-font-secondary-heading">Orchestrating the Open AI Responses API Request</h3>
+					<h3 class="site-font-secondary-heading">Orchestrating the OpenAI Responses API Request</h3>
 
 					<p>
 						Calling the Responses API is a matter of sending an HTTP POST request
@@ -499,7 +499,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					<div class="post-snippet">
 
 						<p>
-							<span class="post-snippet-font-std code-php-comment-fc">// Define the Open AI Responses API call body, url, and key file.</span>
+							<span class="post-snippet-font-std code-php-comment-fc">// Define the OpenAI Responses API call body, url, and key file.</span>
 						</p>
 
 						<p>
@@ -606,13 +606,361 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 
 					</div>
 
-					<h3 class="site-font-secondary-heading">Handling the Open AI Responses API Response - Success</h3>
+					<h3 class="site-font-secondary-heading">Handling the OpenAI Responses API Response - Success</h3>
 
 					<p>
-						
+						After decoding the OpenAI response into a PHP associative array, Liber traverses the output collection
+						by response type rather than assuming a fixed array position. Message items are inspected for
+						output_text content, and the corresponding text value contains the schema-constrained
+						semantic-search JSON. That JSON is then decoded into a PHP array and normalized into the expected
+						postCategory and postTags response shape before domain validation and return to the calling application.							
 					</p>
 
-					<h3 class="site-font-secondary-heading">Handling the Open AI Responses API Response - Failure Modes</h3>
+					<p>
+						The shape of the response decoded as a PHP array appears in an xdebug session as shown in the snippet below:
+					</p>
+
+					<div class="post-snippet">
+
+						<p>
+							<span class="post-snippet-font-std code-php-special-fc">Listening to Xdebug on port 0.0.0.0:9003 ...</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiResponseArray</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'output'</span>
+							<span class="post-snippet-font-std code-php-default-fc">]</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">array(2)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-number-fc">&nbsp;&nbsp;&nbsp;&nbsp;0</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">array(5)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-number-fc">&nbsp;&nbsp;&nbsp;&nbsp;1</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">array(6)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">"msg_0fb52ad248af026b006ad627054aa487d1a7eeb5364d490767"</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">"message"</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">"completed"</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">array(1)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-number-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">array(4)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">"output_text"</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;annotations</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">array(0)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logprobs</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">array(0)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">"{&quot;postCategory&quot;:&quot;Database Engineering&quot;,&quot;postTags&quot;:[&quot;Validation&quot;]}"</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;phase</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">"final_answer"</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">"assistant"</span>
+						</p>
+
+					</div>	
+					
+					<p>
+						And the traversal sequence and logic of the output collection is orchestrated in PHP as 
+						shown in the snippets below:	
+					</p>
+
+					<div class="post-snippet">
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Decode the OpenAI Responses API response.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiResponse</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">curl_exec</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$curl</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiResponseArray</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">json_decode</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiResponse</span>
+							<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">true</span>
+							<span class="post-snippet-font-std code-php-default-fc">);</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$semanticSearchResponseJson</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">null</span>
+							<span class="post-snippet-font-std code-php-default-fc">;</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Iterate through AI response array; store relevant content from</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// contentItem[].</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">foreach</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$openAiResponseArray</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'output'</span>
+							<span class="post-snippet-font-std code-php-default-fc">]</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;??&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[]</span>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;as&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$outputItem</span>
+							<span class="post-snippet-font-std code-php-default-fc">)&nbsp;{</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// Inspect content only for outputItems which are actual messages.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;if</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;((</span>
+							<span class="post-snippet-font-std code-php-var-fc">$outputItem</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'type'</span>
+							<span class="post-snippet-font-std code-php-default-fc">]</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;??&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">null</span>
+							<span class="post-snippet-font-std code-php-default-fc">)</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;!==&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'message'</span>
+							<span class="post-snippet-font-std code-php-default-fc">)&nbsp;{</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</span>
+							<span class="post-snippet-font-std code-php-default-fc">;</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">&nbsp;&nbsp;&nbsp;&nbsp;// Find the text for the given content member.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;foreach</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$outputItem</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'content'</span>
+							<span class="post-snippet-font-std code-php-default-fc">]</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;??&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[]</span>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;as&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$contentItem</span>
+							<span class="post-snippet-font-std code-php-default-fc">)&nbsp;{</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if</span>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;(</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$contentItem</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'type'</span>
+							<span class="post-snippet-font-std code-php-default-fc">]</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;??&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">null</span>
+							<span class="post-snippet-font-std code-php-default-fc">)</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;===&nbsp;</span>
+							<span class="post-snippet-font-std code-php-string-fc">'output_text'</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;&amp;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">isset</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$contentItem</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'text'</span>
+							<span class="post-snippet-font-std code-php-default-fc">])</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;{</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$semanticSearchResponseJson</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$contentItem</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'text'</span>
+							<span class="post-snippet-font-std code-php-default-fc">];</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</span>
+							<span class="post-snippet-font-std code-php-number-fc">&nbsp;2</span>
+							<span class="post-snippet-font-std code-php-default-fc">;</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">}</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Decode the schema-constrained semantic search JSON.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$semanticSearchResponse</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">&nbsp;&nbsp;&nbsp;&nbsp;$semanticSearchResponseJson</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&nbsp;</span>
+							<span class="post-snippet-font-std code-php-func-fc">json_decode</span>
+							<span class="post-snippet-font-std code-php-default-fc">(</span>
+							<span class="post-snippet-font-std code-php-var-fc">$semanticSearchResponseJson</span>
+							<span class="post-snippet-font-std code-php-default-fc">,&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">true</span>
+							<span class="post-snippet-font-std code-php-default-fc">)</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">null</span>
+							<span class="post-snippet-font-std code-php-default-fc">;</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Normalize the expected response properties for application use.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-var-fc">$response</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'postCategory'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$semanticSearchResponse</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'postCategory'</span>
+							<span class="post-snippet-font-std code-php-default-fc">]</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;??&nbsp;</span>
+							<span class="post-snippet-font-std code-php-special-fc">null</span>
+							<span class="post-snippet-font-std code-php-default-fc">,</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-string-fc">&nbsp;&nbsp;&nbsp;&nbsp;'postTags'</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;=&gt;&nbsp;</span>
+							<span class="post-snippet-font-std code-php-var-fc">$semanticSearchResponse</span>
+							<span class="post-snippet-font-std code-php-default-fc">[</span>
+							<span class="post-snippet-font-std code-php-string-fc">'postTags'</span>
+							<span class="post-snippet-font-std code-php-default-fc">]</span>
+							<span class="post-snippet-font-std code-php-op-fc">&nbsp;??&nbsp;</span>
+							<span class="post-snippet-font-std code-php-default-fc">[]</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-default-fc">];</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-comment-fc">// Return the response data as name =&gt; value pairs.</span>
+						</p>
+
+						<p>
+							<span class="post-snippet-font-std code-php-keyword-fc">return</span>
+							<span class="post-snippet-font-std code-php-var-fc">&nbsp;$response</span>
+							<span class="post-snippet-font-std code-php-default-fc">;</span>
+						</p>
+
+					</div>
+
+					<h3 class="site-font-secondary-heading">Handling the OpenAI Responses API Response - Failure Modes</h3>
 
 					<p>
 						If LiberAnalytics does not receive a usable response from the Responses API,
