@@ -147,3 +147,14 @@
 .code-mssql-null-fc     { --knob-post-snippet-fc: #808080; } /* NULL */
 .code-mssql-number-fc   { --knob-post-snippet-fc: #000000; } /* lengths, precision, scale */
 .code-mssql-schema-fc   { --knob-post-snippet-fc: #008000; } /* INFORMATION_SCHEMA.PARAMETERS */
+
+/* js code block colors. */
+.code-js-default-fc  { --knob-post-snippet-fc: #A3D5FD; } /* generic identifiers / punctuation-like text */
+.code-js-keyword-fc  { --knob-post-snippet-fc: #D5A6FC; } /* export, const, if */
+.code-js-func-fc     { --knob-post-snippet-fc: #75BFFC; } /* getDefaultErrorEle */
+.code-js-var-fc      { --knob-post-snippet-fc: #FFA75E; } /* errorEle, errorMsg, errorKey, errorValue */
+.code-js-op-fc       { --knob-post-snippet-fc: #D4D4D4; } /* =, =>, ??, . */
+.code-js-string-fc   { --knob-post-snippet-fc: #75BFFC; } /* template literal text */
+.code-js-number-fc   { --knob-post-snippet-fc: #B5CEA8; } /* numeric literals if needed */
+.code-js-special-fc  { --knob-post-snippet-fc: #009DFB; } /* null / ${...} interpolation */
+.code-js-fxname-fc   { --knob-post-snippet-fc: #FF7B74; } /* renderError */

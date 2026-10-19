@@ -34,7 +34,6 @@ export const renderError = ({
     }
 }
 
-
 export const renderAjaxSpinner = () => {
     getAjaxOverlayEle().classList.remove('site-ajax-hidden');
     getAjaxSpinnerEle().classList.remove('site-ajax-hidden');

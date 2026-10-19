@@ -1201,8 +1201,124 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					<h3 class="site-font-secondary-heading">Preparing LiberAnalytics’ Data and UI for Governed LLM Responses</h3>
 
 					<p>
+						Before LiberAnalytics could implement a call to the OpenAI Responses API, its own deterministic data pipeline
+						had to be hardened to enforce contracts between calling and receiving application components and to allow
+						the user interface to consume and render error messages flexibly.
+					</p>
 
-					</p>			
+					<ul class="site-list site-stack-start-mt">
+						<li>
+							The PostgreSQL function responsible for retrieving authoritative tag-domain data previously required a
+							TEXT[] parameter. By making that parameter optional with DEFAULT NULL and treating NULL as a signal
+							to return all tags, LiberAnalytics could expose the complete authoritative tag set for inclusion
+							in the semantic-search JSON Schema supplied to the OpenAI Responses API.
+
+						</li>
+						<li>
+							A final validation step was added to the OpenAI Responses API orchestration to verify that the returned
+							post category and post tags exist within LiberAnalytics’ authoritative domain. Even though the combination
+							of the semantic-search JSON Schema and the instructions supplied in the API request constrains and guides
+							the LLM toward domain-valid values, a defense-in-depth implementation prevents the model response from
+							becoming application state merely because OpenAI returned it.
+						</li>
+						<li>
+							A data-integrity issue existed in LiberAnalytics’ post-retrieval function where an inner join to the images
+							table caused an otherwise valid post record to disappear from the result set when its corresponding image
+							data was missing. After the missing image data was added, the post was returned as expected. This
+							illustrated a broader point: for AI integration to be useful, the underlying data relationships and
+							deterministic system workflows must be trustworthy enough for the model’s output to operate against.
+						</li>
+						<li>
+							The user interface also required the error renderer to accept parameterized messages and allow the
+							caller to specify which JavaScript element should receive the error. Before the AI integration,
+							invalid user input was handled by reading the input element’s data-id attribute and rendering
+							a generic message in the form &LT;data-id&GT; value &LT;input value&GT; is invalid. The refactored
+							renderer shown below preserves that default behavior while also allowing callers to supply more
+							contextual messages, such as failures associated with HTTP response codes 500, 502, and other
+							application or upstream errors.
+
+							<div class="post-snippet site-mt">
+
+								<p>
+									<span class="post-snippet-font-std code-js-keyword-fc">export</span>
+									<span class="post-snippet-font-std code-js-keyword-fc">&nbsp;const</span>
+									<span class="post-snippet-font-std code-js-fxname-fc">&nbsp;renderError</span>
+									<span class="post-snippet-font-std code-js-op-fc">&nbsp;=&nbsp;(</span>
+									<span class="post-snippet-font-std code-js-default-fc">{</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-var-fc">&nbsp;&nbsp;&nbsp;&nbsp;errorEle</span>
+									<span class="post-snippet-font-std code-js-op-fc">&nbsp;=&nbsp;</span>
+									<span class="post-snippet-font-std code-js-func-fc">getDefaultErrorEle</span>
+									<span class="post-snippet-font-std code-js-default-fc">(),</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-var-fc">&nbsp;&nbsp;&nbsp;&nbsp;errorMsg</span>
+									<span class="post-snippet-font-std code-js-op-fc">&nbsp;=&nbsp;</span>
+									<span class="post-snippet-font-std code-js-special-fc">null</span>
+									<span class="post-snippet-font-std code-js-default-fc">,</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-var-fc">&nbsp;&nbsp;&nbsp;&nbsp;errorKey</span>
+									<span class="post-snippet-font-std code-js-default-fc">,</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-var-fc">&nbsp;&nbsp;&nbsp;&nbsp;errorValue</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-default-fc">}</span>
+									<span class="post-snippet-font-std code-js-op-fc">&nbsp;=&nbsp;{})&nbsp;=&gt;&nbsp;{</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;if</span>
+									<span class="post-snippet-font-std code-js-default-fc">&nbsp;(</span>
+									<span class="post-snippet-font-std code-js-var-fc">errorEle</span>
+									<span class="post-snippet-font-std code-js-default-fc">)&nbsp;{</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-keyword-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const</span>
+									<span class="post-snippet-font-std code-js-var-fc">&nbsp;renderMsg</span>
+									<span class="post-snippet-font-std code-js-op-fc">&nbsp;=</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-var-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errorMsg</span>
+									<span class="post-snippet-font-std code-js-op-fc">&nbsp;??&nbsp;</span>
+									<span class="post-snippet-font-std code-js-string-fc">`</span>
+									<span class="post-snippet-font-std code-js-special-fc">${errorKey}</span>
+									<span class="post-snippet-font-std code-js-string-fc">&nbsp;value&nbsp;</span>
+									<span class="post-snippet-font-std code-js-special-fc">${errorValue}</span>
+									<span class="post-snippet-font-std code-js-string-fc">&nbsp;is invalid.`</span>
+									<span class="post-snippet-font-std code-js-default-fc">;</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-var-fc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errorEle</span>
+									<span class="post-snippet-font-std code-js-op-fc">.</span>
+									<span class="post-snippet-font-std code-js-var-fc">textContent</span>
+									<span class="post-snippet-font-std code-js-op-fc">&nbsp;=&nbsp;</span>
+									<span class="post-snippet-font-std code-js-var-fc">renderMsg</span>
+									<span class="post-snippet-font-std code-js-default-fc">;</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-default-fc">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+								</p>
+
+								<p>
+									<span class="post-snippet-font-std code-js-default-fc">}</span>
+								</p>
+
+							</div>
+						</li>
+					</ul>
 
 					<h3 class="site-font-secondary-heading">Making LLM Responses Usable Within a Deterministic System</h3>
 
