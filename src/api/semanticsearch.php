@@ -62,7 +62,7 @@
     // Get the user's search prompt request.
     $userSearchPromptRequest = $requestPxs['userSearchPromptRequest'];
 
-    // Define open ai responses api parameters.
+    // Define OpenAI responses api parameters.
     $openAiRequest = [
 
         // Define the OpenAI model used for semantic interpretation.

@@ -334,7 +334,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					<div class="post-snippet">
 
 						<p>
-							<span class="post-snippet-font-std code-php-comment-fc">// Define open ai responses api parameters.</span>
+							<span class="post-snippet-font-std code-php-comment-fc">// Define OpenAI responses api parameters.</span>
 						</p>
 
 						<p>
@@ -481,7 +481,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 						<li>instructions - guides how the model should interpret the user's search prompt</li>
 						<li>input - supplies the user's natural-language search prompt</li>
 						<li>text.format - defines the structured output contract</li>
-						<li>text.format.type - output as structured json according to the supplied schema</li>
+						<li>text.format.type - output as structured JSON according to the supplied schema</li>
 						<li>text.format.name - identifies the structured-output format for this schema definition</li>
 						<li>text.format.strict - requires the response to conform to the supplied schema</li>
 						<li>text.format.schema - supplies LiberAnalytics' database-derived response constraints</li>
@@ -617,7 +617,7 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					</p>
 
 					<p>
-						The shape of the response decoded as a PHP array appears in an xdebug session as shown in the snippet below:
+						The shape of the response decoded as a PHP array appears in an Xdebug session as shown in the snippet below:
 					</p>
 
 					<div class="post-snippet">
