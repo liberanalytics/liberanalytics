@@ -604,9 +604,15 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 							<span class="post-snippet-font-std code-php-default-fc">]);</span>
 						</p>
 
-					</div>					
+					</div>
 
-					<h3 class="site-font-secondary-heading">Handling the Open AI Responses API Response</h3>
+					<h3 class="site-font-secondary-heading">Handling the Open AI Responses API Response - Success</h3>
+
+					<p>
+						
+					</p>
+
+					<h3 class="site-font-secondary-heading">Handling the Open AI Responses API Response - Failure Modes</h3>
 
 					<p>
 						If LiberAnalytics does not receive a usable response from the Responses API,
