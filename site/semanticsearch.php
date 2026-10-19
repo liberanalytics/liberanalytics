@@ -1323,7 +1323,19 @@ $postMetaDesc = $laViewConverter->escAttr($post['long_desc']);
 					<h3 class="site-font-secondary-heading">Making LLM Responses Usable Within a Deterministic System</h3>
 
 					<p>
+						AI readiness was not about gaining access to a model. It was about making the surrounding
+						application trustworthy enough that a probabilistic component could be introduced safely.
+						Probabilistic reasoning should be introduced only after the deterministic semantics, contracts,
+						and authority boundaries of the system are sufficiently defined.
+					</p>
 
+					<p>
+						By supplying a JSON Schema derived from LiberAnalytics’ authoritative post-category and
+						post-tag domain, along with instructions governing how user-expressed search terms should
+						be interpreted, the OpenAI Responses API can return structured data that LiberAnalytics’
+						existing deterministic pipeline can safely consume. The model is prevented from returning
+						out-of-domain values by the schema contract, and the resulting values are independently
+						validated against the authoritative domain before they are accepted for application use.
 					</p>
 
 				</section>
