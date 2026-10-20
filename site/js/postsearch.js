@@ -74,7 +74,7 @@ postsearch.submitSearch = (submitType) => {
     // Validate the search pxs are of a valid value - allow all nulls.
     if (submitType === 'form') {
         for (const[px, pxValue] of Object.entries(postPxs)) {
-            if (pxValue !== null && !LAvx.vxText(pxValue, 64)) {
+            if (pxValue !== null && !LAvx.vxText(pxValue, 64, 2)) {
                 const postsearchErrorEle = document.querySelector('#postsearch_error_ele');
                 LArenderor.renderError({
                     errorEle: postsearchErrorEle,
