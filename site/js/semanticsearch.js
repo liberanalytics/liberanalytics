@@ -36,7 +36,7 @@ semanticsearch.submituserSearchPromptRequest = () =>
     LArenderor.renderAjaxSpinner();
     const userSearchPromptRequest = semanticsearch.userSearchPromptEle.value;
 
-    if (!LAvx.vxText(userSearchPromptRequest, 64)) {
+    if (!LAvx.vxText(userSearchPromptRequest, 64, 2)) {
         LArenderor.renderError({
             errorMsg: userSearchPromptRequest + 'is invalid'
         });
