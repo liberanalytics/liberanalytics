@@ -32,7 +32,7 @@
 					<span><a href="/terms" class="site-footer-menu-link site-font-link-std">Terms</a></span>
 				</nav>
 			</div>
-			<h3 class="site-footer-legal">&copy; 2025 LiberAnalytics, LLC. All rights reserved.</h3>			
+			<h3 class="site-footer-legal">&copy; <?php echo date('Y'); ?> LiberAnalytics, LLC. All rights reserved.</h3>			
 		</div>
 	</div>
 </footer>
