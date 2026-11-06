@@ -214,9 +214,9 @@
 
 					<p>
 						Exploration and prototyping of natural-language interfaces to structured data, including semantic interpretation,
-						 validation of model-generated parameters, and integration with existing deterministic database workflows.
-						 Research and development of vector-based search capabilities, including semantic embeddings, similarity search,
-						 and retrieval against existing data sources.
+						validation of model-generated parameters, and integration with existing deterministic database workflows.
+						Research and development of vector-based search capabilities, including semantic embeddings, similarity search,
+						and retrieval against existing data sources.
 					</p>
 
 			    </div>
