@@ -60,18 +60,10 @@
 			<nav class="about-summaries" aria-label="Page summary">
 
 				<section>
-					<h1 class="site-primary-heading site-font-primary-heading">LiberAnalytics LLC</h1>
-					<div class="site-inline-std">
-						<p class="about-summary">
-						</p>
-					</div>
-				</section>
-
-				<section>
 					<h2 class="site-primary-heading site-font-primary-heading">What We Do</h2>
 					<div class="site-inline-std">
 						<p class="about-summary">
-
+							Learn how LiberAnalytics designs and develops reliable, secure, and maintainable information systems.
 						</p>
 						<p class="site-block-mt">
 							<a
@@ -89,7 +81,8 @@
 					<h2 class="site-primary-heading site-font-primary-heading">Capabilities</h2>
 					<div class="site-inline-std">
 						<p class="about-summary">
-
+							Explore the data engineering, application development, cloud infrastructure, and emerging
+							AI capabilities LiberAnalytics brings to technical projects.
 						</p>
 						<p class="site-block-mt">
 							<a
@@ -121,23 +114,7 @@
 					</div>
 				</section>
 
-                <section>
-					<h2 class="site-primary-heading site-font-primary-heading">Engagements</h2>
-					<div class="site-inline-std">
-						<p class="about-summary">
-
-						</p>
-						<p class="site-block-mt">
-							<a
-								href="#liber_engagements"
-								class="site-font-link-std"
-								aria-label="Jump to section: Engagements"
-							>
-							Jump to section ->
-							</a>
-						</p>
-					</div>
-				</section>
+                
                 
                 <section>
 					<h2 class="site-primary-heading site-font-primary-heading">External Profiles</h2>
@@ -182,6 +159,16 @@
 				<div class="site-inline-std site-stack-mtmb">
 			
 					<p>
+						LiberAnalytics designs, develops, and tests deterministic information systems encompassing relational databases,
+						data engineering, full-stack web applications, and cloud-based infrastructure.
+					</p>
+					<p>
+						Our approach emphasizes sound architectural principles, security, performance optimization, and maintainability,
+						including consistent naming conventions, well-structured code, and clear technical documentation.
+					</p>
+					<p>
+						We also explore merging AI capabilities, demonstrating their practical application through technical case studies,
+						implementation examples, and reproducible code.
 					</p>
 				
 				</div>
@@ -193,10 +180,44 @@
 				<h1 class="site-primary-heading site-font-primary-heading">Capabilities</h1>
 
 				<div class="site-inline-std site-stack-mtmb">
+
+					<h2 class="site-font-secondary-heading">
+						Data Architecture &amp; Database Engineering
+					</h2>
 			
                     <p>
+						Relational data modeling, database schema design, data integrity enforcement, SQL development and query optimization,
+						stored procedures and functions, database deployment, and schema evolution.
+                    </p>
+					
+					<h2 class="site-font-secondary-heading">
+						Data Integration &amp; Automation
+					</h2>
 
-                    </p>	
+					<p>
+						Design and implementation of ETL pipelines, data transformation and validation workflows, cross-system data integration,
+						and automated data processing using scripts and desktop-based tools.
+					</p>
+
+					<h2 class="site-font-secondary-heading">
+						Application Development &amp; Cloud Infrastructure
+					</h2>
+
+					<p>
+						Full-stack web application development, database-driven application integration, API development,
+						cloud server provisioning, virtual network configuration, infrastructure security, and resource cost management.
+					</p>
+
+					<h2 class="site-font-secondary-heading">
+						AI-Assisted Data Interaction
+					</h2>
+
+					<p>
+						Exploration and prototyping of natural-language interfaces to structured data, including semantic interpretation,
+						 validation of model-generated parameters, and integration with existing deterministic database workflows.
+						 Research and development of vector-based search capabilities, including semantic embeddings, similarity search,
+						 and retrieval against existing data sources.
+					</p>
 
 			    </div>
 			
@@ -205,19 +226,6 @@
 			<section id="liber_technology" class="liber-about">
 			
 				<h1 class="site-primary-heading site-font-primary-heading">Technology</h1>
-
-				<div class="site-inline-std site-stack-mtmb">
-			
-					<p>
-					</p>
-				
-				</div>
-			
-			</section>
-            
-			<section id="liber_engagements" class="liber-about">
-			
-				<h1 class="site-primary-heading site-font-primary-heading">Engagements</h1>
 
 				<div class="site-inline-std site-stack-mtmb">
 			
