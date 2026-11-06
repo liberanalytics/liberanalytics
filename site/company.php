@@ -100,7 +100,8 @@
 					<h2 class="site-primary-heading site-font-primary-heading">Technology</h2>
 					<div class="site-inline-std">
 						<p class="about-summary">
-
+							Explore the databases, web technologies, development platforms, cloud infrastructure, and programming languages
+							that LiberAnalytics is built on and has experience working with.
 						</p>
 						<p class="site-block-mt">
 							<a
@@ -228,9 +229,53 @@
 				<h1 class="site-primary-heading site-font-primary-heading">Technology</h1>
 
 				<div class="site-inline-std site-stack-mtmb">
+
+					<h2 class="site-font-secondary-heading">
+						Platforms &amp; Development Environments
+					</h2>				
 			
 					<p>
+						Windows and Linux desktop and server environments, with an emphasis on Debian-based Linux distributions.
+						Development workflows integrate Windows Subsystem for Linux (WSL), Git, and GitHub for source control,
+						cross-machine synchronization, and coordinated application deployment.
 					</p>
+
+					<h2 class="site-font-secondary-heading">
+						Cloud Infrastructure &amp; Services
+					</h2>				
+			
+					<p>
+						Amazon Web Services (AWS), including VPC, EC2, IAM, S3, Route 53, CloudWatch, and Key Management Service (KMS). Infrastructure
+						implementations emphasize network isolation, least-privilege access, secure configuration, monitoring, and resource cost management.
+					</p>
+					
+					<h2 class="site-font-secondary-heading">
+						Web &amp; Application Technologies
+					</h2>				
+			
+					<p>
+						Responsive, mobile-compatible applications developed with HTML, CSS, JavaScript, and PHP 8+. Front-end implementations utilize
+						reusable design tokens, responsive dimensions, and adaptable layout constraints. Backend development incorporates object-oriented
+						PHP, namespaces, autoloading, enumerations, type declarations, configuration management, AWS SDK integration, and REST-based API interfaces.
+					</p>
+					
+					<h2 class="site-font-secondary-heading">
+						Database Technologies
+					</h2>				
+			
+					<p>
+						PostgreSQL, Microsoft SQL Server, MySQL, Amazon Redshift, IBM Netezza, and Amazon DynamoDB, encompassing relational database development,
+						SQL programming, schema design, data integration, and data processing.
+					</p>
+					
+					<h2 class="site-font-secondary-heading">
+						Programming & Automation
+					</h2>				
+			
+					<p>
+						SQL, Python, Linux Bash scripting, and Microsoft Excel VBA for workflow automation, data transformation, validation, scripting, and integration
+						with database-driven applications. 
+					</p>					
 				
 				</div>
 			
