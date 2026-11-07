@@ -2,10 +2,10 @@
 
 set -uo pipefail
 
-DB_HOST="YOUR_DB_HOST"
-DB_USER="YOUR_DB_USER"
-DB_NAME="YOUR_DB_NAME"
-DB_FILE="init.sql"
+DB_HOST="${DB_HOST:?DB_HOST must be set}"
+DB_USER="${DB_USER:?DB_USER must be set}"
+DB_NAME="${DB_NAME:?DB_NAME must be set}"
+DB_FILE="${DB_FILE:-init.sql}"
 
 if psql \
     --host="$DB_HOST" \
