@@ -2,9 +2,9 @@
 
 set -uo pipefail
 
-DB_HOST="3.130.224.24"
-DB_USER="liberanalytics"
-DB_NAME="postgres"
+DB_HOST="YOUR_DB_HOST"
+DB_USER="YOUR_DB_USER"
+DB_NAME="YOUR_DB_NAME"
 DB_FILE="init.sql"
 
 if psql \
