@@ -39,5 +39,5 @@ site/favicon.svg
 # PHP info.
 site/phpinfo.php
 
-# Shell scripts
+#Shell scripts; anchor to repository root with a /.
 /shell/
