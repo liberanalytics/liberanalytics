@@ -38,3 +38,6 @@ site/favicon.svg
 
 # PHP info.
 site/phpinfo.php
+
+# Shell scripts
+/shell/
