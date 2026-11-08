@@ -4,10 +4,7 @@
 !.vscode/settings.json
 
 # Environment config files
-/config/*
-
-# Keep the .gitkeep.
-!/config/.gitkeep
+/config/
 
 # Third-party dependency code downloaded by Composer
 /vendor/
