@@ -132,6 +132,14 @@
 							LiberAnalytics GitHub
 							</a>
 						</p>
+						<p class="site-block-mt">
+							<a href="https://www.linkedin.com/company/liberanalytics-llc/"
+							class="site-font-link-std"
+							target="_blank"
+							rel="noopener noreferrer">
+							LiberAnalytics Linkedin
+							</a>
+						</p>
 					</div>
 				</section>
 
