@@ -121,15 +121,15 @@
 					<h2 class="site-primary-heading site-font-primary-heading">External Profiles</h2>
 					<div class="site-inline-std">
 						<p class="about-summary">
-
+							Explore LiberAnalytics' technical implementations and source code through
+							its public GitHub repository.
 						</p>
 						<p class="site-block-mt">
-							<a
-								href="#liber_profiles"
-								class="site-font-link-std"
-								aria-label="Jump to section: External Profiles"
-							>
-							Jump to section ->
+							<a href="https://github.com/liberanalytics"
+							class="site-font-link-std"
+							target="_blank"
+							rel="noopener noreferrer">
+							LiberAnalytics GitHub
 							</a>
 						</p>
 					</div>
@@ -140,6 +140,8 @@
 					<div class="site-inline-std">
 						<p class="about-summary">
                             Interested in discussing a project, architecture problem, or contract engagement?
+						</p>
+						<p>
                             Use the 						
                             <a  
                                 href="/contact"
@@ -279,20 +281,7 @@
 				
 				</div>
 			
-			</section>
-
-			<section id="liber_profiles" class="liber-about">
-			
-				<h1 class="site-primary-heading site-font-primary-heading">External Profiles</h1>
-
-				<div class="site-inline-std site-stack-mtmb">
-			
-					<p>
-					</p>
-				
-				</div>
-			
-			</section>  
+			</section> 
 
 			<div class="site-ajax-spinner-8spoke site-ajax-hidden">
 				<div></div>
