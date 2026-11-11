@@ -389,4 +389,67 @@ VALUES
     3,
     585,
     NOW()
+),
+
+(
+    'vectorsearch',
+	'vectorsearch',
+    1,
+    1,
+    288,
+    NOW()
+),
+
+(
+    'vectorsearch',
+	'vectorsearch',
+    1,
+    2,
+    820,
+    NOW()
+),
+
+(
+    'vectorsearch',
+	'vectorsearch',
+    1,
+    3,
+    1080,
+    NOW()
+),
+
+(
+    'vectorsearch',
+	'vectorsearch',
+    1,
+    4,
+    1960,
+    NOW()
+),
+
+(
+    'vectorsearch',
+	'vectorsearch',
+    2,
+    1,
+    195,
+    NOW()
+),
+
+(
+    'vectorsearch',
+	'vectorsearch',
+    2,
+    2,
+    390,
+    NOW()
+),
+
+(
+    'vectorsearch',
+	'vectorsearch',
+    2,
+    3,
+    585,
+    NOW()
 );

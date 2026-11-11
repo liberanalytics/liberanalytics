@@ -21,6 +21,7 @@ VALUES
     ('SQL Server', TRUE, DEFAULT),
     ('AI', TRUE, DEFAULT),
     ('Semantic Search', FALSE, DEFAULT),
+    ('Vector Search', FALSE, DEFAULT),
     ('Data Architecture', FALSE, DEFAULT),
     ('Instrumentation', FALSE, DEFAULT),
     ('Telemetry', FALSE, DEFAULT),

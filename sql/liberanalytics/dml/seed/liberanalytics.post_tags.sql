@@ -41,4 +41,9 @@ VALUES
     -- Semanticsearch post.
     ('semanticsearch', 'AI', DEFAULT),
     ('semanticsearch', 'Semantic Search', DEFAULT),
-    ('semanticsearch', 'Data Architecture', DEFAULT);
+    ('semanticsearch', 'Data Architecture', DEFAULT),
+    
+    -- Vectorsearch post.
+    ('vectorsearch', 'AI', DEFAULT),
+    ('vectorsearch', 'Vector Search', DEFAULT),
+    ('vectorsearch', 'Data Architecture', DEFAULT);
