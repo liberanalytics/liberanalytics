@@ -11,7 +11,8 @@ if psql \
     --host="$DB_HOST" \
     --username="$DB_USER" \
     --dbname="$DB_NAME" \
-    --file="$DB_FILE"
+    --file="$DB_FILE" \
+    --set=ON_ERROR_STOP=1
 then
     echo "Deployment completed successfully."
 else

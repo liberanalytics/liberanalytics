@@ -25,6 +25,9 @@ SELECT current_database() AS current_db, current_user AS current_user;
 -- Wrap the rollout in a transaction to provide all-or-nothing atomicity.
 BEGIN;
 
+    -- Enable pgvector in the target database.
+    CREATE EXTENSION IF NOT EXISTS vector;
+
     -- Create schemas.
     \echo Creating schemas...
     \ir ../ddl/schema/meta.sql
